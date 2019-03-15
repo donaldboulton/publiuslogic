@@ -9,7 +9,8 @@ const Footer = () => {
           <p>
             {config.copyright}
           </p>
-          <p>Powered by <a href='https://www.gatsbyjs.org'><strong>Gatsby</strong></a> and <a href='https://www.netlifycms.org'><strong>Netlify CMS</strong></a> | <a href='https://github.com/v4iv/gatsby-starter-business'><strong>GitHub Repository</strong></a></p>
+          <p>Powered by <a href='https://www.gatsbyjs.org'><strong>Gatsby</strong></a> and <a href='https://www.netlifycms.org'><strong>Netlify CMS&nbsp;</strong></a> | <a href='https://www.netlify.com/docs/identity/'><strong>Netlify Identity</strong></a><a href='https://github.com/donaldboulton/publiuslogic'><strong>GitHub Repository</strong></a>
+          </p>
         </div>
       </div>
     </footer>
