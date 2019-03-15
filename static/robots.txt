@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: */admin/
+Disallow: */tags/
+
+sitemap: https://publiuslogic.com/sitemap.xml
