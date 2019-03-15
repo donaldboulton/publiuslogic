@@ -3,6 +3,7 @@ import {Link, graphql, StaticQuery} from 'gatsby'
 import SearchBox from '../SearchBox'
 import logo from '../../img/site-logo250x80.png'
 import rss from '../../img/rss.svg'
+import icon from '../../img/bafcd30dffce3a8d81bb7ec738ec2688.png'
 import NetlifyIdentityWidget from '../IdentityWidget'
 
 const NavBar = ({toggleNavbar, isActive}) => (
@@ -20,6 +21,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
           <span className='navbar-item'>
             <Link to='/' className='navbar-item'>
               <img src={logo} alt='Publiuslogic' />
+              <img src={icon} alt='Publiuslogic' style={{ width: '16px' }} />
             </Link>
           </span>
           <button
