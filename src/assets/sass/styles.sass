@@ -39,12 +39,15 @@ nav
     border-top: 2px solid #1d1d1d !important  
     color: #cccccc !important
 .navbar-link
-    background-color: transparent !important
-    color: #d64000 !important
+  background-color: transparent !important
+  color: #d64000 !important
 .navbar-link:not(.is-arrowless):after
-    border-color: #d64000 !important
-    margin-top: -.375em
-    right: 1.125em
+  border-color: #d64000 !important
+  margin-top: -.375em
+  right: 1.125em
+.navbar-item .icon:only-child, .navbar-link .icon:only-child
+  margin-left: -.2rem !important
+  margin-right: -.2rem !important
 .content .taglist
   list-style: none
   margin-bottom: 0
@@ -56,11 +59,9 @@ nav
   justify-content: left
   align-items: center
   li
-    padding: 0 2rem 1rem 0
-    margin-bottom: 1.5rem
-    margin-top: 0
-
-// Helper Classes
+  padding: 0 2rem 1rem 0
+  margin-bottom: 1.5rem
+  margin-top: 0
 .full-width-image-container
   width: 100vw
   height: 400px
@@ -107,10 +108,10 @@ nav
   width: 24px
   height: 24px
   margin: 6px
-  background-image: url(/img/bafcd30dffce3a8d81bb7ec738ec2688.png)
+  background-image: url(/img/bafcd30dffce3a8d81bb7ec738ec2688.png) !important
 .button .icon
-    height: 2em
-    width: 2em    
+    height: 2em !important
+    width: 2em !important
 .button.is-primary
     background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
     background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
