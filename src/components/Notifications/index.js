@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Notification from './Notification'
 
 require('react-web-notification')
 
-class Notify extends React.Component {
+class Notify extends Component {
   constructor (props) {
     super(props)
     this.state = {
