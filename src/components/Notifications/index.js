@@ -1,4 +1,5 @@
 import React from 'react'
+import Notification from '../components//Notification'
 
 if (typeof window !== `undefined`) {
   const Notification = require('react-web-notification')
