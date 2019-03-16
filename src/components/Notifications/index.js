@@ -1,7 +1,11 @@
-import React, {Component} from 'react'
-import Notification from './Notification'
+import React from 'react'
+import ReactDom from 'react-dom'
 
-class Notify extends Component {
+if (typeof window !== `undefined`) {
+  const Notification = require('react-web-notification')
+}
+
+class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -72,7 +76,7 @@ class Notify extends Component {
   render () {
     return (
       <div className='container'>
-        <div className='colum is-vcentered'>
+        <div className='column is-vcentered'>
           <button className='btn is-primary' onClick={this.handleButtonClick.bind(this)}>Notif!</button>
           <Notification
             ignore={this.state.ignore && this.state.title !== ''}
@@ -98,4 +102,5 @@ class Notify extends Component {
   }
 }
 
-export default Notify
+ReactDom.render(<App />, document.getElementById('out'))
+

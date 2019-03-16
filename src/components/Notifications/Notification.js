@@ -19,6 +19,7 @@ class Notification extends React.Component {
 
     let supported = false
     let granted = false
+
     if (('Notification' in window) && window.Notification) {
       supported = true
       if (window.Notification.permission === PERMISSION_GRANTED) {
