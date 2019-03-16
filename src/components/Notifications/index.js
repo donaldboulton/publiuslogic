@@ -1,167 +1,105 @@
 import React from 'react'
-import { bool, func, number, object, string } from 'prop-types'
-import seq from 'react-web-notification'
+import Notification from './Notification'
 
-const PERMISSION_GRANTED = 'granted'
-const PERMISSION_DENIED = 'denied'
+require('react-web-notification')
 
-const seqGen = () => {
-  let i = 0
-  return () => {
-    return i++
-  }
-}
-const seq = seqGen();
+window.React = React
 
-class Notification extends React.Component {
+class Notify extends React.Component {
   constructor (props) {
     super(props)
-
-    let supported = false
-    let granted = false
-    if (('Notification' in window) && window.Notification) {
-      supported = true
-      if (window.Notification.permission === PERMISSION_GRANTED) {
-        granted = true
-      }
-    }
-
     this.state = {
-      supported: supported,
-      granted: granted,
+      ignore: true,
+      title: '',
     }
-    // Do not save Notification instance in state
-    this.notifications = {}
-    this.windowFocus = true
-    this.onWindowFocus = this._onWindowFocus.bind(this)
-    this.onWindowBlur = this._onWindowBlur.bind(this)
   }
-
-  _onWindowFocus () {
-    this.windowFocus = true
+  handlePermissionGranted () {
+    console.log('Permission Granted')
+    this.setState({
+      ignore: false,
+    })
   }
-
-  _onWindowBlur () {
-    this.windowFocus = false
+  handlePermissionDenied () {
+    console.log('Permission Denied')
+    this.setState({
+      ignore: true,
+    })
   }
+  handleNotSupported () {
+    console.log('Web Notification not Supported')
+    this.setState({
+      ignore: true,
+    })
+  }
+  handleNotificationOnClick (e, tag) {
+    console.log(e, 'Notification clicked tag:' + tag)
+  }
+  handleNotificationOnError (e, tag) {
+    console.log(e, 'Notification error tag:' + tag)
+  }
+  handleNotificationOnClose (e, tag) {
+    console.log(e, 'Notification closed tag:' + tag)
+  }
+  handleNotificationOnShow (e, tag) {
+    this.playSound()
+    console.log(e, 'Notification shown tag:' + tag)
+  }
+  playSound (filename) {
+    document.getElementById('sound').play()
+  }
+  handleButtonClick () {
+    if (this.state.ignore) {
+      return
+    }
 
-  _askPermission () {
-    window.Notification.requestPermission((permission) => {
-      let result = permission === PERMISSION_GRANTED
-      this.setState({
-        granted: result,
-      }, () => {
-        if (result) {
-          this.props.onPermissionGranted();
-        } else {
-          this.props.onPermissionDenied();
-        }
-      })
+    const now = Date.now()
+
+    const title = 'Site Notifications' + now
+    const body = 'Hello' + new Date()
+    const tag = now
+    const icon = '../../img/bell.svg'
+    const options = {
+      tag: tag,
+      body: 'Gatsby Stack!',
+      image: '../../gatsby.svg',
+      icon: icon,
+      lang: 'en',
+      dir: 'ltr',
+      sound: '../../audio/sound.mp3',
+    }
+    this.setState({
+      title: title,
+      options: options,
     })
   }
 
-  componentDidMount () {
-    if (this.props.disableActiveWindow) {
-      window.addEventListener('focus', this.onWindowFocus)
-      window.addEventListener('blur', this.onWindowBlur)
-    }
-
-    if (!this.state.supported) {
-      this.props.notSupported();
-    } else if (this.state.granted) {
-      this.props.onPermissionGranted();
-    } else {
-      if (window.Notification.permission === PERMISSION_DENIED) {
-        if (this.props.askAgain) {
-          this._askPermission()
-        } else {
-          this.props.onPermissionDenied()
-        }
-      } else {
-        this._askPermission()
-      }
-    }
-  }
-
-  componentWillUnmount () {
-    if (this.props.disableActiveWindow) {
-      window.removeEventListener('focus', this.onWindowFocus)
-      window.removeEventListener('blur', this.onWindowBlur)
-    }
-  }
-
   render () {
-    let doNotShowOnActiveWindow = this.props.disableActiveWindow && this.windowFocus
-    if (!this.props.ignore && this.props.title && this.tate.supported && this.state.granted && !doNotShowOnActiveWindow) {
-      let opt = this.props.options
-      if (typeof opt.tag !== 'string') {
-        opt.tag = 'web-notification-' + seq()
-      }
-
-      if (!this.notifications[opt.tag]) {
-        let n = new window.Notification(this.props.title, opt);
-        n.onshow = (e) => {
-          this.props.onShow(e, opt.tag)
-          setTimeout(() => {
-            this.close(n)
-          }, this.props.timeout)
-        }
-        n.onclick = (e) => { this.props.onClick(e, opt.tag) }
-        n.onclose = (e) => { this.props.onClose(e, opt.tag) }
-        n.onerror = (e) => { this.props.onError(e, opt.tag) }
-
-        this.notifications[opt.tag] = n
-      }
-    }
-
-    // return null cause
-    // Error: Invariant Violation: Notification.render(): A valid ReactComponent must be returned. You may have returned undefined, an array or some other invalid object.
     return (
-      <input type='hidden' name='dummy-for-react-web-notification' style={{display: 'none'}} />
+      <div className='container'>
+        <div className='colum is-vcentered'>
+          <button className='btn is-primary' onClick={this.handleButtonClick.bind(this)}>Notif!</button>
+          <Notification
+            ignore={this.state.ignore && this.state.title !== ''}
+            notSupported={this.handleNotSupported.bind (this)}
+            onPermissionGranted={this.handlePermissionGranted.bind(this)}
+            onPermissionDenied={this.handlePermissionDenied.bind(this)}
+            onShow={this.handleNotificationOnShow.bind(this)}
+            onClick={this.handleNotificationOnClick.bind(this)}
+            onClose={this.handleNotificationOnClose.bind(this)}
+            onError={this.handleNotificationOnError.bind(this)}
+            timeout={5000}
+            title={this.state.title}
+            options={this.state.options}
+          />
+          <audio id='sound' preload='auto'>
+            <source src='../../audio/sound.mp3' type='audio/mpeg' />
+            <source src='../../audio/sound.ogg' type='audio/ogg' />
+            <embed hidden='true' autostart='false' loop='false' src='../../sound.mp3' />
+          </audio>
+        </div>
+      </div>
     )
   }
-
-  close (n) {
-    if (n && typeof n.close === 'function') {
-      n.close()
-    }
-  }
-
-  // for debug
-  _getNotificationInstance (tag) {
-    return this.notifications[tag]
-  }
 }
 
-Notification.propTypes = {
-  ignore: bool,
-  disableActiveWindow: bool,
-  askAgain: bool,
-  notSupported: func,
-  onPermissionGranted: func,
-  onPermissionDenied: func,
-  onShow: func,
-  onClick: func,
-  onClose: func,
-  onError: func,
-  timeout: number,
-  title: string.isRequired,
-  options: object,
-}
-
-Notification.defaultProps = {
-  ignore: false,
-  disableActiveWindow: false,
-  askAgain: false,
-  notSupported: () => {},
-  onPermissionGranted: () => {},
-  onPermissionDenied: () => {},
-  onShow: () => {},
-  onClick: () => {},
-  onClose: () => {},
-  onError: () => {},
-  timeout: 5000,
-  options: {},
-}
-
-export default Notification
+export default Notify
