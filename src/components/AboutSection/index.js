@@ -1,7 +1,7 @@
 import React from 'react'
 import github from '../../img/GitHub-Mark-Light-64px.png'
 import gatsby from '../../img/gatsby.svg'
-import logo from '../../img/apple-touch-icon-round.png'
+import logo from '../../img/logo.png'
 import react from '../../img/react.svg'
 import lambda from '../../img/lambda.png'
 import netlify from '../../img/logomark.svg'
@@ -40,8 +40,8 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-4'>PubliusLogic</p>
-                <p className='subtitle is-6'>donboulton.com</p>
+                <p className='title is-4 is-centered'>PubliusLogic</p>
+                <p className='subtitle is-6 is-centered'>donboulton.com</p>
               </div>
             </div>
             <div className='content'>
@@ -82,8 +82,8 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-4'>Gatsby Powered</p>
-                <p className='subtitle is-6'>React Webpack</p>
+                <p className='title is-4 is-centered'>Gatsby Powered</p>
+                <p className='subtitle is-6 is-centered'>React Webpack</p>
               </div>
             </div>
             <div className='content'>
@@ -121,8 +121,8 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-4'>Netlify Hosting</p>
-                <p className='subtitle is-6'>Lambda Functions</p>
+                <p className='title is-4 is-centered'>Netlify Hosting</p>
+                <p className='subtitle is-6 is-centered'>Lambda Functions</p>
               </div>
             </div>
             <div className='content'>
