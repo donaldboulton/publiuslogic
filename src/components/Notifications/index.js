@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
-
-
-require('react-web-notification')
+import Notification from 'react-web-notification'
 
 class Notify extends Component {
   constructor (props) {
