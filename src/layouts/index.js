@@ -34,9 +34,9 @@ class TemplateWrapper extends Component {
         <div>{this.props.children}</div>
         <Subscriptions />
         <Slack />
-        <Hr />
         <ToTop />
         <About />
+        <Hr />
         <Footer />
       </div>
     )
