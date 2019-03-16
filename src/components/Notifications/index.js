@@ -1,11 +1,10 @@
 import React from 'react'
-import ReactDom from 'react-dom'
 
 if (typeof window !== `undefined`) {
   const Notification = require('react-web-notification')
 }
 
-class App extends React.Component {
+class Notify extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -102,5 +101,5 @@ class App extends React.Component {
   }
 }
 
-ReactDom.render(<App />, document.getElementById('out'))
+export default Notify
 
