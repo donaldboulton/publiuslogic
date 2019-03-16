@@ -45,7 +45,7 @@ const AboutSection = () => {
             <div className='content'>
               Donald Boulton uses GitHub via a continuous deployment
               <br />
-              <div><a href='https://github.com/donaldboulton/' rel='me'><span className='icon is-small has-text-light'>{Github}</span>&nbsp;My GitHub Repos</a></div>
+              <div><a href='https://github.com/donaldboulton/' rel='me'><span className='icon is-small has-text-light'>{github}</span>&nbsp;My GitHub Repos</a></div>
               <div><a href='https://twitter.com/donboulton' rel='me'><span className='icon is-small has-text-info'>{Twitter}</span>&nbsp;Twitter @donboulton.com</a></div>
               <div><a href='https://facebook.com/don.boulton' rel='me'><span className='icon is-small has-text-link'>{FacebookF}</span>&nbsp;Facebook don.boulton</a></div>
               <br />
