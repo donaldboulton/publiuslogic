@@ -6,7 +6,6 @@ import Subscriptions from '../components/Subscriptions'
 import Hr from '../components/Hr'
 import Slack from '../components/Slack'
 import ToTop from '../components/ToTop'
-import About from '../components/AboutSection'
 
 import '../assets/sass/styles.sass'
 
@@ -34,8 +33,7 @@ class TemplateWrapper extends Component {
         <div>{this.props.children}</div>
         <Subscriptions />
         <Slack />
-        <ToTop />
-        <About />
+        <ToTop />        
         <Hr />
         <Footer />
       </div>
