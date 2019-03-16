@@ -5,8 +5,6 @@ import logo from '../../img/logo.png'
 import react from '../../img/react.svg'
 import lambda from '../../img/lambda.png'
 import netlify from '../../img/logomark.svg'
-import balancescale from '../../img/balance-scale.svg'
-import tools from '../../img/tools.svg'
 
 const AboutSection = () => {
   return (
@@ -89,7 +87,7 @@ const AboutSection = () => {
               <div><a href='https://bulma.io/'>CSS from @bulma.io</a></div>
               <div><a href='https://fontawesome.com/icons'>FontAwsome SVG's</a></div>
               <br />
-              <a href='https://publiuslogic.com'><span><span className='icon is-small has-text-light'>{balancescale}</span><span>&nbsp;Terms and Conditions.</span></span></a>
+              <a href='https://publiuslogic.com'>&nbsp;Terms and Conditions.</a>
             </div>
           </div>
         </div>
@@ -128,7 +126,7 @@ const AboutSection = () => {
               <div><a href='https://www.netlify.com/features/'>SLL Security</a></div>
               <div><a href='https://app.netlify.com/signup?_ga=2.257002891.1243890719.1552279568-538917114.1550763563'>Netlify Free Tier</a></div>
               <br />
-              <a href='https://publiuslogic.com/admin/'><span><span className='icon is-small has-text-light'>{tools}</span><span>&nbsp;Admin - Netlify CMS</span></span></a>
+              <a href='https://publiuslogic.com/admin/'>&nbsp;Admin - Netlify CMS</a>
             </div>
           </div>
         </div>
