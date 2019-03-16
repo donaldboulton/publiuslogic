@@ -3,8 +3,6 @@ import Notification from './Notification'
 
 require('react-web-notification')
 
-window.React = React
-
 class Notify extends React.Component {
   constructor (props) {
     super(props)
