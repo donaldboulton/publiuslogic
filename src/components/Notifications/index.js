@@ -1,106 +1,53 @@
-import React from 'react'
-import Notification from './Notification'
+import React, { Component } from 'react'
+import PubNubReact from 'pubnub-react'
 
-if (typeof window !== `undefined`) {
-  const Notification = require('react-web-notification')
-}
-
-class Notify extends React.Component {
+class Notify extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      ignore: true,
-      title: '',
+    this.pubnub = new PubNubReact({ 
+      publishKey: 'pub-c-5f35a1a6-97ea-4257-b02b-707a15347a71',
+      subscribeKey: 'sub-c-b2e5c252-480b-11e9-89f6-ee0a25adbb7f',
+    })
+    this.pubnub.init(this)
+  }
+
+  componentWillMount () {
+    this.pubnub.subscribe({
+      channels: ['PWA'],
+    })
+    this.pubnub.getMessage('PWA', (msg) => {
+      this.notify(msg.message.text);
+    })
+  }
+  notify (message) {
+    if (!('Notification' in window)) {
+      alert('This browser does not support system notifications')
     }
-  }
-  handlePermissionGranted () {
-    console.log('Permission Granted')
-    this.setState({
-      ignore: false,
-    })
-  }
-  handlePermissionDenied () {
-    console.log('Permission Denied')
-    this.setState({
-      ignore: true,
-    })
-  }
-  handleNotSupported () {
-    console.log('Web Notification not Supported')
-    this.setState({
-      ignore: true,
-    })
-  }
-  handleNotificationOnClick (e, tag) {
-    console.log(e, 'Notification clicked tag:' + tag)
-  }
-  handleNotificationOnError (e, tag) {
-    console.log(e, 'Notification error tag:' + tag)
-  }
-  handleNotificationOnClose (e, tag) {
-    console.log(e, 'Notification closed tag:' + tag)
-  }
-  handleNotificationOnShow (e, tag) {
-    this.playSound()
-    console.log(e, 'Notification shown tag:' + tag)
-  }
-  playSound (filename) {
-    document.getElementById('sound').play()
-  }
-  handleButtonClick () {
-    if (this.state.ignore) {
-      return
+    else if (Notification.permission === 'granted') {
+      if (typeof message === 'string' || message instanceof String) {
+        var notification = new Notification (message)
+      } else {
+        var notification = new Notification('Hello World')
+      }
     }
 
-    const now = Date.now()
-
-    const title = 'Site Notifications' + now
-    const body = 'Hello' + new Date()
-    const tag = now
-    const icon = '../../img/bell.svg'
-    const options = {
-      tag: tag,
-      body: 'Gatsby Stack!',
-      image: '../../gatsby.svg',
-      icon: icon,
-      lang: 'en',
-      dir: 'ltr',
-      sound: '../../audio/sound.mp3',
+    else if (Notification.permission !== 'denied') {
+      Notification.requestPermission(function (permission) {
+        if (permission === 'granted') {
+          var notification = new Notification('Hello World')
+        }
+      })
     }
-    this.setState({
-      title: title,
-      options: options,
-    })
   }
 
   render () {
     return (
-      <div className='container'>
-        <div className='column is-vcentered'>
-          <button className='btn is-primary' onClick={this.handleButtonClick.bind(this)}>Notif!</button>
-          <Notification
-            ignore={this.state.ignore && this.state.title !== ''}
-            notSupported={this.handleNotSupported.bind (this)}
-            onPermissionGranted={this.handlePermissionGranted.bind(this)}
-            onPermissionDenied={this.handlePermissionDenied.bind(this)}
-            onShow={this.handleNotificationOnShow.bind(this)}
-            onClick={this.handleNotificationOnClick.bind(this)}
-            onClose={this.handleNotificationOnClose.bind(this)}
-            onError={this.handleNotificationOnError.bind(this)}
-            timeout={5000}
-            title={this.state.title}
-            options={this.state.options}
-          />
-          <audio id='sound' preload='auto'>
-            <source src='../../audio/sound.mp3' type='audio/mpeg' />
-            <source src='../../audio/sound.ogg' type='audio/ogg' />
-            <embed hidden='true' autostart='false' loop='false' src='../../sound.mp3' />
-          </audio>
-        </div>
+      <div className='column is-vcentered'>
+        <button onClick={this.notify}>Send Notification
+        </button>
       </div>
     )
   }
 }
 
 export default Notify
-

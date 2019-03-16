@@ -6,7 +6,6 @@ import Subscriptions from '../components/Subscriptions'
 import Hr from '../components/Hr'
 import Slack from '../components/Slack'
 import ToTop from '../components/ToTop'
-import Notify from '../components/Notifications'
 
 import '../assets/sass/styles.sass'
 
@@ -36,7 +35,6 @@ class TemplateWrapper extends Component {
         <Slack />
         <Hr />
         <ToTop />
-        <Notify />
         <Footer />
       </div>
     )
