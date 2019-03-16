@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Notification from './Notification'
+
 
 require('react-web-notification')
 
