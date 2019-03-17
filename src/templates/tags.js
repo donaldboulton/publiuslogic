@@ -29,9 +29,9 @@ class TagRoute extends Component {
               style={{ marginBottom: '6rem' }}
             >
               <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
-              <ul className='taglist button is-primary'>{postLinks}</ul>
+              <ul className='taglist'>{postLinks}</ul>
               <p>
-                <Link to='/tags/'>Browse all tags</Link>
+                <Link className='button is-primary' to='/tags/'>Browse all tags</Link>
               </p>
             </div>
           </div>

@@ -34,7 +34,7 @@ const TagsPage = ({
               {group.map(tag => (
                 <li key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    <button className='button is-primary badge has-badge-inline has-badge-rounded' data-badge='({tag.totalCount})'>{tag.fieldValue}</button>
+                    <button className='button is-primary'>{tag.fieldValue} ({tag.totalCount})</button>
                   </Link>
                 </li>
               ))}
