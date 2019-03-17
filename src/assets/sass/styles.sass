@@ -1,6 +1,132 @@
+@import "~bulma"
 @import "~bulma/sass/utilities/initial-variables"
-@import "~bulma-badge"
 
+$badge-border-size: 1px !default
+$badge-padding: .1rem .25rem !default
+$badge-border-radius: 1rem !default
+$badge-size-small: .75rem !default
+$badge-size-normal: 1rem !default
+$badge-size-medium: 1.2rem !default
+$badge-size-large: 1.4rem !default
+$badge-z-index: 99 !default
+
+=badge-size($size)
+  &::after
+    min-width: $size
+    min-height: $size
+    font-size: $size * .75
+    top: 0
+    right: 0
+    bottom: auto
+    left: auto
+    transform: translate(50%, -50%)
+  &.has-badge-left
+    &::after
+      top: 0
+      right: auto
+      bottom: auto
+      left: 0
+      transform: translate(-50%, -50%)
+  &.has-badge-bottom
+    &::after
+      top: auto
+      right: 0
+      bottom: 0
+      left: auto
+      transform: translate(50%, 50%)
+  &.has-badge-bottom-left
+    &::after
+      top: auto
+      right: auto
+      bottom: 0
+      left: 0
+      transform: translate(-50%, 50%)
+  &.has-badge-inline
+    margin-right: $size * 1.5
+    &::after
+      top: 50%
+      right: -20%
+    &.has-badge-left
+      margin-right: inherit
+      margin-left: $size * 1.5
+      top: 50%
+      left: 20%
+    &.has-badge-bottom
+      margin-right: $size * 1.5
+      top: 50%
+      right: -20%
+    &.has-badge-bottom-left
+      margin-right: inherit
+      margin-left: $size * 1.5
+      top: 50%
+      left: 20%
+
+=badge
+  position: relative
+  &::after
+    display: inline-block
+    position: absolute
+    margin: 0
+    padding: $badge-padding
+    text-align: center
+    white-space: nowrap
+    line-height: 1
+    background: $primary
+    background-clip: padding-box
+    border-radius: 0
+    box-shadow: 0 0 0 $badge-border-size $white
+    color: $white
+    content: attr(data-badge)
+    z-index: $badge-z-index           
+  &[data-badge=""]
+    &::after
+      // content: none
+      vertical-align: inherit
+
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.has-badge-#{$name}
+      &::after
+        background: $color
+        color: $color-invert
+
+  &.has-badge-outlined
+    &::after
+      background-color: $white
+      box-shadow: none
+      border: $badge-border-size solid $primary
+      color: $primary
+    @each $name, $pair in $colors
+      $color: nth($pair, 1)
+      $color-invert: nth($pair, 2)
+      &.has-badge-#{$name}
+        &::after
+          background: $white
+          box-shadow: none
+          border: $badge-border-size solid $color
+          color: $color
+  &.has-badge-rounded
+    &::after
+      border-radius: $radius-rounded
+        
+  +badge-size($badge-size-normal)
+    
+  &.has-badge-small
+    +badge-size($badge-size-small)
+  &.has-badge-medium
+    +badge-size($badge-size-medium)
+  &.has-badge-large
+    +badge-size($badge-size-large)
+    
+  // IE FIX: on IE badge was cropped
+  &.button
+    &:not(.is-clipped)
+      &::after
+        overflow: visible
+
+[data-badge]
+  +badge    
 // Config vars
 // Kalidi logo brand color: #FD461E
 $kaldi-red: #D64000
@@ -11,6 +137,14 @@ $primary-invert: $kaldi-red-invert
 $body-color: #fff
 $black: #2b2523
 
+$menu-item-color: $white-ter
+$menu-item-hover-color: $black !important
+$menu-item-hover-background-color: $black
+$menu-item-active-color: $kaldi-red-invert
+$menu-item-active-background-color:	$kaldi-red-invert
+$menu-list-border-left: 1px solid $kaldi-red-invert	
+$menu-label-color: $white-ter
+
 body
   background-image: url(/img/bg10-min.png)
   background-repeat: repeat
@@ -18,37 +152,30 @@ body
   font-size: 1.25rem !important
   font-weight: 600 !important
   line-height: 1.5em
-nav
-  background-color: #1d1d1d !important
-.navbar
-  box-shadow:none !important
-  background-color: #1d1d1d !important
-.navbar .navbar-menu
+.navbar, .navbar, .navbar-menu, nav
   box-shadow:none !important
   background-color: #1d1d1d !important
 .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover
   background-color: transparent !important
   color: #cccccc !important
-.navbar-item, navbar-link
-  color: #d64000 !important
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
-.navbar-item .icon 
-  color: $primary
-.navbar-dropdown
-    background-color: #1d1d1d !important
-    border-top: 2px solid #1d1d1d !important  
-    color: #cccccc !important
-.navbar-link
+.navbar-item, .navbar-link
   background-color: transparent !important
   color: #d64000 !important
 .navbar-link:not(.is-arrowless):after
   border-color: #d64000 !important
   margin-top: -.375em
   right: 1.125em
+.navbar-brand .navbar-item.logo
+  padding: 0 1rem
 .navbar-item .icon:only-child, .navbar-link .icon:only-child
   margin-left: -.2rem !important
   margin-right: -.2rem !important
+.navbar-item .icon 
+  color: $primary
+.navbar-dropdown
+    background-color: #1d1d1d !important
+    border-top: 2px solid #1d1d1d !important  
+    color: #cccccc !important
 .content .taglist
   list-style: none
   margin-bottom: 0
@@ -135,13 +262,6 @@ li
 footer.footer
   padding: 2rem 0rem 0rem
   background-color: transparent
-$menu-item-color: $white-ter
-$menu-item-hover-color: $black !important
-$menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red-invert
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert	
-$menu-label-color: $white-ter
 .menu-label
   font-size: 1em !important
   text-align: left
@@ -169,39 +289,39 @@ $menu-label-color: $white-ter
   vertical-align: middle
   display: inline
 .content h1, .content h2, .content h3, .content h4
-    color: #cccccc !important
-    font-weight: 600
-    line-height: 1.125
+  color: #cccccc !important
+  font-weight: 600
+  line-height: 1.125
 .message-body code
-    background-color: transparent !important
+  background-color: transparent !important
 .message
-    background-color: #1d1d1d !important
-    border-radius: 4px
-    font-size: 1rem
+  background-color: #1d1d1d !important
+  border-radius: 4px
+  font-size: 1rem
 .input, .textarea
-    background-color: #1d1d1d !important
-    transition: all .2s ease-out
-    color: #cccccc !important
-    border: 1px solid #434040 !important
-    border-radius: 4px
-    box-shadow: 0 1px 1px rgba(0,0,0,.125) !important
-    max-width: 100%
-    width: 100%
+  background-color: #1d1d1d !important
+  transition: all .2s ease-out
+  color: #cccccc !important
+  border: 1px solid #434040 !important
+  border-radius: 4px
+  box-shadow: 0 1px 1px rgba(0,0,0,.125) !important
+  max-width: 100%
+  width: 100%
 .file-lable
-    box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px !important
-    background-color: rgb(255, 68, 0) !important 
+  box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px !important
+  background-color: rgb(255, 68, 0) !important 
 .label
   color: #cccccc !important  
 html 
   backgouund-color: transparent !important        
 .notification
-    background-color: #1d1d1d !important
-    color: #cccccc !important
+  background-color: #1d1d1d !important
+  color: #cccccc !important
 .box
-    background-color: #1d1d1d !important
-    color: #cccccc !important
-    border: 1px soild #434040 !important    
-    border-radius: 5px
+  background-color: #1d1d1d !important
+  color: #cccccc !important
+  border: 1px soild #434040 !important    
+  border-radius: 5px
 .shadow
   -moz-box-shadow: inset 0 0 10px #000000
   -webkit-box-shadow: inset 0 0 10px #000000
@@ -240,23 +360,22 @@ html
 .title
   color: #cccccc !important
 hr, hr.thick
-    border: 0
-    height: 5px
-    margin: 2rem 0
-    background-color: transparent !important
-    background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60))
-    background-image: linear-gradient(to right,#d64000,#da1b60)
-    border-radius: 5px
+  border: 0
+  height: 5px
+  margin: 2rem 0
+  background-color: transparent !important
+  background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60))
+  background-image: linear-gradient(to right,#d64000,#da1b60)
+  border-radius: 5px
 .navbar-divider
-    background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
-    background-image: linear-gradient(to right,#d64000,#da1b60) !important
+  background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
+  background-image: linear-gradient(to right,#d64000,#da1b60) !important
 .card
-    background-color: #1d1d1d !important
-    border-radius: 5px
-    color: #cccccc !important
-    max-width: 100%
-    position: relative
-
+  background-color: #1d1d1d !important
+  border-radius: 5px
+  color: #cccccc !important
+  max-width: 100%
+  position: relative
 .navbar-item.is-mega
   position: static
 .is-mega-menu-title
@@ -337,7 +456,7 @@ strong
 .button
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 .media-content
-    overflow-x: none !important
+  overflow-x: none !important
 .content .taglist
   list-style: none
   margin-bottom: 0
@@ -348,10 +467,10 @@ strong
   flex-wrap: wrap
   justify-content: left
   align-items: center
-  li
-    padding: 0 2rem 1rem 0
-    margin-bottom: 1.5rem
-    margin-top: 0
+li
+  padding: 0 2rem 1rem 0
+  margin-bottom: 1.5rem
+  margin-top: 0
 .margin-top-0
   margin-top: 0 !important
 input::placeholder
@@ -386,28 +505,26 @@ strong
 gatsby-resp-image-image
   box-shadow: none !important
 .navbar-item img
-    max-height: 2em !important
+  max-height: 2em !important
 input.luna__input
-    background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
-    background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
-    transition: all .2s ease-out
-    width: 160px
-    padding-left: 1.8em
-    border: 1px solid #434040 !important
-    color: #fff
-    padding-bottom: 0
-    padding-top: 0
+  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
+  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
+  transition: all .2s ease-out
+  width: 160px
+  padding-left: 1.8em
+  border: 1px solid #434040 !important
+  color: #fff
+  padding-bottom: 0
+  padding-top: 0
 input.luna__input:focus
-    background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
-    background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
-    width: 200px
-    padding-left: 1.8em
-    border: 1px solid #434040 !important
-    color: #fff
-    padding-bottom: 0
-    padding-top: 0    
+  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
+  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
+  width: 200px
+  padding-left: 1.8em
+  border: 1px solid #434040 !important
+  color: #fff
+  padding-bottom: 0
+  padding-top: 0    
 input.luna__input, input.bottom-subscribe
-    border-radius: 8px
-    font-size: 17px
-    
-@import "~bulma"
+  border-radius: 8px
+  font-size: 17px
