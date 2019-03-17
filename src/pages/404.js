@@ -1,5 +1,5 @@
 import React from 'react'
-import gatsbyastro from '/img/gatsby-astronaut.png'
+import gatsbyastro from './gatsby-astronaut.png'
 
 const NotFoundPage = () => (
   <div>

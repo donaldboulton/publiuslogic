@@ -6743,6 +6743,13 @@ gatsby-plugin-recaptcha@^1.0.5:
   dependencies:
     babel-runtime "^6.26.0"
 
+gatsby-plugin-remove-trailing-slashes@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-trailing-slashes/-/gatsby-plugin-remove-trailing-slashes-2.0.10.tgz#04390642e7e52ecf08bc1a14dd9dfc69b0866106"
+  integrity sha512-bVDtFsR46a9Zq6nAadlcVHRY1rYGq4OLZFStbCPlKLs9viN6RqHYCIFMYTFTj/X7s64dI4bTknwutxjYcjCQng==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 gatsby-plugin-robots-txt@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-robots-txt/-/gatsby-plugin-robots-txt-1.4.0.tgz#2da3fb60a307f83b34a9fbdd85fdb4e6a53e431a"
