@@ -1,6 +1,6 @@
 import React from 'react'
-import chevron from '../../img/chevron-up.svg';
-require('./ToTop')
+import chevron from '../../img/chevron-up.svg'
+require('./top.js')
 
 const Top = class extends React.Component {
   render () {
