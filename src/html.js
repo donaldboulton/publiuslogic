@@ -35,32 +35,16 @@ export default class HTML extends Component {
               fetch('/.netlify/functions/Newsletter', {
                 method: 'post',
                 body: JSON.stringify({
-                email: email
+                email: email,
               })
               }).then(function(response) {
-                return response.json();
+                return response.json()
               }).then(function(data) {
-                  console.log('data from function', data);
-                  var messageDiv = document.getElementById('message');
-                  messageDiv.innerText = 'Email added via Netlify functions & AJAX!';
+                  console.log('data from function', data)
+                  var messageDiv = document.getElementById('message')
+                  messageDiv.innerText = 'Email added via Netlify functions & AJAX!'
                 });
               }
-              window.onscroll = function() {
-                scrollFunction();
-              };
- 
-              function scrollFunction() {
-              if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 20) {
-              document.getElementById('toTop').style.display = 'block';
-              } else {
-                document.getElementById('toTop').style.display = 'none';
-                }
-              }
- 
-              function topFunction() {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-              }            
               `
             }}
           />
