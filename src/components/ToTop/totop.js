@@ -1,5 +1,7 @@
-window.onscroll = function () {
-  scrollFunction()
+if (typeof window !== 'undefined') {
+  window.onscroll = function () {
+    scrollFunction()
+  }
 }
 
 function scrollFunction () {

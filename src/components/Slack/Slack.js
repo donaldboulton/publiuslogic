@@ -1,10 +1,12 @@
-window.onload = function () {
-  var form = document.getElementById('newsletter')
-  form.addEventListener('submit', function (e) {
-    e.preventDefault()
-    var email = document.getElementById('inputEmail').value
-    submitEmail(email)
-  })
+if (typeof window !== 'undefined') {
+  window.onload = function () {
+    var form = document.getElementById('newsletter')
+    form.addEventListener('submit', function (e) {
+      e.preventDefault()
+      var email = document.getElementById('inputEmail').value
+      submitEmail(email)
+    })
+  }
 }
 
 function submitEmail (email) {
