@@ -1,17 +1,13 @@
-import React from 'react'
-import chevron from '../../img/chevron-up.svg'
-require('./top.js')
+import React from "react'
+import {TinyButton as ScrollUpButton} from 'react-scroll-up-button'
 
-const Top = class extends React.Component {
+export default class Index extends React.Component {
+
   render () {
     return (
       <div>
-        <span onClick='topFunction()' className='toTop' id='toTop' title='Go to top'>
-          <img src={chevron} alt='toTop' style={{ width: '1.5em' }} />
-        </span>
+        <ScrollUpButton />
       </div>
     )
   }
 }
-
-export default Top
