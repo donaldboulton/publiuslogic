@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Editor from './Editor'
-import styles from './styles.scss'
+import './styles.sass'
 
 class TextArea extends Component {
   render () {
