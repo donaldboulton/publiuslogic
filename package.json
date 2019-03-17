@@ -24,7 +24,7 @@
     "bulma": "^0.7.4",
     "for-editor": "^0.0.12",
     "fs-extra": "^7.0.1",
-    "gatsby": "^2.0.98",
+    "gatsby": "^2.1.37",
     "gatsby-paginate": "^1.0.17",
     "gatsby-plugin-cookiehub": "^1.0.0",
     "gatsby-plugin-create-client-paths": "^2.0.5",
