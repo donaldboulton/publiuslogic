@@ -18,13 +18,13 @@ body
   font-weight: 600 !important
   line-height: 1.5em
 nav
-  background-color: #363636 !important
+  background-color: #1d1d1d !important
 .navbar
   box-shadow:none !important
-  background-color: #363636 !important
+  background-color: #1d1d1d !important
 .navbar .navbar-menu
   box-shadow:none !important
-  background-color: #363636 !important
+  background-color: #1d1d1d !important
 .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover
   background-color: transparent !important
   color: #cccccc !important
@@ -74,7 +74,6 @@ li
   display: flex
   justify-content: center
   align-items: center
-
 .full-width-image
   width: 100vw
   height: 400px
@@ -149,25 +148,25 @@ $menu-label-color: $white-ter
   list-style: none !important
   text-align: left
 .social-links>a strong
-    background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
-    background: linear-gradient(to right,#d64000,#da1b60) !important
-    -webkit-background-clip: text
-    -webkit-text-fill-color: transparent
-    -webkit-box-decoration-break: clone
-    box-decoration-break: clone
-    display: block
+  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
+  background: linear-gradient(to right,#d64000,#da1b60) !important
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  -webkit-box-decoration-break: clone
+  box-decoration-break: clone
+  display: block
 .social
   padding: 2em
 .social a
-    padding: .5em .5em .3em .5em
-    border-radius: 1em
-    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
-    background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-    margin: .5em
-    width: 1em
-    height: 1em
-    vertical-align: middle
-    display: inline
+  padding: .5em .5em .3em .5em
+  border-radius: 1em
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+  margin: .5em
+  width: 1em
+  height: 1em
+  vertical-align: middle
+  display: inline
 .content h1, .content h2, .content h3, .content h4
     color: #cccccc !important
     font-weight: 600
@@ -181,7 +180,7 @@ $menu-label-color: $white-ter
 .input, .textarea
     background-color: #1d1d1d !important
     color: #cccccc !important
-    border: #434040 !important
+    border: 1px solid #434040
     border-radius: 4px
     box-shadow: 0 1px 1px rgba(0,0,0,.125) !important
     max-width: 100%
@@ -388,11 +387,11 @@ gatsby-resp-image-image
     max-height: 2em !important
 input.luna__input
     background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
-    background: url(/img/search.svg) 7px 50%/1em 1em no-repeat var(--subtle)
+    background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
     transition: all .2s ease-out
     width: 140px
     padding-left: 1.8em
-    border-color: var(--subtle)
+    border: 1px solid #434040 !important
     color: #fff
     padding-bottom: 0
     padding-top: 0
