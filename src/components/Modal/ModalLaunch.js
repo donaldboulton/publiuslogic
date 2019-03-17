@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.keyCode === 27) {
       closeModals()
     }
-  });
+  })
 
   function closeModals () {
     rootEl.classList.remove('is-clipped')
@@ -44,5 +44,4 @@ document.addEventListener('DOMContentLoaded', function () {
   function getAll (selector) {
     return Array.prototype.slice.call(document.querySelectorAll(selector), 0)
   }
-
 })

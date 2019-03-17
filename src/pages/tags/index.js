@@ -3,6 +3,8 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import {Link, graphql} from 'gatsby'
 
+import './styles.sass'
+
 const TagsPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
@@ -34,7 +36,7 @@ const TagsPage = ({
               {group.map(tag => (
                 <li key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    {tag.fieldValue} ({tag.totalCount})
+                    <button className='button is-primary badge has-badge-inline has-badge-rounded' data-badge='({tag.totalCount})'>{tag.fieldValue}</button>
                   </Link>
                 </li>
               ))}
