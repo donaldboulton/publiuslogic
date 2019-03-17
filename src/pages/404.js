@@ -7,7 +7,7 @@ const NotFoundPage = () => (
       <div className='hero-body'>
         <div className='container'>
           <div className='columns'>
-            <div className='column is-10 is-offset-1'>
+            <div className='column is-10 is-offset-2'>
               <div className='section is-centered'>
                 <h1 className='title'>
                   404: NOT FOUND

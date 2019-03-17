@@ -36,7 +36,7 @@ const TagsPage = ({
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
                     <div className='tags has-addons'>
                       <span className='tag is-primary'>{tag.fieldValue}</span>
-                      <span className='tag is-dark'>({tag.totalCount})</span>
+                      <span className='tag is-dark'>{tag.totalCount}</span>
                     </div>
                   </Link>
                 </li>

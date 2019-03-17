@@ -105,7 +105,7 @@ li
 .button .icon
     height: 2em !important
     width: 2em !important
-.button.is-primary, .is-outlined
+.button.is-primary
     background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
     background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
     background-color: #d64000 !important
@@ -119,6 +119,9 @@ li
     color: #cccccc !important
 .button.is-primary:hover
     background-color: #c93c00 !important    
+.button.is-primary.is-outlined
+    background-color: transparent
+    border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 .margin-top-0
   margin-top: 0 !important
 .icon svg 
@@ -386,3 +389,9 @@ input.luna__input:focus
 input.luna__input, input.bottom-subscribe
   border-radius: 8px
   font-size: 17px
+.tag:not(body).is-primary
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+  background-color: #d64000 !important
+  border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+  color: #fff
