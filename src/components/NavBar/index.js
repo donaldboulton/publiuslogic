@@ -66,37 +66,33 @@ const NavBar = ({toggleNavbar, isActive}) => (
                   <div className='columns'>
                     <div className='column'>
                       <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
-                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
-                        <div className='navbar-content'>
-                          <p>
-                            <small className='has-text-primary'>03 Aug 2017</small>
-                          </p>
-                          <p>New feature: list of tags</p>
-                        </div>
-                      </a>
-                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
-                        <div className='navbar-content'>
-                          <p>
-                            <small className='has-text-primary'>03 Aug 2017</small>
-                          </p>
-                          <p>New feature: list of tags</p>
-                        </div>
-                      </a>
-                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
-                        <div className='navbar-content'>
-                          <p>
-                            <small className='has-text-primary'>03 Aug 2017</small>
-                          </p>
-                          <p>New feature: list of tags</p>
-                        </div>
-                      </a>
+                      <div className='navbar-content'>
+                        <p className='navbar-item'>
+                          <small className='has-text-light'>03 March 2019</small>
+                        </p>
+                        <p className='navbar-item'>
+                          <a className='navbar-item' href='/blog'>Blog</a>
+                        </p>
+                      </div>
+                      <div className='navbar-content'>
+                        <p className='navbar-item'>
+                          <small className='has-text-light'>10 March 2019</small>
+                        </p>
+                        <p className='navbar-item'><a className='navbar-item' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>Jamaican Blue Mountain </a></p>
+                      </div>
+                      <div className='navbar-content'>
+                        <p className='navbar-item'>
+                          <small className='has-text-light'>03 March 2019</small>
+                        </p>
+                        <p className='navbar-item'><a href='/2017/08/03/list-of-tags/'>SCAA’s new Flavor Wheel</a></p>
+                      </div>
                     </div>
                     <div className='column'>
                       <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-primary'>03 Aug 2017</small>
+                            <small className='clhas-text-light'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
@@ -116,7 +112,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-primary'>03 Aug 2017</small>
+                            <small className='clhas-text-light'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
@@ -124,7 +120,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-primary'>03 Aug 2017</small>
+                            <small className='clhas-text-light'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
@@ -132,7 +128,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-primary'>03 Aug 2017</small>
+                            <small className='clhas-text-light'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>

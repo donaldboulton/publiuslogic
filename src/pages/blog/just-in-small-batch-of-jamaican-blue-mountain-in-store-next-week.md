@@ -2,7 +2,7 @@
 templateKey: article-page
 title: Jamaican Blue Mountain Now
 slug: Jamaican Blue Mountain Now
-date: 2017-01-04T15:04:10.000Z
+date: 2019-03-16T15:04:10.000Z
 cover: /img/products-full-width.jpg
 meta_title: 'Just in: small batch of Jamaican Blue Mountain in store next week'
 meta_description: >-

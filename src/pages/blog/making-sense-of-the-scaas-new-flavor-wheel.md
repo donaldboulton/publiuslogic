@@ -2,7 +2,7 @@
 templateKey: article-page
 title: SCAA’s new Flavor Wheel
 slug: SCAA’s new Flavor Wheel
-date: 2016-12-17T15:04:10.000Z
+date: 2019-03-03T15:04:10.000Z
 cover: /img/flavor_wheel.jpg
 meta_title: 'Making sense of the SCAA’s new Flavor Wheel'
 meta_description: >-
