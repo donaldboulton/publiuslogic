@@ -9,7 +9,7 @@ const PostCard = ({posts}) => {
         .map(({node: post}) => (
           <div
             className='content'
-            style={{border: '1px solid #eaecee', padding: '2em 4em'}}
+            style={{border: '1px solid #434040', padding: '2em 4em'}}
             key={post.id}
           >
             <p>
@@ -23,7 +23,7 @@ const PostCard = ({posts}) => {
               {post.excerpt}
               <br />
               <br />
-              <Link className='button is-small' to={post.fields.slug}>
+              <Link className='button is-small is-primary' to={post.fields.slug}>
                                 Keep Reading →
               </Link>
             </p>

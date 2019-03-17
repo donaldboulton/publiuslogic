@@ -68,9 +68,6 @@ export default class BlogPage extends Component {
             </div>
           </section>
         </section>
-        <section className='section'>
-          <PostCard posts={group} />
-        </section>
       </div>
     )
   }
