@@ -45,7 +45,7 @@ class ContactPageTemplate extends Component {
           <title>{meta_title}</title>
           <meta name='description' content={meta_description} />
         </Helmet>
-        <section className='hero is-primary is-bold is-medium'>
+        <section className='hero is-primary is-bold is-small'>
           <div className='hero-body'>
             <div className='container'>
               <div className='columns'>

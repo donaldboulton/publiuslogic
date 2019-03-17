@@ -11,14 +11,6 @@ $primary-invert: $kaldi-red-invert
 $body-color: #fff
 $black: #2b2523
 
-$menu-item-color: $white-ter
-$menu-item-hover-color: $black !important
-$menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red-invert
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert	
-$menu-label-color: $white-ter
-
 body
   background-image: url(/img/bg10-min.png)
   background-repeat: repeat
@@ -113,7 +105,7 @@ li
 .button .icon
     height: 2em !important
     width: 2em !important
-.button.is-primary
+.button.is-primary, .is-outlined
     background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
     background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
     background-color: #d64000 !important
@@ -166,16 +158,21 @@ footer.footer
   color: #cccccc !important
   font-weight: 600
   line-height: 1.125
-.message-body code
-  background-color: transparent !important
 .message
   background-color: #1d1d1d !important
   border-radius: 4px
   font-size: 1rem
+.message-body code
+  border-radius: 4px
+  border-left: 4px solid #000000 !important
+  border-width: 0 0 0 4px
+  color: #cccccc !important
+  padding: 1.25em 1.5em  
 .input, .textarea
   background-color: #1d1d1d !important
   transition: all .2s ease-out
   color: #cccccc !important
+  font-family: roboto !important
   border: 1px solid #434040 !important
   border-radius: 4px
   box-shadow: 0 1px 1px rgba(0,0,0,.125) !important
@@ -183,7 +180,7 @@ footer.footer
   width: 100%
 .file-lable
   box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px !important
-  background-color: rgb(255, 68, 0) !important 
+  background-color: #1d1d1d !important
 .label
   color: #cccccc !important  
 html 
@@ -228,9 +225,7 @@ html
   line-height: 1
   position: relative
   top: -.2em
-  vertical-align: middle
-.icon-white
-  color: #fff !important     
+  vertical-align: middle   
 .title
   color: #cccccc !important
 hr, hr.thick
@@ -349,8 +344,8 @@ li
   margin-top: 0 !important
 input::placeholder
   color: #cccccc !important
-label, input
-  font-family: Kaushan Script,cursive
+label
+  font-family: Kaushan Script, cursive
 .knockout
   background-image: linear-gradient(to left, #d64000 , #da1b60)
   font-family: 'Bowlby One SC', cursive
@@ -363,10 +358,9 @@ text:nth-child(3)
   font-size: 5.1em
 text:nth-child(4)
   font-size: 15em  
-.hero.is-primary
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)))
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2))
-  background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2))
+.hero.is-primary.is-bold
+  background-image: linear-gradient(141deg,#a31600,#d64000 71%,#f07000) !important
+  background-color: #d64000 !important
   color: #fff
 .message-body
   border-radius: 4px
@@ -375,7 +369,7 @@ text:nth-child(4)
   color: #cccccc !important
   padding: 1.25em 1.5em
 strong
-  color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+  color: linear-gradient(180deg,#a31600,#d64000 71%,#f07000) !important
 gatsby-resp-image-image
   box-shadow: none !important
 .navbar-item img

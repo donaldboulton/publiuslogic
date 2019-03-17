@@ -7,7 +7,7 @@ const PrivacyPageTemplate = ({title, content, contentComponent}) => {
 
   return (
     <div>
-      <section className='hero is-primary is-bold is-medium'>
+      <section className='hero is-primary is-bold is-small'>
         <div className='hero-body'>
           <div className='container'>
             <div className='columns'>
