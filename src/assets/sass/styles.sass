@@ -200,25 +200,21 @@ html
   -moz-box-shadow: inset 0 0 10px #000000
   -webkit-box-shadow: inset 0 0 10px #000000
   box-shadow: inset 0 0 10px #000000
-.toTop
-  padding: .5em 1em
-  width: auto
-  display: none
-  text-align: center
+.ScrollUpButton__Container, .ScrollUpButton__Toggled
+  background-color: #d64000!important
+  height: 30px
   position: fixed
-  bottom: 15px
-  right: 10px
-  z-index: 99
-  color: #d64000
-  font-size: 18px
-  border: 0
-  border-radius: 4px
-  outline: none
+  bottom: 20px
+  width: 30px
+  transition: opacity 0.5s ease-in-out 0s, right 0s ease 0s
   cursor: pointer
-  text-decoration: none
-  background: #1d1d1d
-  box-shadow: 0 4px 6px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.08)
-  transform: translateY(0)
+  opacity: 1
+  right: 20px
+  z-index: 1000
+  fill: rgb(41, 41, 41)
+  padding: 0.75em !important
+  border-radius: 5px !important
+  color: rgb(214, 64, 0) !important
   transition: all .15s ease   
 .icon
   display: inline-block
