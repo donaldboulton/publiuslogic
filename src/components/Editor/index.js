@@ -1,32 +1,17 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import Editor from 'for-editor'
+import React, { Component, Fragment } from 'react'
+import Editor from './Editor'
+import styles from './styles.scss'
 
-import './styles.sass'
-
-class App extends Component {
-  constructor () {
-    super()
-    this.state = {
-      value: '',
-    }
-  }
-
-  handleChange (value) {
-    this.setState({
-      value,
-    })
-  }
-
+class TextArea extends Component {
   render () {
-    const { value } = this.state
     return (
-      <Editor value={value} onChange={this.handleChange.bind(this)} />
+      <Fragment>
+        <main className={`container ${styles.editor}`}>
+          <Editor />
+        </main>
+      </Fragment>
     )
   }
 }
 
-ReactDOM.render(
-  <Editor />,
-  document.getElementById('textarea')
-)
+export default TextArea
