@@ -32,9 +32,12 @@ const TagsPage = ({
           >
             <ul className='taglist'>
               {group.map(tag => (
-                <li key={tag.fieldValue}>
+                <li className='control' key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    <button className='button is-primary'>{tag.fieldValue} ({tag.totalCount})</button>
+                    <div className='tags has-addons'>
+                      <span className='tag is-primary'>{tag.fieldValue}</span>
+                      <span className='tag is-dark'>({tag.totalCount})</span>
+                    </div>
                   </Link>
                 </li>
               ))}
