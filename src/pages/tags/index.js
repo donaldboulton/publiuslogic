@@ -3,8 +3,6 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import {Link, graphql} from 'gatsby'
 
-import './styles.sass'
-
 const TagsPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
