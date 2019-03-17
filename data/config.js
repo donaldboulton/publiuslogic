@@ -58,7 +58,7 @@ const config = {
   search_only_api_key: '68c60968e03d06ce61d592425b22c6bd',
   algolia_api_key: 'KLAOJmvpl1yZhCrno50lgSpRVJrrTtPKi98521LaL8X62hajFubs8IHB5eLjrcG5DOQJdfB6Dca9XluHQQQCWVJhQVAD7aqzfivz5/AlYEYukabDmEOw6Efd8RzNhlsFvVTa0t2/oxYWL66Xo9LtRbC0Lfpkf/u/RpA55pn5CkE=',
   powered_by: 'true',
-  copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
+  copyright: 'Copyright © 2019.PubliusLogic', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#363636', // Used for setting manifest and progress theme colors.
   backgroundColor: '#1d1d1d', // Used for setting manifest background color.
 };

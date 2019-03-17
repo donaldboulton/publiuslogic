@@ -39,7 +39,7 @@ const AboutSection = () => {
               </div>
             </div>
             <div className='content'>
-              Donald Boulton uses GitHub via a continuous deployment
+             PubliusLogic uses GitHub via a continuous deployment
               <br />
               <div><a href='https://github.com/donaldboulton/' rel='me'>&nbsp;DWB GitHub Repos</a></div>
               <div><a href='https://twitter.com/donboulton' rel='me'>&nbsp;Twitter @donboulton.com</a></div>

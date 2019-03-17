@@ -383,13 +383,21 @@ text:nth-child(4)
 strong
   color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 gatsby-resp-image-image
-  box-shadow: none!important
+  box-shadow: none !important
 .navbar-item img
     max-height: 2em !important
-.link-like
-    background: #363636 !important
-    color: #d64000 !important
-    border-radius: 3px
-    border-color: #363636! important
+input.luna__input
+    background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
+    background: url(/img/search.svg) 7px 50%/1em 1em no-repeat var(--subtle)
+    transition: all .2s ease-out
+    width: 140px
+    padding-left: 1.8em
+    border-color: var(--subtle)
+    color: #fff
+    padding-bottom: 0
+    padding-top: 0
+input.luna__input, input.bottom-subscribe
+    border-radius: 8px
+    font-size: 17px
     
 @import "~bulma"
