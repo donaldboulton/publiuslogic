@@ -50,7 +50,7 @@ const Slack = () => {
                     <div className='field has-addons'>
                       <p className='control'>
                         <form
-                          id='newsletters'
+                          id='newsletter'
                           method='post'
                           action='/.netlify/functions/SlackMessages/'
                           noValidate
@@ -58,6 +58,7 @@ const Slack = () => {
                           <div className='field has-addons'>
                             <div className='control'>
                               <input
+                                id='inputEmail'
                                 className='input'
                                 type={'text'}
                                 placeholder='your@email.com *'
