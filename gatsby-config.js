@@ -1,3 +1,4 @@
+var proxy = require('http-proxy-middleware')
 const config = require('./data/config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
@@ -15,6 +16,17 @@ module.exports = {
       author: config.userName,
       copyright: config.copyright,
     },
+  },
+  developMiddleware: app => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
   },
   plugins: [
     'gatsby-plugin-react-helmet',
