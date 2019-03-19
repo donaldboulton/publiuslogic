@@ -1,6 +1,5 @@
-@import "~bulma"
 @import "~bulma/sass/utilities/initial-variables"
-    
+
 // Config vars
 // Kalidi logo brand color: #FD461E
 $kaldi-red: #D64000
@@ -18,30 +17,37 @@ body
   font-size: 1.25rem !important
   font-weight: 600 !important
   line-height: 1.5em
-.navbar, .navbar, .navbar-menu, nav
+nav
+  background-color: #363636 !important
+.navbar
   box-shadow:none !important
-  background-color: #1d1d1d !important
+  background-color: #363636 !important
+.navbar .navbar-menu
+  box-shadow:none !important
+  background-color: #363636 !important
 .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover
   background-color: transparent !important
   color: #cccccc !important
-.navbar-item, .navbar-link
-  background-color: transparent !important
+.navbar-item, navbar-link
   color: #d64000 !important
-.navbar-link:not(.is-arrowless):after
-  border-color: #d64000 !important
-  margin-top: -.375em
-  right: 1.125em
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
-.navbar-item .icon:only-child, .navbar-link .icon:only-child
-  margin-left: -.2rem !important
-  margin-right: -.2rem !important
 .navbar-item .icon 
   color: $primary
 .navbar-dropdown
     background-color: #1d1d1d !important
     border-top: 2px solid #1d1d1d !important  
     color: #cccccc !important
+.navbar-link
+  background-color: transparent !important
+  color: #d64000 !important
+.navbar-link:not(.is-arrowless):after
+  border-color: #d64000 !important
+  margin-top: -.375em
+  right: 1.125em
+.navbar-item .icon:only-child, .navbar-link .icon:only-child
+  margin-left: -.2rem !important
+  margin-right: -.2rem !important
 .content .taglist
   list-style: none
   margin-bottom: 0
@@ -68,6 +74,7 @@ li
   display: flex
   justify-content: center
   align-items: center
+
 .full-width-image
   width: 100vw
   height: 400px
@@ -111,7 +118,7 @@ li
     background-color: #d64000 !important
     border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
     color: #cccccc !important
-.button, button
+.button
     background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
     background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
     background-color: #d64000 !important
@@ -119,9 +126,6 @@ li
     color: #cccccc !important
 .button.is-primary:hover
     background-color: #c93c00 !important    
-.button.is-primary.is-outlined
-    background-color: transparent
-    border-color: #d64000 !important
 .margin-top-0
   margin-top: 0 !important
 .icon svg 
@@ -131,6 +135,13 @@ li
 footer.footer
   padding: 2rem 0rem 0rem
   background-color: transparent
+$menu-item-color: $white-ter
+$menu-item-hover-color: $black !important
+$menu-item-hover-background-color: $black
+$menu-item-active-color: $kaldi-red-invert
+$menu-item-active-background-color:	$kaldi-red-invert
+$menu-list-border-left: 1px solid $kaldi-red-invert	
+$menu-label-color: $white-ter
 .menu-label
   font-size: 1em !important
   text-align: left
@@ -138,84 +149,81 @@ footer.footer
   list-style: none !important
   text-align: left
 .social-links>a strong
-  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
-  background: linear-gradient(to right,#d64000,#da1b60) !important
-  -webkit-background-clip: text
-  -webkit-text-fill-color: transparent
-  -webkit-box-decoration-break: clone
-  box-decoration-break: clone
-  display: block
+    background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
+    background: linear-gradient(to right,#d64000,#da1b60) !important
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    -webkit-box-decoration-break: clone
+    box-decoration-break: clone
+    display: block
 .social
   padding: 2em
 .social a
-  padding: .5em .5em .3em .5em
-  border-radius: 1em
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-  margin: .5em
-  width: 1em
-  height: 1em
-  vertical-align: middle
-  display: inline
+    padding: .5em .5em .3em .5em
+    border-radius: 1em
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
+    background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+    margin: .5em
+    width: 1em
+    height: 1em
+    vertical-align: middle
+    display: inline
 .content h1, .content h2, .content h3, .content h4
-  color: #cccccc !important
-  font-weight: 600
-  line-height: 1.125
-.message
-  background-color: #1d1d1d !important
-  border-radius: 4px
-  font-size: 1rem
+    color: #cccccc !important
+    font-weight: 600
+    line-height: 1.125
 .message-body code
-  border-radius: 4px
-  border-left: 4px solid #000000 !important
-  border-width: 0 0 0 4px !important
-  color: #cccccc !important
-  padding: 1.25em 1.5em  
+    background-color: transparent !important
+.message
+    background-color: #1d1d1d !important
+    border-radius: 4px
+    font-size: 1rem
 .input, .textarea
-  background-color: #1d1d1d !important
-  transition: all .2s ease-out
-  color: #cccccc !important
-  font-family: roboto !important
-  border: 1px solid #434040 !important
-  border-radius: 4px
-  box-shadow: 0 1px 1px rgba(0,0,0,.125) !important
-  max-width: 100%
-  width: 100%
+    background-color: #1d1d1d !important
+    color: #cccccc !important
+    border: #434040 !important
+    border-radius: 4px
+    box-shadow: 0 1px 1px rgba(0,0,0,.125) !important
+    max-width: 100%
+    width: 100%
 .file-lable
-  box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px !important
-  background-color: #1d1d1d !important
+    box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px !important
+    background-color: rgb(255, 68, 0) !important 
 .label
   color: #cccccc !important  
 html 
   backgouund-color: transparent !important        
 .notification
-  background-color: #1d1d1d !important
-  color: #cccccc !important
+    background-color: #1d1d1d !important
+    color: #cccccc !important
 .box
-  background-color: #1d1d1d !important
-  color: #cccccc !important
-  border: 1px soild #434040 !important    
-  border-radius: 5px
+    background-color: #363636 !important
+    color: #cccccc !important
+    border: 1px soild #434040 !important    
+    border-radius: 5px
 .shadow
   -moz-box-shadow: inset 0 0 10px #000000
   -webkit-box-shadow: inset 0 0 10px #000000
   box-shadow: inset 0 0 10px #000000
-.ScrollUpButton__Container, .ScrollUpButton__Toggled
-  background-color: #d64000!important
-  height: 30px
+.toTop
+  padding: .5em 1em
+  width: auto
+  display: none
+  text-align: center
   position: fixed
-  bottom: 20px
-  width: 30px
-  transition: opacity 0.5s ease-in-out 0s, right 0s ease 0s
+  bottom: 15px
+  right: 10px
+  z-index: 99
+  color: #d64000
+  font-size: 18px
+  border: 0
+  border-radius: 4px
+  outline: none
   cursor: pointer
-  opacity: 1
-  right: 20px
-  z-index: 1000
-  fill: rgb(41, 41, 41)
-  padding: 0.75em !important
-  border-radius: 5px !important
-  border-color: #d64000 !important
-  color: rgb(214, 64, 0) !important
+  text-decoration: none
+  background: #1d1d1d
+  box-shadow: 0 4px 6px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.08)
+  transform: translateY(0)
   transition: all .15s ease   
 .icon
   display: inline-block
@@ -225,26 +233,28 @@ html
   line-height: 1
   position: relative
   top: -.2em
-  vertical-align: middle   
+  vertical-align: middle
+.icon-white
+  color: #fff !important     
 .title
   color: #cccccc !important
 hr, hr.thick
-  border: 0
-  height: 5px
-  margin: 2rem 0
-  background-color: transparent !important
-  background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60))
-  background-image: linear-gradient(to right,#d64000,#da1b60)
-  border-radius: 5px
+    border: 0
+    height: 5px
+    margin: 2rem 0
+    background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60))
+    background-image: linear-gradient(to right,#d64000,#da1b60)
+    border-radius: 5px
 .navbar-divider
-  background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
-  background-image: linear-gradient(to right,#d64000,#da1b60) !important
+    background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
+    background-image: linear-gradient(to right,#d64000,#da1b60) !important
 .card
-  background-color: #1d1d1d !important
-  border-radius: 5px
-  color: #cccccc !important
-  max-width: 100%
-  position: relative
+    background-color: #1d1d1d !important
+    border-radius: 5px
+    color: #cccccc !important
+    max-width: 100%
+    position: relative
+
 .navbar-item.is-mega
   position: static
 .is-mega-menu-title
@@ -325,17 +335,27 @@ strong
 .button
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 .media-content
-  overflow-x: none !important
-li
-  padding: 0 2rem 1rem 0
-  margin-bottom: 1.5rem
-  margin-top: 0
+    overflow-x: none !important
+.content .taglist
+  list-style: none
+  margin-bottom: 0
+  margin-left: 0
+  margin-right: 1.5rem
+  margin-top: 1.5rem
+  display: flex
+  flex-wrap: wrap
+  justify-content: left
+  align-items: center
+  li
+    padding: 0 2rem 1rem 0
+    margin-bottom: 1.5rem
+    margin-top: 0
 .margin-top-0
   margin-top: 0 !important
 input::placeholder
   color: #cccccc !important
-label
-  font-family: Kaushan Script, cursive
+label, input
+  font-family: Kaushan Script,cursive
 .knockout
   background-image: linear-gradient(to left, #d64000 , #da1b60)
   font-family: 'Bowlby One SC', cursive
@@ -393,16 +413,3 @@ input.luna__input, input.bottom-subscribe
   border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
   color: #fff !important
   text-decoration: none !important
-.ScrollUpButton__Container
-  background-color: #1d1d1d !important
-  height: 30px
-  position: fixed
-  bottom: 20px
-  width: 30px
-  transition: opacity 0.5s ease-in-out 0s, right
-  cursor: pointer
-  opacity: 1
-  right: 30px
-  z-index: 1000
-  fill: #d64000 !important
-  padding: 1em !important

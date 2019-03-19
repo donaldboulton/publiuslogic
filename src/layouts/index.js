@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import Subscriptions from '../components/Subscriptions'
 import Hr from '../components/Hr'
 import Slack from '../components/Slack'
-import ScrollUpButton from '../components/ToTop'
+import ToTop from '../components/ToTop'
 
 import '../assets/sass/styles.sass'
 
@@ -34,6 +34,7 @@ class TemplateWrapper extends Component {
         <Subscriptions />
         <Slack />
         <Hr />
+        <ToTop />
         <Footer />
       </div>
     )
