@@ -1,3 +1,16 @@
+@import "~bulma"
+@import "~bulma/sass/utilities/initial-variables"
+    
+// Config vars
+// Kalidi logo brand color: #FD461E
+$kaldi-red: #D64000
+$kaldi-red-invert: #fff
+
+$primary: $kaldi-red
+$primary-invert: $kaldi-red-invert
+$body-color: #fff
+$black: #2b2523
+
 $steps-default-color: $grey-lighter !default
 $steps-completed-color: $primary !default
 $steps-active-color: $primary !default
@@ -8,7 +21,403 @@ $steps-divider-size: .4em !default
 $steps-gap-size: .3rem !default
 $steps-hollow-border-size: .3em !default
 $steps-thin-divider-size: 1px !default
-$steps-thin-marker-size: .8em !default
+$steps-thin-marker-size: .8em !default  
+
+body
+  background-image: url(/img/bg10-min.png)
+  background-repeat: repeat
+  color: #ccc
+  font-size: 1.25rem !important
+  font-weight: 600 !important
+  line-height: 1.5em
+.navbar, .navbar, .navbar-menu, nav
+  box-shadow:none !important
+  background-color: #1d1d1d !important
+.navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover
+  background-color: transparent !important
+  color: #cccccc !important
+.navbar-item, .navbar-link
+  background-color: transparent !important
+  color: #d64000 !important
+.navbar-link:not(.is-arrowless):after
+  border-color: #d64000 !important
+  margin-top: -.375em
+  right: 1.125em
+.navbar-brand .navbar-item.logo
+  padding: 0 1rem
+.navbar-item .icon:only-child, .navbar-link .icon:only-child
+  margin-left: -.2rem !important
+  margin-right: -.2rem !important
+.navbar-item .icon 
+  color: $primary
+.navbar-dropdown
+    background-color: #1d1d1d !important
+    border-top: 2px solid #1d1d1d !important  
+    color: #cccccc !important
+.content .taglist
+  list-style: none
+  margin-bottom: 0
+  margin-left: 0
+  margin-right: 1.5rem
+  margin-top: 1.5rem
+  display: flex
+  flex-wrap: wrap
+  justify-content: left
+  align-items: center
+li
+  padding: 0 2rem 1rem 0
+  margin-bottom: 1.5rem
+  margin-top: 0
+.full-width-image-container
+  width: 100vw
+  height: 400px
+  position: relative
+  left: 50%
+  right: 50%
+  margin: 2em -50vw
+  background-size: cover
+  background-position: bottom
+  display: flex
+  justify-content: center
+  align-items: center
+.full-width-image
+  width: 100vw
+  height: 400px
+  background-size: cover
+  background-position: bottom
+  display: flex
+  justify-content: center
+  align-items: center
+.btn
+  display: inline-block
+  padding: 12px 16px 10px
+  font-size: 18px
+  font-size: 1rem
+  line-height: 1.25
+  border-radius: .25rem
+  text-decoration: none
+  font-weight: 700
+  color: #CC3700
+  text-align: center
+  -webkit-box-shadow: inset 0 0 0 2px #CC3700
+  box-shadow: inset 0 0 0 2px #f40
+  -webkit-transition: all .15s ease
+  transition: all .15s ease
+.btnIcon
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0
+  padding: 0
+  border: 0
+  width: 24px
+  height: 24px
+  margin: 6px
+  background-image: url(/img/bafcd30dffce3a8d81bb7ec738ec2688.png) !important
+.button .icon
+    height: 2em !important
+    width: 2em !important
+.button.is-primary
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
+    background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+    background-color: #d64000 !important
+    border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+    color: #cccccc !important
+.button, button
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
+    background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+    background-color: #d64000 !important
+    border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+    color: #cccccc !important
+.button.is-primary:hover
+    background-color: #c93c00 !important    
+.button.is-primary.is-outlined
+    background-color: transparent
+    border-color: #d64000 !important
+.margin-top-0
+  margin-top: 0 !important
+.icon svg 
+  width: 1.5rem
+  height: 1.5rem
+  fill: currentColor
+footer.footer
+  padding: 2rem 0rem 0rem
+  background-color: transparent
+.menu-label
+  font-size: 1em !important
+  text-align: left
+.menu-list
+  list-style: none !important
+  text-align: left
+.social-links>a strong
+  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
+  background: linear-gradient(to right,#d64000,#da1b60) !important
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  -webkit-box-decoration-break: clone
+  box-decoration-break: clone
+  display: block
+.social
+  padding: 2em
+.social a
+  padding: .5em .5em .3em .5em
+  border-radius: 1em
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+  margin: .5em
+  width: 1em
+  height: 1em
+  vertical-align: middle
+  display: inline
+.content h1, .content h2, .content h3, .content h4
+  color: #cccccc !important
+  font-weight: 600
+  line-height: 1.125
+.message
+  background-color: #1d1d1d !important
+  border-radius: 4px
+  font-size: 1rem
+.message-body code
+  border-radius: 4px
+  border-left: 4px solid #000000 !important
+  border-width: 0 0 0 4px !important
+  color: #cccccc !important
+  padding: 1.25em 1.5em  
+.input, .textarea
+  background-color: #1d1d1d !important
+  transition: all .2s ease-out
+  color: #cccccc !important
+  font-family: roboto !important
+  border: 1px solid #434040 !important
+  border-radius: 4px
+  box-shadow: 0 1px 1px rgba(0,0,0,.125) !important
+  max-width: 100%
+  width: 100%
+.file-lable
+  box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px !important
+  background-color: #1d1d1d !important
+.label
+  color: #cccccc !important  
+html 
+  backgouund-color: transparent !important        
+.notification
+  background-color: #1d1d1d !important
+  color: #cccccc !important
+.box
+  background-color: #1d1d1d !important
+  color: #cccccc !important
+  border: 1px soild #434040 !important    
+  border-radius: 5px
+.shadow
+  -moz-box-shadow: inset 0 0 10px #000000
+  -webkit-box-shadow: inset 0 0 10px #000000
+  box-shadow: inset 0 0 10px #000000
+.ScrollUpButton__Container, .ScrollUpButton__Toggled
+  background-color: #d64000!important
+  height: 30px
+  position: fixed
+  bottom: 20px
+  width: 30px
+  transition: opacity 0.5s ease-in-out 0s, right 0s ease 0s
+  cursor: pointer
+  opacity: 1
+  right: 20px
+  z-index: 1000
+  fill: rgb(41, 41, 41)
+  padding: 0.75em !important
+  border-radius: 5px !important
+  border-color: #d64000 !important
+  color: rgb(214, 64, 0) !important
+  transition: all .15s ease   
+.icon
+  display: inline-block
+  fill: #fff !important
+  width: 1em
+  height: 1.1em
+  line-height: 1
+  position: relative
+  top: -.2em
+  vertical-align: middle   
+.title
+  color: #cccccc !important
+hr, hr.thick
+  border: 0
+  height: 5px
+  margin: 2rem 0
+  background-color: transparent !important
+  background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60))
+  background-image: linear-gradient(to right,#d64000,#da1b60)
+  border-radius: 5px
+.navbar-divider
+  background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
+  background-image: linear-gradient(to right,#d64000,#da1b60) !important
+.card
+  background-color: #1d1d1d !important
+  border-radius: 5px
+  color: #cccccc !important
+  max-width: 100%
+  position: relative
+.navbar-item.is-mega
+  position: static
+.is-mega-menu-title
+  margin-bottom: 0
+  padding: .375rem 1rem
+  color: #ccc !important
+.site-title
+  font-family: Kaushan Script,cursive
+  color: #d64000 !important
+  font-weight: 800
+  z-index: 20
+  padding-left: 5px
+a
+  color: #d64000 !important
+a:hover
+  color: #cccccc !important
+.productFigure img
+  border: solid 1px #d64000
+  border-radius: 50%
+  padding: 1em
+  width: 250px
+section 
+  clear: both
+.productFigure
+  float: left
+.actions 
+  margin-top: 1em
+  text-align: center
+.buyButton 
+  border: none
+  background-color: #d64000
+  color: white
+  padding: 0.5em
+  border-radius: 5px
+  cursor: pointer
+.breadcrumb
+  margin-top: -1em
+  margin-bottom: 1em
+.breadcrumb a
+  text-decoration: none
+  font-size: smaller
+  border-bottom: solid 1px #d64000
+  padding-bottom: 2px
+.comment-policy
+  margin-bottom: 25px
+  color: #ccc !important
+  background-color: #1d1d1d !important
+  font-size: 16px
+  width: 100%
+  line-height: 1.45em
+  padding: 15px
+.textarea-wrapper
+  background: #1d1d1d !important
+  background-color: #1d1d1d !important
+  border: 2px solid #1d1d1d !important
+  color: #ccc !important
+  position: relative
+  border-radius: 4px
+  margin: 0 0 0 48px
+#no-posts
+  opacity: .6
+  line-height: 107px
+  text-align: center
+  color: #ccc !important
+.comment-policy .policy-link
+  font-weight: 500
+  Color: #d64000 !important
+.gatsby-astro
+  width: 800px
+  height: 800px
+.subtitle strong
+  color: #928c8c !important
+  font-weight: 600
+strong
+  font-family: Kaushan Script,cursive
+  color: #928c8c !important
+  font-weight: 700
+.button
+  background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+.media-content
+  overflow-x: none !important
+li
+  padding: 0 2rem 1rem 0
+  margin-bottom: 1.5rem
+  margin-top: 0
+.margin-top-0
+  margin-top: 0 !important
+input::placeholder
+  color: #cccccc !important
+label
+  font-family: Kaushan Script, cursive
+.knockout
+  background-image: linear-gradient(to left, #d64000 , #da1b60)
+  font-family: 'Bowlby One SC', cursive
+  height: 60vh
+  text-transform: uppercase
+  width: 100%
+text:nth-child(2)
+  font-size: 5em
+text:nth-child(3)
+  font-size: 5.1em
+text:nth-child(4)
+  font-size: 15em  
+.hero.is-primary.is-bold
+  background-image: linear-gradient(141deg,#a31600,#d64000 71%,#f07000) !important
+  background-color: #d64000 !important
+  color: #fff
+.message-body
+  border-radius: 4px
+  border: solid #000000 !important
+  border-width: 0 0 0 4px
+  color: #cccccc !important
+  padding: 1.25em 1.5em
+strong
+  color: linear-gradient(180deg,#a31600,#d64000 71%,#f07000) !important
+gatsby-resp-image-image
+  box-shadow: none !important
+.navbar-item img
+  max-height: 2em !important
+input.luna__input
+  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
+  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
+  transition: all .2s ease-out
+  width: 35px
+  padding-left: .8em
+  border: none !important
+  color: #fff
+  padding-bottom: 0
+  padding-top: 0
+input.luna__input:focus
+  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
+  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
+  width: 200px !important
+  padding-left: 1.8em
+  border: 1px solid #434040 !important
+  color: #fff
+  padding-bottom: 0
+  padding-top: 0    
+input.luna__input, input.bottom-subscribe
+  border-radius: 8px
+  font-size: 17px
+.tag:not(body).is-primary
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+  background-color: #d64000 !important
+  border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+  color: #fff !important
+  text-decoration: none !important
+.ScrollUpButton__Container
+  background-color: #1d1d1d !important
+  height: 30px
+  position: fixed
+  bottom: 20px
+  width: 30px
+  transition: opacity 0.5s ease-in-out 0s, right
+  cursor: pointer
+  opacity: 1
+  right: 30px
+  z-index: 1000
+  fill: #d64000 !important
+  padding: 1em !important
 
 =steps-horizontal
   +tablet

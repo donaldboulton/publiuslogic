@@ -12,7 +12,7 @@ class PrivateRoute extends React.Component {
     }
   }
 
-  render() {
+  render () {
     const { component: Component, location, ...rest } = this.props
     return isLoggedIn() ? <Component {...rest} /> : null
   }

@@ -17,8 +17,9 @@ export default () => {
         display: 'flex',
         flex: '1',
         justifyContent: 'space-between',
-        borderBottom: '1px solid #d1c1e0',
-        backgroundColor: 'aliceblue',
+        borderBottom: '1px solid #000',
+        backgroundColor: '#1d1d1d',
+        color: '#ccc'
       }}
     >
       <span>{content.message}</span>

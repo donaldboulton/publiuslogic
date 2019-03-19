@@ -7,8 +7,8 @@ exports.handler = async (event, context) => {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
 
-  const params = querystring.parse(event.body);
-  const name = params.name || 'World';
+  const params = querystring.parse(event.body)
+  const name = params.name || 'World'
 
   return fetch(process.env.SLACK_WEBHOOK_URL, {
     headers: {
@@ -24,5 +24,5 @@ exports.handler = async (event, context) => {
     .catch(error => ({
       statusCode: 422,
       body: `Oops! Something went wrong. ${error}`,
-    }));
-};
+    }))
+}

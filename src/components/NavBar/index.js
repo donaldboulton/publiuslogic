@@ -71,20 +71,24 @@ const NavBar = ({toggleNavbar, isActive}) => (
                           <small className='has-text-light'>03 March 2019</small>
                         </div>
                         <div className='navbar-item'>
-                          <a href='/blog'>Blog</a>
+                          <a className='navbar-item' href='/blog'>Blog</a>
                         </div>
                       </div>
                       <div className='navbar-content'>
                         <div className='navbar-item'>
                           <small className='has-text-light'>10 March 2019</small>
                         </div>
-                        <a className='navbar-item' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>Jamaican Blue Mountain </a>
+                        <div className='navbar-item'>
+                          <a className='navbar-item' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>Jamaican Blue Mountain </a>
+                        </div>
                       </div>
                       <div className='navbar-content'>
                         <div className='navbar-item'>
                           <small className='has-text-light'>03 March 2019</small>
                         </div>
-                        <a className='navbar-item' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>SCAA’s new Flavor Wheel</a>
+                        <div className='navbar-item'>
+                          <a className='navbar-item' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>SCAA’s new Flavor Wheel</a>
+                        </div>
                       </div>
                     </div>
                     <div className='column'>

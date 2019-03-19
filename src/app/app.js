@@ -21,7 +21,7 @@ const App = () => {
     </Layout>
   )
 }
-function PublicRoute(props) {
+function PublicRoute (props) {
   return <div>{props.children}</div>
 }
 
