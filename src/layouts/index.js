@@ -33,7 +33,6 @@ class TemplateWrapper extends Component {
         <div>{this.props.children}</div>
         <Subscriptions />
         <Slack />
-        <ScrollUpButton />
         <Hr />
         <Footer />
       </div>
