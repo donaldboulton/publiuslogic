@@ -65,49 +65,49 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <div className='container is-fluid'>
                   <div className='columns'>
                     <div className='column'>
-                      <h1 className='title is-6 is-mega-menu-title'>Blog and Posts</h1>
-                      <a className='navbar-item' href='/blog'>
+                      <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-dark'>03 Mar 2019</small>
+                            <small className='has-text-primary'>03 Aug 2017</small>
                           </p>
-                          <p>Blog</p>
+                          <p>New feature: list of tags</p>
                         </div>
                       </a>
-                      <a className='navbar-item' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-dark'>03 Aug 2017</small>
+                            <small className='has-text-primary'>03 Aug 2017</small>
                           </p>
-                          <p>Jamaican Blue Mountian</p>
+                          <p>New feature: list of tags</p>
                         </div>
                       </a>
-                      <a className='navbar-item' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-dark'>03 Feb 2019</small>
+                            <small className='has-text-primary'>03 Aug 2017</small>
                           </p>
-                          <p>SCAA’s new Flavor Wheel</p>
+                          <p>New feature: list of tags</p>
                         </div>
                       </a>
                     </div>
                     <div className='column'>
-                      <h1 className='title is-6 is-mega-menu-title'>Bulma.io</h1>
-                      <a className='navbar-item' href='https://bulma.io/documentation/'>
+                      <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-dark'>03 April 2019</small>
+                            <small className='has-text-primary'>03 Aug 2017</small>
                           </p>
-                          <p>Documentation</p>
+                          <p>New feature: list of tags</p>
                         </div>
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/overview/start/'>
+                      <a className='navbar-item ' href='/documentation/overview/start/'>
                                  Overview
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/modifiers/syntax/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/modifiers/syntax/'>
                                  Modifiers
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/columns/basics/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/columns/basics/'>
                                  Columns
                       </a>
                     </div>
@@ -116,7 +116,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-dark'>03 Aug 2017</small>
+                            <small className='has-text-primary'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
@@ -124,7 +124,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-dark'>03 Aug 2017</small>
+                            <small className='has-text-primary'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
@@ -132,7 +132,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-dark'>03 Aug 2017</small>
+                            <small className='has-text-primary'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
@@ -141,16 +141,16 @@ const NavBar = ({toggleNavbar, isActive}) => (
                     </div>
                     <div className='column'>
                       <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/overview/start/'>
+                      <a className='navbar-item ' href='/documentation/overview/start/'>
                         Overview
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/modifiers/syntax/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/modifiers/syntax/'>
                         Modifiers
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/columns/basics/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/columns/basics/'>
                         Columns
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/layout/container/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/layout/container/'>
                         Layout
                       </a>
                     </div>
@@ -167,7 +167,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       </div>
                       <div className='level-right'>
                         <div className='level-item'>
-                          <a className='button bd-is-rss is-small' href='https://publiuslogic.com/rss.xml'>
+                          <a className='button bd-is-rss is-small' href='http://publiuslogic.com/rss.xml'>
                             <span className='icon is-small'>
                               <img src={rss} alt='Publiuslogic' style={{ width: '16px' }} />
                             </span>
