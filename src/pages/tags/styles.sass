@@ -1,6 +1,12 @@
 $badge-border-size: .1rem !default
 $badge-border-radius: 1rem !default
-$primary: #1d1d1d !default
+$kaldi-red: #D64000
+$kaldi-red-invert: #fff
+
+$primary: $kaldi-red
+$primary-invert: $kaldi-red-invert
+$white: #ffffff !default
+$dark: #1d1d1d !default
 
 =badge-size($size)
   $badgeSize: $size
@@ -38,7 +44,7 @@ $primary: #1d1d1d !default
     background: $primary
     background-clip: padding-box
     border-radius: $badge-border-radius
-    box-shadow: 0 0 0 $badge-border-size $white
+    box-shadow: 0 0 0 $badge-border-size $dark
     color: $white
     content: attr(data-badge)
     display: inline-block
