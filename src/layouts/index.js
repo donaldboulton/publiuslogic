@@ -31,9 +31,6 @@ class TemplateWrapper extends Component {
         </Helmet>
         <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
         <div>{this.props.children}</div>
-        <Subscriptions />
-        <Slack />
-        <Hr />
         <ToTop />
         <Footer />
       </div>

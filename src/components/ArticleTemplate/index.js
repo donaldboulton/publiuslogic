@@ -25,8 +25,8 @@ const ArticleTemplate = ({
         <ul className='taglist'>
           {(tags && tags.length)
             ? tags.map(tag => (
-              <li className='control' key={tag + `tag`}>
-                <Link className='tag is-primary is-medium' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+              <li key={tag + `tag`}>
+                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
               </li>
             ))
             : null

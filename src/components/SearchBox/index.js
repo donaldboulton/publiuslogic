@@ -16,10 +16,11 @@ export default class SearchBox extends Component {
     return (
       <div className={`navbar-item ${this.state.isActive ? 'is-active' : ''}`}>
         <input
-          className='input luna__input js-luna__input'
+          className='input navbar-link is-primary'
           type='text'
           value={this.state.query}
           onChange={this.search}
+          placeholder='Search'
         />
         <div className='navbar-dropdown'>
           {this.state.results.map(page => (

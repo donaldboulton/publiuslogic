@@ -65,83 +65,92 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <div className='container is-fluid'>
                   <div className='columns'>
                     <div className='column'>
-                      <h2 className='title is-6 is-mega-menu-title'>Blog Posts</h2>
-                      <div className='navbar-content'>
-                        <div className='navbar-item'>
-                          <small className='has-text-light'>03 March 2019</small>
+                      <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
+                        <div className='navbar-content'>
+                          <p>
+                            <small className='has-text-primary'>03 Aug 2017</small>
+                          </p>
+                          <p>New feature: list of tags</p>
                         </div>
-                        <div className='navbar-item'>
-                          <a className='navbar-item' href='/blog'>Blog</a>
+                      </a>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
+                        <div className='navbar-content'>
+                          <p>
+                            <small className='has-text-primary'>03 Aug 2017</small>
+                          </p>
+                          <p>New feature: list of tags</p>
                         </div>
-                      </div>
-                      <div className='navbar-content'>
-                        <div className='navbar-item'>
-                          <small className='has-text-light'>10 March 2019</small>
+                      </a>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
+                        <div className='navbar-content'>
+                          <p>
+                            <small className='has-text-primary'>03 Aug 2017</small>
+                          </p>
+                          <p>New feature: list of tags</p>
                         </div>
-                        <div className='navbar-item'>
-                          <a className='navbar-item' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>Jamaican Blue Mountain </a>
-                        </div>
-                      </div>
-                      <div className='navbar-content'>
-                        <div className='navbar-item'>
-                          <small className='has-text-light'>03 March 2019</small>
-                        </div>
-                        <div className='navbar-item'>
-                          <a className='navbar-item' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>SCAA’s new Flavor Wheel</a>
-                        </div>
-                      </div>
+                      </a>
                     </div>
                     <div className='column'>
-                      <h2 className='title is-6 is-mega-menu-title'>Bulma Resources </h2>
-                      <div className='navbar-content'>
-                        <div className='navbar-item'>
-                          <small className='clhas-text-light'>Documentation</small>
+                      <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
+                        <div className='navbar-content'>
+                          <p>
+                            <small className='has-text-primary'>03 Aug 2017</small>
+                          </p>
+                          <p>New feature: list of tags</p>
                         </div>
-                        <a className='navbar-item' href='https://bulma.io/documentation/'>Bulma.io</a>
-                      </div>
-                      <a className='navbar-item' href='https://bulma.io/documentation/overview/start/'>
+                      </a>
+                      <a className='navbar-item ' href='/documentation/overview/start/'>
                                  Overview
                       </a>
-                      <a className='navbar-item' href='https://bulma.io/documentation/modifiers/syntax/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/modifiers/syntax/'>
                                  Modifiers
                       </a>
-                      <a className='navbar-item' href='http://bulma.io/documentation/columns/basics/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/columns/basics/'>
                                  Columns
                       </a>
                     </div>
                     <div className='column'>
-                      <h2 className='title is-6 is-mega-menu-title'>Bulma-extensions</h2>
-                      <div className='navbar-content'>
-                        <div>
-                          <small className='clhas-text-light'>03 Aug 2017</small>
+                      <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
+                        <div className='navbar-content'>
+                          <p>
+                            <small className='has-text-primary'>03 Aug 2017</small>
+                          </p>
+                          <p>New feature: list of tags</p>
                         </div>
-                        <div><a className='navbar-item' href='https://bulma.io/extensions/'>Extensions</a></div>
-                      </div>
-                      <div className='navbar-content'>
-                        <div>
-                          <small className='clhas-text-light'>Mega Menu</small>
+                      </a>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
+                        <div className='navbar-content'>
+                          <p>
+                            <small className='has-text-primary'>03 Aug 2017</small>
+                          </p>
+                          <p>New feature: list of tags</p>
                         </div>
-                        <div><a className='navbar-item' href='https://github.com/hunzaboy/bulma-megamenu'>Mega Menu Repo</a></div>
-                      </div>
-                      <div className='navbar-content'>
-                        <div>
-                          <small className='clhas-text-light'>Calendar</small>
+                      </a>
+                      <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
+                        <div className='navbar-content'>
+                          <p>
+                            <small className='has-text-primary'>03 Aug 2017</small>
+                          </p>
+                          <p>New feature: list of tags</p>
                         </div>
-                        <div><a className='navbar-item' href='https://wikiki.github.io/components/calendar/'>Calendar with GCal</a></div>
-                      </div>
+                      </a>
+
                     </div>
                     <div className='column'>
-                      <h2 className='title is-6 is-mega-menu-title'>Syntax</h2>
+                      <h1 className='title is-6 is-mega-menu-title'>Mega Menu Test</h1>
                       <a className='navbar-item ' href='/documentation/overview/start/'>
                         Overview
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/modifiers/syntax/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/modifiers/syntax/'>
                         Modifiers
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/columns/basics/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/columns/basics/'>
                         Columns
                       </a>
-                      <a className='navbar-item ' href='https://bulma.io/documentation/layout/container/'>
+                      <a className='navbar-item ' href='http://bulma.io/documentation/layout/container/'>
                         Layout
                       </a>
                     </div>

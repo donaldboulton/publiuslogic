@@ -368,9 +368,10 @@ text:nth-child(3)
   font-size: 5.1em
 text:nth-child(4)
   font-size: 15em  
-.hero.is-primary.is-bold
-  background-image: linear-gradient(141deg,#a31600,#d64000 71%,#f07000) !important
-  background-color: #d64000 !important
+.hero.is-primary
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)))
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2))
+  background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2))
   color: #fff
 .message-body
   border-radius: 4px
@@ -379,39 +380,15 @@ text:nth-child(4)
   color: #cccccc !important
   padding: 1.25em 1.5em
 strong
-  color: linear-gradient(180deg,#a31600,#d64000 71%,#f07000) !important
+  color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 gatsby-resp-image-image
-  box-shadow: none !important
+  box-shadow: none!important
 .navbar-item img
-  max-height: 2em !important
-input.luna__input
-  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
-  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
-  transition: all .2s ease-out
-  width: 35px
-  padding-left: .8em
-  border: none !important
-  color: #fff
-  padding-bottom: 0
-  padding-top: 0
-input.luna__input:focus
-  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
-  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
-  width: 200px !important
-  padding-left: 1.8em
-  border: 1px solid #434040 !important
-  color: #fff
-  padding-bottom: 0
-  padding-top: 0    
-input.luna__input, input.bottom-subscribe
-  border-radius: 8px
-  font-size: 17px
-.tag:not(body).is-primary
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-  background-color: #d64000 !important
-  border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-  color: #fff !important
-  text-decoration: none !important
-
-  @import "~bulma"
+    max-height: 2em !important
+.link-like
+    background: #363636 !important
+    color: #d64000 !important
+    border-radius: 3px
+    border-color: #363636! important
+    
+@import "~bulma"

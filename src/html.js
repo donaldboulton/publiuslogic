@@ -12,7 +12,7 @@ export default class HTML extends Component {
           {this.props.headComponents}
           <link rel='shortcut icon' href={favicon} />
         </head>
-        <body id='top'>
+        <body>
           <div
             id='___gatsby'
             dangerouslySetInnerHTML={{__html: this.props.body}}
@@ -22,9 +22,46 @@ export default class HTML extends Component {
           <script
             dangerouslySetInnerHTML={{
               __html: `
-                      var name = 'world';
-                      console.log('Hello ' + name);
-                    `
+              window.onload=function () {
+                var form = document.getElementById('newsletter')
+                form.addEventListener('submit', function (e) {
+                  e.preventDefault()
+                  var email = document.getElementById('inputEmail').value
+                  submitEmail(email)
+                })
+              }
+
+              function submitEmail(email) {
+              fetch('/.netlify/functions/Newsletter', {
+                method: 'post',
+                body: JSON.stringify({
+                email: email
+              })
+              }).then(function(response) {
+                return response.json();
+              }).then(function(data) {
+                  console.log('data from function', data);
+                  var messageDiv = document.getElementById('message');
+                  messageDiv.innerText = 'Email added via Netlify functions & AJAX!';
+                });
+              }
+              window.onscroll = function() {
+                scrollFunction();
+              };
+ 
+              function scrollFunction() {
+              if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 20) {
+              document.getElementById('toTop').style.display = 'block';
+              } else {
+                document.getElementById('toTop').style.display = 'none';
+                }
+              }
+ 
+              function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+              }            
+              `
             }}
           />
         </body>

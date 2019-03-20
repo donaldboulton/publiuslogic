@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { navigate } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
-import Recaptcha from 'react-google-recaptcha'
+import Recaptcha from 'react-google-recaptcha';
 
 const encode = (data) => {
   return Object.keys(data)
@@ -45,7 +45,7 @@ class ContactPageTemplate extends Component {
           <title>{meta_title}</title>
           <meta name='description' content={meta_description} />
         </Helmet>
-        <section className='hero is-primary is-bold is-small'>
+        <section className='hero is-primary is-bold is-medium'>
           <div className='hero-body'>
             <div className='container'>
               <div className='columns'>
@@ -98,7 +98,7 @@ class ContactPageTemplate extends Component {
               <div className='field'>
                 <label className='label'>Message</label>
                 <div className='control'>
-                  <textarea className='textarea' name='message' id='message' onChange={this.handleChange} />
+                  <textarea className='textarea' placeholder='Message' name='message' id='message' rows='6' onChange={this.handleChange} />
                 </div>
               </div>
               <div className='field'>
