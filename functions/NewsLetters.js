@@ -1,20 +1,20 @@
-import querystring from "querystring";
-import fetch from "node-fetch";
+import querystring from 'querystring'
+import fetch from 'node-fetch'
 
 exports.handler = async (event, context) => {
 
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
   const params = querystring.parse(event.body);
-  const email = params.name || "NewLetters";
+  const email = params.name || 'NewLetters';
 
   return fetch(process.env.SLACK_WEBHOOK_URL, {
     headers: {
-      "content-type": "application/json"
+      'content-type': 'application/json'
     },
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify({ text: `${email} signs up!` })
   })
     .then(() => ({

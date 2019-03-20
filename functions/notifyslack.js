@@ -1,4 +1,4 @@
-var https = require("https");
+var https = require('https');
 
 exports.handler = function(event, context, callback) {
     var body = JSON.parse(event.body);
@@ -9,34 +9,34 @@ exports.handler = function(event, context, callback) {
         var message = `New review from ${data.email} \n ${data.name}: ${data.message}`;
         var attach = [
             {
-                "title": "Review ID",
-                "text": body.id
+                'title': 'Review ID',
+                'text': body.id
             },
             {
-                "title": "Do you want to keep the review?",
-                "text": message,
-                "fallback": "You can't take actions for this review.",
-                "callback_id": "answer_netlify",
-                "color": "#3AA3E3",
-                "attachment_type": "default",
-                "actions": [
+                'title': 'Do you want to keep the review?',
+                'text': message,
+                'fallback': 'You can't take actions for this review.',
+                'callback_id': 'answer_netlify',
+                'color': '#3AA3E3',
+                'attachment_type': 'default',
+                'actions': [
                     {
-                        "name": "response",
-                        "text": "Keep",
-                        "type": "button",
-                        "value": "keep"
+                        'name': 'response',
+                        'text': 'Keep',
+                        'type': 'button',
+                        'value': 'keep'
                     },
                     {
-                        "name": "response",
-                        "text": "Reject",
-                        "type": "button",
-                        "style": "danger",
-                        "value": "reject",
-                        "confirm": {
-                            "title": "Are you sure?",
-                            "text": "Once it's done the review will be deleted",
-                            "ok_text": "Yes",
-                            "dismiss_text": "No"
+                        'name': 'response',
+                        'text': 'Reject',
+                        'type': 'button',
+                        'style': 'danger',
+                        'value': 'reject',
+                        'confirm': {
+                            'title': 'Are you sure?',
+                            'text': 'Once it's done the review will be deleted',
+                            'ok_text': 'Yes',
+                            'dismiss_text': 'No'
                         }
                     }
                 ]
