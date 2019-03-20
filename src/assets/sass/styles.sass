@@ -132,6 +132,16 @@ li
   width: 1.5rem
   height: 1.5rem
   fill: currentColor
+footer.footer
+  padding: 2rem 0rem 0rem
+  background-color: transparent
+$menu-item-color: $white-ter
+$menu-item-hover-color: $black !important
+$menu-item-hover-background-color: $black
+$menu-item-active-color: $kaldi-red-invert
+$menu-item-active-background-color:	$kaldi-red-invert
+$menu-list-border-left: 1px solid $kaldi-red-invert	
+$menu-label-color: $white-ter
 .menu-label
   font-size: 1em !important
   text-align: left
@@ -251,10 +261,6 @@ hr, hr.thick
   margin-bottom: 0
   padding: .375rem 1rem
   color: #ccc !important
-gatsby-resp-image-image
-  box-shadow: #000000 !important
-.navbar-item img
-  max-height: 2em !important
 .site-title
   font-family: Kaushan Script,cursive
   color: #d64000 !important
@@ -369,14 +375,14 @@ text:nth-child(4)
   color: #fff
 .message-body
   border-radius: 4px
-  border: 1px solid #000000 !important
+  border: solid #000000 !important
   border-width: 0 0 0 4px
   color: #cccccc !important
   padding: 1.25em 1.5em
 strong
   color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 gatsby-resp-image-image
-  box-shadow: #000 !important
+  box-shadow: none!important
 .navbar-item img
     max-height: 2em !important
 .link-like
@@ -384,34 +390,5 @@ gatsby-resp-image-image
     color: #d64000 !important
     border-radius: 3px
     border-color: #363636! important
-input.luna__input
-  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
-  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
-  transition: all .2s ease-out
-  width: 35px
-  padding-left: .8em
-  border: 0 !important
-  color: #fff
-  padding-bottom: 0
-  padding-top: 0
-input.luna__input:focus
-  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat rgba(0,0,0,0.1)
-  background: url(/img/search.svg) 7px 50%/1em 1em no-repeat
-  width: 200px !important
-  padding-left: 1.8em
-  border: 1px solid #434040 !important
-  color: #fff
-  padding-bottom: 0
-  padding-top: 0    
-input.luna__input, input.bottom-subscribe
-  border-radius: 8px
-  font-size: 17px
-.tag:not(body).is-primary
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-  background-color: #d64000 !important
-  border-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-  color: #fff !important
-  text-decoration: none !important    
     
 @import "~bulma"
