@@ -69,7 +69,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/blog'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-light'>03 Mar 2019</small>
+                            <small className='has-text-dark'>03 Mar 2019</small>
                           </p>
                           <p>Blog</p>
                         </div>
@@ -77,7 +77,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-light'>03 Aug 2017</small>
+                            <small className='has-text-dark'>03 Aug 2017</small>
                           </p>
                           <p>Jamaican Blue Mountian</p>
                         </div>
@@ -85,7 +85,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-light'>03 Feb 2019</small>
+                            <small className='has-text-dark'>03 Feb 2019</small>
                           </p>
                           <p>SCAA’s new Flavor Wheel</p>
                         </div>
@@ -96,7 +96,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='https://bulma.io/documentation/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-light'>03 April 2019</small>
+                            <small className='has-text-dark'>03 April 2019</small>
                           </p>
                           <p>Documentation</p>
                         </div>
@@ -116,7 +116,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-light'>03 Aug 2017</small>
+                            <small className='has-text-dark'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
@@ -124,7 +124,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-light'>03 Aug 2017</small>
+                            <small className='has-text-dark'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
@@ -132,7 +132,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                       <a className='navbar-item' href='/2017/08/03/list-of-tags/'>
                         <div className='navbar-content'>
                           <p>
-                            <small className='has-text-light'>03 Aug 2017</small>
+                            <small className='has-text-dark'>03 Aug 2017</small>
                           </p>
                           <p>New feature: list of tags</p>
                         </div>
