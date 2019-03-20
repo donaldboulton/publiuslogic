@@ -2,7 +2,7 @@ import React from 'react'
 import {Link, graphql, StaticQuery} from 'gatsby'
 import SearchBox from '../SearchBox'
 import logo from '../../img/site-logo250x80.png'
-import rss from '../../img/rss.svg'
+
 import NetlifyIdentityWidget from '../IdentityWidget'
 
 const NavBar = ({toggleNavbar, isActive}) => (
