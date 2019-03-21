@@ -2,7 +2,6 @@ import React from 'react'
 import {Link, graphql, StaticQuery} from 'gatsby'
 import SearchBox from '../SearchBox'
 import logo from '../../img/site-logo250x80.png'
-import rss from '../../img/rss.svg'
 import NetlifyIdentityWidget from '../IdentityWidget'
 
 const NavBar = ({toggleNavbar, isActive}) => (
@@ -34,7 +33,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
         </div>
         <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} id='navMenu'>
           <div className='navbar-end'>
-            <div className='navbar-item' id='search'>
+            <div className='navbar-item'>
               <SearchBox searchIndex={data.siteSearchIndex.index} />
             </div>
             <div className='navbar-item has-dropdown is-hoverable'>
@@ -42,19 +41,19 @@ const NavBar = ({toggleNavbar, isActive}) => (
                  Docs
               </a>
               <div className='navbar-dropdown'>
-                <a className='navbar-item ' href='/'>
+                <a className='navbar-item' href='/'>
                  Home
                 </a>
-                <a className='navbar-item ' href='/about'>
+                <a className='navbar-item' href='/about'>
                  About
                 </a>
                 <a className='navbar-item is-active' href='/pricing'>
                   Pricing
                 </a>
-                <a className='navbar-item ' href='/contact'>
+                <a className='navbar-item' href='/contact'>
                   Contact
                 </a>
-                <a className='navbar-item ' href='/privacy'>
+                <a className='navbar-item' href='/privacy'>
                   Privacy & terms
                 </a>
               </div>
@@ -63,25 +62,25 @@ const NavBar = ({toggleNavbar, isActive}) => (
               <a className='navbar-link  is-active' href='/'>
                  Blog
               </a>
-              <div className='navbar-dropdown'>                
-                <a className='navbar-item ' href='/blog'>
+              <div className='navbar-dropdown'>
+                <a className='navbar-item' href='/blog'>
                   All Posts
                 </a>
-                <a className='navbar-item ' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>
+                <a className='navbar-item' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>
                   Blue Mountain
                 </a>
                 <a className='navbar-item is-active' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>
                   Flavor Wheel
                 </a>
-                <a className='navbar-item ' href='/contact'>
+                <a className='navbar-item' href='/contact'>
                   Chemex Brewing
                 </a>
-                <a className='navbar-item ' href='/privacy'>
+                <a className='navbar-item' href='/privacy'>
                   lorem-ipsum-dolor-situm
                 </a>
               </div>
             </div>
-            <div className='navbar-item site-title' id='login'>
+            <div className='navbar-item' id='login'>
               <NetlifyIdentityWidget />
             </div>
           </div>
