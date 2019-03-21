@@ -17,12 +17,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
       <nav className='navbar is-fixed-top' aria-label='main navigation'>
         <div className='navbar-brand'>
           <span className='navbar-item'>
-            <Link
-              activeClass='active'
-              to='/'
-              offset={-70}
-              duration={500}
-            >
+            <Link to='/' className='navbar-item'>
               <img src={logo} alt='Publiuslogic' />
             </Link>
           </span>

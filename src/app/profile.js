@@ -1,6 +1,10 @@
 import React from 'react'
 import { getUser } from './services/auth'
 
+import '../sass/styles.sass'
+
+import './bulma-steps'
+
 const Profile = () => {
   const user = getUser()
   return (
