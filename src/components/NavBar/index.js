@@ -72,10 +72,10 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <a className='navbar-item' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>
                   Flavor Wheel
                 </a>
-                <a className='navbar-item' href='/contact'>
+                <a className='navbar-item' href='/blog/a-beginners-guide-to-brewing-with-chemex/'>
                   Chemex Brewing
                 </a>
-                <a className='navbar-item' href='/privacy'>
+                <a className='navbar-item' href='/blog/lorem-ipsum-dolor-situm/'>
                   lorem-ipsum-dolor-situm
                 </a>
               </div>
