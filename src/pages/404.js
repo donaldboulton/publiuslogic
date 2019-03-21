@@ -3,7 +3,7 @@ import gatsbyastro from './gatsby-astronaut.png'
 
 const NotFoundPage = () => (
   <div>
-    <section className='hero is-primary is-bold is-large'>
+    <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
         <div className='container'>
           <div className='columns'>

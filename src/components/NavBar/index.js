@@ -17,7 +17,12 @@ const NavBar = ({toggleNavbar, isActive}) => (
       <nav className='navbar is-fixed-top' aria-label='main navigation'>
         <div className='navbar-brand'>
           <span className='navbar-item'>
-            <Link to='/' className='navbar-item'>
+            <Link
+              activeClass='active'
+              to='/'
+              offset={-70}
+              duration={500}
+            >
               <img src={logo} alt='Publiuslogic' />
             </Link>
           </span>
@@ -47,7 +52,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <a className='navbar-item' href='/about'>
                  About
                 </a>
-                <a className='navbar-item is-active' href='/pricing'>
+                <a className='navbar-item' href='/pricing'>
                   Pricing
                 </a>
                 <a className='navbar-item' href='/contact'>
@@ -69,7 +74,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <a className='navbar-item' href='/blog/just-in-small-batch-of-jamaican-blue-mountain-in-store-next-week/'>
                   Blue Mountain
                 </a>
-                <a className='navbar-item is-active' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>
+                <a className='navbar-item' href='/blog/making-sense-of-the-scaas-new-flavor-wheel/'>
                   Flavor Wheel
                 </a>
                 <a className='navbar-item' href='/contact'>

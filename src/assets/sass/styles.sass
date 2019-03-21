@@ -156,18 +156,6 @@ footer.footer
     -webkit-box-decoration-break: clone
     box-decoration-break: clone
     display: block
-.social
-  padding: 2em
-.social a
-    padding: .5em .5em .3em .5em
-    border-radius: 1em
-    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
-    background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-    margin: .5em
-    width: 1em
-    height: 1em
-    vertical-align: middle
-    display: inline
 .content h1, .content h2, .content h3, .content h4
     color: #cccccc !important
     font-weight: 600
@@ -244,6 +232,7 @@ hr, hr.thick
     margin: 2rem 0
     background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60))
     background-image: linear-gradient(to right,#d64000,#da1b60)
+    background-color: transparent
     border-radius: 5px
 .navbar-divider
     background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
@@ -269,6 +258,10 @@ hr, hr.thick
   padding-left: 5px
 a
   color: #d64000 !important
+a:-webkit-any-link
+    cursor: pointer
+*|*:any-link
+  cursor: pointer
 a:hover
   color: #cccccc !important
 .productFigure img
