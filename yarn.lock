@@ -6357,7 +6357,7 @@ gatsby-plugin-cookiehub@^1.0.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-create-client-paths@^2.0.4:
+gatsby-plugin-create-client-paths@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.0.5.tgz#cff2d8d9d7e35f3b0e59cc88bb400391e7608ddd"
   integrity sha512-gCsPcbLLdaVIhP6l3v55zG0h6VvbgaJugGocEymq5j4SYYRprJq4Kb8vUaUowps6IKRLmp/iZtSBd/Rq9wKLOw==

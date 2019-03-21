@@ -16,6 +16,17 @@ module.exports = {
       copyright: config.copyright,
     },
   },
+  developMiddleware: app => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
@@ -275,6 +286,10 @@ module.exports = {
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
       },
+    },
+    {
+      resolve: 'gatsby-plugin-create-client-paths',
+      options: { prefixes: ['/app/*'] },
     },
     `gatsby-plugin-netlify`,
   ],
