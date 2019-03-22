@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { navigate } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
-import Recaptcha from 'react-google-recaptcha';
+import Recaptcha from 'react-google-recaptcha'
 
 const encode = (data) => {
   return Object.keys(data)

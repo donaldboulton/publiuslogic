@@ -30,7 +30,7 @@ const TagsPage = ({
             className='column is-10 is-offset-1'
             style={{ marginBottom: '6rem' }}
           >
-            <ul className='taglist'>
+            <ul className='taglist field is-grouped is-grouped-multiline'>
               {group.map(tag => (
                 <li className='control' key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
