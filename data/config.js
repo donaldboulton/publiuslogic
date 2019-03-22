@@ -46,18 +46,7 @@ const config = {
   userLocation: 'OKC, Oklahoma', // User location to display in the author segment.
   userAvatar: 'https://donboulton.com/assets/images/donald-boulton.jpg', // User avatar to display in the author segment.
   userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
-  GATSBY_ALGOLIA_APP_ID: '8TO5EHY2FM',
-  GATSBY_ALGOLIA_SEARCH_KEY: 'efe2c5eec92d0bf53e2014ccf2300934',
-  ALGOLIA_SEARCH_KEY: 'efe2c5eec92d0bf53e2014ccf2300934',
-  ALGOLIA_ADMIN_KEY: 'f4242c4cd86cf9121b1b83b58d744401',
-  ALGOLIA_APP_ID: '8TO5EHY2FM',
-  ALGOLIA_API_KEY: 'efe2c5eec92d0bf53e2014ccf2300934',
-  ALGOLIA_INDEX_NAME: 'donald_boulton',
-  application_id: '8TO5EHY2FM',
-  index_name: 'donald_boulton',
-  search_only_api_key: '68c60968e03d06ce61d592425b22c6bd',
-  algolia_api_key: 'KLAOJmvpl1yZhCrno50lgSpRVJrrTtPKi98521LaL8X62hajFubs8IHB5eLjrcG5DOQJdfB6Dca9XluHQQQCWVJhQVAD7aqzfivz5/AlYEYukabDmEOw6Efd8RzNhlsFvVTa0t2/oxYWL66Xo9LtRbC0Lfpkf/u/RpA55pn5CkE=',
-  powered_by: 'true',
+  recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
   copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#363636', // Used for setting manifest and progress theme colors.
   backgroundColor: '#1d1d1d', // Used for setting manifest background color.

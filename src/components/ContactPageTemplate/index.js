@@ -20,6 +20,14 @@ class ContactPageTemplate extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  handleRecaptcha = value => {
+    this.setState({ 'g-recaptcha-response': value })
+  }
+
+  handleAttachment = e => {
+    this.setState({ [e.target.name]: e.target.files[0] });
+  };
+  
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -38,7 +46,7 @@ class ContactPageTemplate extends Component {
   }
 
   render () {
-    const {title, subtitle, meta_title, meta_description} = this.props
+    const { title, subtitle, meta_title, meta_description } = this.props
     return (
       <div>
         <Helmet>
