@@ -1,5 +1,6 @@
 import React from 'react'
 import { getUser } from './services/auth'
+import fetch from 'node-fetch'
 
 class Main extends React.Component {
   state = { loading: false, json: null }
@@ -22,7 +23,7 @@ class Main extends React.Component {
     const { loading, json } = this.state
     const user = getUser()
     return (
-      <div>
+      <>
         <h1>Your Main App</h1>
         <ul>
           <li>API: {user.api && user.api.apiURL}</li>
@@ -34,7 +35,7 @@ class Main extends React.Component {
           {loading ? 'Loading...' : 'Call Lambda Function'}
         </button>
         <pre>{JSON.stringify(json, null, 2)}</pre>
-      </div>
+      </>
     )
   }
 }

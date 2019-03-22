@@ -4,12 +4,12 @@ import { handleLogin, isLoggedIn } from './services/auth'
 
 class Login extends React.Component {
   handleSubmit = () => handleLogin(user => navigate(`/app/profile`))
-  render () {
+  render() {
     return (
-      <div>
+      <>
         <h1>Log in</h1>
-        <button className='button is-primary' onClick={this.handleSubmit}>log in</button>
-      </div>
+        <button onClick={this.handleSubmit}>log in</button>
+      </>
     )
   }
 }

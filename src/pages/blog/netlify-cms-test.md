@@ -1,7 +1,7 @@
 ---
 templateKey: article-page
 title: Netlify CMS Test
-slug: netlify-cms-test
+slug: Netlify CMS Test
 date: 2019-03-22T03:36:27.484Z
 cover: /img/Octocat.png
 tags:

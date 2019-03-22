@@ -12,18 +12,26 @@ export default () => {
     content.message = 'You are not logged in'
   }
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        flex: '1',
+        justifyContent: 'space-between',
+        borderBottom: '1px solid #d1c1e0',
+        backgroundColor: 'aliceblue',
+      }}
+    >
       <span>{content.message}</span>
 
       <nav>
-        <span>Navigate Profile Area: </span>
-        <Link to='/app/'>Home</Link>
+        <span>Navigate the app: </span>
+        <Link to="/app/">Main</Link>
         {` `}
-        <Link to='/app/profile'>Profile</Link>
+        <Link to="/app/profile">Profile</Link>
         {` `}
         {isLoggedIn() ? (
           <a
-            href='/'
+            href="/"
             onClick={event => {
               event.preventDefault()
               logout(() => navigate(`/app/login`))
@@ -32,7 +40,7 @@ export default () => {
             Logout
           </a>
         ) : (
-          <Link to='/app/login'>Login</Link>
+          <Link to="/app/login">Login</Link>
         )}
       </nav>
     </div>
