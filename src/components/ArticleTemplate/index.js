@@ -26,7 +26,7 @@ const ArticleTemplate = ({
           {(tags && tags.length)
             ? tags.map(tag => (
               <li key={tag + `tag`}>
-                <Link className='is-primary' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                <Link className='button is-primary' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
               </li>
             ))
             : null

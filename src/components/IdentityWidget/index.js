@@ -60,7 +60,7 @@ export default class netlifyIdentityWidget extends React.Component {
   render () {
     return (
       <div className='hidden'>
-        <button id='mySigninBtn' className='button is-primary is-outlined' type='button' onClick={this.handleLogIn} >
+        <button id='mySigninBtn' className='button is-primary' type='button' onClick={this.handleLogIn} >
           <img src={signin} className='icon' alt='Login' />
         </button>
       </div>
