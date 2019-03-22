@@ -76,7 +76,7 @@ class ContactPageTemplate extends Component {
             <form
               name='contact'
               method='post'
-              action='/contact/success?no-cache=1'
+              action='/contact/success'
               encType='application/x-www-form-urlencoded'
               data-netlify='true'
               data-netlify-honeypot='bot-field'
