@@ -269,19 +269,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-cookiehub`,
-      options: {
-        // your cookiehub widget ID
-        cookihubId: `publiuslogic`,
-        // your google analytics tracking id
-        trackingId: `UA-24847941-1`,
-        // Puts tracking script in the head instead of the body
-        head: false,
-        // enable ip anonymization
-        anonymize: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page

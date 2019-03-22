@@ -6137,13 +6137,6 @@ gatsby-paginate@^1.0.17:
   dependencies:
     path "^0.12.7"
 
-gatsby-plugin-cookiehub@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-cookiehub/-/gatsby-plugin-cookiehub-1.0.0.tgz#8e162b41118b67a5b7d78492270f362d67625558"
-  integrity sha512-p1jQa/GYCkZa6Ew5F7tA3D2BSfymuEIwfKGYuqnEpcbfTSKDTZ6k0fbY/b6EC+rmkCsKeOadlTTJX7LwoeUvlQ==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-
 gatsby-plugin-create-client-paths@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.0.5.tgz#cff2d8d9d7e35f3b0e59cc88bb400391e7608ddd"
