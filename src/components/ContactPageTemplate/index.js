@@ -76,10 +76,11 @@ class ContactPageTemplate extends Component {
             <form
               name='contact'
               method='post'
-              action='/contact/success'
+              action='/contact/success?no-cache=1'
               encType='application/x-www-form-urlencoded'
               data-netlify='true'
               data-netlify-honeypot='bot-field'
+              data-netlify-recaptcha='true'
               onSubmit={this.handleSubmit}
             >
               <input type='hidden' name='form-name' value='contact' />
@@ -90,7 +91,7 @@ class ContactPageTemplate extends Component {
                 </label>
               </div>
               <div className='field'>
-                <label className='label'>Name</label>
+                <label className='label'>Full Name</label>
                 <div className='control'>
                   <input className='input' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
                 </div>

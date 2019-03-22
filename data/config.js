@@ -46,7 +46,7 @@ const config = {
   userLocation: 'OKC, Oklahoma', // User location to display in the author segment.
   userAvatar: 'https://donboulton.com/assets/images/donald-boulton.jpg', // User avatar to display in the author segment.
   userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
-  recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
+  recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
   copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#363636', // Used for setting manifest and progress theme colors.
   backgroundColor: '#1d1d1d', // Used for setting manifest background color.
