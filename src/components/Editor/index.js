@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import Editor from 'for-editor'
 
 import './styles.sass'
 
-class App extends Component {
+class Textarea extends Component {
   constructor () {
     super()
     this.state = {
@@ -26,7 +25,5 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(
-  <Editor />,
-  document.getElementById('textarea')
-)
+export default Textarea
+

@@ -3,6 +3,7 @@ import { navigate } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import Recaptcha from 'react-google-recaptcha'
+import Editor from '../components/Editor'
 
 const encode = (data) => {
   return Object.keys(data)
@@ -107,7 +108,7 @@ class ContactPageTemplate extends Component {
               <div className='field'>
                 <label className='label'>Message</label>
                 <div className='control'>
-                  <textarea className='textarea' placeholder='Message' name='message' id='message' rows='6' onChange={this.handleChange} />
+                  <Editor />
                 </div>
               </div>
               <div className='field'>
