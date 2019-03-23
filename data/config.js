@@ -6,7 +6,7 @@ const config = {
   siteLogo: '/src/img/logo.png', // Logo used for SEO and manifest.
   siteUrl: 'publiuslogic.com', // Domain of your website without pathPrefix.
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: 'Publius Logic is to Publish Logic and/or Common Sense.', // Website description used for RSS feeds/meta description tag.
+  siteDescription: 'Publius Logic is to Publish Logic and/or Common Sense. Publius Logic as publiuslogic.com is a developer website built with Gatsby Netlify functions integrated with Slack. Publications as the Founding Fathers Publius will be of discussions based upon considerations of logic and common sense via the idealisms of Thomas Paine',
   siteRss: '/rss.xml', // Path to the RSS file.
   siteRssAuthor: 'Donald Boulton', // The author name used in the RSS file
   siteFBAppID: '1825356251115265', // optional, sets the FB Application ID for using app insights

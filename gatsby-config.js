@@ -1,5 +1,4 @@
-import fetch from 'node-fetch'
-
+const { fetch } = require('node-fetch')
 const { createHttpLink } = require(`apollo-link-http`)
 const proxy = require('http-proxy-middleware')
 
