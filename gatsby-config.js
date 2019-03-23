@@ -1,4 +1,7 @@
-var proxy = require('http-proxy-middleware')
+import fetch from 'node-fetch'
+
+const { createHttpLink } = require(`apollo-link-http`)
+const proxy = require('http-proxy-middleware')
 
 const config = require('./data/config')
 
@@ -278,6 +281,20 @@ module.exports = {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'HASURA',
+        fieldName: 'publiuslogic',
+        createLink: () =>
+          createHttpLink({
+            uri: `${ process.env.HASURA_GRAPHQL_URL }`,
+            headers: {},
+            fetch,
+          }),
+        refetchInterval: 10, // Refresh every 60 seconds for new data
       },
     },
     `gatsby-plugin-netlify`,

@@ -12,18 +12,17 @@ class Main extends React.Component {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + user.token.access_token,
+        Authorization: 'Bearer' + user.token.access_token,
       },
     })
       .then(response => response.json())
       .then(json => this.setState({ loading: false, json }))
   }
-
   render () {
     const { loading, json } = this.state
     const user = getUser()
     return (
-      <>
+      <div>
         <h1>Your Main App</h1>
         <ul>
           <li>API: {user.api && user.api.apiURL}</li>
@@ -35,7 +34,7 @@ class Main extends React.Component {
           {loading ? 'Loading...' : 'Call Lambda Function'}
         </button>
         <pre>{JSON.stringify(json, null, 2)}</pre>
-      </>
+      </div>
     )
   }
 }
