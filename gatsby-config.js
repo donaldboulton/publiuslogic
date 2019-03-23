@@ -1,6 +1,7 @@
-const { fetch } = require('node-fetch')
+require('dotenv').config()
+
+const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
-const proxy = require('http-proxy-middleware')
 
 const config = require('./data/config')
 
