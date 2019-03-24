@@ -4,9 +4,9 @@ const config = {
   siteTitleShort: 'PubliusLogic', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: 'To Publish Logic', // Alternative site title for SEO.
   siteLogo: '/src/img/logo.png', // Logo used for SEO and manifest.
-  siteUrl: 'publiuslogic.com', // Domain of your website without pathPrefix.
+  siteUrl: 'https://publiuslogic', // Domain of your website without pathPrefix.
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: 'Publius Logic is to Publish Logic and/or Common Sense. Publius Logic as publiuslogic.com is a developer website built with Gatsby Netlify functions integrated with Slack. Publications as the Founding Fathers Publius will be of discussions based upon considerations of logic and common sense via the idealisms of Thomas Paine',
+  siteDescription: 'PubliusLogic to publish common sense.', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteRssAuthor: 'Donald Boulton', // The author name used in the RSS file
   siteFBAppID: '1825356251115265', // optional, sets the FB Application ID for using app insights
@@ -14,14 +14,14 @@ const config = {
   googleAnalyticsID: 'UA-24847941-1', // GA tracking ID.
   // disqusShortname: 'https-vagr9k-github-io-gatsby-advanced-starter', // enables Disqus comments, visually deviates from original Casper theme.
   siteSocialUrls: [
-    'https://facebook.com/don.boulton',
+    'https://github.com/donaldboulton/DWB',
     'https://twitter.com/donboulton',
     'mailto:donaldboulton@gmail.com',
   ],
   userLinks: [
     {
       label: 'GitHub',
-      url: 'https://github.com/donaldboulton/publiuslogic',
+      url: 'https://github.com/donaldboulton/gatsby-starter-netlify-cms',
       iconClassName: 'fa fa-github',
     },
     {
@@ -44,13 +44,13 @@ const config = {
   userEmail: 'donaldboulton@gmail.com', // Email used for RSS feed's author segment
   userTwitter: 'donboulton', // Optionally renders 'Follow Me' in the UserInfo segment.
   userLocation: 'OKC, Oklahoma', // User location to display in the author segment.
-  userAvatar: 'https://publiuslogic.com/img/donald-boulton.jpg', // User avatar to display in the author segment.
+  userAvatar: 'https://donboulton.com/assets/images/donald-boulton.jpg', // User avatar to display in the author segment.
   userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
   recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
-  copyright: 'Copyright © 2019. Publius Logic', // Copyright string for the footer of the website and RSS feed.
-  themeColor: '#1d1d1d', // Used for setting manifest and progress theme colors.
+  copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
+  themeColor: '#363636', // Used for setting manifest and progress theme colors.
   backgroundColor: '#1d1d1d', // Used for setting manifest background color.
-}
+};
 // Make sure pathPrefix is empty if not needed
 if (config.pathPrefix === '/') {
   config.pathPrefix = ''

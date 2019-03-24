@@ -1,7 +1,3 @@
-const fetch = require('node-fetch')
-const { buildClientSchema } = require('graphql')
-const { createHttpLink } = require('apollo-link-http')
-
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -36,10 +32,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-create-client-paths',
-      options: { prefixes: ['/app/*'] },
-    },
     'gatsby-plugin-sass',
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-styled-components',
@@ -284,6 +276,10 @@ module.exports = {
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
       },
+    },
+    {
+      resolve: 'gatsby-plugin-create-client-paths',
+      options: { prefixes: ['/app/*'] },
     },
     `gatsby-plugin-netlify`,
   ],
