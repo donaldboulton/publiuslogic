@@ -35,7 +35,6 @@ const HomePageTemplate = ({
     </section>
     <section className='section section--gradient'>
       <div className='container'>
-
         <div className='section'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>

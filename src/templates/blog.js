@@ -60,7 +60,7 @@ export default class BlogPage extends Component {
           </div>
         </section>
         <section className='section'>
-          <div className='columns is-multiline'>
+          <div className='container'>
             <PostCard posts={group} />
           </div>
         </section>

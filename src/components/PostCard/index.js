@@ -3,7 +3,7 @@ import {Link} from 'gatsby'
 
 const PostCard = ({ posts }) => {
   return (
-    <div className='container'>
+    <div className='columns is-multiline'>
       {posts
         .filter(post => post.node.frontmatter.templateKey === 'article-page')
         .map(({ node: post }) => (
@@ -16,12 +16,15 @@ const PostCard = ({ posts }) => {
                 <Link className='title has-text-primary is-size-4' to={post.fields.slug}>
                   {post.frontmatter.title}
                 </Link>
-                <span className='subtitle is-size-5 is-block'>
+              </p>
+              <p>
+                <span className='subtitle is-size-5'>
                   <small>{post.frontmatter.date}</small>
                 </span>
               </p>
               <p>
                 {post.excerpt}
+                <br />
                 <br />
                 <Link className='button is-small' to={post.fields.slug}>
                                 Keep Reading →
