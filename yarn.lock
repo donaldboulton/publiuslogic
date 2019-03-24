@@ -6809,7 +6809,7 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-"github-buttons@git+https://github.com/ntkme/github-buttons.git":
+github-buttons@^2.2.5, "github-buttons@git+https://github.com/ntkme/github-buttons.git":
   version "2.2.8"
   resolved "git+https://github.com/ntkme/github-buttons.git#0e0e92595e445dd95b5df38923ee15392ce16dd4"
 
@@ -12461,6 +12461,13 @@ react-frame-component@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/react-frame-component/-/react-frame-component-4.0.2.tgz#408f137ab4ba14cd13a5844b86ac972903dda021"
   integrity sha512-846zt81ijEC0ul6sBWzxkI5EGIE39ft9EaNzQUcszV/WWWDnldFJ+tKU7Et2GhZ4OHT/cy1GHcjsLLsdiOXhBg==
+
+react-github-btn@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-github-btn/-/react-github-btn-1.0.3.tgz#0a0d2967c913cf514953ebe8ceab281c8adfc9c3"
+  integrity sha512-+DLWYt3yqtkgaRfe77ALnPGSDmy188sXWPt0XzBnuoLBwzaKUjwdueDvZ2r7VYVrDumGwz92XUDOgkQHWQCYvg==
+  dependencies:
+    github-buttons "^2.2.5"
 
 react-google-recaptcha@^1.0.5:
   version "1.0.5"

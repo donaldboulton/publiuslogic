@@ -67,6 +67,7 @@
     "react": "^16.8.4",
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.8.4",
+    "react-github-btn": "^1.0.3",
     "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.5.0",

@@ -2,6 +2,8 @@ import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import SearchBox from '../SearchBox'
 import logo from '../../img/site-logo250x80.png'
+import GithubStar from '../GithubStar'
+
 import NetlifyIdentityWidget from '../IdentityWidget'
 
 const NavBar = ({toggleNavbar, isActive}) => (
@@ -36,6 +38,9 @@ const NavBar = ({toggleNavbar, isActive}) => (
             <div className='navbar-item'>
               <SearchBox searchIndex={data.siteSearchIndex.index} />
             </div>
+            <div className='navbar-item'>
+              <GithubStar />
+            </div>
             <div className='navbar-item has-dropdown is-hoverable'>
               <a className='navbar-link  is-active' href='/'>
                  Docs
@@ -59,7 +64,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
               </div>
             </div>
             <div className='navbar-item has-dropdown is-hoverable'>
-              <a className='navbar-link  is-active' href='/'>
+              <a className='navbar-link  is-active' href='/blog'>
                  Blog
               </a>
               <div className='navbar-dropdown'>

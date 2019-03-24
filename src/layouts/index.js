@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
+import WebIntents from '../components/WebIntents'
 import Subscriptions from '../components/Subscriptions'
 import Hr from '../components/Hr'
 import Slack from '../components/Slack'
@@ -30,6 +31,7 @@ class TemplateWrapper extends Component {
         </Helmet>
         <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
         <div>{this.props.children}</div>
+        <WebIntents />
         <Subscriptions />
         <Slack />
         <Hr />
