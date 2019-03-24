@@ -12,7 +12,6 @@ const config = {
   siteFBAppID: '1825356251115265', // optional, sets the FB Application ID for using app insights
   sitePaginationLimit: 10, // The max number of posts per page.
   googleAnalyticsID: 'UA-24847941-1', // GA tracking ID.
-  // disqusShortname: 'https-vagr9k-github-io-gatsby-advanced-starter', // enables Disqus comments, visually deviates from original Casper theme.
   siteSocialUrls: [
     'https://github.com/donaldboulton/DWB',
     'https://twitter.com/donboulton',
@@ -48,9 +47,9 @@ const config = {
   userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
   recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
   copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
-  themeColor: '#363636', // Used for setting manifest and progress theme colors.
-  backgroundColor: '#1d1d1d', // Used for setting manifest background color.
-};
+  themeColor: '#1d1d1d', // Used for setting manifest and progress theme colors.
+  backgroundColor: '#363636', // Used for setting manifest background color.
+}
 // Make sure pathPrefix is empty if not needed
 if (config.pathPrefix === '/') {
   config.pathPrefix = ''
