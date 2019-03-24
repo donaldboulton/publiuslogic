@@ -10,8 +10,24 @@ const config = {
   siteRss: '/rss.xml', // Path to the RSS file.
   siteRssAuthor: 'Donald Boulton', // The author name used in the RSS file
   siteFBAppID: '1825356251115265', // optional, sets the FB Application ID for using app insights
-  sitePaginationLimit: 10, // The max number of posts per page.
+  sitePaginationLimit: 4, // The max number of posts per page.
   googleAnalyticsID: 'UA-24847941-1', // GA tracking ID.
+  siteFBSecret: 'f3b147f8f8c38e752cf1bc146690ea1f',
+  googleTagManagerID: 'UA-24847941-1', // GTM tracking ID.
+  disqusShortname: 'mansbooks-1', // Disqus shortname.
+  postDefaultCategoryID: 'Tech', // Default category for posts.
+  dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
+  dateFormat: 'DD/MM/YYYY', // Date format for display.
+  userName: 'Donald Boulton', // Username to display in the author segment.
+  userEmail: 'donaldboulton@gmail.com', // Email used for RSS feed's author segment
+  userTwitter: 'donboulton', // Optionally renders 'Follow Me' in the UserInfo segment.
+  userLocation: 'OKC, Oklahoma', // User location to display in the author segment.
+  userAvatar: 'https://donboulton.com/assets/images/donald-boulton.jpg', // User avatar to display in the author segment.
+  userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
+  recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
+  copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
+  themeColor: '#1d1d1d', // Used for setting manifest and progress theme colors.
+  backgroundColor: '#363636', // Used for setting manifest background color.
   siteSocialUrls: [
     'https://github.com/donaldboulton/DWB',
     'https://twitter.com/donboulton',
@@ -34,21 +50,6 @@ const config = {
       iconClassName: 'fa fa-envelope',
     },
   ],
-  siteFBSecret: 'f3b147f8f8c38e752cf1bc146690ea1f',
-  disqusShortname: 'mansbooks-1', // Disqus shortname.
-  postDefaultCategoryID: 'Tech', // Default category for posts.
-  dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
-  dateFormat: 'DD/MM/YYYY', // Date format for display.
-  userName: 'Donald Boulton', // Username to display in the author segment.
-  userEmail: 'donaldboulton@gmail.com', // Email used for RSS feed's author segment
-  userTwitter: 'donboulton', // Optionally renders 'Follow Me' in the UserInfo segment.
-  userLocation: 'OKC, Oklahoma', // User location to display in the author segment.
-  userAvatar: 'https://donboulton.com/assets/images/donald-boulton.jpg', // User avatar to display in the author segment.
-  userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
-  recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
-  copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
-  themeColor: '#1d1d1d', // Used for setting manifest and progress theme colors.
-  backgroundColor: '#363636', // Used for setting manifest background color.
 }
 // Make sure pathPrefix is empty if not needed
 if (config.pathPrefix === '/') {
