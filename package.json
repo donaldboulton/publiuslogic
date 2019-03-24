@@ -24,7 +24,7 @@
     "babel-plugin-styled-components": "^1.10.0",
     "bulma": "^0.7.4",
     "fs-extra": "^7.0.1",
-    "gatsby": "^2.2.5",
+    "gatsby": "^2.2.9",
     "gatsby-paginate": "^1.0.17",
     "gatsby-plugin-create-client-paths": "^2.0.5",
     "gatsby-plugin-feed": "^2.0.15",
