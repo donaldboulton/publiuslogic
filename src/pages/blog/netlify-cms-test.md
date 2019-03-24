@@ -3,24 +3,24 @@ templateKey: article-page
 title: Netlify CMS
 slug: Netlify CMS
 date: 2019-03-22T03:36:27.484Z
-cover: /img/Octocat.png
+cover: /img/netlify-cms.jpg
 tags:
   - Netlify CMS
 meta_title: Netlify CMS
 meta_description: Netlify CMS backend for editing data and site pages
 ---
 
-Netlify CMS. Is using a custom build for styling.
+## Netlify CMS
 
-## Static + content management = ♥
+Static + content management = ♥
 
-    Netlify CMS is Always the latest GitHub repo pull, with my custom webpack hashed build.
-    My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
+Netlify CMS is Always the latest GitHub repo pull, with my custom Webpack hashed build.
+My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
 
-    Get the speed, security, and scalability of a static site, while still providing a convenient editing interface for content.
+Get the speed, security, and scalability of a static site, while still providing a convenient editing interface for content.
 
-    An integrated part of your Git workflow
-    Content is stored in your Git repository along side your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
+An integrated part of your Git workflow
+Content is stored in your Git repository along side your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
 
 ### An extensible CMS built on React
 
