@@ -1,6 +1,4 @@
-const fetch = require(`node-fetch`)
-var proxy = require('http-proxy-middleware')
-const { createHttpLink } = require(`apollo-link-http`)
+const proxy = require('http-proxy-middleware')
 
 const dotenv = require('dotenv')
 dotenv.config()
@@ -102,21 +100,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-layout`,
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        fieldName: 'github',
-        typeName: 'GitHub',
-        createLink: () => createHttpLink({
-          uri: 'https://api.github.com/graphql',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `bearer ${process.env.GITHUB_TOKEN}`,
-          },
-          fetch,
-        }),
-      },
-    },
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

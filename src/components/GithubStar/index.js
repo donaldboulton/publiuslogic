@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 
 class GitHubStarButton extends PureComponent {
   async componentDidMount () {
-    const gitHubButtonModule = await import('github-buttons/dist/react');
+    const gitHubButtonModule = await import('github-buttons')
 
     this.GitHubButton = gitHubButtonModule.default;
 
