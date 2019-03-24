@@ -38,10 +38,10 @@ exports.createPages = ({ actions, graphql }) => {
       edges: result.data.allMarkdownRemark.edges,
       createPage: createPage,
       pageTemplate: 'src/templates/blog.js',
-      pageLength: 4, // This is optional and defaults to 10 if not used
+      pageLength: 8, // This is optional and defaults to 10 if not used
       pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
       context: {}, // This is optional and defaults to an empty object if not used
-      postsPerPage: 4,
+      postsPerPage: 6,
     })
     posts.forEach(edge => {
       const id = edge.node.id

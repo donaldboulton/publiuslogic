@@ -11,7 +11,7 @@ const PostCard = ({ posts }) => {
             className='is-parent column is-6'
             key={post.id}
           >
-            <article className='title is-child box'>
+            <article className='is-child box'>
               <p>
                 <Link className='title has-text-primary is-size-4' to={post.fields.slug}>
                   {post.frontmatter.title}
