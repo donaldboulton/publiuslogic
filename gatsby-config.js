@@ -1,5 +1,6 @@
-const fetch = require(`node-fetch`)
-const { createHttpLink } = require(`apollo-link-http`)
+const fetch = require('node-fetch')
+const { buildClientSchema } = require('graphql')
+const { createHttpLink } = require('apollo-link-http')
 
 const dotenv = require('dotenv')
 dotenv.config()
@@ -287,12 +288,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-graphql',
       options: {
-        typeName: 'HASURA',
-        fieldName: 'publiuslogic',
+        typeName: 'GitHub',
+        fieldName: 'github',
         createLink: () =>
           createHttpLink({
-            uri: `${process.env.HASURA_GRAPHQL_URL}`,
-            headers: {},
+            uri: 'https://api.github.com/graphql',
+            headers: {
+              'Authorization': `bearer ${process.env.GITHUB_TOKEN}`,
+            },
             fetch,
           }),
         refetchInterval: 10, // Refresh every 60 seconds for new data
