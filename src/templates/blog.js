@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Link} from 'gatsby'
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
 import config from '../../data/config'
 import Helmet from 'react-helmet'
 import PostCard from '../components/PostCard'
@@ -60,20 +60,19 @@ export default class BlogPage extends Component {
           </div>
         </section>
         <section className='section'>
-          <div class="columns is-multiline">
-             <div class="is-parent column is-6">
-               <article class="box notification">
-                 <PostCard posts={group} />
-               </article>
+          <div className='columns is-multiline'>
+            <div className='is-parent column is-6'>
+              <article className='box notification'>
+                <PostCard posts={group} />
+              </article>
             </div>
           </div>
         </section>
-          <section className='section'>
-            <div className='buttons is-centered'>
-              <PaginationLink test={first} url={previousUrl} text='Previous Page' />
-              <PaginationLink test={last} url={nextUrl} text='Next Page' />
-            </div>
-          </section>
+        <section className='section'>
+          <div className='buttons is-centered'>
+            <PaginationLink test={first} url={previousUrl} text='Previous Page' />
+            <PaginationLink test={last} url={nextUrl} text='Next Page' />
+          </div>
         </section>
       </div>
     )
