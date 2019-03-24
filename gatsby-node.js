@@ -41,6 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
       pageLength: 6, // This is optional and defaults to 10 if not used
       pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
       context: {}, // This is optional and defaults to an empty object if not used
+      limit: 4,
     })
     posts.forEach(edge => {
       const id = edge.node.id

@@ -11,9 +11,9 @@ const PostCard = ({ posts }) => {
             className='is-parent column is-6'
             key={post.id}
           >
-            <article className='box notification'>
+            <article className='title is-child box'>
               <p>
-                <Link className='has-text-primary tile is-child' to={post.fields.slug}>
+                <Link className='title has-text-primary is-size-4' to={post.fields.slug}>
                   {post.frontmatter.title}
                 </Link>
                 <span className='subtitle is-size-5 is-block'>
@@ -22,7 +22,6 @@ const PostCard = ({ posts }) => {
               </p>
               <p>
                 {post.excerpt}
-                <br />
                 <br />
                 <Link className='button is-small' to={post.fields.slug}>
                                 Keep Reading →

@@ -61,11 +61,7 @@ export default class BlogPage extends Component {
         </section>
         <section className='section'>
           <div className='columns is-multiline'>
-            <div className='is-parent column is-6'>
-              <article className='box notification'>
-                <PostCard posts={group} />
-              </article>
-            </div>
+            <PostCard posts={group} />
           </div>
         </section>
         <section className='section'>
