@@ -10,12 +10,12 @@ meta_title: Netlify CMS
 meta_description: Netlify CMS backend for editing data and site pages
 ---
 
-## Netlify CMS Backend
+Netlify CMS. Is using a custom build for styling.
 
-### Static + content management = ♥
+## Static + content management = ♥
 
-    My Netlify CMS is Always the latest GitHub repo pull, with my custom webpack hashed build.
-    My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway backend.
+    Netlify CMS is Always the latest GitHub repo pull, with my custom webpack hashed build.
+    My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
 
     Get the speed, security, and scalability of a static site, while still providing a convenient editing interface for content.
 
