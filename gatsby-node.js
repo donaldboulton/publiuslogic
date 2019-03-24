@@ -1,10 +1,10 @@
 const _ = require('lodash')
 const path = require('path')
-const {createFilePath} = require('gatsby-source-filesystem')
+const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 
-exports.createPages = ({actions, graphql}) => {
-  const {createPage} = actions
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
 
   return graphql(`
     {
@@ -83,11 +83,11 @@ exports.createPages = ({actions, graphql}) => {
   })
 }
 
-exports.onCreateNode = ({node, actions, getNode}) => {
-  const {createNodeField} = actions
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({node, getNode})
+    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,

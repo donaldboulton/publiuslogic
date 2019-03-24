@@ -285,22 +285,6 @@ module.exports = {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
       },
     },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'GitHub',
-        fieldName: 'github',
-        createLink: () =>
-          createHttpLink({
-            uri: 'https://api.github.com/graphql',
-            headers: {
-              'Authorization': `bearer ${process.env.GITHUB_TOKEN}`,
-            },
-            fetch,
-          }),
-        refetchInterval: 10, // Refresh every 60 seconds for new data
-      },
-    },
     `gatsby-plugin-netlify`,
   ],
 }
