@@ -1,6 +1,9 @@
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
+const dotenv = require('dotenv')
+dotenv.config()
+
 const config = require('./data/config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
@@ -288,7 +291,7 @@ module.exports = {
         fieldName: 'publiuslogic',
         createLink: () =>
           createHttpLink({
-            uri: `${config.HASURA_GRAPHQL_URL}`,
+            uri: `${process.env.HASURA_GRAPHQL_URL}`,
             headers: {},
             fetch,
           }),

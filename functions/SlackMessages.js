@@ -1,6 +1,9 @@
 import querystring from 'querystring'
 import fetch from 'node-fetch'
 
+var dotenv = require('dotenv')
+dotenv.config()
+
 exports.handler = async (event, context) => {
 
   if (event.httpMethod !== 'POST') {
