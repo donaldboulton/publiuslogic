@@ -7,56 +7,68 @@ import like from '../../img/like-action.png'
 
 const WebIntents = () => {
   return (
-    <section className='section'>
-      <div className='container'>
-        <div className='box shadow column is-10 is-offset-1'>
-          <div className='columns is-mobile'>
-            <div className='column'>
-              <a
-                href='https://twitter.com/intent/tweet'
-                rel='noreferrer'
-              >
+    <div className='container'>
+      <div className='content'>
+        <nav className='level is-mobile'>
+          <div className='level-left'>
+            <a
+              href='https://twitter.com/intent/tweet'
+              rel='noreferrer'
+              className='level-item'
+              aria-label='tweet'
+            >
+              <span className='icon is-small'>
                 <img
                   src={tweet}
                   alt='Tweet'
-                  style={{ width: '32px', height: '32px' }}
                 />
-              </a>
-            </div>
-            <div className='column'>
-              <a
-                href='https://twitter.com/intent/tweet?'
-                rel='noreferrer'
-              >
+              </span>
+            </a>
+            <a
+              href='https://twitter.com/intent/tweet?'
+              rel='noreferrer'
+              className='level-item'
+              aria-label='reply'
+            >
+              <span className='icon is-small'>
                 <img
+                  className='has-text-success'
                   src={reply}
                   alt='Reply'
-                  style={{ width: '32px', height: '32px' }}
-                />
-              </a>
-            </div>
-            <div className='column'>
-              <a rel='noreferrer' href='https://twitter.com/intent/retweet'>
+                />          
+              </span>
+            </a>
+            <a
+              rel='noreferrer'
+              href='https://twitter.com/intent/retweet'
+              className='level-item' aria-label='like'
+            >
+              <span className='icon is-small'>
                 <img
+                  className='has-text-success'
                   src={retweet}
                   alt='Retweet'
-                  style={{ width: '32px', height: '32px' }}
                 />
-              </a>
-            </div>
-            <div className='column'>
-              <a rel='noreferrer' href='https://twitter.com/intent/like'>
+              </span>
+            </a>
+            <a
+              href='https://twitter.com/intent/like?'
+              rel='noreferrer'
+              className='level-item'
+              aria-label='like'
+            >
+              <span className='icon is-small'>
                 <img
+                  className='has-text-danger'
                   src={like}
-                  alt='Twitter likes'
-                  style={{ width: '32px', height: '32px' }}
+                  alt='Reply'
                 />
-              </a>
-            </div>
+              </span>
+            </a>
           </div>
-        </div>
+        </nav>
       </div>
-    </section>
+    </div>
   )
 }
 

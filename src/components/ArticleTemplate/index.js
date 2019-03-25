@@ -3,6 +3,7 @@ import Content from '../Content'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import { CommentCount } from 'disqus-react'
+import WebIntents from '../components/WebIntents'
 
 const ArticleTemplate = ({
   content,
@@ -27,10 +28,17 @@ const ArticleTemplate = ({
       </h1>
       <img src={cover} alt={title} />
       <br />
-      <Link to={`/blog` + slug + `#disqus_thread`}>
-        <CommentCount shortname={disqusShortname} config={disqusConfig} />
-      </Link>
+      <div style={{ marginTop: `.5rem` }}>
+        <Link to={`/blog` + slug + `#disqus_thread`}>
+          <CommentCount shortname={disqusShortname} config={disqusConfig} />
+        </Link>
+      </div>
       <PostContent content={content} />
+      <div style={{ marginTop: `.5rem` }}>
+        <Link to={`/blog` + slug + `#disqus_thread`}>
+          <WebIntents />
+        </Link>
+      </div>
       <div style={{ marginTop: `2rem` }}>
         <h4>Tags</h4>
         <ul className='taglist'>
