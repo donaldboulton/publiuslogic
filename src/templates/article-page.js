@@ -1,4 +1,5 @@
 import React from 'react'
+import Prism from 'prismjs'
 import 'prismjs/themes/prism-twilight.css'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
@@ -7,6 +8,8 @@ import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
+
+Prism.highlightAll()
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data

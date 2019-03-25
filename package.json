@@ -21,6 +21,7 @@
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "apollo-link-http": "^1.5.14",
+    "babel-plugin-prismjs": "^1.0.2",
     "babel-plugin-styled-components": "^1.10.0",
     "bulma": "^0.7.4",
     "classnames": "^2.2.6",
