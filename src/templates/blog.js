@@ -7,13 +7,13 @@ import PostCard from '../components/PostCard'
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <Link to={`/blog/${props.url}`} className='button is-rounded'>
+      <Link to={`/blog/${props.url}`} className='button'>
         {props.text}
       </Link>
     )
   } else {
     return (
-      <span disabled className='button is-rounded'>
+      <span disabled className='button'>
         {props.text}
       </span>
     )
