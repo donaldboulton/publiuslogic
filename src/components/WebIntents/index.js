@@ -1,15 +1,15 @@
 import React from 'react'
 
-import tweet from '/img/twitter.svg'
-import reply from '/img/reply-action_0.png'
-import retweet from '/img/retweet-action.png'
-import like from '/img/like-action.png'
+import tweet from '../../img/twitter.svg'
+import reply from '../../img/reply-action_0.png'
+import retweet from '../../img/retweet-action.png'
+import like from '../../img/like-action.png'
 
 const WebIntents = () => {
   return (
     <section className='section'>
       <div className='container'>
-        <div className='is-10 is-offset-1'>
+        <div className='box shadow column is-10 is-offset-1'>
           <div className='columns is-mobile'>
             <div className='column'>
               <a

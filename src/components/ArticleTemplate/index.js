@@ -20,7 +20,7 @@ const ArticleTemplate = ({
       </h1>
       <img src={cover} alt={title} />
       <PostContent content={content} />
-      <div style={{ marginTop: `4rem` }}>
+      <div style={{ marginTop: `2rem` }}>
         <h4>Tags</h4>
         <ul className='taglist'>
           {(tags && tags.length)

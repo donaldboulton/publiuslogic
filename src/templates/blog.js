@@ -7,13 +7,13 @@ import PostCard from '../components/PostCard'
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <Link to={`/blog/${props.url}`} className='button is-primary'>
+      <Link to={`/blog/${props.url}`} className='button is-rounded'>
         {props.text}
       </Link>
     )
   } else {
     return (
-      <span disabled className='button is-primary'>
+      <span disabled className='button is-rounded'>
         {props.text}
       </span>
     )
@@ -22,8 +22,8 @@ const PaginationLink = props => {
 
 export default class BlogPage extends Component {
   render () {
-    const {pageContext} = this.props
-    const {group, index, first, last} = pageContext
+    const { pageContext } = this.props
+    const { group, index, first, last } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
 
@@ -38,7 +38,7 @@ export default class BlogPage extends Component {
     return (
       <div>
         <Helmet>
-          <title>Blog | PubliusLogic</title>
+          <title>Blog | Publius Logic</title>
           {/* Schema.org tags */}
           <script type='application/ld+json'>
             {JSON.stringify(websiteSchemaOrgJSONLD)}
@@ -60,15 +60,13 @@ export default class BlogPage extends Component {
           </div>
         </section>
         <section className='section'>
-          <div className='container'>
-            <PostCard posts={group} />
-          </div>
-        </section>
-        <section className='section'>
-          <div className='buttons is-centered'>
-            <PaginationLink test={first} url={previousUrl} text='Previous Page' />
-            <PaginationLink test={last} url={nextUrl} text='Next Page' />
-          </div>
+          <PostCard posts={group} />
+          <section className='section'>
+            <div className='buttons is-centered'>
+              <PaginationLink test={first} url={previousUrl} text='Previous Page' />
+              <PaginationLink test={last} url={nextUrl} text='Next Page' />
+            </div>
+          </section>
         </section>
       </div>
     )
