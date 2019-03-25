@@ -1,5 +1,3 @@
-require('prismjs/themes/prism-twilight.css')
-
 const injectTwitterScript = () => {
   function addJS (jsCode) {
     var s = document.createElement(`script`)

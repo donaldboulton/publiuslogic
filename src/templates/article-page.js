@@ -1,4 +1,5 @@
 import React from 'react'
+import 'prismjs/themes/prism-twilight.css'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
