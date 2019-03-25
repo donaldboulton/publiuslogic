@@ -7,7 +7,7 @@ import { Meta, TagList } from './styles'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import { Comments } from 'styled-icons/fa-solid/Comments'
-import { disqusConfig } from '../../utils/misc'
+import config from '../../../data/config'
 
 const PostMeta = ({ title, slug, date, timeToRead, tags, inTitle = false }) => (
   <Meta inTitle={inTitle}>
@@ -25,7 +25,7 @@ const PostMeta = ({ title, slug, date, timeToRead, tags, inTitle = false }) => (
       <Comments size='1.2em' />
       &ensp;
       <Link to={`/blog` + slug + `#disqus_thread`}>
-        <CommentCount {...disqusConfig({ slug, title })} />
+        <CommentCount shortname={config.disqusShortname} config={config.disqusConfig} />
       </Link>
     </span>
     <TagList tags={tags} />

@@ -6,6 +6,7 @@ import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
+import Subscriptions from '../components/Subscriptions'
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -35,6 +36,7 @@ const ArticlePage = ({ data }) => {
               tags={post.frontmatter.tags}
               title={post.frontmatter.title}
             />
+            <Subscriptions />
             <Share
               title={post.frontmatter.title}
               slug={post.fields.slug}

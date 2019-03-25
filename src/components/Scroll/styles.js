@@ -6,19 +6,19 @@ export const Arrow = styled(Down).attrs(({ direction, size }) => ({
   as: direction === `up` && Up,
   size,
 }))`
-  ${({ theme, show, size }) => `
+  ${({ show, size }) => `
   z-index: 2;
-  background: ${theme.lightGreen};
-  color: ${theme.white};
+  background: #1d1d1d;
+  color: #cccccc;
   border-radius: 50%;
-  transition: ${theme.shortTrans};
+  transition: 1000;
   position: absolute;
   bottom: 0.5em;
   opacity: ${show ? 1 : 0};
   visibility: ${show ? `visible` : `hidden`};
   :hover {
     transform: scale(1.15);
-    background: ${theme.orange};
+    background: #d64000;
   }
   right: calc(50vw - ${size} / 2);`}
 `
