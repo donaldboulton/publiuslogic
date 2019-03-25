@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Hr from '../components/Hr'
 import Slack from '../components/Slack'
+import Subscriptions from '../components/Subscriptions'
 import Scroll from '../components/Scroll'
 
 import '../assets/sass/styles.sass'
@@ -30,6 +31,7 @@ class TemplateWrapper extends Component {
         </Helmet>
         <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
         <div>{this.props.children}</div>
+        <Subscriptions />
         <Slack />
         <Hr />
         <Scroll />

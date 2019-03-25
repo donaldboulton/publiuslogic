@@ -10,7 +10,7 @@ const PostCard = ({ posts }) => {
             .filter(post => post.node.frontmatter.templateKey === 'article-page')
             .map(({ node: post }) => (
               <div
-                className='is-parent column is-5'
+                className='is-parent column is-6'
                 key={post.id}
               >
                 <article className='is-child box'>

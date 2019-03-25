@@ -62,8 +62,10 @@ export default class BlogPage extends Component {
         <section className='section'>
           <PostCard posts={group} />
           <section className='section'>
-            <div className='buttons is-centered'>
+            <div className='is-pulled-left'>
               <PaginationLink test={first} url={previousUrl} text='Previous Page' />
+            </div>
+            <div className='is-pulled-right'>
               <PaginationLink test={last} url={nextUrl} text='Next Page' />
             </div>
           </section>

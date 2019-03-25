@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react"
 
-import { Arrow } from './styles'
+import { Arrow } from "./styles"
 
 const Scroll = ({
   direction = `up`,
