@@ -1,11 +1,13 @@
 ---
+templateKey: article-page
 title: Google Maps + React Hooks
 slug: Google Maps + React Hooks
 date: 2019-03-25T20:20:43.942Z
 cover: /img/google-maps+react-hooks.svg
 tags:
-  - WebDev
-  - Tutorial
+  - React
+  - Hooks
+  - Maps
 meta_title: Google Maps + React Hooks
 meta_description: Google Maps + React Hooks 
 ---
@@ -49,7 +51,7 @@ Map.defaultProps = {
 }
 ```
 
-To use it, simply grab a free Google Maps API key from [Google's cloud console](https://console.cloud.google.com) ([here's a guide for that](https://developers.google.com/maps/documentation/javascript/get-api-key)) and either add it to your .env file or paste it in directly for GOOGLE_MAPS_API_KEY.
+To use it, simply grab a free Google Maps API key from [Google cloud console](https://console.cloud.google.com) ([here is a guide for that](https://developers.google.com/maps/documentation/javascript/get-api-key)) and either add it to your .env file or paste it in directly for GOOGLE_MAPS_API_KEY.
 
 Then simply drop in the above Map component wherever you would like to display a Google map.
 
