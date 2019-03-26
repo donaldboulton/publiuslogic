@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 
 import { MasonryDiv, Col } from './styles'
 
-export default function Masonry({ children, gap, minWidth = 300 }) {
+export default function Masonry ({ children, gap, minWidth = 300 }) {
   const cols = []
   const ref = useRef()
   const [numCols, setNumCols] = useState(3)
