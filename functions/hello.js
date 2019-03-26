@@ -1,6 +1,3 @@
-// from https://github.com/netlify/create-react-app-lambda/blob/master/src/lambda/hello.js
-
-// show object spread works, i.e. babel works
 const obj = {
   foo: 'bar',
 }
