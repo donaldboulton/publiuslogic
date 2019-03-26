@@ -25,13 +25,13 @@ export default () => {
 
       <nav>
         <span>Navigate the app: </span>
-        <Link to="/app/">Main</Link>
+        <Link to='/app/'>Main</Link>
         {` `}
-        <Link to="/app/profile">Profile</Link>
+        <Link to='/app/profile'>Profile</Link>
         {` `}
         {isLoggedIn() ? (
           <a
-            href="/"
+            href='/'
             onClick={event => {
               event.preventDefault()
               logout(() => navigate(`/app/login`))
@@ -40,7 +40,7 @@ export default () => {
             Logout
           </a>
         ) : (
-          <Link to="/app/login">Login</Link>
+          <Link to='/app/login'>Login</Link>
         )}
       </nav>
     </div>

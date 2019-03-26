@@ -5,7 +5,6 @@ meta_title: Privacy Us | Gatsby Starter Business
 meta_description: >-
   The privacy of my visitors is extremely important.
   This Privacy Policy outlines the types of personal information that is received and collected and how it is used. Terms as stated herein are legally binding.
-youtubeId: 'yoE9-tNvhRs'
 ---
 
 # User data encrypted
@@ -32,6 +31,8 @@ All of this information is not linked to anything that is personally identifiabl
 ## Cookies & Beacons
 
 When you visit this site "convenience" cookies are stored on your computer when you submit a comment to help you log in faster to [Twitter](https://twitter.com/donboulton) the next time you do a tweet.
+
+`youtube: yoE9-tNvhRs`
 
 Third-party advertisers may also place and read cookies on your browser and/or use web beacons to collect information. This site has no access or control over these cookies. You should review the respective privacy policies on any and all third-party ad servers for more information regarding their practices and how to opt-out.
 

@@ -3,7 +3,7 @@ import config from '../../../data/config'
 
 const Footer = () => {
   return (
-    <footer className='footer'>
+    <footer className='footer' itemScope itemType='https://schema.org/WPFooter'>
       <div className='container'>
         <div className='content has-text-centered'>
           <p>

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components'
 
 const langExtColor = [
   { lang: `javascript`, tag: `js`, color: `#f7df1e` },
@@ -25,7 +25,7 @@ const langExtColor = [
 const languageTags = langExtColor
   .map(
     ({ lang, tag, color }) =>
-      `.gatsby-highlight[data-language="${lang}"]::before {
+      `.gatsby-highlight[data-language='${lang}']::before {
         content: '${tag}';
         background: ${color};
       }`

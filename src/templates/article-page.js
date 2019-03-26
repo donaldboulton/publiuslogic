@@ -46,7 +46,9 @@ const ArticlePage = ({ data }) => {
               excerpt={post.frontmatter.meta_description}
             />
             <hr />
-            <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />  
+            <div itemScope itemType='https://schema.org/UserComments'>
+              <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+            </div>
           </div>
         </div>
       </div>

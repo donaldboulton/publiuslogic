@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import GitHubButton from 'react-github-btn'
+
 class GitHubStarButton extends PureComponent {
   render () {
     return (

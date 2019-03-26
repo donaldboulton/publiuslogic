@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["bulmaSteps"] = factory();
+		exports['bulmaSteps'] = factory();
 	else
-		root["bulmaSteps"] = factory();
+		root['bulmaSteps'] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = '';
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
@@ -77,19 +77,19 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+'use strict';
+Object.defineProperty(__webpack_exports__, '__esModule', { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__events__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaultOptions__ = __webpack_require__(2);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError('this hasn't been initialised - super() hasn't been called'); } return call && (typeof call === 'object' || typeof call === 'function') ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var onStepsPrevious = Symbol('onStepsPrevious');
 var onStepsNext = Symbol('onStepsNext');
@@ -111,7 +111,7 @@ var bulmaSteps = function (_EventEmitter) {
 
     _this._clickEvents = ['click'];
     /// Set default options and merge with instance defined
-    _this.options = _extends({}, __WEBPACK_IMPORTED_MODULE_1__defaultOptions__["a" /* default */], options);
+    _this.options = _extends({}, __WEBPACK_IMPORTED_MODULE_1__defaultOptions__['a' /* default */], options);
 
     _this[onStepsPrevious] = _this[onStepsPrevious].bind(_this);
     _this[onStepsNext] = _this[onStepsNext].bind(_this);
@@ -377,18 +377,18 @@ var bulmaSteps = function (_EventEmitter) {
   }]);
 
   return bulmaSteps;
-}(__WEBPACK_IMPORTED_MODULE_0__events__["a" /* default */]);
+}(__WEBPACK_IMPORTED_MODULE_0__events__['a' /* default */]);
 
-/* harmony default export */ __webpack_exports__["default"] = (bulmaSteps);
+/* harmony default export */ __webpack_exports__['default'] = (bulmaSteps);
 
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+'use strict';
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var EventEmitter = function () {
   function EventEmitter() {
@@ -401,7 +401,7 @@ var EventEmitter = function () {
   }
 
   _createClass(EventEmitter, [{
-    key: "listenerCount",
+    key: 'listenerCount',
     value: function listenerCount(eventName) {
       if (!this._listeners.has(eventName)) {
         return 0;
@@ -411,7 +411,7 @@ var EventEmitter = function () {
       return eventListeners.length;
     }
   }, {
-    key: "removeListeners",
+    key: 'removeListeners',
     value: function removeListeners() {
       var _this = this;
 
@@ -435,7 +435,7 @@ var EventEmitter = function () {
       }
     }
   }, {
-    key: "middleware",
+    key: 'middleware',
     value: function middleware(eventName, fn) {
       var _this2 = this;
 
@@ -452,7 +452,7 @@ var EventEmitter = function () {
       }
     }
   }, {
-    key: "removeMiddleware",
+    key: 'removeMiddleware',
     value: function removeMiddleware() {
       var _this3 = this;
 
@@ -471,7 +471,7 @@ var EventEmitter = function () {
       }
     }
   }, {
-    key: "on",
+    key: 'on',
     value: function on(name, callback) {
       var _this4 = this;
 
@@ -499,12 +499,12 @@ var EventEmitter = function () {
       }
     }
   }, {
-    key: "once",
+    key: 'once',
     value: function once(name, callback) {
       this.on(name, callback, true);
     }
   }, {
-    key: "emit",
+    key: 'emit',
     value: function emit(name, data) {
       var _this5 = this;
 
@@ -562,18 +562,18 @@ var EventEmitter = function () {
   return EventEmitter;
 }();
 
-/* harmony default export */ __webpack_exports__["a"] = (EventEmitter);
+/* harmony default export */ __webpack_exports__['a'] = (EventEmitter);
 
 /***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
+'use strict';
 var defaultOptions = {
     'selector': '.step-item',
     'selector_content': '.step-content',
-    'previous_selector': '[data-nav="previous"]',
-    'next_selector': '[data-nav="next"]',
+    'previous_selector': '[data-nav='previous']',
+    'next_selector': '[data-nav='next']',
     'active_class': 'is-active',
     'completed_class': 'is-completed',
     'stepClickable': false,
@@ -583,8 +583,8 @@ var defaultOptions = {
     'onError': null
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (defaultOptions);
+/* harmony default export */ __webpack_exports__['a'] = (defaultOptions);
 
 /***/ })
-/******/ ])["default"];
+/******/ ])['default'];
 });

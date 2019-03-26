@@ -4,7 +4,7 @@ const config = {
   siteTitleShort: 'PubliusLogic', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: 'To Publish Logic', // Alternative site title for SEO.
   siteLogo: '/src/img/logo.png', // Logo used for SEO and manifest.
-  siteUrl: 'https://publiuslogic', // Domain of your website without pathPrefix.
+  siteUrl: 'https://publiuslogic.com', // Domain of your website without pathPrefix.
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: 'PubliusLogic to publish common sense.', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
@@ -26,7 +26,7 @@ const config = {
   userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
   recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
   copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
-  themeColor: '#1d1d1d', // Used for setting manifest and progress theme colors.
+  themeColor: '#d64000', // Used for setting manifest and progress theme colors.
   backgroundColor: '#363636', // Used for setting manifest background color.
   siteSocialUrls: [
     'https://github.com/donaldboulton/DWB',
@@ -36,7 +36,7 @@ const config = {
   userLinks: [
     {
       label: 'GitHub',
-      url: 'https://github.com/donaldboulton/gatsby-starter-netlify-cms',
+      url: 'https://github.com/donaldboulton/publiuslogic',
       iconClassName: 'fa fa-github',
     },
     {

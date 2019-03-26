@@ -3,6 +3,7 @@ import Content from '../Content'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import { CommentCount } from 'disqus-react'
+import '../../components/utils/prism'
 
 const ArticleTemplate = ({
   content,
@@ -21,7 +22,7 @@ const ArticleTemplate = ({
     title: title,
   }
   return (
-    <div>
+    <div itemScope itemType='http://schema.org/CreativeWork'>
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>
