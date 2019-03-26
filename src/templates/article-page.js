@@ -1,5 +1,6 @@
 import React from 'react'
 import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
@@ -11,6 +12,39 @@ import Share from '../components/Share'
 if (typeof window !== `undefined`) {
   const module = require('prismjs')
 }
+
+if (typeof window !== `undefined`) {
+  const module = require('prismjs/plugins/toolbar/prism-toolbar.js')
+}
+
+Prism.plugins.toolbar.registerButton('hello-world', {
+  text: 'Hello World!', // required
+  onClick: function (env) { // optional
+    alert('This code snippet is written in ' + env.language + '.')
+  },
+})
+
+Prism.plugins.toolbar.registerButton('select-code', function (env) {
+  var button = document.createElement('button')
+  button.innerHTML = 'Select Code'
+
+  button.addEventListener('click', function () {
+  // Source: http://stackoverflow.com/a/11128179/2757940
+    if (document.body.createTextRange) { // ms
+      var range = document.body.createTextRange()
+      range.moveToElementText(env.element)
+      range.select()
+    } else if (window.getSelection) { // moz, opera, webkit
+      var selection = window.getSelection()
+      var range = document.createRange()
+      range.selectNodeContents(env.element)
+      selection.removeAllRanges()
+      selection.addRange(range)
+    }
+  })
+
+  return button
+})
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data

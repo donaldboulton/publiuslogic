@@ -13,10 +13,12 @@ meta_description: React Hooks Modal
 
 What to do on a cold January weekend with bad weather? Why not check out the new [React alpha (16.8)](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-q1-2019-the-one-with-hooks). **The one with Hooks** as it's come to be called.
 
-All it took was a little skimming through [the docs](https://reactjs.org/docs/hooks-intro.html), followed by updating to `react 16.8.4` and `react-dom 16.8.4`
+Latest React version is 16.8.5 as of this posting
+
+All it took was a little skimming through [the docs](https://reactjs.org/docs/hooks-intro.html), followed by updating to `react 16.8.5` and `react-dom 16.8.5`
 
 ```sh
-yarn add react@latest react-dom@latest
+yarn add react react-dom
 ```
 
 That's it. Ready to start coding. But what to do first? One thing that seemed a good fit for hooks are modals. I'd implemented them once or twice before and in both cases came away with the feeling that a class component with all its boilerplate is overkill considering the tiny bit of state management required for modal functionality. As expected, using hooks I was able to boil it down quite considerably. This is what I ended up with.

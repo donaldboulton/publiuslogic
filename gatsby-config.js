@@ -1,7 +1,6 @@
 const proxy = require('http-proxy-middleware')
 
-const dotenv = require('dotenv')
-dotenv.config()
+require(`dotenv`).config()
 
 const config = require('./data/config')
 

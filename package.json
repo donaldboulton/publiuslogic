@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
+    "@google/markerclustererplus": "^2.1.11",
     "apollo-link-http": "^1.5.14",
     "babel-plugin-prismjs": "^1.0.2",
     "babel-plugin-styled-components": "^1.10.0",
@@ -70,8 +71,8 @@
     "parcel-bundler": "^1.11.0",
     "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "react-github-btn": "^1.0.3",
     "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
