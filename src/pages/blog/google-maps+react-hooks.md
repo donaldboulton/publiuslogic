@@ -1,7 +1,7 @@
 ---
 title: Google Maps + React Hooks
-slug: /google-maps+react-hooks
-date: 2019-03-19
+slug: Google Maps + React Hooks
+date: 2019-03-25T20:20:43.942Z
 cover: /img/google-maps+react-hooks.svg
 tags:
   - WebDev
@@ -10,7 +10,7 @@ meta_title: Google Maps + React Hooks
 meta_description: Google Maps + React Hooks 
 ---
 
-Had to share this one since it's so nice and simple. If you're looking for a drop-in, zero-dependency Google Maps React component, look no further. Here it is:
+Had to share this one since it is so nice and simple. If you are looking for a drop-in, zero-dependency Google Maps React component, look no further. Here it is:
 
 ```jsx:title=src/components/map.js
 import React, { useEffect, useRef } from 'react'
@@ -49,9 +49,9 @@ Map.defaultProps = {
 }
 ```
 
-To use it, simply grab a free Google Maps API key from [Google's cloud console](https://console.cloud.google.com) ([here's a guide for that](https://developers.google.com/maps/documentation/javascript/get-api-key)) and either add it to your `.env` file or paste it in directly for `GOOGLE_MAPS_API_KEY`.
+To use it, simply grab a free Google Maps API key from [Google's cloud console](https://console.cloud.google.com) ([here's a guide for that](https://developers.google.com/maps/documentation/javascript/get-api-key)) and either add it to your .env file or paste it in directly for GOOGLE_MAPS_API_KEY.
 
-Then simply drop in the above `Map` component wherever you'd like to display a Google map.
+Then simply drop in the above Map component wherever you would like to display a Google map.
 
 ```jsx:title=src/app.js
 <App>
@@ -60,7 +60,7 @@ Then simply drop in the above `Map` component wherever you'd like to display a G
 </App>
 ```
 
-To change the area shown by the map and its zoom level, pass it an `options` object containing the keys `center` and `zoom`.
+To change the area shown by the map and its zoom level, pass it an options object containing the keys center and zoom.
 
 ```jsx
 mapProps = {
@@ -73,7 +73,7 @@ mapProps = {
 <Map {...mapProps} />
 ```
 
-If you'd like to do something more fancy, for instance add some markers to the map, you can also pass in an `onMount` function:
+If you would like to do something more fancy, for instance add some markers to the map, you can also pass in an onMount function:
 
 ```jsx
 const addMarkers = links => map => {
@@ -98,6 +98,6 @@ mapProps = {
 <Map {...mapProps} />
 ```
 
-`link.coords` should be an object of the same structure as `center`, i.e. with `lat` and `lng` keys for the latitude and longitude at which to display the marker.
+link.coords should be an object of the same structure as center, i.e. with lat and lng keys for the latitude and longitude at which to display the marker.
 
-Note that the `onMount` function must be curried since the `Map` component will itself provide the `map` object on which to apply the `onMount` to the inner function.
+Note that the onMount function must be curried since the Map component will itself provide the map object on which to apply the onMount to the inner function.
