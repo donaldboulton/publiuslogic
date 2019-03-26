@@ -1,7 +1,6 @@
 import React from 'react'
 import SlackIcon from '../../img/1547804322-slack_icon_80x80_transparent.png'
 import lambda from '../../img/lambda.png'
-import Notify from '../components/Notifications'
 
 require('node-fetch')
 
@@ -33,7 +32,6 @@ const Slack = () => {
                         <small>&nbsp;@donboulton</small></a></span></span>
                   <br />
                   Bring your team together with Slack, the collaboration hub for work.
-                  <Notify />
                 </p>
               </div>
               <nav className='level'>

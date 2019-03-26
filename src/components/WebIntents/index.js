@@ -1,9 +1,12 @@
 import React from 'react'
-
 import tweet from '../../img/twitter.svg'
 import reply from '../../img/reply-action_0.png'
 import retweet from '../../img/retweet-action.png'
 import like from '../../img/like-action.png'
+
+require('./Intents')
+
+// this is a test file, still under development
 
 const WebIntents = () => {
   return (
