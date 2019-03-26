@@ -12,7 +12,7 @@ export const Arrow = styled(Down).attrs(({ direction, size }) => ({
   color: ${theme.white};
   border-radius: 50%;
   transition: ${theme.shortTrans};
-  position: absolute;
+  position: fixed;
   bottom: 0.5em;
   opacity: ${show ? 1 : 0};
   visibility: ${show ? `visible` : `hidden`};

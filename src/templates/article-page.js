@@ -1,6 +1,5 @@
 import React from 'react'
-import Prism from 'prismjs'
-import 'prismjs/themes/prism-twilight.css'
+import 'prismjs/themes/prism-okaidia.css'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
@@ -9,7 +8,9 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 
-Prism.highlightAll()
+if (typeof window !== `undefined`) {
+  const module = require('prismjs')
+}
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data

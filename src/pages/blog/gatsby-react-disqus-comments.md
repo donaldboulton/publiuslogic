@@ -5,10 +5,18 @@ slug: Gatsby React Disqus Comments
 date: 2019-03-25T20:20:43.942Z
 cover: /img/gatsby+disqus.svg
 tags:
-  - Gatsby React Disqus Comments
+  - Gatsby 
+  - React
+  - Disqus Comments
 meta_title: Gatsby React Disqus Comments
 meta_description: Gatsby React Disqus Comments
 ---
+
+## Taken From
+
+[janosh.io](https://janosh.io/blog/disqus-comments)
+
+
 If you're running a Gatsby blog (or any React-powered blog for that matter) and you'd like to add comment functionality, rest assured, it's very easy. I just went through that process and the only thing that took time was deciding which service to use. There are quite a few to choose from. The ones I considered were all mentioned in a [2017 Gatsby Spectrum chat](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUxNjM2MjE1NTY1MA==):
 
 - [Disqus](https://disqus.com) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUxMTIzMDE0NjY2MQ==)]
@@ -28,7 +36,12 @@ I ended up going with Disqus for the following reasons.
 - Its commenting interface has a distinct but unobtrusive look that many users will instantly recognize and trust.
 - All Disqus components are lazy-loaded, meaning they won't negatively impact the load times of your posts.
 
-The other services seemed excellent as well, though, and are well worth checking out. Staticman, for instance, took an interesting approach. Essentially, you set up your own HTML form for writing comments, let it send a POST request on submission to one of their endpoints. From this Staticman will automatically submit a pull request to your site's repo which you can accept or deny. If that isn't a geeky way of doing comment moderation, I don't know what is. This has the big advantage of keeping everything static (hence the name). All your data is in one place (your repo) as opposed to having to be loaded through JavaScript embeds or iframes on the fly. It will remain there even if Staticman is ever discontinued. With the other services, you depend on an external platform to deliver your comments.
+The other services seemed excellent as well, though, and are well worth checking out. 
+
+Staticman, for instance, took an interesting approach. Essentially, you set up your own HTML form for writing comments, let it send a POST request on submission to one of their endpoints. From this Staticman will automatically submit a pull request to your site's repo which you can accept or deny. 
+And it would be a good choice if Staticman's APi, though GitHub's limitations, was not overused and unavailable 80% of the time.
+
+If that isn't a geeky way of doing comment moderation, I don't know what is. This has the big advantage of keeping everything static (hence the name). All your data is in one place (your repo) as opposed to having to be loaded through JavaScript embeds or iframes on the fly. It will remain there even if Staticman is ever discontinued. With the other services, you depend on an external platform to deliver your comments.
 
 Of course, in return you have the disadvantage of increased manual setup including putting together the comment form and hooking it up to Staticman. Depending on your use case, this degree of customizability may well be an advantage. In my case, though, I just wanted something fast with as little manual configuration and setup as possible. Disqus turned out to perfect in this regard.
 
@@ -88,7 +101,7 @@ React component.
    //src/components/ArticleTemplate
 ```
 
-```js
+```jsx{4,21-23}:title=src/components/postMeta/index.js
    import React from 'react'
    import { graphql } from 'gatsby'
    import { DiscussionEmbed } from 'disqus-react'
@@ -103,16 +116,19 @@ React component.
     title: title,
   }
 ```
-Where identifier must be a string or number that uniquely identifies the post. Finally, add DiscussionEmbed to the JSX of your post template.
+
+Where identifier must be a string or number that uniquely identifies the post. Finally, add DiscussionEmbed to the JSX of your post template.
 
 ```js    
 // src/components/ArticleTemplate
 ```
-Add Discussion embed
+
+Add Discussion embed
 
 ```jsx
    return (
-     <Global>       
+     <Global>
+       
        <PageBody>
          ...
          <DiscussionEmbed {...disqusConfig} />
@@ -134,7 +150,8 @@ If you'd like your blog post previews to show a count of the number of comments 
 ```js
 // src/components/postMeta/index.js
 ```
-adding
+
+adding
 
 ```jsx
 import React from 'react'

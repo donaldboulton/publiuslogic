@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { Arrow } from './styles'
+import './theme'
 
 const Scroll = ({
   direction = `up`,
