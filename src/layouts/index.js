@@ -14,12 +14,12 @@ import config from '../../data/config'
 class TemplateWrapper extends Component {
   constructor (props) {
     super(props)
-    this.state = {isActive: false}
+    this.state = { isActive: false }
     this.toggleNavbar = this.toggleNavbar.bind(this)
   }
 
   toggleNavbar () {
-    this.setState({isActive: !this.state.isActive})
+    this.setState({ isActive: !this.state.isActive })
   }
 
   render () {
