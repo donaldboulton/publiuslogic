@@ -12,6 +12,10 @@ meta_title: Google Maps + React Hooks
 meta_description: Google Maps + React Hooks 
 ---
 
+## Taken From
+
+[janosh.io](https://janosh.io/blog/google-maps+react-hooks)
+
 Had to share this one since it is so nice and simple. If you are looking for a drop-in, zero-dependency Google Maps React component, look no further. Here it is:
 
 ```jsx:title=src/components/map.js

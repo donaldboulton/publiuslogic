@@ -101,7 +101,9 @@ React component.
    //src/components/ArticleTemplate
 ```
 
-```jsx{4,21-23}:title=src/components/postMeta/index.js
+src/components/postMeta/index.js
+
+```jsx
    import React from 'react'
    import { graphql } from 'gatsby'
    import { DiscussionEmbed } from 'disqus-react'
@@ -119,7 +121,7 @@ React component.
 
 Where identifier must be a string or number that uniquely identifies the post. Finally, add DiscussionEmbed to the JSX of your post template.
 
-```js    
+```js
 // src/components/ArticleTemplate
 ```
 
