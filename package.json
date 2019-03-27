@@ -12,7 +12,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "start:lambda": "netlify-lambda serve functions",
-    "build": "gatsby build && netlify-lambda build functions",
+    "build": "gatsby build && netlify-lambda build functions-build",
     "serve": "gatsby serve",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/"

@@ -53,22 +53,23 @@ Here are the steps for adding Disqus comments to your own blog:
 
 2. Install the Disqus React package
 
-   ```js
-   yarn add disqus-react
-   ```
+```js
+yarn add disqus-react
+```
 
 3. Add the shortname from step 1 as something like 
 
 ```js
-GATSBY_DISQUS_NAME`
-`` 
+GATSBY_DISQUS_NAME
+```
 
 to your 
 
 ```js
 .env
 ```
- and 
+
+example usage in .env.sample
 
 ```js
 .env.example
@@ -82,12 +83,12 @@ or
    Data/config.js
 
 ```js
-   # enables Disqus comments below blog posts
-   import config from '../../data/config'
+# enables Disqus comments below blog posts
+import config from '../../data/config'
 ```
 
 ```js
-    disqusShortname: 'yourOwnSiteShortname'
+disqusShortname: 'yourOwnSiteShortname'
 ```
 
 4. Go to your template file for blog post 
@@ -95,21 +96,22 @@ or
 ```js
 (in my case src/components/ArticleTemplate) and import the DiscussionEmbed
 ```
+
 React component.
 
 ```js
-   //src/components/ArticleTemplate
+//src/components/ArticleTemplate
 ```
 
 src/components/postMeta/index.js
 
-```jsx
-   import React from 'react'
-   import { graphql } from 'gatsby'
-   import { DiscussionEmbed } from 'disqus-react'
+```js
+  import React from 'react'
+  import { graphql } from 'gatsby'
+  import { DiscussionEmbed } from 'disqus-react'
 ```
 
-   Then define your Disqus configuration object
+Then define your Disqus configuration object
 
 ```js
   const disqusShortname = 'yourShortName'
@@ -122,21 +124,20 @@ src/components/postMeta/index.js
 Where identifier must be a string or number that uniquely identifies the post. Finally, add DiscussionEmbed to the JSX of your post template.
 
 ```js
-// src/components/ArticleTemplate
+  // src/components/ArticleTemplate
 ```
 
 Add Discussion embed
 
-```jsx
-   return (
-     <Global>
-       
-       <PageBody>
-         ...
-         <DiscussionEmbed {...disqusConfig} />
-       </PageBody>
-     </Global>
-   )
+```js
+  return (
+    <Global>
+      <PageBody>
+        ...
+      <DiscussionEmbed {...disqusConfig} />
+      </PageBody>
+    </Global>
+  )  
 ```
 
 And you're done. You should now see the Disqus comment form appear beneath your blog post just like the one below this post. Happy blogging!
@@ -150,55 +151,56 @@ And you're done. You should now see the Disqus comment form appear beneath your 
 If you'd like your blog post previews to show a count of the number of comments each post received, simply import disqus-react's CommentCount in the relevant component and provide it the exact same config object as DiscussionEmbed.
 
 ```js
-// src/components/postMeta/index.js
+  // src/components/postMeta/index.js
 ```
 
 adding
 
-```jsx
-import React from 'react'
-import { Link } from 'gatsby'
-import { CommentCount } from 'disqus-react'
+```js
+  import React from 'react'
+  import { Link } from 'gatsby'
+  import { CommentCount } from 'disqus-react'
 
-import { Meta, TagList, Calendar, Timer, Comments } from './styles'
-import config from '../../data/config'
+  import { Meta, TagList, Calendar, Timer, Comments } from './styles'
+  import config from '../../data/config'
 
-const PostMeta = ({ title, slug, date, timeToRead, tags }) => (
-  <Meta>
-    <span>
-      <Calendar size="1.2em" />
-      {date}
-    </span>
-    <span>
-      <Timer size="1.2em" />
-      {timeToRead} min read
-    </span>
-    <span>
-      <Comments size="1.2em" />
-      <Link to={`/blog` + slug + `#disqus_thread`}>
-        <CommentCount {...disqusConfig({ slug, title })} />
-      </Link>
-    </span>
-    <TagList tags={tags} />
-  </Meta>
-)
-
-export default PostMeta
+  const PostMeta = ({ title, slug, date, timeToRead, tags }) => (
+    <Meta>
+      <span>
+        <Calendar size="1.2em" />
+        {date}
+      </span>
+      <span>
+        <Timer size="1.2em" />
+        {timeToRead} min read
+      </span>
+      <span>
+        <Comments size="1.2em" />
+        <Link to={`/blog` + slug + `#disqus_thread`}>
+          <CommentCount {...disqusConfig({ slug, title })} />
+        </Link>
+      </span>
+      <TagList tags={tags} />
+    </Meta>
+  )
+  
+  export default PostMeta
 ```
 
 where the config object now comes from the utility function 
 
 ```js
-disqusConfig()
-``` 
+  disqusConfig()
+```
+
 defined as
 
 ```js
- const disqusShortname = 'yourShortName'
+const disqusShortname = 'yourShortName'
   const disqusConfig = {
     identifier: slug,
     title: title,
-  }
+}
 ```
 
 You can customize what string the Comment Count component displays depending on how many comments a post has by going to your Disqus admin settings [as described here](https://help.disqus.com/installation/customizing-comment-count-link-text). For instance you might want to change the text "0 comments" to something more inspiring like "Start a discussion!". :wink:

@@ -34,7 +34,10 @@ class TemplateWrapper extends Component {
         <Subscriptions />
         <Slack />
         <Hr />
-        <Scroll />
+        <Scroll
+          showBelow={1500}
+          css='position: fixed; right: 1.5em; bottom: 1em;'
+        />
         <Footer />
       </div>
     )
