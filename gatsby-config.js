@@ -74,12 +74,22 @@ module.exports = {
         path: `${__dirname}/src/pages/privacy`,
       },
     },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/pages/photos`,
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `gatsby-remark-responsive-iframe`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
           {
             resolve: `gatsby-remark-prismjs`,
