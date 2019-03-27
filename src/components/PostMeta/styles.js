@@ -9,7 +9,7 @@ const inTitle = css`
   justify-content: center;
   max-width: 80vw;
   a {
-    color: ${props => props.theme.lightGreen};
+    color: ${props => props.theme.darkOrange};
   }
 `
 

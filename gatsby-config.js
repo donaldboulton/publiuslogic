@@ -74,12 +74,6 @@ module.exports = {
         path: `${__dirname}/src/pages/privacy`,
       },
     },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/pages/photos`,
-      },
-    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
