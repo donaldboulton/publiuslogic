@@ -1,10 +1,7 @@
 import React from 'react'
-import Notifications, {notify} from 'react-notify-toast';
 import SlackIcon from '../../img/1547804322-slack_icon_80x80_transparent.png'
 import lambda from '../../img/lambda.png'
-
 require('node-fetch')
-
 const Slack = () => {
   return (
     <section className='section'>
@@ -53,6 +50,7 @@ const Slack = () => {
                       <p className='control'>
                         <form
                           id='newsletters'
+                          onSubmit='/contact/success'
                           method='post'
                           action='/.netlify/functions/SlackMessages/'
                           noValidate
