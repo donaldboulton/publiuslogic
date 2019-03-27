@@ -1,5 +1,6 @@
 import React from 'react'
 import Content from '../Content'
+import PostMeta from '../PostMeta'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import { CommentCount } from 'disqus-react'
@@ -15,11 +16,6 @@ const ArticleTemplate = ({
   slug,
 }) => {
   const PostContent = contentComponent || Content
-  const disqusShortname = 'mansbooks-1'
-  const disqusConfig = {
-    identifier: slug,
-    title: title,
-  }
   return (
     <div>
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
@@ -28,9 +24,7 @@ const ArticleTemplate = ({
       <img src={cover} alt={title} />
       <br />
       <div style={{ marginTop: `.5rem` }}>
-        <Link to={`/blog` + slug + `#disqus_thread`}>
-          <CommentCount shortname={disqusShortname} config={disqusConfig} />
-        </Link>
+        <PostMeta />
       </div>
       <PostContent content={content} />
       <div style={{ marginTop: `2rem` }}>
