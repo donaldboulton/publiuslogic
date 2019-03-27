@@ -120,6 +120,13 @@ module.exports = {
               noIframeBorder: true,
             },
           },
+          {
+            resolve: `gatsby-remark-emojis`,
+            options: {
+              active: true,
+              size: 24,
+            },
+          },
         ],
       },
     },
