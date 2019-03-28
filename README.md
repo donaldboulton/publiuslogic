@@ -121,7 +121,7 @@ module.exports = {
   siteRss: '/rss.xml',
   siteFBAppID: '', // FB Application ID for using app insights
   googleTagManagerID: '', // GTM tracking ID.
-  disqusShortname: 'publius', // Disqus shortname.
+  disqusShortname: 'mansbooks-1', // Disqus shortname.
   userName: 'Donald Boulton',
   userTwitter: 'donboulton',
   userLocation: 'OKC, Oklahoma',

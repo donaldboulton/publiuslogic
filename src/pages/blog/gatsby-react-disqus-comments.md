@@ -3,6 +3,7 @@ templateKey: article-page
 title: Gatsby React Disqus Comments
 slug: Gatsby React Disqus Comments
 date: 2019-03-25T20:20:43.942Z
+category: "tech"
 cover: /img/gatsby+disqus.svg
 tags:
   - Gatsby 

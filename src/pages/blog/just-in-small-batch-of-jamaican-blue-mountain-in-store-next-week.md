@@ -4,6 +4,7 @@ title: Jamaican Blue Mountain Now
 slug: Jamaican Blue Mountain Now
 date: 2019-03-16T15:04:10.000Z
 cover: /img/products-full-width.jpg
+category: "tech"
 meta_title: 'Just in: small batch of Jamaican Blue Mountain in store next week'
 meta_description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue

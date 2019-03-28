@@ -9,16 +9,13 @@ import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
+import config from '../../data/config'
 
 require('prismjs/plugins/toolbar/prism-toolbar.js')
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
-  const disqusShortname = 'mansbooks-1'
-  const disqusConfig = {
-    identifier: post.fields.slug,
-    title: post.frontmatter.title,
-  }
+
   return (
     <section className='section'>
       <SE0
@@ -26,6 +23,7 @@ const ArticlePage = ({ data }) => {
         meta_title={post.frontmatter.meta_title}
         meta_desc={post.frontmatter.meta_description}
         cover={post.frontmatter.cover}
+        category={post.frontmatter.category}
         slug={post.fields.slug}
       />
       <div className='container content'>
@@ -35,6 +33,7 @@ const ArticlePage = ({ data }) => {
               content={post.html}
               contentComponent={HTMLContent}
               cover={post.frontmatter.cover}
+              category={post.frontmatter.category}
               meta_title={post.frontmatter.meta_title}
               meta_desc={post.frontmatter.meta_description}
               tags={post.frontmatter.tags}
@@ -46,7 +45,7 @@ const ArticlePage = ({ data }) => {
               excerpt={post.frontmatter.meta_description}
             />
             <hr />
-            <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />  
+            <DiscussionEmbed shortname={config.disqusShortname} config={config.disqusConfig} />  
           </div>
         </div>
       </div>
@@ -74,6 +73,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         cover
+        category
         meta_title
         meta_description
         tags

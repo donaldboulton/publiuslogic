@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 
 if (typeof window !== undefined) { const GitHubButton = require('react-github-btn') }
 
-class GitHubStarButton extends PureComponent {
+class GitHubButton extends PureComponent {
   render () {
     return (
       <GitHubButton className='button is-primary is-small' href='https://github.com/donaldboulton/publiuslogic' data-icon='octicon-star' data-show-count='true' aria-label='Star ntkme/Publiuslogic GitHub'>Star</GitHubButton>      
@@ -10,5 +10,5 @@ class GitHubStarButton extends PureComponent {
   }
 }
 
-export default GitHubStarButton
+export default GitHubButton
 
