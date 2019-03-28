@@ -3,7 +3,7 @@ import gatsbyastro from './gatsby-astronaut.png'
 
 const SuccessPage = () => {
   return (
-    <section className='hero is-primary is-bold is-medium'>
+    <section className='hero is-primary is-bold is-large'>
       <div className='hero-body has-text-centered'>
         <h1 className='title'>
           Success

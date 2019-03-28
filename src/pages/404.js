@@ -2,25 +2,35 @@ import React from 'react'
 import gatsbyastro from './gatsby-astronaut.png'
 
 const NotFoundPage = () => (
-  <section className='hero is-primary is-bold is-medium'>
-    <div className='hero-body has-text-centered'>
-      <h1 className='title'>
-        404 Not Found!
-      </h1>
-      <h2 className='subtitle'>
-        You just hit a route that doesn&#39;t exist... the
-        sadness.
-      </h2>
-      <div className='columns has-text-centered'>
-        <div className='column'>
-          <img
-            src={gatsbyastro}
-            alt='GitHub'
-          />
+  <div>
+    <section className='hero is-primary is-bold is-medium'>
+      <div className='hero-body'>
+        <div className='container'>
+          <div className='columns'>
+            <div className='column is-10 is-offset-1'>
+              <div className='section is-centered'>
+                <h1 className='title'>
+                  404: NOT FOUND
+                </h1>
+                <div className='columns'>
+                  <div className='column is-one-third'>
+                    <img
+                      src={gatsbyastro}
+                      alt='GitHub'
+                    />
+                  </div>
+                </div>
+                <h2 className='subtitle'>
+                  You just hit a route that doesn&#39;t exist... the
+                  sadness.
+                </h2>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 )
 
 export default NotFoundPage
