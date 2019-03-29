@@ -428,4 +428,48 @@ html::-webkit-scrollbar-thumb
   box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25)
 html::-webkit-scrollbar-track
   background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17)
+.link-read-more, .read-more
+  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436))
+  background: linear-gradient(90deg,#d64000,#8e0436)
+  background-clip: border-box
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  -webkit-box-decoration-break: clone
+  box-decoration-break: clone
+  font-weight: 700
+  border-bottom: 1px solid #da1b60 !important
+  padding-bottom: .15rem
+.number
+    background-color: #d64000 !important
+.author-avatar
+  grid-area: avatar
+  -ms-flex-item-align: start
+  align-self: start
+  position: relative
+.author-avatar .half-circle
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 80px
+  height: 56px
+  fill: none
+  stroke: url(#orange-to-pink)
+  stroke-width: 8
+  stroke-linecap: round
+  pointer-events: none  
+.author-avatar img
+  width:35px
+  height:35px
+.author-avatar .half-circle
+  width:55px
+  height:40px
+.icon-arrow-right
+  width: 24px
+  height: 24px
+  position: absolute
+  right: 0
+  top: 50%
+  -webkit-transform: translate(0,-50%)
+  transform: translate(0,-50%)  
+  
 @import "~bulma"

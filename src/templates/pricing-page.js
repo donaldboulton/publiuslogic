@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 import PricingPageTemplate from '../components/PricingPageTemplate'
 
-const PricingPage = ({data}) => {
-  const {frontmatter} = data.markdownRemark
+const PricingPage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
 
   return (
     <PricingPageTemplate

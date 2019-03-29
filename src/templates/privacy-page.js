@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
-import {HTMLContent} from '../components/Content'
+import { HTMLContent } from '../components/Content'
 import PrivacyPageTemplate from '../components/PrivacyPageTemplate'
 
-const PrivacyPage = ({data}) => {
-  const {markdownRemark: post} = data
+const PrivacyPage = ({ data }) => {
+  const { markdownRemark: post } = data
 
   return (
     <div>

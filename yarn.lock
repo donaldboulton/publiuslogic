@@ -6256,6 +6256,14 @@ gatsby-paginate@^1.0.17:
   dependencies:
     path "^0.12.7"
 
+gatsby-plugin-categories@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-categories/-/gatsby-plugin-categories-2.2.0.tgz#fbaec31422b894d8ef1089e1a98ba16be81fbb22"
+  integrity sha512-SfPHpI3hrlBcI9f4F9TsLoN3yk4koLyaP+Mblb9pCb5nzGo00gBdV7+KpIwFU9SqpAfvCSKFKaw8g78Rqcn6nw==
+  dependencies:
+    lodash "^4.17.10"
+    slug "^0.9.3"
+
 gatsby-plugin-create-client-paths@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.0.5.tgz#cff2d8d9d7e35f3b0e59cc88bb400391e7608ddd"
@@ -6551,6 +6559,13 @@ gatsby-remark-prismjs@^3.2.6:
     "@babel/runtime" "^7.0.0"
     parse-numeric-range "^0.0.2"
     unist-util-visit "^1.3.0"
+
+gatsby-remark-reading-time@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-reading-time/-/gatsby-remark-reading-time-1.0.1.tgz#188fbe19bc7bc6f62d4e32397b18b5540f92f033"
+  integrity sha512-ug/WIiMVCf6I41nm0DkH2sGWg9hZ/nWliliU17K3MAwJ+vIJWjn+O1vS5djVRHkDa/vYt/lqRuDWzq4J4LJhkQ==
+  dependencies:
+    reading-time "^1.1.3"
 
 gatsby-remark-relative-images@^0.2.2:
   version "0.2.2"
@@ -13077,6 +13092,11 @@ readdirp@^2.0.0, readdirp@^2.2.1:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
+reading-time@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/reading-time/-/reading-time-1.1.3.tgz#47de143074245be6f65e2b3c9b63b78d9ab8ec7a"
+  integrity sha512-SYy+cuoGy1MTLjIbgwTZ+DkDiDq/dE1OnqBQFYytXgNWRZROuqtBdu7HoJ+HbGMnoAinOHnHnqbEUYnpSho5aA==
+
 recompose@^0.30.0:
   version "0.30.0"
   resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.30.0.tgz#82773641b3927e8c7d24a0d87d65aeeba18aabd0"
@@ -14527,6 +14547,20 @@ sliced@^1.0.1:
   resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
   integrity sha1-CzpmK10Ewxd7GSa+qCsD+Dei70E=
 
+slug@^0.9.3:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/slug/-/slug-0.9.4.tgz#fad5f1ef33150830c7688cd8500514576eccabd8"
+  integrity sha512-3YHq0TeJ4+AIFbJm+4UWSQs5A1mmeWOTQqydW3OoPmQfNKxlO96NDRTIrp+TBkmvEsEFrd+Z/LXw8OD/6OlZ5g==
+  dependencies:
+    unicode ">= 0.3.1"
+
+slug@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/slug/-/slug-1.0.0.tgz#503be07b150226a42abf7a9c52d345e6b163fea8"
+  integrity sha512-m3uDtlWbJmYiwxVU1+jIvYEgfYmvtjWE/KtM6IfNzuRyHv+9RMukxMVph1ra+/499fVOKgTcK/8s2gLrYoP+BA==
+  dependencies:
+    unicode ">= 0.3.1"
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -15843,6 +15877,11 @@ unicode-trie@^0.3.1:
   dependencies:
     pako "^0.2.5"
     tiny-inflate "^1.0.0"
+
+"unicode@>= 0.3.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/unicode/-/unicode-11.0.1.tgz#735bd422ec75cf28d396eb224d535d168d5f1db6"
+  integrity sha512-+cHtykLb+eF1yrSLWTwcYBrqJkTfX7Quoyg7Juhe6uylF43ZbMdxMuSHNYlnyLT8T7POAvavgBthzUF9AIaQvQ==
 
 unified-args@^6.0.0:
   version "6.0.0"

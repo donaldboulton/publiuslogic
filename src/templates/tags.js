@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import {Link, graphql} from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 class TagRoute extends Component {
   render () {
@@ -29,7 +29,7 @@ class TagRoute extends Component {
               style={{ marginBottom: '6rem' }}
             >
               <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
-              <ul className='taglist'>{postLinks}</ul>
+              <ul className='taglist read-more'>{postLinks}</ul>
               <p>
                 <Link className='button is-primary' to='/tags/'>Browse all tags →</Link>
               </p>

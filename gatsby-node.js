@@ -70,7 +70,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
 }
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
-  const categoryPage = path.resolve('src/templates/category.jsx')
+  const categoryPage = path.resolve('src/templates/category.js')
   return graphql(`
     {
       allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {

@@ -69,6 +69,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-categories',
+      options: {
+        templatePath: `${__dirname}/src/templates/category.js`,
+        name: 'categories',
+      },
+    },
+    {
       resolve: `gatsby-plugin-page-creator`,
       options: {
         path: `${__dirname}/src/pages/privacy`,

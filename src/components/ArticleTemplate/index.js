@@ -1,6 +1,5 @@
 import React from 'react'
 import Content from '../Content'
-import PostMeta from '../PostMeta'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 
@@ -24,9 +23,6 @@ const ArticleTemplate = ({
       </h1>
       <img src={cover} alt={title} />
       <br />
-      <div style={{ marginTop: `.5rem` }}>
-        <PostMeta />
-      </div>
       <PostContent content={content} />
       <div style={{ marginTop: `2rem` }}>
         <h4>Tags</h4>
