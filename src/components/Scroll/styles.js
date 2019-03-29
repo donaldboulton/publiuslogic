@@ -8,7 +8,7 @@ export const Arrow = styled(Down).attrs(({ direction, size }) => ({
 }))`
   ${({ theme, show, size }) => `
   z-index: 2;
-  background: ${theme.lightGreen};
+  background: ${theme.darkOrange};
   color: ${theme.white};
   border-radius: 50%;
   transition: ${theme.shortTrans};

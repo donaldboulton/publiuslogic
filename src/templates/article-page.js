@@ -1,7 +1,6 @@
 import React from 'react'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
-import { Prism } from 'prismjs'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
@@ -10,7 +9,7 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import config from '../../data/config'
-
+require('prismjs')
 require('prismjs/plugins/toolbar/prism-toolbar.js')
 
 const ArticlePage = ({ data }) => {

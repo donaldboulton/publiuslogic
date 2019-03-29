@@ -83,12 +83,12 @@ or
 3.5 Add it to your config.js in your data folder.
    Data/config.js
 
-```js
+``env
 # enables Disqus comments below blog posts
 import config from '../../data/config'
 ```
 
-```js
+``env
 disqusShortname: 'yourOwnSiteShortname'
 ```
 
@@ -104,9 +104,7 @@ React component.
 //src/components/ArticleTemplate
 ```
 
-src/components/postMeta/index.js
-
-```js
+```js{3}:title=// src/templates/post.js
   import React from 'react'
   import { graphql } from 'gatsby'
   import { DiscussionEmbed } from 'disqus-react'
@@ -130,7 +128,7 @@ Where identifier must be a string or number that uniquely identifies the post. F
 
 Add Discussion embed
 
-```js
+ ```jsx{6}:title=// src/templates/blog.js
   return (
     <Global>
       <PageBody>
@@ -143,21 +141,15 @@ Add Discussion embed
 
 And you're done. You should now see the Disqus comment form appear beneath your blog post just like the one below this post. Happy blogging!
 
----
-
 # Update
 
 ## Adding comment counts to your blog post previews
 
 If you'd like your blog post previews to show a count of the number of comments each post received, simply import disqus-react's CommentCount in the relevant component and provide it the exact same config object as DiscussionEmbed.
 
-```js
-  // src/components/postMeta/index.js
-```
-
 adding
 
-```js
+```jsx{4,21-23}:title=src/components/postMeta/index.js
   import React from 'react'
   import { Link } from 'gatsby'
   import { CommentCount } from 'disqus-react'
@@ -190,13 +182,13 @@ adding
 
 where the config object now comes from the utility function 
 
-```js
+```env
   disqusConfig()
 ```
 
 defined as
 
-```js
+```js:title=src/data/config.js
 const disqusShortname = 'yourShortName'
   const disqusConfig = {
     identifier: slug,

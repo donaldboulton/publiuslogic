@@ -50,7 +50,6 @@ export default createGlobalStyle`
     overflow: auto;
     position: relative;
     margin: 1em 0;
-    background: #011627;
     border-radius: ${props => props.theme.mediumBorderRadius};
   }
 
@@ -181,6 +180,6 @@ export default createGlobalStyle`
     display: block;
     margin: 0 -1em;
     padding: 0 1em 0 0.75em;
-    border-left: 0.25em solid ${props => props.theme.lightBlue};
+    border-left: 0.25em solid ${props => props.theme.darkOrange};
   }
 `
