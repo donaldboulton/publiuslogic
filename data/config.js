@@ -26,7 +26,7 @@ const config = {
   userAvatar: 'https://donboulton.com/assets/images/donald-boulton.jpg', // User avatar to display in the author segment.
   userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
   recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
-  copyright: 'Copyright © 2019. Donald Boulton', // Copyright string for the footer of the website and RSS feed.
+  copyright: 'Copyright © 2019. Publius Logic', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#d64000', // Used for setting manifest and progress theme colors.
   backgroundColor: '#363636', // Used for setting manifest background color.
   siteSocialUrls: [
