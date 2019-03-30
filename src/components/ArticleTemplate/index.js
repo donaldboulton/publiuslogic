@@ -2,6 +2,7 @@ import React from 'react'
 import Content from '../Content'
 import { CommentCount } from 'disqus-react'
 import { Calendar } from 'styled-icons/octicons/Calendar'
+import { Comment } from 'styled-icons/material/Comment'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import { disqusConfig } from '../../utils/misc'
@@ -19,6 +20,7 @@ const ArticleTemplate = ({
   slug,
 }) => {
   const PostContent = contentComponent || Content
+  const { markdownRemark: post } = date
 
   return (
     <div>
@@ -28,11 +30,17 @@ const ArticleTemplate = ({
       <img src={cover} alt={title} />      
       <br />
       <span>
-        <Calendar size='1.2em' />
-        {date}
-        <Link to={`/blog` + slug + `#disqus_thread`}>
-          <CommentCount {...disqusConfig({ slug, title })} />
-        </Link>
+        <span className='subtitle is-size-6'>
+          <Calendar size='1.2em' />&nbsp;
+          <small>{date}&nbsp;</small>
+        </span>
+        <span className='subtitle is-size-6'>
+          <Comment size='1.2em' />&nbsp;
+          <Link to={`/blog` + slug + `#disqus_thread`}>
+            <CommentCount {...disqusConfig({ slug, title })} />
+            Comments
+          </Link>
+        </span>
       </span>
       <br />
       <PostContent content={content} />

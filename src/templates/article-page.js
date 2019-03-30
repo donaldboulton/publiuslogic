@@ -35,6 +35,7 @@ const ArticlePage = ({ data }) => {
               contentComponent={HTMLContent}
               cover={post.frontmatter.cover}
               category={post.frontmatter.category}
+              date={post.frontmatter.date}
               meta_title={post.frontmatter.meta_title}
               meta_desc={post.frontmatter.meta_description}
               tags={post.frontmatter.tags}
