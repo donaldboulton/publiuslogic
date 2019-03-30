@@ -93,7 +93,7 @@ or
 
 ### enables Disqus comments below blog posts
 
-``jsx
+``js
 import config from '../../data/config'
 ```
 
@@ -139,7 +139,7 @@ Where identifier must be a string or number that uniquely identifies the post. F
 
 Add Discussion embed
 
- ```jsx{6}
+ ```js{6}
  src/templates/blog.js
 
   return (
@@ -162,7 +162,7 @@ If you'd like your blog post previews to show a count of the number of comments 
 
 adding
 
-```jsx{4,21-23}
+```js{4,21-23}
   src/components/postMeta/index.js
 
   import React from 'react'

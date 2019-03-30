@@ -19,9 +19,8 @@ meta_description: Google Maps + React Hooks
 
 Had to share this one since it is so nice and simple. If you are looking for a drop-in, zero-dependency Google Maps React component, look no further. Here it is:
 
-src/components/map.js
-
-```jsx
+```js
+// src/components/map.js
 import React, { useEffect, useRef } from 'react'
 
 export default function Map({ options, onMount, className }) {
@@ -62,9 +61,8 @@ To use it, simply grab a free Google Maps API key from [Google cloud console](ht
 
 Then simply drop in the above Map component wherever you would like to display a Google map.
 
-src/app.js
-
-```jsx
+```js
+// src/app.js
 <App>
   <h1>Google Maps</h1>
   <Map />
@@ -73,7 +71,7 @@ src/app.js
 
 To change the area shown by the map and its zoom level, pass it an options object containing the keys center and zoom.
 
-```jsx
+```js
 mapProps = {
   options: {
     center: { lat: 20, lng: 40 },
@@ -86,7 +84,7 @@ mapProps = {
 
 If you would like to do something more fancy, for instance add some markers to the map, you can also pass in an onMount function:
 
-```jsx
+```js
 const addMarkers = links => map => {
   links.forEach((link, index) => {
     const marker = new window.google.maps.Marker({
