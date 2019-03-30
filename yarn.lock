@@ -319,7 +319,7 @@
     "@babel/helper-remap-async-to-generator" "^7.1.0"
     "@babel/plugin-syntax-async-generators" "^7.2.0"
 
-"@babel/plugin-proposal-class-properties@^7.0.0", "@babel/plugin-proposal-class-properties@^7.4.0":
+"@babel/plugin-proposal-class-properties@^7.0.0":
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.4.0.tgz#d70db61a2f1fd79de927eea91f6411c964e084b8"
   integrity sha512-t2ECPNOXsIeK1JxJNKmgbzQtoG27KIlVE61vTqX0DKR9E9sZlVVxWUtEW9D5FlZ8b8j7SBNCHY47GgPKCKlpPg==
@@ -6175,11 +6175,6 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
-fs@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
-  integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
-
 fsevents@^1.0.0, fsevents@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.2.7.tgz#4851b664a3783e52003b3c66eb0eee1074933aa4"
@@ -6571,13 +6566,6 @@ gatsby-remark-prismjs@^3.2.6:
     parse-numeric-range "^0.0.2"
     unist-util-visit "^1.3.0"
 
-gatsby-remark-reading-time@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-reading-time/-/gatsby-remark-reading-time-1.0.1.tgz#188fbe19bc7bc6f62d4e32397b18b5540f92f033"
-  integrity sha512-ug/WIiMVCf6I41nm0DkH2sGWg9hZ/nWliliU17K3MAwJ+vIJWjn+O1vS5djVRHkDa/vYt/lqRuDWzq4J4LJhkQ==
-  dependencies:
-    reading-time "^1.1.3"
-
 gatsby-remark-relative-images@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/gatsby-remark-relative-images/-/gatsby-remark-relative-images-0.2.2.tgz#f6bfa062ef203a6fb7baa4f48ff0f8494dca43cf"
@@ -6929,7 +6917,7 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-github-buttons@^2.2.5, "github-buttons@git+https://github.com/ntkme/github-buttons.git":
+github-buttons@^2.2.5:
   version "2.2.8"
   resolved "git+https://github.com/ntkme/github-buttons.git#0e0e92595e445dd95b5df38923ee15392ce16dd4"
 
