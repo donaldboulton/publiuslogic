@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { Meta } from './styles'
 import { CommentCount } from 'disqus-react'
-import { Meta, TagList } from './styles'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
-import { Comments } from 'styled-icons/fa-solid/Comments'
 import _ from 'lodash'
-import config from '../../../data/config'
+import { disqusConfig } from '../../utils/misc'
 
 require('moment')
 
@@ -16,14 +15,15 @@ const PostMeta = ({ title, slug, date, timeToRead, tags, inTitle = false }) => (
     <div className='post-info'>
       <span>
         <Calendar size='1.2em' />
+        {date}
         <Timer size='1.2em' />
         {timeToRead} min
-        <Comments size='1.2em' />
+      </span>
+      <span>
         <Link to={`/blog` + slug + `#disqus_thread`}>
-          <CommentCount shortname={config.disqusShortname} config={config.disqusConfig} />
+          <CommentCount {...disqusConfig({ slug, title })} />
         </Link>
       </span>
-      <TagList tags={tags} />
     </div>
   </Meta>
 )

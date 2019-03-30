@@ -72,8 +72,16 @@ to your
 
 example usage in .env.sample
 
-```js
-.env.example
+```env
+GATSBY_ALGOLIA_APP_ID=insertValue
+GATSBY_ALGOLIA_SEARCH_KEY=insertValue
+ALGOLIA_ADMIN_KEY=insertValue
+
+GOOGLE_ANALYTICS_ID=insertValue
+GATSBY_GOOGLE_MAPS_API_KEY=insertValue
+
+# enables Disqus comments below blog posts
+GATSBY_DISQUS_NAME=insertValue
 ``` 
 
 files so that people forking your repo will know that they need to supply this value to get comments to work. (You need to prefix the environment variable with GATSBY in order to [make it available to client side code](https://www.gatsbyjs.org/docs/environment-variables/#client-side-javascript).)
@@ -83,8 +91,9 @@ or
 3.5 Add it to your config.js in your data folder.
    Data/config.js
 
-``env
-# enables Disqus comments below blog posts
+### enables Disqus comments below blog posts
+
+``jsx
 import config from '../../data/config'
 ```
 
@@ -104,13 +113,15 @@ React component.
 //src/components/ArticleTemplate
 ```
 
-```js{3}:title=// src/templates/post.js
+```js{3}
+  src/templates/post.js
+
   import React from 'react'
   import { graphql } from 'gatsby'
   import { DiscussionEmbed } from 'disqus-react'
 ```
 
-Then define your Disqus configuration object
+Then define your Disqus configuration object if you are not using .env or Data/config.js
 
 ```js
   const disqusShortname = 'yourShortName'
@@ -128,7 +139,9 @@ Where identifier must be a string or number that uniquely identifies the post. F
 
 Add Discussion embed
 
- ```jsx{6}:title=// src/templates/blog.js
+ ```jsx{6}
+ src/templates/blog.js
+
   return (
     <Global>
       <PageBody>
@@ -149,7 +162,9 @@ If you'd like your blog post previews to show a count of the number of comments 
 
 adding
 
-```jsx{4,21-23}:title=src/components/postMeta/index.js
+```jsx{4,21-23}
+  src/components/postMeta/index.js
+
   import React from 'react'
   import { Link } from 'gatsby'
   import { CommentCount } from 'disqus-react'
@@ -184,16 +199,6 @@ where the config object now comes from the utility function
 
 ```env
   disqusConfig()
-```
-
-defined as
-
-```js:title=src/data/config.js
-const disqusShortname = 'yourShortName'
-  const disqusConfig = {
-    identifier: slug,
-    title: title,
-}
 ```
 
 You can customize what string the Comment Count component displays depending on how many comments a post has by going to your Disqus admin settings [as described here](https://help.disqus.com/installation/customizing-comment-count-link-text). For instance you might want to change the text "0 comments" to something more inspiring like "Start a discussion!". :wink:

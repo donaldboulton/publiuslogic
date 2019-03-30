@@ -29,9 +29,9 @@ All it took was a little skimming through [the docs](https://reactjs.org/docs/ho
 
 That's it. Ready to start coding. But what to do first? One thing that seemed a good fit for hooks are modals. I'd implemented them once or twice before and in both cases came away with the feeling that a class component with all its boilerplate is overkill considering the tiny bit of state management required for modal functionality. As expected, using hooks I was able to boil it down quite considerably. This is what I ended up with.
 
+```jsx
 src/components/modal/index.js
 
-```js
 import React from 'react'
 
 import { ModalBackground, ModalContainer, Close } from './styles'
@@ -55,6 +55,8 @@ And here are the styled components
 src/components/modal/styles.js
 
 ```js
+src/components/modal/styles.js
+
 import styled from 'styled-components'
 import { Close as Cross } from 'styled-icons/material/Close'
 
@@ -95,7 +97,7 @@ export const Close = styled(Cross).attrs({ size: `2em` })`
 
 As you can see, the styles are longer than the component itself. That's what took most of the time too. Figuring out how to use React hooks took mere minutes. Props to the React team (pun intended) for the excellent onboarding experience! Anyways, regarding usage, notice that the modal component doesn't actually handle it's own state. That's done by the parent component. As an example here's a [list of photos](/nature) that when clicked enter a higher-resolution modal view.
 
-```js
+```jsx
   import React, { useState, Fragment } from 'react'
 
   import Masonry from '../../components/Masonry'
@@ -126,7 +128,7 @@ As you can see, the styles are longer than the component itself. That's what too
 
 So basically just 4 lines of code to control the list of modals (and 2 of those do other things as well). I have to say, I was pretty impressed by that. For comparison, this is how much code the class implementation needed (just the JS, no styles yet).
 
-```js
+```jsx
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -201,7 +203,7 @@ and then maybe use the `::backdrop` pseudo-element for the modal background.
 However, bear in mind that using `::backdrop` would make it more difficult to close the modal on clicks outside of it, i.e. on the background. This is because React is unable to attach `onClick` event handlers to pseudo-elements and it seems unlikely this will change down the road. A workaround would be to use the new `useRef` and `useEffect` hook to create an event listener on the browser's `window` object that checks for the target of the `click` event. That would complicate things a little, though, since the listener would have to trigger on _all_ clicks and check that the modal doesn't include the target before closing. Something like so:
 components/modal/index.js
 
-```js
+```jsx
 import React, { useRef, useEffect } from 'react'
 
 import { ModalBackground, ModalContainer, Close } from './styles'
@@ -232,9 +234,9 @@ export default Modal
 
 If you have a list of modals and you'd like users to be able to go to the next or previous modal using the arrow keys, you can add an event listener with the `useEffect` hook for this as well.
 
+```js
 src/components/model/index.js
 
-```js
 import React, { useEffect } from 'react'
 
 import { ModalBackground, ModalContainer, Close, Next, Prev } from './styles'
@@ -276,9 +278,10 @@ export default Modal
 ```
 
 The new styled components `Next` and `Prev` share most of their CSS with `Close` so it makes sense to reuse that with `styled-components` `css` API:
-src/components/model/styles.js
 
 ```js
+src/components/model/styles.js
+
 import styled, { css } from 'styled-components'
 
 import { Close as Cross } from 'styled-icons/material/Close'

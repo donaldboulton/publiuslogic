@@ -92,6 +92,7 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
+          `gatsby-remark-reading-time`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

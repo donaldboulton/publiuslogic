@@ -9,8 +9,10 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import config from '../../data/config'
+
 require('prismjs')
 require('prismjs/plugins/toolbar/prism-toolbar.js')
+require('prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js')
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -67,7 +69,7 @@ export const pageQuery = graphql`
       html
       fields {
         slug
-      }
+      }      
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title

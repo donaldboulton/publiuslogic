@@ -19,7 +19,7 @@ const langExtColor = [
   { lang: `markdown`, tag: `md`, color: `#e6ffed` },
   { lang: `json`, tag: `json`, color: `#fff` },
   { lang: `diff`, tag: `diff`, color: `#E8BD36` },
-  { lang: `text`, tag: `text`, color: `gray` },
+  { lang: `text`, tag: `text`, color: `white` },
 ]
 
 const languageTags = langExtColor
@@ -69,7 +69,7 @@ export default createGlobalStyle`
 
   code[class*='language-'],
   pre[class*='language-'] {
-    color: white;
+    color: lightGray;
     font-family: Consolas, Menlo, Monaco, source-code-pro, 'Courier New', monospace;
     white-space: pre;
     word-spacing: normal;
@@ -181,5 +181,31 @@ export default createGlobalStyle`
     margin: 0 -1em;
     padding: 0 1em 0 0.75em;
     border-left: 0.25em solid ${props => props.theme.darkOrange};
+  }
+
+  pre.code-toolbar {
+    position: relative;
+  }
+
+  pre.code-toolbar > .toolbar {
+    position: absolute;
+    top: 1em;
+    right: .5em;
+    background: #f5f2f0;
+    background: rgba(224,224,224,.2);
+    border-radius: .5em;
+  }
+
+  pre.code-toolbar > .toolbar a {
+    color: #bbb;
+    font-size: .8em;
+    cursor: pointer;
+    padding: 0 .5em;
+  }
+  
+  pre.code-toolbar > .toolbar a:hover, 
+  pre.code-toolbar > .toolbar a:focus,
+  pre.code-toolbar > .toolbar a.zeroclipboard-is-hover {
+    color: inherit;
   }
 `

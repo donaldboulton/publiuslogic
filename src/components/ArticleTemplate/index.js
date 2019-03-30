@@ -15,13 +15,14 @@ const ArticleTemplate = ({
   slug,
 }) => {
   const PostContent = contentComponent || Content
+  const { frontmatter, timeToRead } = Content
 
   return (
     <div>
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>
-      <img src={cover} alt={title} />
+      <img src={cover} alt={title} />      
       <br />
       <PostContent content={content} />
       <div style={{ marginTop: `2rem` }}>
