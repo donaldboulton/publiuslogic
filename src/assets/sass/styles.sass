@@ -471,7 +471,13 @@ html::-webkit-scrollbar-track
   -webkit-transform: translate(0,-50%)
   transform: translate(0,-50%)  
 .language-text
-    backround-color: #1d1d1d !important
-    color: #cccccc !important
-  
+  backround-color: #1d1d1d !important
+  color: #cccccc !important
+div.code-toolbar>.toolbar
+  position: absolute
+  top: 1em !important
+  right: .5em !important
+  transition: opacity .3s ease-in-out
+  opacity: 0
+
 @import "~bulma"

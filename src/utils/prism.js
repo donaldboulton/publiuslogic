@@ -19,7 +19,7 @@ const langExtColor = [
   { lang: `markdown`, tag: `md`, color: `#e6ffed` },
   { lang: `json`, tag: `json`, color: `#fff` },
   { lang: `diff`, tag: `diff`, color: `#E8BD36` },
-  { lang: `text`, tag: `text`, color: `white` },
+  { lang: `text`, tag: `text`, color: `#D64000` },
 ]
 
 const languageTags = langExtColor
@@ -189,8 +189,8 @@ export default createGlobalStyle`
 
   pre.code-toolbar > .toolbar {
     position: absolute;
-    top: 1em;
-    right: .5em;
+    top: 1em !important;
+    right: .5em !important;
     background: #f5f2f0;
     background: rgba(224,224,224,.2);
     border-radius: .5em;
