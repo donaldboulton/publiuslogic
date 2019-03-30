@@ -38,7 +38,7 @@ const ArticleTemplate = ({
           <Comment size='1.2em' />&nbsp;
           <Link to={`/blog` + slug + `#disqus_thread`}>
             <CommentCount {...disqusConfig({ slug, title })} />
-            Comments
+              Comments
           </Link>
         </span>
       </span>

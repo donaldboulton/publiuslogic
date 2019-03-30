@@ -12,6 +12,7 @@ const config = {
   siteFBAppID: '1825356251115265', // optional, sets the FB Application ID for using app insights
   sitePaginationLimit: 8, // The max number of posts per page.
   googleAnalyticsID: 'UA-24847941-1', // GA tracking ID.
+  googleAdsensePublisherId: 'pub-7655495105068461',
   siteFBSecret: 'f3b147f8f8c38e752cf1bc146690ea1f',
   googleTagManagerID: 'UA-24847941-1', // GTM tracking ID.
   disqusShortname: 'mansbooks-1', // Disqus shortname.

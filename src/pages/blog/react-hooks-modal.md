@@ -48,7 +48,6 @@ const Modal = ({ open, closeModal, children }) => {
 }
 
 export default Modal
-
 ```
 
 And here are the styled components

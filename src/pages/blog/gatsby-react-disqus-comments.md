@@ -58,13 +58,13 @@ Here are the steps for adding Disqus comments to your own blog:
 yarn add disqus-react
 ```
 
-3. Add the shortname from step 1 as something like 
+3. Add the shortname from step 1 as something like
 
 ```js
 GATSBY_DISQUS_NAME
 ```
 
-to your 
+to your
 
 ```js
 .env
@@ -72,7 +72,7 @@ to your
 
 example usage in .env.sample
 
-```env
+```js
 GATSBY_ALGOLIA_APP_ID=insertValue
 GATSBY_ALGOLIA_SEARCH_KEY=insertValue
 ALGOLIA_ADMIN_KEY=insertValue
@@ -82,7 +82,7 @@ GATSBY_GOOGLE_MAPS_API_KEY=insertValue
 
 # enables Disqus comments below blog posts
 GATSBY_DISQUS_NAME=insertValue
-``` 
+```
 
 files so that people forking your repo will know that they need to supply this value to get comments to work. (You need to prefix the environment variable with GATSBY in order to [make it available to client side code](https://www.gatsbyjs.org/docs/environment-variables/#client-side-javascript).)
 
@@ -93,11 +93,11 @@ or
 
 ### enables Disqus comments below blog posts
 
-``js
+```js
 import config from '../../data/config'
 ```
 
-``env
+```js
 disqusShortname: 'yourOwnSiteShortname'
 ```
 
@@ -109,13 +109,8 @@ disqusShortname: 'yourOwnSiteShortname'
 
 React component.
 
-```js
-//src/components/ArticleTemplate
-```
-
-```js{3}
-  src/templates/post.js
-
+```js{4}
+  //src/components/ArticleTemplate
   import React from 'react'
   import { graphql } from 'gatsby'
   import { DiscussionEmbed } from 'disqus-react'
@@ -133,14 +128,10 @@ Then define your Disqus configuration object if you are not using .env or Data/c
 
 Where identifier must be a string or number that uniquely identifies the post. Finally, add DiscussionEmbed to the JSX of your post template.
 
-```js
-  // src/components/ArticleTemplate
-```
-
 Add Discussion embed
 
  ```js{6}
- src/templates/blog.js
+ // src/components/ArticleTemplate
 
   return (
     <Global>
@@ -162,8 +153,8 @@ If you'd like your blog post previews to show a count of the number of comments 
 
 adding
 
-```js{4,21-23}
-  src/components/postMeta/index.js
+```js{6,23-25}
+  //src/components/postMeta/index.js
 
   import React from 'react'
   import { Link } from 'gatsby'
@@ -197,7 +188,7 @@ adding
 
 where the config object now comes from the utility function 
 
-```env
+```js
   disqusConfig()
 ```
 

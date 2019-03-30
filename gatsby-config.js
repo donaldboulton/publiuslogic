@@ -92,7 +92,6 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
-          `gatsby-remark-reading-time`,
           `gatsby-plugin-catch-links`,
           {
             resolve: `gatsby-remark-prismjs`,
@@ -176,17 +175,6 @@ module.exports = {
         async: true,
         defer: false,
         args: '?onload=onloadCallback&render=explicit',
-      },
-    },
-    {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        // your google analytics tracking id
-        trackingId: `UA-24847941-1`,
-        // Puts tracking script in the head instead of the body
-        head: false,
-        // enable ip anonymization
-        anonymize: true,
       },
     },
     {
