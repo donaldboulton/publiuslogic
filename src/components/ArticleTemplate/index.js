@@ -1,7 +1,10 @@
 import React from 'react'
 import Content from '../Content'
+import { CommentCount } from 'disqus-react'
+import { Calendar } from 'styled-icons/octicons/Calendar'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
+import { disqusConfig } from '../../utils/misc'
 
 const ArticleTemplate = ({
   content,
@@ -10,12 +13,12 @@ const ArticleTemplate = ({
   category,
   meta_title,
   meta_desc,
+  date,
   tags,
   title,
   slug,
 }) => {
   const PostContent = contentComponent || Content
-  const { frontmatter, timeToRead } = Content
 
   return (
     <div>
@@ -23,6 +26,14 @@ const ArticleTemplate = ({
         {title}
       </h1>
       <img src={cover} alt={title} />      
+      <br />
+      <span>
+        <Calendar size='1.2em' />
+        {date}
+        <Link to={`/blog` + slug + `#disqus_thread`}>
+          <CommentCount {...disqusConfig({ slug, title })} />
+        </Link>
+      </span>
       <br />
       <PostContent content={content} />
       <div style={{ marginTop: `2rem` }}>

@@ -93,6 +93,7 @@ module.exports = {
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
           `gatsby-remark-reading-time`,
+          `gatsby-plugin-catch-links`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -315,5 +316,6 @@ module.exports = {
       options: { prefixes: ['/app/*'] },
     },
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`,
   ],
 }
