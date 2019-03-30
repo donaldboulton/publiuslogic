@@ -30,11 +30,11 @@ const ArticleTemplate = ({
       <img src={cover} alt={title} />      
       <br />
       <span>
-        <span className='subtitle is-size-6'>
+        <span className='subtitle is-size-4'>
           <Calendar size='1.2em' />&nbsp;
           <small>{date}&nbsp;</small>
         </span>
-        <span className='subtitle is-size-6'>
+        <span className='subtitle is-size-4'>
           <Comment size='1.2em' />&nbsp;
           <Link to={`/blog` + slug + `#disqus_thread`}>
             <CommentCount {...disqusConfig({ slug, title })} />
