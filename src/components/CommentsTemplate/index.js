@@ -10,7 +10,7 @@ const encode = (data) => {
     .join('&')
 }
 
-class ContactPageTemplate extends Component {
+class CommentsTemplate extends Component {
   constructor (props) {
     super(props)
     this.state = { isValidated: false }
@@ -74,7 +74,7 @@ class ContactPageTemplate extends Component {
         <section className='section'>
           <div className='container'>
             <form
-              name='contact'
+              name='comments'
               method='post'
               action='/contact/success'
               encType='application/x-www-form-urlencoded'
@@ -83,7 +83,7 @@ class ContactPageTemplate extends Component {
               data-netlify-recaptcha='true'
               onSubmit={this.handleSubmit}
             >
-              <input type='hidden' name='form-name' value='contact' />
+              <input type='hidden' name='form-name' value='comment' />
               <div hidden>
                 <label>
                   Don’t fill this out:{' '}
@@ -151,11 +151,11 @@ class ContactPageTemplate extends Component {
   }
 };
 
-ContactPageTemplate.propTypes = {
+CommentsTemplate.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
 }
 
-export default ContactPageTemplate
+export default CommentsTemplate

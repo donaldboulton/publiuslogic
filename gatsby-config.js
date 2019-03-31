@@ -1,7 +1,3 @@
-const proxy = require('http-proxy-middleware')
-
-require(`dotenv`).config()
-
 const config = require('./data/config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
