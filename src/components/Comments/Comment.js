@@ -3,7 +3,7 @@ import React from 'react'
 const Comment = ({ comment }) => (
   <div className='comment'>
     <div className='comment__meta'>
-      <h5>{comment.name}</h5>
+      <h5>{comment.name}</h5><small>&nbsp;@{comment.email}</small>
       <span>{new Date(comment.timestamp).toDateString()}</span>
     </div>
     <p className='comment__body'>{comment.comment}</p>

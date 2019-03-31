@@ -1,11 +1,8 @@
 import React from 'react'
 import Content from '../Content'
-import { CommentCount } from 'disqus-react'
 import { Calendar } from 'styled-icons/octicons/Calendar'
-import { Comment } from 'styled-icons/material/Comment'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
-import { disqusConfig } from '../../utils/misc'
 
 const ArticleTemplate = ({
   content,
@@ -33,13 +30,6 @@ const ArticleTemplate = ({
         <span className='subtitle is-size-4'>
           <Calendar size='1.2em' />&nbsp;
           <small>{date}&nbsp;</small>
-        </span>
-        <span className='subtitle is-size-4'>
-          <Comment size='1.2em' />&nbsp;
-          <Link to={`/blog` + slug + `#disqus_thread`}>
-            <CommentCount {...disqusConfig({ slug, title })} />
-              Comments
-          </Link>
         </span>
       </span>
       <br />

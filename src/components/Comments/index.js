@@ -4,21 +4,19 @@ import Pusher from 'pusher-js'
 import CommentForm from './form'
 import Comment from './Comment'
 
-import './styles.css'
-
 class Comments extends React.Component {
   constructor () {
-    super();
+    super()
     this.state = {
       comments: [],
-    };
-    this.pusher = new Pusher('PUSHER_KEY', {
+    }
+    this.pusher = new Pusher('21d7ddb38a6ae01657d4', {
       cluster: 'eu',
-    });
+    })
   }
 
   componentDidMount () {
-    const channel = this.pusher.subscribe('post-comment');
+    const channel = this.pusher.subscribe('post-comment')
     channel.bind('new-comment', (data) => {
       this.setState((prevState) => ({
         comments: [...prevState.comments, data],
@@ -44,7 +42,7 @@ class Comments extends React.Component {
           )}
         </div>
       </div>
-    );
+    )
   }
 }
 

@@ -3,12 +3,11 @@ import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { DiscussionEmbed } from 'disqus-react'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
-import config from '../../data/config'
+import Comments from '../components/Comments'
 
 require('prismjs')
 require('prismjs/plugins/toolbar/prism-toolbar.js')
@@ -47,7 +46,7 @@ const ArticlePage = ({ data }) => {
               excerpt={post.frontmatter.meta_description}
             />
             <hr />
-            <DiscussionEmbed shortname={config.disqusShortname} config={config.disqusConfig} />  
+            <Comments />  
           </div>
         </div>
       </div>
