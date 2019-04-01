@@ -7,7 +7,7 @@ class CommentForm extends React.Component {
   constructor () {
     super()
     this.state = {
-      name: '',
+      author: '',
       email: '',
       comment: '',
     }
@@ -30,7 +30,7 @@ class CommentForm extends React.Component {
       },
     })
     const data = await response.json()
-    this.setState({ comment: '', email: '', name: '' })
+    this.setState({ comment: '', email: '', author: '' })
   }
 
   handleChange ({ target }) {
@@ -39,7 +39,7 @@ class CommentForm extends React.Component {
   }
 
   render () {
-    const { name, email, comment } = this.state
+    const { author, email, comment } = this.state
     return (
       <div>
         <section className='header'>
@@ -56,7 +56,7 @@ class CommentForm extends React.Component {
                       <input
                         className='input is-large'
                         placeholder='Your Name'
-                        value={name}
+                        value={author}
                         name='name'
                         onChange={this.handleChange}
                       />
@@ -108,7 +108,7 @@ class CommentForm extends React.Component {
                 </form>
               </div>
               <div className='column'>
-                <h4>Adding a Realtime Comment</h4>
+                <h4>Realtime Comment</h4>
                 <div>
                   <a href='https://publiuslogic.com/privacy'>
                     <img

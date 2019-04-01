@@ -1,48 +1,42 @@
 require('dotenv').config()
 const express = require('express')
-const bodyParser = require('body-parser')
-const Pusher = require('pusher')
-const { v4 } = require('uuid')
-const path = require('path')
-
 const app = express()
-app.use(express.static(path.join(__dirname, 'public/')))
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const Pusher = require('pusher')
 
-const port = process.env.PORT || 5000
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+const port = process.env.PORT || 8080
 
 const pusher = new Pusher({
   appId: process.env.PUSHER_APP_ID,
   key: process.env.PUSHER_KEY,
   secret: process.env.PUSHER_SECRET,
-  cluster: 'eu',
+  cluster: 'us2',
+  encrypted: true,
 })
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  )
-  next()
+let comments = [
+  {
+    author: 'donaldboulton',
+    message: 'i totally didn\'t see that coming',
+  },
+]
+
+app.post('/comment', function (req, res) {
+  const { author, email, message } = req.body
+  comments = [...[{ author, email, message }], ...comments]
+  pusher.trigger('publiuslogic.com-production', 'new-comment', { author, email, message })
+  res.sendStatus(200)
 })
 
-app.post('/comment', (req, res) => {
-  const { body } = req
-  const data = {
-    ...body,
-    id: v4(),
-    timestamp: new Date(),
-  }
-  pusher.trigger('post-comment', 'new-comment', data)
-  res.json(data)
+app.get('/comments', function (req, res) {
+  res.json(comments)
 })
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/404.html'))
-})
-
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`)
+app.listen(port, function () {
+  console.log('Node app is running at localhost:' + port)
 })

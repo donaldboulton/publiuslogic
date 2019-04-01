@@ -3,6 +3,7 @@ import { navigate } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import Recaptcha from 'react-google-recaptcha'
+import logo from '../../img/logo.png'
 
 const encode = (data) => {
   return Object.keys(data)
@@ -25,9 +26,9 @@ class ContactPageTemplate extends Component {
   }
 
   handleAttachment = e => {
-    this.setState({ [e.target.name]: e.target.files[0] });
+    this.setState({ [e.target.name]: e.target.files[0] })
   };
-  
+
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -73,77 +74,97 @@ class ContactPageTemplate extends Component {
         </section>
         <section className='section'>
           <div className='container'>
-            <form
-              name='contact'
-              method='post'
-              action='/contact/success'
-              encType='application/x-www-form-urlencoded'
-              data-netlify='true'
-              data-netlify-honeypot='bot-field'
-              data-netlify-recaptcha='true'
-              onSubmit={this.handleSubmit}
-            >
-              <input type='hidden' name='form-name' value='contact' />
-              <div hidden>
-                <label>
+            <div className='columns'>
+              <div className='column is-half'>
+                <form
+                  name='contact'
+                  method='post'
+                  action='/contact/success'
+                  encType='application/x-www-form-urlencoded'
+                  data-netlify='true'
+                  data-netlify-honeypot='bot-field'
+                  data-netlify-recaptcha='true'
+                  onSubmit={this.handleSubmit}
+                >
+                  <input type='hidden' name='form-name' value='contact' />
+                  <div hidden>
+                    <label>
                   Don’t fill this out:{' '}
-                  <input name='bot-field' onChange={this.handleChange} />
-                </label>
-              </div>
-              <div className='field'>
-                <label className='label'>Full Name</label>
-                <div className='control'>
-                  <input className='input is-large' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
-                </div>
-              </div>
+                      <input name='bot-field' onChange={this.handleChange} />
+                    </label>
+                  </div>
+                  <div className='field'>
+                    <label className='label'>Full Name</label>
+                    <div className='control'>
+                      <input className='input is-large' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
+                    </div>
+                  </div>
 
-              <div className='field'>
-                <label className='label'>Email</label>
-                <div className='control'>
-                  <input className='input is-large' type='email' placeholder='Email' name='email' id='email' onChange={this.handleChange} />
-                </div>
-              </div>
+                  <div className='field'>
+                    <label className='label'>Email</label>
+                    <div className='control'>
+                      <input className='input is-large' type='email' placeholder='Email' name='email' id='email' onChange={this.handleChange} />
+                    </div>
+                  </div>
 
-              <div className='field'>
-                <label className='label'>Message</label>
-                <div className='control'>
-                  <textarea className='textarea is-large' name='message' id='message' onChange={this.handleChange} />
-                </div>
-              </div>
-              <div className='field'>
-                <div className='file'>
-                  <label className='button file-label is-primary is-large'>
-                    <input
-                      className='file-input is-primary'
-                      type='file'
-                      name='attachment'
-                      onChange={this.handleAttachment}
+                  <div className='field'>
+                    <label className='label'>Message</label>
+                    <div className='control'>
+                      <textarea className='textarea is-large' name='message' id='message' onChange={this.handleChange} />
+                    </div>
+                  </div>
+                  <div className='field'>
+                    <div className='file'>
+                      <label className='button file-label is-primary is-large'>
+                        <input
+                          className='file-input is-primary'
+                          type='file'
+                          name='attachment'
+                          onChange={this.handleAttachment}
+                        />
+                        <span className='file-cta'>
+                          <span className='file-label'>Choose a file…</span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div className='field'>
+                    <Recaptcha
+                      ref='recaptcha'
+                      sitekey='6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
+                      theme='dark'
+                      render='explicit'
+                      onloadCallback='Done'
+                      onChange={this.handleRecaptcha}
                     />
-                    <span className='file-cta'>
-                      <span className='file-label'>Choose a file…</span>
-                    </span>
-                  </label>
+                  </div>
+                  <div className='field is-grouped is-pulled-right'>
+                    <div className='control'>
+                      <button className='button is-text is-large' type='reset'>Cancel</button>
+                    </div>
+                    <div className='control'>
+                      <button className='button is-primary is-large' type='submit'>Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div className='column'>
+                <h4>Realtime Contact Message</h4>
+                <div>
+                  <a href='https://publiuslogic.com/privacy'>
+                    <img
+                      src={logo}
+                      alt='PubliusLogic'
+                      style={{ width: '330px', height: '330px' }}
+                    />
+                  </a>
+                  <div>
+                    <div>Contact is governed by our!</div>
+                    <div className='is-centered'><a href='/privacy#Comment Policy/'>Forms Submit Policy</a></div>
+                  </div>
                 </div>
               </div>
-              <div className='field'>
-                <Recaptcha
-                  ref='recaptcha'
-                  sitekey='6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
-                  theme='dark'
-                  render='explicit'
-                  onloadCallback='Done'
-                  onChange={this.handleRecaptcha}
-                />
-              </div>
-              <div className='field is-grouped is-pulled-right'>
-                <div className='control'>
-                  <button className='button is-text is-large' type='reset'>Cancel</button>
-                </div>
-                <div className='control'>
-                  <button className='button is-primary is-large' type='submit'>Submit</button>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </section>
       </div>
