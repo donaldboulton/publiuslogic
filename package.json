@@ -55,6 +55,7 @@
     "gatsby-plugin-sitemap": "^2.0.10",
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-remark-autolink-headers": "^2.0.16",
     "gatsby-remark-code-titles": "^1.1.0-rc.0",
     "gatsby-remark-copy-linked-files": "^2.0.10",
     "gatsby-remark-embed-video": "^1.7.0",
