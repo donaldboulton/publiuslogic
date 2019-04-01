@@ -1,4 +1,3 @@
-import HtmlHead from './htmlhead'
 import Layout from './layout'
 import React from 'react'
 import { getUser, handleLogin, isLoggedIn, logout } from '../../utils/auth'
@@ -14,7 +13,6 @@ export class Dashboard extends React.Component {
     const { children } = this.props
     return (
       <Layout>
-        <HtmlHead title={pageData.title} />
         <main>
           <h2>Dashboard</h2>
           <NavBar />

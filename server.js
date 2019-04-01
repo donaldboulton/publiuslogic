@@ -3,9 +3,12 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const Pusher = require('pusher')
 const { v4 } = require('uuid')
+const path = require('path')
 
 const app = express()
-const port = process.env.PORT || 4000
+app.use(express.static(path.join(__dirname, 'public/')))
+
+const port = process.env.PORT || 5000
 
 const pusher = new Pusher({
   appId: process.env.PUSHER_APP_ID,
@@ -34,6 +37,10 @@ app.post('/comment', (req, res) => {
   }
   pusher.trigger('post-comment', 'new-comment', data)
   res.json(data)
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/404.html'))
 })
 
 app.listen(port, () => {

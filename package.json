@@ -11,9 +11,9 @@
   },
   "scripts": {
     "develop": "gatsby develop",
-    "start": "npm run develop && node server.js",
+    "start": "npm run develop && node server.js | npm start",
     "build": "gatsby build",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve && node server.js",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/"
   },

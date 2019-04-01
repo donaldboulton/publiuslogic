@@ -1,16 +1,15 @@
-import AllSitePages from './allsitepages'
-import Footer from './footer'
 import React from 'react'
+import AllSitePages from './allsitepages'
 
 class Template extends React.Component {
   render () {
     const { children } = this.props
     return (
-      <div>
-        <div>
+      <section className='section'>
+        <div style={{ marginTop: `2rem` }}>
           <div>
             <header>
-              <h1>gatsby-starter by David Sabine</h1>
+              <h1>Profile Backend</h1>
             </header>
             <div>
               <div className='nav'>
@@ -19,9 +18,8 @@ class Template extends React.Component {
               {children}
             </div>
           </div>
-          <Footer />
         </div>
-      </div>
+      </section>
     )
   }
 }

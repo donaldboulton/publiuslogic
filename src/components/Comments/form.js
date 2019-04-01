@@ -1,5 +1,5 @@
 import React from 'react'
-
+import fetch from 'node-fetch'
 import Recaptcha from 'react-google-recaptcha'
 import logo from '../../img/logo.png'
 
@@ -22,7 +22,7 @@ class CommentForm extends React.Component {
   async handleSubmit (e) {
     e.preventDefault()
     const body = JSON.stringify({ ...this.state })
-    const response = await fetch('http://localhost:4000/comment', {
+    const response = await fetch('https://publiuslogic.com/comment', {
       method: 'post',
       body,
       headers: {
