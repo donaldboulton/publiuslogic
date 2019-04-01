@@ -1,7 +1,6 @@
 {
-  "name": "PubliusLogic",
+  "name": "publiuslogic",
   "description": "PubliusLogic Gatsby, and Netlify CMS",
-  "main": "server.js",
   "author": "Donald Boulton",
   "version": "2.0.0",
   "license": "MIT",
@@ -13,7 +12,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
-    "serve": "gatsby serve && node server.js",
+    "serve": "gatsby serve",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/"
   },
