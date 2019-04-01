@@ -3,132 +3,149 @@ import fetch from 'node-fetch'
 import Recaptcha from 'react-google-recaptcha'
 import logo from '../../img/logo.png'
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
 class CommentForm extends React.Component {
-  constructor () {
-    super()
-    this.state = {
-      author: '',
-      email: '',
-      comment: '',
+  constructor (props) {
+    super(props)
+    this.state = { isValidated: false }
+  }
+
+    handleChange = e => {
+      this.setState({ [e.target.name]: e.target.value })
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.handleRecaptcha = value => {
+    handleRecaptcha = value => {
       this.setState({ 'g-recaptcha-response': value })
     }
-  }
 
-  async handleSubmit (e) {
-    e.preventDefault()
-    const body = JSON.stringify({ ...this.state })
-    const response = await fetch('https://publiuslogic.com/comment', {
-      method: 'post',
-      body,
-      headers: {
-        'content-type': 'application/json',
-      },
-    })
-    const data = await response.json()
-    this.setState({ comment: '', email: '', author: '' })
-  }
+    handleSubmit = e => {
+      e.preventDefault()
+      const form = e.target
+      // eslint-disable-next-line
+      fetch('/?no-cache=1', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': form.getAttribute('name'),
+          ...this.state,
+        }),
+      })
+        .then(() => navigate(form.getAttribute('action')))
+        // eslint-disable-next-line
+        .catch(error => alert(error))
+    }
 
-  handleChange ({ target }) {
-    const { name, value } = target
-    this.setState({ [name]: value })
-  }
-
-  render () {
-    const { author, email, comment } = this.state
-    return (
-      <div>
-        <section className='header'>
-          <h2>Comment Form</h2>
-        </section>
-        <section className='section'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-half'>
-                <form onSubmit={this.handleSubmit} className='comment-form'>
-                  <div className='field'>
-                    <label className='label'>Name</label>
-                    <div className='control'>
-                      <input
-                        className='input is-large'
-                        placeholder='Your Name'
-                        value={author}
-                        name='name'
-                        onChange={this.handleChange}
+    render () {
+      const { author, email, comment } = this.state
+      return (
+        <div>
+          <section className='header'>
+            <h2>Comment Form</h2>
+          </section>
+          <section className='section'>
+            <div className='container'>
+              <div className='columns'>
+                <div className='column is-half'>
+                  <form
+                    name='comments'
+                    method='post'
+                    action='/contact/success'
+                    encType='application/x-www-form-urlencoded'
+                    data-netlify='true'
+                    data-netlify-honeypot='bot-field'
+                    data-netlify-recaptcha='true'
+                    onSubmit={this.handleSubmit}
+                  >
+                    <input type='hidden' name='form-name' value='contact' />
+                    <div hidden>
+                      <label>
+                  Don’t fill this out:{' '}
+                        <input name='bot-field' onChange={this.handleChange} />
+                      </label>
+                    </div>
+                    <div className='field'>
+                      <label className='label'>Name</label>
+                      <div className='control'>
+                        <input
+                          className='input is-large'
+                          placeholder='Your Name'
+                          value={author}
+                          name='name'
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className='field'>
+                      <label className='label'>Email</label>
+                      <div className='control'>
+                        <input
+                          className='input is-large'
+                          placeholder='youremail@you.com'
+                          value={email}
+                          name='email'
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className='field'>
+                      <label className='label'>Message</label>
+                      <div className='control'>
+                        <textarea
+                          className='textarea is-large'
+                          placeholder='Enter your comment'
+                          rows='6'
+                          name='comment'
+                          value={comment}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className='field'>
+                      <Recaptcha
+                        ref='recaptcha'
+                        sitekey='6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
+                        theme='dark'
+                        render='explicit'
+                        onloadCallback='Done'
+                        onChange={this.handleRecaptcha}
                       />
                     </div>
-                  </div>
-                  <div className='field'>
-                    <label className='label'>Email</label>
-                    <div className='control'>
-                      <input
-                        className='input is-large'
-                        placeholder='youremail@you.com'
-                        value={email}
-                        name='email'
-                        onChange={this.handleChange}
-                      />
+                    <div className='field is-grouped is-pulled-right'>
+                      <div className='control'>
+                        <button className='button is-text is-large' type='reset'>Cancel</button>
+                      </div>
+                      <div className='control'>
+                        <button className='button is-primary is-large' type='submit'>Submit</button>
+                      </div>
                     </div>
-                  </div>
-                  <div className='field'>
-                    <label className='label'>Message</label>
-                    <div className='control'>
-                      <textarea
-                        className='textarea is-large'
-                        placeholder='Enter your comment'
-                        rows='6'
-                        name='comment'
-                        value={comment}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                  </div>
-                  <div className='field'>
-                    <Recaptcha
-                      ref='recaptcha'
-                      sitekey='6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
-                      theme='dark'
-                      render='explicit'
-                      onloadCallback='Done'
-                      onChange={this.handleRecaptcha}
-                    />
-                  </div>
-                  <div className='field is-grouped is-pulled-right'>
-                    <div className='control'>
-                      <button className='button is-text is-large' type='reset'>Cancel</button>
-                    </div>
-                    <div className='control'>
-                      <button className='button is-primary is-large' type='submit'>Submit</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div className='column'>
-                <h4>Realtime Comment</h4>
-                <div>
-                  <a href='https://publiuslogic.com/privacy'>
-                    <img
-                      src={logo}
-                      alt='PubliusLogic'
-                      style={{ width: '330px', height: '330px' }}
-                    />
-                  </a>
+                  </form>
+                </div>
+                <div className='column'>
+                  <h4>Realtime Comment</h4>
                   <div>
-                    <div>All Comments are governed by our!</div>
-                    <div className='is-centered'><a href='/privacy#Comment Policy/'>Comment Policy</a></div>
+                    <a href='https://publiuslogic.com/privacy'>
+                      <img
+                        src={logo}
+                        alt='PubliusLogic'
+                        style={{ width: '330px', height: '330px' }}
+                      />
+                    </a>
+                    <div>
+                      <div>All Comments are governed by our!</div>
+                      <div className='is-centered'><a href='/privacy#Comment Policy/'>Comment Policy</a></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-    )
-  }
+          </section>
+        </div>
+      )
+    }
 }
 
 export default CommentForm

@@ -79,8 +79,6 @@
     "parcel-bundler": "^1.11.0",
     "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
-    "pusher": "^2.2.0",
-    "pusher-js": "^4.4.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-github-btn": "^1.0.3",
