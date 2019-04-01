@@ -1,6 +1,5 @@
-import netlifyIdentity from '../IdentityWidget'
+import netlifyIdentity from '../../src/components/IdentityWidget'
 
-// helpful for debugging netlify identity
 const logAuth = process.env.NODE_ENV === 'development' && false // set to true to turn on logging
 const clog = (...args) => logAuth && console.log(...args)
 // helpful for debugging netlify identity

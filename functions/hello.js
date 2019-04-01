@@ -1,13 +1,10 @@
-const obj = {
-  foo: 'bar',
+exports.handler = function(event, context, callback) {
+    callback(null,{
+        statusCode: 200,
+        body: getHelloString()
+    })
 }
-export function handler (event, context, callback) {
-  console.log('queryStringParameters', event.queryStringParameters)
-  callback(null, {
-    statusCode: 200,
-    body: JSON.stringify({
-      msg: 'Hello, World! ' + Math.round(Math.random() * 10),
-      ...obj,
-    }),
-  })
+
+export function getHelloString() {
+    return JSON.stringify({ message: `Hello, World! (And now a random number to prove this is dynamically generated: `+ Math.round(Math.random() * 10) +`).` })
 }

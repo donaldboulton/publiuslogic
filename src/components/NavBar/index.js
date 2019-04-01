@@ -67,13 +67,13 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <a className='navbar-item' href='/blog'>
                   All Posts
                 </a>
-                <a className='navbar-item' href='/blog/netlify-cms-test#disqus_thread/'>
+                <a className='navbar-item' href='/blog/netlify-cms-test/'>
                   Netlify CMS
                 </a>
-                <a className='navbar-item' href='/blog/gatsby-react-disqus-comments#disqus_thread/'>
+                <a className='navbar-item' href='/blog/gatsby-react-disqus-comments/'>
                   React Disqus Comments
                 </a>
-                <a className='navbar-item' href='/blog/react-hooks-modal#disqus_thread/'>
+                <a className='navbar-item' href='/blog/react-hooks-modal/'>
                   React Hooks Modal
                 </a>
                 <a className='navbar-item' href='/blog/google-maps+react-hooks'>

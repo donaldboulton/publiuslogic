@@ -1,7 +1,7 @@
 ---
 templateKey: 'home-page'
-title: Gatsby Starter Business
-meta_title: Home | Gatsby Starter Business
+title: PubliusLogic
+meta_title: Home | Publius Logic
 meta_description: >-
   Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
   ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam

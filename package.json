@@ -1,6 +1,7 @@
 {
   "name": "PubliusLogic",
   "description": "PubliusLogic Gatsby, and Netlify CMS",
+  "main": "server.js",
   "author": "Donald Boulton",
   "version": "2.0.0",
   "license": "MIT",
@@ -10,8 +11,7 @@
   },
   "scripts": {
     "develop": "gatsby develop",
-    "start": "npm run develop",
-    "start:lambda": "netlify-lambda serve functions",
+    "start": "npm run develop && node server.js",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
@@ -20,7 +20,6 @@
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "@google/markerclustererplus": "^2.1.11",
-    "apollo-link-http": "^1.5.14",
     "babel-plugin-prismjs": "^1.0.2",
     "babel-plugin-styled-components": "^1.10.0",
     "body-parser": "^1.18.3",
@@ -68,6 +67,7 @@
     "gatsby-remark-smartypants": "2.0.9",
     "gatsby-source-filesystem": "^2.0.17",
     "gatsby-source-graphql": "^2.0.15",
+    "gatsby-source-stripe": "^2.1.9",
     "gatsby-transformer-remark": "^2.3.7",
     "gatsby-transformer-sharp": "^2.1.17",
     "lodash": "^4.17.11",
@@ -86,7 +86,6 @@
     "react-github-btn": "^1.0.3",
     "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
-    "react-icons": "^3.5.0",
     "react-scroll": "^1.7.11",
     "react-share": "^2.4.0",
     "reading-time": "^1.1.3",

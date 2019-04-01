@@ -1,3 +1,4 @@
+const proxy = require('http-proxy-middleware')
 const config = require('./data/config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
@@ -14,16 +15,16 @@ module.exports = {
       image_url: `${config.siteUrl + pathPrefix}/icons/icon-512x512.png`,
       author: config.userName,
       copyright: config.copyright,
+      twitterCreator: `@donboulton`,
+      stripe_public_key_test: `pk_test_Bin5YLSAsXbOcn9hv3tqqqq8001xk1vJdU`,
+
     },
   },
   developMiddleware: app => {
     app.use(
-      '/.netlify/functions/',
+      '/api/',
       proxy({
-        target: 'http://localhost:9000',
-        pathRewrite: {
-          '/.netlify/functions/': '',
-        },
+        target: 'http://localhost:5000',
       })
     )
   },
@@ -32,6 +33,12 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-styled-components',
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: {
+        prefixes: [`/dashboard/*`],
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -301,11 +308,6 @@ module.exports = {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
       },
     },
-    {
-      resolve: 'gatsby-plugin-create-client-paths',
-      options: { prefixes: ['/app/*'] },
-    },
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-netlify-cache`,
   ],
 }
