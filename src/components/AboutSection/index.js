@@ -40,11 +40,10 @@ const AboutSection = () => {
               </div>
             </div>
             <div className='content'>
-              PubliusLogic uses GitHub via Netlify Continuous Deployment
+              Netlify Continuous Deployment
               <br />
               <div><a href='https://github.com/donaldboulton/publiuslogic' rel='me'>&nbsp;GitHub Repo</a></div>
               <div><a href='https://twitter.com/donboulton' rel='me'>&nbsp;Twitter @publiuslogic</a></div>
-              <div><a href='https://facebook.com/don.boulton' rel='me'>&nbsp;Facebook publiuslogic</a></div>
               <br />
               <span>
                 <p>
@@ -83,11 +82,10 @@ const AboutSection = () => {
               </div>
             </div>
             <div className='content'>
-                        Gatsby is Easy to learn even for novice developers
+                        Gatsby is Easy to learn
               <br />
               <div><a href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
               <div><a href='https://bulma.io/'>CSS from @bulma.io</a></div>
-              <div><a href='https://fontawesome.com/icons'>FontAwsome SVG's</a></div>
               <br />
               <span>Privacy<a href='https://publiuslogic.com'>&nbsp;Terms & Conditions.</a></span>
             </div>
@@ -122,11 +120,10 @@ const AboutSection = () => {
               </div>
             </div>
             <div className='content'>
-              Netlify forms posted to slack with Lambda Functions
+              Netlify Slack Lambda
               <br />
               <div><a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
               <div><a href='https://www.netlify.com/features/'>SLL Security</a></div>
-              <div><a href='https://app.netlify.com/signup?_ga=2.257002891.1243890719.1552279568-538917114.1550763563'>Netlify Free Tier</a></div>
               <br />
               <span>Netlify CMS<a href='https://publiuslogic.com/admin/'>&nbsp;Administration</a></span>
             </div>
