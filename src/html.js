@@ -23,9 +23,16 @@ export default class HTML extends Component {
           <script
             dangerouslySetInnerHTML={{
               __html: `
-                      var name = 'world';
-                      console.log('Hello ' + name);
-                    `
+                      var pusher = new Pusher('21d7ddb38a6ae01657d4', {
+                      cluster: 'us2',
+                      forceTLS: true
+                    });
+
+                      var channel = pusher.subscribe('publiuslogic.com-production');
+                      channel.bind('my-event', function(data) {
+                      alert(JSON.stringify(data));
+                    }); 
+                    `,
             }}
           />
         </body>

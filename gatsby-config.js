@@ -24,7 +24,7 @@ module.exports = {
     app.use(
       '/api/',
       proxy({
-        target: 'http://localhost:5000',
+        target: 'http://localhost:8000',
       })
     )
   },
@@ -309,5 +309,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
+    'gatsby-plugin-netlify-cache',
   ],
 }
