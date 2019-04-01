@@ -2,9 +2,10 @@ import React from 'react'
 import github from '../../img/GitHub-Mark-Light-64px.png'
 import gatsby from '../../img/gatsby.svg'
 import logo from '../../img/logo.png'
-import react from '../../img/react.svg'
+import webpack from '../../img/webpack.svg'
 import lambda from '../../img/lambda.png'
 import netlify from '../../img/logomark.svg'
+import config from '../../../data/config'
 
 const AboutSection = () => {
   return (
@@ -25,7 +26,7 @@ const AboutSection = () => {
             <div className='media'>
               <div className='media-left'>
                 <figure className='image is-48x48'>
-                  <a title='Github' href='https://github.com/donaldboulton/gatsby-starter-netlify-cms' target='_blank' rel='noopener noreferrer'>
+                  <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
                     <img
                       src={github}
                       alt='GitHub'
@@ -35,18 +36,20 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>PubliusLogic</p>
-                <p className='subtitle is-6 is-centered'>donboulton.com</p>
+                <p className='subtitle is-6 is-centered'>To Publish Logic</p>
               </div>
             </div>
             <div className='content'>
-              Donald Boulton uses GitHub via a continuous deployment
+              PubliusLogic uses GitHub via Netlify Continuous Deployment
               <br />
-              <div><a href='https://github.com/donaldboulton/' rel='me'>&nbsp;DWB GitHub Repos</a></div>
-              <div><a href='https://twitter.com/donboulton' rel='me'>&nbsp;Twitter @donboulton.com</a></div>
-              <div><a href='https://facebook.com/don.boulton' rel='me'>&nbsp;Facebook don.boulton</a></div>
+              <div><a href='https://github.com/donaldboulton/publiuslogic' rel='me'>&nbsp;GitHub Repo</a></div>
+              <div><a href='https://twitter.com/donboulton' rel='me'>&nbsp;Twitter @publiuslogic</a></div>
+              <div><a href='https://facebook.com/don.boulton' rel='me'>&nbsp;Facebook publiuslogic</a></div>
               <br />
               <span>
-                <a href='https://donboulton.com'>DWB - donboulton.com</a>
+                <p>
+                  {config.copyright}
+                </p>
               </span>
             </div>
           </div>
@@ -66,18 +69,17 @@ const AboutSection = () => {
           </div>
           <div className='card-content'>
             <div className='media'>
-              <div className='media-left'>
-                <figure className='image is-62x48'>
+              <div className='media-left parent'>
+                <figure className='image is-48x48'>
                   <img
-                    src={react}
-                    alt='PubliusLogic'
-                    style={{ width: '62px', height: '48px' }}
+                    src={webpack}
+                    alt='Webpack'
                   />
                 </figure>
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>Gatsby Powered</p>
-                <p className='subtitle is-6 is-centered'>React Webpack</p>
+                <p className='subtitle is-6 is-centered'>Webpack Build</p>
               </div>
             </div>
             <div className='content'>
@@ -87,7 +89,7 @@ const AboutSection = () => {
               <div><a href='https://bulma.io/'>CSS from @bulma.io</a></div>
               <div><a href='https://fontawesome.com/icons'>FontAwsome SVG's</a></div>
               <br />
-              <a href='https://publiuslogic.com'>&nbsp;Terms and Conditions.</a>
+              <span>Privacy<a href='https://publiuslogic.com'>&nbsp;Terms & Conditions.</a></span>
             </div>
           </div>
         </div>
@@ -126,7 +128,7 @@ const AboutSection = () => {
               <div><a href='https://www.netlify.com/features/'>SLL Security</a></div>
               <div><a href='https://app.netlify.com/signup?_ga=2.257002891.1243890719.1552279568-538917114.1550763563'>Netlify Free Tier</a></div>
               <br />
-              <a href='https://publiuslogic.com/admin/'>&nbsp;Admin - Netlify CMS</a>
+              <span>Netlify CMS<a href='https://publiuslogic.com/admin/'>&nbsp;Administration</a></span>
             </div>
           </div>
         </div>

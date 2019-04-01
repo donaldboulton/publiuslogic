@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
-import About from '../components/AboutSection'
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -19,8 +18,7 @@ const AboutPage = ({ data }) => {
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
-      />
-      <About />
+      />      
     </div>
   )
 }
