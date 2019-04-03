@@ -1,13 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import config from '../../data/config'
 import Layout from '../components/Layout'
-import PostListing from './blog.js'
 
 export default class CategoryTemplate extends React.Component {
   render () {
-    const { pageContext, data } = this.props
-    const { category } = pageContext
+    const { category } = this.props.pageContext
     return (
       <Layout>
         <div
@@ -15,8 +14,15 @@ export default class CategoryTemplate extends React.Component {
           title={category.charAt(0).toUpperCase() + category.slice(1)}
         >
           <div className='category-container'>
-            <Helmet title={`Posts in category "${category}"`} />
-            <PostListing postEdges={data.allMarkdownRemark.edges} />
+            <Helmet>
+              <title>
+                {`Posts in category '${category}' | ${config.siteTitle}`}
+              </title>
+              <link
+                rel='canonical'
+                href={`${config.siteUrl}/categories/${category}`}
+              />
+            </Helmet>
           </div>
         </div>
       </Layout>
@@ -25,26 +31,22 @@ export default class CategoryTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query CategoryPage($category: String) {
-    allMarkdownRemark(
-      limit: 1000
-      filter: { fields: { category: { eq: $category } } }
-    ) {
-      totalCount
-      edges {
-        node {
-          fields {
-            slug
-            category
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            date
-          }
-        }
+  query CategoryByID($category: String!) {
+    markdownRemark(id: { eq: $category }) {
+      id
+      html
+      fields {
+        slug
+        category
+      }      
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        title
+        cover
+        category
+        meta_title
+        meta_description
+        tags
       }
     }
   }
