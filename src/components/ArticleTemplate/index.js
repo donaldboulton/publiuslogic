@@ -4,7 +4,6 @@ import { Calendar } from 'styled-icons/octicons/Calendar'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import Prism from '../../utils/prism'
-import Comments from '../Comments'
 
 const ArticleTemplate = ({
   content,
@@ -51,7 +50,6 @@ const ArticleTemplate = ({
         </ul>
       </div>
       <hr />
-      <Comments />
     </div>
   )
 }
