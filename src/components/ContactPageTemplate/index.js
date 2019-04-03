@@ -74,7 +74,7 @@ class ContactPageTemplate extends Component {
         </section>
         <section className='section'>
           <div className='container'>
-            <div className='columns'>
+            <div className='columns is-10 is-offset-1'>
               <div className='column is-half'>
                 <form
                   name='contact'
@@ -110,7 +110,7 @@ class ContactPageTemplate extends Component {
                   <div className='field'>
                     <label className='label'>Message</label>
                     <div className='control'>
-                      <textarea className='textarea is-large' name='message' id='message' onChange={this.handleChange} />
+                      <textarea className='textarea is-large' name='message' rows='5' id='message' onChange={this.handleChange} />
                     </div>
                   </div>
                   <div className='field'>

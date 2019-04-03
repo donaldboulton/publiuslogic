@@ -3,6 +3,8 @@ import Content from '../Content'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
+import Prism from '../../utils/prism'
+import Comments from '../Comments'
 
 const ArticleTemplate = ({
   content,
@@ -33,6 +35,7 @@ const ArticleTemplate = ({
         </span>
       </span>
       <br />
+      <Prism />
       <PostContent content={content} />
       <div style={{ marginTop: `2rem` }}>
         <h4>Tags</h4>
@@ -48,6 +51,7 @@ const ArticleTemplate = ({
         </ul>
       </div>
       <hr />
+      <Comments />
     </div>
   )
 }

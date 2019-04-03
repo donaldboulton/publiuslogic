@@ -150,7 +150,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-layout`,
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

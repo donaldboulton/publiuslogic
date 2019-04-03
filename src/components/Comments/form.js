@@ -1,4 +1,5 @@
 import React from 'react'
+import { navigate } from 'gatsby-link'
 import fetch from 'node-fetch'
 import Recaptcha from 'react-google-recaptcha'
 import logo from '../../img/logo.png'
@@ -8,6 +9,7 @@ const encode = (data) => {
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
 }
+
 class CommentForm extends React.Component {
   constructor (props) {
     super(props)
@@ -48,7 +50,7 @@ class CommentForm extends React.Component {
           </section>
           <section className='section'>
             <div className='container'>
-              <div className='columns'>
+              <div className='columns is-10 is-offset-1'>
                 <div className='column is-half'>
                   <form
                     name='comments'
@@ -63,7 +65,7 @@ class CommentForm extends React.Component {
                     <input type='hidden' name='form-name' value='contact' />
                     <div hidden>
                       <label>
-                  Don’t fill this out:{' '}
+                          Don’t fill this out:{' '}
                         <input name='bot-field' onChange={this.handleChange} />
                       </label>
                     </div>
@@ -72,7 +74,7 @@ class CommentForm extends React.Component {
                       <div className='control'>
                         <input
                           className='input is-large'
-                          placeholder='Your Name'
+                          placeholder='Your Name *'
                           value={author}
                           name='name'
                           onChange={this.handleChange}
@@ -84,7 +86,7 @@ class CommentForm extends React.Component {
                       <div className='control'>
                         <input
                           className='input is-large'
-                          placeholder='youremail@you.com'
+                          placeholder='youemail@you.com *'
                           value={email}
                           name='email'
                           onChange={this.handleChange}
@@ -96,8 +98,8 @@ class CommentForm extends React.Component {
                       <div className='control'>
                         <textarea
                           className='textarea is-large'
-                          placeholder='Enter your comment'
-                          rows='6'
+                          rows='5'
+                          placeholder='Enter your comment *'
                           name='comment'
                           value={comment}
                           onChange={this.handleChange}

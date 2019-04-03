@@ -8,6 +8,7 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
+import Layout from '../components/Layout'
 
 require('prismjs')
 require('prismjs/plugins/toolbar/prism-toolbar.js')
@@ -17,40 +18,42 @@ const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <section className='section'>
-      <SE0
-        title={post.frontmatter.title}
-        meta_title={post.frontmatter.meta_title}
-        meta_desc={post.frontmatter.meta_description}
-        cover={post.frontmatter.cover}
-        category={post.frontmatter.category}
-        slug={post.fields.slug}
-      />
-      <div className='container content'>
-        <div className='columns'>
-          <div className='column is-10 is-offset-1'>
-            <ArticleTemplate
-              content={post.html}
-              contentComponent={HTMLContent}
-              cover={post.frontmatter.cover}
-              category={post.frontmatter.category}
-              date={post.frontmatter.date}
-              meta_title={post.frontmatter.meta_title}
-              meta_desc={post.frontmatter.meta_description}
-              tags={post.frontmatter.tags}
-              title={post.frontmatter.title}
-            />
-            <Share
-              title={post.frontmatter.title}
-              slug={post.fields.slug}
-              excerpt={post.frontmatter.meta_description}
-            />
-            <hr />
-            <Comments />  
+    <Layout>
+      <section className='section'>
+        <SE0
+          title={post.frontmatter.title}
+          meta_title={post.frontmatter.meta_title}
+          meta_desc={post.frontmatter.meta_description}
+          cover={post.frontmatter.cover}
+          category={post.frontmatter.category}
+          slug={post.fields.slug}
+        />
+        <div className='container content'>
+          <div className='columns'>
+            <div className='column is-10 is-offset-1'>
+              <ArticleTemplate
+                content={post.html}
+                contentComponent={HTMLContent}
+                cover={post.frontmatter.cover}
+                category={post.frontmatter.category}
+                date={post.frontmatter.date}
+                meta_title={post.frontmatter.meta_title}
+                meta_desc={post.frontmatter.meta_description}
+                tags={post.frontmatter.tags}
+                title={post.frontmatter.title}
+              />
+              <Share
+                title={post.frontmatter.title}
+                slug={post.fields.slug}
+                excerpt={post.frontmatter.meta_description}
+              />
+              <hr />
+              <Comments />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Layout>
   )
 }
 

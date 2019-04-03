@@ -60,19 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 251);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 251:
+/***/ 2:
+/***/ (function(module, exports) {
+
+module.exports = require("https");
+
+/***/ }),
+
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var https = __webpack_require__(9);
-var qs = __webpack_require__(29);
+var https = __webpack_require__(2);
+var qs = __webpack_require__(4);
 
 function getURL(href) {
     var match = href.match(/^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)([\/]{0,1}[^?#]*)(\?[^#]*|)(#.*|)$/);
@@ -111,7 +118,7 @@ exports.handler = function (event, context, callback) {
             res.setEncoding('utf8');
 
             res.on('end', function () {
-                console.log(`Review with id: ${id} was deleted successfully.`);
+                console.log(`Comment with id: ${id} was deleted successfully.`);
             });
         });
 
@@ -125,7 +132,7 @@ exports.handler = function (event, context, callback) {
     var postData = JSON.stringify({
         replace_original: true,
         attachments: [{
-            text: answer == 'keep' ? `The review (${id}) was approved!` : `The review (${id}) was rejected.`
+            text: answer == 'keep' ? `The comment (${id}) was approved!` : `The comment (${id}) was rejected.`
         }]
     });
 
@@ -165,17 +172,10 @@ exports.handler = function (event, context, callback) {
 
 /***/ }),
 
-/***/ 29:
+/***/ 4:
 /***/ (function(module, exports) {
 
 module.exports = require("querystring");
-
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports) {
-
-module.exports = require("https");
 
 /***/ })
 

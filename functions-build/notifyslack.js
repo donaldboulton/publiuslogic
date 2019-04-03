@@ -60,18 +60,25 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 506);
+/******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 506:
+/***/ 2:
+/***/ (function(module, exports) {
+
+module.exports = require("https");
+
+/***/ }),
+
+/***/ 39:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var https = __webpack_require__(9);
+var https = __webpack_require__(2);
 
 exports.handler = function (event, context, callback) {
     var body = JSON.parse(event.body);
@@ -79,14 +86,14 @@ exports.handler = function (event, context, callback) {
     if (body != null && body.data != null) {
         var data = body.data;
 
-        var message = `New review from ${data.email} \n ${data.name}: ${data.message}`;
+        var message = `New comment from ${data.email} \n ${data.name}: ${data.message}`;
         var attach = [{
-            "title": "Review ID",
+            "title": "Comment ID",
             "text": body.id
         }, {
             "title": "Do you want to keep the review?",
             "text": message,
-            "fallback": "You can't take actions for this review.",
+            "fallback": "You can't take actions for this comment.",
             "callback_id": "answer_netlify",
             "color": "#3AA3E3",
             "attachment_type": "default",
@@ -103,7 +110,7 @@ exports.handler = function (event, context, callback) {
                 "value": "reject",
                 "confirm": {
                     "title": "Are you sure?",
-                    "text": "Once it's done the review will be deleted",
+                    "text": "Once it's done the comment will be deleted",
                     "ok_text": "Yes",
                     "dismiss_text": "No"
                 }
@@ -117,7 +124,7 @@ exports.handler = function (event, context, callback) {
         var options = {
             hostname: 'hooks.slack.com',
             port: 443,
-            path: process.env.slack_webhook_url,
+            path: process.env.SLACK_WEBHOOK_URL,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -147,13 +154,6 @@ exports.handler = function (event, context, callback) {
         });
     }
 };
-
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports) {
-
-module.exports = require("https");
 
 /***/ })
 

@@ -60,18 +60,18 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 253);
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 253:
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _querystring = __webpack_require__(29);
+var _querystring = __webpack_require__(4);
 
 exports.handler = (event, context, callback) => {
   let body = {};
@@ -113,7 +113,7 @@ exports.handler = (event, context, callback) => {
 
 /***/ }),
 
-/***/ 29:
+/***/ 4:
 /***/ (function(module, exports) {
 
 module.exports = require("querystring");

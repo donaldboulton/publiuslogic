@@ -1,12 +1,13 @@
 import React from 'react'
 
 const Comment = ({ comment }) => (
-  <div className='comment'>
-    <div className='comment__meta'>
-      <h5>{comment.name}</h5><small>&nbsp;@{comment.email}</small>
-      <span>{new Date(comment.timestamp).toDateString()}</span>
-    </div>
-    <p className='comment__body'>{comment.comment}</p>
+  <div className='comments__list'>
+    {this.state.comments.map(o => (
+      <p key={o.number}>
+        <div className='comments__name'>{o.name}</div>
+        <div>{o.data.message}</div>
+      </p>
+    ))}
   </div>
 )
 

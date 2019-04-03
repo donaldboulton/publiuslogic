@@ -87,7 +87,7 @@ const AboutSection = () => {
               <div><a href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
               <div><a href='https://bulma.io/'>CSS from @bulma.io</a></div>
               <br />
-              <span>Privacy<a href='https://publiuslogic.com'>&nbsp;Terms & Conditions.</a></span>
+              <span>Privacy<a href='https://publiuslogic.com'>&nbsp; - &nbsp;Terms & Conditions.</a></span>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@ const AboutSection = () => {
               <div><a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
               <div><a href='https://www.netlify.com/features/'>SLL Security</a></div>
               <br />
-              <span>Netlify CMS<a href='https://publiuslogic.com/admin/'>&nbsp;Administration</a></span>
+              <span>Netlify CMS<a href='https://publiuslogic.com/admin/'>&nbsp; - &nbsp;Administration</a></span>
             </div>
           </div>
         </div>

@@ -23,15 +23,10 @@ export default class HTML extends Component {
           <script
             dangerouslySetInnerHTML={{
               __html: `
-                      var pusher = new Pusher('21d7ddb38a6ae01657d4', {
-                      cluster: 'us2',
-                      forceTLS: true
-                    });
-
-                      var channel = pusher.subscribe('publiuslogic.com-production');
-                      channel.bind('my-event', function(data) {
-                      alert(JSON.stringify(data));
-                    }); 
+                      <!-- Google Tag Manager (noscript) -->
+                      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLCMLLP"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                      <!-- End Google Tag Manager (noscript) -->
                     `,
             }}
           />
