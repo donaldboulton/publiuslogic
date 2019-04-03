@@ -6355,6 +6355,11 @@ gatsby-plugin-google-gtag@^1.0.16:
     "@babel/runtime" "^7.0.0"
     minimatch "^3.0.4"
 
+gatsby-plugin-gtag@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-gtag/-/gatsby-plugin-gtag-1.0.10.tgz#6e181ba67319adff2f1512ba23369954e8117d1c"
+  integrity sha512-euMp/ASUVL4Ear/FNPioNRG8u980RFeigTmS0pYyeUBqI5T3GcEm/6evc3KGwAWXWd4+e7UG6lofxWPtRDy9yw==
+
 "gatsby-plugin-mailchimp@https://github.com/benjaminhoffman/gatsby-plugin-mailchimp.git#gatsby-v2":
   version "3.3.0"
   resolved "https://github.com/benjaminhoffman/gatsby-plugin-mailchimp.git#d75e50db50e2ca11dffea017540d72879f15a7e1"
