@@ -78,7 +78,7 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>Gatsby Powered</p>
-                <p className='subtitle is-6 is-centered'>React Apollo</p>
+                <p className='subtitle is-6 is-centered'>React GraphQL Webpack</p>
               </div>
             </div>
             <div className='content'>
@@ -116,7 +116,7 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>Netlify Hosting</p>
-                <p className='subtitle is-6 is-centered'>Lambda Functions</p>
+                <p className='subtitle is-6 is-centered'>Lambda Functions - Docker</p>
               </div>
             </div>
             <div className='content'>
