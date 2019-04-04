@@ -2,7 +2,7 @@ import React from 'react'
 import github from '../../img/GitHub-Mark-Light-64px.png'
 import gatsby from '../../img/gatsby.svg'
 import logo from '../../img/logo.png'
-import webpack from '../../img/webpack.svg'
+import webpack from '../../img/ApolloReact-320.png'
 import lambda from '../../img/lambda.png'
 import netlify from '../../img/logomark.svg'
 import config from '../../../data/config'
@@ -58,7 +58,7 @@ const AboutSection = () => {
         <div className='card'>
           <div className='card-image'>
             <figure className='image is-4by3'>
-              <a title='Gatsby' href='https://gatsby.org' target='_blank' rel='noopener noreferrer'>
+              <a title='Gatsby' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
                 <img
                   src={gatsby}
                   alt='Gatsby'
@@ -72,13 +72,13 @@ const AboutSection = () => {
                 <figure className='image is-48x48'>
                   <img
                     src={webpack}
-                    alt='Webpack'
+                    alt='Apollo React'
                   />
                 </figure>
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>Gatsby Powered</p>
-                <p className='subtitle is-6 is-centered'>Webpack Build</p>
+                <p className='subtitle is-6 is-centered'>React Apollo</p>
               </div>
             </div>
             <div className='content'>
