@@ -5,6 +5,10 @@ import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import Prism from '../../utils/prism'
 
+require('prismjs')
+require('prismjs/plugins/toolbar/prism-toolbar.js')
+require('prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js')
+
 const ArticleTemplate = ({
   content,
   contentComponent,

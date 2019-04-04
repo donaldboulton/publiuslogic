@@ -10,10 +10,6 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
 
-require('prismjs')
-require('prismjs/plugins/toolbar/prism-toolbar.js')
-require('prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js')
-
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
 
