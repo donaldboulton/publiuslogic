@@ -101,8 +101,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [
-          `gatsby-remark-responsive-iframe`,
+        plugins: [          
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
@@ -149,13 +148,14 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-embed-video',
+            resolve: 'gatsby-remark-better-embed-video',
             options: {
               width: 800,
-              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-              height: 400,
-              related: false,
-              noIframeBorder: true,
+              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77.
+              height: 400, // Optional: Overrides optional.ratio.
+              related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
+              noIframeBorder: true, // Optional: Disable insertion of <style> border: 0.
+              showInfo: false, // Optional: Hides video title and player actions.
             },
           },
           {
@@ -164,7 +164,7 @@ module.exports = {
               active: true,
               size: 24,
             },
-          },
+          },          
         ],
       },
     },
@@ -292,7 +292,7 @@ module.exports = {
                               title
                               templateKey
                               cover
-                              date(formatString: 'MMMM DD, YYYY')
+                              date(formatString: "MMMM DD, YYYY")
                               category
                               tags
                             }

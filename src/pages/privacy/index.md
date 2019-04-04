@@ -138,9 +138,9 @@ Google Analytics is a web analytics tool I use to help understand how visitors e
 
 ### You can read: [Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html)
 
-## Google Adsense
+## Google AdSense
 
-Google Adsense, a third party affiliate marketing network, uses cookies to help make sure I get a commission when you buy a product after clicking on a link or ad banner that takes you to the site of one of their merchants.
+Google AdSense, a third party affiliate marketing network, uses cookies to help make sure I get a commission when you buy a product after clicking on a link or ad banner that takes you to the site of one of their merchants.
 
 ### You can read: [Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182)
 
