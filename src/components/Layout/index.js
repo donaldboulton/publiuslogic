@@ -7,6 +7,7 @@ import Footer from '../Footer'
 import Hr from '../Hr'
 import Slack from '../Slack'
 import Subscriptions from '../Subscriptions'
+import Adds from '../GoogleAdds'
 import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
@@ -30,11 +31,12 @@ class Layout extends Component {
             <Helmet>
               <title>{config.siteTitle}</title>
               <meta name='description' content={config.siteDescription} />
-            </Helmet>            
+            </Helmet>
             <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
             <Fragment>{this.props.children}</Fragment>
             <Subscriptions />
             <Slack />
+            <Adds />
             <Hr />
             <Scroll
               showBelow={1500}

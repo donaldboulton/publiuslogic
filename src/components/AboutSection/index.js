@@ -120,7 +120,7 @@ const AboutSection = () => {
               </div>
             </div>
             <div className='content'>
-              Netlify Slack Lambda
+              Netlify Lambda Slack Notify
               <br />
               <div><a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
               <div><a href='https://www.netlify.com/features/'>SLL Security</a></div>
