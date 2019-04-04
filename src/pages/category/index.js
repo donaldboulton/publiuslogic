@@ -4,11 +4,11 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 
-const TagsPage = ({
+const CategoryPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
   <Layout>
-    <Helmet title={`Tags | ${title}`} />
+    <Helmet title={`Categories | ${title}`} />
     <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
         <div className='container'>
@@ -16,7 +16,7 @@ const TagsPage = ({
             <div className='column is-10 is-offset-1'>
               <div className='section'>
                 <h1 className='title'>
-                                    Tags
+                                    Categories
                 </h1>
               </div>
             </div>
@@ -31,13 +31,13 @@ const TagsPage = ({
             className='column is-10 is-offset-1'
             style={{ marginBottom: '6rem' }}
           >
-            <ul className='taglist field is-grouped is-grouped-multiline'>
-              {group.map(tag => (
-                <li className='control' key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    <div className='tags has-addons'>
-                      <span className='tag is-primary'>{tag.fieldValue}</span>
-                      <span className='tag is-dark'>{tag.totalCount}</span>
+            <ul className='categorylist field is-grouped is-grouped-multiline'>
+              {group.map(category => (
+                <li className='control' key={category.fieldValue}>
+                  <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>
+                    <div className='category has-addons'>
+                      <span className='category is-primary'>{category.fieldValue}</span>
+                      <span className='category is-dark'>{category.totalCount}</span>
                     </div>
                   </Link>
                 </li>
@@ -50,19 +50,24 @@ const TagsPage = ({
   </Layout>
 )
 
-export default TagsPage
+export default CategoryPage
 
-export const tagPageQuery = graphql`
-  query TagsQuery {
-    site {
-      siteMetadata {
+export const pageQuery = graphql`
+  query CategoryByID($category: String!) {
+    markdownRemark(id: { eq: $category }) {
+      id
+      html
+      fields {
+        slug
+      }      
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
         title
-      }
-    }
-    allMarkdownRemark(limit: 1000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
+        cover
+        category
+        meta_title
+        meta_description
+        tags
       }
     }
   }

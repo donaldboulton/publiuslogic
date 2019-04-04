@@ -121,11 +121,11 @@ class ContactPageTemplate extends Component {
                           type='file'
                           name='attachment'
                           onChange={this.handleAttachment}
-                        />                       
+                        />
+                        <span className='file-cta'>
+                          <span className='file-label'>Choose a file…</span>
+                        </span>
                       </label>
-                      <span className='file-cta'>
-                        <span className='file-label'>Choose a file…</span>
-                      </span>
                     </div>
                   </div>
                   <div className='field'>
