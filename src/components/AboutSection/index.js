@@ -36,7 +36,7 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>PubliusLogic</p>
-                <p className='subtitle is-6 is-centered'>To Publish Logic</p>
+                <p className='subtitle is-6 is-centered'>To Publish Logic-Common Sense</p>
               </div>
             </div>
             <div className='content'>
@@ -78,11 +78,11 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>Gatsby Powered</p>
-                <p className='subtitle is-6 is-centered'>React GraphQL Webpack</p>
+                <p className='subtitle is-6 is-centered'>React - GraphQL - Webpack</p>
               </div>
             </div>
             <div className='content'>
-                        Gatsby is Easy to learn
+                        Gatsby is Smoking Fast & Easy
               <br />
               <div><a href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
               <div><a href='https://bulma.io/'>CSS from @bulma.io</a></div>
@@ -116,7 +116,7 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>Netlify Hosting</p>
-                <p className='subtitle is-6 is-centered'>Lambda Functions - Docker</p>
+                <p className='subtitle is-6 is-centered'>Lambda Functions - Docker Build</p>
               </div>
             </div>
             <div className='content'>
