@@ -23,6 +23,7 @@
     "babel-plugin-styled-components": "^1.10.0",
     "body-parser": "^1.18.3",
     "bulma": "^0.7.4",
+    "bulma-steps": "^2.2.1",
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "disqus-react": "^1.0.5",

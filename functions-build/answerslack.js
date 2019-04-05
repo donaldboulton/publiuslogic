@@ -60,26 +60,33 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 220);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 2:
+/***/ 10:
 /***/ (function(module, exports) {
 
 module.exports = require("https");
 
 /***/ }),
 
-/***/ 34:
+/***/ 18:
+/***/ (function(module, exports) {
+
+module.exports = require("querystring");
+
+/***/ }),
+
+/***/ 220:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var https = __webpack_require__(2);
-var qs = __webpack_require__(4);
+var https = __webpack_require__(10);
+var qs = __webpack_require__(18);
 
 function getURL(href) {
     var match = href.match(/^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)([\/]{0,1}[^?#]*)(\?[^#]*|)(#.*|)$/);
@@ -169,13 +176,6 @@ exports.handler = function (event, context, callback) {
         statusCode: 200
     });
 };
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports) {
-
-module.exports = require("querystring");
 
 /***/ })
 
