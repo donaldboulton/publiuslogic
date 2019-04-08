@@ -35,12 +35,6 @@ module.exports = {
     'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,
     {
-      resolve: `gatsby-plugin-create-client-paths`,
-      options: {
-        prefixes: [`/dashboard/*`],
-      },
-    },
-    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {

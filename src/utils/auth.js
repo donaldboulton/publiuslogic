@@ -5,6 +5,7 @@ const clog = (...args) => logAuth && console.log(...args)
 // helpful for debugging netlify identity
 
 export const isBrowser = () => typeof window !== 'undefined'
+export const getCurrentUser = () => isBrowser && getUser()
 export const initAuth = () => {
   if (isBrowser()) {
     window.netlifyIdentity = netlifyIdentity

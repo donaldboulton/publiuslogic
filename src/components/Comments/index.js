@@ -2,11 +2,10 @@ import React from 'react'
 import CommentForm from './form'
 
 class Comments extends React.Component {
-
   render () {
     return (
       <div>
-        <CommentForm />        
+        <CommentForm />
         <hr />
         <div className='comment-list'>
           <h5 className='no-comments-alert'>
@@ -19,4 +18,3 @@ class Comments extends React.Component {
 }
 
 export default Comments
-
