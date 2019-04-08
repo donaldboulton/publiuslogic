@@ -1,8 +1,7 @@
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
+import styled, { css } from 'styled-components'
 
 const buttonStyles = css`
-  background: rebeccapurple;
+  background: #d64000;
   border: none;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 6px #33333344;
@@ -35,6 +34,6 @@ export const CloseButton = styled('button')`
   ${buttonStyles};
   background: #ddd;
   box-shadow: none;
-  color: inherit;
+  color: #000000;
   margin: 0.5rem 0;
 `

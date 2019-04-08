@@ -1,9 +1,9 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 
 const Label = styled('label')`
-  background: #eee;
-  border: 1px solid #ddd;
+  background: #363636;
+  border: 1px solid #000000;
   border-radius: 0.25rem;
   display: inline-block;
   margin: 0 0.5rem;
@@ -12,13 +12,13 @@ const Label = styled('label')`
   text-align: center;
 
   &.focused {
-    background: rebeccapurple;
-    border: 1px solid rebeccapurple;
+    background: #d64000;
+    border: 1px solid #c93c00;
     color: white;
   }
 
   &:focus-within {
-    box-shadow: 0 0 0 4px lightblue;
+    box-shadow: 0 0 0 4px #c93c00;
   }
 `
 

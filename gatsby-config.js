@@ -1,4 +1,6 @@
 const proxy = require('http-proxy-middleware')
+const fetch = require(`node-fetch`)
+const { createHttpLink } = require(`apollo-link-http`)
 const config = require('./data/config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
@@ -320,6 +322,20 @@ module.exports = {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql', // <- Configure plugin
+      options: {
+        typeName: 'HASURA',
+        fieldName: 'hasura', // <- fieldName under which schema will be stitched
+        createLink: () =>
+          createHttpLink({
+            uri: `https://publiuslogic.herokuapp.com`, // <- Configure connection GraphQL url
+            headers: {},
+            fetch,
+          }),
+        refetchInterval: 10, // Refresh every 10 seconds for new data
       },
     },
     `gatsby-plugin-netlify`,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { keyframes } from '@emotion/core'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import WidgetWrapper from './widget-wrapper'
 import { SubmitButton, CloseButton } from './buttons'
 import ScreenReaderText from './screen-reader-text'
@@ -28,8 +28,8 @@ const Form = styled('form')`
 
     ::before,
     ::after {
-      background: radial-gradient(#66339900, rebeccapurple);
-      border: 2px solid rebeccapurple;
+      background: radial-gradient(#da1b60, #d64000);
+      border: 2px solid #d64000;
       border-radius: 50%;
       content: ' ';
       height: 5rem;
@@ -71,7 +71,9 @@ const TextareaLabel = styled('label')`
 `
 
 const Textarea = styled('textarea')`
-  border: 1px solid #ddd;
+  background-color: #363636;
+  border: 1px solid #434040;
+  color: #cccccc;
   display: block;
   font-weight: normal;
   margin: 0 0 1rem;
@@ -129,7 +131,7 @@ const FeedbackForm = ({
         />
       </Fieldset>
       <TextareaLabel className={`textarea ${submitting ? 'disabled' : ''}`}>
-        Your comments (optional):
+        Your comments ( Optional )
         <Textarea
           value={comment}
           onChange={handleCommentChange}

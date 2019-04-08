@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 
 const WrapperDiv = styled(`div`)`
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: #1d1d1d;
+  border: 1px solid #434040;
   border-radius: 0.5rem;
   bottom: 4rem;
   font-family: sans-serif;
