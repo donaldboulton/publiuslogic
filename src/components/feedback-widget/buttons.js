@@ -1,39 +1,201 @@
+import { keyframes } from '@emotion/core'
 import styled, { css } from 'styled-components'
+import { breakpoints } from './presets'
 
-const buttonStyles = css`
-  background: #d64000;
-  border: none;
-  border-radius: 0.5rem;
-  box-shadow: 1px 1px 6px #33333344;
-  color: white;
-  font-size: 14px;
-  font-family: sans-serif;
-  padding: 0.25rem 0.5rem;
-  z-index: 1;
-  -webkit-appearance: none;
-
-  &:disabled {
-    opacity: 0.5;
+const rotation = keyframes`
+  0% {
+    transform: translateX(0.25rem) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0.25rem) rotate(360deg);
   }
 `
 
-export const OpenButton = styled('button')`
-  ${buttonStyles};
-  display: block;
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+export const focusStyle = css`
+  box-shadow: 0 0 0 0.12rem #d64000;
+  outline: none;
+`
+
+const buttonStyles = css`
+  -webkit-appearance: none;
+  align-items: center;
+  background: #d64000;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.875rem;
+  font-family: sans-serif;
+  padding: 0.3rem 0.75rem;
+  transition: 0.5s;
+  z-index: 1;
+
+  svg {
+    height: 1.1rem;
+    transform: translateX(0.25rem);
+    width: 1.1rem;
+  }
+
+  &:focus {
+    ${focusStyle}
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 0.12rem #ffb23888;
+  }
 `
 
 export const SubmitButton = styled('button')`
   ${buttonStyles};
-  margin-right: 0.5rem;
+
+  .submitting & {
+    svg {
+      animation: ${rotation} 1s linear infinite;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .submitting & {
+      svg {
+        animation: none;
+      }
+    }
+  }
 `
 
 export const CloseButton = styled('button')`
   ${buttonStyles};
-  background: #ddd;
-  box-shadow: none;
+  background: #fff;
+  border: 1px solid #cccccc;
   color: #000000;
-  margin: 0.5rem 0;
+`
+
+export const ToggleButtonLabel = styled(`span`)`
+  align-items: center;
+  background: #d64000;
+  border: 1px solid #d64000;
+  border-radius: 0.25rem;
+  display: flex;
+  height: 2.5rem;
+  padding: 0 2.5rem 0 0.75rem;
+  transition: 0.5s;
+  white-space: nowrap;
+  width: 100%;
+
+  @media (min-width: ${breakpoints.desktop}) {
+    width: auto;
+  }
+`
+
+export const ToggleButtonIcon = styled(`span`)`
+  align-items: center;
+  background: #1d1d1d;
+  border-radius: 50%;
+  color: #ccc;
+  display: flex;
+  font-size: 1rem;
+  height: 1.4rem;
+  justify-content: center;
+  position: absolute;
+  right: 2rem;
+  transform: scale(1);
+  transition: 0.5s;
+  width: 1.4rem;
+
+  svg {
+    fill: #d64000;
+    height: 0.8rem;
+    width: 0.8rem;
+    transition: 0.5s;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    right: 0.75rem;
+
+    .opened &,
+    .failed &,
+    .success &,
+    .submitting & {
+      &:hover {
+        svg {
+          transform: rotate(90deg);
+          fill: #ffb238;
+        }
+      }
+    }
+  }
+`
+
+export const ToggleButton = styled('button')`
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+  transition: 0.6s ease;
+  width: 100%;
+  z-index: 3;
+
+  &:hover {
+    ${ToggleButtonLabel} {
+      box-shadow: 0 0 0 0.12rem #cccccc;
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    ${ToggleButtonLabel} {
+      ${focusStyle}
+    }
+  }
+
+  .opened &,
+  .failed &,
+  .success &,
+  .submitting & {
+    display: none;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    width: auto;
+
+    .opened &,
+    .failed &,
+    .success &,
+    .submitting & {
+      display: flex;
+      transform: translate(-0.5rem, -26rem);
+
+      ${ToggleButtonIcon} {
+        background: #d64000;
+        border: 1px solid #b53803;
+        transform: scale(1.8);
+
+        svg {
+          fill: #fff;
+        }
+      }
+
+      &:focus {
+        ${ToggleButtonIcon} {
+          ${focusStyle};
+        }
+      }
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: 0;
+  }
 `
