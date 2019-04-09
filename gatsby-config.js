@@ -5,6 +5,8 @@ const config = require('./data/config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
@@ -160,7 +162,7 @@ module.exports = {
               active: true,
               size: 24,
             },
-          },          
+          },
         ],
       },
     },
@@ -331,8 +333,10 @@ module.exports = {
         fieldName: 'hasura', // <- fieldName under which schema will be stitched
         createLink: () =>
           createHttpLink({
-            uri: `https://publiuslogic.herokuapp.com`, // <- Configure connection GraphQL url
-            headers: {},
+            uri: `https://publiuslogic.herokuapp.com/v1alpha1/graphql`, // <- Configure connection GraphQL url
+            headers: {
+              'Authorization': `bearer ${process.env.X_HASURA_ADMIN_SECRET}`,
+            },
             fetch,
           }),
         refetchInterval: 10, // Refresh every 10 seconds for new data

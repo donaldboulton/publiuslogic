@@ -90,17 +90,17 @@ const FeedbackWidget = () => {
   const [current, send] = useMachine(
     feedbackMachine.withConfig({
       actions: {
-        focusWidgetTitle() {
+        focusWidgetTitle () {
           requestAnimationFrame(() => {
             widgetTitle.current.focus()
           })
         },
-        focusSuccessTitle() {
+        focusSuccessTitle () {
           requestAnimationFrame(() => {
             successTitle.current.focus()
           })
         },
-        focusOpenButton() {
+        focusOpenButton () {
           requestAnimationFrame(() => {
             openButton.current.focus()
           })
@@ -144,7 +144,7 @@ const FeedbackWidget = () => {
         aria-controls='feedback-widget'
         onClick={handleOpen}
       >
-        Was this doc helpful to you?
+        Page Feedback Form .....
       </OpenButton>
       {(current.matches('opened') || current.matches('submitting')) && (
         <FeedbackForm
