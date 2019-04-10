@@ -41,6 +41,12 @@ module.exports = {
     'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,
     {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `Json`,
+      },
+    },
+    {
       resolve: 'gatsby-source-graphql', // <- Configure plugin
       options: {
         typeName: 'HASURA',
@@ -83,6 +89,14 @@ module.exports = {
       options: {
         path: `${__dirname}/src/assets/img`,
         name: 'images',
+      },
+    },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/data/authors`,
+        name: 'authors',
       },
     },
     {

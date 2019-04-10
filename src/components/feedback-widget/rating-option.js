@@ -80,8 +80,11 @@ const Label = styled('label')`
   transition: background 0.25s;
 
   &.focused {
-    background: #d64608;
-    color: black;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
+    background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+    background-color: #d64000;
+    border-color: transparent;
+    color: white;
 
     ${IconWrapper} {
       svg {

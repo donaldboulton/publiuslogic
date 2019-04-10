@@ -19,7 +19,9 @@ export const focusStyle = css`
 const buttonStyles = css`
   -webkit-appearance: none;
   align-items: center;
-  background: #d64000;
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+  background-color: #d64000;
   border: none;
   border-radius: 2px;
   color: white;
@@ -78,8 +80,11 @@ export const CloseButton = styled('button')`
 
 export const ToggleButtonLabel = styled(`span`)`
   align-items: center;
-  background: #d64000;
-  border: 1px solid #d64000;
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+  background-color: #d64000;
+  border-color: transparent;
+  color: #cccccc;
   border-radius: 0.25rem;
   display: flex;
   height: 2.5rem;
@@ -145,7 +150,7 @@ export const ToggleButton = styled('button')`
 
   &:hover {
     ${ToggleButtonLabel} {
-      box-shadow: 0 0 0 0.12rem #cccccc;
+      box-shadow: 0 0 0 0.12rem #d64000;
     }
   }
 
@@ -178,7 +183,9 @@ export const ToggleButton = styled('button')`
       transform: translate(-0.5rem, -26rem);
 
       ${ToggleButtonIcon} {
-        background: #d64000;
+        background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
+        background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+        background-color: #d64000;
         border: 1px solid #b53803;
         transform: scale(1.8);
 

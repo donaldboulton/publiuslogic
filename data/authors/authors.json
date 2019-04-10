@@ -1,0 +1,20 @@
+{
+  "Donald Boulton": {
+    "name": "Donald Boulton",
+    "uri": "https://donboulton.com",
+    "email": "donaldboulton@gmail.com",
+    "bio": "Away from ASP. Jekyll for me.",
+    "avatar": "/img/donald-boulton.jpg",
+    "twitter": "donboulton",
+    "google_plus": "donaldboulton"
+  },
+  "Michael Rose": {
+    "name": "Michael Rose",
+    "uri": "https://mademistakes.com",
+    "email": "michaelrose@mademistakes.com",
+    "bio": "Just making mistakes.",
+    "avatar": "/img/michael-rose.jpg",
+    "twitter": "mademistakes",
+    "google_plus": "mademistakes"
+  }
+}  

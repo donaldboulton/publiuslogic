@@ -65,8 +65,8 @@ export default class Subscribe extends React.Component {
     render () {
       return (
         <section className='section'>
-          <div className='message'>
-            <div className='message-body column is-10 is-offset-1'>
+          <div className='message column is-10 is-offset-1'>
+            <div className='message-body'>
               {this.state.status === `success` ? (
                 <div>Thank you! Youʼll receive your first email shortly.</div>
               ) : (
