@@ -1,5 +1,6 @@
 import React from 'react'
 import Content from '../Content'
+import Author from '../AuthorList'
 import PropTypes from 'prop-types'
 
 const AboutPageTemplate = ({ title, content, contentComponent }) => {
@@ -15,6 +16,10 @@ const AboutPageTemplate = ({ title, content, contentComponent }) => {
                 <div className='section'>
                   <h1 className='title'>
                     {title}
+                    <p>
+                      <h1>My Authors </h1>
+                      <Author />
+                    </p>
                   </h1>
                 </div>
               </div>

@@ -7,8 +7,8 @@ require('node-fetch')
 const Slack = () => {
   return (
     <section className='section'>
-      <div className='container'>
-        <div className='box shadow column is-10 is-offset-1'>
+      <div className='message'>
+        <div className='message-body column is-10 is-offset-1'>
           <div className='media'>
             <figure className='media-left'>
               <p className='image is-64x64'>

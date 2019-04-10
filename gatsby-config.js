@@ -41,6 +41,22 @@ module.exports = {
     'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,
     {
+      resolve: 'gatsby-source-graphql', // <- Configure plugin
+      options: {
+        typeName: 'HASURA',
+        fieldName: 'huroku', // <- fieldName under which schema will be stitched
+        createLink: () =>
+          createHttpLink({
+            uri: `https://publiuslogic.herokuapp.com/v1alpha1/graphql`, // <- Configure connection GraphQL url
+            headers: {
+              'Authorization': `bearer ${process.env.X_HASURA_ADMIN_SECRET}`,
+            },
+            fetch,
+          }),
+        refetchInterval: 10, // Refresh every 10 seconds for new data
+      },
+    },
+    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -63,14 +79,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/assets/img`,
         name: 'images',
       },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
     },
     {
       resolve: 'gatsby-plugin-categories',
@@ -326,22 +342,6 @@ module.exports = {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql', // <- Configure plugin
-      options: {
-        typeName: 'HASURA',
-        fieldName: 'hasura', // <- fieldName under which schema will be stitched
-        createLink: () =>
-          createHttpLink({
-            uri: `https://publiuslogic.herokuapp.com/v1alpha1/graphql`, // <- Configure connection GraphQL url
-            headers: {
-              'Authorization': `bearer ${process.env.X_HASURA_ADMIN_SECRET}`,
-            },
-            fetch,
-          }),
-        refetchInterval: 10, // Refresh every 10 seconds for new data
       },
     },
     `gatsby-plugin-netlify`,
