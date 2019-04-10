@@ -43,7 +43,7 @@ class Layout extends Component {
             <Hr />
             <Scroll
               showBelow={1500}
-              css='position: fixed; right: 1.3em; bottom: 1.2em;'
+              css='position: fixed; right: 1.3em; bottom: 1.3em;'
             />
             <Footer />
           </Fragment>
