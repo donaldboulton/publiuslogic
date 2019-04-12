@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   repo: donaldboulton/publiuslogic
   branch: master
   identity_url: "https://publiuslogic.com/.netlify/identity"
