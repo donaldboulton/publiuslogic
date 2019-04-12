@@ -125,7 +125,7 @@ const AboutSection = () => {
               <div><a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
               <div><a href='https://www.netlify.com/features/'>SLL Security</a></div>
               <br />
-              <span>Netlify CMS<a href='https://publiuslogic.com/admin/'>&nbsp; - &nbsp;Administration</a></span>
+              <span>Netlify CMS<a href='https://publiuslogic.com/admin/#/collections/pages'>&nbsp; - &nbsp;Administration</a></span>
             </div>
           </div>
         </div>

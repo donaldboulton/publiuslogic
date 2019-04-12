@@ -1,51 +1,73 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import config from '../../data/config'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-export default class CategoryTemplate extends React.Component {
+class CategoriesRoute extends Component {
   render () {
-    const { category } = this.props.pageContext
+    const posts = this.props.data.allMarkdownRemark.edges
+    const postLinks = posts.map(post => (
+      <li key={post.node.fields.slug}>
+        <Link to={post.node.fields.slug}>
+          <h2 className='is-size-2'>{post.node.frontmatter.title}</h2>
+        </Link>
+      </li>
+    ))
+    const category = this.props.pageContext.category
+    const title = this.props.data.site.siteMetadata.title
+    const totalCount = this.props.data.allMarkdownRemark.totalCount
+    const categoryHeader = `${totalCount} post${
+      totalCount === 1 ? '' : 's'
+    } tagged with “${category}”`
+
     return (
       <Layout>
-        <div
-          location={this.props.location}
-          title={category.charAt(0).toUpperCase() + category.slice(1)}
-        >
-          <div className='category-container'>
-            <Helmet>
-              <title>
-                {`Posts in category '${category}' | ${config.siteTitle}`}
-              </title>
-              <link
-                rel='canonical'
-                href={`${config.siteUrl}/categories/${category}`}
-              />
-            </Helmet>
+        <section className='section'>
+          <Helmet title={`${category} | ${title}`} />
+          <div className='container content'>
+            <div className='columns'>
+              <div
+                className='column is-10 is-offset-1'
+                style={{ marginBottom: '6rem' }}
+              >
+                <h3 className='title is-size-4 is-bold-light'>{categoryHeader}</h3>
+                <ul className='taglist read-more'>{postLinks}</ul>
+                <p>
+                  <Link className='button is-primary' to='/categories/'>Browse all Categories →</Link>
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </Layout>
     )
   }
 }
 
-export const pageQuery = graphql`
-  query CategoryByID($category: String!) {
-    markdownRemark(id: { eq: $category }) {
-      id
-      html
-      fields {
-        slug
-      }      
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+export default CategoriesRoute
+
+export const categoryPageQuery = graphql`
+  query CategoryPage($category: String) {
+    site {
+      siteMetadata {
         title
-        cover
-        category
-        meta_title
-        meta_description
-        tags
+      }
+    }
+    allMarkdownRemark(
+      limit: 1000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { in: [$category] } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
       }
     }
   }

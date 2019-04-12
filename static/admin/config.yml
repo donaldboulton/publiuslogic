@@ -62,6 +62,15 @@ collections:
           - {label: Contacts, name: contacts, widget: list, fields: [{label: Email, name: email, widget: string}, {label: Description, name: description, widget: string}]}
           - {label: "Meta Title", name: "meta_title", widget: "string"}
           - {label: "Meta Description", name: "meta_description", widget: "text"}
+      - file: "src/pages/privacy/index.md"
+        label: "Privacy Page"
+        name: "privacy"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "privacy-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Subtitle, name: subtitle, widget: string}
+          - {label: "Meta Title", name: "meta_title", widget: "string"}
+          - {label: "Meta Description", name: "meta_description", widget: "text"}  
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
@@ -74,6 +83,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover", name: "cover", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Category", name: "category", widget: "string"}
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Meta Title", name: "meta_title", widget: "string"}
       - {label: "Meta Description", name: "meta_description", widget: "text"}

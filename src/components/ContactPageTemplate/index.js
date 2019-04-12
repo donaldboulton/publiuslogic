@@ -143,7 +143,7 @@ class ContactPageTemplate extends Component {
                       <button className='button is-text is-large' type='reset'>Cancel</button>
                     </div>
                     <div className='control'>
-                      <button className='button is-primary is-large' type='submit'>Submit</button>
+                      <button className='button is-primary is-large' type='submit' disabled={(!this.state.name) || (!this.state.email) || (!this.state.message)}>Submit</button>
                     </div>
                   </div>
                 </form>
