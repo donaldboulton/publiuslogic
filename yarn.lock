@@ -17080,6 +17080,11 @@ with-open-file@^0.1.5:
     p-try "^2.0.0"
     pify "^3.0.0"
 
+with-utterances@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/with-utterances/-/with-utterances-1.4.1.tgz#2c3e375cbd2c6470e06db0890231b0912a033a72"
+  integrity sha512-x2REOMubLoDg99VY0VtHgoRUnX5XRG9GLQJqMZDz1Fo4LNFqll/PVogRiFmi7YDI2EHXdCBs+4gl4ETZTn5GmA==
+
 wordwrap@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"

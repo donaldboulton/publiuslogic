@@ -15,9 +15,9 @@ const Comments = ({ title }) => {
       src: 'https://utteranc.es/client.js',
       repo: 'donaldboulton/publiuslogic',
       label: 'comments',
+      "issue-term": title,
       theme: 'github-dark',
       async: true,
-      'issue-term': title,
       crossorigin: 'anonymous',
     }
 
