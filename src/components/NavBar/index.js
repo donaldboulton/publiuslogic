@@ -15,10 +15,10 @@ const NavBar = ({toggleNavbar, isActive}) => (
             }
         `}
     render={data => (
-      <nav className='navbar is-fixed-top' aria-label='main navigation'>
+      <nav className='navbar is-fixed-top' aria-label='main navigation' itemScope itemType='https://schema.org/SiteNavigationElement'>
         <div className='navbar-brand'>
-          <span className='navbar-item'>
-            <Link to='/' className='navbar-item'>
+          <span className='navbar-item' itemProp='mainEntityOfPage'>
+            <Link to='/' className='navbar-item' itemProp='image'>
               <img src={logo} alt='Publiuslogic' />
             </Link>
           </span>
@@ -38,48 +38,48 @@ const NavBar = ({toggleNavbar, isActive}) => (
               <SearchBox searchIndex={data.siteSearchIndex.index} />
             </div>
             <div className='navbar-item has-dropdown is-hoverable'>
-              <a className='navbar-link  is-active' href='/'>
+              <a className='navbar-link  is-active' href='/' itemProp='url'>
                  Docs
               </a>
               <div className='navbar-dropdown'>
-                <a className='navbar-item' href='/'>
+                <a className='navbar-item' href='/' itemProp='url'>
                  Home
                 </a>
-                <a className='navbar-item' href='/about'>
+                <a className='navbar-item' href='/about' itemProp='url'>
                  About
                 </a>
-                <a className='navbar-item' href='/pricing'>
+                <a className='navbar-item' href='/pricing' itemProp='url'>
                   Pricing
                 </a>
-                <a className='navbar-item' href='/contact'>
+                <a className='navbar-item' href='/contact' itemProp='url'>
                   Contact
                 </a>
-                <a className='navbar-item' href='/privacy'>
+                <a className='navbar-item' href='/privacy' itemProp='url'>
                   Privacy & terms
                 </a>
               </div>
             </div>
             <div className='navbar-item has-dropdown is-hoverable'>
-              <a className='navbar-link  is-active' href='/blog'>
+              <a className='navbar-link  is-active' href='/blog' itemProp='url'>
                  Blog
               </a>
               <div className='navbar-dropdown'>
-                <a className='navbar-item' href='/blog'>
+                <a className='navbar-item' href='/blog' itemProp='url'>
                   All Posts
                 </a>
-                <a className='navbar-item' href='/blog/netlify-cms-test/'>
+                <a className='navbar-item' href='/blog/netlify-cms-test/' itemProp='url'>
                   Netlify CMS
                 </a>
-                <a className='navbar-item' href='/blog/gatsby-github-comments-utterances/'>
+                <a className='navbar-item' href='/blog/gatsby-github-comments-utterances/' itemProp='url'>
                   Utterances Comments
                 </a>
-                <a className='navbar-item' href='/blog/gatsby-react-disqus-comments/'>
+                <a className='navbar-item' href='/blog/gatsby-react-disqus-comments/' itemProp='url'>
                   React Disqus Comments
                 </a>
-                <a className='navbar-item' href='/blog/react-hooks-modal/'>
+                <a className='navbar-item' href='/blog/react-hooks-modal/' itemProp='url'>
                   React Hooks Modal
                 </a>
-                <a className='navbar-item' href='/blog/google-maps+react-hooks'>
+                <a className='navbar-item' href='/blog/google-maps+react-hooks' itemProp='url'>
                   GMaps React Hooks
                 </a>
               </div>

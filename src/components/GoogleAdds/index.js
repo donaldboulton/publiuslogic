@@ -3,7 +3,7 @@ import AdSense from 'react-adsense'
 
 const Adds = () => {
   return (
-    <div className='columns is-vcentered'>
+    <div className='columns is-vcentered' itemScope itemType='https://schema.org/WPAdBlock'>
       <div className='column is-10 is-offset-1'>
         <div className='content'>
           <div role='note' className='add-block clear-both' itemScope itemType='https://schema.org/WPAdBlock'>

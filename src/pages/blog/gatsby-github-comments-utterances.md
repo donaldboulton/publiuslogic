@@ -2,7 +2,7 @@
 templateKey: article-page
 title: Gatsby GitHub Comments Utterances
 slug: Gatsby GitHub Comments Utterances
-date: 2019-03-25T20:20:43.942Z
+date: 2019-04-16T20:20:43.942Z
 category: "tech"
 cover: /img/gatsby+react+utterances.jpg
 tags:
@@ -17,11 +17,11 @@ meta_description: Gatsby GitHub Comments Utterances
 
 # React withUtterances [Repo](https://github.com/khw1031/withUtterances)
 
+[Taken From: bhnywl.com](https://www.bhnywl.com/how-to-add-comments-to-a-blog-built-with-a-static-site-generator/)
+
 ## Why use Utterances
 
-[From: bhnywl.com](https://www.bhnywl.com/purging-my-blog-and-starting-fresh-with-gatsby-v2/)
-
-All your users already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
+Lets say all your users are developers and already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
 Unlike Staticman GitHub Issues are truly dynamic so new comments will show without having to wait for your site to rebuild and deploy
 You get access to all the features of GitHub Issues out of the box (notifications, moderation, reactions, etc.)
 Developers care about the appearance of their GitHub accounts, which is likely to result in better (or at least civil) discussion.
@@ -100,12 +100,14 @@ More themes can be added [with additional stylesheets](https://github.com/uttera
 
 It will make your Utterances Widget to load slightly faster. <3
 
-
 ### PS. DEMO SITE
 
 [Demo Using withUtterance](https://khw1031.github.io/posts/withUtterances)
 
 ### My withUtterances react Component
+
+Using GitHub pages dark theme. From the SEO component, 'og:title', to set the comment to a specific page.
+And this component with the specific meta-tags can be used, "anywhere", not just posts!
 
 ```jsx
 import React from 'react'
