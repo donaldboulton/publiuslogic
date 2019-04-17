@@ -54,19 +54,19 @@ class CommentForm extends React.Component {
                 <div className='column is-half'>
                   <form
                     name='comments'
-                    method='post'
-                    action='/contact/success'
+                    method='POST'
+                    action='https://api.staticman.net/v3/entry/donaldboulton/publiuslogic/master/comments'
                     encType='application/x-www-form-urlencoded'
                     data-netlify='true'
                     data-netlify-honeypot='bot-field'
                     data-netlify-recaptcha='true'
                     onSubmit={this.handleSubmit}
                   >
-                    <input type='hidden' name='form-name' value='contact' />
+                    <input name='options[redirect]' type='hidden' value='https://publiuslogic.com/contact/success/' />
                     <div hidden>
                       <label>
                           Don’t fill this out:{' '}
-                        <input name='bot-field' onChange={this.handleChange} />
+                        <input name='fields[bot-field]' onChange={this.handleChange} />
                       </label>
                     </div>
                     <div className='field'>
@@ -76,7 +76,7 @@ class CommentForm extends React.Component {
                           className='input is-large'
                           placeholder='Your Name *'
                           value={author}
-                          name='name'
+                          name='fields[name]'
                           onChange={this.handleChange}
                         />
                       </div>
@@ -88,7 +88,8 @@ class CommentForm extends React.Component {
                           className='input is-large'
                           placeholder='youemail@you.com *'
                           value={email}
-                          name='email'
+                          type='email'
+                          name='fields[email]'
                           onChange={this.handleChange}
                         />
                       </div>
@@ -100,7 +101,7 @@ class CommentForm extends React.Component {
                           className='textarea is-large'
                           rows='5'
                           placeholder='Enter your comment *'
-                          name='comment'
+                          ame='fields[comment]'
                           value={comment}
                           onChange={this.handleChange}
                         />

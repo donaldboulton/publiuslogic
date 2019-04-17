@@ -41,28 +41,6 @@ module.exports = {
     'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,
     {
-      resolve: `gatsby-transformer-json`,
-      options: {
-        typeName: `Json`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql', // <- Configure plugin
-      options: {
-        typeName: 'HASURA',
-        fieldName: 'huroku', // <- fieldName under which schema will be stitched
-        createLink: () =>
-          createHttpLink({
-            uri: `https://publiuslogic.herokuapp.com/v1alpha1/graphql`, // <- Configure connection GraphQL url
-            headers: {
-              'Authorization': `bearer ${process.env.X_HASURA_ADMIN_SECRET}`,
-            },
-            fetch,
-          }),
-        refetchInterval: 10, // Refresh every 10 seconds for new data
-      },
-    },
-    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -75,6 +53,14 @@ module.exports = {
       options: {
         path: `${__dirname}/src/img`,
         name: 'images',
+      },
+    },
+    'gatsby-transformer-yaml',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/_data/comments`,
+        name: 'comments',
       },
     },
     {
@@ -131,7 +117,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [          
+        plugins: [
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,

@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const path = require('path')
+const Promise = require('bluebird')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 const moment = require('moment')

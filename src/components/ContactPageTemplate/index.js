@@ -159,8 +159,8 @@ class ContactPageTemplate extends Component {
                     />
                   </a>
                   <div>
-                    <div>Contact is governed by our!</div>
-                    <div className='is-centered'><a href='/privacy#Comment Policy/'>Forms Submit Policy</a></div>
+                    <div>Contact are governed by our!</div>
+                    <div className='is-centered'><a href='/privacy#Comment Policy/'>Submitting Policy</a></div>
                   </div>
                 </div>
               </div>
