@@ -70,6 +70,9 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <a className='navbar-item' href='/blog/netlify-cms-test/'>
                   Netlify CMS
                 </a>
+                <a className='navbar-item' href='/blog/gatsby-github-comments-utterances/'>
+                  Utterances Comments
+                </a>
                 <a className='navbar-item' href='/blog/gatsby-react-disqus-comments/'>
                   React Disqus Comments
                 </a>

@@ -1,16 +1,14 @@
 import React from 'react'
-import Utterances from 'with-utterances'
+import withUtterances from 'with-utterances'
 
-class withUtterances extends React.Component {
+class Comments extends React.Component {
   render () {
     return (
-        <div>
-          <section className='section'>
-            <Utterances />
-          </section>
-        </div>
-      )
-    }
+      <div>
+        <withUtterances />
+      </div>
+    )
+  }
 }
 
-export default withUtterances(PostPage, 'YOUR_REPO', 'github-dark')
+export default withUtterances(Comments, 'donaldboulton/publiuslogic', 'github-dark', 'og:title')

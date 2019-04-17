@@ -1,5 +1,5 @@
 import React from 'react'
-import CommentForm from './comments'
+import CommentForm from './comment'
 import logo from '../../img/logo.png'
 
 class Comments extends React.Component {
