@@ -1,11 +1,11 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import GithubButtonWatch from './watch'
 import GithubButtonStar from './star'
 import GithubButtonFork from './fork'
 import { ThemeProvider } from 'styled-components'
 import theme from './buttons.css'
 
-class GitHubRepo extends PureComponent {
+class GitHubRepo extends Component {
   render () {
     return (
       <ThemeProvider theme={theme}>

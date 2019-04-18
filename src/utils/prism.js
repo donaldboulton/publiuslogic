@@ -131,6 +131,24 @@ export default createGlobalStyle`
     color: rgb(247, 140, 108);
   }
 
+  .number {
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #c93c00 !important;
+    border-radius: 290486px;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    font-size: 1.25rem;
+    height: 1.3em !important;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    min-width: 2em !important;
+    padding: .25rem .5rem;
+    text-align: center;
+    vertical-align: top;
+  }
+
   .token.builtin,
   .token.char,
   .token.constant,
@@ -200,6 +218,20 @@ export default createGlobalStyle`
     border-left: 0.25em solid ${props => props.theme.darkOrange};
   }
 
+  not(pre) > code[class*="language-"] {
+    color: black;
+    border-radius: 0.2em;
+    background: #c93c00 !important;
+    padding: 0.15em 0.2em 0.05em;
+  }
+
+  .language-text {
+    color: #cccccc!important;
+    border-radius: 0.2em;
+    background: #363636!important;
+    padding: 0.15em 0.2em 0.05em;
+  }
+  
   pre.code-toolbar {
     position: relative;
   }
@@ -208,7 +240,7 @@ export default createGlobalStyle`
     position: absolute;
     top: 1em !important;
     right: .5em !important;
-    background: #f5f2f0;
+    background: #363636!important;
     background: rgba(224,224,224,.2);
     border-radius: .5em;
   }
