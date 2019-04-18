@@ -217,7 +217,7 @@ if (typeof window !== undefined) { require('react-github-btn') }
 
 The Component for the issues button
 
-```js
+```jsx
 import React, { PureComponent } from 'react'
 import GitHubButton from 'react-github-btn'
 
@@ -228,10 +228,10 @@ class GitHubIssues extends PureComponent {
   render () {
     return (
       <GitHubButton href='https://github.com/donaldboulton/publiuslogic/issues' 
-          data-size='large' 
-          data-show-count='true' 
-          aria-label='Issue donaldboulton/publiuslogic on GitHub'>
-            Issue
+        data-size='large' 
+        data-show-count='true' 
+        aria-label='Issue donaldboulton/publiuslogic on GitHub'>
+          Issue
       </GitHubButton>
     )
   }
