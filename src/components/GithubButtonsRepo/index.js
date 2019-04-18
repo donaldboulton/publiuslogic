@@ -1,22 +1,30 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import GithubButtonWatch from './watch'
 import GithubButtonStar from './star'
 import GithubButtonFork from './fork'
+import { ThemeProvider } from 'styled-components'
+import theme from './buttons.css'
 
 class GitHubRepo extends PureComponent {
   render () {
     return (
-      <div className='columns is-mobile'>
-        <div className='column'>
-          <GithubButtonWatch />
-        </div>
-        <div className='column'>
-          <GithubButtonStar />
-        </div>
-        <div className='column'>
-          <GithubButtonFork />
-        </div>
-      </div>
+      <ThemeProvider theme={theme}>
+        <>
+          <Fragment>
+            <div className='columns is-mobile'>
+              <div className='column'>
+                <GithubButtonWatch />
+              </div>
+              <div className='column'>
+                <GithubButtonStar />
+              </div>
+              <div className='column'>
+                <GithubButtonFork />
+              </div>
+            </div>
+          </Fragment>
+        </>
+      </ThemeProvider>
     )
   }
 }

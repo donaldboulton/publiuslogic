@@ -157,7 +157,24 @@ export default createGlobalStyle`
   .token.keyword {
     color: #ffa7c4;
   }
-
+  
+  .tag:not(body) {
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #d64000 !important;
+    border-radius: 4px;
+    color: #757474;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    font-size: .75rem;
+    height: 2em;
+    -webkit-justify-content: center;
+    justify-content: center;
+    line-height: 1.5;
+    padding-left: .75em;
+    padding-right: .75em;
+    white-space: nowrap;
+  }
   .token.boolean {
     color: rgb(255, 88, 116);
   }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from 'react'
 
 export default function Map({ options, onMount, className }) {
   const props = { ref: useRef(), className }
@@ -22,7 +22,7 @@ export default function Map({ options, onMount, className }) {
   })
 
   return (
-    <div css="height: 70vh; margin: 1em 0; border-radius: 0.5em;" {...props} />
+    <div css='height: 70vh; margin: 1em 0; border-radius: 0.5em;' {...props} />
   )
 }
 

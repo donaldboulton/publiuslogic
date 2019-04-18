@@ -9,7 +9,6 @@ import Slack from '../Slack'
 import Subscriptions from '../Subscriptions'
 import Adds from '../GoogleAdds'
 import FeedbackWidget from '../feedback-widget/feedback-widget'
-
 import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
