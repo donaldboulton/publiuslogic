@@ -1,5 +1,6 @@
 import React from 'react'
 import Content from '../Content'
+import GithubButtonsRepo from '../GithubButtonsRepo'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
@@ -44,6 +45,9 @@ const ArticleTemplate = ({
         <span className='subtitle is-size-4'>
           <Calendar size='1.2em' />&nbsp;
           <small>{date}&nbsp;</small>
+        </span>
+        <span className='is-pulled-right'>
+          <GithubButtonsRepo />
         </span>
       </span>
       <br />
