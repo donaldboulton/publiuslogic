@@ -112,7 +112,6 @@ module.exports = {
         anonymize: true,
       },
     },
-    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
@@ -163,6 +162,7 @@ module.exports = {
               maxWidth: 2048,
             },
           },
+          'gatsby-plugin-sharp',
           {
             resolve: 'gatsby-remark-better-embed-video',
             options: {

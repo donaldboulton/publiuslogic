@@ -1,5 +1,6 @@
 import React from 'react'
 import CommentForm from './comments'
+import GitHubIssues from '../GithubIssues'
 import logo from '../../img/logo.png'
 
 class Comments extends React.Component {
@@ -10,6 +11,7 @@ class Comments extends React.Component {
           <div className='container'>
             <div>
               <h3>Comments</h3>
+              <GitHubIssues />
             </div>
             <div className='columns is-10 is-offset-1'>
               <div className='column is-three-fifths'>

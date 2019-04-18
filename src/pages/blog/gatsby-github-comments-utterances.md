@@ -83,8 +83,8 @@ It uses your pathname as `issue-term`.
 #### Supported Themes
 
 By default [Utterances](https://github.com/utterance/utterances) comes with two choices for themes:
-- `github-light` - The normal Github style
-- `github-dark` - A dark mode in the style of Github
+- `github-light` - The normal GitHub style
+- `github-dark` - A dark mode in the style of GitHub
 
 More themes can be added [with additional stylesheets](https://github.com/utterance/utterances/blob/master/CONTRIBUTING.md#theme-development).
 
@@ -191,3 +191,55 @@ const Comments = ({ title }) => {
 
 export default Comments
 ```
+
+### Issues total count button
+
+You could add a issues total count button which links to your repo page issues.
+
+Using [react-github-btn](https://github.com/ntkme/react-github-btn)
+
+Then you can go to [Button github.io](https://buttons.github.io/) to configure your buttons.
+
+My new trick to get around window or .document module errors, which this 'react-github-btn' is an offending npm module is to...
+
+First call the offending Module
+
+```js
+import GitHubButton from 'react-github-btn'
+```
+
+Then tell Gatsby it window is undefined.
+
+```js
+// eslint-disable-next-line valid-typeof
+if (typeof window !== undefined) { require('react-github-btn') }
+```
+
+The Component for the issues button
+
+```js
+import React, { PureComponent } from 'react'
+import GitHubButton from 'react-github-btn'
+
+// eslint-disable-next-line valid-typeof
+if (typeof window !== undefined) { require('react-github-btn') }
+
+class GitHubIssues extends PureComponent {
+  render () {
+    return (
+      <GitHubButton href='https://github.com/donaldboulton/publiuslogic/issues' 
+          data-size='large' 
+          data-show-count='true' 
+          aria-label='Issue donaldboulton/publiuslogic on GitHub'>
+            Issue
+      </GitHubButton>
+    )
+  }
+}
+
+export default GitHubIssues
+```
+
+If you are a developer and use Gatsby this is a cool and logical way to have comments.
+
+In my next post I will tie this component to Google Analytics as GitHub Issues.
