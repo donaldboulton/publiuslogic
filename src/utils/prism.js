@@ -101,14 +101,6 @@ export default createGlobalStyle`
     background: hsla(0, 0%, 93%, 0.15);
   }
 
-  /* Inline code */
-  :not(pre) > code[class*='language-'] {
-    border-radius: 0.2em;
-    background: ${props => props.theme.lightGray};
-    color: ${props => props.theme.black};
-    padding: 0.15em 0.2em 0.05em;
-  }
-
   .token.attr-name {
     color: rgb(173, 219, 103);
     font-style: italic;
@@ -231,7 +223,7 @@ export default createGlobalStyle`
     background: #363636!important;
     padding: 0.15em 0.2em 0.05em;
   }
-  
+
   pre.code-toolbar {
     position: relative;
   }
@@ -241,7 +233,6 @@ export default createGlobalStyle`
     top: 1em !important;
     right: .5em !important;
     background: #363636!important;
-    background: rgba(224,224,224,.2);
     border-radius: .5em;
   }
 
@@ -256,5 +247,13 @@ export default createGlobalStyle`
   pre.code-toolbar > .toolbar a:focus,
   pre.code-toolbar > .toolbar a.zeroclipboard-is-hover {
     color: inherit;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
   }
 `

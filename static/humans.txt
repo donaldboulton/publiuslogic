@@ -1,8 +1,8 @@
 /* TEAM */
 
-Creator: LekoArts
-URL: https://www.lekoarts.de
-Description: Hi! I'm Lennart and I'm a self-taught and passionate graphic designer & front-end developer
+Creator: DOnald Boulton
+URL: https://publiuslogic.com
+Description: Hi! I'm Donald and I'm a self-taught and passionate graphic designer & front-end developer
 
 /* SITE */
 
