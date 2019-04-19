@@ -7,7 +7,7 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, isBlogPost, postData }
   let postURL = config.siteUrl + slug
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   let image = config.siteUrl + realPrefix + cover
-  const datePublished = isBlogPost ? postMeta.date : false
+  const datePublished = isBlogPost ? postMeta.date : postMeta.date
 
   const breadcrumbSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
