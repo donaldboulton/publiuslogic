@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import GithubButtonFollow from './follow'
 import GithubButtonWatch from './watch'
 import GithubButtonStar from './star'
 import GithubButtonFork from './fork'
@@ -12,6 +13,9 @@ class GitHubRepo extends Component {
         <>
           <Fragment>
             <div className='columns is-mobile'>
+              <div className='column'>
+                <GithubButtonFollow />
+              </div>
               <div className='column'>
                 <GithubButtonWatch />
               </div>
