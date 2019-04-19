@@ -2,10 +2,12 @@ import React from 'react'
 import config from '../../../data/config'
 import Helmet from 'react-helmet'
 
-const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
+const SE0 = ({ title, meta_title, meta_desc, cover, slug, isBlogPost, postData }) => {
+  const postMeta = postData || {}
   let postURL = config.siteUrl + slug
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   let image = config.siteUrl + realPrefix + cover
+  const datePublished = isBlogPost ? postMeta.date : false
 
   const breadcrumbSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -51,8 +53,8 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
       '@type': 'ImageObject',
       url: image,
     },
-    datePublished: date,
-    dateModified: date,
+    datePublished: datePublished,
+    dateModified: datePublished,
     publisher: {
       '@type': 'Organization',
       name: config.siteTitle,
@@ -96,6 +98,10 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={meta_desc} />
       <meta name='twitter:image' content={image} />
+      <meta name='geo.placename' content='720 S Rockwell Ave, Oklahoma City, OK 73128, USA' />
+      <meta name='geo.position' content='35.4582062;-97.6338859' />
+      <meta name='geo.region' content='US-Oklahoma' />
+      <meta name='ICBM' content='35.4582062, -97.6338859' />
     </Helmet>
   )
 }

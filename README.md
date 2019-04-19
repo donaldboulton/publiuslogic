@@ -9,9 +9,9 @@ To Publish Logic
 
 ## gatsby-starter-publius
 
-This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Microdata for SEO, Internet Positioning.
+This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Structured Microdata for SEO, Internet Positioning.
 
-The site is built with Gatsby, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for stateful components such as Image Gallery's, Modal's and ToTop. Prism for syntax highlighting, Disqus for blog post comments and Lunr for custom search.
+The site style and design is with, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for stateful components such as Image Gallery's, Modal's and ToTop. Prism for syntax highlighting,GitHub issues for blog post comments fully incorporated with this repo, and Lunr for custom search.
 
 Feel free to reuse any part of this repo to create your own Gatsby site.
 
@@ -39,6 +39,23 @@ Learn more about this service from this
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
+## Netlify CMS
+
+[Static + content management = ♥](https://www.netlifycms.org/)
+
+Netlify CMS is Always the latest GitHub repo pull, with my custom Webpack hashed build.
+My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
+
+Get the speed, security, and scalability of a static site, while still providing a convenient editing interface for content.
+
+An integrated part of your Git workflow
+Content is stored in your Git repository along side your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
+
+### An extensible CMS built on React
+
+Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backends to support different Git platform APIs.
+My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
+
 ## Demo
 
 [Gatsby Starter Publius](https://publiuslogic.com)
@@ -51,7 +68,9 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 * Bulma and Sass Support for styling
 * Progressive Web App & Offline Support
 * Tags and RSS Feed for Blog
-* Disqus and Share Support
+* Comments with GitHub Issues
+* Follow, Mention, Star and Fork GitHub buttons
+* Share Support
 * Elastic-Lunr Search
 * Pagination
 * Contact Form (Netlify Forms)

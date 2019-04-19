@@ -3,7 +3,7 @@ templateKey: article-page
 title: Gatsby GitHub Comments Utterances
 slug: Gatsby GitHub Comments Utterances
 date: 2019-04-16T20:20:43.942Z
-category: "tech"
+category: 'tech'
 cover: /img/gatsby+react+utterances.jpg
 tags:
   - Gatsby
@@ -107,7 +107,7 @@ It will make your Utterances Widget to load slightly faster. <3
 ### My withUtterances react Component
 
 Using GitHub pages dark theme. From the SEO component, 'og:title', to set the comment to a specific page.
-And this component with the specific meta-tags can be used, "anywhere", not just posts!
+And this component with the specific meta-tags can be used, 'anywhere', not just posts!
 
 ```jsx
 import React from 'react'
@@ -146,7 +146,7 @@ const Comments = ({ title }) => {
       src: 'https://utteranc.es/client.js',
       repo: 'donaldboulton/publiuslogic',
       label: 'comments',
-      "issue-term": title,
+      'issue-term': title,
       theme: 'github-dark',
       async: true,
       crossorigin: 'anonymous',

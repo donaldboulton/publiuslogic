@@ -3,7 +3,7 @@ templateKey: article-page
 title: Gatsby React Disqus Comments
 slug: Gatsby React Disqus Comments
 date: 2019-03-25T20:20:43.942Z
-category: "tech"
+category: 'tech'
 cover: /img/gatsby+disqus.svg
 tags:
   - Gatsby 
@@ -72,7 +72,7 @@ to your
 
 example usage in .env.sample
 
-```js
+```env
 GATSBY_ALGOLIA_APP_ID=insertValue
 GATSBY_ALGOLIA_SEARCH_KEY=insertValue
 ALGOLIA_ADMIN_KEY=insertValue
@@ -109,8 +109,7 @@ disqusShortname: 'yourOwnSiteShortname'
 
 React component.
 
-```js{4}
-  //src/components/ArticleTemplate
+```js{4}:title=src/components/ArticleTemplate
   import React from 'react'
   import { graphql } from 'gatsby'
   import { DiscussionEmbed } from 'disqus-react'
@@ -130,9 +129,7 @@ Where identifier must be a string or number that uniquely identifies the post. F
 
 Add Discussion embed
 
- ```js{6}
- // src/components/ArticleTemplate
-
+ ```js{6}:title=src/components/ArticleTemplate
   return (
     <Global>
       <PageBody>
@@ -153,9 +150,7 @@ If you'd like your blog post previews to show a count of the number of comments 
 
 adding
 
-```js{6,23-25}
-  //src/components/postMeta/index.js
-
+```js{6,23-25}:title=data/config.js
   import React from 'react'
   import { Link } from 'gatsby'
   import { CommentCount } from 'disqus-react'
@@ -166,15 +161,15 @@ adding
   const PostMeta = ({ title, slug, date, timeToRead, tags }) => (
     <Meta>
       <span>
-        <Calendar size="1.2em" />
+        <Calendar size='1.2em' />
         {date}
       </span>
       <span>
-        <Timer size="1.2em" />
+        <Timer size='1.2em' />
         {timeToRead} min read
       </span>
       <span>
-        <Comments size="1.2em" />
+        <Comments size='1.2em' />
         <Link to={`/blog` + slug + `#disqus_thread`}>
           <CommentCount {...disqusConfig({ slug, title })} />
         </Link>
@@ -192,6 +187,6 @@ where the config object now comes from the utility function
   disqusConfig()
 ```
 
-You can customize what string the Comment Count component displays depending on how many comments a post has by going to your Disqus admin settings [as described here](https://help.disqus.com/installation/customizing-comment-count-link-text). For instance you might want to change the text "0 comments" to something more inspiring like "Start a discussion!". :wink:
+You can customize what string the Comment Count component displays depending on how many comments a post has by going to your Disqus admin settings [as described here](https://help.disqus.com/installation/customizing-comment-count-link-text). For instance you might want to change the text '0 comments' to something more inspiring like 'Start a discussion!'. :wink:
 
 ![Disqus community admin settings](/img/disqus-community-admin-settings.png)

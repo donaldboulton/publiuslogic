@@ -1,5 +1,6 @@
 import React from 'react'
 import Content from '../Content'
+import Maps from '../Maps'
 import PropTypes from 'prop-types'
 
 const AboutPageTemplate = ({ title, content, contentComponent }) => {
@@ -28,10 +29,15 @@ const AboutPageTemplate = ({ title, content, contentComponent }) => {
       </section>
       <section className='section section--gradient'>
         <div className='container'>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
-              <div className='section'>
+          <div className='columns is-10 is-offset-1'>
+            <div className='column is-half'>
+              <div>
                 <PageContent className='content' content={content} />
+              </div>
+            </div>
+            <div className='column'>
+              <div>
+                <Maps />
               </div>
             </div>
           </div>

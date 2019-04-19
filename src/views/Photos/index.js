@@ -4,7 +4,7 @@ import MarkerClusterer from '@google/markerclustererplus'
 import Masonry from '../../components/Masonry'
 import Caption from '../../components/styles/Caption'
 import Modal from '../../components/Modal'
-import Map from '../../components/Map'
+import Map from '../../components/Maps/Map'
 
 import { Thumbnail, LargeImg } from './styles'
 

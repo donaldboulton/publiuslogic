@@ -19,7 +19,7 @@ const CategoryPageTemplate = ({
 }) => {
   const { markdownRemarkFields: post } = date
   const { subtitle, meta_description } = this.props
-  data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
+  data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } }
   return (
     <div>
       <Helmet title={`Categories | ${title}`} />
@@ -51,7 +51,6 @@ const CategoryPageTemplate = ({
                     <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>
                       <div className='tags has-addons'>
                         <span className='tags is-primary'>{category.fieldValue}</span>
-                        <span className='tags is-dark'>{category.totalCount}</span>
                       </div>
                     </Link>
                   </li>

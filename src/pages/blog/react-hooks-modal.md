@@ -3,7 +3,7 @@ templateKey: article-page
 title: React Hooks Modal
 slug: React Hooks Modal
 date: 2019-03-25T20:20:43.942Z
-category: "tech"
+category: 'tech'
 cover: /img/react-hooks-modal.jpg
 tags:
   - React
@@ -17,21 +17,17 @@ meta_description: React Hooks Modal
 
 [janosh.io](https://janosh.io/blog/)
 
-What to do on a cold January weekend with bad weather? Why not check out the new [React alpha (16.8)](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-q1-2019-the-one-with-hooks). **The one with Hooks** as it's come to be called.
+What to do on a cold and wet January weekend? Why not check out the new [React alpha (16.8)](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-q1-2019-the-one-with-hooks). **The one with Hooks** as it's come to be called.
 
-Latest React version is 16.8.5 as of this posting
+All it took was a little skimming through [the docs](https://reactjs.org/docs/hooks-intro.html), followed by updating `react` and `react-dom`.
 
-All it took was a little skimming through [the docs](https://reactjs.org/docs/hooks-intro.html), followed by updating to `react 16.8.5` and `react-dom 16.8.5`
-
-```js
-  yarn add react react-dom
+```sh
+yarn add react react-dom
 ```
 
 That's it. Ready to start coding. But what to do first? One thing that seemed a good fit for hooks are modals. I'd implemented them once or twice before and in both cases came away with the feeling that a class component with all its boilerplate is overkill considering the tiny bit of state management required for modal functionality. As expected, using hooks I was able to boil it down quite considerably. This is what I ended up with.
 
-```jsx
-// src/components/modal/index.js
-
+```jsx:title=src/components/modal/index.js
 import React from 'react'
 
 import { ModalBackground, ModalContainer, Close } from './styles'
@@ -50,11 +46,9 @@ const Modal = ({ open, closeModal, children }) => {
 export default Modal
 ```
 
-And here are the styled components
+And here are the styled components imported on line 3.
 
-```js
-// src/components/modal/styles.js
-
+```js:title=src/components/modal/styles.js
 import styled from 'styled-components'
 import { Close as Cross } from 'styled-icons/material/Close'
 
@@ -93,35 +87,37 @@ export const Close = styled(Cross).attrs({ size: `2em` })`
 `
 ```
 
-As you can see, the styles are longer than the component itself. That's what took most of the time too. Figuring out how to use React hooks took mere minutes. Props to the React team (pun intended) for the excellent onboarding experience! Anyways, regarding usage, notice that the modal component doesn't actually handle it's own state. That's done by the parent component. As an example here's a [list of photos](/nature) that when clicked enter a higher-resolution modal view.
+As you can see, the styles are longer than the component itself. That's where I spent most of my time too. Figuring out how to use React hooks took mere minutes. Props to the React team (pun intended) for the excellent onboarding experience!
 
-```js
-  import React, { useState, Fragment } from 'react'
+Anyways, regarding usage, notice that the modal component doesn't actually handle it's own state. That's done by the parent component. As an example here's a [list of photos](/nature) that when clicked enter a higher-resolution modal view.
 
-  import Masonry from '../../components/Masonry'
-  import Modal from '../../components/Modal'
+```jsx{1,9,15,19}
+import React, { useState, Fragment } from 'react'
 
-  import { Thumbnail, LargeImg } from './styles'
+import Masonry from '../../components/Masonry'
+import Modal from '../../components/Modal'
 
-  export default function Photos({ photos }) {
-    const [modal, setModal] = useState()
-    return (
-      <Masonry>
-        {photos.map((img, index) => (
-          <Fragment key={img.title}>
-            <Thumbnail
-              onClick={() => setModal(index)}
-              alt={img.title}
-              src={img.src}
-            />
-            <Modal {...{ open: index === modal, modal, setModal }}>
-              <LargeImg alt={img.title} src={img.src} />
-            </Modal>
-          </Fragment>
-        ))}
-      </Masonry>
-    )
-  }
+import { Thumbnail, LargeImg } from './styles'
+
+export default function Photos({ photos }) {
+  const [modal, setModal] = useState()
+  return (
+    <Masonry>
+      {photos.map((img, index) => (
+        <Fragment key={img.title}>
+          <Thumbnail
+            onClick={() => setModal(index)}
+            alt={img.title}
+            src={img.src}
+          />
+          <Modal {...{ open: index === modal, modal, setModal }}>
+            <LargeImg alt={img.title} src={img.src} />
+          </Modal>
+        </Fragment>
+      ))}
+    </Masonry>
+  )
+}
 ```
 
 So basically just 4 lines of code to control the list of modals (and 2 of those do other things as well). I have to say, I was pretty impressed by that. For comparison, this is how much code the class implementation needed (just the JS, no styles yet).
@@ -156,7 +152,7 @@ class Modal extends React.Component {
     return (
       <div ref={node => (this.node = node)} id={name + '-modal'}>
         {closeButton && (
-          <button className="close-button" onClick={toggleModal}>
+          <button className='close-button' onClick={toggleModal}>
             &#10005;
           </button>
         )}
@@ -175,22 +171,22 @@ const mapStateToProps = (state, { name }) => {
 export default connect(mapStateToProps)(Modal)
 ```
 
-Admittedly this component is bloated even further by using Redux but even without it, it's less readable and less maintainable. So it's definitely a massive win for React Hooks!
+Admittedly this component is bloated further by using Redux but even without it, it's much harder to read and maintain. I'd call this use case a definite win for React Hooks!
 
 ## Semantic HTML
 
-One thing I should mention for future readers who want to use this `Modal` component: Once Chrome's new [`<dialog>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) gets wider [browser support](https://caniuse.com/#feat=dialog), it would certainly improve semantics to use it for the modal container, i.e.
+One thing I should mention for future readers who want to use this `Modal` component: Once Chrome's new [`<dialog>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) gets better [browser support](https://caniuse.com/#feat=dialog), it would improve semantics to use it for the modal container, i.e.
 
 ```js
-  - export const ModalContainer = styled.div`
-  + export const ModalContainer = styled.dialog`
+- export const ModalContainer = styled.div`
++ export const ModalContainer = styled.dialog`
 ```
 
 and then maybe use the `::backdrop` pseudo-element for the modal background.
 
 ```js
-  - export const ModalBackground = styled.div`
-  + export const ModalContainer = styled.dialog`
+- export const ModalBackground = styled.div`
++ export const ModalContainer = styled.dialog`
     ...
     ::backdrop {
       ...
@@ -199,9 +195,8 @@ and then maybe use the `::backdrop` pseudo-element for the modal background.
 ```
 
 However, bear in mind that using `::backdrop` would make it more difficult to close the modal on clicks outside of it, i.e. on the background. This is because React is unable to attach `onClick` event handlers to pseudo-elements and it seems unlikely this will change down the road. A workaround would be to use the new `useRef` and `useEffect` hook to create an event listener on the browser's `window` object that checks for the target of the `click` event. That would complicate things a little, though, since the listener would have to trigger on _all_ clicks and check that the modal doesn't include the target before closing. Something like so:
-components/modal/index.js
 
-```jsx
+```jsx:title=components/modal/index.js
 import React, { useRef, useEffect } from 'react'
 
 import { ModalBackground, ModalContainer, Close } from './styles'
@@ -210,7 +205,7 @@ const handleClickOutside = (node, closeModal) => event => {
   if (node && !node.contains(event.target)) closeModal()
 }
 
-const Modal = ({ open, closeModal, children }) => {
+export default function Modal({ open, closeModal, children }) {
   const ref = useRef()
   useEffect(() => {
     const handler = handleClickOutside(ref.current, closeModal)
@@ -224,17 +219,13 @@ const Modal = ({ open, closeModal, children }) => {
     </ModalContainer>
   )
 }
-
-export default Modal
 ```
 
 ## Keyboard controls
 
 If you have a list of modals and you'd like users to be able to go to the next or previous modal using the arrow keys, you can add an event listener with the `useEffect` hook for this as well.
 
-```jsx
-src/components/model/index.js
-
+```jsx{5-8,12-16,25-30}:title=src/components/modal/index.js
 import React, { useEffect } from 'react'
 
 import { ModalBackground, ModalContainer, Close, Next, Prev } from './styles'
@@ -275,11 +266,9 @@ const Modal = ({ open, modal, setModal, children, navigation, className }) => {
 export default Modal
 ```
 
-The new styled components `Next` and `Prev` share most of their CSS with `Close` so it makes sense to reuse that with `styled-components` `css` API:
+The new styled components `Next` and `Prev` share most of their CSS with `Close` so it makes sense to reuse that:
 
-```js
-src/components/model/styles.js
-
+```js:title=src/components/modal/styles.js
 import styled, { css } from 'styled-components'
 
 import { Close as Cross } from 'styled-icons/material/Close'
@@ -319,4 +308,4 @@ export const Prev = styled(NavigateBefore).attrs({ size: `2em` })`
 `
 ```
 
-For the full and most up to date implementation of this component, check out [this site's GitHub repo](https://github.com/janosh/janosh.io/tree/master/src/components/Modal).
+For the full and most up to date implementation of this component, check out [this site's Github repo](https://github.com/janosh/janosh.io/tree/master/src/components/Modal).

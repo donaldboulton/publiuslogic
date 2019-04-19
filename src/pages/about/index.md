@@ -1,38 +1,88 @@
 ---
 templateKey: about-page
 title: About Us
-meta_title: About Us | Gatsby Starter Business
+meta_title: About Us | Gatsby Starter Publius
 meta_description: >-
-  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-  ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-  venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
-  consectetur purus sit amet fermentum.
+  This website is built as static HTML with Gatsby component-modular builds including a Node backend, with React components and Built with Webpack.
 ---
-## Lorem ipsum dolor sit amet, consectetuer
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus 
-mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa 
-quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+## Technical notes about this website
 
-##In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
+[![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/donaldboulton/publiuslogic/master/LICENSE.txt)
+[![Tip Me via PayPal](https://img.shields.io/badge/PayPal-tip%20me-green.svg?logo=paypal)](https://www.paypal.me/donaldboulton)
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/?t=fa5cdbee-00bf-4ca8-be8f-f150a6f643e1)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/27d2be12-eb4a-4da2-a471-aea92e199948/deploy-status)](https://app.netlify.com/sites/publiuslogic/deploys)
 
-Nullam dictum felis eu pede mollis 
-pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
-Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra 
-quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. 
-Etiam ultricies nisi vel augue.  Nam eget dui. *Etiam rhoncus*. Maecenas 
-tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. 
-Nam quam nunc, blandit vel, luctus pulvinar
+This website is built as static HTML with Gatsby component-modular builds including a Node backend, with React components and Built with Webpack.
 
-###Curabitur ullamcorper ultricies nisi.
+Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. React Notifications through my Slack Bots and Netlify Functions for my Mansbooks donboulton.com workspace.
 
-Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. 
-Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, 
-mollis sed, nonummy id, metus. 
-* Cras ultricies mi eu turpis hendrerit fringilla. 
-* Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; 
-* In ac dui quis mi consectetuer lacinia.
+### Server-less
 
-**Etiam ultricies nisi vel augue!**
+No run time dependency or vulnerable server stack required Pre-built pages served over a CDN for fastest time to first byte Fast and cheap CDN scaling results in ultra-high availability worldwide Server-side processes abstracted into microservice APIs for reduced attack surface areas Modern Continuous Deployment (CD) Git workflows with instant rollbacks Headless CMS for complete separation from your app/site and with full version control Modern authentication methods such as OAuth 2 for ultimate security.
+
+## gatsby-starter-publius
+
+This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Microdata for SEO, Internet Positioning.
+
+The site is built with Gatsby, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for stateful components such as Image Gallery's, Modal's and ToTop. Prism for syntax highlighting, Disqus for blog post comments and Lunr for custom search.
+
+Feel free to reuse any part of this repo to create your own Gatsby site.
+
+A [Gatsby v2](https://www.gatsbyjs.org/) and [Netlify CMS](https://www.netlifycms.org) powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms).
+
+## Authentication
+
+### Netlify Identity Widget
+
+A Custom Styled and Build for Publius, a component used to authenticate with Netlify's Identity service.
+[Live demo](https://identity.netlify.com)
+
+For a lower level library to the underlying [GoTrue](https://github.com/netlify/gotrue) API, see
+[gotrue-js](https://github.com/netlify/gotrue-js).
+
+### What is Netlify Identity
+
+Netlify’s Identity service is a plug-and-play microservice for handling site
+functionalities like signups, logins, password recovery, user metadata, and
+roles. You can use it from single page apps instead of rolling your own, and
+integrate with any service that understands JSON Web Tokens (JWTs).
+
+Learn more about this service from this
+[blog post](https://www.netlify.com/blog/2017/09/07/introducing-built-in-identity-service-to-streamline-user-management/).
+
+It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
+
+## Netlify CMS
+
+[Static + content management = ♥](https://www.netlifycms.org/)
+
+Netlify CMS is Always the latest GitHub repo pull, with my custom Webpack hashed build.
+My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
+
+Get the speed, security, and scalability of a static site, while still providing a convenient editing interface for content.
+
+An integrated part of your Git workflow
+Content is stored in your Git repository along side your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
+
+### An extensible CMS built on React
+
+Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backends to support different Git platform APIs.
+My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
+
+## Features
+
+* Complete Website Suite - Home Page, About Page, Pricing Page, Privacy, Contact Page and Blog
+* Netlify CMS for Content Management
+* SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc)
+* Bulma and Sass Support for styling
+* Progressive Web App & Offline Support
+* Tags and RSS Feed for Blog
+* Comments with GitHub Issues
+* Follow, Mention, Star and Fork GitHub buttons
+* Share Support
+* Elastic-Lunr Search
+* Pagination
+* Contact Form (Netlify Forms)
+* Easy Configuration using `config.js` file
+
