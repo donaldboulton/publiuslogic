@@ -4,7 +4,7 @@ title: Modali Hooks Modal
 slug: Modali Hooks Modal
 date: 2019-04-20T20:20:43.942Z
 category: 'tech'
-cover: /img/nature-photos-masonry.jpg
+cover: /img/modali-logo.png
 tags:
   - React Hooks
   - Modali
@@ -15,36 +15,36 @@ meta_title: Modali Hooks Modal
 meta_description: Modali Hooks Modal
 ---
 
-# modali
+## 🦞 modali
 
 A delightful modal dialog library for React, built from the ground up to support React Hooks. Modali provides a simple interface to build beautiful modals in minutes.
 
-```html
-<p align="center">
-  <img src="../assets/modali-logo.png" alt="drawing" width="400"/>
-</p>
-```
+### Live Demo
 
-## Live Demo
-
-https://upmostly.github.io/modali/
+[Demo](https://upmostly.github.io/modali/)
 
 ## Installation
 
 Install Modali in your project using npm:
 
-```
+```env
 npm install --save modali
 ```
 
-**⚠️ Modali uses React Hooks, therefore you are required to use React v16.8 or above when using Modali.**
+Install Modali in your project using yarn:
 
-## Usage
+```env
+yarn add modali
+```
+
+**⚠️ Modali uses React Hooks. Must to use React v16.8 or above when using Modali.**
+
+### Usage
 
 Import the `Modali` component and `useModali` Hook in your React components, like so:
 
 ```js
-import Modali, { useModali } from 'modali';
+import Modali, { useModali } from 'modali'
 ```
 
 After you've imported the Modali component and useModali Hook, you're ready to start using Modali inside your components! 🎉
@@ -53,13 +53,13 @@ After you've imported the Modali component and useModali Hook, you're ready to s
 
 ```jsx{2,9-14}:title=Modali Modal
 import React from 'react';
-import Modali, { useModali } from 'modali';
+import Modali, { useModali } from 'modali'
 
 const App = () => {
-  const [exampleModal, toggleExampleModal] = useModali();
+  const [exampleModal, toggleExampleModal] = useModali()
 
   return (
-    <div className="app">
+    <div className='app'>
       <button onClick={toggleExampleModal}>
         Click me to open the modal
       </button>
@@ -70,7 +70,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default App
 
 ```
 
@@ -89,12 +89,12 @@ const App = () => {
     message: 'Deleting this user will be permanent.',
     buttons: [
       <Modali.Button
-        label="Cancel"
+        label='Cancel'
         isStyleCancel
         onClick={() => toggleCompleteModal()}
       />,
       <Modali.Button
-        label="Delete"
+        label='Delete'
         isStyleDestructive
         onClick={() => deleteUserWithId('123')}
       />,
@@ -102,7 +102,7 @@ const App = () => {
   });
 
   return (
-    <div className="app">
+    <div className='app'>
       <button onClick={toggleCompleteModal}>
         Click me to open the modal
       </button>
@@ -153,17 +153,17 @@ The `<Modali.Button />` component provides a ready-to-go button component that i
 const [completeExample, toggleCompleteModal] = useModali({
   buttons: [
     <Modali.Button
-      label="Done"
+      label='Done'
       isStyleDefault
       onClick={() => handleDoneClicked()}
     />,
     <Modali.Button
-      label="Cancel"
+      label='Cancel'
       isStyleCancel
       onClick={() => toggleCompleteModal()}
     />,
     <Modali.Button
-      label="Delete"
+      label='Delete'
       isStyleDestructive
       onClick={() => deleteUserWithId('123')}
     />,
@@ -175,9 +175,10 @@ return (
     Hi, I'm a Modali
   </Modali.Modal>
 );
-...
+```
 
 ### <Modali.Button/> Props
+
 | Prop | Description |
 | --- | --- |
 | `label` | String that is shown on the button |
@@ -189,6 +190,7 @@ return (
 ## More Examples
 
 ### Multiple Modals
+
 This flexibility of being able to name the props object and toggle function allows us to use multiple Modalis in the same component
 
 ```jsx
@@ -200,7 +202,7 @@ const App = () => {
   const [secondModal, toggleSecondModal] = useModali();
   
   return (
-    <div className="app">
+    <div className='app'>
       <button onClick={toggleFirstModal}>
         Click me to open the first modal!
       </button>
@@ -235,12 +237,11 @@ Modali provides an easy to use interface for accessing useful events, such as wh
 
 Example
 
-```javascript
+```js
 const [exampleModal, toggleExampleModal] = useModali({
   onShow: () => console.log('Modali is shown'),
   onHide: () => console.log('Modali is hidden')
 });
-
 ```
 
 Modali can be easily customized by passing in an object of key/value pairs to the useModali Hook's initializer:
@@ -260,13 +261,12 @@ Modali can be easily customized by passing in an object of key/value pairs to th
 
 Example
 
-```javascript
+```js
 const [exampleModal, toggleExampleModal] = useModali({
   animated: true,
   large: true,
   closeButton: false
 });
-
 ```
 
 Of course, props and events can be combined when passing the options to the useModali Hook:
@@ -281,5 +281,4 @@ const [exampleModal, toggleExampleModal] = useModali({
   large: true,
   closeButton: false
 });
-
 ```

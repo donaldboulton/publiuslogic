@@ -67,8 +67,8 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <a className='navbar-item' href='/blog' itemProp='url'>
                   All Posts
                 </a>
-                <a className='navbar-item' href='/blog/netlify-cms-test/' itemProp='url'>
-                  Netlify CMS
+                <a className='navbar-item' href='/blog/modali-hooks-modal/' itemProp='url'>
+                  Modali Hooks Modal
                 </a>
                 <a className='navbar-item' href='/blog/gatsby-github-comments-utterances/' itemProp='url'>
                   Utterances Comments
@@ -78,6 +78,9 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 </a>
                 <a className='navbar-item' href='/blog/react-hooks-modal/' itemProp='url'>
                   React Hooks Modal
+                </a>
+                <a className='navbar-item' href='/blog/react-hooks-masonary/' itemProp='url'>
+                  React Hooks Masonary
                 </a>
                 <a className='navbar-item' href='/blog/google-maps+react-hooks' itemProp='url'>
                   GMaps React Hooks
