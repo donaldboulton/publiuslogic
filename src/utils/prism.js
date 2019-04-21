@@ -34,7 +34,7 @@ const languageTags = langExtColor
 
 export default createGlobalStyle`
   .gatsby-code-title {
-    background: #f7df1e!important;
+    background: #d64000!important;
     color: #000000!important;
     padding: 0.2em 0.4em;
     width: max-content;
@@ -223,6 +223,14 @@ export default createGlobalStyle`
     border-radius: 0.2em;
     background: #363636!important;
     padding: 0.15em 0.2em 0.05em;
+  }
+
+  div.code-toolbar>.toolbar {
+    position: absolute;
+    top: 1em !important;
+    right: .5em !important;
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
   }
 
   pre.code-toolbar {

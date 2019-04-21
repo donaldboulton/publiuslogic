@@ -2,11 +2,12 @@
 templateKey: article-page
 title: JavaScript media queries
 slug: JavaScript media queries
-date: 2019-03-25T20:20:43.942Z
+date: 2019-04-18T20:20:43.942Z
 category: 'tech'
 cover: /img/responsive.svg
 thumbnail: /img/matchMedia.svg
 tags:
+  - mediaQueries
   - WebDev
   - Tutorial
 meta_title: JavaScript media queries

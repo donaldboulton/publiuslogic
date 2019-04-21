@@ -6,7 +6,8 @@ date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: /img/nature-photos-masonry.jpg
 tags:
-  - Design
+  - React Hooks
+  - Masonary
   - WebDev
   - Tutorial
 meta_title: React Hooks Masonry

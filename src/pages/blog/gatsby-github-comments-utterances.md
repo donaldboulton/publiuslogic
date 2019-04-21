@@ -17,17 +17,18 @@ meta_description: Gatsby GitHub Comments Utterances
 
 # React withUtterances [Repo](https://github.com/khw1031/withUtterances)
 
-[Taken From: bhnywl.com](https://www.bhnywl.com/how-to-add-comments-to-a-blog-built-with-a-static-site-generator/)
 
 ## Why use Utterances
 
-Lets say all your users are developers and already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
+[Taken From: bhnywl.com](https://www.bhnywl.com/how-to-add-comments-to-a-blog-built-with-a-static-site-generator/)
+
+> Lets say all your users are developers and already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
 Unlike Staticman GitHub Issues are truly dynamic so new comments will show without having to wait for your site to rebuild and deploy
 You get access to all the features of GitHub Issues out of the box (notifications, moderation, reactions, etc.)
 Developers care about the appearance of their GitHub accounts, which is likely to result in better (or at least civil) discussion.
 It’s free and open source!
 
-If your users are more privacy-minded then Disqus may not be the right fit. Software developers, for example, are extremely privacy conscious. As my blog is aimed at other software developers I use [Utterances](https://utteranc.es) as a comment system. However, remember that your readers will need a GitHub account to leave a comment using Utterances so if your target audience do not work (or play!) within the tech industry this will not be the comment system for you.
+> If your users are more privacy-minded then Disqus may not be the right fit. Software developers, for example, are extremely privacy conscious. As my blog is aimed at other software developers I use [Utterances](https://utteranc.es) as a comment system. However, remember that your readers will need a GitHub account to leave a comment using Utterances so if your target audience do not work (or play!) within the tech industry this will not be the comment system for you.
 
 ### React ❤️ [Utterances](https://github.com/utterance/utterances)
 
@@ -109,7 +110,7 @@ It will make your Utterances Widget to load slightly faster. <3
 Using GitHub pages dark theme. From the SEO component, 'og:title', to set the comment to a specific page.
 And this component with the specific meta-tags can be used, 'anywhere', not just posts!
 
-```jsx
+```jsx{2,8}:title=react withUtterances
 import React from 'react'
 import withUtterances from 'with-utterances'
 
@@ -128,7 +129,7 @@ export default withUtterances(Comments, 'donaldboulton/publiuslogic', 'github-da
 
 ### Or not using withUtterances npm module
 
-```js
+```jsx{14}:title=non node module
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
@@ -208,7 +209,7 @@ First call the offending Module
 import GitHubButton from 'react-github-btn'
 ```
 
-Then tell Gatsby it window is undefined.
+Then tell Gatsby that, `window !== undefined`.
 
 ```js
 // eslint-disable-next-line valid-typeof
@@ -217,7 +218,7 @@ if (typeof window !== undefined) { require('react-github-btn') }
 
 The Component for the issues button
 
-```jsx
+```jsx{2,5,10}:title=react withUtterances
 import React, { PureComponent } from 'react'
 import GitHubButton from 'react-github-btn'
 

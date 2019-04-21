@@ -64,10 +64,10 @@ export default class BlogPage extends Component {
           <PostCard posts={group} />
           <section className='section'>
             <div className='is-pulled-left'>
-              <PaginationLink test={first} url={previousUrl} text='Previous Page' />
+              <PaginationLink className='arrow-left' test={first} url={previousUrl} text='Previous Page' />
             </div>
             <div className='is-pulled-right'>
-              <PaginationLink test={last} url={nextUrl} text='Next Page' />
+              <PaginationLink className='arrow-right' test={last} url={nextUrl} text='Next Page' />
             </div>
           </section>
         </section>

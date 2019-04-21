@@ -6,9 +6,10 @@ date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: /img/google-maps+react-hooks.svg
 tags:
-  - React
+  - React Hooks
   - Hooks
   - Maps
+  - Tutorial
 meta_title: Google Maps + React Hooks
 meta_description: Google Maps + React Hooks 
 ---

@@ -8,7 +8,9 @@ cover: /img/gatsby+disqus.svg
 tags:
   - Gatsby 
   - React
+  - React Hooks
   - Disqus Comments
+  - Tutorial
 meta_title: Gatsby React Disqus Comments
 meta_description: Gatsby React Disqus Comments
 ---
@@ -109,7 +111,7 @@ disqusShortname: 'yourOwnSiteShortname'
 
 React component.
 
-```js{4}:title=src/components/ArticleTemplate
+```js{3}:title=src/components/ArticleTemplate
   import React from 'react'
   import { graphql } from 'gatsby'
   import { DiscussionEmbed } from 'disqus-react'
@@ -129,7 +131,7 @@ Where identifier must be a string or number that uniquely identifies the post. F
 
 Add Discussion embed
 
- ```js{6}:title=src/components/ArticleTemplate
+ ```js{5}:title=src/components/ArticleTemplate
   return (
     <Global>
       <PageBody>
@@ -150,7 +152,7 @@ If you'd like your blog post previews to show a count of the number of comments 
 
 adding
 
-```js{6,23-25}:title=data/config.js
+```js{6,20-22}:title=data/config.js
   import React from 'react'
   import { Link } from 'gatsby'
   import { CommentCount } from 'disqus-react'

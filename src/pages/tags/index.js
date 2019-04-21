@@ -35,7 +35,7 @@ const TagsPage = ({
               {group.map(tag => (
                 <li className='control' key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    <div className='tags has-addons'>
+                    <div className='tags has-addons is-large'>
                       <span className='tag is-primary'>{tag.fieldValue}</span>
                       <span className='tag is-dark'>{tag.totalCount}</span>
                     </div>

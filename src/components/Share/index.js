@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   TelegramShareButton,
   RedditShareButton,
   FacebookShareCount,
-  GooglePlusShareCount,
   LinkedinShareCount,
   RedditShareCount,
   FacebookIcon,
   TwitterIcon,
   TelegramIcon,
-  GooglePlusIcon,
+  EmailShareButton,
   LinkedinIcon,
   RedditIcon,
+  EmailIcon,
 } from 'react-share'
 import config from '../../../data/config'
 import './styles.sass'
@@ -40,12 +39,6 @@ class Share extends Component {
         <TwitterShareButton url={url} title={title}>
           <TwitterIcon round size={iconSize} />
         </TwitterShareButton>
-        <GooglePlusShareButton url={url}>
-          <GooglePlusIcon round size={iconSize} />
-          <GooglePlusShareCount url={url}>
-            {count => <div className='share-count'>{filter(count)}</div>}
-          </GooglePlusShareCount>
-        </GooglePlusShareButton>
         <FacebookShareButton url={url} quote={excerpt}>
           <FacebookIcon round size={iconSize} />
           <FacebookShareCount url={url}>
@@ -65,6 +58,9 @@ class Share extends Component {
         <TelegramShareButton url={url}>
           <TelegramIcon round size={iconSize} />
         </TelegramShareButton>
+        <EmailShareButton url={url}>
+          <EmailIcon round size={iconSize} />
+        </EmailShareButton>
       </div>
     )
   }

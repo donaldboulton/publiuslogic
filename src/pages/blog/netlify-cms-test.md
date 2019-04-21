@@ -7,6 +7,8 @@ cover: /img/netlify-cms.jpg
 category: 'tech'
 tags:
   - Netlify CMS
+  - Tutorial
+  - WebDev
 meta_title: Netlify CMS
 meta_description: Netlify CMS backend for editing data and site pages
 ---

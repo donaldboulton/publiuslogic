@@ -164,7 +164,7 @@ const FeedbackWidget = () => {
         ) : (
           <Fragment>
             <ToggleButtonLabel>
-              Feedback & Opinions
+              Feedback...
               <ScreenReaderText>?</ScreenReaderText>
             </ToggleButtonLabel>
             <ToggleButtonIcon>

@@ -486,21 +486,33 @@ div.code-toolbar>.toolbar
 .file-cta:hover
   border-color: transparent !important
   background-color: transparent !important
-.no-comments-alert
-  font-size: 16px
-  color: rebeccapurple
-  opacity: 0.7
-  text-transform: uppercase
-  letter-spacing: -0.3px  
 .link-icon
   color: #d64000
 .media
   overflow: hidden !important
   overflow-y: hidden
 .content blockquote
-    background-color: #363636 !important
-    border-left: 5px solid #d64000 !important
-    color: #000000 !important
-    padding: 1.25em 1.5em  
+  background-color: #363636 !important
+  border-left: 5px solid #d64000 !important
+  color: #000000 !important
+  padding: 1.25em 1.5em  
+.arrow-left
+  background-image: transparent url(/img/icon-arrow-right.svg) center left no-repeat
+  width: 20px
+  height: 12px
+  -moz-transform: scaleX(-1)
+  -o-transform: scaleX(-1)
+  -webkit-transform: scaleX(-1)
+  transform: scaleX(-1)
+  filter: FlipH
+  -ms-filter: "FlipH"
+.arrow-right
+  background-image: transparent url(/img/icon-arrow-right.svg) center right no-repeat
+  width: 20px
+  height: 12px    
+.image-container
+  position: relative
+  width: 100%
+  margin-bottom: 1.5rem
 
 @import "~bulma"
