@@ -21,7 +21,7 @@ const ShareForm = () => {
       </div>
       <div className='box'>
         <form
-          name='contact'
+          name='ShareForm'
           method='post'
           action='/contact/success'
           encType='application/x-www-form-urlencoded'
