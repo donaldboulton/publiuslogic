@@ -7,7 +7,6 @@ const EmailForm = () => {
     values,
     errors,
     handleChange,
-    handleSubmit,
   } = useForm(post, validate)
 
   function post () {
@@ -25,7 +24,7 @@ const EmailForm = () => {
           data-netlify='true'
           data-netlify-honeypot='bot-field'
           data-netlify-recaptcha='true'
-          onSubmit={handleSubmit}
+          onSubmit='submit'
           noValidate
         >
           <input type='hidden' name='form-name' value='email' />
@@ -66,7 +65,6 @@ const EmailForm = () => {
         </form>
       </div>
     </div>
-
   )
 }
 
