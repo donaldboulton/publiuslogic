@@ -7,9 +7,10 @@ const EmailForm = () => {
     values,
     errors,
     handleChange,
-  } = useForm(post, validate)
+    handleSubmit,
+  } = useForm(emailForm, validate)
 
-  function post () {
+  function emailForm () {
     console.log('No errors, submit callback called!')
   }
 
@@ -17,14 +18,14 @@ const EmailForm = () => {
     <div className='column'>
       <div>
         <form
-          name='ShareForm'
+          name='emailForm'
           method='post'
           action='/contact/success'
           encType='application/x-www-form-urlencoded'
           data-netlify='true'
           data-netlify-honeypot='bot-field'
           data-netlify-recaptcha='true'
-          onSubmit='submit'
+          onSubmit={handleSubmit}
           noValidate
         >
           <input type='hidden' name='form-name' value='email' />
