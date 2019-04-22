@@ -26,7 +26,7 @@ const NotFoundPage = () => (
                   You just hit a route that doesn&#39;t exist... the
                   sadness.
                 </h2>
-                <Form />
+                Click send the email icon below to send us a email about the error!
               </div>
             </div>
           </div>

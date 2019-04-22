@@ -4,6 +4,8 @@ const ButtonStyle = {
   background: 'transparent',
   border: 'transparent',
   color: '#cccccc',
+  height: '58px',
+  width: '54px',
 }
 
 const Button = ({ handleClick, children }) => (

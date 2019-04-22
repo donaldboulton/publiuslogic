@@ -46,16 +46,21 @@
 }
 
 .modali-close-button {
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+  background-color: #d64000;
+  border: thin solid rgba(0,0,0,.2);
+  border-radius: 50px;
   padding: 1rem;
-  margin: -1rem -1rem -1rem auto;
+  margin: -3rem -1rem -3rem auto;
   font-size: 1.4rem;
   font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  opacity: .3;
+  line-height: .5;
+  color: #000000;
   cursor: pointer;
   border: none;
   outline: 0 !important;
+  top: 20px;
 }
 
 .modali-close-button:hover {
