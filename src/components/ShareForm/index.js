@@ -17,7 +17,7 @@ const ShareForm = () => {
   return (
     <div className='column is-8'>
       <div>
-        <h2>Contact us if you have found aerror</h2>
+        <h2>Contact us if you have found an error</h2>
       </div>
       <div className='box'>
         <form
