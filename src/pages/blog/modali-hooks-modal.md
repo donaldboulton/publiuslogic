@@ -17,7 +17,14 @@ meta_description: Modali Hooks Modal
 
 ## 🦞 modali
 
-A delightful modal dialog library for React, built from the ground up to support React Hooks. Modali provides a simple interface to build beautiful modals in minutes.
+You can read about how this is built at [>_Upmostly](https://upmostly.com/tutorials/modal-components-react-custom-hooks/#comments)
+
+My Modali Modal can be seen further down in the page in Subscribe section email me icon on the Right.
+Which brings up the modal with a Netlify Posted, React Hooks email form using hooks for validation. Posting to Netlify - lambda functions to slack for instant notifications and a email to me.
+
+React Hooks Email form and validation is from [>_Upmostly Form validation with Hooks](https://upmostly.com/tutorials/form-validation-using-custom-react-hooks/)
+
+Modali is a delightful modal dialog library for React, built from the ground up to support React Hooks. Modali provides a simple interface to build beautiful modals in minutes.
 
 ### Live Demo
 
@@ -280,5 +287,7 @@ const [exampleModal, toggleExampleModal] = useModali({
   onHide: handleModalOnHide,
   large: true,
   closeButton: false
-});
+})
 ```
+
+Thanks to upmostly.com, "James King" for the Modali Modal and many easy to follow post on how to add coolness to your components.

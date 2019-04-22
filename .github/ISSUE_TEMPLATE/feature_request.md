@@ -1,6 +1,6 @@
 ---
 name: "Enhancement / Feature Request"
-about: "What would make this theme better?"
+about: "What would make publiuslogic better?"
 ---
 
 <!--
@@ -17,7 +17,7 @@ about: "What would make this theme better?"
 ## Motivation
 
 <!--
-  Why do you want to see this feature in the theme?
+  Why do you want to see this feature in publiuslogic.com?
   What use cases does it support?
 
   NOTE: This theme has been designed as a base for you to customize and fit 

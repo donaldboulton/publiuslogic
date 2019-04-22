@@ -23,7 +23,7 @@
 
 .modali {
   z-index: 100;
-  background: #1d1d1d !important;
+  background: #363636 !important;
   position: relative;
   margin: 1.75rem auto;
   border-radius: 3px;
@@ -68,7 +68,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #1d1d1d !important;
+  background-color: #363636 !important;
   color: #ffffff !important;
   border-radius: .3rem;
 }
@@ -119,8 +119,11 @@
 }
 
 .modali-button-default {
-  background: #247BA0;
-  color: #fff;
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+  background-color: #d64000;
+  border-color: transparent;
+  color: #cccccc;
 }
 
 /* Animation Classes */

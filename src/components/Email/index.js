@@ -4,22 +4,36 @@ import { ContactMail } from 'styled-icons/material'
 import Button from './ModaliButton'
 import './styles.css'
 
+import EmailForm from '../EmailForm'
+
 const Email = () => {
-  const [emailModal, toggleEmailModal] = useModali()
+  const [completeExample, toggleCompleteModal] = useModali({
+    animated: true,
+    title: 'Send Us a Email 🎉',
+    message: 'Email Addresses are Private.',
+    buttons: [
+      <Modali.Button
+        label='Cancel'
+        isStyleDefault
+        onClick={() => toggleCompleteModal()}
+      />,
+    ],
+  })
+
   return (
     <div>
       <Fragment>
-        <Button handleClick={toggleEmailModal}>
+        <Button handleClick={toggleCompleteModal}>
           <span> Email <ContactMail /></span>
         </Button>
       </Fragment>
-      <Modali.Modal {...emailModal} className='modali-size-large'>
+      <Modali.Modal {...completeExample} className='modali-size-large'>
         <div>
-          <div className='box'>
-            <p className='is-centered'>
-                Hi, I'm a Modali! 👋              
-            </p>
-          </div>
+          <p>
+            <div>
+              <EmailForm />
+            </div>
+          </p>
         </div>
       </Modali.Modal>
     </div>

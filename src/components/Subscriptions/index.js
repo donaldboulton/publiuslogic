@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import mailchimp from '../../img/enewsletter_icon.png'
+import Email from '../Email'
 
 export default class Subscribe extends React.Component {
   constructor () {
@@ -118,6 +119,9 @@ export default class Subscribe extends React.Component {
                         </form>
                       </p>
                     </div>
+                  </div>
+                  <div className='media-right'>
+                    <Email />
                   </div>
                 </div>
               )}

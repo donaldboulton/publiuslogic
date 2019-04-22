@@ -7,7 +7,7 @@ about: "Is something not working as expected?"
   Before opening a new issue please:
   
   - Verify you have the latest versions of Gatsby and React
-    installed through npm.
+    installed through npm or yarn.
   - Thoroughly read the Gatsby's documentation at
     https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - Search all issues at https://github.com/donaldboulton/publiuslogic/issues 
@@ -29,7 +29,6 @@ about: "Is something not working as expected?"
   file, or problematic site content. 
 -->
 
-- Minimal Mistakes version:
 - Gatsby version:
 - React version:
 - Git repository URL:
