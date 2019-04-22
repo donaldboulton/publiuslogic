@@ -1,25 +1,23 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Modali, { useModali } from 'modali'
+import { ContactMail } from 'styled-icons/material'
 import Button from './ModaliButton'
-import email from '../../img/enewsletter_icon.png'
+import './styles.css'
 
 const Email = () => {
   const [emailModal, toggleEmailModal] = useModali()
   return (
-    <div className='columns'>
-      <div className='column'>
+    <div>
+      <Fragment>
         <Button handleClick={toggleEmailModal}>
-          <img
-            src={email}
-            alt='PubliusLogic'
-          />
+          <span> Email <ContactMail /></span>
         </Button>
-      </div>
-      <Modali.Modal {...emailModal}>
-        <div className='column'>
+      </Fragment>
+      <Modali.Modal {...emailModal} className='modali-size-large'>
+        <div>
           <div className='box'>
-            <p>
-                Hi, I'm a Modali! 👋
+            <p className='is-centered'>
+                Hi, I'm a Modali! 👋              
             </p>
           </div>
         </div>
