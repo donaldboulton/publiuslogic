@@ -6,9 +6,10 @@ date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: /img/react-hooks-modal.jpg
 tags:
-  - React
-  - Hooks
+  - React Hooks
   - Modal
+  - WebDev
+  - Tutorial
 meta_title: React Hooks Modal
 meta_description: React Hooks Modal  
 ---

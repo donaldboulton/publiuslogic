@@ -179,8 +179,6 @@ working
 
 I make money on this website through affiliate programs. If you click an affiliate link or ad banner and buy the product, you help support this website because I'll get a percentage of that sale.
 
-Currently Michael Rose is affiliate for Amazon and Google AdSense.
-
 Donald Boulton and this [publiuslogic.com](https://publiuslogic.com) Website is a Affiliate for Google AdSense.
 
 What this means for you:

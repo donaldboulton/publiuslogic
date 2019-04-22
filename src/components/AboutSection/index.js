@@ -40,7 +40,7 @@ const AboutSection = () => {
               </div>
             </div>
             <div className='content'>
-              Netlify Continuous Deployment
+              GitHub Issues as Comments
               <br />
               <div><a href='https://github.com/donaldboulton/publiuslogic' rel='me'>&nbsp;GitHub Repo</a></div>
               <div><a href='https://twitter.com/donboulton' rel='me'>&nbsp;Twitter @publiuslogic</a></div>
@@ -120,7 +120,7 @@ const AboutSection = () => {
               </div>
             </div>
             <div className='content'>
-              Netlify Lambda Slack Notify
+              Netlify Continuous Deployment
               <br />
               <div><a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
               <div><a href='https://www.netlify.com/features/'>SLL Security</a></div>
