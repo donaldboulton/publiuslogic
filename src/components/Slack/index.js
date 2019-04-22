@@ -1,5 +1,6 @@
 import React from 'react'
 import SlackIcon from '../../img/1547804322-slack_icon_80x80_transparent.png'
+import Slack2x from '../../img/add_to_slack@2x.png'
 import lambda from '../../img/lambda.png'
 
 require('node-fetch')
@@ -80,6 +81,15 @@ const Slack = () => {
                   </div>
                 </div>
               </nav>
+            </div>
+            <div className='media-right'>
+              <a href='https://slack.com/oauth/authorize?client_id=295732203780.571249891331&scope=incoming-webhook,admin'>
+                <img
+                  src={Slack2x}
+                  alt='Slack'
+                  style={{ width: '139px', height: '40px' }}
+                />              
+              </a>
             </div>
           </div>
         </div>
