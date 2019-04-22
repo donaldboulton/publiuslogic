@@ -8,7 +8,6 @@ import Hr from '../Hr'
 import Slack from '../Slack'
 import Subscriptions from '../Subscriptions'
 import Adds from '../GoogleAdds'
-import FeedbackWidget from '../feedback-widget/feedback-widget'
 import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
@@ -34,8 +33,7 @@ class Layout extends Component {
               <meta name='description' content={config.siteDescription} />
             </Helmet>
             <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
-            <Fragment itemScope itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>
-            <FeedbackWidget />
+            <Fragment itemScope itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>            
             <Subscriptions />
             <Slack />
             <Adds />

@@ -2,6 +2,7 @@ import React from 'react'
 import Content from '../Content'
 import Maps from '../Maps'
 import PropTypes from 'prop-types'
+import FeedbackWidget from '../feedback-widget/feedback-widget'
 
 const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -42,6 +43,7 @@ const AboutPageTemplate = ({ title, content, contentComponent }) => {
             </div>
           </div>
         </div>
+        <FeedbackWidget />
       </section>
     </div>
   )

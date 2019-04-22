@@ -79,7 +79,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <a className='navbar-item' href='/blog/react-hooks-modal/' itemProp='url'>
                   React Hooks Modal
                 </a>
-                <a className='navbar-item' href='/blog/react-hooks-masonary/' itemProp='url'>
+                <a className='navbar-item' href='/blog/react-hooks-masonry/' itemProp='url'>
                   React Hooks Masonary
                 </a>
                 <a className='navbar-item' href='/blog/google-maps+react-hooks' itemProp='url'>

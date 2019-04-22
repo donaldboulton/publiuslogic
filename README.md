@@ -7,11 +7,15 @@ To Publish Logic
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/?t=fa5cdbee-00bf-4ca8-be8f-f150a6f643e1)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d2be12-eb4a-4da2-a471-aea92e199948/deploy-status)](https://app.netlify.com/sites/publiuslogic/deploys)
 
-## gatsby-starter-publius
+## 🚀 gatsby-starter-publius
+
+🍸 Just Having fun coding!
 
 This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Structured Microdata for SEO, Internet Positioning.
 
-The site style and design is with, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for stateful components such as Image Gallery's, Modal's and ToTop. Prism for syntax highlighting,GitHub issues for blog post comments fully incorporated with this repo, and Lunr for custom search.
+The site style and design is with, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for stateful components such as Image Gallery's, Modal's and ToTop. 
+Prism for syntax highlighting, GitHub issues for blog post comments, Hooked into Analytics with Slack Notifications which is fully incorporated within this repo.
+Lunr for custom search.
 
 Feel free to reuse any part of this repo to create your own Gatsby site.
 
@@ -60,7 +64,7 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 
 [Gatsby Starter Publius](https://publiuslogic.com)
 
-## Features
+## 🧐 Features
 
 * Complete Website Suite - Home Page, About Page, Pricing Page, Privacy, Contact Page and Blog
 * Netlify CMS for Content Management
@@ -156,7 +160,7 @@ module.exports = {
 ## Deployment
 
 Clicking the button will ask for authentication via GitHub, which will create a repo in your github account with this starter. Then, it will build and deploy the site to Netlify.
-
+💫
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/donaldboulton/publiuslogic&amp;stack=cms"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
 You can read up on how to set up Identity(Authentication for CMS User) here [How To Set Up Netlify CMS](https://www.netlifycms.org/docs/add-to-your-site/)

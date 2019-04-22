@@ -3,6 +3,7 @@ import { navigate } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import Recaptcha from 'react-google-recaptcha'
+import FeedbackWidget from '../feedback-widget/feedback-widget'
 import logo from '../../img/logo.png'
 
 const encode = (data) => {
@@ -167,6 +168,7 @@ class ContactPageTemplate extends Component {
             </div>
           </div>
         </section>
+        <FeedbackWidget />
       </div>
     )
   }
