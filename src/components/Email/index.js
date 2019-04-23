@@ -24,7 +24,7 @@ const Email = () => {
     <div>
       <Fragment>
         <Button handleClick={toggleCompleteModal}>
-          <span> Send <ContactMail /></span>
+          <span><ContactMail className='button is-primary' /></span>
         </Button>
       </Fragment>
       <Modali.Modal {...completeExample} className='modali-size-large'>

@@ -28,12 +28,12 @@ class Layout extends Component {
       <ThemeProvider theme={theme}>
         <>
           <Fragment>
-            <Helmet itemScope itemType='https://schema.org/WPHeader'>
+            <Helmet itemScope='itemScope' itemType='https://schema.org/WPHeader'>
               <title>{config.siteTitle}</title>
               <meta name='description' content={config.siteDescription} />
             </Helmet>
             <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
-            <Fragment itemScope itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>            
+            <Fragment itemScope='itemScope' itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>            
             <Subscriptions />
             <Slack />
             <Adds />

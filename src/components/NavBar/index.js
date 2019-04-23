@@ -15,7 +15,7 @@ const NavBar = ({toggleNavbar, isActive}) => (
             }
         `}
     render={data => (
-      <nav className='navbar is-fixed-top' aria-label='main navigation' itemScope itemType='https://schema.org/SiteNavigationElement'>
+      <nav className='navbar is-fixed-top' aria-label='main navigation' itemScope='itemScope' itemType='https://schema.org/SiteNavigationElement'>
         <div className='navbar-brand'>
           <span className='navbar-item' itemProp='mainEntityOfPage'>
             <Link to='/' className='navbar-item' itemProp='image'>
