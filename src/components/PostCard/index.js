@@ -1,9 +1,9 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 
 const PostCard = ({ posts }) => {
   return (
-    <section classNmae='section'>
+    <section className='section'>
       <div className='container'>
         <div className='columns is-multiline is-10 is-offset-1'>
           {posts
@@ -14,6 +14,11 @@ const PostCard = ({ posts }) => {
                 key={post.id}
               >
                 <article className='is-child box'>
+                  <Link to={post.fields.slug}>
+                    <figure className='image is-2by1'>
+                      <img src={post.frontmatter.cover} alt={post.frontmatter.title} />  
+                    </figure>
+                  </Link>
                   <p>
                     <Link className='title has-text-primary is-size-4' to={post.fields.slug}>
                       {post.frontmatter.title}
