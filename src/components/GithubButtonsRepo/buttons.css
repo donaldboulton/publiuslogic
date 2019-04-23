@@ -1,24 +1,3 @@
-.social-count {
-	background-color: #1d1d1d!important;
-	color: #cccccc !important
-}
-.social-count i {
-    border-right-color: #1d1d1d!important;
-}
-
-.social-count b {
-    border-right-color: #1d1d1d!important;
-}
-.social-count:focus,
-.social-count:hover {
-	color: #c2c1c1 !important;
-}
-.social-count b {
-	border-right-color: #000000 !important;
-}
-.social-count i {
-	border-right-color: #000000 !important;
-}
 .lg .btn,
 .lg .social-count {
 	height: 16px;

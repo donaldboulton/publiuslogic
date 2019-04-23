@@ -46,6 +46,62 @@ const HomePageTemplate = ({
                   <p>{description}</p>
                 </div>
                 <Offerings gridItems={offerings.blurbs} />
+                <section className='section'>
+                  <div className='columns is-multiline is-10 is-offset-1'>
+                    <div>
+                      <h2 className='has-text-weight-semibold is-size-2'>Check our our Tutorials below</h2>                    
+                    </div>
+                    <div className='is-parent column is-6'>
+                      <article className='is-child'>
+                        <a href='/blog/gatsby-github-comments-utterances/'>
+                          <figure className='image is-2by1'>
+                            <img src='/img/gatsby+react+utterances+home.jpg' alt='Gatsby GitHub Comments Utterances' />
+                          </figure>
+                        </a>
+                        <p>
+                          <a className='title has-text-primary is-size-4' href='/blog/gatsby-github-comments-utterances/'>Gatsby Comments Utterances</a>
+                        </p>
+                        <p>
+                          <span className='subtitle is-size-5'>
+                            <small>April 16, 2019</small>
+                          </span>
+                        </p>
+                        <p>
+                          React withUtterances  Repo Why use Utterances Taken From: bhnywl.com Lets say all your users are developers and already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
+                          Unlike Staticman GitHub Issues are truly dynamic so new comments will show without having to wait for your site to rebuild…
+                        </p>
+                        <br />
+                        <p>
+                          <a className='button is-small' href='/blog/gatsby-github-comments-utterances/'>Keep Reading →</a>
+                        </p>
+                      </article>
+                    </div>
+                    <div className='is-parent column is-6'>
+                      <article className='is-child'>
+                        <a href='/blog/modali-hooks-modal/'>
+                          <figure className='image is-2by1'>
+                            <img src='/img/modali-logo.png' alt='Modali Hooks Modals' />
+                          </figure>
+                        </a>
+                        <p>
+                          <a className='title has-text-primary is-size-4' href='/blog/modali-hooks-modal/'>Modali Hooks Modal</a>
+                        </p>
+                        <p>
+                          <span className='subtitle is-size-5'>
+                            <small>April 21, 2019</small>
+                          </span>
+                        </p>
+                        <p>
+                          You can read about how Modali built at Upmostly. My Modali Modal can be seen further down in the page in Subscribe section email me icon on the Right. Which brings up the modal with a Netlify Posted, React Hooks email form using hooks for validation. Posting to Netlify - lambda functions to slack for instant notifications and a email to me. React Hooks Email form and validation is built with the help from...
+                        </p>
+                        <br />
+                        <p>
+                          <a className='button is-small' href='/blog/modali-hooks-modal/'>Keep Reading →</a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </section>
                 <h2 className='has-text-weight-semibold is-size-2'>Testimonials</h2>
                 <Testimonials testimonials={testimonials} />
               </div>

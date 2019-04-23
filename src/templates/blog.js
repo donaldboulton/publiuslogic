@@ -54,8 +54,8 @@ export default class BlogPage extends Component {
                     <h1 className='title'>
                       Blog
                     </h1>
-                    Listing all Posts.
-                    For refinements see categries or tags.
+                    ✨ Listing all Posts.
+                    For refinements see categories or tags.
                   </div>
                 </div>
               </div>
