@@ -32,12 +32,12 @@ Then tell Gatsby that, `window !== undefined`.
 if (typeof window !== undefined) { require('react-scroll') }
 ```
 
-So I came up with my own digging through [janosh.io Repo](https://github.com/janosh/janosh.io) with the latest React we can use handleScroll and window.pageYOffset to go to top or bottom of the page or anything.
+So I came up with my own digging through the [janosh.io Repo](https://github.com/janosh/janosh.io). With React we can use handleScroll and window.pageYOffset to go to top or bottom of the page or anything.
 
 ```js
 import React, { useState, useEffect } from 'react'
 
-// and then us handleScroll and window.pageYOffset to go to top or bottom
+// and then use handleScroll and window.pageYOffset to go to top or bottom
 
 const scroll = ({ mode, to }) =>
     window[`scroll` + mode]({ top: to, behavior: `smooth` })
@@ -51,9 +51,9 @@ const scroll = ({ mode, to }) =>
   }
 ```
 
-### The Component using a styled component styledArrow
+### The Component using a styled icon styledArrow
 
-```jsx{1,4}:title=src/components/Scroll
+```jsx{1,5}:title=src/components/Scroll
 import React, { useState, useEffect } from 'react'
 import { Arrow } from './styles'
 
