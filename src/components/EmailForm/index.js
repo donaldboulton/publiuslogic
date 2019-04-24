@@ -38,8 +38,11 @@ const EmailForm = () => {
           <div className='field'>
             <label className='label'>Name</label>
             <div className='control'>
-              <input className='input' type='text' placeholder='Name *' name='name' id='name' onChange={handleChange} value={values.name} required />
+              <input className={`input ${errors.name && 'is-danger'}`} type='name' name='name' onChange={handleChange} value={values.name || ''} required />
             </div>
+            {errors.name && (
+              <p className='help is-danger'>{errors.name}</p>
+            )}
           </div>
           <div className='field'>
             <label className='label'>Email</label>
@@ -58,11 +61,7 @@ const EmailForm = () => {
             </div>
           </div>
           <br />
-          <div className='field is-grouped is-pulled-left'>
-            <div className='control'>
-              <button className='button is-primary' type='submit'>Submit</button>
-            </div>
-          </div>
+          <button className='button is-primary' type='submit'>Submit</button>
         </form>
       </div>
     </div>
