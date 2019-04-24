@@ -15,7 +15,7 @@ offerings:
   blurbs:
     - image: /img/tutorials.png
       text: >
-        Built with Jamaican Blue Mountain Coffee. PubliusLogic is a collection of tutorials by the Publius on a lot of human subjects.
+        Built with ❤️ and Jamaican Blue Mountain Coffee. PubliusLogic is a collection of tutorials by the Publius on a lot of human subjects.
         Since I have never had anyone work on anything of mine I build my own website's and enjoy
         coding it a lot. The tutorials on this site are surrounding Gatsby, React, ReactHooks, Styled Components and even bluma .css with Styled Components and styled icons. Using React hooks for Forms, Modals, Masonry Gallery Layout's, Google Maps and more. I have Moved from my donboulton.com website build with Jekyll adding react and webpack to my Jekyll site gave me all the tools I needed to Build this Gatsby site. I have lots of ways to contact me within every page, so let me know of any errors, or issues you have with my writings or code.
     - image: /img/meeting-space.png

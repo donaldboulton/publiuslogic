@@ -5,7 +5,7 @@ import logo from '../../img/site-logo250x80.png'
 
 import NetlifyIdentityWidget from '../IdentityWidget'
 
-const NavBar = ({toggleNavbar, isActive}) => (
+const NavBar = ({ toggleNavbar, isActive }) => (
   <StaticQuery
     query={graphql`
             query SearchIndexQuery {
@@ -73,8 +73,8 @@ const NavBar = ({toggleNavbar, isActive}) => (
                 <a className='navbar-item' href='/blog/gatsby-github-comments-utterances/' itemProp='url'>
                   Utterances Comments
                 </a>
-                <a className='navbar-item' href='/blog/gatsby-react-disqus-comments/' itemProp='url'>
-                  React Disqus Comments
+                <a className='navbar-item' href='/blog/gatsby-react-scroll-toTop/' itemProp='url'>
+                  Gatsby Scroll toTop
                 </a>
                 <a className='navbar-item' href='/blog/react-hooks-modal/' itemProp='url'>
                   React Hooks Modal

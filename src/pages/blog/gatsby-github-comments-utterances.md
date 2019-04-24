@@ -4,7 +4,7 @@ title: Gatsby GitHub Comments Utterances
 slug: Gatsby GitHub Comments Utterances
 date: 2019-04-16T20:20:43.942Z
 category: 'tech'
-cover: /img/gatsby+react+utterances.jpg
+cover: /img/gatsby+react+utterances+home.jpg
 tags:
   - Gatsby
   - GitHub
@@ -12,13 +12,12 @@ tags:
   - Utterances 
   - Comments
 meta_title: Gatsby GitHub Comments Utterances
-meta_description: Gatsby GitHub Comments Utterances
+meta_description: Gatsby GitHub Comments Utterances uses withUtterances React npm module. Built with React Hooks and Love
 ---
 
 # React withUtterances [Repo](https://github.com/khw1031/withUtterances)
 
-
-## Why use Utterances
+## Why use withUtterances as utterances
 
 [Taken From: bhnywl.com](https://www.bhnywl.com/how-to-add-comments-to-a-blog-built-with-a-static-site-generator/)
 
