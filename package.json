@@ -103,7 +103,6 @@
     "react-github-btn": "^1.0.5",
     "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
-    "react-hook-form": "^3.0.3-beta.4",
     "react-icons": "^3.5.0",
     "react-scroll": "^1.7.11",
     "react-share": "^2.4.0",
@@ -121,8 +120,7 @@
     "uuid": "^3.3.2",
     "with-utterances": "^1.4.1",
     "ws": "^6.2.0",
-    "xstate": "^4.4.0",
-    "yup": "^0.27.0"
+    "xstate": "^4.4.0"
   },
   "remarkConfig": {
     "plugins": [
