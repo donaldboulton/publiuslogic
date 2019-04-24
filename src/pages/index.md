@@ -13,7 +13,7 @@ description: >-
   of Notes and Letters from our Founding Fathers.
 offerings:
   blurbs:
-    - image: /img/meeting-space.pn
+    - image: /img/meeting-space.png
       text: >
         Built with ❤️ and Jamaican Blue Mountain Coffee. PubliusLogic is a collection of tutorials by the Publius on a lot of human subjects.
         Since I have never had anyone work on anything of mine I build my own website's and enjoy
