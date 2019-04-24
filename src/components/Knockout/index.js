@@ -10,9 +10,9 @@ const Knockout = () => {
 
         <mask id='knockout-text'>
           <rect width='100%' height='100%' fill='#fff' x='0' y='0' />
-          <text x='50%' y='100' fill='#1d1d1d' textAnchor='middle'>Mama Said</text>
-          <text x='50%' y='175' fill='#1d1d1d' textAnchor='middle'>Knock You</text>
-          <text x='50%' y='365' fill='#1d1d1d' textAnchor='middle'>Out</text>
+          <text x='50%' y='100' fill='#000' textAnchor='middle'>Mama Said</text>
+          <text x='50%' y='175' fill='#d64000' textAnchor='middle'>Dont Play</text>
+          <text x='50%' y='365' fill='#d64000' textAnchor='middle'>Hooky</text>
         </mask>
 
       </svg>

@@ -1,0 +1,19 @@
+.knockout {
+    background-image: linear-gradient(to left, #FF4E50 , #F9D423);
+    font-family: 'Bowlby One SC', cursive;
+    height: 100vh;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  
+  text:nth-child(2) {
+    font-size: 5em;
+  }
+  
+  text:nth-child(3) {
+    font-size: 5.1em;
+  }
+  
+  text:nth-child(4) {
+    font-size: 15em;
+  }

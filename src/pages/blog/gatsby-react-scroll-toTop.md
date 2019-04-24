@@ -53,7 +53,7 @@ const scroll = ({ mode, to }) =>
 
 ### The Component using a styled icon styledArrow
 
-```jsx{1,5}:title=src/components/Scroll
+```jsx{1-2,5}:title=src/components/Scroll
 import React, { useState, useEffect } from 'react'
 import { Arrow } from './styles'
 
@@ -138,4 +138,4 @@ export const Arrow = styled(Down).attrs(({ direction, size }) => ({
 `
 ```
 
-I am going to us this for a scroll to bottom also which is visible at the top of the page and disappears at 50% of the page, as the Scroll toTop appears. I thing that would be cool and original. Not static like the Netlify build page has scroll to bottom of the build log or back to top which is pretty Cool.
+I am going to use this for a scroll to bottom also which is visible at the top of the page and disappears at 50% of the page, as the Scroll toTop appears. I thing that would be cool and original. Not static like the Netlify build page has scroll to bottom of the build log or back to top which is pretty Cool.
