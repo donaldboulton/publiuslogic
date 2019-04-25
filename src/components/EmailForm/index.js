@@ -91,7 +91,6 @@ class ContactForm extends Component {
                 <textarea className='textarea' type='text' name='message' rows='5' id='message' onChange={this.handleChange} />
               </div>
             </div>
-            <h3>File Uploads is on our</h3><a href='/contact/'>Contact Page</a>
             <div className='field'>
               <Recaptcha
                 ref='recaptcha'
