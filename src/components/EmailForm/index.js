@@ -1,71 +1,135 @@
-import React from 'react'
-import useForm from './useForm'
-import validate from './FormValidationRules'
+import React, { Component } from 'react'
+import { navigate } from 'gatsby-link'
+import PropTypes from 'prop-types'
+import Recaptcha from 'react-google-recaptcha'
 
-const EmailForm = () => {
-  const {
-    values,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = useForm(emailForm, validate)
-
-  function emailForm () {
-    console.log('No errors, submit callback called!')
-  }
-
-  return (
-    <div className='column'>
-      <div>
-        <form
-          name='emailForm'
-          method='post'
-          action='/contact/success'
-          encType='application/x-www-form-urlencoded'
-          data-netlify='true'
-          data-netlify-honeypot='bot-field'
-          data-netlify-recaptcha='true'
-          onSubmit={handleSubmit}
-          noValidate
-        >
-          <input type='hidden' name='form-name' value='email' />
-          <div hidden>
-            <label>
-                  Don not fill this out:{' '}
-              <input name='bot-field' onChange={handleChange} />
-            </label>
-          </div>
-          <div className='field'>
-            <label className='label'>Name</label>
-            <div className='control'>
-              <input className={`input ${errors.name && 'is-danger'}`} type='name' name='name' onChange={handleChange} value={values.name || ''} required />
-            </div>
-            {errors.name && (
-              <p className='help is-danger'>{errors.name}</p>
-            )}
-          </div>
-          <div className='field'>
-            <label className='label'>Email</label>
-            <div className='control'>
-              <input autoComplete='off' placeholder='you@you.com *' className={`input ${errors.email && 'is-danger'}`} type='email' name='email' onChange={handleChange} value={values.email || ''} required />
-              {errors.email && (
-                <p className='help is-danger'>{errors.email}</p>
-              )}
-            </div>
-          </div>
-
-          <div className='field'>
-            <label className='label'>Message</label>
-            <div className='control'>
-              <textarea className='textarea' placeholder='A Message is Required *' name='message' rows='5' id='message' onChange={handleChange} value={values.message} required />
-            </div>
-          </div>
-          <br />
-          <button className='button is-primary' type='submit'>Submit</button>
-        </form>
-      </div>
-    </div>
-  )
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
-export default EmailForm
+class ContactForm extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { isValidated: false }
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleRecaptcha = value => {
+    this.setState({ 'g-recaptcha-response': value })
+  }
+
+  handleAttachment = e => {
+    this.setState({ [e.target.name]: e.target.files[0] })
+  };
+
+  handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    // eslint-disable-next-line
+    fetch('/?no-cache=1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      // eslint-disable-next-line
+      .catch(error => alert(error))
+  }
+
+  render () {
+    const { title } = this.props
+    return (
+      <div className='column'>
+        <div>
+          <h2 className='subtitle'>
+            {title}
+          </h2>
+        </div>
+        <div>
+          <form
+            name='contact'
+            method='post'
+            action='/contact/success'
+            encType='application/x-www-form-urlencoded'
+            data-netlify='true'
+            data-netlify-honeypot='bot-field'
+            data-netlify-recaptcha='true'
+            onSubmit={this.handleSubmit}
+          >
+            <input type='hidden' name='form-name' value='contact' />
+            <div hidden>
+              <label>
+                  Don’t fill this out:{' '}
+                <input name='bot-field' onChange={this.handleChange} />
+              </label>
+            </div>
+            <div className='field'>
+              <label className='label'>Full Name</label>
+              <div className='control'>
+                <input className='input' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
+              </div>
+            </div>
+
+            <div className='field'>
+              <label className='label'>Email</label>
+              <div className='control'>
+                <input className='input' type='email' placeholder='Email' name='email' id='email' onChange={this.handleChange} />
+              </div>
+            </div>
+
+            <div className='field'>
+              <label className='label'>Message</label>
+              <div className='control'>
+                <textarea className='textarea' name='message' rows='5' id='message' onChange={this.handleChange} />
+              </div>
+            </div>
+            <div className='field'>
+              <div className='file'>
+                <label className='button file-label is-primary'>
+                  <input
+                    className='file-input is-primary'
+                    type='file'
+                    name='attachment'
+                    onChange={this.handleAttachment}
+                  />
+                  <span className='file-cta'>
+                    <span className='file-label'>Choose a file…</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div className='field'>
+              <Recaptcha
+                ref='recaptcha'
+                sitekey='6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
+                theme='dark'
+                render='explicit'
+                onloadCallback='Done'
+                onChange={this.handleRecaptcha}
+              />
+            </div>
+            <div className='field'>
+              <div className='control'>
+                <button className='button is-primary' type='submit' disabled={(!this.state.name) || (!this.state.email) || (!this.state.message)}>Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    )
+  }
+};
+
+ContactForm.propTypes = {
+  title: PropTypes.string,
+}
+
+export default ContactForm
