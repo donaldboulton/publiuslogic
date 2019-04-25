@@ -14,7 +14,10 @@ display_url: https://publiuslogic.com
 logo_url: https://publiuslogic.com/img/apple-touch-icon-180x180.png
 
 publish_mode: editorial_workflow
-media_folder: static/img
+media_library:
+ name: uploadcare
+ config:
+   publicKey: a10993e96ebedcb0dd54
 public_folder: /img
 
 collections:

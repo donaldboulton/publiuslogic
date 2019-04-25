@@ -1,7 +1,6 @@
 import React from 'react'
 import gatsbyastro from './gatsby-astronaut.png'
 import Layout from '../components/Layout'
-import Form from '../components/EmailForm'
 
 const NotFoundPage = () => (
   <Layout>

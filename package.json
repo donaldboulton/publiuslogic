@@ -116,6 +116,7 @@
     "typeface-kaushan-script": "0.0.72",
     "typeface-roboto": "^0.0.54",
     "uglifyjs-webpack-plugin": "^2.1.2",
+    "uploadcare-widget": "^3.7.0",
     "url-join": "^4.0.0",
     "uuid": "^3.3.2",
     "with-utterances": "^1.4.1",

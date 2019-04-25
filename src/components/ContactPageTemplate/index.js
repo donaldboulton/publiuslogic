@@ -3,6 +3,7 @@ import { navigate } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import Recaptcha from 'react-google-recaptcha'
+import Uploader from '../Uploader'
 import FeedbackWidget from '../feedback-widget/feedback-widget'
 import logo from '../../img/logo.png'
 
@@ -111,22 +112,34 @@ class ContactPageTemplate extends Component {
                   <div className='field'>
                     <label className='label'>Message</label>
                     <div className='control'>
-                      <textarea className='textarea is-large' name='message' rows='5' id='message' onChange={this.handleChange} />
+                      <textarea className='textarea is-large' type='text' name='message' rows='5' id='message' onChange={this.handleChange} />
                     </div>
                   </div>
-                  <div className='field'>
-                    <div className='file'>
-                      <label className='button file-label is-primary is-large'>
-                        <input
-                          className='file-input is-primary'
-                          type='file'
-                          name='attachment'
-                          onChange={this.handleAttachment}
-                        />
-                        <span className='file-cta'>
-                          <span className='file-label'>Choose a file…</span>
-                        </span>
-                      </label>
+                  <h2>Uploader</h2>
+                  <div className='columns is-mobile'>
+                    <div className='column'>
+                      <div className='field'>
+                        <label htmlFor='file'>Files:</label>{' '}
+                        <Uploader
+                          id='file'
+                          name='file'
+                          className='button is-primary is-large'
+                          onChange={(file) => {
+                            console.log('File changed: ', file)
+
+                            if (file) {
+                              file.progress(info => console.log('File progress: ', info.progress))
+                              file.done(info => console.log('File uploaded: ', info))
+                            }
+                          }}
+                          onUploadComplete={info => console.log('Upload completed:', info)} />
+                      </div>
+                    </div>
+                    <div className='column'>
+                      <div className='field'>
+                        <label htmlFor='file'>Images:</label>{' '}
+                        <Uploader id='images' name='file' className='button is-primary is-large' data-images-only data-multiple />
+                      </div>
                     </div>
                   </div>
                   <div className='field'>

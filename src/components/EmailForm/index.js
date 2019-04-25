@@ -88,24 +88,10 @@ class ContactForm extends Component {
             <div className='field'>
               <label className='label'>Message</label>
               <div className='control'>
-                <textarea className='textarea' name='message' rows='5' id='message' onChange={this.handleChange} />
+                <textarea className='textarea' type='text' name='message' rows='5' id='message' onChange={this.handleChange} />
               </div>
             </div>
-            <div className='field'>
-              <div className='file'>
-                <label className='button file-label is-primary'>
-                  <input
-                    className='file-input is-primary'
-                    type='file'
-                    name='attachment'
-                    onChange={this.handleAttachment}
-                  />
-                  <span className='file-cta'>
-                    <span className='file-label'>Choose a file…</span>
-                  </span>
-                </label>
-              </div>
-            </div>
+            <h3>File Uploads is on our</h3><a href='/contact/'>Contact Page</a>
             <div className='field'>
               <Recaptcha
                 ref='recaptcha'

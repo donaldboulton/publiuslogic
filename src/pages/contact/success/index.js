@@ -16,13 +16,10 @@ const SuccessPage = () => {
             <div className='columns'>
               <div className='column is-half'>
                 <p>
-              Your Form has been Submitted!
+                  If an Approval or Response is required, each form send's a Slack Notification to us.
                 </p>
                 <p>
-              If an Approval or Response is required, each form send's a Slack Notification Approval to us.
-                </p>
-                <p>
-              Realtime Notification's are then sent to Our Devices; A response should be forthcoming A.S.A.P.
+                  Slack Realtime Notification's are then sent to Our Devices; A response should be forthcoming A.S.A.P.
                 </p>
               </div>
               <div className='column'>
