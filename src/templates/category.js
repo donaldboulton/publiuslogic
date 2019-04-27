@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-class CategoriesRoute extends Component {
+class CategoryTemplate extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges
     const postLinks = posts.map(post => (
@@ -44,9 +44,9 @@ class CategoriesRoute extends Component {
   }
 }
 
-export default CategoriesRoute
+export default CategoryTemplate
 
-export const categoryPageQuery = graphql`
+export const pageQuery = graphql`
   query CategoryPage($category: String) {
     site {
       siteMetadata {

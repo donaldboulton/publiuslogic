@@ -57,13 +57,6 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/_data/comments`,
-        name: 'comments',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
       },
@@ -85,13 +78,6 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-sitemap`,
-    },
-    {
-      resolve: 'gatsby-plugin-categories',
-      options: {
-        templatePath: `${__dirname}/src/templates/category.js`,
-        name: 'categories',
-      },
     },
     {
       resolve: `gatsby-plugin-page-creator`,

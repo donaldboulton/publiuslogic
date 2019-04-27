@@ -80,16 +80,5 @@ export const pageQuery = graphql`
         tags
       }
     }
-    allCommentsYaml {
-      edges {
-          node {
-            _id
-            name
-            email
-            message
-            date
-          }
-      }
-    }
   }
 `
