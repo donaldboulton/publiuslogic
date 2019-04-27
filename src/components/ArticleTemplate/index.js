@@ -1,6 +1,7 @@
 import React from 'react'
 import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
+import ScrollDown from '../ScrollDown'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
@@ -39,6 +40,11 @@ const ArticleTemplate = ({
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>
+      <ScrollDown
+        direction='down' to={15}
+        showAbove={1500}
+        css='position: fixed; right: 1em; top: 4.5em;'
+      />
       <img src={cover} alt={title} />      
       <br />
       <span>

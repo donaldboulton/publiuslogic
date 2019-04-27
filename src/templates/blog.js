@@ -56,7 +56,7 @@ export default class BlogPage extends Component {
                     </h1>
                     ✨ Listing all Posts.
                     For refinements see categories or tags.
-                  </div>
+                  </div>                  
                 </div>
               </div>
             </div>

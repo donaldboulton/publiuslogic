@@ -81,7 +81,6 @@ li
   display: flex
   justify-content: center
   align-items: center
-
 .full-width-image
   width: 100vw
   height: 400px
@@ -105,6 +104,8 @@ li
   box-shadow: inset 0 0 0 2px #f40
   -webkit-transition: all .15s ease
   transition: all .15s ease
+.btn:focus
+  outline: none  
 .btnIcon
   position: absolute
   top: 0
@@ -128,6 +129,8 @@ li
 .btn-primary:hover
     background-color: #c93c00 !important    
     border-color: #c93c00 !important
+.btn-primary:focus
+  outline: none !important
 .btn-primary:disabled
     background: linear-gradient(#9b2f01, #7f2905) !important
     border-color: #041
@@ -148,6 +151,8 @@ li
   border-color: #c93c00 !important
 .button:hover  
   border-color: #c93c00 !important  
+.button:focus
+  outline: none !important
 .button:active
   border-color: transparent !important  
 .uploadcare--widget__button_type_open    
@@ -278,6 +283,8 @@ a:-webkit-any-link
   cursor: pointer
 a:hover
   color: #cccccc !important
+a:focus
+  outline: none !important 
 .productFigure img
   border: solid 1px #d64000
   border-radius: 50%
@@ -528,5 +535,16 @@ div.code-toolbar>.toolbar
   position: relative
   width: 100%
   margin-bottom: 1.5rem
+.article-transition
+  -webkit-transition: transform 2s ease-in-out
+  -moz-transition: transform 2s ease-in-out
+  transition: transform 2s ease-in-out
+.article-transition:hover
+  -moz-transform: scale(1.05)
+  -webkit-transform: scale(1.05)
+  -o-transform: scale(1.05)
+  -ms-transform: scale(1.05)
+  -webkit-transform: scale(1.05)
+  transform: scale(1.05)  
 
 @import "~bulma"
