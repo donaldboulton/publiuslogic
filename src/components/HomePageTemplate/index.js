@@ -21,13 +21,11 @@ const HomePageTemplate = ({
       <title>{meta_title}</title>
       <meta name='description' content={meta_description} />
     </Helmet>
-    <section className='hero'>
-      <div>
-        <Hero
-          heroImg={cover && siteConfig.siteHomeCover}
-          title={title}
-        />
-      </div>
+    <section>
+      <Hero
+        heroImg={cover && siteConfig.siteHomeCover}
+        title={title}
+      />
     </section>
     <section className='section section--gradient'>
       <div className='container'>
