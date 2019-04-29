@@ -2,8 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
+import Hero from '../HomeHero'
 import PropTypes from 'prop-types'
-import Hero from '../Hero'
 
 const HomePageTemplate = ({
   title,
