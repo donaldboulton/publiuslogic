@@ -23,7 +23,7 @@ const HomePageTemplate = ({
     <section className='hero'>
       <div>
         <Hero
-          heroImg={cover && cover.publicURL}
+          heroImg={cover && cover.id}
           title={meta_title}
         />
         <h1>{meta_title}</h1>

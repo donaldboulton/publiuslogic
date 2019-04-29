@@ -84,7 +84,9 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
               title
-              cover
+              cover {
+                publicURL
+              }
               tags
               templateKey
               date(formatString: "MMMM DD, YYYY")
