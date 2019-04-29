@@ -42,7 +42,7 @@ const ArticleTemplate = ({
       </h1>
       <ScrollDown
         direction='down' to={15}
-        showAbove={1500}
+        showAbove={-1500}
         css='position: fixed; right: 1em; top: 4.5em;'
       />
       <img src={cover} alt={title} />      

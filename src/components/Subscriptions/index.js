@@ -71,7 +71,6 @@ export default class Subscribe extends React.Component {
               {this.state.status === `success` ? (
                 <div>Thank you! Youʼll receive your first email shortly.</div>
               ) : (
-
                 <div className='media'>
                   <figure className='media-left'>
                     <p className='image is-84x84'>
@@ -84,40 +83,37 @@ export default class Subscribe extends React.Component {
                   </figure>
                   <div className='media-content'>
                     <div className='content'>
-                      Enjoyed this post? Want the next one in your inbox!
-                      <br />
-                      <p>
-                        <form
-                          id='email-capture'
-                          method='post'
-                          noValidate
-                        >
-                          <div className='field has-addons'>
-                            <div className='control'>
-                              <input
-                                className='input input-control'
-                                type={'text'}
-                                placeholder='your@email.com *'
-                                onChange={this._handleEmailChange}
-                                required
-                              />
-                            </div>
-                            <div className='control'>
-                              <button
-                                className='button is-primary'
-                                type='submit'
-                                onClick={this._handleFormSubmit}
-                              >Sign Up
-                              </button>
-                            </div>
-                            {this.state.status === `error` && (
-                              <div
-                                dangerouslySetInnerHTML={{ __html: this.state.msg }}
-                              />
-                            )}
+                      <div>Enjoyed this post? Want the next one in your inbox!</div>
+                      <form
+                        id='email-capture'
+                        method='post'
+                        noValidate
+                      >
+                        <div className='field has-addons'>
+                          <div className='control'>
+                            <input
+                              className='input input-control'
+                              type={'text'}
+                              placeholder='your@email.com *'
+                              onChange={this._handleEmailChange}
+                              required
+                            />
                           </div>
-                        </form>
-                      </p>
+                          <div className='control'>
+                            <button
+                              className='button is-primary'
+                              type='submit'
+                              onClick={this._handleFormSubmit}
+                            >Sign Up
+                            </button>
+                          </div>
+                          {this.state.status === `error` && (
+                            <div
+                              dangerouslySetInnerHTML={{ __html: this.state.msg }}
+                            />
+                          )}
+                        </div>
+                      </form>
                     </div>
                   </div>
                   <div className='media-right'>

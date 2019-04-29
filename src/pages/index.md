@@ -7,10 +7,9 @@ meta_description: >-
   extensive studies Of the Books at Large = Us Congressional Reports including a lot 
   of Notes and Letters from our Founding Fathers.
 heading: To Publish Logic - Common Sense
+cover: /img/sunset-kitzeberg-fjord.jpg
 description: >-
-  At PubliusLogic we Publish Logic as Common Sense. Our name was taken from my 
-  extensive studies Of the Books at Large = Us Congressional Reports including a lot 
-  of Notes and Letters from our Founding Fathers.
+  At PubliusLogic we Publish Logic as Common Sense
 offerings:
   blurbs:
     - image: /img/meeting-space.png

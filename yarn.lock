@@ -6500,6 +6500,13 @@ gatsby-plugin-styled-components@^3.0.7:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-twitter@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-twitter/-/gatsby-plugin-twitter-2.0.13.tgz#f6d79c56ebae3054f633b699498a8afdc80e5259"
+  integrity sha512-FaX3CFdZrZGxY1dRbcFanEQydGgG074cVqRe8DwQs4uqTTMnm6mW4U6kHrVsoNNeoDhMhA6u+1iqe1yRlgT3+g==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 gatsby-plugin-web-font-loader@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-web-font-loader/-/gatsby-plugin-web-font-loader-1.0.4.tgz#c50bdb0c1980110b3fd213a5be70feb2459514c3"

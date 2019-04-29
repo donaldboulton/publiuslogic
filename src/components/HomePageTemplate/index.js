@@ -3,9 +3,11 @@ import Helmet from 'react-helmet'
 import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
 import PropTypes from 'prop-types'
+import Hero from '../Hero'
 
 const HomePageTemplate = ({
   title,
+  cover,
   heading,
   description,
   offerings,
@@ -18,19 +20,13 @@ const HomePageTemplate = ({
       <title>{meta_title}</title>
       <meta name='description' content={meta_description} />
     </Helmet>
-    <section className='hero is-primary is-bold is-medium'>
-      <div className='hero-body'>
-        <div className='container'>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
-              <div className='section'>
-                <h1 className='title'>
-                  {title}
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className='hero'>
+      <div>
+        <Hero
+          heroImg={cover && cover.publicURL}
+          title={meta_title}
+        />
+        <h1>{meta_title}</h1>
       </div>
     </section>
     <section className='section section--gradient'>
@@ -49,7 +45,7 @@ const HomePageTemplate = ({
                 <section className='section'>
                   <div className='columns is-multiline is-10 is-offset-1'>
                     <div>
-                      <h2 className='has-text-weight-semibold is-size-2'>Check our our Tutorials below</h2>                    
+                      <h2 className='has-text-weight-semibold is-size-2'>Check our our Tutorials below</h2>
                     </div>
                     <div className='is-parent column is-6'>
                       <article className='is-child'>
@@ -115,6 +111,7 @@ const HomePageTemplate = ({
 
 HomePageTemplate.propTypes = {
   title: PropTypes.string,
+  cover: PropTypes.image,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
   heading: PropTypes.string,
