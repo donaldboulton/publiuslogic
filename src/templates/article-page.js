@@ -10,6 +10,7 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
 
+
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
 
@@ -20,18 +21,18 @@ const ArticlePage = ({ data }) => {
           title={post.frontmatter.title}
           meta_title={post.frontmatter.meta_title}
           meta_desc={post.frontmatter.meta_description}
-          cover={post.frontmatter.cover}
           category={post.frontmatter.category}
           slug={post.fields.slug}
           date={post.frontmatter.date}
+          cover={post.frontmatter.cover && post.fields.slug.cover}
         />
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <ArticleTemplate
+                cover={post.frontmatter.cover}
                 content={post.html}
                 contentComponent={HTMLContent}
-                cover={post.frontmatter.cover}
                 category={post.frontmatter.category}
                 date={post.frontmatter.date}
                 meta_title={post.frontmatter.meta_title}

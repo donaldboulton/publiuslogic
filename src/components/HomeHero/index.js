@@ -1,6 +1,6 @@
 import React from 'react'
 import { withPrefix } from 'gatsby'
-import siteConfig from '../../config'
+import siteConfig from '../../../data/config'
 import styled from 'styled-components'
 
 const HeroContainer = styled.div`
@@ -31,7 +31,7 @@ const HeroTitle = styled.h1`
 
 class Hero extends React.Component {
   render () {
-    const heroImg = this.props.heroImg || withPrefix(siteConfig.siteCover)
+    const heroImg = this.props.heroImg || withPrefix(siteConfig.cover)
     const { title } = this.props
 
     return (

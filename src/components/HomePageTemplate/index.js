@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
+import siteConfig from '../../../data/config'
 import Hero from '../HomeHero'
 import PropTypes from 'prop-types'
 
@@ -23,10 +24,9 @@ const HomePageTemplate = ({
     <section className='hero'>
       <div>
         <Hero
-          heroImg={cover && cover.id}
-          title={meta_title}
+          heroImg={cover && siteConfig.siteHomeCover}
+          title={title}
         />
-        <h1>{meta_title}</h1>
       </div>
     </section>
     <section className='section section--gradient'>

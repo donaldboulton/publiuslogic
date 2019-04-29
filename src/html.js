@@ -13,7 +13,6 @@ export default class HTML extends Component {
           <link rel='shortcut icon' href={favicon} />
         </head>
         <body itemScope='itemScope' itemType='https://schema.org/WebPage'>
-          <meta className='u-url' itemProp='url' content='{url}' />
           <div
             id='___gatsby'
             dangerouslySetInnerHTML={{ __html: this.props.body }}
