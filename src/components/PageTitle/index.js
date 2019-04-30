@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from "react"
 
-import Caption from '../styles/Caption'
-import { PageTitleContainer, Title, Img } from './styles'
+import { Caption } from "../styles"
+import { PageTitleContainer, Title, Img } from "./styles"
 
 const PageTitle = ({ children, img, backdrop, className, fillToBottom }) => {
   const ref = useRef()

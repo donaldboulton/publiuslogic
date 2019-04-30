@@ -30,20 +30,20 @@ function Media {
 
   // Render columns and items
   return (
-    <div className="section">
-      <div className="columns is-mobile">
+    <div className='section'>
+      <div className='columns is-mobile'>
         {columns.map((column, i) => (
-          <div className="column" key={i}>
+          <div className='column' key={i}>
             {column.map((item, a) => (
               <div
-                className="image-container"
+                className='image-container'
                 style={{
                   // Size image container to aspect ratio of image
                   paddingTop: (item.height / item.width) * 100 + '%'
                 }}
                 key={a}
               >
-                <img src={item.image} alt="" />
+                <img src={item.image} alt='' />
               </div>
             ))}
           </div>

@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react'
 import MarkerClusterer from '@google/markerclustererplus'
 
-import Masonry from '../../components/Masonry'
-import Caption from '../../components/styles/Caption'
-import Modal from '../../components/Modal'
-import Map from '../../components/Maps/Map'
+import Masonry from '../../../components/Masonry'
+import Caption from '../../../components/styles/Caption'
+import Modal from '../../../components/PhotosModal'
+import Map from '../../../components/Maps'
 
 import { Thumbnail, LargeImg } from './styles'
 
