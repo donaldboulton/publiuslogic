@@ -10,12 +10,16 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
 
-
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
+      <section className='hero'>
+        <div>
+          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
+        </div>
+      </section>
       <section className='section'>
         <SE0
           title={post.frontmatter.title}
@@ -74,11 +78,11 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        cover
         category
         meta_title
         meta_description
         tags
+        cover
       }
     }
   }

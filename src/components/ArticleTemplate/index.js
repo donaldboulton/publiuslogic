@@ -2,8 +2,6 @@ import React from 'react'
 import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import ScrollDown from '../ScrollDown'
-import siteConfig from '../../../data/config'
-import Hero from '../HomeHero'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
@@ -39,10 +37,6 @@ const ArticleTemplate = ({
 
   return (
     <div>
-      <Hero
-        heroImg={cover && siteConfig.Cover}
-        title={title}
-      />
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>
@@ -50,8 +44,7 @@ const ArticleTemplate = ({
         direction='down' to={15}
         showAbove={-1500}
         css='position: fixed; right: 1em; top: 4.5em;'
-      />
-      <img src={cover} alt={title} />      
+      />           
       <br />
       <span>
         <span className='subtitle is-size-4'>

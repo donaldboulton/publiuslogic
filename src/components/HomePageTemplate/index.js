@@ -2,8 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
-import siteConfig from '../../../data/config'
-import Hero from '../HomeHero'
+import StyledBackgroundSection from './image'
 import PropTypes from 'prop-types'
 
 const HomePageTemplate = ({
@@ -21,12 +20,30 @@ const HomePageTemplate = ({
       <title>{meta_title}</title>
       <meta name='description' content={meta_description} />
     </Helmet>
-    <section>
-      <Hero
-        heroImg={cover && siteConfig.siteHomeCover}
-        title={title}
-      />
-    </section>
+    <StyledBackgroundSection className='hero'>
+      <div
+        style={{
+          height: `400px`,
+          width: `100%`,
+          display: `flex`,
+          placeContent: `start`,
+        }}
+      >
+        <div
+          style={{
+            placeSelf: `center`,
+            textAlign: `center`,
+            color: `#ccc`,
+            height: `50vh`,
+            maxWidth: 1260,
+            padding: `0px 1.0875rem 1.45rem`,
+            marginTop: `-5rem`,
+          }}
+        >
+          <main>{title}</main>
+        </div>
+      </div>
+    </StyledBackgroundSection>
     <section className='section section--gradient'>
       <div className='container'>
         <div className='section'>

@@ -50,23 +50,18 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/img`,
-        name: 'images',
-      },
-    },
-    'gatsby-transformer-yaml',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
       },
     },
     {
+      resolve: `gatsby-plugin-sitemap`,
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/assets/img`,
-        name: 'images',
+        name: 'img',
       },
     },
     {
@@ -97,7 +92,7 @@ module.exports = {
         anonymize: true,
       },
     },
-    'gatsby-transformer-sharp',
+    'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -144,10 +139,10 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
+              linkImagesToOriginal: false,
               maxWidth: 2048,
             },
           },
-          'gatsby-plugin-sharp',
           {
             resolve: 'gatsby-remark-better-embed-video',
             options: {
@@ -169,6 +164,8 @@ module.exports = {
         ],
       },
     },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
@@ -324,7 +321,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
+      resolve: `gatsby-plugin-mailchimp`,
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
       },

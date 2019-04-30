@@ -5,7 +5,6 @@ slug: JavaScript media queries
 date: 2019-04-18T20:20:43.942Z
 category: 'tech'
 cover: /img/responsive.svg
-thumbnail: /img/matchMedia.svg
 tags:
   - mediaQueries
   - WebDev

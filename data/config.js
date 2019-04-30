@@ -4,7 +4,7 @@ const config = {
   siteTitleShort: 'PubliusLogic', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: 'To Publish Logic', // Alternative site title for SEO.
   siteLogo: '/src/img/logo.png', // Logo used for SEO and manifest.
-  siteCover: '/static/sunset-kitzeberg-fjord.jpg', // Logo used for SEO and manifest.
+  siteCover: '/src/img/sunset-kitzeberg-fjord.jpg', // Logo used for SEO and manifest.
   siteHomeCover: 'https://publiuslogic.com/static/sunset-kitzeberg-fjord.jpg', // Logo used for SEO and manifest.
   siteUrl: 'https://publiuslogic.com', // Domain of your website without pathPrefix.
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
