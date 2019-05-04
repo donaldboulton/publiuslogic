@@ -12,19 +12,17 @@ class GitHubRepo extends Component {
       <ThemeProvider theme={theme}>
         <>
           <Fragment>
-            <div className='columns is-mobile'>
-              <div className='column'>
-                <GithubButtonFollow />
-              </div>
-              <div className='column'>
-                <GithubButtonWatch />
-              </div>
-              <div className='column'>
-                <GithubButtonStar />
-              </div>
-              <div className='column'>
-                <GithubButtonFork />
-              </div>
+            <div className='column'>
+              <GithubButtonFollow />
+            </div>
+            <div className='column'>
+              <GithubButtonWatch />
+            </div>
+            <div className='column'>
+              <GithubButtonStar />
+            </div>
+            <div className='column'>
+              <GithubButtonFork />
             </div>
           </Fragment>
         </>
@@ -34,4 +32,3 @@ class GitHubRepo extends Component {
 }
 
 export default GitHubRepo
-

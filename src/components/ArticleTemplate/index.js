@@ -44,17 +44,17 @@ const ArticleTemplate = ({
         direction='down' to={15}
         showAbove={-1500}
         css='position: fixed; right: 1em; top: 4.5em;'
-      />           
+      />
       <br />
-      <span>
-        <span className='subtitle is-size-4'>
-          <Calendar size='1.2em' />&nbsp;
-          <small>{date}&nbsp;</small>
-        </span>
-        <span className='is-pulled-right'>
-          <GithubButtonsRepo />
-        </span>
-      </span>
+      <div className='columns is-desktop'>
+        <div className='column is-6'>
+          <span className='subtitle is-size-4'>
+            <Calendar size='1.2em' />&nbsp;
+            <small>{date}&nbsp;</small>
+          </span>
+        </div>
+        <GithubButtonsRepo className='is-size-6 is-pulled-right' />
+      </div>
       <br />
       <Prism />
       <PostContent content={content} />

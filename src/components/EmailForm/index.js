@@ -23,10 +23,6 @@ class ContactForm extends Component {
     this.setState({ 'g-recaptcha-response': value })
   }
 
-  handleAttachment = e => {
-    this.setState({ [e.target.name]: e.target.files[0] })
-  };
-
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target

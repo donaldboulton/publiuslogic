@@ -1,9 +1,9 @@
-import React from 'react';
-import Modali, { useModali } from 'modali';
+import React from 'react'
+import Modali, { useModali } from 'modali'
 
 const App = () => {
-  const [firstModal, toggleFirstModal] = useModali();
-  const [secondModal, toggleSecondModal] = useModali();
+  const [firstModal, toggleFirstModal] = useModali()
+  const [secondModal, toggleSecondModal] = useModali()
   
   return (
     <div className='app'>
@@ -20,7 +20,7 @@ const App = () => {
         And I'm the second Modali
       </Modali.Modal>
     </div>
-  );
-};
+  )
+}
 
 export default App

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import { Index } from 'elasticlunr'
-
 export default class SearchBox extends Component {
   constructor (props) {
     super(props)

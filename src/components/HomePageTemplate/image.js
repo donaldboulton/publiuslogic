@@ -30,7 +30,8 @@ const BackgroundSection = ({ className, title, backdrop }) => (
             objectPosition='50% 50%'
           />
           <StyledTitle>
-            {title}
+            <h1>PubliusLogic</h1>
+            <small>publiuslogic.com</small>
           </StyledTitle>
         </StyledSymetryWrapper>
       </StyledWrapper>
@@ -72,7 +73,8 @@ const StyledBackgroundSection = styled(BackgroundSection)`
 
 export const StyledTitle = styled.div`
   text-align: center;
-  font-size: calc(1em + 0.5vw);
+  font-size: 1.5em;
+  font-color: #fff;
   margin: 1em;
 `
 const StyledWrapper = styled.div`

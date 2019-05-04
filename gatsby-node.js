@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const path = require('path')
-const Promise = require('bluebird')
+const fs = require(`fs-extra`)
+const ExifReader = require(`exifreader`)
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 const moment = require('moment')
@@ -170,6 +171,23 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+  }
+  if (node.dir && node.dir.includes(`src/assets/photos`) && node.ext === `.jpg`) {
+    fs.readFile(node.absolutePath, (err, data) => {
+      if (err) throw err
+      const tags = ExifReader.load(data.buffer)
+      const meta = {
+        title: tags.XPTitle,
+        desc: tags.ImageDescription,
+        caption: tags.XPTitle,
+        subject: tags.XPKeywords,
+      }
+      actions.createNodeField({
+        node,
+        name: `meta`,
+        value: meta,
+      })
     })
   }
 }

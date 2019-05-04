@@ -13,6 +13,7 @@ tags:
   - Tutorial
 meta_title: Gatsby React Disqus Comments
 meta_description: Gatsby React Disqus Comments
+tweet_id: '1118651504674725888'
 ---
 
 ## Taken From

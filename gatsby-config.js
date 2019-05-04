@@ -38,7 +38,6 @@ module.exports = {
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,
-    `gatsby-plugin-twitter`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',

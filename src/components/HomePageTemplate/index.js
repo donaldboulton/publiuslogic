@@ -40,7 +40,8 @@ const HomePageTemplate = ({
             marginTop: `-5rem`,
           }}
         >
-          <main>{title}</main>
+          <h1>{title}</h1>
+          <small>{meta_title}</small>
         </div>
       </div>
     </StyledBackgroundSection>

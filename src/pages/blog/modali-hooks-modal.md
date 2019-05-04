@@ -13,6 +13,7 @@ tags:
   - Tutorial
 meta_title: Modali Hooks Modal
 meta_description: Modali Hooks Modal
+tweet_id: '1118651504674725888'
 ---
 
 ## 🦞 modali

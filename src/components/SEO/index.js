@@ -84,7 +84,7 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, isBlogPost, postData }
       <meta property='og:type' content='article' />
       <meta property='og:title' content={title} />
       <meta property='og:description' content={meta_desc} />
-      <meta property='og:image' content={image} />
+      <meta property='og:image' content={cover} />
       <meta
         property='fb:app_id'
         content={config.siteFBAppID ? config.siteFBAppID : ''}
@@ -97,7 +97,14 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, isBlogPost, postData }
       />
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={meta_desc} />
-      <meta name='twitter:image' content={image} />
+      <meta name='twitter:image' content={cover} />
+      <meta name='twitter:widgets:autoload' content='off' />
+      <meta name='twitter:widgets:theme' content='dark' />
+      <meta name='twitter:widgets:link-color' content='#d64000' />
+      <meta name='twitter:widgets:border-color' content='#000000' />
+      <meta name='twitter:dnt' content='on' />
+      <link rel='canonical' href='/' />
+      <link rel='me' href='https://twitter.com/donboulton' />
       <meta name='geo.placename' content='720 S Rockwell Ave, Oklahoma City, OK 73128, USA' />
       <meta name='geo.position' content='35.4582062;-97.6338859' />
       <meta name='geo.region' content='US-Oklahoma' />
