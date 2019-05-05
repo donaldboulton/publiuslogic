@@ -11,13 +11,6 @@ const Email = () => {
     animated: true,
     title: 'Send Us a Email 🎉',
     message: 'Email Addresses are Private.',
-    buttons: [
-      <Modali.Button
-        label='Cancel'
-        isStyleDefault
-        onClick={() => toggleCompleteModal()}
-      />,
-    ],
   })
 
   return (

@@ -1,8 +1,8 @@
 ---
-templateKey: privacy-page
+templateKey: photos-page
 title: Photos
 meta_title: Photos
-cover: /img/photos/tiger.jpg
+cover: ./tiger.jpg
 meta_description: >-
   My Kitty Cat collection
 ---

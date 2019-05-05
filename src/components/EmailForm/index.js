@@ -84,7 +84,7 @@ class ContactForm extends Component {
             <div className='field'>
               <label className='label'>Message</label>
               <div className='control'>
-                <textarea className='textarea' type='text' name='message' rows='5' id='message' onChange={this.handleChange} />
+                <textarea className='textarea' type='text' name='message' rows='3' id='message' onChange={this.handleChange} />
               </div>
             </div>
             <div className='field'>
