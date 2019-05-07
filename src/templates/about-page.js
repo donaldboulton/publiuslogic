@@ -4,28 +4,35 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
-import Layout from '../components/Layout'
+import Global from '../components/Global'
 
-const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data
-
+const AboutPage = ({ data, location }) => {
+  const { frontmatter } = data.markdownRemark
+  
   return (
-    <Layout>
+    <Global title={frontmatter.title} location={frontmatter.location}>
       <Helmet>
-        <title>{post.frontmatter.meta_title}</title>
-        <meta name='description' content={post.frontmatter.meta_description} />
+        <title>{frontmatter.meta_title}</title>
+        <meta name='description' content={frontmatter.meta_description} />
       </Helmet>
       <AboutPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
+        title={frontmatter.title}
+        credits={frontmatter.credits}
+        location={frontmatter.location}
+        caption={frontmatter.caption}
+        content={data.html}
       />      
-    </Layout>
+    </Global>
   )
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+  }),
 }
 
 export default AboutPage
@@ -36,6 +43,9 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        caption
+        credits
+        location
         meta_title
         meta_description
       }

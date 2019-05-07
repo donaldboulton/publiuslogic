@@ -2,20 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import PricingPageTemplate from '../components/PricingPageTemplate'
-import Layout from '../components/Layout'
+import Global from '../components/Global'
 
 const PricingPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
+    <Global pageTitle={frontmatter.title}>
       <PricingPageTemplate
         title={frontmatter.title}
         meta_title={frontmatter.meta_title}
         meta_description={frontmatter.meta_description}
         pricing={frontmatter.pricing}
       />
-    </Layout>
+    </Global>
   )
 }
 

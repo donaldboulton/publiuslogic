@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect } from 'react'
+import { Caption } from '../styles/Caption'
+import { PageTitleContainer, Title, Img } from './styles'
+import img from 'gatsby-image'
 
-import { Caption } from "../styles"
-import { PageTitleContainer, Title, Img } from "./styles"
-
-const PageTitle = ({ children, img, backdrop, className, fillToBottom }) => {
+const PageTitle = ({ children, credit, caption, location, backdrop, className, fillToBottom }) => {
   const ref = useRef()
   if (fillToBottom) {
     const fillAvailHeight = () =>
@@ -21,11 +21,11 @@ const PageTitle = ({ children, img, backdrop, className, fillToBottom }) => {
       <Title backdrop={backdrop || (img && img.backdrop)}>{children}</Title>
       {img && (img.caption || img.credit) && (
         <Caption showOnHoverParent={PageTitleContainer}>
-          <span dangerouslySetInnerHTML={{ __html: img.caption }} />
-          {img.caption && img.credit && ` | `}
-          {img.credit && (
+          <span dangerouslySetInnerHTML={{ __html: caption }} />
+          {caption && credit && ` | `}
+          {credit && (
             <span>
-              Credit: <a href={img.url}>{img.credit}</a>
+              Credit: <a href={location}>{credit}</a>
             </span>
           )}
         </Caption>

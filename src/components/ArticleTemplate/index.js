@@ -31,6 +31,7 @@ const ArticleTemplate = ({
   tags,
   title,
   slug,
+  tweet_id,
 }) => {
   const PostContent = contentComponent || Content
   const { markdownRemark: post } = date

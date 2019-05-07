@@ -49,22 +49,32 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/assets/img`,
+        name: 'images',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
       },
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/assets/img`,
-        name: 'img',
+        name: `stack`,
+        path: `${__dirname}/src/assets/img/stack`,
       },
     },
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `photos`,
+        path: `${__dirname}/src/assets/photos`,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/data/authors`,
@@ -292,6 +302,7 @@ module.exports = {
                               date(formatString: "MMMM DD, YYYY")
                               category
                               tags
+                              tweet_id
                             }
                           }
                         }

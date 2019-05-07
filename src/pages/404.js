@@ -1,9 +1,9 @@
 import React from 'react'
 import gatsbyastro from './gatsby-astronaut.png'
-import Layout from '../components/Layout'
+import Global from '../components/Global'
 
 const NotFoundPage = () => (
-  <Layout>
+  <Global>
     <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
         <div className='container'>
@@ -32,7 +32,7 @@ const NotFoundPage = () => (
         </div>
       </div>
     </section>
-  </Layout>
+  </Global>
 )
 
 export default NotFoundPage

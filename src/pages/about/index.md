@@ -1,6 +1,9 @@
 ---
 templateKey: about-page
 title: About Us
+caption: About Us
+credits: Donald Boulton
+location: 'https://donbboulton.com'
 meta_title: About Us | Gatsby Starter Publius
 meta_description: >-
   This website is built as static HTML with Gatsby component-modular builds including a Node backend, with React components and Built with Webpack.

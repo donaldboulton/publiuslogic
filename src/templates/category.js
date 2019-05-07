@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import Global from '../components/Global'
 
 class CategoryTemplate extends Component {
   render () {
@@ -21,7 +21,7 @@ class CategoryTemplate extends Component {
     } tagged with “${category}”`
 
     return (
-      <Layout>
+      <Global title={title}>
         <section className='section'>
           <Helmet title={`${category} | ${title}`} />
           <div className='container content'>
@@ -39,7 +39,7 @@ class CategoryTemplate extends Component {
             </div>
           </div>
         </section>
-      </Layout>
+      </Global>
     )
   }
 }
@@ -66,6 +66,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            category
           }
         }
       }

@@ -4,13 +4,13 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import PrivacyPageTemplate from '../components/PrivacyPageTemplate'
-import Layout from '../components/Layout'
+import Global from '../components/Global'
 
 const PrivacyPage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -20,7 +20,7 @@ const PrivacyPage = ({ data }) => {
         title={post.frontmatter.title}
         content={post.html}
       />
-    </Layout>
+    </Global>
   )
 }
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import gatsbyastro from './gatsby-astronaut.png'
-import Layout from '../../../components/Layout'
+import Global from '../../../components/Global'
 
 const SuccessPage = () => {
   return (
-    <Layout>
+    <Global>
       <section className='hero is-primary is-bold is-medium'>
         <div className='hero-body'>
           <h1 className='title'>
@@ -32,7 +32,7 @@ const SuccessPage = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </Global>
   )
 }
 

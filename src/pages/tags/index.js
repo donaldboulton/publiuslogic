@@ -2,12 +2,12 @@ import React from 'react'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
-import Layout from '../../components/Layout'
+import Global from '../../components/Global'
 
 const TagsPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
-  <Layout>
+  <Global>
     <Helmet title={`Tags | ${title}`} />
     <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
@@ -47,7 +47,7 @@ const TagsPage = ({
         </div>
       </div>
     </section>
-  </Layout>
+  </Global>
 )
 
 export default TagsPage

@@ -8,13 +8,13 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
-import Layout from '../components/Layout'
+import Global from '../components/Global'
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Global title={post.frontmatter.title}>
       <section className='hero'>
         <div>
           <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
@@ -28,6 +28,7 @@ const ArticlePage = ({ data }) => {
           category={post.frontmatter.category}
           slug={post.fields.slug}
           date={post.frontmatter.date}
+          tweet_id={post.frontmatter.tweet_id}
           cover={post.frontmatter.cover && post.fields.slug.cover}
         />
         <div className='container content'>
@@ -39,6 +40,7 @@ const ArticlePage = ({ data }) => {
                 contentComponent={HTMLContent}
                 category={post.frontmatter.category}
                 date={post.frontmatter.date}
+                tweet_id={post.frontmatter.tweet_id}
                 meta_title={post.frontmatter.meta_title}
                 meta_desc={post.frontmatter.meta_description}
                 tags={post.frontmatter.tags}
@@ -55,7 +57,7 @@ const ArticlePage = ({ data }) => {
           </div>
         </div>
       </section>
-    </Layout>
+    </Global>
   )
 }
 
@@ -78,6 +80,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        tweet_id
         category
         meta_title
         meta_description

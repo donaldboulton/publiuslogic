@@ -1,44 +1,31 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Content from '../Content'
+import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import FeedbackWidget from '../feedback-widget/feedback-widget'
+import PageTitle from '../PageTitle'
 
-const AboutPageTemplate = ({ title, content, contentComponent }) => {
+const AboutPageTemplate = ({ img, title, caption, credits, location, content, contentComponent, children, backdrop, className, fillToBottom }) => {
   const PageContent = contentComponent || Content
-
   return (
     <div>
-      <section className='hero is-primary is-bold is-medium'>
-        <div className='hero-body'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <div className='section'>
-                  <h1 className='title'>
-                    {title}
-                    <p>
-                      <h2>Authors </h2>
-                      Publius Logic
-                    </p>
-                  </h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Helmet>
+        <title>{title}</title>
+        <meta name='description' content={title} />
+      </Helmet>
+      <Fragment>
+        <PageTitle img={img} caption={caption} path={location}>
+          <h1>{title}</h1>
+        </PageTitle>
+      </Fragment>
       <section className='section section--gradient'>
         <div className='container'>
           <div className='columns is-10 is-offset-1'>
-            <div className='column is-half'>
+            <div className='column'>
               <div>
                 <PageContent className='content' content={content} />
               </div>
-            </div>
-            <div className='column'>
-              <div>
-                Nothing
-              </div>
+              <h2>My Stack</h2>
             </div>
           </div>
         </div>
@@ -50,8 +37,23 @@ const AboutPageTemplate = ({ title, content, contentComponent }) => {
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  caption: PropTypes.string,
+  credits: PropTypes.string,
+  location: PropTypes.string,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
 
 export default AboutPageTemplate
+
+export const query = graphql`
+  {
+    img: file(name: { eq: "about" }) {
+      sharp: childImageSharp {
+        fluid(maxWidth: 1800) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`
