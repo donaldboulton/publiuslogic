@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Next from '../img/icon-arrow-right.svg'
 
 const PostCard = ({ posts }) => {
   return (
@@ -33,8 +34,8 @@ const PostCard = ({ posts }) => {
                     {post.excerpt}
                     <br />
                     <br />
-                    <Link className='button is-small' to={post.fields.slug}>
-                                Keep Reading →
+                    <Link className='button is-small arrow-right' to={post.fields.slug}>
+                                Keep Reading&nbsp;{Next}
                     </Link>
                   </p>
                 </article>

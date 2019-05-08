@@ -13,7 +13,7 @@ class Header extends Component {
   }
   render () {
     return (
-      <>                    
+      <>
         <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
       </>
     )

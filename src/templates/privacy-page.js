@@ -10,7 +10,7 @@ const PrivacyPage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Global>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />

@@ -8,7 +8,7 @@ const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Global pageTitle={frontmatter.title}>
+    <Global>
       <HomePageTemplate
         title={frontmatter.title}
         cover={frontmatter.cover}

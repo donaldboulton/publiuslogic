@@ -529,7 +529,7 @@ div.code-toolbar>.toolbar
   filter: FlipH
   -ms-filter: "FlipH"
 .arrow-right
-  background-image: transparent url(/img/icon-arrow-right.svg) center right no-repeat
+  background: transparent
   width: 20px
   height: 12px    
 .image-container
@@ -576,5 +576,14 @@ div.code-toolbar>.toolbar
 .retweet-action:hover
   background-color: transparent
   fill: #19CF86
+.caption, figcaption
+  position: absolute;
+  bottom: 0
+  right: 1em
+  font-size: 0.8em
+  background: rgba(0, 0, 0, 0.7)
+  border-top-right: 4px
+  border-top-left: 4px
+  color: #fff
 
 @import "~bulma"

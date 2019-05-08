@@ -10,18 +10,13 @@ import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 
-import { GlobalStyle } from './styles'
-
 class Global extends Component {
   render () {
     return (
-      <>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <>
-          <Fragment>
           <Header />
-          <GlobalStyle />
-          <Fragment itemScope='itemScope' itemType='http://schema.org/CreativeWork'>{children}</Fragment>
+          <Fragment itemScope='itemScope' itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>
           <Subscriptions />
           <Slack />
           <Adds />
@@ -31,7 +26,6 @@ class Global extends Component {
             css='position: fixed; right: 1em; bottom: 1em;'
           />
           <Footer />
-          </Fragment>
         </>
       </ThemeProvider>
     )

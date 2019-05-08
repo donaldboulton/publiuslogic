@@ -6,33 +6,27 @@ import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Global from '../components/Global'
 
-const AboutPage = ({ data, location }) => {
-  const { frontmatter } = data.markdownRemark
-  
+const AboutPage = ({ data }) => {
+  const { markdownRemark: post } = data
+
   return (
-    <Global title={frontmatter.title} location={frontmatter.location}>
+    <Global>
       <Helmet>
-        <title>{frontmatter.meta_title}</title>
-        <meta name='description' content={frontmatter.meta_description} />
+        <title>{post.frontmatter.meta_title}</title>
+        <meta name='description' content={post.frontmatter.meta_description} />
       </Helmet>
       <AboutPageTemplate
         contentComponent={HTMLContent}
-        title={frontmatter.title}
-        credits={frontmatter.credits}
-        location={frontmatter.location}
-        caption={frontmatter.caption}
-        content={data.html}
+        title={post.frontmatter.title}
+        cover={post.frontmatter.cover}
+        content={post.html}
       />      
     </Global>
   )
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
+  data: PropTypes.object.isRequired,
 }
 
 export default AboutPage
@@ -43,9 +37,7 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
-        caption
-        credits
-        location
+        cover
         meta_title
         meta_description
       }
