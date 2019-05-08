@@ -35,7 +35,7 @@ const PostCard = ({ posts }) => {
                     <br />
                     <br />
                     <Link className='button is-small arrow-right' to={post.fields.slug}>
-                                Keep Reading&nbsp;{Next}
+                      Keep Reading →
                     </Link>
                   </p>
                 </article>
