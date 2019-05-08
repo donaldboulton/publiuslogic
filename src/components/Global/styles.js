@@ -42,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    color: ${props => props.theme.orange};
+    color: ${props => props.theme.darkOrange};
     :hover {
       color: ${props => props.theme.lightOrange};
     }
@@ -85,7 +85,7 @@ export const GlobalStyle = createGlobalStyle`
     text-align: center;
   }
   blockquote {
-    border-left: 0.25em solid ${props => props.theme.darkGrey};
+    border-left: 5px solid ${props => props.theme.darkOrange};
     background: rgba(0, 0, 0, 0.03);
     padding: 0.1em 0 0.1em 1em;
     margin: 0;

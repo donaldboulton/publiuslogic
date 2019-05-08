@@ -36,9 +36,9 @@ export default HomePage
 export const pageQuery = graphql`
   query IndexPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        cover
+      frontmatter {        
         title
+        cover
         meta_title
         meta_description
         heading

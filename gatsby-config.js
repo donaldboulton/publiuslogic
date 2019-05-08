@@ -198,14 +198,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: ['Kaushan Script'],
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-recaptcha',
       options: {
         async: true,
