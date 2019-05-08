@@ -20,7 +20,7 @@ const HomePageTemplate = ({
       <title>{meta_title}</title>
       <meta name='description' content={meta_description} />
     </Helmet>
-    <StyledBackgroundSection className='hero'>
+    <StyledBackgroundSection className='hero cover-container'>
       <div
         style={{
           height: `400px`,
@@ -40,8 +40,7 @@ const HomePageTemplate = ({
             marginTop: `-5rem`,
           }}
         >
-          <h1>{title}</h1>
-          <small>{meta_title}</small>
+          <div className='overlay'>PubliusLogic</div>
         </div>
       </div>
     </StyledBackgroundSection>

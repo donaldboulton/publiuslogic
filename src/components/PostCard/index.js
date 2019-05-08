@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Next from '../img/icon-arrow-right.svg'
 
 const PostCard = ({ posts }) => {
   return (
