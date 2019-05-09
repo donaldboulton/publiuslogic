@@ -1,6 +1,7 @@
 import React from 'react'
 import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
+import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { kebabCase } from 'lodash'
@@ -47,8 +48,8 @@ const ArticleTemplate = ({
         css='position: fixed; right: 1em; top: 4.5em;'
       />
       <br />
-      <div className='columns is-desktop'>
-        <div className='column is-6'>
+      <div className='columns is-desktop is-vcentered'>
+        <div className='column is-7'>
           <span className='subtitle is-size-4'>
             <Calendar size='1.2em' />&nbsp;
             <small>{date}&nbsp;</small>
@@ -59,6 +60,11 @@ const ArticleTemplate = ({
       <br />
       <Prism />
       <PostContent content={content} />
+      <div className='column is-10'>
+        <div className='is-vcentered'>
+          <WebIntents />
+        </div>
+      </div>
       <div style={{ marginTop: `2rem` }}>
         <h4>Tags</h4>
         <ul className='taglist'>

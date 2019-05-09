@@ -2,7 +2,7 @@ import React from 'react'
 import config from '../../../data/config'
 import Helmet from 'react-helmet'
 
-const SE0 = ({ title, meta_title, meta_desc, cover, slug, isBlogPost, postData }) => {
+const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, postData }) => {
   const postMeta = postData || {}
   let postURL = config.siteUrl + slug
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
@@ -63,14 +63,14 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, isBlogPost, postData }
         url: config.siteUrl + '/icons/icon-512x512.png',
       },
     },
-    description: meta_desc,
+    description: meta_description,
   }
 
   return (
     <Helmet>
       <title>{meta_title}</title>
       {/* General tags */}
-      <meta name='description' content={meta_desc} />
+      <meta name='description' content={meta_description} />
       <meta name='image' content={cover} />
       {/* Schema.org tags */}
       <script type='application/ld+json'>
@@ -83,7 +83,7 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, isBlogPost, postData }
       <meta property='og:url' content={postURL} />
       <meta property='og:type' content='article' />
       <meta property='og:title' content={title} />
-      <meta property='og:description' content={meta_desc} />
+      <meta property='og:description' content={meta_description} />
       <meta property='og:image' content={cover} />
       <meta
         property='fb:app_id'
@@ -96,14 +96,13 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, isBlogPost, postData }
         content={config.userTwitter ? config.userTwitter : ''}
       />
       <meta name='twitter:title' content={title} />
-      <meta name='twitter:description' content={meta_desc} />
+      <meta name='twitter:description' content={meta_description} />
       <meta name='twitter:image' content={cover} />
       <meta name='twitter:widgets:autoload' content='off' />
       <meta name='twitter:widgets:theme' content='dark' />
       <meta name='twitter:widgets:link-color' content='#d64000' />
       <meta name='twitter:widgets:border-color' content='#000000' />
       <meta name='twitter:dnt' content='on' />
-      <link rel='canonical' href='/' />
       <link rel='me' href='https://twitter.com/donboulton' />
       <meta name='geo.placename' content='720 S Rockwell Ave, Oklahoma City, OK 73128, USA' />
       <meta name='geo.position' content='35.4582062;-97.6338859' />

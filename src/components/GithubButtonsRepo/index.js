@@ -11,18 +11,22 @@ class GitHubRepo extends Component {
     return (
       <ThemeProvider theme={theme}>
         <>
-          <Fragment>
+          <Fragment>           
             <div className='column'>
-              <GithubButtonFollow />
-            </div>
-            <div className='column'>
-              <GithubButtonWatch />
-            </div>
-            <div className='column'>
-              <GithubButtonStar />
-            </div>
-            <div className='column'>
-              <GithubButtonFork />
+              <div className='field is-grouped has-addons'>
+                <p className='control'>
+                  <GithubButtonFollow />
+                </p>
+                <p className='control'>
+                  <GithubButtonWatch />
+                </p>
+                <p className='control'>
+                  <GithubButtonStar />
+                </p>
+                <p className='control'>
+                  <GithubButtonFork />
+                </p>
+              </div>
             </div>
           </Fragment>
         </>

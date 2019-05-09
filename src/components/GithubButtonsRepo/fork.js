@@ -7,11 +7,9 @@ if (typeof window !== undefined) { require('react-github-btn') }
 class GitHubButtonFork extends PureComponent {
   render () {
     return (
-      <GitHubButton className='is-medium' href='https://github.com/donaldboulton/publiuslogic/fork' data-icon='octicon-repo-forked' data-show-count='true' aria-label='Fork donaldboulton/publiuslogic on GitHub'>Fork</GitHubButton>
+      <GitHubButton className='is-medium button' href='https://github.com/donaldboulton/publiuslogic/fork' data-icon='octicon-repo-forked' data-show-count='true' aria-label='Fork donaldboulton/publiuslogic on GitHub'>Fork</GitHubButton>
     )
   }
 }
 
 export default GitHubButtonFork
-
-
