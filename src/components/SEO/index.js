@@ -82,7 +82,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
       {/* OpenGraph tags */}
       <meta property='og:url' content={postURL} />
       <meta property='og:type' content='article' />
-      <meta property='og:title' content={title} />
+      <meta property='og:title' content={meta_title} />
       <meta property='og:description' content={meta_description} />
       <meta property='og:image' content={cover} />
       <meta
@@ -95,7 +95,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
         name='twitter:creator'
         content={config.userTwitter ? config.userTwitter : ''}
       />
-      <meta name='twitter:title' content={title} />
+      <meta name='twitter:title' content={meta_title} />
       <meta name='twitter:description' content={meta_description} />
       <meta name='twitter:image' content={cover} />
       <meta name='twitter:widgets:autoload' content='off' />

@@ -329,7 +329,22 @@ module.exports = {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
       },
     },
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/*.js': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/*.css': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/sw.js': [
+            'cache-control: public, max-age=0, must-revalidate',
+          ],
+        },
+      },
+    },
     'gatsby-plugin-netlify-cache',
   ],
 }

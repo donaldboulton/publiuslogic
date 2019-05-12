@@ -10,9 +10,6 @@ import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 
-require('typeface-kaushan-script')
-require('typeface-roboto')
-
 class Global extends Component {
   render () {
     return (

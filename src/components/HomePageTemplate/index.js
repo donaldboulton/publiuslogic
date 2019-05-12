@@ -30,6 +30,7 @@ const HomePageTemplate = ({
         }}
       >
         <div
+          className='hero-body'
           style={{
             placeSelf: `center`,
             textAlign: `center`,

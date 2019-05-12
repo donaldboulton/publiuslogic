@@ -30,8 +30,12 @@ const BackgroundSection = ({ className, title, backdrop }) => (
             objectPosition='50% 50%'
           />
           <StyledTitle>
-            <h1>PubliusLogic</h1>
-            <small>publiuslogic.com</small>
+            <Styledh1>
+              PubliusLogic
+            </Styledh1>
+            <Styledh2>
+              publiuslogic.com
+            </Styledh2>
           </StyledTitle>
         </StyledSymetryWrapper>
       </StyledWrapper>
@@ -49,8 +53,15 @@ const StyledSymetryWrapper = styled.div`
 const StyledWelcomeImage = styled(Img)`
   width: 100vw;
   height: 400px;
+  z-index: 1;
+  background-clip: border-box;
+  background-origin: border-box;
+  position: absolute !important;
 `
 const StyledBackgroundSection = styled(BackgroundSection)`
+  position: relative;
+  text-align: center;
+  color: white;
   width: 100vw;
   background-repeat: no-repeat;
   background-position: center center;
@@ -76,6 +87,12 @@ export const StyledTitle = styled.div`
   font-size: 1.5em;
   font-color: #fff;
   margin: 1em;
+  z-index: 20;
+  box-sizing: border-box;
+  display: grid;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin: 1em;
 `
 const StyledWrapper = styled.div`
   width: 100vw;
@@ -87,5 +104,37 @@ const StyledWrapper = styled.div`
   //  background-clip: content-box;
   //}
 `
-
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 80px;
+  line-height: 0.9;
+  padding: 20px;
+  font-family: 'bowlby-one-sc', sans-serif;
+  text-transform: uppercase;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    white,
+    #111
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
+const Styledh2 = styled.h2`
+  display: inline-block;
+  font-size: 50px;
+  line-height: 0.9;
+  padding: 20px;
+  font-family: 'bowlby-one-sc', sans-serif;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #da1b60,
+    #fc9a48
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
 export default StyledBackgroundSection
