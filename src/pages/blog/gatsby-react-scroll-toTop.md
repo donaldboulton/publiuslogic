@@ -3,7 +3,7 @@ templateKey: article-page
 title: Gatsby React Scroll toTop
 slug: Gatsby GitHub Comments Utterances
 date: 2019-04-22T20:20:43.942Z
-category: 'tech'
+categorys: 'tech'
 cover: /img/gatsby+scroll+toTop.jpg
 tags:
   - Gatsby

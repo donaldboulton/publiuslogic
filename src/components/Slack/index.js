@@ -49,7 +49,7 @@ const Slack = () => {
                   </div>
                   <div className='level-item'>
                     <div className='field has-addons'>
-                      <p className='control'>
+                      <div className='control'>
                         <form
                           id='newsletters'
                           method='post'
@@ -75,7 +75,7 @@ const Slack = () => {
                             </div>
                           </div>
                         </form>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>

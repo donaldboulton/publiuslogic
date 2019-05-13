@@ -17,7 +17,7 @@ const ArticlePage = ({ data }) => {
     <Global title={post.frontmatter.title}>
       <section className='hero'>
         <div>
-          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
+          <img src={post.frontmatter.cover} alt={post.frontmatter.title} />
         </div>
       </section>
       <section className='section'>
@@ -25,7 +25,7 @@ const ArticlePage = ({ data }) => {
           title={post.frontmatter.title}
           meta_title={post.frontmatter.meta_title}
           meta_desc={post.frontmatter.meta_description}
-          category={post.frontmatter.category}
+          categorys={post.frontmatter.categorys}
           slug={post.fields.slug}
           date={post.frontmatter.date}
           tweet_id={post.frontmatter.tweet_id}
@@ -38,7 +38,7 @@ const ArticlePage = ({ data }) => {
                 cover={post.frontmatter.cover}
                 content={post.html}
                 contentComponent={HTMLContent}
-                category={post.frontmatter.category}
+                categorys={post.frontmatter.categorys}
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
                 meta_title={post.frontmatter.meta_title}
@@ -81,7 +81,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         tweet_id
-        category
+        categorys
         meta_title
         meta_description
         tags

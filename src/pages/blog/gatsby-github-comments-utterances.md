@@ -3,7 +3,7 @@ templateKey: article-page
 title: Gatsby GitHub Comments Utterances
 slug: Gatsby GitHub Comments Utterances
 date: 2019-04-16T20:20:43.942Z
-category: 'tech'
+categorys: 'tech'
 cover: /img/gatsby+react+utterances+home.jpg
 tags:
   - Gatsby

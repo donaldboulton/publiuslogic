@@ -3,7 +3,7 @@ templateKey: article-page
 title: JavaScript media queries
 slug: JavaScript media queries
 date: 2019-04-18T20:20:43.942Z
-category: 'tech'
+categorys: 'tech'
 cover: /img/responsive.svg
 tags:
   - mediaQueries

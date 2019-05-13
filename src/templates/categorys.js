@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Global from '../components/Global'
 
-class CategoryTemplate extends Component {
+class CategoryRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges
     const postLinks = posts.map(post => (
@@ -13,7 +13,7 @@ class CategoryTemplate extends Component {
         </Link>
       </li>
     ))
-    const category = this.props.pageContext.category
+    const category = this.props.pageContext.categroy
     const title = this.props.data.site.siteMetadata.title
     const totalCount = this.props.data.allMarkdownRemark.totalCount
     const categoryHeader = `${totalCount} post${
@@ -21,7 +21,7 @@ class CategoryTemplate extends Component {
     } tagged with “${category}”`
 
     return (
-      <Global title={title}>
+      <Global pageTitle={title}>
         <section className='section'>
           <Helmet title={`${category} | ${title}`} />
           <div className='container content'>
@@ -33,7 +33,7 @@ class CategoryTemplate extends Component {
                 <h3 className='title is-size-4 is-bold-light'>{categoryHeader}</h3>
                 <ul className='taglist read-more'>{postLinks}</ul>
                 <p>
-                  <Link className='button is-primary' to='/categories/'>Browse all Categories →</Link>
+                  <Link className='button is-primary' to='/tags/'>Browse all tags →</Link>
                 </p>
               </div>
             </div>
@@ -44,9 +44,9 @@ class CategoryTemplate extends Component {
   }
 }
 
-export default CategoryTemplate
+export default CategoryRoute
 
-export const pageQuery = graphql`
+export const categoryPageQuery = graphql`
   query CategoryPage($category: String) {
     site {
       siteMetadata {
@@ -56,7 +56,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { category: { in: [$category] } } }
+      filter: { frontmatter: { categorys: { in: [$category] } } }
     ) {
       totalCount
       edges {
@@ -66,7 +66,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            category
           }
         }
       }

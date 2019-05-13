@@ -4,7 +4,7 @@ import Masonry from '../Masonry'
 
 import { PhotoItem } from './styles'
   
-const Photos = ({ tags, photos }) => {
+const PhotoItems  = ({ tags, photos }) => {
   photos = photos.filter(photo => photo.title)
   return (
     <>
@@ -29,4 +29,4 @@ const Photos = ({ tags, photos }) => {
   )
 }
 
-export default Photos
+export default PhotoItems

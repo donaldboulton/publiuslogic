@@ -103,6 +103,8 @@ module.exports = {
       },
     },
     'gatsby-transformer-yaml',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -146,11 +148,10 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              linkImagesToOriginal: false,
+              linkImagesToOriginal: true,
               maxWidth: 2048,
+              showCaptions: true,
+              withWebp: true,
             },
           },
           {
@@ -174,8 +175,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
@@ -265,10 +264,10 @@ module.exports = {
                   edge => edge.node.frontmatter.templateKey === 'article-page'
                 )
                 .map(edge => ({
-                  categories: edge.node.frontmatter.tags,
+                  tags: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
                   title: edge.node.frontmatter.title,
-                  category: edge.node.frontmatter.categories,
+                  categorys: edge.node.frontmatter.categorys,
                   description: edge.node.excerpt,
                   author: rssMetadata.author,
                   url: rssMetadata.site_url + edge.node.fields.slug,
@@ -293,7 +292,7 @@ module.exports = {
                               templateKey
                               cover
                               date(formatString: "MMMM DD, YYYY")
-                              category
+                              categorys
                               tags
                               tweet_id
                             }

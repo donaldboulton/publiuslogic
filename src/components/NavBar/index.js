@@ -48,8 +48,8 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                 <a className='navbar-item' href='/about' itemProp='url'>
                  About
                 </a>
-                <a className='navbar-item' href='/pricing' itemProp='url'>
-                  Pricing
+                <a className='navbar-item' href='/photos' itemProp='url'>
+                  Photos
                 </a>
                 <a className='navbar-item' href='/contact' itemProp='url'>
                   Contact

@@ -18,19 +18,16 @@ function SlideShow () {
   const { allFile } = useStaticQuery(
     graphql`
       query {
-        allFile(
-          sort: { fields: name, order: DESC }
-          filter: { relativeDirectory: { eq: "photos" } }
-        ) {
-          edges {
-            node {
-              id
-              name
-              childImageSharp {
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
+        assets: allFile(filter: { sourceInstanceName: { eq: "assets" } }) {
+           edges {
+             node {
+               id
+               name
+               childImageSharp {
+                 fluid(maxWidth: 200, quality: 100) {
+                   ...GatsbyImageSharpFluid_withWebp
+                  }
+               }
             }
           }
         }
@@ -50,7 +47,7 @@ function SlideShow () {
     <div>
       <div>
         <Img
-          fluid={node.childImageSharp.fluid}
+          fluid={node.childImageSharp}
           key={node.id}
           alt={node.name.replace(/-/g, ' ').substring(2)}
         />

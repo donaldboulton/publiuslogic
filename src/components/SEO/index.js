@@ -28,7 +28,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
         item: {
           '@id': postURL,
           name: title,
-          image,
+          image: cover,
         },
       },
     ],
@@ -84,7 +84,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
       <meta property='og:type' content='article' />
       <meta property='og:title' content={meta_title} />
       <meta property='og:description' content={meta_description} />
-      <meta property='og:image' content={cover} />
+      <meta property='og:image' content={config.siteUrl + cover} />
       <meta
         property='fb:app_id'
         content={config.siteFBAppID ? config.siteFBAppID : ''}
@@ -97,7 +97,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
       />
       <meta name='twitter:title' content={meta_title} />
       <meta name='twitter:description' content={meta_description} />
-      <meta name='twitter:image' content={cover} />
+      <meta name='twitter:image' content={config.siteUrl + cover} />
       <meta name='twitter:widgets:autoload' content='off' />
       <meta name='twitter:widgets:theme' content='dark' />
       <meta name='twitter:widgets:link-color' content='#d64000' />

@@ -3,8 +3,6 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Content from '../Content'
 import PropTypes from 'prop-types'
-import SlideShow from '../SlideShow'
-
 import { media } from '../Hero/style'
 
 const SectionTitle = styled.h2`
@@ -14,7 +12,7 @@ const SectionTitle = styled.h2`
     font-size:1.5em;
   `}
 `
-const PhotosPageTemplate = ({ data, title, cover, meta_title, meta_description, content, contentComponent }) => {
+const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -24,7 +22,7 @@ const PhotosPageTemplate = ({ data, title, cover, meta_title, meta_description, 
         <meta name='description' content={meta_description} />
       </Helmet>
       <div className='hero'>
-        <SlideShow />
+        <img className='full-width-image' src={cover} alt={title} />        
       </div>
       <section className='section section--gradient'>
         <div className='container'>

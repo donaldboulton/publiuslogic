@@ -18,7 +18,6 @@ const AboutPage = ({ data }) => {
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
-        cover={post.frontmatter.cover}
         content={post.html}
       />      
     </Global>
@@ -36,8 +35,7 @@ export const aboutPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        title
-        cover
+        title      
         meta_title
         meta_description
       }

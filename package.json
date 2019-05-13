@@ -21,6 +21,7 @@
     "@emotion/styled": "^10.0.10",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "@google/markerclustererplus": "^2.1.11",
+    "@reach/dialog": "^0.2.8",
     "@xstate/react": "^0.2.0",
     "add": "^2.0.6",
     "axios": "^0.18.0",
