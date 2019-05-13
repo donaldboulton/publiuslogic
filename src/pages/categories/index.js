@@ -34,7 +34,7 @@ const CategorysPage = ({
             <ul className='taglist field is-grouped is-grouped-multiline'>
               {group.map(categroy => (
                 <li className='control' key={categroy.fieldValue}>
-                  <Link to={`/tags/${kebabCase(categroy.fieldValue)}/`}>
+                  <Link to={`/categroys/${kebabCase(categroy.fieldValue)}/`}>
                     <div className='tags has-addons is-large'>
                       <span className='tag is-primary'>{categroy.fieldValue}</span>
                       <span className='tag is-dark'>{categroy.totalCount}</span>
