@@ -8,7 +8,7 @@ const CategorysPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
   <Global>
-    <Helmet title={`Categorys | ${title}`} />
+    <Helmet title={`Categories | ${title}`} />
     <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
         <div className='container'>
@@ -16,7 +16,7 @@ const CategorysPage = ({
             <div className='column is-10 is-offset-1'>
               <div className='section'>
                 <h1 className='title'>
-                               Categorys
+                               Categories
                 </h1>
               </div>
             </div>
@@ -34,7 +34,7 @@ const CategorysPage = ({
             <ul className='taglist field is-grouped is-grouped-multiline'>
               {group.map(categroy => (
                 <li className='control' key={categroy.fieldValue}>
-                  <Link to={`/categroys/${kebabCase(categroy.fieldValue)}/`}>
+                  <Link to={`/categorys/${kebabCase(categroy.fieldValue)}/`}>
                     <div className='tags has-addons is-large'>
                       <span className='tag is-primary'>{categroy.fieldValue}</span>
                       <span className='tag is-dark'>{categroy.totalCount}</span>

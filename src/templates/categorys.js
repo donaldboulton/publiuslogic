@@ -13,27 +13,27 @@ class CategoryRoute extends Component {
         </Link>
       </li>
     ))
-    const category = this.props.pageContext.categroy
+    const categorys = this.props.pageContext.categroys
     const title = this.props.data.site.siteMetadata.title
     const totalCount = this.props.data.allMarkdownRemark.totalCount
-    const categoryHeader = `${totalCount} post${
+    const categorysHeader = `${totalCount} post${
       totalCount === 1 ? '' : 's'
-    } tagged with “${category}”`
+    } tagged with “${categorys}”`
 
     return (
       <Global pageTitle={title}>
         <section className='section'>
-          <Helmet title={`${category} | ${title}`} />
+          <Helmet title={`${categorys} | ${title}`} />
           <div className='container content'>
             <div className='columns'>
               <div
                 className='column is-10 is-offset-1'
                 style={{ marginBottom: '6rem' }}
               >
-                <h3 className='title is-size-4 is-bold-light'>{categoryHeader}</h3>
+                <h3 className='title is-size-4 is-bold-light'>{categorysHeader}</h3>
                 <ul className='taglist read-more'>{postLinks}</ul>
                 <p>
-                  <Link className='button is-primary' to='/tags/'>Browse all tags →</Link>
+                  <Link className='button is-primary' to='/categories/'>Browse all categories →</Link>
                 </p>
               </div>
             </div>

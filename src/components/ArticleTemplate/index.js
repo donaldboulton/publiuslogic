@@ -25,7 +25,7 @@ const ArticleTemplate = ({
   content,
   contentComponent,
   cover,
-  category,
+  categorys,
   meta_title,
   meta_desc,
   date,
