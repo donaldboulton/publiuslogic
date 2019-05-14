@@ -21,6 +21,9 @@ module.exports = {
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
       stripe_public_key_test: `pk_test_Bin5YLSAsXbOcn9hv3tqqqq8001xk1vJdU`,
+      social: {
+        twitter: `donboulton`,
+      },
 
     },
   },
@@ -99,12 +102,17 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-cloudinary-image-gallery`,
+      resolve: `gatsby-source-cloudinary`,
       options: {
-        cloudName: process.env.CLOUDINARY_CLOUDNAME,
-        apiKey: process.env.CLOUDINARY_API_KEY,
-        apiSecret: process.env.CLOUDINARY_API_SECRET,
-        folders: ['publiuslogic', 'photos'],
+        cloudName: 'mansbooks',
+        apiKey: '324844521422818',
+        apiSecret: 'YV_QcgNBmqXayzvVN2vrRtMWDkA',
+        resourceType: `image`,
+        type: `type Value`,
+        maxResults: `Max result`,
+        tags: `fetch image tags?`,
+        prefix: `abc-xyz/`,
+        context: true,
       },
     },
     {

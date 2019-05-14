@@ -9,5 +9,3 @@ meta_description: >-
 ---
 
 ## Cat Photos
-
-<photo-gallery folder='photos' columns='3,3,6'></photo-gallery>

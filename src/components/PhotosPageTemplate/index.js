@@ -30,7 +30,7 @@ const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, 
           <div className='columns is-10 is-offset-1'>
             <div className='column'>
               <SectionTitle>My Cats</SectionTitle>
-              <Gallery folder='photos' columns='3,3,6' />
+              <Gallery folder='photos' />
               <div>
                 <PageContent className='content' content={content} />
               </div>
