@@ -7,8 +7,14 @@ export const pageQuery = () => {
         markdownRemark {
           id          
           frontmatter {
+            date(formatString: "MMMM DD, YYYY")
             title
+            cover
+            categorys
+            meta_title
+            meta_description
             tweet_id
+            tags
         }
       }
     }

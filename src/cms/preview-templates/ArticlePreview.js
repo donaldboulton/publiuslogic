@@ -8,9 +8,9 @@ const ArticlePreview = ({ entry, widgetFor }) => {
       content={widgetFor('body')}
       cover={entry.getIn(['data', 'cover'])}
       date={entry.getIn(['data', 'datetime'])}
-      category={entry.getIn(['data', 'category'])}
+      categorys={entry.getIn(['data', 'categorys'])}
       meta_title={entry.getIn(['data', 'meta_title'])}
-      meta_desc={entry.getIn(['data', 'meta_description'])}
+      meta_description={entry.getIn(['data', 'meta_description'])}
       title={entry.getIn(['data', 'title'])}
       slug={entry.getIn(['data', 'slug'])}
     />

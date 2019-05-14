@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Content from '../Content'
-import Gallery from '../Gallery'
+import Cloudinary from '../Cloudinary'
 import PropTypes from 'prop-types'
 import { media } from '../Hero/style'
 
@@ -30,10 +30,10 @@ const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, 
           <div className='columns is-10 is-offset-1'>
             <div className='column'>
               <SectionTitle>My Cats</SectionTitle>
-              <Gallery folder='photos' />
               <div>
                 <PageContent className='content' content={content} />
               </div>
+              <Cloudinary />
             </div>
           </div>
         </div>

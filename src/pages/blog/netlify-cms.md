@@ -30,3 +30,5 @@ Content is stored in your Git repository along side your code for easier version
 
 Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backends to support different Git platform APIs.
 My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
+
+`oembed: https://www.youtube.com/embed/2Xc9gXyf2G4`
