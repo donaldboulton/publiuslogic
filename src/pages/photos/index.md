@@ -1,7 +1,8 @@
 ---
 templateKey: photos-page
 title: Photos
-cover: ./tiger.jpg
+slug: Photos
+cover: ./photos/tiger.jpg
 meta_title: Cat Photos
 meta_description: >-
   This website is built as static HTML with Gatsby component-modular builds including a Node backend, with React components and Built with Webpack.
@@ -9,4 +10,4 @@ meta_description: >-
 
 ## Cat Photos
 
-My kitty Cats
+<photo-gallery folder='photos' columns='3,3,6'></photo-gallery>

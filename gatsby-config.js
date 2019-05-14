@@ -106,12 +106,22 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: `gatsby-plugin-cloudinary-image-gallery`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUDNAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        folders: ['publiuslogic', 'photos'],
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
+          `gatsby-remark-component`,
           {
             resolve: 'gatsby-remark-external-links',
             options: {

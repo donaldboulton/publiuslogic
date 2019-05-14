@@ -1,62 +1,43 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import Img from '../Photos'
-import styled from 'styled-components'
-import { Dialog } from '@reach/dialog'
-import '@reach/dialog/styles.css'
+import React from 'react'
+import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery'
+import 'lightgallery.js/dist/css/lightgallery.css'
 
-const LightboxContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 5px;
-`
+const GROUP1 = [
+  'https://publiuslogic.com/photos/boys-cat-house.jpg',
+  'https://publiuslogic.com/photos/tiger.jpg',
+]
 
-const PreviewButton = styled.button`
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-`
+const GROUP2 = [
+  'https://publiuslogic.com/photos/ready-for-lunch.jpg',
+  'https://publiuslogic.com/photos/little-hun.jpg',
+  'https://publiuslogic.com/photos/boys-kittens.jpg',
+]
 
-export default class Lightbox extends Component {
-  static propTypes = {
-    photosImages: PropTypes.array.isRequired, // eslint-disable-line
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      showLightbox: false,
-      selectedImage: null,
-    };
-  }
-
-  render () {
-    const { photosImages } = this.props
-    const { selectedImage, showLightbox } = this.state
-    return (
-      <Fragment>
-        <LightboxContainer>
-          {photosImages.map(image => (
-            <PreviewButton
-              key={image.node.childImageSharp.fluid.src}
-              type='button'
-              onClick={() => this.setState({ showLightbox: true, selectedImage: image })}
-            >
-              <Img fluid={image.node.childImageSharp.fluid} />
-            </PreviewButton>
+const LightGallery = ({ image, group, title, PhotoItem }) => {
+  return (
+    <>
+      <div style={{ maxWidth: '250px', width: '200px', padding: '5px' }}>
+        <LightgalleryItem group={group} src={image}>
+          <img src={image} style={{ width: '100%' }} />
+        </LightgalleryItem>
+      </div>
+      <LightgalleryProvider>
+        <h1 style={{ textAlign: 'center' }}>Group 1</h1>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          {GROUP1.map((p, title) => (
+            <PhotoItem key={title} image={p} group='group1' />
           ))}
-        </LightboxContainer>
-        {showLightbox && (
-          <Dialog>
-            <Img fluid={selectedImage.node.childImageSharp.fluid} />
-            <button type='button' onClick={() => this.setState({ showLightbox: false })}>
-              Close
-            </button>
-          </Dialog>
-        )}
-      </Fragment>
-    )
-  }
+        </div>
+        <h1 style={{ textAlign: 'center' }}>Group 2</h1>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          {GROUP2.map((p, title) => (
+            <PhotoItem key={title} image={p} group='group2' />
+          ))}
+        </div>
+      </LightgalleryProvider>
+    </>
+  )
 }
+
+export default LightGallery
+

@@ -73,7 +73,7 @@ export const pageQuery = graphql`
   query ArticleByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
-      html
+      htmlAst
       fields {
         slug
       }      

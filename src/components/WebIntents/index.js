@@ -32,11 +32,22 @@ const WebIntents = ({ slug }) => {
                 </a>
               </p>
               <p className='control'>
-                <a itemProp='url' rel='no-follow' aria-label='like' name={title} key={id} href='https://twitter.com/messages/compose?recipient_id=&ref_src=twsrc%5Etfw' className='twitter-dm-button button is-small twitter-btn' data-screen-name='donboulton' data-show-count='false' target='_blank'>
+                <a 
+                  itemProp='url'
+                  rel='no-follow'
+                  aria-label='like'
+                  name={title}
+                  key={id}
+                  href='https://twitter.com/messages/compose?recipient_id=&ref_src=twsrc%5Etfw'
+                  className='twitter-dm-button button is-small twitter-btn'
+                  data-screen-name='donboulton'
+                  data-show-count='false'
+                  target='_blank'
+                >
                   <span>
                     <Twitter size='14' />
                   </span>
-                  <span>&nbsp;Message</span>
+                  <span>Message</span>
                 </a>
               </p>
             </div>
