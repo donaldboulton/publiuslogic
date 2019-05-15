@@ -6,7 +6,7 @@ import request from 'superagent'
 import Dropzone from 'react-dropzone'
 import { photosUploaded, updateUploadedPhoto } from '../../actions'
 import UploadedPhotoStatusContainer from './UploadedPhotosStatus'
-
+import './style.css'
 class PhotosUploader extends Component {
   constructor (props, context) {
     super(props, context)
@@ -38,20 +38,20 @@ class PhotosUploader extends Component {
             <form>
               <div className='form_line'>
                 <label path='title'>Title:</label>
-                <div className='form_controls'>
+                <div className='control'>
                   <input
                     type='text'
                     ref={titleEl =>
                       (this.titleEl = titleEl)
                     }
-                    className='form-control'
+                    className='input'
                     placeholder='Title'
                   />
                 </div>
               </div>
               <div className='form_line'>
                 <label>Image:</label>
-                <div className='form_controls'>
+                <div className='control'>
                   <div className='upload_button_holder'>
                     <label
                       className='upload_button'

@@ -7,6 +7,7 @@ import { photosUploaded } from '../../actions'
 import Photo from './Photo'
 import FacebookImage from './FacebookImage'
 import Introduction from './Introduction'
+import 'babel-polyfill'
 
 class PhotoList extends Component {
   render () {

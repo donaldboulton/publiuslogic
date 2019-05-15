@@ -1,67 +1,67 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import { CloudinaryContext, Image } from 'cloudinary-react'
-import { photosFetched } from '../../actions'
-import PhotoListContainer from './PhotoList'
-import PhotosUploaderContainer from './PhotosUploader'
-import { fetchPhotos } from '../../utils/CloudinaryService'
-import './style.css'
+/* eslint-disable indent */
+import React, { Component, Fragment } from 'react'
+import axios from 'axios'
+import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
+import UploadWidget from './UploadWidget'
 
-class App extends Component {
-  componentDidMount () {
-    fetchPhotos(this.props.cloudName).then(this.props.onPhotosFetched)
+class Gallery extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      gallery: [],
+    }
   }
-
+  componentDidMount () {
+    // Request for images tagged cats
+    axios.get('https://res.cloudinary.com/mansbooks/image/list/cats.json')
+      .then(res => {
+        console.log(res.data.resources)
+        this.setState({ gallery: res.data.resources })
+      })
+  }
+  uploadWidget () {
+    let _this = this
+    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'dropbox'], dropboxAppKey: 'fk4ayp4zwevjgl7' },
+        function (error, result) {
+        // Update gallery state with newly uploaded image
+            _this.setState({ gallery: _this.state.gallery.concat(result) })
+        })
+  }
   render () {
     return (
-      <CloudinaryContext
-        cloudName={this.props.cloudName}
-        uploadPreset={this.props.uploadPreset}
-      >
-        { /* This will render the image fetched from a remote HTTP URL using Cloudinary */ }
-        <Image
-          type='fetch'
-          publicId='https://cloudinary.com/images/logo.png'
-          fetch-format='auto'
-          quality='auto'
-        />
-        <BrowserRouter>
-          <Switch className='router'>
-            <Route
-              exact
-              path='/photos'
-              component={PhotoListContainer}
-            />
-            <Route
-              exact
-              path='/photos/new'
-              component={PhotosUploaderContainer}
-            />
-            <Redirect from='/' to='/photos' />
-          </Switch>
-        </BrowserRouter>
-      </CloudinaryContext>
+      <Fragment>
+        <div className='main columns is-mobile'>
+          <div className='gallery column is-four-fifths'>
+            <CloudinaryContext cloudName='mansbooks'>
+              {
+              this.state.gallery.map(data => {
+                return (
+                  <div className='responsive' key={data.public_id}>
+                    <div className='img'>
+                      <a target='_blank' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
+                        <Image publicId={data.public_id}>
+                          <Transformation
+                            crop='scale'
+                            width='300'
+                            height='200'
+                            dpr='auto'
+                            responsive_placeholder='blank'
+                          />
+                        </Image>
+                      </a>
+                      <div className='desc'>Created at {data.created_at}</div>
+                    </div>
+                  </div>
+                )
+              })
+            }
+            </CloudinaryContext>
+          </div>
+          <UploadWidget />
+        </div>
+      </Fragment>
     )
   }
 }
 
-App.propTypes = {
-  cloudName: PropTypes.string,
-  uploadPreset: PropTypes.string,
-  onPhotosFetched: PropTypes.func,
-}
-
-App.contextTypes = {
-  cloudName: PropTypes.string,
-  uploadPreset: PropTypes.string,
-}
-
-const AppContainer = connect(
-  null,
-  { onPhotosFetched: photosFetched }
-)(App)
-Object.assign(AppContainer.contextTypes, App.contextTypes)
-
-export default AppContainer
+export default Gallery
