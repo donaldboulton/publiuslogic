@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 
 import { MasonryDiv, Col } from './styles'
 
-export default function Masonry ({ children, gap, minWidth = 100 }) {
+export default function Masonry ({ images, gap, minWidth = 100 }) {
   const cols = []
   const ref = useRef()
   const [numCols, setNumCols] = useState(3)
@@ -12,7 +12,6 @@ export default function Masonry ({ children, gap, minWidth = 100 }) {
 
   const createCols = () => {
     for (let i = 0; i < numCols; i++) cols[i] = []
-    children.forEach((child, i) => cols[i % numCols].push(child))
   }
 
   useEffect(() => {

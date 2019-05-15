@@ -17,7 +17,7 @@ const ArticlePage = ({ data }) => {
     <Global title={post.frontmatter.title}>
       <section className='hero'>
         <div>
-          <img src={post.frontmatter.cover} alt={post.frontmatter.title} />
+          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
         </div>
       </section>
       <section className='section'>

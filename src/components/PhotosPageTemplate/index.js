@@ -3,10 +3,11 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Content from '../Content'
 import Cloudinary from '../Cloudinary'
+import UploadWidget from '../Cloudinary/UploadWidget'
 import PropTypes from 'prop-types'
 import { media } from '../Hero/style'
 
-const SectionTitle = styled.h2`
+const SectionPageTitle = styled.h2`
   font-size: 2em;
   margin: 0.67em 0;
   ${media.xs`
@@ -26,14 +27,17 @@ const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, 
         <img className='full-width-image' src={cover} alt={title} />
       </div>
       <section className='section section--gradient'>
+        <SectionPageTitle>My Cats</SectionPageTitle>
         <div className='container'>
-          <div className='columns is-10 is-offset-1'>
-            <div className='column'>
-              <SectionTitle>My Cats</SectionTitle>
-              <div>
+          <div className='is-10 is-offset-1'>
+            <div><UploadWidget /></div>          
+            <div>
+              <Cloudinary />
+            </div>
+            <div>
+              <div className='container'>
                 <PageContent className='content' content={content} />
               </div>
-              <Cloudinary />
             </div>
           </div>
         </div>

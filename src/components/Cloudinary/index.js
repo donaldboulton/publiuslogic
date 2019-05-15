@@ -1,8 +1,18 @@
 /* eslint-disable indent */
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
-import UploadWidget from './UploadWidget'
+import { MasonryDiv, Col } from './styles'
+import { media } from '../Hero/style'
+
+const SectionTitle = styled.h2`
+  font-size: 2em;
+  margin: 0.67em 0;
+  ${media.xs`
+    font-size:1.5em;
+  `}
+`
 
 class Gallery extends Component {
   constructor (props) {
@@ -30,36 +40,30 @@ class Gallery extends Component {
   render () {
     return (
       <Fragment>
-        <div className='main'>
-          <UploadWidget />
-          <div className='gallery columns is-mobile'>
-            <CloudinaryContext cloudName='mansbooks'>
-              {
+        <MasonryDiv>
+          <CloudinaryContext cloudName='mansbooks'>
+            {
               this.state.gallery.map(data => {
                 return (
-                  <div className='column' key={data.public_id}>
-                    <div className='img'>
-                      <a target='_blank' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
-                        <Image publicId={data.public_id}>
-                          <Transformation
-                            crop='scale'
-                            width='300'
-                            height='200'
-                            dpr='auto'
-                            fetchFormat='auto'
-                            responsive_placeholder='blank'
+                  <Col key={data.public_id} className='responsive'>
+                    <a target='_blank' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
+                      <Image publicId={data.public_id}>
+                        <Transformation
+                          crop='scale'
+                          width='300'
+                          height='200'
+                          dpr='auto'
+                          responsive_placeholder='blank'
                           />
-                        </Image>
-                      </a>
-                      <div className='desc'>Created at {data.created_at}</div>
-                    </div>
-                  </div>
+                      </Image>
+                    </a>
+                    <SectionTitle>Created {data.created_at}</SectionTitle>
+                  </Col>
                 )
               })
             }
-            </CloudinaryContext>
-          </div>
-        </div>
+          </CloudinaryContext>
+        </MasonryDiv>
       </Fragment>
     )
   }
