@@ -14,7 +14,9 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
-    "clean": "rm -rf public/ .cache/"
+    "clean": "rm -rf public/ .cache/",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
@@ -114,7 +116,8 @@
     "uglifyjs-webpack-plugin": "^2.1.2",
     "uploadcare-widget": "^3.7.0",
     "with-utterances": "^1.4.1",
-    "xstate": "^4.5.0"
+    "xstate": "^4.5.0",
+    "snyk": "^1.164.0"
   },
   "remarkConfig": {
     "plugins": [
@@ -147,5 +150,6 @@
     "node_modules",
     ".cache",
     "public"
-  ]
+  ],
+  "snyk": true
 }
