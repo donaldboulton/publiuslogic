@@ -13,7 +13,7 @@ class Gallery extends Component {
   }
   componentDidMount () {
     // Request for images tagged cats
-    axios.get('https://res.cloudinary.com/mansbooks/image/list/cats.json')
+    axios.get('https://res.cloudinary.com/mansbooks/image/list/v1557911334/cats.json')
       .then(res => {
         console.log(res.data.resources)
         this.setState({ gallery: res.data.resources })
@@ -30,13 +30,14 @@ class Gallery extends Component {
   render () {
     return (
       <Fragment>
-        <div className='main columns is-mobile'>
-          <div className='gallery column is-four-fifths'>
+        <div className='main'>
+          <UploadWidget />
+          <div className='gallery columns is-mobile'>
             <CloudinaryContext cloudName='mansbooks'>
               {
               this.state.gallery.map(data => {
                 return (
-                  <div className='responsive' key={data.public_id}>
+                  <div className='column' key={data.public_id}>
                     <div className='img'>
                       <a target='_blank' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
                         <Image publicId={data.public_id}>
@@ -45,6 +46,7 @@ class Gallery extends Component {
                             width='300'
                             height='200'
                             dpr='auto'
+                            fetchFormat='auto'
                             responsive_placeholder='blank'
                           />
                         </Image>
@@ -57,7 +59,6 @@ class Gallery extends Component {
             }
             </CloudinaryContext>
           </div>
-          <UploadWidget />
         </div>
       </Fragment>
     )

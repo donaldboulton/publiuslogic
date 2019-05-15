@@ -10,7 +10,7 @@ class UploadWidget extends Component {
   }
   render () {
     return (
-      <div className='main column'>
+      <div className='main'>
         <Helmet>
           <script src='https://widget.cloudinary.com/v2.0/global/all.js' type='text/javascript' />
         </Helmet>
