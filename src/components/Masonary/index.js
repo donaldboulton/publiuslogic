@@ -1,35 +1,48 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { Component, createRef } from 'react'
 
-import { MasonryDiv, Col } from './styles'
+import { Parent, Child } from './styles'
 
-export default function Masonry ({ images, gap, minWidth = 100 }) {
-  const cols = []
-  const ref = useRef()
-  const [numCols, setNumCols] = useState(3)
-
-  const calcNumCols = () =>
-    setNumCols(Math.floor(ref.current.offsetWidth / minWidth))
-
-  const createCols = () => {
-    for (let i = 0; i < numCols; i++) cols[i] = []
+export default class Masonry extends Component {
+  static defaultProps = {
+    rowHeight: 40, // in pixels
+    colWidth: `17em`,
   }
 
-  useEffect(() => {
-    calcNumCols()
-    window.addEventListener(`resize`, calcNumCols)
-    return () => window.removeEventListener(`resize`, calcNumCols)
-  })
-  createCols()
+  state = { spans: [] }
+  ref = createRef()
+  // sums up the heights of all child nodes for each grid item
+  sumUp = (acc, node) => acc + node.scrollHeight
 
-  return (
-    <MasonryDiv ref={ref} gap={gap}>
-      {Array(numCols)
-        .fill()
-        .map((el, i) => (
-          <Col key={i} gap={gap}>
-            {cols[i]}
-          </Col>
+  computeSpans = () => {
+    const { rowHeight } = this.props
+    const spans = []
+    Array.from(this.ref.current.children).forEach(child => {
+      const childHeight = Array.from(child.children).reduce(this.sumUp, 0)
+      const span = Math.ceil(childHeight / rowHeight)
+      spans.push(span + 1)
+      child.style.height = span * rowHeight + `px`
+    })
+    this.setState({ spans })
+  }
+
+  componentDidMount () {
+    this.computeSpans()
+    window.addEventListener('resize', this.computeSpans)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.computeSpans)
+  }
+
+  render () {
+    return (
+      <Parent ref={this.ref} {...this.props}>
+        {this.props.children.map((child, i) => (
+          <Child key={i} span={this.state.spans[i]}>
+            {child}
+          </Child>
         ))}
-    </MasonryDiv>
-  )
+      </Parent>
+    )
+  }
 }
