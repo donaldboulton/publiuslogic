@@ -56,7 +56,6 @@ class Gallery extends Component {
                           crop='scale'
                           width='250'
                           height='170'
-                          radius='4px'
                           dpr='auto'
                           responsive_placeholder='blank'
                         />
