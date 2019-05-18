@@ -50,13 +50,15 @@ class Gallery extends Component {
               this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
-                    <a target='_blank' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
+                    <a target='_blank' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.webp`}>
                       <Image publicId={data.public_id}>
                         <Transformation
                           crop='scale'
                           width='250'
                           height='170'
+                          radius='6'
                           dpr='auto'
+                          fetchFormat='auto'
                           responsive_placeholder='blank'
                         />
                       </Image>

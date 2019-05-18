@@ -99,6 +99,7 @@
     "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
+    "react-image-lightbox": "^5.1.0",
     "react-lightgallery": "^0.3.0",
     "react-router-dom": "^5.0.0",
     "react-scroll": "^1.7.11",
@@ -107,6 +108,7 @@
     "react-typist": "^2.0.5",
     "reading-time": "^1.2.0",
     "sharp": "^0.22.1",
+    "snyk": "^1.164.0",
     "styled-components": "^4.2.0",
     "styled-css-grid": "^1.2.1",
     "styled-icons": "^7.14.0",
@@ -117,8 +119,7 @@
     "uglifyjs-webpack-plugin": "^2.1.2",
     "uploadcare-widget": "^3.7.0",
     "with-utterances": "^1.4.1",
-    "xstate": "^4.5.0",
-    "snyk": "^1.164.0"
+    "xstate": "^4.5.0"
   },
   "remarkConfig": {
     "plugins": [
