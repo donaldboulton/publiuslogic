@@ -43,7 +43,7 @@ const ArticleTemplate = ({
         {title}
       </h1>
       <ScrollDown
-        direction='down' to={15}
+        direction='down' to={25}
         showAbove={-1500}
         css='position: fixed; right: 1em; top: 4.5em;'
       />
@@ -65,18 +65,24 @@ const ArticleTemplate = ({
           <WebIntents />
         </div>
       </div>
-      <div style={{ marginTop: `2rem` }}>
-        <h4>Tags</h4>
-        <ul className='taglist'>
-          {(tags && tags.length)
-            ? tags.map(tag => (
-              <li key={tag + `tag`}>
-                <Link className='button is-primary' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-              </li>
-            ))
-            : null
-          }
-        </ul>
+      <div className='columns is-vcentered'>
+        <div className='column is-three-quarters' style={{ marginTop: `2rem` }}>
+          <h4>Tags</h4>
+          <ul className='taglist'>
+            {(tags && tags.length)
+              ? tags.map(tag => (
+                <li key={tag + `tag`}>
+                  <Link className='button is-primary' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                </li>
+              ))
+              : null
+            }
+          </ul>
+        </div>
+        <div className='column is-pulled-right'>
+          <h4>Category</h4>
+          <Link className='button is-primary' to={`/categories/`}>{categorys}</Link>
+        </div>
       </div>
       <hr />
     </div>

@@ -46,7 +46,7 @@ class PhotoList extends Component {
           })}
         </div>
         <div className='note'>
-                    Take a look at our documentation of{' '}
+                    Take a look at our documentation of {' '}
           <a
             href='https://cloudinary.com/documentation/image_transformations'
             target='_blank'

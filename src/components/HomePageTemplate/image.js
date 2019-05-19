@@ -109,7 +109,7 @@ const Styledh1 = styled.h1`
   font-size: 80px;
   line-height: 0.9;
   padding: 20px;
-  font-family: 'bowlby-one-sc', sans-serif;
+  font-family: 'Bowlby', sans-serif;
   text-transform: uppercase;
   z-index: 22;
   background: radial-gradient(
@@ -126,7 +126,7 @@ const Styledh2 = styled.h2`
   font-size: 50px;
   line-height: 0.9;
   padding: 20px;
-  font-family: 'bowlby-one-sc', sans-serif;
+  font-family: 'Bowlby', sans-serif;
   z-index: 22;
   background: radial-gradient(
     circle farthest-corner at center center,

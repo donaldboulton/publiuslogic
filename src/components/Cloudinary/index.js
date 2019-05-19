@@ -50,7 +50,7 @@ class Gallery extends Component {
               this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
-                    <a target='_blank' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.webp`}>
+                    <a target='popup' popup='popup' width='800' height='600' scrollbars='no' resizable='no' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.webp`} return false>
                       <Image publicId={data.public_id}>
                         <Transformation
                           crop='scale'
