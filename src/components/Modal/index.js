@@ -44,7 +44,7 @@ export default function Modal({ open, modal, setModal, children, ...rest }) {
               </>
             )}
           </ThemeProvider>
-          {children}
+          {this.props.children}
         </ModalContainer>
       </ModalBackground>
     )

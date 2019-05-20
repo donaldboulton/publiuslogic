@@ -4,6 +4,7 @@ import Header from '../Header'
 import Footer from '../Footer'
 import Hr from '../Hr'
 import Slack from '../Slack'
+import HotJar from '../HotJar'
 import Subscriptions from '../Subscriptions'
 import Adds from '../GoogleAdds'
 import Scroll from '../Scroll'
@@ -19,6 +20,7 @@ class Global extends Component {
           <Fragment itemScope='itemScope' itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>
           <Subscriptions />
           <Slack />
+          <HotJar />
           <Adds />
           <Hr />
           <Scroll
