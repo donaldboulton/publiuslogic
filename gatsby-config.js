@@ -152,15 +152,14 @@ module.exports = {
           },
           {
             resolve: `@raae/gatsby-remark-oembed`,
+            usePrefix: true,
             options: {
               providers: {
                 settings: {
                   Twitter: {
                     theme: 'dark',
                   },
-                  Instagram: {
-                    hidecaption: true,
-                  },
+                  exclude: ['Reddit, Instagram, Replit, Sound Cloud, Vimeo, Spotify, Flickr'],
                 },
               },
             },
@@ -332,6 +331,13 @@ module.exports = {
       resolve: `gatsby-plugin-mailchimp`,
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
+      },
+    },
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        id: 1328362,
+        sv: 6,
       },
     },
     {

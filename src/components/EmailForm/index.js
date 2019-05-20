@@ -10,19 +10,43 @@ const encode = (data) => {
 }
 
 class ContactForm extends Component {
-  constructor (props) {
-    super(props)
+  constructor (props, context) {
+    super(props, context)
     this.state = { isValidated: false }
+    this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this)
+    this.verifyCallback = this.verifyCallback.bind(this)
+  }
+
+  componentDidMount () {
+    if (this.captchaDemo) {
+      console.log('started, just a second...')
+      this.captchaDemo.reset()
+    }
+  }
+  onLoadRecaptcha () {
+    if (this.captchaDemo) {
+      this.captchaDemo.reset();
+    }
+  }
+
+  verifyCallback (recaptchaToken) {
+    // Here you will get the final recaptchaToken!!!  
+    console.log(recaptchaToken, '<= your recaptcha token')
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.email]: e.target.value })
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
-
-  handleRecaptcha = value => {
-    this.setState({ 'g-recaptcha-response': value })
+  handleChange = e => {
+    this.setState({ [e.target.message]: e.target.value })
   }
-
+  handleChange = e => {
+    this.setState({ [e.target.Recaptcha]: e.target.value })
+  }
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -89,12 +113,14 @@ class ContactForm extends Component {
             </div>
             <div className='field'>
               <Recaptcha
-                ref='recaptcha'
+                ref={(el) => { this.captchaDemo = el }}
                 sitekey='6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
                 theme='dark'
+                size='compact'
                 render='explicit'
-                onloadCallback='Done'
-                onChange={this.handleRecaptcha}
+                onloadCallback={this.onLoadRecaptcha}
+                verifyCallback={this.verifyCallback}
+                onChange={this.handleChange}
               />
             </div>
             <div className='field'>

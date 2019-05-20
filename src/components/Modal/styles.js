@@ -46,8 +46,8 @@ const controlsCss = css`
   position: absolute;
   cursor: pointer;
   z-index: 1;
-  color: ${props => props.theme.whiteControls && `white`};
-  background: ${props => props.theme.whiteControls && `rgba(0, 0, 0, 0.5)`};
+  color: ${props => props.theme.whiteControls && `rgba(0, 0, 0, 0.5)`};
+  background: ${props => props.theme.whiteControls && `rgba(204,204,204,1)`};
   padding: 0.1em;
   transition: ${props => props.theme.shortTrans};
   width: 1.6em;

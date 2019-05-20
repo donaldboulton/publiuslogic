@@ -5829,6 +5829,13 @@ gatsby-plugin-gtag@^1.0.10:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-gtag/-/gatsby-plugin-gtag-1.0.10.tgz#6e181ba67319adff2f1512ba23369954e8117d1c"
   integrity sha512-euMp/ASUVL4Ear/FNPioNRG8u980RFeigTmS0pYyeUBqI5T3GcEm/6evc3KGwAWXWd4+e7UG6lofxWPtRDy9yw==
 
+gatsby-plugin-hotjar@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-hotjar/-/gatsby-plugin-hotjar-1.0.1.tgz#f5703d7d2a354752e20230a0074d53c7287d8950"
+  integrity sha512-1iZIftJin3Ti51ho7HiGes2ZiXZhU0/sSe6OCvULy3F9hSpADrX5jU48ajnZnrS1O0lf7pyVfjvBBpXOawASHw==
+  dependencies:
+    babel-runtime "^6.26.0"
+
 gatsby-plugin-mailchimp@5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-mailchimp/-/gatsby-plugin-mailchimp-5.1.0.tgz#10e5235d0d807ec1bd681c8c0fa636f4a6064491"

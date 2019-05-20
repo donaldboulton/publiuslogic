@@ -43,6 +43,7 @@
     "gatsby-plugin-create-client-paths": "^2.0.5",
     "gatsby-plugin-feed": "^2.2.0",
     "gatsby-plugin-gtag": "^1.0.10",
+    "gatsby-plugin-hotjar": "^1.0.1",
     "gatsby-plugin-mailchimp": "5.1.0",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-netlify": "^2.0.15",

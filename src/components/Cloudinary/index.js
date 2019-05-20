@@ -34,23 +34,24 @@ class Gallery extends Component {
   uploadWidget () {
     let _this = this
     cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'dropbox'], dropboxAppKey: 'fk4ayp4zwevjgl7' },
-        function (error, result) {
-        // Update gallery state with newly uploaded image
-            _this.setState({ gallery: _this.state.gallery.concat(result) })
-        })
+      function (error, result) {
+      // Update gallery state with newly uploaded image
+          _this.setState({ gallery: _this.state.gallery.concat(result) })
+      })
   }
   render () {
     return (
-      <Fragment>
-        <SectionTitle>Gallery</SectionTitle>
-        <div>
-          <CloudinaryContext cloudName='mansbooks'>
-            <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
-              {
-              this.state.gallery.map(data => {
+      <div>
+        <Fragment>
+          <SectionTitle>Gallery</SectionTitle>
+          <div>
+            <CloudinaryContext cloudName='mansbooks'>
+              <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
+                {
+                this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
-                    <a target='popup' popup='popup' width='800' height='600' scrollbars='no' resizable='no' href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.webp`} return false>
+                    <a href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
                       <Image publicId={data.public_id}>
                         <Transformation
                           crop='scale'
@@ -64,13 +65,14 @@ class Gallery extends Component {
                       </Image>
                     </a>
                   </Cell>
-                )
-              })
-            }
-            </Grid>
-          </CloudinaryContext>
-        </div>
-      </Fragment>
+                  )
+                })
+              }
+              </Grid>
+            </CloudinaryContext>
+          </div>
+        </Fragment>
+      </div>
     )
   }
 }
