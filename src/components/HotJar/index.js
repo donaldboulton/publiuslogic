@@ -38,7 +38,7 @@ const HotJar = () => {
                   <img
                     src={hotjar}
                     alt='Hotjar'
-                    style={{ width: '129px', height: '60px' }}
+                    style={{ width: '159px', height: '90px' }}
                   />
                 </span>
               </a>
