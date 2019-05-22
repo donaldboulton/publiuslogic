@@ -4,7 +4,9 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 import { Grid, Cell } from 'styled-css-grid'
-import { media } from '../Hero/style'
+import { media } from '../../utils/mediaQuery'
+import Lightbox from 'react-image-lightbox'
+import 'react-image-lightbox/style.css'
 
 const SectionTitle = styled.h3`
   font-size: 1em;
@@ -17,11 +19,16 @@ const SectionTitle = styled.h3`
 class Gallery extends Component {
   constructor (props) {
     super(props)
+    this.link = React.createRef()
     this.state = {
       gallery: [],
+      isOpen: false,
+      link: this.href,
     }
   }
-
+  onLink (event) {
+    this.setState({ link: this.href = `https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg` })
+ }
   componentDidMount () {
     // Request for images tagged cats
     axios.get('https://res.cloudinary.com/mansbooks/image/list/v1557911334/cats.json')
@@ -40,30 +47,29 @@ class Gallery extends Component {
       })
   }
   render () {
+    const { gallery, public_id, isOpen } = this.state
     return (
       <div>
         <Fragment>
-          <SectionTitle>Gallery</SectionTitle>
+          <SectionTitle>Cat Gallery</SectionTitle>
           <div>
             <CloudinaryContext cloudName='mansbooks'>
               <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
                 {
                 this.state.gallery.map(data => {
                 return (
-                  <Cell key={data.public_id}>
-                    <a href={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
-                      <Image publicId={data.public_id}>
-                        <Transformation
-                          crop='scale'
-                          width='250'
-                          height='170'
-                          radius='6'
-                          dpr='auto'
-                          fetchFormat='auto'
-                          responsive_placeholder='blank'
+                  <Cell key={data.public_id} onClick={() => this.setState({ isOpen: true })}>
+                    <Image publicId={data.public_id} link={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
+                      <Transformation
+                        crop='scale'
+                        width='250'
+                        height='170'
+                        radius='6'
+                        dpr='auto'
+                        fetchFormat='auto'
+                        responsive_placeholder='blank'
                         />
-                      </Image>
-                    </a>
+                    </Image>
                   </Cell>
                   )
                 })
@@ -72,6 +78,24 @@ class Gallery extends Component {
             </CloudinaryContext>
           </div>
         </Fragment>
+        {isOpen && (
+          <Lightbox
+            mainSrc={this.state.link}
+            nextSrc={public_id[(gallery + 1) % public_id.length]}
+            prevSrc={public_id[(gallery + public_id.length - 1) % public_id.length]}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                gallery: (gallery + public_id.length - 1) % public_id.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                gallery: (gallery + 1) % public_id.length,
+              })
+            }
+          />
+        )}
       </div>
     )
   }

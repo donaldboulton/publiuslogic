@@ -25,7 +25,7 @@ const AboutSection = () => {
           <div className='card-content'>
             <div className='media'>
               <div className='media-left'>
-                <figure className='image is-48x48'>
+                <figure className='image is-32x32'>
                   <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
                     <img
                       src={github}
@@ -35,8 +35,7 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-4 is-centered'>PubliusLogic</p>
-                <p className='subtitle is-6 is-centered'>To Publish Logic-Common Sense</p>
+                <p className='title is-6 is-centered'>To Publish Logic-Common Sense</p>
               </div>
             </div>
             <div className='content'>
@@ -69,7 +68,7 @@ const AboutSection = () => {
           <div className='card-content'>
             <div className='media'>
               <div className='media-left parent'>
-                <figure className='image is-48x48'>
+                <figure className='image is-32x32'>
                   <img
                     src={webpack}
                     alt='Apollo React'
@@ -77,8 +76,7 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-4 is-centered'>Gatsby Powered</p>
-                <p className='subtitle is-6 is-centered'>React - GraphQL - Webpack</p>
+                <p className='subtitle is-6 is-centered'>Gatsby React GraphQL Powered</p>
               </div>
             </div>
             <div className='content'>
@@ -107,7 +105,7 @@ const AboutSection = () => {
           <div className='card-content'>
             <div className='media'>
               <div className='media-left'>
-                <figure className='image is-48x48'>
+                <figure className='image is-32x32'>
                   <img
                     src={lambda}
                     alt='Netlify Functions'
@@ -115,8 +113,7 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-4 is-centered'>Netlify Hosting</p>
-                <p className='subtitle is-6 is-centered'>Lambda Functions - Docker Build</p>
+                <p className='title is-6 is-centered'>Netlify Hosting Docker Build</p>
               </div>
             </div>
             <div className='content'>

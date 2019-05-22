@@ -1,31 +1,52 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Masonry from '../Masonry'
-import Photo from '../Cloudinary'
+import React, { Component } from 'react'
+import Lightbox from 'react-image-lightbox'
+import 'react-image-lightbox/style.css'
 
-const PhotosList = ({ photos }) => (
-  <Masonry>
-    <div className='photos'>
-      {this.props.photos.map(photo => {
-        return (
-          <Photo
-            key={photo.public_id}
-            publicId={photo.public_id}
+const images = [
+  'https://res.cloudinary.com/mansbooks/image/upload/photos/top-cat.jpg',
+  'https://res.cloudinary.com/mansbooks/image/upload/photos/boys-kittens.jpg',
+  'https://res.cloudinary.com/mansbooks/image/upload/photos/tiger-grass.jpg',
+  'https://res.cloudinary.com/mansbooks/image/upload/photos/Banjo-Relaxing_covers.jpg',
+];
+
+export default class LightboxExample extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      photoIndex: 0,
+      isOpen: false,
+    };
+  }
+
+  render {
+    const { photoIndex, isOpen } = this.state
+
+    return (
+      <div>
+        <button type='button' onClick='{() => this.setState({ isOpen: true })}'>
+          Cat Gallery
+        </button>
+
+        {isOpen && (
+          <Lightbox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
           />
-        )
-      })}
-    </div>
-  </Masonry>
-)
-
-Photo.propTypes = {
-  photos: PropTypes.array,
-  onPhotosUploaded: PropTypes.func,
+        )}
+      </div>
+    )
+  }
 }
-
-Photo.contextTypes = {
-  cloudName: PropTypes.string,
-  uploadPreset: PropTypes.string,
-}
-
-export default PhotosList
