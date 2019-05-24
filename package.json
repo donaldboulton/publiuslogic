@@ -1,6 +1,6 @@
 {
-  "name": "publiuslogic-express",
-  "version": "1.0.0",
+  "name": "publiuslogic",
+  "version": "3.0.0",
   "description": "express app for my gatsby site",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/donaldboulton/publiuslogic.com.git"
+  },
   "dependencies": {
     "env": "^0.0.2",
     "express": "^4.17.0"
