@@ -1,7 +1,6 @@
 [build]
   base    = "client"
   publish = "client/public"
-  publish = "public"
   command = "gatsby build"
   functions = "functions"
 [build.environment]
