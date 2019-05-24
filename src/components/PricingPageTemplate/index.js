@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Pricing from '../Pricing'
+import List from '../SlackFeedback/list'
 import PropTypes from 'prop-types'
 
 const PricingPageTemplate = ({
@@ -40,6 +41,7 @@ const PricingPageTemplate = ({
                 </h2>
                 <p className='is-size-5'>{pricing.description}</p>
                 <Pricing data={pricing.plans} />
+                <List />
               </div>
             </div>
           </div>

@@ -348,7 +348,10 @@ strong
 .button
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 .media-content
-    overflow-x: none !important
+  overflow-x: none !important
+  overflow: hidden !important
+  seamless: seamless !important
+  overflow: -moz-scrollbars-none !important
 .content .taglist
   list-style: none
   margin-bottom: 0
@@ -626,5 +629,7 @@ div.code-toolbar>.toolbar
 .cc-container.cc-theme-orange .cc-icon a:hover
   background-color: #c93c00 !important    
   border-color: #c93c00 !important
-    
+.input-control  
+  border: 1px solid #434040!important    
+
 @import "~bulma"

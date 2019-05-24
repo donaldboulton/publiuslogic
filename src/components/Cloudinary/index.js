@@ -15,7 +15,6 @@ const SectionTitle = styled.h3`
     font-size: .85em;
   `}
 `
-
 class Gallery extends Component {
   constructor (props) {
     super(props)
@@ -26,9 +25,7 @@ class Gallery extends Component {
       link: this.href,
     }
   }
-  onLink (event) {
-    this.setState({ link: this.href = `https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg` })
- }
+
   componentDidMount () {
     // Request for images tagged cats
     axios.get('https://res.cloudinary.com/mansbooks/image/list/v1557911334/cats.json')
@@ -37,7 +34,9 @@ class Gallery extends Component {
         this.setState({ gallery: res.data.resources })
       })
   }
-
+  onLink (event) {
+    this.setState({ link: this.href = `https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg` })
+  }
   uploadWidget () {
     let _this = this
     cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'dropbox'], dropboxAppKey: 'fk4ayp4zwevjgl7' },
@@ -58,8 +57,8 @@ class Gallery extends Component {
                 {
                 this.state.gallery.map(data => {
                 return (
-                  <Cell key={data.public_id} onClick={() => this.setState({ isOpen: true })}>
-                    <Image publicId={data.public_id} link={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
+                  <Cell key={data.public_id}>
+                    <Image publicId={data.public_id} onClick={() => this.setState({ isOpen: true })} link={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
                       <Transformation
                         crop='scale'
                         width='250'
@@ -80,7 +79,7 @@ class Gallery extends Component {
         </Fragment>
         {isOpen && (
           <Lightbox
-            mainSrc={this.state.link}
+            mainSrc={this.state.link.data.public_id}
             nextSrc={public_id[(gallery + 1) % public_id.length]}
             prevSrc={public_id[(gallery + public_id.length - 1) % public_id.length]}
             onCloseRequest={() => this.setState({ isOpen: false })}

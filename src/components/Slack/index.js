@@ -70,7 +70,7 @@ const Slack = () => {
                     <div className='field has-addons'>
                       <div className='control'>
                         <input
-                          className='input'
+                          className='input input-control'
                           type={'email'}
                           placeholder='your@email.com *'
                           required

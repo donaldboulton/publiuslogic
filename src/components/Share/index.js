@@ -11,10 +11,8 @@ import {
   FacebookIcon,
   TwitterIcon,
   TelegramIcon,
-  EmailShareButton,
   LinkedinIcon,
   RedditIcon,
-  EmailIcon,
 } from 'react-share'
 import config from '../../../data/config'
 import './styles.sass'
@@ -58,9 +56,6 @@ class Share extends Component {
         <TelegramShareButton url={url}>
           <TelegramIcon round size={iconSize} />
         </TelegramShareButton>
-        <EmailShareButton url={url}>
-          <EmailIcon round size={iconSize} />
-        </EmailShareButton>
       </div>
     )
   }

@@ -31,7 +31,7 @@ module.exports = {
     app.use(
       '/api/',
       proxy({
-        target: 'http://localhost:8000',
+        target: 'http://localhost:5000',
       })
     )
   },
@@ -155,6 +155,10 @@ module.exports = {
             usePrefix: true,
             options: {
               providers: {
+                include: [
+                  'Twitter',
+                  'YouTube',
+                ],
                 settings: {
                   Twitter: {
                     theme: 'dark',

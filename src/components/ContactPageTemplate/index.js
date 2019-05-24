@@ -101,7 +101,6 @@ class ContactPageTemplate extends Component {
                       <input className='input is-large' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
                     </div>
                   </div>
-
                   <div className='field'>
                     <label className='label'>Email</label>
                     <div className='control'>
@@ -116,30 +115,22 @@ class ContactPageTemplate extends Component {
                     </div>
                   </div>
                   <h2>Uploader</h2>
-                  <div className='columns is-mobile'>
-                    <div className='column'>
-                      <div className='field'>
-                        <label htmlFor='file'>Files:</label>{' '}
-                        <Uploader
-                          id='file'
-                          name='file'
-                          className='button is-primary is-large'
-                          onChange={(file) => {
-                            console.log('File changed: ', file)
+                  <div className='column'>
+                    <div className='field'>
+                      <label htmlFor='file'>Files:</label>{' '}
+                      <Uploader
+                        id='file'
+                        name='file'
+                        className='button is-primary is-large'
+                        onChange={(file) => {
+                          console.log('File changed: ', file)
 
-                            if (file) {
-                              file.progress(info => console.log('File progress: ', info.progress))
-                              file.done(info => console.log('File uploaded: ', info))
-                            }
-                          }}
-                          onUploadComplete={info => console.log('Upload completed:', info)} />
-                      </div>
-                    </div>
-                    <div className='column'>
-                      <div className='field'>
-                        <label htmlFor='file'>Images:</label>{' '}
-                        <Uploader id='images' name='file' className='button is-primary is-large' data-images-only data-multiple />
-                      </div>
+                          if (file) {
+                            file.progress(info => console.log('File progress: ', info.progress))
+                            file.done(info => console.log('File uploaded: ', info))
+                          }
+                        }}
+                        onUploadComplete={info => console.log('Upload completed:', info)} />
                     </div>
                   </div>
                   <div className='field'>

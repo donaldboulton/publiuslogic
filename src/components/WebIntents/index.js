@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
 import config from '../../../data/config'
-import { tweet_id } from './hooks'
 import { ThemeProvider } from 'styled-components'
 import { Twitter } from 'styled-icons/fa-brands'
 import theme from './buttons.css'
 
-const WebIntents = ({ slug }) => {
+const WebIntents = ({ slug, tweet_id }) => {
   let title = config.userTwitter
   let url = config.siteUrl + slug
 
@@ -24,7 +23,7 @@ const WebIntents = ({ slug }) => {
                 </a>
               </p>
               <p className='control'>
-                <a 
+                <a
                   itemProp='url'
                   rel='no-follow'
                   target='_blank'
@@ -44,12 +43,11 @@ const WebIntents = ({ slug }) => {
                 </a>
               </p>
               <p className='control'>
-                <a 
+                <a
                   itemProp='url'
                   rel='no-follow'
                   aria-label='like'
                   title={title}
-                  key={url}
                   href='https://twitter.com/messages/compose?recipient_id=&ref_src=twsrc%5Etfw'
                   className='twitter-dm-button button is-small twitter-btn'
                   data-screen-name='donboulton'
