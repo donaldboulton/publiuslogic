@@ -9,7 +9,7 @@ import EmailForm from '../EmailForm'
 const Email = () => {
   const [completeExample, toggleCompleteModal] = useModali({
     animated: true,
-    title: 'Send Us a Email :mailbox:',
+    title: 'Send Us a Email 📫',
     message: 'Email Addresses are Private.',
   })
 
