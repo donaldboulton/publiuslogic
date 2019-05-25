@@ -30,8 +30,9 @@ const Slack = () => {
                     rel='noopener noreferrer'
                   >
                     <small>&nbsp;@donboulton</small></a></span></span>
-              <br />
-                  Bring your team together with Slack, Work collaboration hub.
+              <p className='subtitle is-5'>
+                <div>Bring your team together with Slack, Work collaboration hub.</div>
+              </p>
             </div>
             <div className='column'>
               <a className='button is-primary is-medium' href='https://slack.com/oauth/authorize?client_id=295732203780.571249891331&scope=incoming-webhook,admin'>
@@ -55,7 +56,7 @@ const Slack = () => {
                     alt='Netlify Functions'
                   />
                 </span>
-                <strong>&nbsp;&nbsp;Message Me! Realtime</strong>
+                <strong>&nbsp;&nbsp;Message Me!</strong>
               </p>
             </div>
             <div className='column'>

@@ -21,7 +21,7 @@ const HotJar = () => {
               </figure>
             </div>
             <div className='column is-9'>
-              <h2>Heatmaps by Hotjar</h2>
+              <strong>Heatmaps by Hotjar</strong>
               <p className='subtitle is-5'>
                 <div>Hotjar is the fast and visual way to understand your users..</div>
               </p>

@@ -1,6 +1,7 @@
 import React from 'react'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
-import mailchimp from '../../img/enewsletter_icon.png'
+import EmailIcon from '../../img/enewsletter_icon.png'
+import { Mailchimp } from 'styled-icons/fa-brands/'
 import Email from '../Email'
 
 export default class Subscribe extends React.Component {
@@ -68,62 +69,78 @@ export default class Subscribe extends React.Component {
         <section className='section'>
           <div className='message column is-10 is-offset-1'>
             <div className='message-body'>
-              {this.state.status === `success` ? (
-                <div>Thank you! Youʼll receive your first email shortly.</div>
-              ) : (
-                <div className='media'>
+              <div className='columns is-desktop'>
+                <div className='media column is-1'>
                   <figure className='media-left'>
-                    <p className='image is-84x84'>
+                    <p className='image is-64x64'>
                       <img
-                        src={mailchimp}
+                        src={EmailIcon}
                         alt='MailChimp Newsletters'
-                        style={{ width: '84px', height: '84px' }}
+                        style={{ width: '64px', height: '64px' }}
                       />
                     </p>
                   </figure>
-                  <div className='media-content'>
-                    <div className='content'>
-                      <div>Enjoyed this post? Want the next one in your inbox!</div>
-                      <form
-                        id='email-capture'
-                        method='post'
-                        noValidate
-                      >
-                        <div className='field has-addons'>
-                          <div className='control'>
-                            <input
-                              className='input input-control'
-                              type={'text'}
-                              placeholder='your@email.com *'
-                              onChange={this._handleEmailChange}
-                              required
-                            />
-                          </div>
-                          <div className='control'>
-                            <button
-                              className='button is-primary'
-                              type='submit'
-                              onClick={this._handleFormSubmit}
-                            >Sign Up
-                            </button>
-                          </div>
-                          {this.state.status === `error` && (
-                            <div
-                              dangerouslySetInnerHTML={{ __html: this.state.msg }}
-                            />
-                          )}
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div className='media-right'>
-                    <Email />
-                  </div>
                 </div>
-              )}
+                <div className='column is-9'>
+                  <strong>Newsletters</strong>
+                  <p className='subtitle is-5'>
+                    <div>Enjoyed this post? Want the next one in your inbox!</div>
+                  </p>
+                </div>
+                <div className='column'>
+                  <Email />
+                </div>
+              </div>
+              <div className='columns'>
+                <div className='column is-3 is-offset-1'>
+                  <p className='subtitle is-5'>
+                    <span className='icon is-large has-text-light'>
+                      <Mailchimp size='3em' />
+                    </span>
+                    <strong>&nbsp;Secure Email</strong>
+                  </p>
+                </div>
+                <div className='column'>
+                  {this.state.status === `success` ? (
+                    <div>Thank you! Youʼll receive your first email shortly.</div>
+                  ) : (
+                    <form
+                      id='email-capture'
+                      method='post'
+                      noValidate
+                    >
+                      <div className='field has-addons'>
+                        <div className='control'>
+                          <input
+                            className='input input-control'
+                            type={'text'}
+                            placeholder='your@email.com *'
+                            onChange={this._handleEmailChange}
+                            required
+                          />
+                        </div>
+                        <div className='control'>
+                          <button
+                            className='button is-primary'
+                            type='submit'
+                            onClick={this._handleFormSubmit}
+                          >Sign Up
+                          </button>
+                        </div>
+                        {this.state.status === `error` && (
+                          <div
+                            dangerouslySetInnerHTML={{ __html: this.state.msg }}
+                          />
+                        )}
+                      </div>
+                    </form>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </section>
       )
     }
 }
+

@@ -9,7 +9,7 @@ import EmailForm from '../EmailForm'
 const Email = () => {
   const [completeExample, toggleCompleteModal] = useModali({
     animated: true,
-    title: 'Send Us a Email 🎉',
+    title: 'Send Us a Email :mailbox:',
     message: 'Email Addresses are Private.',
   })
 
@@ -17,7 +17,7 @@ const Email = () => {
     <div>
       <Fragment>
         <Button handleClick={toggleCompleteModal}>
-          <span><Mail className='button is-primary' /></span>
+          <Mail className='button is-primary is-medium' />
         </Button>
       </Fragment>
       <Modali.Modal {...completeExample} className='modali-size-large'>
