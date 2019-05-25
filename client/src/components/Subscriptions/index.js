@@ -97,7 +97,7 @@ export default class Subscribe extends React.Component {
                     <span className='icon is-large has-text-light'>
                       <Mailchimp size='3em' />
                     </span>
-                    <strong>&nbsp;Secure Email</strong>
+                    <strong>Secure Email</strong>
                   </p>
                 </div>
                 <div className='column'>

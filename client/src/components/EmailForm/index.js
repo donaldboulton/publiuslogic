@@ -94,21 +94,21 @@ class ContactForm extends Component {
             <div className='field'>
               <label className='label'>Full Name</label>
               <div className='control'>
-                <input className='input' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
+                <input className='input input-control' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
               </div>
             </div>
 
             <div className='field'>
               <label className='label'>Email</label>
               <div className='control'>
-                <input className='input' type='email' placeholder='Email' name='email' id='email' onChange={this.handleChange} />
+                <input className='input input-control' type='email' placeholder='Email' name='email' id='email' onChange={this.handleChange} />
               </div>
             </div>
 
             <div className='field'>
               <label className='label'>Message</label>
               <div className='control'>
-                <textarea className='textarea' type='text' name='message' rows='3' id='message' onChange={this.handleChange} />
+                <textarea className='textarea input-control' type='text' name='message' rows='3' id='message' onChange={this.handleChange} />
               </div>
             </div>
             <div className='field'>
@@ -116,7 +116,6 @@ class ContactForm extends Component {
                 ref={(el) => { this.captchaDemo = el }}
                 sitekey='6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
                 theme='dark'
-                size='compact'
                 render='explicit'
                 onloadCallback={this.onLoadRecaptcha}
                 verifyCallback={this.verifyCallback}

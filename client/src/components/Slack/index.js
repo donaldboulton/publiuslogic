@@ -48,7 +48,7 @@ const Slack = () => {
             </div>
           </div>
           <div className='columns'>
-            <div className='column is-4 is-offset-1'>
+            <div className='column is-3 is-offset-1'>
               <p className='subtitle is-5'>
                 <span className='icon is-medium has-text-light'>
                   <img
