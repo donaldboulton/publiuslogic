@@ -14,7 +14,6 @@ const SectionPageTitle = styled.h2`
     font-size:1.5em;
   `}
 `
-
 const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 

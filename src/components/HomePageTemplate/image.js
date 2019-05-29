@@ -106,7 +106,7 @@ const StyledWrapper = styled.div`
 `
 const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 60px;
+  font-size: 80px;
   line-height: 0.9;
   padding: 20px;
   font-family: 'Bowlby', sans-serif;
@@ -135,11 +135,6 @@ const Styledh2 = styled.h2`
   ) no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  } 
-  ${media.between('medium', 'large')`
-  font-size: 20px;
-  line-height: 0.7;
-  padding: 15px;
-  `}
+}
 `
 export default StyledBackgroundSection
