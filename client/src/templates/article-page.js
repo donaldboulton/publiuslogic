@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
+import Img from 'gatsby-image'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
@@ -17,7 +18,7 @@ const ArticlePage = ({ data }) => {
     <Global title={post.frontmatter.title}>
       <section className='hero'>
         <div>
-          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
+          <Img className='full-width-image' sizes={post.frontmatter.cover.childImageSharp.fluid} />
         </div>
       </section>
       <section className='section'>
@@ -85,7 +86,13 @@ export const pageQuery = graphql`
         meta_title
         meta_description
         tags
-        cover
+        cover {
+          childImageSharp{
+            fluid(maxWidth: 1400) {
+              ...GatsbyImageSharpFluid_noBase64
+            }
+          }
+        }
       }
     }
   }

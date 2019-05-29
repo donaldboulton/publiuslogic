@@ -18,7 +18,6 @@ const Feedback = () => {
       showChannel
       showIcon
       theme={themes.dark}
-      translations={defaultTranslations}
       user='Anonymous'
       onImageUpload={(image, success, error) =>
         uploadImage(image)
@@ -34,20 +33,20 @@ const Feedback = () => {
   )
 }
 
-function sendToServer (payload, success, error) {
-  return fetch('/.netlify/functions-build/server', {
+function sendToServer(payload, success, error) {
+  return fetch('/.netlify/functions/server', {
     method: 'POST',
-    body: JSON.stringify(payload),
+    body: JSON.stringify(payload)
   })
-    .then(success)
-    .catch(error)
+  .then(success)
+  .catch(error)
 }
 
-function uploadImage (image, success, error) {
+function uploadImage(image, success, error) {
   var form = new FormData()
   form.append('image', image)
 
-  return fetch('/.netlify/functions-build/server', { method: 'POST', data: form })
+  return fetch('/.netlify/functions/server', { method: 'POST', data: form })
     .then(({ url }) => success(url))
     .catch(err => error(err))
 }

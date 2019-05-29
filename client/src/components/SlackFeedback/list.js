@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react'
+const fetch = require('node-fetch')
 class List extends Component {
   // Initialize the state
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      list: []
+      list: [],
     };
   }
 
   // Fetch the list on first mount
   componentDidMount() {
-    this.getList();
+    this.getList()
   }
 
   // Retrieves the list of items from the Express app
   getList = () => {
-    fetch("/api/items")
+    fetch('/.netlify/functions-build/server')
       .then(res => res.json())
       .then(list => this.setState({ list }));
   };
@@ -26,7 +26,7 @@ class List extends Component {
 
     return (
       <div>
-        <h1 style={{ fontSize: "2em" }}>List of Items from Express Server</h1>
+        <h1 style={{ fontSize: '2em' }}>List of Items from Express Server</h1>
         {/* Check to see if any items are found*/}
         {list.length ? (
           <div>
@@ -41,7 +41,7 @@ class List extends Component {
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
