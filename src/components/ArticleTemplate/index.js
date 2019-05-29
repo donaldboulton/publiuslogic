@@ -65,25 +65,29 @@ const ArticleTemplate = ({
           <WebIntents />
         </div>
       </div>
-      <div className='columns is-vcentered'>
-        <div className='column is-three-quarters' style={{ marginTop: `2rem` }}>
-          <h4>Tags</h4>
-          <ul className='taglist'>
-            {(tags && tags.length)
-              ? tags.map(tag => (
-                <li key={tag + `tag`}>
-                  <Link className='button is-primary' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </li>
-              ))
-              : null
-            }
-          </ul>
+      <section className='section'>
+        <div className='container content'>
+          <div className='columns is-desktop is-vcentered'>
+            <div className='column is-8' style={{ marginTop: `2rem` }}>
+              <h4>Tags</h4>
+              <ul className='taglist'>
+                {(tags && tags.length)
+                  ? tags.map(tag => (
+                    <li key={tag + `tag`}>
+                      <Link className='button is-primary' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    </li>
+                  ))
+                  : null
+                }
+              </ul>
+            </div>
+            <div className='column'>
+              <h4>Category</h4>
+              <Link className='button is-primary' to={`/categories/`}>{categorys}</Link>
+            </div>
+          </div>
         </div>
-        <div className='column is-pulled-right'>
-          <h4>Category</h4>
-          <Link className='button is-primary' to={`/categories/`}>{categorys}</Link>
-        </div>
-      </div>
+      </section>
       <hr />
     </div>
   )
