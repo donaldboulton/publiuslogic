@@ -1,4 +1,4 @@
-import { parse } from 'querystring';
+import { parse } from 'querystring'
 
 exports.handler = (event, context, callback) => {
   let body = {}
@@ -13,27 +13,27 @@ exports.handler = (event, context, callback) => {
     return callback(null, {
       statusCode: 400,
       body: JSON.stringify({
-        error: 'missing email'
-      })
+        error: 'missing email',
+      }),
     })
-  }  
+  }
 
   if (event.headers['content-type'] === 'application/x-www-form-urlencoded') {
 
     return callback(null, {
       statusCode: 302,
       headers: {
-        Location: '/thanks.html',
+        Location: '/contact/success',
         'Cache-Control': 'no-cache',
       },
-      body: JSON.stringify({})
+      body: JSON.stringify({}),
     })
   }
 
   return callback(null, {
     statusCode: 200,
     body: JSON.stringify({
-      emailAdded: true
+      emailAdded: true,
     })
   })
 }

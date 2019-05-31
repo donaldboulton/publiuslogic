@@ -6,7 +6,7 @@ export default function validate (values) {
     errors.email = 'Email address is invalid'
   }
   if (!values.name) {
-    errors.name = 'Name required must be 4 or more characters'
+    errors.name = 'Name must be 4 or more characters'
   } else if (values.name.length < 4) {
     errors.name = 'Name must be 4 or more characters'
   }

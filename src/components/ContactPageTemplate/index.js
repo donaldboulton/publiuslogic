@@ -1,216 +1,69 @@
-import React, { Component } from 'react'
-import { navigate } from 'gatsby-link'
-import Helmet from 'react-helmet'
+import React from 'react'
+import Content from '../Content'
 import PropTypes from 'prop-types'
-import Recaptcha from 'react-google-recaptcha'
-import Uploader from '../Uploader'
+import ContactForm from './Form'
 import FeedbackWidget from '../feedback-widget/feedback-widget'
 import logo from '../../img/logo.png'
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
+const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => {
+  const PageContent = contentComponent || Content
+  
+  return (
+    <div>
+      <section className='hero is-primary is-bold is-medium'>
+        <div className='hero-body'>
+          <div className='container'>
+            <div className='columns'>
+              <div className='column is-10 is-offset-1'>
+                <div className='section'>
+                  <h1 className='title'>
+                    {title}
+                  </h1>
+                  <h2 className='subtitle'>
+                    {subtitle}
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className='section'>
+        <div className='container'>
+          <div className='columns is-10 is-offset-1'>
+            <PageContent className='content' content={content} />
+            <div className='column is-8'>
+              <ContactForm />
+            </div>
+            <div className='column'>
+              <h4>Realtime Contact Message</h4>
+              <div>
+                <a href='https://publiuslogic.com/privacy'>
+                  <img
+                    src={logo}
+                    alt='PubliusLogic'
+                    style={{ width: '330px', height: '330px' }}
+                  />
+                </a>
+                <div>
+                  <div>Contacts are governed by our!</div>
+                  <div className='is-centered'><a href='/privacy#Comment Policy'>Submitting Policy</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <FeedbackWidget />
+    </div>
+  )
 }
 
-class ContactPageTemplate extends Component {
-  constructor (props, context) {
-    super(props, context)
-    this.state = { isValidated: false }
-    this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this)
-    this.verifyCallback = this.verifyCallback.bind(this)
-  }
-
-  componentDidMount () {
-    if (this.captchaDemo) {
-      console.log('started, just a second...')
-      this.captchaDemo.reset()
-    }
-  }
-  onLoadRecaptcha () {
-    if (this.captchaDemo) {
-      this.captchaDemo.reset()
-    }
-  }
-
-  verifyCallback (recaptchaToken) {
-    // Here you will get the final recaptchaToken!!!
-    console.log(recaptchaToken, '<= your recaptcha token')
-  }
-
-  handleChange = e => {
-    this.setState({ [e.target.email]: e.target.value })
-  }
-
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-  
-  handleChange = e => {
-    this.setState({ [e.target.message]: e.target.value })
-  }
-
-  handleRecaptcha = value => {
-    this.setState({ 'g-recaptcha-response': e.target.value })
-  }
-
-  handleAttachment = e => {
-    this.setState({ [e.target.name]: e.target.files[0] })
-  };
-
-  handleSubmit = e => {
-    e.preventDefault()
-    const form = e.target
-    // eslint-disable-next-line
-    fetch('/?no-cache=1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...this.state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute('action')))
-      // eslint-disable-next-line
-      .catch(error => alert(error))
-  }
-
-  render () {
-    const { title, subtitle, meta_title, meta_description } = this.props
-    return (
-      <div>
-        <Helmet>
-          <title>{meta_title}</title>
-          <meta name='description' content={meta_description} />
-        </Helmet>
-        <section className='hero is-primary is-bold is-medium'>
-          <div className='hero-body'>
-            <div className='container'>
-              <div className='columns'>
-                <div className='column is-10 is-offset-1'>
-                  <div className='section'>
-                    <h1 className='title'>
-                      {title}
-                    </h1>
-                    <h2 className='subtitle'>
-                      {subtitle}
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className='section'>
-          <div className='container'>
-            <div className='columns is-10 is-offset-1'>
-              <div className='column is-half'>
-                <form
-                  name='contact'
-                  method='post'
-                  action='/contact/success'
-                  encType='application/x-www-form-urlencoded'
-                  data-netlify='true'
-                  data-netlify-honeypot='bot-field'
-                  data-netlify-recaptcha='true'
-                  onSubmit={this.handleSubmit}
-                >
-                  <input type='hidden' name='form-name' value='contact' />
-                  <div hidden>
-                    <label>
-                  Don’t fill this out:{' '}
-                      <input name='bot-field' />
-                    </label>
-                  </div>
-                  <div className='field'>
-                    <label className='label'>Full Name</label>
-                    <div className='control'>
-                      <input className='input is-large' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
-                    </div>
-                  </div>
-                  <div className='field'>
-                    <label className='label'>Email</label>
-                    <div className='control'>
-                      <input className='input is-large' type='email' placeholder='Email' name='email' id='email' onChange={this.handleChange} />
-                    </div>
-                  </div>
-
-                  <div className='field'>
-                    <label className='label'>Message</label>
-                    <div className='control'>
-                      <textarea className='textarea is-large' type='text' name='message' rows='5' id='message' onChange={this.handleChange} />
-                    </div>
-                  </div>
-                  <h2>Uploader</h2>
-                  <div className='column'>
-                    <div className='field'>
-                      <label htmlFor='file'>Files:</label>{' '}
-                      <Uploader
-                        id='file'
-                        name='file'
-                        className='button is-primary is-large'
-                        onChange={(file) => {
-                          console.log('File changed: ', file)
-
-                          if (file) {
-                            file.progress(info => console.log('File progress: ', info.progress))
-                            file.done(info => console.log('File uploaded: ', info))
-                          }
-                        }}
-                        onUploadComplete={info => console.log('Upload completed:', info)} />
-                    </div>
-                  </div>
-                  <div className='field'>
-                    <Recaptcha
-                      ref={(el) => { this.captchaDemo = el }}
-                      sitekey='6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-'
-                      theme='dark'
-                      render='explicit'
-                      onloadCallback={this.onLoadRecaptcha}
-                      verifyCallback={this.verifyCallback}
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <div className='field is-grouped is-pulled-right'>
-                    <div className='control'>
-                      <button className='button is-text is-large' type='reset'>Cancel</button>
-                    </div>
-                    <div className='control'>
-                      <button className='button is-primary is-large' type='submit' disabled={(!this.state.name) || (!this.state.email) || (!this.state.message) || (!this.state.handleRecaptcha)}>Submit</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div className='column'>
-                <h4>Realtime Contact Message</h4>
-                <div>
-                  <a href='https://publiuslogic.com/privacy'>
-                    <img
-                      src={logo}
-                      alt='PubliusLogic'
-                      style={{ width: '330px', height: '330px' }}
-                    />
-                  </a>
-                  <div>
-                    <div>Contact are governed by our!</div>
-                    <div className='is-centered'><a href='/privacy#Comment Policy/'>Submitting Policy</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <FeedbackWidget />
-      </div>
-    )
-  }
-};
-
 ContactPageTemplate.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  meta_title: PropTypes.string,
-  meta_description: PropTypes.string,
+  content: PropTypes.string,
+  contentComponent: PropTypes.func,
 }
 
 export default ContactPageTemplate
