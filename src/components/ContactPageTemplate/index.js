@@ -1,7 +1,7 @@
 import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
-import ContactForm from './Form'
+import ContactForm from './ContactFormactForm'
 import FeedbackWidget from '../feedback-widget/feedback-widget'
 import logo from '../../img/logo.png'
 
