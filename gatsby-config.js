@@ -1,6 +1,4 @@
 const proxy = require('http-proxy-middleware')
-const fetch = require('node-fetch')
-const createHttpLink = require('apollo-link-http')
 const config = require('./data/config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix

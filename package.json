@@ -10,7 +10,7 @@
   },
   "scripts": {
     "develop": "gatsby develop",
-    "start": "npm run build",
+    "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
