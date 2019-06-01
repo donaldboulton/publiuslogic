@@ -3,8 +3,8 @@
   command = "gatsby build"
   functions = "functions"
 [build.environment]
-  NPM_VERSION = "6.9.0"
-  NPM_FLAGS = "--no-ignore-optional"
+  YARN_VERSION = "1.9.4"
+  YARN_FLAGS = "--no-ignore-optional"
 [[headers]]
   for = "/*"
 [headers.values]
