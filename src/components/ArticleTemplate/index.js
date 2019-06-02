@@ -68,7 +68,7 @@ const ArticleTemplate = ({
       <section className='section'>
         <div className='container content'>
           <div className='columns is-desktop is-vcentered'>
-            <div className='column is-8' style={{ marginTop: `2rem` }}>
+            <div className='column is-10' style={{ marginTop: `2rem` }}>
               <h4>Tags</h4>
               <ul className='taglist'>
                 {(tags && tags.length)
