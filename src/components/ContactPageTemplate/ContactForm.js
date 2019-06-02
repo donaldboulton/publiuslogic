@@ -22,11 +22,17 @@ const ContactForm = () => {
         action='/.netlify/functions/form-handler/'
         encType='application/x-www-form-urlencoded'
         data-netlify='true'
-        data-netlify-recaptcha='true'
+        data-netlify-honeypot='bot-field'
         onSubmit={handleSubmit}
         noValidate
       >
         <input type='hidden' name='form-name' value='contact' />
+        <div hidden>
+          <label>
+              Don notfill this out:{' '}
+            <input name='bot-field' onChange={handleChange} />
+          </label>
+        </div>
         <div className='field'>
           <label className='label'>Email Address</label>
           <div className='control'>
