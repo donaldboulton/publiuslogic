@@ -58,7 +58,7 @@ class ContactForm extends Component {
             <div hidden>
               <label>
                   Don’t fill this out:{' '}
-                <input name='bot-field' onChange={this.handleChange} />
+                <input name='bot-field' />
               </label>
             </div>
             <div className='field'>
@@ -83,7 +83,7 @@ class ContactForm extends Component {
             </div>
             <div className='field'>
               <div className='control'>
-                <button className='button is-primary' type='submit' disabled={(!this.state.name) || (!this.state.email)}>Submit</button>
+                <button className='button is-primary' type='submit'>Submit</button>
               </div>
             </div>
           </form>
