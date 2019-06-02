@@ -8,7 +8,6 @@ cover: /img/gatsby+react+utterances+home.jpg
 tags:
   - Gatsby
   - GitHub
-  - React
   - Utterances 
   - Comments
 meta_title: Gatsby GitHub Comments Utterances
