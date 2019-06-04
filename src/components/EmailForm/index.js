@@ -48,7 +48,7 @@ class ContactForm extends Component {
           <form
             name='contact'
             method='post'
-            action='/contact/success'
+            action='/.netlify/functions/form-handler/'
             encType='application/x-www-form-urlencoded'
             data-netlify='true'
             data-netlify-honeypot='bot-field'

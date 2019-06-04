@@ -117,6 +117,7 @@
     "typeface-roboto": "^0.0.54",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "uploadcare-widget": "^3.7.0",
+    "web-push": "^3.3.5",
     "with-utterances": "^1.4.1",
     "xstate": "^4.6.0"
   },
