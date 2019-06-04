@@ -87,17 +87,6 @@ module.exports = {
         path: `${__dirname}/src/pages/privacy`,
       },
     },
-    {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        // your google analytics tracking id
-        trackingId: `UA-24847941-1`,
-        // Puts tracking script in the head instead of the body
-        head: false,
-        // enable ip anonymization
-        anonymize: true,
-      },
-    },
     'gatsby-transformer-yaml',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -327,13 +316,6 @@ module.exports = {
       resolve: `gatsby-plugin-mailchimp`,
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
-      },
-    },
-    {
-      resolve: `gatsby-plugin-hotjar`,
-      options: {
-        id: 1328362,
-        sv: 6,
       },
     },
     {

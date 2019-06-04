@@ -1,3 +1,6 @@
+import { Reply } from 'styled-icons/material'
+import { Like } from 'styled-icons/evil'
+
 export const onServiceWorkerUpdateFound = () => {
   const showNotification = () => {
     // eslint-disable-next-line no-undef
@@ -9,14 +12,14 @@ export const onServiceWorkerUpdateFound = () => {
             icon: 'https://publiuslogic.com/img/bell.svg',
             vibrate: [200, 100, 200, 100, 200, 100, 400],
             tag: 'request',
-            actions: [ // you can customize these actions as you like
+            actions: [
               {
-                action: doSomething(), // you should define this
-                title: 'update',
+                action: Like,
+                title: '👍Like',
               },
               {
-                action: doSomethingElse(), // you should define this
-                title: 'ignore',
+                action: Reply,
+                title: '⤻ Reply',
               },
             ],
           })

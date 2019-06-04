@@ -18,7 +18,7 @@ const ContactForm = () => {
     <>
       <form
         name='contact'
-        method='post'
+        method='Post'
         action='/.netlify/functions/form-handler/'
         encType='application/x-www-form-urlencoded'
         data-netlify='true'
@@ -30,7 +30,7 @@ const ContactForm = () => {
         <div hidden>
           <label>
               Don notfill this out:{' '}
-            <input name='bot-field' onChange={handleChange} />
+            <input name='bot-field' />
           </label>
         </div>
         <div className='field'>
