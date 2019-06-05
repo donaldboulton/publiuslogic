@@ -19,7 +19,7 @@ const ContactForm = () => {
       <form
         name='contact'
         method='Post'
-        action='/.netlify/functions/form-handler/'
+        action='/.netlify/functions/contact-request/'
         encType='application/x-www-form-urlencoded'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
@@ -29,7 +29,7 @@ const ContactForm = () => {
         <input type='hidden' name='form-name' value='contact' />
         <div hidden>
           <label>
-              Don notfill this out:{' '}
+              Don not fill this out:{' '}
             <input name='bot-field' />
           </label>
         </div>
@@ -57,7 +57,6 @@ const ContactForm = () => {
             <textarea className='textarea is-large' type='text' name='message' rows='5' />
           </div>
         </div>
-
         <div className='field is-grouped is-pulled-right'>
           <div className='control'>
             <button className='button is-text is-large' type='reset'>Cancel</button>

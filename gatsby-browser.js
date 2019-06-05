@@ -9,7 +9,10 @@ export const onServiceWorkerUpdateFound = () => {
         navigator.serviceWorker.ready.then(registration => {
           registration.showNotification('Update', {
             body: 'New content is available!',
-            icon: 'https://publiuslogic.com/img/bell.svg',
+            icon: 'https://publiuslogic.com/img/Notifications_button_24_white.png',
+            badge: 'https://publiuslogic.com/img/apple-touch-icon-32x32.png',
+            image: 'https://publiuslogic.com/img/apple-touch-icon-180x180.png',
+            sound: 'https://publiuslogic.com/audio/sound.mp3',
             vibrate: [200, 100, 200, 100, 200, 100, 400],
             tag: 'request',
             actions: [
