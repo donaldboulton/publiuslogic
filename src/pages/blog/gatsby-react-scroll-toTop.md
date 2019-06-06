@@ -207,7 +207,7 @@ export default ScrollDown
 
 #### Scroll Down styles.js
 
-```jsx:title=xrc/compponents/ScrollDown/styles
+```jsx:title=src/components/ScrollDown/styles
 export const Arrow = styled(Up).attrs(({ direction, size }) => ({
   as: direction === `down` && Down,
   size,
