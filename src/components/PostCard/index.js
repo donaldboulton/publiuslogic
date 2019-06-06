@@ -28,7 +28,7 @@ const PostCard = ({ posts, categorys, date, inTitle = false }) => {
                       </Link>
                     </p>
                     <Meta inTitle={inTitle}>
-                      <div className='post-info'>
+                      <div>
                         <span className='subtitle is-size-5'>
                           <Calendar size='1.2em' /><small>&nbsp;{post.frontmatter.date}</small>
                           <span className='is-pulled-right'>&nbsp;&nbsp;Category&nbsp;<FileSymlinkFile size='1.2em' /><Link to={`/categories/`}><small>&nbsp;{post.frontmatter.categorys}</small></Link></span>

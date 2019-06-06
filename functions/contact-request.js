@@ -1,23 +1,28 @@
-const https = require('https')
+import querystring from 'querystring'
+import fetch from 'node-fetch'
 
-exports.handler = (event, context, callback) => {
-  const payload = JSON.stringify({
-    text: `Message sent by ${event.name} (${event.email}):\n ${event.message}`,
-  })
+exports.handler = async (event, context) => {
 
-  const options = {
-    hostname: 'hooks.slack.com',
-    port: 443,
-    path: process.env.SLACK_WEBHOOK_URL,
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' }
   }
 
-  const req = https.request(options,
-    (res) => res.on('data', () => callback(null, 'OK')))
-  req.on('error', (error) => callback(JSON.stringify(error)))
-  req.write(payload)
-  req.end()
-}
+  const params = querystring.parse(event.body)
+  const name = params.name || 'event.name'
+
+  return fetch(process.env.SLACK_WEBHOOK_URL, {
+    headers: {
+      'content-type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify({ text: `Message sent by ${event.name} (${event.email}):\n ${event.message}` }),
+  })
+    .then(() => ({
+      statusCode: 200,
+      body: `Hello, ${name}! Your Contact Message has been sent to Slack`,
+    }))
+    .catch(error => ({
+      statusCode: 422,
+      body: `Oops! Something went wrong. ${error}`,
+    }))
+};
