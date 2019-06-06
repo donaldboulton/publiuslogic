@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Meta } from './styles'
+import { Calendar, FileSymlinkFile } from 'styled-icons/octicons/'
 
-const PostCard = ({ posts }) => {
+const PostCard = ({ posts, categorys, date, inTitle = false }) => {
   return (
     <section className='section'>
       <div className='container'>
@@ -14,22 +16,25 @@ const PostCard = ({ posts }) => {
                 key={post.id}
               >
                 <article className='is-child box'>
-                  <Link to={post.fields.slug}>
-                    <figure className='image is-2by1'>
-                      <img src={post.frontmatter.cover} alt={post.frontmatter.title} />  
-                    </figure>
-                  </Link>
                   <p>
-                    <Link className='title has-text-primary is-size-4' to={post.fields.slug}>
-                      {post.frontmatter.title}
+                    <Link to={post.fields.slug}>
+                      <figure className='image is-2by1'>
+                        <img src={post.frontmatter.cover} alt={post.frontmatter.title} />
+                      </figure>
                     </Link>
-                  </p>
-                  <p>
-                    <span className='subtitle is-size-5'>
-                      <small>{post.frontmatter.date}</small>
-                    </span>
-                  </p>
-                  <p>
+                    <p>
+                      <Link className='title has-text-primary is-size-4' to={post.fields.slug}>
+                        {post.frontmatter.title}
+                      </Link>
+                    </p>
+                    <Meta inTitle={inTitle}>
+                      <div className='post-info'>
+                        <span className='subtitle is-size-5'>
+                          <Calendar size='1.2em' /><small>&nbsp;{post.frontmatter.date}</small>
+                          <span className='is-pulled-right'>Category&nbsp;<FileSymlinkFile size='1.2em' /><Link to={`/categories/`}><small>&nbsp;{post.frontmatter.categorys}</small></Link></span>
+                        </span>
+                      </div>
+                    </Meta>
                     {post.excerpt}
                     <br />
                     <br />

@@ -2,7 +2,6 @@ import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
 import ContactForm from './ContactForm'
-import FeedbackWidget from '../feedback-widget/feedback-widget'
 import logo from '../../img/logo.png'
 
 const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => {
@@ -54,7 +53,6 @@ const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => 
           </div>
         </div>
       </section>
-      <FeedbackWidget />
     </div>
   )
 }

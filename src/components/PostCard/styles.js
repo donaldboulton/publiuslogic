@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 
 export const Posts = styled.article`
@@ -24,4 +24,28 @@ export const Cover = styled(Img).attrs(
   height: calc(10em + 4vh);
   width: 100%;
   object-fit: cover;
+`
+
+const inTitle = css`
+  width: max-content;
+  justify-content: left;
+  max-width: 80vw;
+  a {
+    color: ${props => props.theme.lightGreen};
+  }
+`
+
+export const Meta = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8em;
+  margin: 0.5em 0;
+  > * {
+    display: flex;
+    align-items: left;
+  }
+  > :not(:last-child) {
+    margin-right: 1em;
+  }
+  ${props => props.inTitle && inTitle};
 `

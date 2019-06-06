@@ -45,7 +45,7 @@ export default class BlogPage extends Component {
             {JSON.stringify(websiteSchemaOrgJSONLD)}
           </script>
         </Helmet>
-        <section className='hero is-primary is-bold'>
+        <section className='hero hero-blog-cover'>
           <div className='hero-body'>
             <div className='container'>
               <div className='columns'>
@@ -55,8 +55,10 @@ export default class BlogPage extends Component {
                       Blog
                     </h1>
                     ✨ Listing all Posts.
-                    For refinements see categories or tags.
-                  </div>                  
+                    <p>
+                        For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

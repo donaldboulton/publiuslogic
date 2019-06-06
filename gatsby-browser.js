@@ -1,5 +1,4 @@
-import { Reply } from 'styled-icons/material'
-import { Like } from 'styled-icons/evil'
+import { ExternalLink, Like } from 'styled-icons/evil'
 
 export const onServiceWorkerUpdateFound = () => {
   const showNotification = () => {
@@ -10,9 +9,9 @@ export const onServiceWorkerUpdateFound = () => {
           registration.showNotification('Update', {
             body: 'New content is available!',
             icon: 'https://publiuslogic.com/img/Notifications_button_24_white.png',
-            badge: 'https://publiuslogic.com/img/apple-touch-icon-32x32.png',
-            image: 'https://publiuslogic.com/img/apple-touch-icon-180x180.png',
-            sound: 'https://publiuslogic.com/audio/sound.mp3',
+            badge: '/img/apple-touch-icon-32x32.png',
+            image: '/img/notifiction-image.png',
+            sound: '/audio/sound.mp3',
             vibrate: [200, 100, 200, 100, 200, 100, 400],
             tag: 'request',
             actions: [
@@ -21,8 +20,8 @@ export const onServiceWorkerUpdateFound = () => {
                 title: '👍Like',
               },
               {
-                action: Reply,
-                title: '⤻ Reply',
+                action: ExternalLink,
+                title: '⤻ Post',
               },
             ],
           })
