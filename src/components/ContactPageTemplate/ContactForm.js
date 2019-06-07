@@ -21,18 +21,10 @@ const ContactForm = () => {
         method='Post'
         action='/.netlify/functions/contact-request/'
         encType='application/x-www-form-urlencoded'
-        data-netlify='true'
-        data-netlify-honeypot='bot-field'
         onSubmit={handleSubmit}
         noValidate
       >
         <input type='hidden' name='form-name' value='contact' />
-        <div hidden>
-          <label>
-              Don not fill this out:{' '}
-            <input name='bot-field' />
-          </label>
-        </div>
         <div className='field'>
           <label className='label'>Email Address</label>
           <div className='control'>
