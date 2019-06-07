@@ -5,7 +5,8 @@ import validate from './FormValidationRules'
 const ContactForm = () => {
   const initialValues = {
     email: '',
-    password: '',
+    name: '',
+    message: '',
   }
   const {
     values,
@@ -55,8 +56,11 @@ const ContactForm = () => {
         <div className='field'>
           <label className='label'>Message</label>
           <div className='control'>
-            <textarea className='textarea is-large' type='text' name='message' rows='5' />
+            <textarea className={`input is-large ${errors.message && 'is-danger'}`} type='text' name='message' rows='5' onChange={handleChange} value={values.message} />
           </div>
+          {errors.message && (
+            <p className='help is-danger'>{errors.message}</p>
+          )}
         </div>
         <div className='field is-grouped is-pulled-right'>
           <div className='control'>
