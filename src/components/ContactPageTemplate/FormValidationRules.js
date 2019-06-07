@@ -10,10 +10,5 @@ export default function validate (values) {
   } else if (values.name.length < 4) {
     errors.name = 'Name must be 4 or more characters'
   }
-  if (!values.mesage) {
-    errors.message = 'Message required must be 4 or more characters'
-  } else if (values.message.length < 4) {
-    errors.message = 'Message must be 4 or more characters'
-  }
   return errors
 };

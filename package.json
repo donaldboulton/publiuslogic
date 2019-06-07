@@ -11,8 +11,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
+    "build": "gatsby build && netlify-lambda build functions",
+    "serve": "gatsby serve && netlify-lambda serve functions-build",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/",
     "snyk-protect": "snyk protect",
