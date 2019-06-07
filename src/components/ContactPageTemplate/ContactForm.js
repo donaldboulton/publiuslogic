@@ -22,13 +22,10 @@ const ContactForm = () => {
     <>
       <form
         name='contact'
-        method='Post'
         action='/.netlify/functions/ContactForm/'
-        encType='application/x-www-form-urlencoded'
         onSubmit={handleSubmit}
         noValidate
       >
-        <input type='hidden' name='form-name' value='contact' />
         <div className='field'>
           <label className='label'>Email Address</label>
           <div className='control'>
