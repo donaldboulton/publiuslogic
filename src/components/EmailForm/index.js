@@ -49,18 +49,8 @@ class ContactForm extends Component {
             name='contact'
             method='post'
             action='/.netlify/functions/ContactForm/'
-            encType='application/x-www-form-urlencoded'
-            data-netlify='true'
-            data-netlify-honeypot='bot-field'
             onSubmit={this.handleSubmit}
           >
-            <input type='hidden' name='form-name' value='contact' />
-            <div hidden>
-              <label>
-                  Don’t fill this out:{' '}
-                <input name='bot-field' />
-              </label>
-            </div>
             <div className='field'>
               <label className='label'>Full Name</label>
               <div className='control'>
