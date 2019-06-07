@@ -3,12 +3,16 @@ import useForm from './useForm'
 import validate from './FormValidationRules'
 
 const ContactForm = () => {
+  const initialValues = {
+    email: '',
+    password: '',
+  }
   const {
     values,
     errors,
     handleChange,
     handleSubmit,
-  } = useForm(contact, validate)
+  } = useForm(initialValues, contact, validate)
 
   function contact () {
     console.log('No errors, submit callback called!')
@@ -19,7 +23,7 @@ const ContactForm = () => {
       <form
         name='contact'
         method='Post'
-        action='/.netlify/functions/contact-request/'
+        action='/.netlify/functions/ContactForm/'
         encType='application/x-www-form-urlencoded'
         onSubmit={handleSubmit}
         noValidate
@@ -28,7 +32,15 @@ const ContactForm = () => {
         <div className='field'>
           <label className='label'>Email Address</label>
           <div className='control'>
-            <input autoComplete='off' className={`input is-large ${errors.email && 'is-danger'}`} type='email' name='email' onChange={handleChange} value={values.email || ''} />
+            <input
+              autoComplete='off'
+              className={`input is-large ${errors.email && 'is-danger'}`}
+              type='email'
+              name='email'
+              onChange={handleChange}
+              value={values.email}
+              required
+            />
             {errors.email && (
               <p className='help is-danger'>{errors.email}</p>
             )}
@@ -37,7 +49,7 @@ const ContactForm = () => {
         <div className='field'>
           <label className='label'>Name</label>
           <div className='control'>
-            <input className={`input is-large ${errors.name && 'is-danger'}`} type='text' name='name' onChange={handleChange} value={values.name || ''} />
+            <input className={`input is-large ${errors.name && 'is-danger'}`} type='text' name='name' onChange={handleChange} value={values.name} />
           </div>
           {errors.name && (
             <p className='help is-danger'>{errors.name}</p>

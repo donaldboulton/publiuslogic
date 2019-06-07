@@ -55,7 +55,7 @@ class ContactFormWidget extends React.Component {
                   <label>Name:</label>
                   <div className='control'>
                   <input onChange={ this.onInputChange }
-                    type='text' name='name' className='input input-control' required
+                    type='text' name='name' className='input input-control is-large' required
                   />
                   </div>
                 </div>
@@ -63,7 +63,7 @@ class ContactFormWidget extends React.Component {
                   <label>Email:</label>
                   <div className='control'>
                   <input onChange={ this.onInputChange }
-                    type='email' name='email' className='input input-control' required
+                    type='email' name='email' className='input input-control is-large' required
                   />
                   </div>
                 </div>
@@ -92,4 +92,4 @@ class ContactFormWidget extends React.Component {
       )
     }
   }
-
+}
