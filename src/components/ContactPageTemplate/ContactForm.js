@@ -19,7 +19,7 @@ const ContactForm = () => {
   }
 
   return (
-    <>
+    <div>
       <form
         name='contact'
         action='/.netlify/functions/ContactForm/'
@@ -67,7 +67,7 @@ const ContactForm = () => {
           </div>
         </div>
       </form>
-    </>
+    </div>
   )
 }
 
