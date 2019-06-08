@@ -4,7 +4,7 @@ import { Mail } from 'styled-icons/material'
 import Button from './ModaliButton'
 import './styles.css'
 
-import EmailForm from '../EmailForm'
+import EmailForm from '../ContactForm'
 
 const Email = () => {
   const [completeExample, toggleCompleteModal] = useModali({

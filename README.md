@@ -2,6 +2,10 @@
 
 To Publish Logic
 
+## 🚀 gatsby-starter-publius
+
+🍸 Just Having fun coding!
+
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/donaldboulton/publiuslogic/master/LICENSE.txt)
 [![Tip Me via PayPal](https://img.shields.io/badge/PayPal-tip%20me-green.svg?logo=paypal)](https://www.paypal.me/donaldboulton)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/?t=fa5cdbee-00bf-4ca8-be8f-f150a6f643e1)
@@ -13,11 +17,9 @@ To Publish Logic
 
 > A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.
 
-## 🚀 gatsby-starter-publius
+### A Gatsby Starter and My Personal website
 
-🍸 Just Having fun coding!
-
-This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Structured Microdata for SEO, Internet Positioning.
+This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics, international and United States Law's including spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Structured Microdata for SEO, Internet Positioning.
 
 The site style and design is with, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for stateful components such as Image Gallery's, Modal's and ToTop. 
 Prism for syntax highlighting, GitHub issues for blog post comments, Hooked into Analytics with Slack Notifications which is fully incorporated within this repo.
