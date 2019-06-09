@@ -23,7 +23,7 @@ const Email = () => {
       <Modali.Modal {...completeExample} className='modali-size-large'>
         <div>
           <p>
-            <div>
+            <div className='column'>
               <EmailForm />
             </div>
           </p>
