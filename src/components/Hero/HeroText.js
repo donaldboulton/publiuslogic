@@ -37,7 +37,7 @@ class HeroText extends React.Component {
           <span key={2}> Architect Complex IT Systems</span>
           <Typist.Backspace count={29} delay={1000} />
           <span key={3}> Am Microsoft Certified</span>
-          <Typist.Backspace count={60} delay={1000} />
+          <Typist.Backspace count={23} delay={1000} />
           <span key={4}> Live In OKC OK</span>
           <Typist.Delay ms={300} />
           <span key={5}>.</span>
@@ -45,8 +45,8 @@ class HeroText extends React.Component {
           <span key={6}>.</span>
           <Typist.Delay ms={900} />
           <span key={7}>.</span>
-          <Typist.Backspace count={25} delay={10} />
-          <strong key={8}>But Mostly I Just Do Awesome</strong> Web Stuff
+          <Typist.Backspace count={20} delay={10} />
+          <strong key={8}>But Mostly I Just</strong> Do Awesome Stuff With Web Tech
         </StyledTypist>
       )
     }
