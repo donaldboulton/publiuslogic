@@ -6,10 +6,11 @@ import { media } from './style'
 
 const StyledTypist = styled(Typist)`
   color: #fff;
-  letter-spacing: 17px;
+  letter-spacing: 14px;
   margin:0 auto;
-  font-size: 72px;
-  line-height: 80px;
+  font-size: 52px;
+  line-height: 60px;
+  z-index: 22;
   font-weight: 100;
   text-transform: uppercase;
   font-family: 'Roboto';
@@ -35,7 +36,7 @@ class HeroText extends React.Component {
           <Typist.Backspace count={19} delay={1000} />
           <span key={2}> Architect Complex IT Systems</span>
           <Typist.Backspace count={29} delay={1000} />
-          <span key={3}> Am Microsoft Certified & Google Cloud Platform</span>
+          <span key={3}> Am Microsoft Certified</span>
           <Typist.Backspace count={60} delay={1000} />
           <span key={4}> Live In OKC OK</span>
           <Typist.Delay ms={300} />
@@ -45,7 +46,7 @@ class HeroText extends React.Component {
           <Typist.Delay ms={900} />
           <span key={7}>.</span>
           <Typist.Backspace count={25} delay={10} />
-          <strong key={8}>But Mostly I Just</strong> Do Awesome Stuff With Technology
+          <strong key={8}>But Mostly I Just Do Awesome</strong> Web Stuff
         </StyledTypist>
       )
     }

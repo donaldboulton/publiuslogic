@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import HeroText from '../Hero/HeroText'
 import { generateMedia } from 'styled-media-query'
 
 const media = generateMedia()
@@ -30,12 +31,9 @@ const BackgroundSection = ({ className, title, backdrop }) => (
             objectPosition='50% 50%'
           />
           <StyledTitle>
-            <Styledh1>
-              PubliusLogic
+            <Styledh1>              
+              <HeroText />
             </Styledh1>
-            <Styledh2>
-              publiuslogic.com
-            </Styledh2>
           </StyledTitle>
         </StyledSymetryWrapper>
       </StyledWrapper>
@@ -106,32 +104,14 @@ const StyledWrapper = styled.div`
 `
 const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 80px;
-  line-height: 0.9;
-  padding: 20px;
-  font-family: 'Bowlby', sans-serif;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 22;
   background: radial-gradient(
     circle farthest-corner at center center,
     white,
     #111
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-`
-const Styledh2 = styled.h2`
-  display: inline-block;
-  font-size: 50px;
-  line-height: 0.9;
-  padding: 20px;
-  font-family: 'Bowlby', sans-serif;
-  z-index: 22;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #da1b60,
-    #fc9a48
   ) no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
