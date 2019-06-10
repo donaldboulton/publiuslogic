@@ -9,6 +9,7 @@ import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
+import Img from 'gatsby-image'
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -17,7 +18,7 @@ const ArticlePage = ({ data }) => {
     <Global title={post.frontmatter.title}>
       <section className='hero'>
         <div>
-          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
+          <Img sizes={post.frontmatter.cover.childImageSharp.sizes} />
         </div>
       </section>
       <section className='section'>
@@ -85,7 +86,13 @@ export const pageQuery = graphql`
         meta_title
         meta_description
         tags
-        cover
+        cover {
+            childImageSharp{
+                sizes(maxWidth: 1460) {
+                    ...GatsbyImageSharpSizes
+                }
+            }
+        }
       }
     }
   }

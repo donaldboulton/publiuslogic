@@ -88,8 +88,6 @@ module.exports = {
       },
     },
     'gatsby-transformer-yaml',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -165,6 +163,8 @@ module.exports = {
         ],
       },
     },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

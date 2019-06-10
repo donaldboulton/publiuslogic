@@ -4,7 +4,7 @@ title: React Hooks Masonry
 slug:  React Hooks Masonry
 date: 2019-03-25T20:20:43.942Z
 categorys: 'tech'
-cover: /img/masonry.jpg
+cover: ./masonry.jpg
 tags:
   - React Hooks
   - Masonary

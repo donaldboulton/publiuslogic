@@ -4,7 +4,7 @@ title: React Hook Form Builder
 slug: React Hook Form Builder
 date: 2019-04-23T20:20:43.942Z
 categorys: 'tech'
-cover: /img/react-hooks-form.jpg
+cover: ./react-hooks-form.jpg
 tags:
   - Gatsby
   - Forms
