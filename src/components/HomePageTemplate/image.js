@@ -59,7 +59,6 @@ const StyledWelcomeImage = styled(Img)`
 const StyledBackgroundSection = styled(BackgroundSection)`
   position: relative;
   text-align: center;
-  color: white;
   width: 100vw;
   background-repeat: no-repeat;
   background-position: center center;
@@ -83,7 +82,6 @@ const StyledBackgroundSection = styled(BackgroundSection)`
 export const StyledTitle = styled.div`
   text-align: center;
   font-size: 1.5em;
-  font-color: #fff;
   margin: 1em;
   z-index: 20;
   box-sizing: border-box;
@@ -110,8 +108,8 @@ const Styledh1 = styled.h1`
   z-index: 22;
   background: radial-gradient(
     circle farthest-corner at center center,
-    white,
-    #111
+    #8e0436,
+    #d64000
   ) no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

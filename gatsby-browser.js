@@ -6,8 +6,8 @@ export const onServiceWorkerUpdateFound = () => {
     Notification.requestPermission(result => {
       if (result === 'granted') {
         navigator.serviceWorker.ready.then(registration => {
-          registration.showNotification('Updates Avaliable', {
-            body: 'New content is published!',
+          registration.showNotification('Update', {
+            body: 'New content is available!',
             icon: 'https://publiuslogic.com/img/Notifications_button_24_white.png',
             badge: '/img/apple-touch-icon-32x32.png',
             image: '/img/notifiction-image.png',
@@ -28,44 +28,53 @@ export const onServiceWorkerUpdateFound = () => {
         })
       }
     })
-    
-    showNotification()
+  }
 
-    const maxVisibleActions = Notification.maxActions
-    if (maxVisibleActions < 4) {
-      options.body = `This notification will only display ` +
-    `${maxVisibleActions} actions.`
-    } else {
-      options.body = `This notification can display up to ` +
-    `${maxVisibleActions} actions.`
-    }  
-    self.addEventListener('notificationclick', function(event) {
-      const clickedNotification = event.notification;
-      clickedNotification.close()
-      const modali = 'https://publiuslogic.com/blog/modali-hooks-modal/'
-      const promiseChain = clients.openWindow(modali)
-      event.waitUntil(promiseChain)
+  showNotification()
+
+  const ExternalLinkModali = 'https://publiuslogic.com/blog/modali-hooks-modal/'
+
+  function openWindow (event) {
+    /** ** START notificationOpenWindow ****/
+    const ExternalLinkModali = 'https://publiuslogic.com/blog/modali-hooks-modal/'
+    const promiseChain = clients.openWindow(ExternalLinkModali)
+    event.waitUntil(promiseChain)
+    /** ** END notificationOpenWindow ****/
+  }
+
+  function focusWindow (event) {
+    /** ** START notificationFocusWindow ****/
+    /** ** START urlToOpen ****/
+    const urlToOpen = new URL(ExternalLinkModali, self.location.origin).href
+    /** ** END urlToOpen ****/
+
+    /** ** START clientsMatchAll ****/
+    const promiseChain = clients.matchAll({
+      type: 'window',
+      includeUncontrolled: true,
     })
-    registration.showNotification(title, options)
-    self.addEventListener('notificationclick', function(event) {
-      if (!event.action) {
-        // Was a normal notification click
-        console.log('Notification Click.')
-        return;
-      }
-    
-      switch (event.action) {
-        case 'ExternalLink':
-          console.log('User ⤻ ExternalLink.')
-          break;
-        case 'Like':
-          console.log('User 👍Like.')
-          break;
-        default:
-          console.log(`Unknown action clicked: '${event.action}'`)
-          break;
-      }
-    })
+    /** ** END clientsMatchAll ****/
+    /** ** START searchClients ****/
+      .then((windowClients) => {
+        let matchingClient = null
+
+        for (let i = 0; i < windowClients.length; i++) {
+          const windowClient = windowClients[i]
+          if (windowClient.url === urlToOpen) {
+            matchingClient = windowClient
+            break
+          }
+        }
+
+        if (matchingClient) {
+          return matchingClient.focus()
+        } else {
+          return clients.openWindow(urlToOpen)
+        }
+      })
+    /** ** END searchClients ****/
+
+    event.waitUntil(promiseChain)
+    /** ** END notificationFocusWindow ****/
   }
 }
-
