@@ -8,7 +8,7 @@ cover: /img/react-hook-form.jpg
 tags:
   - Gatsby
   - Forms
-  = Hooks
+  - Hooks
   - React
   - Validation
 meta_title: React Hook Form Builder
