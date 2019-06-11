@@ -11,7 +11,6 @@ const PricingPage = ({ data }) => {
     <Global pageTitle={frontmatter.title}>
       <PricingPageTemplate
         title={frontmatter.title}
-        cover={frontmatter.cover}
         meta_title={frontmatter.meta_title}
         meta_description={frontmatter.meta_description}
         pricing={frontmatter.pricing}
@@ -35,7 +34,6 @@ export const pricingPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
-        cover
         meta_title
         meta_description
         pricing {

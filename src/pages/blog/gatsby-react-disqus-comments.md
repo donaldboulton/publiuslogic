@@ -97,7 +97,7 @@ or
 ### enables Disqus comments below blog posts
 
 ```js
-import config from './img/./img/data/config'
+import config from '../../data/config'
 ```
 
 ```js
@@ -158,8 +158,8 @@ adding
   import { Link } from 'gatsby'
   import { CommentCount } from 'disqus-react'
 
-  import { Meta, TagList, Calendar, Timer, Comments } from '/img/styles'
-  import config from './img/./img/data/config'
+  import { Meta, TagList, Calendar, Timer, Comments } from './styles'
+  import config from '../../data/config'
 
   const PostMeta = ({ title, slug, date, timeToRead, tags }) => (
     <Meta>

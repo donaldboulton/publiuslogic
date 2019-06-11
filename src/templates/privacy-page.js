@@ -18,7 +18,6 @@ const PrivacyPage = ({ data }) => {
       <PrivacyPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
-        cover={post.frontmatter.cover}
         content={post.html}
       />
     </Global>
@@ -37,7 +36,6 @@ export const privacyPageQuery = graphql`
       html
       frontmatter {
         title
-        cover
         meta_title
         meta_description
       }

@@ -43,7 +43,6 @@ export const contactPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
-        cover
         subtitle
         meta_title
         meta_description

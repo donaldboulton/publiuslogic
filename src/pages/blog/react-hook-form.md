@@ -1,7 +1,7 @@
 ---
 templateKey: article-page
-title: React Hook Form
-slug: React Hook Form
+title: React Hook Form Builder
+slug: React Hook Form Builder
 date: 2019-04-23T20:20:43.942Z
 categorys: 'tech'
 cover: /img/react-hook-form.jpg
@@ -10,7 +10,7 @@ tags:
   - Forms
   - React
   - Validation
-meta_title: React Hook Form
+meta_title: React Hook Form Builder
 meta_description: React Hook Form Builder
 tweet_id: '1118651504674725888'
 ---

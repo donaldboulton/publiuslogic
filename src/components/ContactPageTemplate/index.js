@@ -9,7 +9,7 @@ const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => 
   
   return (
     <div>
-      <section className='hero is-primary is-bold is-medium'>
+      <section className='hero hero-blog-cover'>
         <div className='hero-body'>
           <div className='container'>
             <div className='columns'>

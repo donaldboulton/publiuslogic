@@ -4,7 +4,7 @@ import Global from '../components/Global'
 
 const NotFoundPage = () => (
   <Global>
-    <section className='hero is-primary is-bold is-medium'>
+    <section className='hero hero-blog-cover'>
       <div className='hero-body'>
         <div className='container'>
           <div className='columns'>
