@@ -3,7 +3,7 @@ templateKey: article-page
 title: Netlify CMS
 slug: Netlify CMS
 date: 2019-03-22T03:36:27.484Z
-cover: ./netlify-cms.jpg
+cover: /img/netlify-cms.jpg
 categorys: 'tech'
 tags:
   - Netlify CMS

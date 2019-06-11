@@ -1,6 +1,7 @@
 ---
 templateKey: privacy-page
 title: Privacy and Terms
+cover: './privacy.jpg'
 meta_title: Privacy Us | Gatsby Starter Business
 meta_description: >-
   The privacy of my visitors is extremely important.

@@ -4,7 +4,7 @@ title: Gatsby React Disqus Comments
 slug: Gatsby React Disqus Comments
 date: 2019-03-25T20:20:43.942Z
 categorys: 'tech'
-cover: ./gatsby+disqus.jpg
+cover: /img/gatsby+disqus.jpg
 tags:
   - Gatsby 
   - React
@@ -97,7 +97,7 @@ or
 ### enables Disqus comments below blog posts
 
 ```js
-import config from '../../data/config'
+import config from './img/./img/data/config'
 ```
 
 ```js
@@ -158,8 +158,8 @@ adding
   import { Link } from 'gatsby'
   import { CommentCount } from 'disqus-react'
 
-  import { Meta, TagList, Calendar, Timer, Comments } from './styles'
-  import config from '../../data/config'
+  import { Meta, TagList, Calendar, Timer, Comments } from '/img/styles'
+  import config from './img/./img/data/config'
 
   const PostMeta = ({ title, slug, date, timeToRead, tags }) => (
     <Meta>

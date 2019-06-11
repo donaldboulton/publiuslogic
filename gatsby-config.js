@@ -88,6 +88,8 @@ module.exports = {
       },
     },
     'gatsby-transformer-yaml',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -148,12 +150,6 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
             resolve: `gatsby-remark-emojis`,
             options: {
               active: true,
@@ -161,16 +157,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        enableIdentityWidget: true,
-        htmlTitle: `PubliusLogic Content Manager`,
       },
     },
     {

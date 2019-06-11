@@ -1,4 +1,4 @@
-import CMS from 'netlify-cms'
+import CMS from '../components/NetlifyCms/netlify-cms'
 
 import HomePagePreview from './preview-templates/HomePagePreview'
 import AboutPagePreview from './preview-templates/AboutPagePreview'

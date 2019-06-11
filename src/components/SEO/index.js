@@ -109,6 +109,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
       <meta name='geo.region' content='US-Oklahoma' />
       <meta name='ICBM' content='35.4582062, -97.6338859' />
       <meta name='slack-app-id' content='AGT7BS79R' />
+      <meta name='p:domain_verify' content='71285af97d3648fb7ec3d230be557d58' />
     </Helmet>
   )
 }
