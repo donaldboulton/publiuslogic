@@ -8,6 +8,7 @@ cover: /img/masonry.jpg
 tags:
   - React Hooks
   - Masonary
+  - Hooks
   - WebDev
   - Tutorial
 meta_title: React Hooks Masonry

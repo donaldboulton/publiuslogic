@@ -8,22 +8,12 @@ const ContactPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   return (
     <Global pageTitle={frontmatter.title}>
-      <section className='section'>
-        <div className='container content'>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
-              <ContactPageTemplate
-                title={frontmatter.title}
-                cover={frontmatter.cover}
-                subtitle={frontmatter.subtitle}
-                meta_title={frontmatter.meta_title}
-                meta_description={frontmatter.meta_description}
-              />
-              <hr />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactPageTemplate
+        title={frontmatter.title}
+        subtitle={frontmatter.subtitle}
+        meta_title={frontmatter.meta_title}
+        meta_description={frontmatter.meta_description}
+      />
     </Global>
   )
 }

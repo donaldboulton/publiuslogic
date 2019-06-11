@@ -9,8 +9,8 @@ import {
   LinkedinShareCount,
   RedditShareCount,
   FacebookIcon,
-  PinterestIcon,
   TwitterIcon,
+  PinterestIcon,
   LinkedinIcon,
   RedditIcon,
 } from 'react-share'

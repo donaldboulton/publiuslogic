@@ -9,7 +9,7 @@ const CategorysPage = ({
 }) => (
   <Global>
     <Helmet title={`Categories | ${title}`} />
-    <section className='hero is-primary is-bold is-medium'>
+    <section className='hero hero-blog-cover'>
       <div className='hero-body'>
         <div className='container'>
           <div className='columns'>

@@ -1,7 +1,5 @@
-import CMS from 'netlify-cms';
-import CSS from 'netlify-cms/dist/cms.css';
+import CMS from '../components/NetlifyCms/netlify-cms'
 
 export default {
-    CMS,
-    CSS
+  CMS,
 }

@@ -1,7 +1,6 @@
 ---
 templateKey: pricing-page
 title: Pricing
-cover: '/img/privacy.jpg'
 meta_title: Pricing | Gatsby Starter Business
 meta_description: >-
   Cum sociis natoque penatibus et magnis dis parturient montes, nascetur

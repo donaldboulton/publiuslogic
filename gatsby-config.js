@@ -99,6 +99,12 @@ module.exports = {
           `gatsby-remark-code-titles`,
           `gatsby-remark-component`,
           {
+            resolve: 'gatsby-remark-normalize-paths',
+            options: {
+              pathFields: ['image', 'cover'],
+            },
+          },
+          {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
@@ -150,6 +156,12 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
             resolve: `gatsby-remark-emojis`,
             options: {
               active: true,
@@ -171,14 +183,6 @@ module.exports = {
       options: {
         color: config.themeColor,
         showSpinner: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-recaptcha',
-      options: {
-        async: true,
-        defer: false,
-        args: '?onload=onloadCallback&render=explicit',
       },
     },
     {
@@ -242,6 +246,7 @@ module.exports = {
                 .map(edge => ({
                   tags: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
+                  cover: edge.node.frontmatter.cover,
                   title: edge.node.frontmatter.title,
                   categorys: edge.node.frontmatter.categorys,
                   description: edge.node.excerpt,
