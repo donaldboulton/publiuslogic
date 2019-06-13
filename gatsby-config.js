@@ -21,6 +21,7 @@ module.exports = {
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
       stripe_public_key_test: `pk_test_Bin5YLSAsXbOcn9hv3tqqqq8001xk1vJdU`,
+      openWeatherMapApiKey: '8f4c1537b5fad3b111dae7b441fd0937',
       social: {
         twitter: `donboulton`,
       },
