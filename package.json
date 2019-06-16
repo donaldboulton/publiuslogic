@@ -99,7 +99,7 @@
     "react-router-dom": "^5.0.0",
     "react-scroll": "^1.7.11",
     "react-share": "^2.4.0",
-    "react-slack-feedback": "^2.0.5",
+    "react-slack-feedback": "^2.1.0",
     "react-typist": "^2.0.5",
     "sharp": "^0.22.1",
     "snyk": "^1.164.0",

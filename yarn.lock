@@ -11559,7 +11559,7 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-slack-feedback@^2.0.5:
+react-slack-feedback@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-slack-feedback/-/react-slack-feedback-2.1.0.tgz#da24315469d2cf25c31cc8cf46e9926b33184884"
   integrity sha512-NpWBlgmtUaZDR3qQrnGTiLcgjcT848y8Y78Vhf2ATMbpq9KEdHYuC02aj2eermWCR280pWWMr3MODZD2gX94tQ==
@@ -15130,7 +15130,7 @@ whatwg-fetch@2.0.4:
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
   integrity sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==
 
-whatwg-fetch@3.0.0, whatwg-fetch@>=0.10.0:
+whatwg-fetch@>=0.10.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
   integrity sha512-9GSJUgz1D4MfyKU7KRqwOjXCXTqWdFNvEr7eUBYchQiVc744mqK/MzXPNR2WsPkmkOa4ywfg8C2n8h+13Bey1Q==
