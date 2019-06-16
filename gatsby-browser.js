@@ -33,6 +33,8 @@ export const onServiceWorkerUpdateFound = () => {
   showNotification()
 
   const url = 'https://publiuslogic.com/blog/modali-hooks-modal/'
+  const promiseChain = clients.openWindow(url)
+  event.waitUntil(promiseChain)
 
   self.addEventListener('notificationclick', function (event) {
     let url = 'https://publiuslogic.com/blog/modali-hooks-modal/'

@@ -1,5 +1,8 @@
 const proxy = require('http-proxy-middleware')
 const config = require('./data/config')
+    
+const fetch = require(`node-fetch`)
+const { createHttpLink } = require(`apollo-link-http`)
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
@@ -308,6 +311,20 @@ module.exports = {
       resolve: `gatsby-plugin-mailchimp`,
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: 'HASURA',
+        fieldName: 'hasura',
+        createLink: () =>
+          createHttpLink({
+            url: `https://gatsbytestgraphql.herokuapp.com/v1alpha1/graphql`,
+            headers: {},
+            fetch,
+          }),
+        refetchInterval: 10,
       },
     },
     {
