@@ -15,16 +15,14 @@ const AboutPageTemplate = ({ title, cover, content, contentComponent }) => {
       <section className='section section--gradient'>
         <div className='container'>
           <div className='columns is-10 is-offset-1'>
+            <div>
+              <Author />
+            </div>
             <div className='column'>
               <div>
                 <PageContent className='content' content={content} />
               </div>
-            </div>
-            <div className='column'>
-              <div>
-                <Author />
-              </div>
-            </div>
+            </div>                                      
           </div>
         </div>
       </section>
