@@ -1,6 +1,5 @@
 const proxy = require('http-proxy-middleware')
-const config = require('./data/config')
-    
+const config = require('./data/config')    
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
