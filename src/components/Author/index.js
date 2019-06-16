@@ -2,7 +2,8 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import AuthorList from './AuthorList'
 
-const Index = ({ data }) => (
+const Author = ({ authors }) => (
+
   <StaticQuery query={graphql`
     query AuthorQuery {
     hasura {
@@ -14,10 +15,11 @@ const Index = ({ data }) => (
   }
   `}
     render={data => {
+    const authorData = data.hasura.author
     return (
       <div>
         <h1>My Authors </h1>
-        <AuthorList authors={data.hasura.author} />
+        <AuthorList authors={authorData} />
       </div>
     )
   }
@@ -25,4 +27,5 @@ const Index = ({ data }) => (
   />
 )
 
-export default Index
+export default Author
+
