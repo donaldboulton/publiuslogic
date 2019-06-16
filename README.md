@@ -13,11 +13,9 @@ To Publish Logic
 [![Known Vulnerabilities](https://snyk.io/test/github/donaldboulton/publiuslogic/badge.svg)](https://snyk.io/test/github/donaldboulton/publiuslogic/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d2be12-eb4a-4da2-a471-aea92e199948/deploy-status)](https://app.netlify.com/sites/publiuslogic/deploys)
 
-## Styling with Bluma and Styled Css Grid
+## Styling with Bluma and `styled-css-grid 🍱`
 
-[![made with bluma](/img/made-with-bulma--dark.png)](https://bulma.io/)
-
-### `styled-css-grid 🍱`
+[![made with bluma](/made-with-bulma--dark-20.png)](https://bulma.io/)
 [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
 
 > A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.

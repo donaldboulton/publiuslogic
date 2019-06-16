@@ -16,17 +16,16 @@ meta_description: >-
 [![Known Vulnerabilities](https://snyk.io/test/github/donaldboulton/publiuslogic/badge.svg)](https://snyk.io/test/github/donaldboulton/publiuslogic/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d2be12-eb4a-4da2-a471-aea92e199948/deploy-status)](https://app.netlify.com/sites/publiuslogic/deploys)
 
-## Additional Styling with Bluma and Styled CSS Grid
+## Styling with Bluma and `styled-css-grid 🍱`
 
-### Bluma [![made with bluma](/img/made-with-bulma--dark.png)](https://bulma.io/)
-
-### `styled-css-grid 🍱 [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)`
+[![made with bluma](/img/made-with-bulma--dark-20.png)](https://bulma.io/)
+[![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
 
 > A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.
 
 🍸 Just Having fun coding!
 
-This website is built as static HTML with Gatsby component-modular builds including a Node backend, with React components and Built with Webpack.
+This website is built as static HTML with Gatsby component-modular Docker Container builds including a Node backend on Heroku, using React components and GraphQL, Built with Webpack.
 
 Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. React Notifications through my Slack Bots and Netlify Functions for my Mansbooks publiuslogic.com workspace.
 
