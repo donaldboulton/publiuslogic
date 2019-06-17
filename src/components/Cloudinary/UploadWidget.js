@@ -30,7 +30,6 @@ class UploadWidget extends Component {
           textDark: '#000000',
           textLight: '#FFFFFF',
         },
-
       },
     },
     function (error, result) {
