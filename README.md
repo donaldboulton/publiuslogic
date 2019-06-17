@@ -58,8 +58,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 [Static + content management = ♥](https://www.netlifycms.org/)
 
-Netlify CMS is Always the latest GitHub repo pull, with my custom Webpack hashed build.
-My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
+PubliusLogic Netlify CMS is Always the latest GitHub repo pull, with my custom Webpack hashed build = just on the admin backend; not the Gatsby plugin and netlify-cms node module way; which builds it into the frontend = slowing Gatsby way down; TEST it to see for yourself.
 
 Get the speed, security, and scalability of a static site, while still providing a convenient editing interface for content.
 
