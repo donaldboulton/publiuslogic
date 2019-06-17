@@ -3,11 +3,11 @@ import Helmet from 'react-helmet'
 
 class UploadWidget extends Component {
   uploadWidget () {
-    cloudinary.openUploadWidget({ 
-      cloud_name: 'mansbooks', 
-      upload_preset: 'photos-preset', 
-      tags: ['cats'], 
-      sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], 
+    cloudinary.openUploadWidget({
+      cloud_name: 'mansbooks',
+      upload_preset: 'photos-preset',
+      tags: ['cats'],
+      sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'],
       dropboxAppKey: 'fk4ayp4zwevjgl7',
       googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM',
       showAdvancedOptions: true,
@@ -28,17 +28,11 @@ class UploadWidget extends Component {
           complete: '#33ff00',
           error: '#EA2727',
           textDark: '#000000',
-          textLight: '#FFFFFF'
+          textLight: '#FFFFFF',
+        },
+
       },
-      fonts: {
-        default: null,
-        ''Kalam', cursive': {
-            url: 'https://fonts.googleapis.com/css?family=Kalam',
-            active: true
-        }
-      }
-    }
-  },
+    },
     function (error, result) {
       console.log(result)
     })
