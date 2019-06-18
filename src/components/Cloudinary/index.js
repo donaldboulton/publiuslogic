@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 import React, { Component, Fragment } from 'react'
-import { LightgalleryProvider } from 'react-lightgallery'
+import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery'
 import axios from 'axios'
 import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
@@ -46,43 +46,38 @@ class Gallery extends Component {
       })
   }
   render () {
-    const { gallery, public_id, isOpen } = this.state
+
     return (
       <div>
         <Fragment>
           <SectionTitle>Cat Gallery</SectionTitle>
           <div>
             <CloudinaryContext cloudName='mansbooks'>
-              <LightgalleryProvider
-                lightgallerySettings={
-                    {
-                       autoplay: 'true',
-                    }
-                }
-                galleryClassName='gallery'
-              >
-                <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
+              <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
+                <LightgalleryProvider>
                   {
                 this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
-                    <Image publicId={data.public_id} onClick={() => this.setState({ isOpen: true })} link={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
-                      <Transformation
-                        crop='scale'
-                        width='250'
-                        height='170'
-                        radius='6'
-                        dpr='auto'
-                        fetchFormat='auto'
-                        responsive_placeholder='blank'
+                    <LightgalleryItem group='group1' src={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
+                      <Image publicId={data.public_id} onClick={() => this.setState({ isOpen: true })}>
+                        <Transformation
+                          crop='scale'
+                          width='250'
+                          height='170'
+                          radius='6'
+                          dpr='auto'
+                          fetchFormat='auto'
+                          responsive_placeholder='blank'
                         />
-                    </Image>
+                      </Image>
+                    </LightgalleryItem>
                   </Cell>
                   )
                 })
               }
-                </Grid>
-              </LightgalleryProvider>
+                </LightgalleryProvider>
+              </Grid>
             </CloudinaryContext>
           </div>
         </Fragment>
