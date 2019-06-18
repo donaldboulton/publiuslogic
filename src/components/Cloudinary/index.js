@@ -70,6 +70,7 @@ class Gallery extends Component {
                           fetchFormat='auto'
                           responsive_placeholder='blank'
                         />
+                        <Transformation overlay={{fontFamily: 'roboto', fontSize: 22, fontWeight: 'bold', text: '%24%28title%29'}} y='0.28' />
                       </Image>
                     </LightgalleryItem>
                   </Cell>
