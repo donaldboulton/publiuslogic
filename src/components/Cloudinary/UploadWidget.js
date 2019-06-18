@@ -12,7 +12,7 @@ class UploadWidget extends Component {
       googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM',
       showAdvancedOptions: true,
       cropping: true,
-      multiple: false,
+      multiple: true,
       defaultSource: 'local',
       styles: {
         palette: {
@@ -41,6 +41,9 @@ class UploadWidget extends Component {
       <div className='main'>
         <Helmet>
           <script src='https://widget.cloudinary.com/v2.0/global/all.js' type='text/javascript' />
+          <script>
+             cloudinary.setCloudName("mansbooks");
+          </script>
         </Helmet>
         <h1>Upload</h1>
         <div className='upload'>

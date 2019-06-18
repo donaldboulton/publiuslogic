@@ -1,12 +1,12 @@
 /* eslint-disable indent */
 import React, { Component, Fragment } from 'react'
+import { LightgalleryProvider } from 'react-lightgallery'
 import axios from 'axios'
 import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 import { Grid, Cell } from 'styled-css-grid'
 import { media } from '../../utils/mediaQuery'
-import Lightbox from 'react-image-lightbox'
-import 'react-image-lightbox/style.css'
+import 'lightgallery.js/dist/css/lightgallery.css'
 
 const SectionTitle = styled.h3`
   font-size: 1em;
@@ -39,7 +39,7 @@ class Gallery extends Component {
   }
   uploadWidget () {
     let _this = this
-    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'dropbox'], dropboxAppKey: 'fk4ayp4zwevjgl7' },
+    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
       function (error, result) {
       // Update gallery state with newly uploaded image
           _this.setState({ gallery: _this.state.gallery.concat(result) })
@@ -53,8 +53,16 @@ class Gallery extends Component {
           <SectionTitle>Cat Gallery</SectionTitle>
           <div>
             <CloudinaryContext cloudName='mansbooks'>
-              <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
-                {
+              <LightgalleryProvider
+                lightgallerySettings={
+                    {
+                       autoplay: 'true',
+                    }
+                }
+                galleryClassName='gallery'
+              >
+                <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
+                  {
                 this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
@@ -73,28 +81,12 @@ class Gallery extends Component {
                   )
                 })
               }
-              </Grid>
+                </Grid>
+              </LightgalleryProvider>
             </CloudinaryContext>
           </div>
         </Fragment>
-        {isOpen && (
-          <Lightbox
-            mainSrc={this.state.link.data.public_id}
-            nextSrc={public_id[(gallery + 1) % public_id.length]}
-            prevSrc={public_id[(gallery + public_id.length - 1) % public_id.length]}
-            onCloseRequest={() => this.setState({ isOpen: false })}
-            onMovePrevRequest={() =>
-              this.setState({
-                gallery: (gallery + public_id.length - 1) % public_id.length,
-              })
-            }
-            onMoveNextRequest={() =>
-              this.setState({
-                gallery: (gallery + 1) % public_id.length,
-              })
-            }
-          />
-        )}
+
       </div>
     )
   }
