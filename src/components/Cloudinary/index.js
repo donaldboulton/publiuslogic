@@ -50,7 +50,7 @@ class Gallery extends Component {
     return (
       <div>
         <Fragment>
-          <SectionTitle>Cat Gallery</SectionTitle>
+          <SectionTitle>Gallery by Cloudinary</SectionTitle>
           <div>
             <CloudinaryContext cloudName='mansbooks'>
               <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>

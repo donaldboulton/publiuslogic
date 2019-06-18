@@ -45,10 +45,10 @@ class UploadWidget extends Component {
              cloudinary.setCloudName("mansbooks");
           </script>
         </Helmet>
-        <h1>Upload</h1>
+        <h1>Upload to Cloudinary</h1>
         <div className='upload'>
           <button onClick={this.uploadWidget.bind(this)} className='upload-button button is-primary'>
-                        Add Image
+            Add Image
           </button>
         </div>
       </div>
