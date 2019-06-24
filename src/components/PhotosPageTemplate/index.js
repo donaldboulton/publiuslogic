@@ -29,7 +29,7 @@ const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, 
       <section className='section section--gradient'>
         <SectionPageTitle>My Cats</SectionPageTitle>
         <div className='container'>
-          <div className='is-10 is-offset-1'>                   
+          <div className='is-10 is-offset-1'>
             <div>
               <Cloudinary />
             </div>
