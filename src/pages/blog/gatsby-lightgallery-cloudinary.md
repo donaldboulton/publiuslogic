@@ -1,3 +1,38 @@
+---
+templateKey: article-page
+title: Gatsby LightGallery Cloudinary
+slug: Gatsby LightGallery Cloudinary
+date: 2019-06-17T20:14:43.942Z
+categorys: 'tech'
+cover: /img/gatsby+react+utterances+home.jpg
+tags:
+  - Gatsby
+  - Cloudinary
+  - LightGallery 
+  - Gallery
+meta_title: Gatsby LightGallery Cloudinary
+meta_description: Gatsby Image Gallery using cloudinary-react and react-lightgallery npm modules, styled with styled components and styled-css-grid.
+tweet_id: '1118651504674725888'
+---
+
+## Gatsby LightGallery Cloudinary
+
+I have used [LightGalley](http://sachinchoolur.github.io/lightGallery/) in my ASP.NET, Core-2, Jekyll, React and now in my Gatsby site for Image Gallerys and iframes to display any kind of html content.
+Using Styled Components and mediaQuery in a Styled CSS Grid for the image Cells
+
+ > LightGallery has a react SDK for usage in react and vanilla.js for the plugins. The jQuery plugins do not include the .js
+
+```js:title=for jQuery
+import 'lg-autoplay' 
+```
+
+```jsx:title=React Usage vanilla.js
+import 'lg-autoplay.js'
+```
+
+### The Component for the Gallery
+
+```jsx:title=src/components/Cloudinary/index.js
 /* eslint-disable indent */
 import React, { Component, Fragment } from 'react'
 import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery'
@@ -41,7 +76,7 @@ class Gallery extends Component {
   }
   uploadWidget () {
     let _this = this
-    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
+    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'YOUR KEY    `', googleApiKey: 'YOUR KEY' },
       function (error, result) {
           _this.setState({ gallery: _this.state.gallery.concat(result) })
       })
@@ -89,3 +124,4 @@ class Gallery extends Component {
 }
 
 export default Gallery
+```

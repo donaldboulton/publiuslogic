@@ -18,6 +18,7 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
               title
+              cover
               categorys
               tags
               templateKey

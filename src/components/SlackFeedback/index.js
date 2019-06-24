@@ -35,7 +35,7 @@ const Feedback = () => {
 }
 
 function sendToServer (payload, success, error) {
-  return fetch('https://gatsbytestgraphql.herokuapp.com', {
+  return fetch('/api/slack', {
     method: 'POST',
     body: JSON.stringify(payload),
   })
@@ -47,7 +47,7 @@ function uploadImage (image, success, error) {
   var form = new FormData()
   form.append('image', image)
 
-  return fetch('https://gatsbytestgraphql.herokuapp.com', { method: 'POST', data: form })
+  return fetch('/api/upload', { method: 'POST', data: form })
     .then(({ url }) => success(url))
     .catch(err => error(err))
 }

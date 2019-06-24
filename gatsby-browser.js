@@ -1,4 +1,4 @@
-import { ExternalLink, Like } from 'styled-icons/evil'
+import { Like } from 'styled-icons/evil'
 
 export const onServiceWorkerUpdateFound = () => {
   const showNotification = () => {
@@ -17,11 +17,7 @@ export const onServiceWorkerUpdateFound = () => {
             actions: [
               {
                 action: Like,
-                title: '👍Like',
-              },
-              {
-                action: ExternalLink,
-                title: '⤻ Post',
+                title: '👍 Close',
               },
             ],
           })

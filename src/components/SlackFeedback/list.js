@@ -16,7 +16,7 @@ class List extends Component {
 
   // Retrieves the list of items from the Express app
   getList = () => {
-    fetch('/.netlify/functions-build/server')
+    fetch('https://gatsbytestgraphql.herokuapp.com')
       .then(res => res.json())
       .then(list => this.setState({ list }));
   };
