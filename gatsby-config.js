@@ -180,14 +180,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-recaptcha',
-      options: {
-        async: true,
-        defer: false,
-        args: '?onload=onloadCallback&render=explicit',
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: config.siteTitle,
