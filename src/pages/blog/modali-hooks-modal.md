@@ -6,7 +6,7 @@ date: 2019-04-20T20:20:43.942Z
 categorys: 'tech'
 cover: /img/modali-logo.png
 tags:
-  - Hooks
+  - React Hooks
   - Modali
   - Modal
   - WebDev

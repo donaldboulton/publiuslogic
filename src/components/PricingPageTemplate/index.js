@@ -14,7 +14,7 @@ const PricingPageTemplate = ({
       <title>{meta_title}</title>
       <meta name='description' content={meta_description} />
     </Helmet>
-    <section className='hero hero-blog-cover'>
+    <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
         <div className='container'>
           <div className='columns'>

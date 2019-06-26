@@ -13,19 +13,16 @@ meta_description: >-
 [![Tip Me via PayPal](https://img.shields.io/badge/PayPal-tip%20me-green.svg?logo=paypal)](https://www.paypal.me/donaldboulton)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/?t=fa5cdbee-00bf-4ca8-be8f-f150a6f643e1)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
-[![Known Vulnerabilities](https://snyk.io/test/github/donaldboulton/publiuslogic/badge.svg)](https://snyk.io/test/github/donaldboulton/publiuslogic/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d2be12-eb4a-4da2-a471-aea92e199948/deploy-status)](https://app.netlify.com/sites/publiuslogic/deploys)
 
-## Styling with Bluma and `styled-css-grid 🍱`
+## `styled-css-grid 🍱`
 [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
 
 > A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.
 
-[![bluma](https://res.cloudinary.com/mansbooks/image/upload/v1560901108/photos/made-with-bulma--dark-20.png)](https://bulma.io/)
-
 🍸 Just Having fun coding!
 
-This website is built as static HTML with Gatsby component-modular Docker Container builds including a Node backend on Heroku, using React components and GraphQL, Built with Webpack.
+This website is built as static HTML with Gatsby component-modular builds including a Node backend, with React components and Built with Webpack.
 
 Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. React Notifications through my Slack Bots and Netlify Functions for my Mansbooks publiuslogic.com workspace.
 
@@ -69,8 +66,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 [Static + content management = ♥](https://www.netlifycms.org/)
 
-Netlify CMS is Always the latest Netlify CMS GitHub repo pull, with my custom Webpack hashed build, not the Gatsby plugin and netlify-cms node module way; which builds it into the frontend = slowing Gatsby way down; TEST it to see for yourself.
-
+Netlify CMS is Always the latest GitHub repo pull, with my custom Webpack hashed build.
 My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
 
 Get the speed, security, and scalability of a static site, while still providing a convenient editing interface for content.

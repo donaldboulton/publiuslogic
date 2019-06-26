@@ -18,16 +18,7 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
               title
-              cover {
-                filePath {
-                  childImageSharp {
-                    responsiveSizes(maxWidth: 1400) {
-                      src
-                      srcSet
-                    }
-                  }
-                }
-              }
+              cover
               categorys
               tags
               templateKey

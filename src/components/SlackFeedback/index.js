@@ -35,7 +35,7 @@ const Feedback = () => {
 }
 
 function sendToServer (payload, success, error) {
-  return fetch('/api/slack', {
+  return fetch('/.netlify/functions-build/server', {
     method: 'POST',
     body: JSON.stringify(payload),
   })
@@ -47,7 +47,7 @@ function uploadImage (image, success, error) {
   var form = new FormData()
   form.append('image', image)
 
-  return fetch('/api/upload', { method: 'POST', data: form })
+  return fetch('/.netlify/functions-build/server', { method: 'POST', data: form })
     .then(({ url }) => success(url))
     .catch(err => error(err))
 }

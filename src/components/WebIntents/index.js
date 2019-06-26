@@ -28,14 +28,13 @@ const WebIntents = ({ slug, tweet_id }) => {
                   rel='no-follow'
                   target='_blank'
                   data-screen-name='donboulton'
-                  data-screen-data-show-count='true'
-                  data-show-count='true'
+                  data-screnedata-show-count='true'
                   title={title}
                   key={url}
                   className='twitter-follow-button button is-small twitter-btn'
                   data-related='donboulton'
                   data-show-screen-name='false'
-                  href='https://twitter.com/donboulton?ref_src=twsrc%5Etfw'
+                  href='https://twitter.com/follow/donboulton'
                 >
                   <span>
                     <Twitter size='14' />

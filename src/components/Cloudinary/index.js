@@ -6,8 +6,6 @@ import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 import { Grid, Cell } from 'styled-css-grid'
 import { media } from '../../utils/mediaQuery'
-import 'lg-hash.js'
-import 'lg-autoplay.js'
 import 'lightgallery.js/dist/css/lightgallery.css'
 
 const SectionTitle = styled.h3`
@@ -43,6 +41,7 @@ class Gallery extends Component {
     let _this = this
     cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
       function (error, result) {
+      // Update gallery state with newly uploaded image
           _this.setState({ gallery: _this.state.gallery.concat(result) })
       })
   }
@@ -71,7 +70,7 @@ class Gallery extends Component {
                           fetchFormat='auto'
                           responsive_placeholder='blank'
                         />
-                        <Transformation overlay={{ fontFamily: 'roboto', fontSize: 22, fontWeight: 'bold', text: 'My Cats' }} y='0.28' />
+                        <Transformation overlay={{ fontFamily: 'roboto', fontSize: 22, fontWeight: 'bold', text: 'data.public_id' }} y='0.28' />
                       </Image>
                     </LightgalleryItem>
                   </Cell>
@@ -83,6 +82,7 @@ class Gallery extends Component {
             </CloudinaryContext>
           </div>
         </Fragment>
+
       </div>
     )
   }

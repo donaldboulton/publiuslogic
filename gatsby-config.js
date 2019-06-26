@@ -1,7 +1,5 @@
 const proxy = require('http-proxy-middleware')
-const config = require('./data/config')    
-const fetch = require(`node-fetch`)
-const { createHttpLink } = require(`apollo-link-http`)
+const config = require('./data/config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
@@ -23,7 +21,6 @@ module.exports = {
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
       stripe_public_key_test: `pk_test_Bin5YLSAsXbOcn9hv3tqqqq8001xk1vJdU`,
-      openWeatherMapApiKey: '8f4c1537b5fad3b111dae7b441fd0937',
       social: {
         twitter: `donboulton`,
       },
@@ -102,12 +99,6 @@ module.exports = {
           `gatsby-remark-code-titles`,
           `gatsby-remark-component`,
           {
-            resolve: 'gatsby-remark-normalize-paths',
-            options: {
-              pathFields: ['image', 'cover'],
-            },
-          },
-          {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
@@ -153,7 +144,7 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               linkImagesToOriginal: true,
-              maxWidth: 1400,
+              maxWidth: 2048,
               showCaptions: true,
               withWebp: true,
             },
@@ -186,6 +177,14 @@ module.exports = {
       options: {
         color: config.themeColor,
         showSpinner: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-recaptcha',
+      options: {
+        async: true,
+        defer: false,
+        args: '?onload=onloadCallback&render=explicit',
       },
     },
     {
@@ -249,7 +248,6 @@ module.exports = {
                 .map(edge => ({
                   tags: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
-                  cover: edge.node.frontmatter.cover,
                   title: edge.node.frontmatter.title,
                   categorys: edge.node.frontmatter.categorys,
                   description: edge.node.excerpt,
@@ -310,6 +308,20 @@ module.exports = {
       resolve: `gatsby-plugin-mailchimp`,
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: 'HASURA',
+        fieldName: 'hasura',
+        createLink: () =>
+          createHttpLink({
+            uri: `${process.env.HASURA_GRAPHQL_URL}`,
+            headers: {},
+            fetch,
+          }),
+        refetchInterval: 10,
       },
     },
     {

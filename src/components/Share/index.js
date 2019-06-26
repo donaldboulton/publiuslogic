@@ -3,14 +3,14 @@ import {
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
-  PinterestShareButton,
+  TelegramShareButton,
   RedditShareButton,
   FacebookShareCount,
   LinkedinShareCount,
   RedditShareCount,
   FacebookIcon,
   TwitterIcon,
-  PinterestIcon,
+  TelegramIcon,
   LinkedinIcon,
   RedditIcon,
 } from 'react-share'
@@ -53,9 +53,9 @@ class Share extends Component {
             {count => <div className='share-count'>{filter(count)}</div>}
           </LinkedinShareCount>
         </LinkedinShareButton>
-        <PinterestShareButton url={url}>
-          <PinterestIcon round size={iconSize} />
-        </PinterestShareButton>
+        <TelegramShareButton url={url}>
+          <TelegramIcon round size={iconSize} />
+        </TelegramShareButton>
       </div>
     )
   }
