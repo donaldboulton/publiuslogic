@@ -14,7 +14,7 @@ const AboutPageTemplate = ({ title, cover, content, contentComponent }) => {
       </section>
       <section className='section section--gradient'>
         <div className='container'>
-          <div className='columns is-10 is-offset-1'>
+          <div className='columns is-10 is-offset-1'>            
             <div className='column'>
               <div>
                 <Author />
@@ -22,7 +22,7 @@ const AboutPageTemplate = ({ title, cover, content, contentComponent }) => {
               <div>
                 <PageContent className='content' content={content} />
               </div>
-            </div>
+            </div>                                      
           </div>
         </div>
       </section>

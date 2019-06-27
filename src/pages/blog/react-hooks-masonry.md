@@ -6,8 +6,9 @@ date: 2019-03-25T20:20:43.942Z
 categorys: 'tech'
 cover: /img/masonry.jpg
 tags:
-  - React Hooks
+  - Hooks
   - Masonary
+  - Hooks
   - WebDev
   - Tutorial
 meta_title: React Hooks Masonry

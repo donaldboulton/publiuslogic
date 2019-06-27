@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import 'node-fetch' // Fetch Polyfill
+import fetch from 'node-fetch'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.

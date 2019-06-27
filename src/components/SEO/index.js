@@ -104,11 +104,6 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
       <meta name='twitter:widgets:border-color' content='#000000' />
       <meta name='twitter:dnt' content='on' />
       <link rel='me' href='https://twitter.com/donboulton' />
-      <meta name='geo.placename' content='720 S Rockwell Ave, Oklahoma City, OK 73128, USA' />
-      <meta name='geo.position' content='35.4582062;-97.6338859' />
-      <meta name='geo.region' content='US-Oklahoma' />
-      <meta name='ICBM' content='35.4582062, -97.6338859' />
-      <meta name='slack-app-id' content='AGT7BS79R' />
     </Helmet>
   )
 }

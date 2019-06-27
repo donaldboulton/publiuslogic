@@ -1,6 +1,5 @@
 const proxy = require('http-proxy-middleware')
-const config = require('./data/config')
-    
+const config = require('./data/config')    
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
@@ -24,6 +23,7 @@ module.exports = {
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
       stripe_public_key_test: `pk_test_Bin5YLSAsXbOcn9hv3tqqqq8001xk1vJdU`,
+      openWeatherMapApiKey: '8f4c1537b5fad3b111dae7b441fd0937',
       social: {
         twitter: `donboulton`,
       },
@@ -102,6 +102,12 @@ module.exports = {
           `gatsby-remark-code-titles`,
           `gatsby-remark-component`,
           {
+            resolve: 'gatsby-remark-normalize-paths',
+            options: {
+              pathFields: ['image', 'cover'],
+            },
+          },
+          {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
@@ -147,7 +153,7 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               linkImagesToOriginal: true,
-              maxWidth: 2048,
+              maxWidth: 1400,
               showCaptions: true,
               withWebp: true,
             },
@@ -243,6 +249,7 @@ module.exports = {
                 .map(edge => ({
                   tags: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
+                  cover: edge.node.frontmatter.cover,
                   title: edge.node.frontmatter.title,
                   categorys: edge.node.frontmatter.categorys,
                   description: edge.node.excerpt,

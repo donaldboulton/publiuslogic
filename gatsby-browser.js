@@ -1,4 +1,4 @@
-import { ExternalLink } from 'styled-icons/evil'
+import { ExternalLink, Like } from 'styled-icons/evil'
 
 export const onServiceWorkerUpdateFound = () => {
   const showNotification = () => {
@@ -16,8 +16,12 @@ export const onServiceWorkerUpdateFound = () => {
             tag: 'request',
             actions: [
               {
+                action: Like,
+                title: '👍Like',
+              },
+              {
                 action: ExternalLink,
-                title: '⤻ Close',
+                title: '⤻ Post',
               },
             ],
           })
@@ -28,49 +32,28 @@ export const onServiceWorkerUpdateFound = () => {
 
   showNotification()
 
-  const ExternalLinkModali = 'https://publiuslogic.com/blog/modali-hooks-modal/'
+  const url = 'https://publiuslogic.com/blog/modali-hooks-modal/'
+  const promiseChain = clients.openWindow(url)
+  event.waitUntil(promiseChain)
 
-  function openWindow (event) {
-    /** ** START notificationOpenWindow ****/
-    const ExternalLinkModali = 'https://publiuslogic.com/blog/modali-hooks-modal/'
-    const promiseChain = clients.openWindow(ExternalLinkModali)
-    event.waitUntil(promiseChain)
-    /** ** END notificationOpenWindow ****/
-  }
-
-  function focusWindow (event) {
-    /** ** START notificationFocusWindow ****/
-    /** ** START urlToOpen ****/
-    const urlToOpen = new URL(ExternalLinkModali, self.location.origin).href
-    /** ** END urlToOpen ****/
-
-    /** ** START clientsMatchAll ****/
-    const promiseChain = clients.matchAll({
-      type: 'window',
-      includeUncontrolled: true,
-    })
-    /** ** END clientsMatchAll ****/
-    /** ** START searchClients ****/
-      .then((windowClients) => {
-        let matchingClient = null
-
-        for (let i = 0; i < windowClients.length; i++) {
-          const windowClient = windowClients[i]
-          if (windowClient.url === urlToOpen) {
-            matchingClient = windowClient
-            break
+  self.addEventListener('notificationclick', function (event) {
+    let url = 'https://publiuslogic.com/blog/modali-hooks-modal/'
+    event.notification.close() // Android needs explicit close.
+    event.waitUntil(
+      clients.matchAll({ type: 'window' }).then(windowClients => {
+        // Check if there is already a window/tab open with the target URL
+        for (var i = 0; i < windowClients.length; i++) {
+          var client = windowClients[i]
+          // If so, just focus it.
+          if (client.url === url && 'focus' in client) {
+            return client.focus()
           }
         }
-
-        if (matchingClient) {
-          return matchingClient.focus()
-        } else {
-          return clients.openWindow(urlToOpen)
+        // If not, then open the target URL in a new window/tab.
+        if (clients.openWindow) {
+          return clients.openWindow(url)
         }
       })
-    /** ** END searchClients ****/
-
-    event.waitUntil(promiseChain)
-    /** ** END notificationFocusWindow ****/
-  }
+    )
+  })
 }
