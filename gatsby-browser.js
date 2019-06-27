@@ -16,12 +16,8 @@ export const onServiceWorkerUpdateFound = () => {
             tag: 'request',
             actions: [
               {
-                action: Like,
-                title: '👍Like',
-              },
-              {
                 action: ExternalLink,
-                title: '⤻ Post',
+                title: '⤻ Close',
               },
             ],
           })

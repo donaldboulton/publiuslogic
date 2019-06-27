@@ -8264,7 +8264,7 @@ jpeg-js@^0.2.0:
   resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.2.0.tgz#53e448ec9d263e683266467e9442d2c5a2ef5482"
   integrity sha1-U+RI7J0mPmgyZkZ+lELSxaLvVII=
 
-jquery@>=1.10.2, jquery@>=1.7.0:
+jquery@>=1.10.2:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
@@ -8536,60 +8536,25 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lg-exif@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/lg-exif/-/lg-exif-1.0.0.tgz#5a6d09717df5ebcaa0a1d0ce96bc5e54577d36da"
-  integrity sha512-VCGfbyvE/pj0x04aPlinfoFehMAqnghTS4Fqm3U1VbLAS/rcSxVU8Ar6d7HPvVvs9s7+DBWSLS+5iWAknANykg==
-
 lg-fullscreen.js@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/lg-fullscreen.js/-/lg-fullscreen.js-1.1.0.tgz#f2af474bd6b0febfc24c4a7cc44bac032bc8f84b"
   integrity sha512-/GVqIWyF4+gSeIllPksmpS+ukTljY1xder2Fgn4Y8y7o1yPZY0yuS2JuNMIQspkF0KiZu1PBQOgBUkgQm5eO4w==
 
-lg-hash@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/lg-hash/-/lg-hash-1.0.4.tgz#ce9bb23426b23110e1feb4ecea1fb8a45d3104f8"
-  integrity sha1-zpuyNCayMRDh/rTs6h+4pF0xBPg=
-  dependencies:
-    jquery ">=1.7.0"
-
-lg-pager@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/lg-pager/-/lg-pager-1.0.2.tgz#e9d928de8f9fa440151d0eab8265dcfb9accb041"
-  integrity sha1-6dko3o+fpEAVHQ6rgmXc+5rMsEE=
-  dependencies:
-    jquery ">=1.7.0"
-
-lg-share@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/lg-share/-/lg-share-1.1.0.tgz#d903680634f4b8ddf45d07b1985b2e776aefd398"
-  integrity sha1-2QNoBjT0uN30XQexmFsud2rv05g=
-  dependencies:
-    jquery ">=1.7.0"
+lg-hash.js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/lg-hash.js/-/lg-hash.js-1.0.0.tgz#2dc56e1066c30211e37a4ec42e3293b2d99e7c62"
+  integrity sha1-LcVuEGbDAhHjek7ELjKTstmefGI=
 
 lg-thumbnail.js@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/lg-thumbnail.js/-/lg-thumbnail.js-1.1.0.tgz#21bd65900955047787d6f07795eaff5ef0f5f671"
   integrity sha512-QyYrSaT3q003iOjR1AM8+L1Jh3fhpLaNvvRpNLeE+RltjLEJPwIVMVqy1UMb3C7xyWy7TdyOfIKJxsCVP3yIbA==
 
-lg-thumbnail@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/lg-thumbnail/-/lg-thumbnail-1.1.0.tgz#91344d9cca35807d44f9f8346d04589c15cc16b2"
-  integrity sha1-kTRNnMo1gH1E+fg0bQRYnBXMFrI=
-  dependencies:
-    jquery ">=1.7.0"
-
 lg-zoom.js@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lg-zoom.js/-/lg-zoom.js-1.0.1.tgz#5e1cdc57409f5e331b573d0fd93dc26479c80cde"
   integrity sha1-XhzcV0CfXjMbVz0P2T3CZHnIDN4=
-
-lg-zoom@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/lg-zoom/-/lg-zoom-1.1.0.tgz#726cdc34748dbd7c1372feedb3017be509e10951"
-  integrity sha1-cmzcNHSNvXwTcv7tswF75QnhCVE=
-  dependencies:
-    jquery ">=1.7.0"
 
 lie@~3.3.0:
   version "3.3.0"
