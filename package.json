@@ -112,6 +112,9 @@
     "web-push": "^3.3.5",
     "with-utterances": "^1.4.1"
   },
+  "resolutions": {
+    "graphql": "14.4.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "babel-eslint": "^10.0.2",

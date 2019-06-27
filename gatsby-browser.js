@@ -1,4 +1,4 @@
-import { ExternalLink, Like } from 'styled-icons/evil'
+import { ExternalLink } from 'styled-icons/evil'
 
 export const onServiceWorkerUpdateFound = () => {
   const showNotification = () => {
@@ -10,7 +10,7 @@ export const onServiceWorkerUpdateFound = () => {
             body: 'New content is available!',
             icon: 'https://publiuslogic.com/img/Notifications_button_24_white.png',
             badge: '/img/apple-touch-icon-32x32.png',
-            image: '/img/notifiction-image.png',
+            image: 'https://publiuslogic.com/img/notifiction-image.png',
             sound: 'https://publiuslogic.com/audio/sound.mp3',
             vibrate: [200, 100, 200, 100, 200, 100, 400],
             tag: 'request',
