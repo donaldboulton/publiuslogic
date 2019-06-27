@@ -16,7 +16,8 @@
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "test": "remark . --quiet --frail && node test.js"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
@@ -73,6 +74,7 @@
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.20",
     "gatsby-transformer-yaml": "^2.1.12",
+    "graphql": "^14.4.0",
     "lg-exif": "^1.0.0",
     "lg-hash": "^1.0.4",
     "lg-pager": "^1.0.2",
@@ -115,33 +117,36 @@
     "web-push": "^3.3.5",
     "with-utterances": "^1.4.1"
   },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended"
-    ]
-  },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "babel-eslint": "^10.0.1",
-    "babel-preset-gatsby": "^0.1.11",
+    "@babel/core": "^7.4.5",
+    "babel-eslint": "^10.0.2",
+    "babel-preset-gatsby": "^0.2.0",
     "dotenv": "^7.0.0",
-    "eslint": "^5.15.3",
+    "eslint": "^6.0.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
     "eslint-config-standard-trailing-commas": "^6.1.0",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-standard": "^4.0.0",
     "gatsby-node-helpers": "^0.3.0",
     "http-proxy-middleware": "^0.19.1",
     "https": "^1.0.0",
-    "netlify-lambda": "^1.4.7",
-    "prettier": "^1.16.4",
+    "netlify-lambda": "^1.4.13",
+    "prettier": "^1.18.2",
     "remark-cli": "^6.0.1",
-    "remark-preset-lint-recommended": "^3.0.2",
+    "remark-html": "^8.0.0",
+    "remark-preset-lint-markdown-style-guide": "^2.0.0",
+    "remark-preset-lint-recommended": "^3.0.3",
     "typescript": "3.4.5"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-lint-markdown-style-guide",
+      "html"
+    ]
   },
   "eslintIgnore": [
     "node_modules",
