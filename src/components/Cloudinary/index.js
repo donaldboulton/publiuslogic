@@ -8,9 +8,6 @@ import { Grid, Cell } from 'styled-css-grid'
 import { media } from '../../utils/mediaQuery'
 import 'lightgallery.js/dist/css/lightgallery.css'
 
-// eslint-disable-next-line valid-typeof
-if (typeof window !== undefined) { require('lg-autoplay.js') }
-
 const SectionTitle = styled.h3`
   font-size: 1em;
   margin: 0.67em 0;
@@ -59,16 +56,7 @@ class Gallery extends Component {
           <div>
             <CloudinaryContext cloudName='mansbooks'>
               <Grid columns='repeat(auto-fit,minmax(260px,1fr))' id='hash'>
-                <LightgalleryProvider
-                  lightgallerySettings={
-                    {
-                      autoplay: 'true',
-                      pause: '5000',
-                      progressBar: 'true',
-                    }
-                }
-                  galleryClassName='gallery react_lightgallery_gallery'
-                >
+                <LightgalleryProvider>
                   {
                 this.state.gallery.map(data => {
                 return (
