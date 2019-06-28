@@ -12,11 +12,6 @@ const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => 
     <div>
       <Helmet>
         <script src='https://www.google.com/recaptcha/api.js' />
-        <script>
-          function onSubmit(token) {
-            module.exports = typeof document !== 'undefined' ? document.getElementById('contact-form').submit()
-          };
-        </script>
         <title>{title}</title>
         <meta name='description' content={subtitle} />
       </Helmet>

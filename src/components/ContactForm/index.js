@@ -167,6 +167,7 @@ class ContactForm extends React.Component {
   closeModal = () => {
     this.setState({ showModal: false })
   }
+  
 
   render () {
     return (
