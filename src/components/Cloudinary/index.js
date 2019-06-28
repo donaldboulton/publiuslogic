@@ -8,6 +8,8 @@ import { Grid, Cell } from 'styled-css-grid'
 import { media } from '../../utils/mediaQuery'
 import 'lightgallery.js/dist/css/lightgallery.css'
 
+import 'lg-autoplay.js'
+
 const SectionTitle = styled.h3`
   font-size: 1em;
   margin: 0.67em 0;
@@ -25,7 +27,7 @@ class Gallery extends Component {
       link: this.href,
     }
   }
-
+  
   componentDidMount () {
     // Request for images tagged cats
     axios.get('https://res.cloudinary.com/mansbooks/image/list/v1557911334/cats.json')
@@ -39,27 +41,38 @@ class Gallery extends Component {
   }
   uploadWidget () {
     let _this = this
+    // eslint-disable-next-line no-undef
     cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
+      // eslint-disable-next-line handle-callback-err
       function (error, result) {
       // Update gallery state with newly uploaded image
           _this.setState({ gallery: _this.state.gallery.concat(result) })
       })
   }
   render () {
-
+    
     return (
       <div>
         <Fragment>
-          <SectionTitle>Gallery by Cloudinary</SectionTitle>
+          <SectionTitle>Cloudinary LightGallery</SectionTitle>
           <div>
             <CloudinaryContext cloudName='mansbooks'>
-              <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
-                <LightgalleryProvider>
+              <Grid columns='repeat(auto-fit,minmax(260px,1fr))' id='hash'>
+                <LightgalleryProvider
+                  lightgallerySettings={
+                    {
+                      autoplay: 'true',
+                      pause: '5000',
+                      progressBar: 'true',
+                    }
+                }
+                  galleryClassName='gallery react_lightgallery_gallery'
+                >
                   {
                 this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
-                    <LightgalleryItem group='group1' src={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
+                    <LightgalleryItem group='group1' src={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`} data-sub-html={'data.public_id'}>
                       <Image publicId={data.public_id} onClick={() => this.setState({ isOpen: true })}>
                         <Transformation
                           crop='scale'
@@ -81,7 +94,6 @@ class Gallery extends Component {
             </CloudinaryContext>
           </div>
         </Fragment>
-
       </div>
     )
   }

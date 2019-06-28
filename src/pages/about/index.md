@@ -20,7 +20,12 @@ meta_description: >-
 
 [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
 
-> A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅. [![made with bluma](/made-with-bulma--dark-20.png)](https://bulma.io/) [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
+> A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅. 
+
+[![made with bluma](/made-with-bulma--dark-20.png)](https://bulma.io/) 
+
+> [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
 
 🍸 Just Having fun coding!
 
