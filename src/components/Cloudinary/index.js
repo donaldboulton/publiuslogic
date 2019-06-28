@@ -8,7 +8,8 @@ import { Grid, Cell } from 'styled-css-grid'
 import { media } from '../../utils/mediaQuery'
 import 'lightgallery.js/dist/css/lightgallery.css'
 
-import 'lg-autoplay.js'
+// eslint-disable-next-line valid-typeof
+if (typeof window !== undefined) { require('lg-autoplay.js') }
 
 const SectionTitle = styled.h3`
   font-size: 1em;
