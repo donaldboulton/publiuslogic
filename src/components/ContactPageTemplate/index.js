@@ -1,14 +1,25 @@
 import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import ContactForm from '../ContactForm'
 import logo from '../../img/logo.png'
 
 const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => {
   const PageContent = contentComponent || Content
-  
+
   return (
     <div>
+      <Helmet>
+        <script src='https://www.google.com/recaptcha/api.js' />
+        <script>
+        function onSubmit(token) {
+            document.getElementById('contact-form').submit()
+          }
+        </script>
+        <title>{title}</title>
+        <meta name='description' content={subtitle} />
+      </Helmet>
       <section className='hero hero-blog-cover'>
         <div className='hero-body'>
           <div className='container'>

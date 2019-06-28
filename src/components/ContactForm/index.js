@@ -7,6 +7,8 @@ import fetch from 'node-fetch'
   ⚠️ This is an example of a contact form powered with Netlify form handling.
   Be sure to review the Netlify documentation for more information:
   https://www.netlify.com/docs/form-handling/
+  Including Recaptcha V3
+  https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
 const Form = styled.form`
@@ -169,12 +171,13 @@ class ContactForm extends React.Component {
   render () {
     return (
       <Form
-        name='contact'
+        name='contact-form'
         onSubmit={this.handleSubmit}
         data-netlify='true'
         data-netlify-honeypot='bot'
         overlay={this.state.showModal}
         onClick={this.closeModal}
+        netlify-recaptcha
       >
         <input type='hidden' name='form-name' value='contact' />
         <p hidden>
@@ -217,6 +220,9 @@ class ContactForm extends React.Component {
         <Submit
           name='submit'
           type='submit'
+          class='g-recaptcha'
+          data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
+          data-callback='onSubmit'
           value={this.state.submitting ? 'Sending...' : 'Send'}
           disabled={this.state.submitting}
         />
