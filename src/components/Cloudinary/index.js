@@ -61,7 +61,7 @@ class Gallery extends Component {
                 this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
-                    <LightgalleryItem group='group1' src={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`} data-sub-html='data.public_id'>
+                    <LightgalleryItem group='group1' src={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
                       <Image publicId={data.public_id} onClick={() => this.setState({ isOpen: true })}>
                         <Transformation
                           crop='scale'
@@ -71,10 +71,10 @@ class Gallery extends Component {
                           dpr='auto'
                           fetchFormat='auto'
                           responsive_placeholder='blank'
-                          overlay='public_id'
                         />
                       </Image>
                     </LightgalleryItem>
+                    <div data-sub-html='data.public_id' />
                   </Cell>
                   )
                 })
