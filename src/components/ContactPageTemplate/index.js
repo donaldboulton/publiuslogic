@@ -11,7 +11,6 @@ const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => 
   return (
     <div>
       <Helmet>
-        <script src='https://www.google.com/recaptcha/api.js' />
         <title>{title}</title>
         <meta name='description' content={subtitle} />
       </Helmet>

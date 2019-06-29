@@ -53,7 +53,3 @@ export const onServiceWorkerUpdateFound = () => {
     )
   })
 }
-
-function onSubmit(token) {
-  module.exports = typeof document !== 'undefined' ? document.getElementById('contact-form').submit()
-}

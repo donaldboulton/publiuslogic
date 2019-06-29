@@ -7,7 +7,7 @@ import fetch from 'node-fetch'
   ⚠️ This is an example of a contact form powered with Netlify form handling.
   Be sure to review the Netlify documentation for more information:
   https://www.netlify.com/docs/form-handling/
-  Including Recaptcha V3
+  To Include Recaptcha V3
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
@@ -167,7 +167,6 @@ class ContactForm extends React.Component {
   closeModal = () => {
     this.setState({ showModal: false })
   }
-  
 
   render () {
     return (
