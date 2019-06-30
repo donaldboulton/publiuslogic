@@ -2505,7 +2505,7 @@ babel-preset-gatsby@^0.2.0:
     "@babel/preset-react" "^7.0.0"
     babel-plugin-macros "^2.4.2"
 
-babel-runtime@^6.26.0:
+babel-runtime@^6.26.0, babel-runtime@^6.6.1:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -6224,7 +6224,7 @@ gatsby-plugin-nprogress@^2.0.10:
     "@babel/runtime" "^7.0.0"
     nprogress "^0.2.0"
 
-gatsby-plugin-offline@^2.2.0:
+gatsby-plugin-offline@^2.1.1:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.2.0.tgz#b0ee8d3b7801df4c4ef1a6e8371d688d7776070f"
   integrity sha512-CIRA2J0ZStBvJQAxbxC8d7w6TMi4QhA/60idfKAKLyR6zQWnvr9CElrr1JJBEEOzXziNRerFoFNftB6VJQ2mFA==
@@ -7132,7 +7132,14 @@ graphql-type-json@^0.2.4:
   resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.2.4.tgz#545af27903e40c061edd30840a272ea0a49992f9"
   integrity sha512-/tq02ayMQjrG4oDFDRLLrPk0KvJXue0nVXoItBe7uAdbNXjQUu+HYCBdAmPLQoseVzUKKMzrhq2P/sfI76ON6w==
 
-graphql@14.4.1, graphql@^14.1.1, graphql@^14.4.1:
+graphql@14.4.0, graphql@^14.1.1:
+  version "14.4.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.4.0.tgz#e97086acfc0338e4fdc8f7dba519c6b8a6badfd9"
+  integrity sha512-E55z1oK6e4cGxCqlSsRWytYDPcIUxky3XkbuQUf6TIjCmn6C7CuBJpmkMF1066q95yPAGOZVPTVT7jABKbRFSA==
+  dependencies:
+    iterall "^1.2.2"
+
+graphql@^14.4.0:
   version "14.4.1"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.4.1.tgz#7a7818d3f63f66b9528ba5416b6c88460db62280"
   integrity sha512-g4HUH26CohlMjaHneXMAtvG3QtO6peJIUTFxrPW4g5LNnXkUuFoBI6Bk1c14Q5kW8+FyjM/tTbePTgpiVB/2hQ==
@@ -8803,11 +8810,6 @@ lg-thumbnail.js@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/lg-thumbnail.js/-/lg-thumbnail.js-1.1.0.tgz#21bd65900955047787d6f07795eaff5ef0f5f671"
   integrity sha512-QyYrSaT3q003iOjR1AM8+L1Jh3fhpLaNvvRpNLeE+RltjLEJPwIVMVqy1UMb3C7xyWy7TdyOfIKJxsCVP3yIbA==
-
-lg-video.js@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/lg-video.js/-/lg-video.js-1.0.0.tgz#9f117615df233868bd8eb3e442be85470a6e71cb"
-  integrity sha1-nxF2Fd8jOGi9jrPkQr6FRwpuccs=
 
 lg-zoom.js@^1.0.1:
   version "1.0.1"
@@ -11820,22 +11822,20 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-lightgallery@^0.4.0, react-lightgallery@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/react-lightgallery/-/react-lightgallery-0.4.3.tgz#c1143f82665d15347ef08b5237fdd0bd7cee630e"
-  integrity sha512-0ppRHzmoIKroguqEYqG+wC+eKR666CGHcmYMREkY8FG2iDkUSreaQ5Ui6RIPbphK4RH1t2MWbO40YCihpszIZg==
+react-lightgallery@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-lightgallery/-/react-lightgallery-0.3.0.tgz#d66b5602eabdf36c5d0389f6029ef74015c682c0"
+  integrity sha512-Sw0lxPAXRdPJ5bSmr+0FuWGr2bBZGqZkrzmye6fTZX68xPnaqU69JrGhU8APXaGshmA2KvbPvzWsQd5UW1wHzw==
   dependencies:
     browser-or-node "^1.1.0"
     lg-fullscreen.js "^1.1.0"
     lg-thumbnail.js "^1.1.0"
-    lg-video.js "^1.0.0"
     lg-zoom.js "^1.0.1"
     lightgallery.js "^1.1.3"
     lodash "^4.17.11"
     prop-types "^15.7.2"
     react "^16.8.3"
     react-dom "^16.8.3"
-    react-lightgallery "^0.4.0"
     uniqid "^5.0.3"
 
 react-reconciler@^0.20.0:
@@ -11885,12 +11885,12 @@ react-scroll@^1.7.11:
     lodash.throttle "^4.1.1"
     prop-types "^15.5.8"
 
-react-share@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-share/-/react-share-3.0.0.tgz#4855cfccfadbb3c6ef490047ccd144dc38ff7421"
-  integrity sha512-7UZ+QWGGZ1P4g9/5oVSIWTEXXFgQ6KgA+H6GW84iioOjM93EoaVMM/LZNiHk0hgYJLsSIGcePTKemIv1yWhYiQ==
+react-share@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-share/-/react-share-2.4.0.tgz#e033316760cfe3265bf0cb031373a7564dbf92f5"
+  integrity sha512-PlVs9Z0/ma0LDaVOPC9uWEysucoL2OOnBEFu7m4TjFMiS42KmHDTW9k9L4LOCCpxiHemfrg/EkzHuU2YXJHn8g==
   dependencies:
-    babel-runtime "^6.26.0"
+    babel-runtime "^6.6.1"
     classnames "^2.2.5"
     jsonp "^0.2.1"
     prop-types "^15.5.8"
