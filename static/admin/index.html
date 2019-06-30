@@ -1,27 +1,23 @@
----
-layout: none
----
-
-<!doctype html><html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js" itemscope itemtype="https://schema.org/WebSite">
+<!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
 <head>
-  {% include head.html %}
-  <script src="{{ '/build/identity/netlify-identity-widget.ce8040fc002c1b4fe023.js' | relative_url }}"></script>
+  <script src="./index.js"></script>
+  <script src="./netlify-identity-widget.ce8040fc002c1b4fe023.js"></script>
   <script>
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       netlifyIdentity.init({
-        APIUrl: "https://donboulton.com/.netlify/identity"
+        APIUrl: "https://publiuslogic.com/.netlify/identity"
       });
     });
   } else {
     netlifyIdentity.init({
-      APIUrl: "https://donboulton.com/.netlify/identity"
+      APIUrl: "https://publiuslogic.com/.netlify/identity"
     });
   }</script>
   <title>Content Manager</title>
 </head>
 
-<body id="style-3" class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} auth-false" itemscope itemtype="https://schema.org/WebPage">
+<body id="style-3" class="body" auth-false" itemscope itemtype="https://schema.org/WebPage">
 <div class="page">
   <script src="./main-6e867e5f1bff2834a633.bundle.js"></script>
 
@@ -72,7 +68,7 @@ layout: none
         var image = entry.getIn(['data', 'image']);
         var bg = image && this.props.getMedia(image);
         return h('div', {},
-          h('div', {className: "page__hero-image"},
+          h('div', {className: "hero"},
             h('h1', {}, entry.getIn(['data', 'title'])),
             bg ? h('img', {src: bg.toString()}) : null
           ),
@@ -84,7 +80,7 @@ layout: none
       }
     });
     CMS.registerPreviewTemplate("posts", PostPreview);
-    CMS.registerPreviewStyle("/assets/app.css");
+    CMS.registerPreviewStyle("./styles.d5154f21eaaa9091536f.css");
 </script>
 </body>
 </html>
