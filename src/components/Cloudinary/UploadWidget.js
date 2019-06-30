@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 
+const cloudinary = require('cloudinary').v2
 class UploadWidget extends Component {
   uploadWidget () {
     cloudinary.openUploadWidget({
       cloud_name: 'mansbooks',
+      api_key: '228989664973733',
+      api_secret: '2RIKEQL1bOOxMNKBoeiCYQR8SnI',
+      username: 'donaldboulton@gmail.com',
       upload_preset: 'photos-preset',
-      tags: ['cats'],
+      tags: ['cats', 'uploads'],
       sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'],
       dropboxAppKey: 'fk4ayp4zwevjgl7',
       googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM',
       showAdvancedOptions: true,
       cropping: true,
-      multiple: false,
+      multiple: true,
+      image_metadata: 'true',
       defaultSource: 'local',
       styles: {
         palette: {
@@ -30,11 +35,10 @@ class UploadWidget extends Component {
           textDark: '#000000',
           textLight: '#FFFFFF',
         },
-
       },
     },
-    function (error, result) {
-      console.log(result)
+    function (e, data) {
+      console.log('Global success', e, data)
     })
   }
   render () {

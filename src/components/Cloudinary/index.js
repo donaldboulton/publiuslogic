@@ -25,7 +25,7 @@ class Gallery extends Component {
       link: this.href,
     }
   }
-  
+
   componentDidMount () {
     // Request for images tagged cats
     axios.get('https://res.cloudinary.com/mansbooks/image/list/v1557911334/cats.json')
@@ -47,8 +47,7 @@ class Gallery extends Component {
           _this.setState({ gallery: _this.state.gallery.concat(result) })
       })
   }
-  render () {
-    
+  render () { 
     return (
       <div>
         <Fragment>
@@ -73,8 +72,8 @@ class Gallery extends Component {
                           responsive_placeholder='blank'
                         />
                       </Image>
+                      <div data-sub-html='public_id' />
                     </LightgalleryItem>
-                    <div data-sub-html='data.public_id' />
                   </Cell>
                   )
                 })
