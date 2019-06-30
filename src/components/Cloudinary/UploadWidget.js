@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-
-const cloudinary = require('cloudinary').v2
+import { cloudinary } from 'cloudinary-react'
 class UploadWidget extends Component {
   uploadWidget () {
     cloudinary.openUploadWidget({
