@@ -4,7 +4,7 @@ title: Gatsby LightGallery Cloudinary
 slug: Gatsby LightGallery Cloudinary
 date: 2019-06-17T20:14:43.942Z
 categorys: 'tech'
-cover: /img/gatsby+react+utterances+home.jpg
+cover: /img/gatsby+lg+cloudinary.png
 tags:
   - Gatsby
   - Cloudinary
@@ -41,8 +41,6 @@ import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 import { Grid, Cell } from 'styled-css-grid'
 import { media } from '../../utils/mediaQuery'
-import 'lg-hash.js'
-import 'lg-autoplay.js'
 import 'lightgallery.js/dist/css/lightgallery.css'
 
 const SectionTitle = styled.h3`
@@ -76,20 +74,22 @@ class Gallery extends Component {
   }
   uploadWidget () {
     let _this = this
-    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'YOUR KEY    `', googleApiKey: 'YOUR KEY' },
+    // eslint-disable-next-line no-undef
+    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
+      // eslint-disable-next-line handle-callback-err
       function (error, result) {
+      // Update gallery state with newly uploaded image
           _this.setState({ gallery: _this.state.gallery.concat(result) })
       })
   }
-  render () {
-
+  render () { 
     return (
       <div>
         <Fragment>
-          <SectionTitle>Gallery by Cloudinary</SectionTitle>
+          <SectionTitle>Cloudinary LightGallery</SectionTitle>
           <div>
             <CloudinaryContext cloudName='mansbooks'>
-              <Grid columns='repeat(auto-fit,minmax(260px,1fr))'>
+              <Grid columns='repeat(auto-fit,minmax(260px,1fr))' id='hash'>
                 <LightgalleryProvider>
                   {
                 this.state.gallery.map(data => {
@@ -107,6 +107,7 @@ class Gallery extends Component {
                           responsive_placeholder='blank'
                         />
                       </Image>
+                      <div data-sub-html='public_id' />
                     </LightgalleryItem>
                   </Cell>
                   )
