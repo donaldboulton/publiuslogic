@@ -1,4 +1,4 @@
-import CMS from '../components/cms/cms'
+import CMS from '../../src/components/cms/cms'
 
 export default {
   CMS,
