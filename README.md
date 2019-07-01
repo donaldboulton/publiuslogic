@@ -22,7 +22,6 @@ To Publish Logic
 [![made with bluma](/made-with-bulma--dark-20.png)](https://bulma.io/)
 
 > [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
 
 ### A Gatsby Starter and My Personal website
 

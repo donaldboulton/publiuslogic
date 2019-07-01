@@ -113,7 +113,6 @@
     "with-utterances": "^1.4.1"
   },
   "resolutions": {
-    "core-js": "3",
     "graphql": "14.1.1"
   },
   "devDependencies": {
