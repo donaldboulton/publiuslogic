@@ -13,3 +13,7 @@ CMS.registerPreviewTemplate('pricing', PricingPagePreview)
 CMS.registerPreviewTemplate('contact', ContactPagePreview)
 CMS.registerPreviewTemplate('privacy', PrivacyPagePreview)
 CMS.registerPreviewTemplate('blog', ArticlePreview)
+
+export default {
+  CMS,
+}
