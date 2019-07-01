@@ -70,11 +70,11 @@
     "gatsby-remark-responsive-iframe": "2.1.1",
     "gatsby-remark-smartypants": "2.0.9",
     "gatsby-source-filesystem": "^2.0.37",
-    "gatsby-source-graphql": "2.0.19",
+    "gatsby-source-graphql": "2.1.0",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.20",
     "gatsby-transformer-yaml": "^2.1.12",
-    "graphql": "^14.4.0",
+    "graphql": "^14.1.1",
     "lg-autoplay.js": "^1.0.0",
     "lg-hash.js": "^1.0.0",
     "lodash": "^4.17.11",
@@ -113,7 +113,8 @@
     "with-utterances": "^1.4.1"
   },
   "resolutions": {
-    "graphql": "14.4.0"
+    "core-js": "3",
+    "graphql": "14.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
