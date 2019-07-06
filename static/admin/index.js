@@ -1,4 +1,4 @@
-import CMS from '../../src/components/cms/cms'
+import CMS from './netlify-cms'
 
 export default {
   CMS,

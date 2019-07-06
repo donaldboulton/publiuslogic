@@ -3,32 +3,53 @@ templateKey: article-page
 title: Gatsby Netlify No Plugins
 slug: Gatsby Netlify No Plugins
 date: 2019-07-06T17:29:36.776Z
-cover: 'https://ucarecdn.com/990fb54c-e52f-4bbe-a1f8-a6d10fe6c195/'
+cover: 'https://ucarecdn.com/3f0804c7-484a-4b97-80bf-cfe004570ee1/GatsbyNetlifyNoPlugins.jpg'
 category: tech
 tags:
-  - Gatsby Netlify CMS Identity
+  - Gatsby 
+  - Netlify CMS 
+  - Identity Widget
 meta_title: Gatsby Netlify No Plugins
 meta_description: >-
-  Gatsby Netlify No Plugins; Netlify Cms and Netify Identity with my own styling
+  Gatsby Netlify No Plugins; Netlify Cms and Netlify Identity with my own styling
   and custom builds
+  tweet_id: '1118651504674725888'
 ---
+
 I started using [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms) and it was slower than some of the other starters with my pages and posts on a production build.
 
-Adding Netlify Identify slowed my Gatsby site down even more.
+Adding Netlify Identify Widget through Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins
 
-I stripped Netlify CMS and Netify identity out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics from Hotjar and Google.
+I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from Hotjar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject them in my Netlify builds with my deploy configurations.
 
-I had incorporated both into a Jekyll site and did a custom build for Netlify Cms and Netify Identity with my own styling and custom builds.
+I had incorporated Netlify CMS and Identity into a Jekyll site and did a custom build for Netlify CMS and Netlify Identity widget with my own styling and custom builds, Separate from my Jekyll build so I knew it could be done without plugins.
 
 I liked having the ability to edit my pages and posts remotely from maybe a library computer so I liked that ability and Netlify CMs works great for me in my Gatsby site but not in my Gatsby build.
 
-I Froked both Netlify CMS and Identity cutomized them and added the necessary Custom Webpack builds of each to my /static/admin folder and added them to my index.html admin file.
+I Forked both Netlify CMS and Identity customized them and added the necessary Custom Webpack builds of each to my /static/admin folder and added them to my index.html admin file.
 
-Moving the CMS folder with the cms.js and preview templates to the /static/admin/cms folder.
+For Netlify Identity on the front end I added a folder to my Components as NetlifyIdentity and used the custom build script and its .map file for the Identify Widget service.
 
-Code for the index page.
+Adding to my NavBar
 
 ```jsx
+import NetlifyIdentityWidget from '../IdentityWidget'
+
+// and then the component to the navbar links
+
+  <div className='navbar-item' id='login'>
+    <NetlifyIdentityWidget />
+  </div>
+```
+
+Moving the CMS folder that came with the Gatsby Netlify Starter, with the, "cms.js and preview templates", to the /static/admin/cms folder.
+
+Code for the index.html page is below.
+
+[Repo Link](https://github.com/donaldboulton/publiuslogic/blob/master/static/admin/index.html)
+
+```html{3-5,23-25}:title=static/admin/index.html
+
 <!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
 <head>
   <script src="./index.js"></script>
@@ -115,7 +136,7 @@ Code for the index page.
           h('div', {"className": "text"}, this.props.widgetFor('body'))
         );
       }
-    });    
+    });
     CMS.registerPreviewTemplate('home', HomePagePreview)
     CMS.registerPreviewTemplate('about', AboutPagePreview)
     CMS.registerPreviewTemplate('pricing', PricingPagePreview)
@@ -130,3 +151,25 @@ Code for the index page.
 </body>
 </html>
 ```
+
+Then a index.js file to import and export the Netlify CMS
+
+```js{1,4}:title=static/admin/netlify-cms.js
+import CMS from '../admin/cms/cms'
+
+export default {
+  CMS,
+}
+```
+
+I am using an external service for my Images with uploadcare or you can use cloudinary library and not have to use all the plugins slowing your Gatsby build and site speed; "like, "gatsby-plugin-netlify-cms' and "gatsby-plugin-netlify-identity-widget" "gatsby-remark-relative-images" "gatsby-remark-copy-linked-files", "netlify-cms-app", netlify-cms-media-library-cloudinary", "netlify-cms-media-library-uploadcare". No does Gatsby have to care about uploaded files or folder configurations for static uploads and/or images
+
+Just include any custom code or external libraries in you CMS or Identity Builds.
+
+I added the preview styles from my Netlify build style sheet using styled components and Bluma with a custom override style sheet on stock Bluma styles for my Gatsby Site, so I used my production style sheet i n my admin folder as
+
+```jsx:title=static/admin/styles.d5154f21eaaa9091536f.css
+CMS.registerPreviewStyle("./styles.d5154f21eaaa9091536f.css");
+```
+
+My repo holds all the code for the discussion above at [DWB publislogic repo Static Admin Folder](https://github.com/donaldboulton/publiuslogic)
