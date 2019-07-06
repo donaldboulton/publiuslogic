@@ -3,17 +3,14 @@ templateKey: article-page
 title: Gatsby Netlify No Plugins
 slug: Gatsby Netlify No Plugins
 date: 2019-07-06T17:29:36.776Z
-cover: 'https://ucarecdn.com/3f0804c7-484a-4b97-80bf-cfe004570ee1/GatsbyNetlifyNoPlugins.jpg'
+cover: 'https://ucarecdn.com/2dea1cd1-f816-42f5-9abb-4c7321f62812/'
 category: tech
 tags:
-  - Gatsby 
-  - Netlify CMS 
-  - Identity Widget
+  - Gatsby Netlify CMS Identity
 meta_title: Gatsby Netlify No Plugins
 meta_description: >-
-  Gatsby Netlify No Plugins; Netlify Cms and Netlify Identity with my own styling
+  Gatsby Netlify No Plugins; Netlify Cms and Netify Identity with my own styling
   and custom builds
-  tweet_id: '1118651504674725888'
 ---
 
 I started using [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms) and it was slower than some of the other starters with my pages and posts on a production build.
@@ -173,3 +170,4 @@ CMS.registerPreviewStyle("./styles.d5154f21eaaa9091536f.css");
 ```
 
 My repo holds all the code for the discussion above at [DWB publislogic repo Static Admin Folder](https://github.com/donaldboulton/publiuslogic)
+
