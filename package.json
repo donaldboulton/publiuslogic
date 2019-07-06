@@ -15,8 +15,6 @@
     "serve": "gatsby serve && netlify-lambda serve functions-build",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect",
     "test": "remark . --quiet --frail && node test.js"
   },
   "dependencies": {
