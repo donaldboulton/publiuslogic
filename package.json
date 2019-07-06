@@ -77,7 +77,7 @@
     "graphql": "^14.1.1",
     "lg-autoplay.js": "^1.0.0",
     "lg-hash.js": "^1.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "https://github.com/lodash/lodash/archive/4.17.12-pre.tar.gz",
     "lodash-webpack-plugin": "^0.11.5",
     "modali": "^1.1.0",
     "node-fetch": "^2.5.0",
@@ -113,7 +113,8 @@
     "with-utterances": "^1.4.1"
   },
   "resolutions": {
-    "graphql": "14.1.1"
+    "graphql": "14.1.1",
+    "lodash": "https://github.com/lodash/lodash/archive/4.17.12-pre.tar.gz"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

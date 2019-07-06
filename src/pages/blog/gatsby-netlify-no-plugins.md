@@ -3,7 +3,7 @@ templateKey: article-page
 title: Gatsby Netlify No Plugins
 slug: Gatsby Netlify No Plugins
 date: 2019-07-06T17:29:36.776Z
-cover: 'https://ucarecdn.com/2dea1cd1-f816-42f5-9abb-4c7321f62812/'
+cover: 'https://ucarecdn.com/d6adc4c0-bcfb-4b2b-a65b-0fc7475e9b5a/GatsbyNetlifyNoPlugins.jpg'
 category: tech
 tags:
   - Gatsby Netlify CMS Identity
@@ -11,6 +11,7 @@ meta_title: Gatsby Netlify No Plugins
 meta_description: >-
   Gatsby Netlify No Plugins; Netlify Cms and Netify Identity with my own styling
   and custom builds
+tweet_id: "1234567686968"
 ---
 
 I started using [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms) and it was slower than some of the other starters with my pages and posts on a production build.
@@ -151,7 +152,7 @@ Code for the index.html page is below.
 
 Then a index.js file to import and export the Netlify CMS
 
-```js{1,4}:title=static/admin/netlify-cms.js
+```js{1,4}:title=static/admin/cms/cms.js
 import CMS from '../admin/cms/cms'
 
 export default {
