@@ -100,10 +100,10 @@
     "react-typist": "^2.0.5",
     "sharp": "^0.22.1",
     "snyk": "^1.192.3",
-    "styled-components": "^4.3.1",
+    "styled-components": "^4.3.2",
     "styled-css-grid": "^1.2.1",
-    "styled-icons": "^8.0.0",
-    "styled-media-query": "^2.1.1",
+    "styled-icons": "^8.1.0",
+    "styled-media-query": "^2.1.2",
     "typeface-bowlby-one-sc": "^0.0.72",
     "typeface-kaushan-script": "0.0.72",
     "typeface-roboto": "^0.0.54",
@@ -113,6 +113,7 @@
     "with-utterances": "^1.4.1"
   },
   "resolutions": {
+    "core-js": "3",
     "graphql": "14.1.1",
     "lodash": "https://github.com/lodash/lodash/archive/4.17.12-pre.tar.gz"
   },
