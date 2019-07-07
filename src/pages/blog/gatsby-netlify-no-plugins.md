@@ -3,26 +3,28 @@ templateKey: article-page
 title: Gatsby Netlify No Plugins
 slug: Gatsby Netlify No Plugins
 date: 2019-07-06T17:29:36.776Z
-cover: 'https://ucarecdn.com/d6adc4c0-bcfb-4b2b-a65b-0fc7475e9b5a/GatsbyNetlifyNoPlugins.jpg'
-category: tech
+cover: '/img/Gatsby+Netlify+No+Plugins.jpg'
+categorys: 'tech'
 tags:
-  - Gatsby Netlify CMS Identity
+  - Gatsby 
+  - Netlify CMS
+  - Identity Widget
 meta_title: Gatsby Netlify No Plugins
 meta_description: >-
-  Gatsby Netlify No Plugins; Netlify Cms and Netify Identity with my own styling
+  Gatsby Netlify No Plugins; Netlify CMS and Netlify Identity with my own styling
   and custom builds
 tweet_id: "1234567686968"
 ---
 
 I started using [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms) and it was slower than some of the other starters with my pages and posts on a production build.
 
-Adding Netlify Identify Widget through Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins
+Adding Netlify Identify Widget through Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and  Netlify Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins
 
-I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from Hotjar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject them in my Netlify builds with my deploy configurations.
+I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from HotJar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject them in my Netlify builds with my deploy post processing snippet injection.
 
 I had incorporated Netlify CMS and Identity into a Jekyll site and did a custom build for Netlify CMS and Netlify Identity widget with my own styling and custom builds, Separate from my Jekyll build so I knew it could be done without plugins.
 
-I liked having the ability to edit my pages and posts remotely from maybe a library computer so I liked that ability and Netlify CMs works great for me in my Gatsby site but not in my Gatsby build.
+I liked having the ability to edit my pages and posts remotely from maybe a library computer and Netlify CMs works great for me in my Gatsby site but not in my Gatsby build.
 
 I Forked both Netlify CMS and Identity customized them and added the necessary Custom Webpack builds of each to my /static/admin folder and added them to my index.html admin file.
 
@@ -160,7 +162,7 @@ export default {
 }
 ```
 
-I am using an external service for my Images with uploadcare or you can use cloudinary library and not have to use all the plugins slowing your Gatsby build and site speed; "like, "gatsby-plugin-netlify-cms' and "gatsby-plugin-netlify-identity-widget" "gatsby-remark-relative-images" "gatsby-remark-copy-linked-files", "netlify-cms-app", netlify-cms-media-library-cloudinary", "netlify-cms-media-library-uploadcare". No does Gatsby have to care about uploaded files or folder configurations for static uploads and/or images
+I am using an external service for my Images with uploadcare or you can use cloudinary library and not have to use all the plugins slowing your Gatsby build and site speed; "like, "gatsby-plugin-netlify-cms' and "gatsby-plugin-netlify-identity-widget" "gatsby-remark-relative-images", "gatsby-remark-copy-linked-files", "netlify-cms-app", netlify-cms-media-library-cloudinary", "netlify-cms-media-library-uploadcare". No does Gatsby have to care about uploaded files or folder configurations for static uploads and/or images in gatbsy.config.
 
 Just include any custom code or external libraries in you CMS or Identity Builds.
 
