@@ -3,7 +3,7 @@ templateKey: article-page
 title: Gatsby Netlify No Plugins
 slug: Gatsby Netlify No Plugins
 date: 2019-07-06T17:29:36.776Z
-cover: '/img/Gatsby+Netlify+No+Plugins.jpg'
+cover: '/img/Gatsby+Netlify+NoPlugins.jpg'
 categorys: 'tech'
 tags:
   - Gatsby 
