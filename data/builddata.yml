@@ -1,0 +1,13 @@
+builds:
+  - label: 2018
+    value: '1456'
+  - label: 2017
+    value: 1290
+  - label: 2016
+    value: 1225
+  - label: 2015
+    value: 1386
+  - label: 2014
+    value: 1012
+  - label: 2013
+    value: '809'

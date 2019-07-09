@@ -30,6 +30,10 @@ I Forked both Netlify CMS and Identity customized them and added the necessary C
 
 For Netlify Identity on the front end I added a folder to my Components as NetlifyIdentity and used the custom build script and its .map file for the Identify Widget service.
 
+Netlify CMS building this post
+
+![Netlify CMS building this post](/img/Cms+Gatsby+Netlify+NoPlugins.jpg)
+
 Adding to my NavBar
 
 ```jsx
