@@ -205,3 +205,5 @@ patch:
         patched: '2019-07-06T02:25:49.676Z'
     - gatsby > @gatsbyjs/relay-compiler > babel-preset-fbjs > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
         patched: '2019-07-06T02:25:49.676Z'
+    - gatsby-plugin-webpack-bundle-analyzer > webpack-bundle-analyzer > lodash:
+        patched: '2019-07-09T20:54:11.908Z'
