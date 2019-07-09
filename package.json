@@ -74,7 +74,7 @@
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-source-graphql": "2.1.0",
     "gatsby-transformer-remark": "^2.3.12",
-    "gatsby-transformer-sharp": "^2.1.20",
+    "gatsby-transformer-sharp": "^2.2.1",
     "gatsby-transformer-yaml": "^2.1.12",
     "graphql": "^14.1.1",
     "lg-autoplay.js": "^1.0.0",
