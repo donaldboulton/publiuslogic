@@ -2,12 +2,13 @@ import React from 'react'
 import config from '../../../data/config'
 import Helmet from 'react-helmet'
 
-const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, postData }) => {
+const SE0 = ({ title, meta_title, meta_description, cover, slug, siteMetadata, postData }) => {
   const postMeta = postData || {}
+  const { siteUrl, twitterUserName } = siteMetadata
   let postURL = config.siteUrl + slug
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   let image = config.siteUrl + realPrefix + cover
-  const datePublished = isBlogPost ? postMeta.date : postMeta.date
+  const datePublished = config.siteUrl + slug + postMeta.date
 
   const breadcrumbSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -19,7 +20,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
         item: {
           '@id': config.siteUrl,
           name: 'Home',
-          image: config.siteUrl + '/icons/icon-512x512.png',
+          image: siteUrl + '/icons/icon-512x512.png',
         },
       },
       {
@@ -28,7 +29,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
         item: {
           '@id': postURL,
           name: title,
-          image: cover,
+          image: image,
         },
       },
     ],
@@ -39,6 +40,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
     '@type': 'BlogPosting',
     url: postURL,
     name: title,
+    twitterUserName: twitterUserName,
     alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
     headline: title,
     mainEntityOfPage: {
@@ -71,7 +73,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
       <title>{meta_title}</title>
       {/* General tags */}
       <meta name='description' content={meta_description} />
-      <meta name='image' content={cover} />
+      <meta name='image' content={image} />
       {/* Schema.org tags */}
       <script type='application/ld+json'>
         {JSON.stringify(breadcrumbSchemaOrgJSONLD)}
@@ -84,7 +86,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
       <meta property='og:type' content='article' />
       <meta property='og:title' content={meta_title} />
       <meta property='og:description' content={meta_description} />
-      <meta property='og:image' content={config.siteUrl + cover} />
+      <meta property='og:image' content={image} />
       <meta
         property='fb:app_id'
         content={config.siteFBAppID ? config.siteFBAppID : ''}
@@ -97,7 +99,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, pos
       />
       <meta name='twitter:title' content={meta_title} />
       <meta name='twitter:description' content={meta_description} />
-      <meta name='twitter:image' content={config.siteUrl + cover} />
+      <meta name='twitter:image' content={image} />
       <meta name='twitter:widgets:autoload' content='off' />
       <meta name='twitter:widgets:theme' content='dark' />
       <meta name='twitter:widgets:link-color' content='#d64000' />

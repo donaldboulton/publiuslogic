@@ -13,7 +13,7 @@ meta_title: Gatsby Netlify No Plugins
 meta_description: >-
   Gatsby Netlify No Plugins; Netlify CMS and Netlify Identity with my own styling
   and custom builds
-tweet_id: "1234567686968"
+tweet_id: "1148277966230695936"
 ---
 
 I started using [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms) and it was slower than some of the other starters with my pages and posts on a production build.
