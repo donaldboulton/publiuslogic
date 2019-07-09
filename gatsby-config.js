@@ -1,9 +1,7 @@
 const proxy = require('http-proxy-middleware')
-const config = require('./data/config')
-
+const config = require('./data/config')    
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
-
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
@@ -32,6 +30,7 @@ module.exports = {
       social: {
         twitter: `donboulton`,
       },
+
     },
   },
   developMiddleware: app => {
@@ -314,15 +313,6 @@ module.exports = {
       resolve: `gatsby-plugin-mailchimp`,
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-      options: {
-        analyzerMode: 'server',
-        analyzerPort: '8888',
-        analyzerHost: 'http://127.0.0.1',
-        defaultSizes: 'gzip'
       },
     },
     {
