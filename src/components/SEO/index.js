@@ -2,13 +2,12 @@ import React from 'react'
 import config from '../../../data/config'
 import Helmet from 'react-helmet'
 
-const SE0 = ({ title, meta_title, meta_description, cover, slug, siteMetadata, postData }) => {
+const SE0 = ({ title, meta_title, meta_description, cover, slug, isBlogPost, postData }) => {
   const postMeta = postData || {}
-  const { siteUrl, twitterUserName } = siteMetadata
   let postURL = config.siteUrl + slug
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   let image = config.siteUrl + realPrefix + cover
-  const datePublished = config.siteUrl + slug + postMeta.date
+  const datePublished = isBlogPost ? postMeta.date : postMeta.date
 
   const breadcrumbSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -20,7 +19,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, siteMetadata, p
         item: {
           '@id': config.siteUrl,
           name: 'Home',
-          image: siteUrl + '/icons/icon-512x512.png',
+          image: config.siteUrl + '/icons/icon-512x512.png',
         },
       },
       {
@@ -40,7 +39,6 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, siteMetadata, p
     '@type': 'BlogPosting',
     url: postURL,
     name: title,
-    twitterUserName: twitterUserName,
     alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
     headline: title,
     mainEntityOfPage: {
@@ -73,7 +71,7 @@ const SE0 = ({ title, meta_title, meta_description, cover, slug, siteMetadata, p
       <title>{meta_title}</title>
       {/* General tags */}
       <meta name='description' content={meta_description} />
-      <meta name='image' content={image} />
+      <meta name='image' content={cover} />
       {/* Schema.org tags */}
       <script type='application/ld+json'>
         {JSON.stringify(breadcrumbSchemaOrgJSONLD)}
