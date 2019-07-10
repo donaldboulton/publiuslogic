@@ -32,7 +32,7 @@ const WebIntents = ({ slug, tweet_id }) => {
                   data-show-count='true'
                   title={title}
                   key={url}
-                  className='twitter-follow-button twitter-btn'
+                  className='twitter-follow-button twitter-button button is-small twitter-btn'
                   data-related='donboulton'
                   data-show-screen-name='false'
                   href='https://twitter.com/donboulton?ref_src=twsrc%5Etfw'

@@ -67,6 +67,12 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                 <a className='navbar-item' href='/blog' itemProp='url'>
                   All Posts
                 </a>
+                <a className='navbar-item' href='/blog/gatsby-netlify-no-plugins/' itemProp='url'>
+                  Gatsby Netlify No Plugins
+                </a>
+                <a className='navbar-item' href='/blog/gatsby-lightgallery-cloudinary/' itemProp='url'>
+                  Gatsby LightGallery Cloudinary
+                </a>
                 <a className='navbar-item' href='/blog/modali-hooks-modal/' itemProp='url'>
                   Modali Hooks Modal
                 </a>
@@ -78,6 +84,9 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                 </a>
                 <a className='navbar-item' href='/blog/react-hooks-modal/' itemProp='url'>
                   React Hooks Modal
+                </a>
+                <a className='navbar-item' href='/blog/js-media-queries/' itemProp='url'>
+                  JavaScript media queries
                 </a>
                 <a className='navbar-item' href='/blog/react-hooks-masonry/' itemProp='url'>
                   React Hooks Masonary

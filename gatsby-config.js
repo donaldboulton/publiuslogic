@@ -11,8 +11,13 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: config.siteTitle,
-    siteUrl: config.siteUrl,
+    title: 'Publiuslogic',
+    titleTemplate: "%s · To Publish Logic",
+    description: 'PubliusLogic is built and written by Donald Boulton, I write about gov and tech on my blog',
+    author: 'Donald Boulton',
+    siteUrl: 'https://publiuslogic.com',
+    image: '/img/icon.png',
+    twitterUserName: 'donboulton',
     rssMetadata: {
       site_url: config.siteUrl + pathPrefix,
       feed_url: config.siteUrl + pathPrefix + config.siteRss,
@@ -46,7 +51,6 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/assets/img`,
