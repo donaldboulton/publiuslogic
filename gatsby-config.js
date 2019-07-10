@@ -11,11 +11,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Publiuslogic',
-    description: 'PubliusLogic is built and written by Donald Boulton, I write about gov and tech on my blog',
-    author: 'Donald Boulton',
-    siteUrl: 'https://publiuslogic.com',
-    twitterUserName: 'donboulton',
+    title: config.siteTitle,
+    siteUrl: config.siteUrl,
     rssMetadata: {
       site_url: config.siteUrl + pathPrefix,
       feed_url: config.siteUrl + pathPrefix + config.siteRss,
