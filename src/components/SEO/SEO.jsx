@@ -44,7 +44,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
     headline,
     inLanguage: siteLanguage,
     mainEntityOfPage: siteUrl,
-    meta_description: defaultDescription,
+    description: defaultDescription,
     name: defaultTitle,
     author: {
       '@type': 'Person',
@@ -113,7 +113,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
       },
       datePublished: node.first_publication_date,
       dateModified: node.last_publication_date,
-      meta_description: seo.meta_description,
+      description: seo.meta_description,
       headline: seo.title,
       inLanguage: 'en',
       url: seo.url,
