@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import config from '../../../data/config'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Facebook from './Facebook'
@@ -8,10 +7,8 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ title, meta_description, cover, pathname, article, slug, node }) => {
+const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
   const { site } = useStaticQuery(query)
-  let url = config.siteUrl + slug
-  let defaultCover = config.siteUrl + slug + cover
 
   const {
     buildTime,
@@ -31,9 +28,9 @@ const SEO = ({ title, meta_description, cover, pathname, article, slug, node }) 
 
   const seo = {
     title: title || defaultTitle,
-    meta_description: meta_description || defaultDescription,
-    image: `${url}${cover || defaultCover}`,
-    url: `${url}${pathname || ''}`,
+    description: meta_description || defaultDescription,
+    image: `${siteUrl}${cover || defaultCover}`,
+    url: `${siteUrl}${pathname || ''}`,
   }
 
   // schema.org in JSONLD format
@@ -43,10 +40,10 @@ const SEO = ({ title, meta_description, cover, pathname, article, slug, node }) 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: url,
+    url: siteUrl,
     headline,
     inLanguage: siteLanguage,
-    mainEntityOfPage: article,
+    mainEntityOfPage: siteUrl,
     description: defaultDescription,
     name: defaultTitle,
     author: {
@@ -70,7 +67,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, slug, node }) 
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${url}${defaultCover}`,
+      url: `${siteUrl}${defaultCover}`,
     },
   }
 
