@@ -6,61 +6,50 @@ import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
-import Img from 'gatsby-image'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 
-const ArticlePage = props => {
-  const {
-    location,
-    data: {
-      site: { siteMetadata },
-      markdownRemark: { html, frontmatter, description },
-    },
-  } = props
-  const { siteUrl, twitterUserName, author } = siteMetadata
-  const url = `${siteUrl}${location.pathname}`
-  const imageURL = `${siteUrl}${frontmatter.cover.childImageSharp.resize.src}`
-  const { title: postTitle, date, keywords } = frontmatter
-  
+const ArticlePage = ({ data }) => {
+  const { markdownRemark: post } = data
+
   return (
-    <Global title={frontmatter.title}>
+    <Global title={post.frontmatter.title}>
       <section className='hero'>
         <div>
-          <Img fluid={frontmatter.cover.childImageSharp.fluid} />
+          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
         </div>
       </section>
       <section className='section'>
-        <SEO
-          title={postTitle}
-          description={description}
-          keywords={keywords}
-          url={url}
-          imageURL={imageURL}
-          siteName={siteUrl}
-          author={author}
-          twitterUserName={twitterUserName}
+        <SE0
+          title={post.frontmatter.title}
+          meta_title={post.frontmatter.meta_title}
+          meta_desc={post.frontmatter.meta_description}
+          categorys={post.frontmatter.categorys}
+          slug={post.fields.slug}
+          date={post.frontmatter.date}
+          tweet_id={post.frontmatter.tweet_id}
+          cover={post.frontmatter.cover && post.fields.slug.cover}
         />
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <ArticleTemplate
-                cover={frontmatter.cover}
-                content={html}
+                cover={post.frontmatter.cover}
+                content={post.html}
                 contentComponent={HTMLContent}
-                categorys={frontmatter.categorys}
-                date={date}
-                tweet_id={frontmatter.tweet_id}
-                meta_title={frontmatter.meta_title}
-                meta_desc={frontmatter.meta_description}
-                tags={frontmatter.tags}
-                title={frontmatter.title}
+                categorys={post.frontmatter.categorys}
+                date={post.frontmatter.date}
+                tweet_id={post.frontmatter.tweet_id}
+                meta_title={post.frontmatter.meta_title}
+                meta_desc={post.frontmatter.meta_description}
+                tags={post.frontmatter.tags}
+                title={post.frontmatter.title}
               />
               <Share
-                title={frontmatter.title}
-                slug={url}
-                excerpt={frontmatter.meta_description}
+                title={post.frontmatter.title}
+                slug={post.fields.slug}
+                excerpt={post.frontmatter.meta_description}
               />
               <hr />
               <Comments />
@@ -81,32 +70,22 @@ ArticlePage.propTypes = {
 export default ArticlePage
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-        siteUrl
-        twitterUserName
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query ArticleByID($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id
       html
-      description: excerpt(pruneLength: 200)
+      fields {
+        slug
+      }      
       frontmatter {
+        date(formatString: "MMMM DD, YYYY")
         title
+        tweet_id
+        categorys
+        meta_title
+        meta_description
         tags
-        date(formatString: "DD MMMM, YYYY")
-        cover {
-          childImageSharp {
-            resize(width: 1200, height: 1200) {
-              src
-            }
-            fluid(maxWidth: 786) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        cover
       }
     }
   }
