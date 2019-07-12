@@ -81,7 +81,7 @@ ArticlePage.propTypes = {
 export default ArticlePage
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($id: String!) {
+  query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -90,15 +90,12 @@ export const pageQuery = graphql`
         twitterUserName
       }
     }
-    markdownRemark(fields: { id: { eq: $id } }) {
-      id
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      fields {
-        slug
-      }
+      description: excerpt(pruneLength: 200)
       frontmatter {
         title
-        keywords
+        tags
         date(formatString: "DD MMMM, YYYY")
         cover {
           childImageSharp {
