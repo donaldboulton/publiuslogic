@@ -9,3 +9,9 @@
   font-weight: 500;
   cursor: pointer
 }
+
+.twitter-dm-button {
+  visibility: visible;
+  display: flex !important;
+  transform: rotate(0deg);
+}
