@@ -147,7 +147,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
     <>
       <Helmet title={seo.title}>
         <html lang={siteLanguage} />
-        <meta name='meta_descriptionription' content={seo.meta_descriptionription} />
+        <meta name='meta_description' content={seo.meta_description} />
         <meta name='image' content={seo.image} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
@@ -196,8 +196,8 @@ const query = graphql`
       siteMetadata {
         siteUrl
         defaultTitle: title
-        defaultDescription: meta_description
-        defaultCover: cover
+        defaultDescription: description
+        defaultCover: logo
         headline
         siteLanguage
         ogLanguage
