@@ -1,10 +1,4 @@
 .twitter-btn {
-  background-color: #1b95e0 !important;
-  color: #fff;
-  border: 1px thin #1b95e0 !important;
-}
-
-.twitter-btn {
   position: relative;
   height: 20px;
   box-sizing: border-box;

@@ -15,7 +15,15 @@ const WebIntents = ({ slug, tweet_id }) => {
           <div className='column'>
             <div className='field is-grouped has-addons'>
               <p className='control'>
-                <a itemProp='url' rel='me' title={title} key={tweet_id} data-screen-name='donboulton' className='twitter-button button is-small twitter-btn' href='https://twitter.com/intent/tweet?via=donboulton?ref_src=twsrc%5Etfw'>
+                <a
+                  itemProp='url'
+                  rel='me'
+                  title={title}
+                  key={tweet_id}
+                  url={url}
+                  data-screen-name='donboulton'
+                  className='twitter-share-button twitter-btn' 
+                  href='https://twitter.com/intent/tweet?via=donboulton?ref_src=twsrc%5Etfw'>
                   <span>
                     <Twitter size='14' />
                   </span>
@@ -32,7 +40,8 @@ const WebIntents = ({ slug, tweet_id }) => {
                   data-show-count='true'
                   title={title}
                   key={url}
-                  className='twitter-follow-button twitter-button button is-small twitter-btn'
+                  url={url}
+                  className='twitter-follow-button twitter-btn'
                   data-related='donboulton'
                   data-show-screen-name='false'
                   href='https://twitter.com/donboulton?ref_src=twsrc%5Etfw'
@@ -49,8 +58,9 @@ const WebIntents = ({ slug, tweet_id }) => {
                   rel='no-follow'
                   aria-label='like'
                   title={title}
+                  url={url}
                   href='https://twitter.com/messages/compose?recipient_id=&ref_src=twsrc%5Etfw'
-                  className='twitter-dm-button button is-small twitter-btn'
+                  className='twitter-dm-button twitter-btn'
                   data-screen-name='donboulton'
                   data-show-count='false'
                   target='_blank'

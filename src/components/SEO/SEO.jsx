@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import config from '../../../data/config'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Facebook from './Facebook'
@@ -7,8 +8,10 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
+const SEO = ({ title, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
+  let url = config.siteUrl + slug
+  let defaultCover = config.siteUrl + slug + cover
 
   const {
     buildTime,
@@ -29,8 +32,8 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
   const seo = {
     title: title || defaultTitle,
     meta_description: meta_description || defaultDescription,
-    image: `${siteUrl}${cover || defaultCover}`,
-    url: `${siteUrl}${pathname || ''}`,
+    image: `${url}${cover || defaultCover}`,
+    url: `${url}${pathname || ''}`,
   }
 
   // schema.org in JSONLD format
@@ -40,10 +43,10 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: siteUrl,
+    url: url,
     headline,
     inLanguage: siteLanguage,
-    mainEntityOfPage: siteUrl,
+    mainEntityOfPage: article,
     description: defaultDescription,
     name: defaultTitle,
     author: {
@@ -67,7 +70,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${siteUrl}${defaultCover}`,
+      url: `${url}${defaultCover}`,
     },
   }
 
@@ -138,7 +141,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
   const breadcrumb = {
     '@context': 'http://schema.org',
     '@type': 'BreadcrumbList',
-    meta_description: 'Breadcrumbs list',
+    description: 'Breadcrumbs list',
     name: 'Breadcrumbs',
     itemListElement,
   }
@@ -147,7 +150,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
     <>
       <Helmet title={seo.title}>
         <html lang={siteLanguage} />
-        <meta name='meta_description' content={seo.meta_description} />
+        <meta name='description' content={seo.meta_description} />
         <meta name='image' content={seo.image} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
@@ -164,7 +167,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
         locale={ogLanguage}
         name={facebook}
       />
-      <Twitter title={seo.title} image={seo.image} meta_description={seo.meta_description} username={twitter} />
+      <Twitter title={seo.title} image={seo.image} description={seo.meta_description} username={twitter} />
     </>
   )
 }
