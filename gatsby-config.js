@@ -4,6 +4,7 @@ const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+let cover = config.siteUrl + pathPrefix + cover
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -12,12 +13,21 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'Publiuslogic',
-    titleTemplate: "%s · To Publish Logic",
-    description: 'PubliusLogic is built and written by Donald Boulton, I write about gov and tech on my blog',
+    titleTemplate: '%s · To Publish Logic',
+    titleAlt: 'To Publish Logic',
+    description: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
-    siteUrl: 'https://publiuslogic.com',
+    siteUrl: config.siteUrl + pathPrefix,
+    cover: config.siteUrl + pathPrefix + cover,
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
+    headline: 'Writing and publishing content for PubliusLogic', // Headline for schema.org JSONLD
+    url: config.siteUrl + pathPrefix,
+    siteLanguage: 'en', // Language Tag on <html> element
+    logo: '/img/logo.png', // Used for SEO
+    ogLanguage: 'en_US', // Facebook Languag
+    twitter: 'donboulton',
+    facebook: 'don.boulton',
     rssMetadata: {
       site_url: config.siteUrl + pathPrefix,
       feed_url: config.siteUrl + pathPrefix + config.siteRss,
@@ -27,8 +37,6 @@ module.exports = {
       author: config.userName,
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
-      stripe_public_key_test: `pk_test_Bin5YLSAsXbOcn9hv3tqqqq8001xk1vJdU`,
-      openWeatherMapApiKey: '8f4c1537b5fad3b111dae7b441fd0937',
       social: {
         twitter: `donboulton`,
       },
@@ -215,7 +223,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -330,6 +337,7 @@ module.exports = {
         refetchInterval: 10,
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
