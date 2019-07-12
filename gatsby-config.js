@@ -4,7 +4,6 @@ const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-let cover = config.siteUrl + pathPrefix + cover
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -18,7 +17,6 @@ module.exports = {
     description: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
     siteUrl: config.siteUrl + pathPrefix,
-    cover: config.siteUrl + pathPrefix + cover,
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
     headline: 'Writing and publishing content for PubliusLogic', // Headline for schema.org JSONLD
