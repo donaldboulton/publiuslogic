@@ -21,7 +21,9 @@ const WebIntents = ({ slug, tweet_id }) => {
                   title={title}
                   key={tweet_id}
                   url={url}
-                  data-screen-name='donboulton'
+                  data-screen-name='@donboulton'
+                  data-show-count='true'
+                  data-screen-data-show-count='true'
                   className='twitter-share-button twitter-btn' 
                   href='https://twitter.com/intent/tweet?via=donboulton?ref_src=twsrc%5Etfw'>
                   <span>
@@ -56,13 +58,14 @@ const WebIntents = ({ slug, tweet_id }) => {
                 <a
                   itemProp='url'
                   rel='no-follow'
-                  aria-label='like'
+                  aria-label='Message'
                   title={title}
                   url={url}
-                  href='https://twitter.com/messages/compose?recipient_id=&ref_src=twsrc%5Etfw'
+                  key={tweet_id}
+                  href='https://twitter.com/messages/compose?recipient_id=105217183'
                   className='twitter-dm-button twitter-btn'
-                  data-screen-name='donboulton'
-                  data-show-count='false'
+                  data-screen-name='@donboulton'
+                  data-show-count='true'
                   target='_blank'
                 >
                   <span>
