@@ -155,19 +155,7 @@ li
 .button:focus
   outline: none !important
 .button:active
-  border-color: transparent !important  
-.uploadcare--widget__button_type_open    
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-  background-color: #d64000 !important
-  border-color: transparent !important
-  color: #cccccc !important
-.uploadcare--widget__button  
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-  background-color: #d64000 !important
-  border-color: transparent !important
-  color: #cccccc !important  
+  border-color: transparent !important   
 .margin-top-0
   margin-top: 0 !important
 .icon svg 
@@ -216,9 +204,6 @@ footer.footer
     box-shadow: 0 1px 1px rgba(0,0,0,.125) !important
     max-width: 100%
     width: 100%
-.file-lable
-    box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px !important
-    background-color: rgb(255, 68, 0) !important 
 .label
   color: #cccccc !important  
 html 
@@ -454,37 +439,7 @@ html::-webkit-scrollbar-track
   border-bottom: 1px solid #da1b60 !important
   padding-bottom: .15rem
 .number
-    background-color: #d64000 !important
-.author-avatar
-  grid-area: avatar
-  -ms-flex-item-align: start
-  align-self: start
-  position: relative
-.author-avatar .half-circle
-  position: absolute
-  bottom: 0
-  left: 0
-  width: 80px
-  height: 56px
-  fill: none
-  stroke: url(#orange-to-pink)
-  stroke-width: 8
-  stroke-linecap: round
-  pointer-events: none  
-.author-avatar img
-  width: 35px
-  height: 35px
-.author-avatar .half-circle
-  width: 55px
-  height: 40px
-.icon-arrow-right
-  width: 24px
-  height: 24px
-  position: absolute
-  right: 0
-  top: 50%
-  -webkit-transform: translate(0,-50%)
-  transform: translate(0,-50%)  
+  background-color: #d64000 !important
 .language-text
   backround-color: #1d1d1d !important
   color: #cccccc !important
@@ -496,22 +451,6 @@ div.code-toolbar>.toolbar
   opacity: 0
 .subtitle
   color: #cccccc !important
-.file-cta 
-  border-color: transparent !important
-  background-color: transparent !important 
-  border-radius: 4px
-  font-size: 1em
-  padding-left: 1em
-  padding-right: 1em
-  padding-bottom: 1em !important
-  white-space: nowrap
-  color: #cccccc !important
-.file-cta:active
-  border-color: transparent !important
-  background-color: transparent !important 
-.file-cta:hover
-  border-color: transparent !important
-  background-color: transparent !important
 .link-icon
   color: #d64000
 .media
@@ -521,21 +460,7 @@ div.code-toolbar>.toolbar
   background-color: #1d1d1d !important
   border-left: 5px solid #d64000 !important
   color: #dbdbdb !important
-  padding: 1.25em 1.5em  
-.arrow-left
-  background-image: transparent url(/img/icon-arrow-right.svg) center left no-repeat
-  width: 20px
-  height: 12px
-  -moz-transform: scaleX(-1)
-  -o-transform: scaleX(-1)
-  -webkit-transform: scaleX(-1)
-  transform: scaleX(-1)
-  filter: FlipH
-  -ms-filter: "FlipH"
-.arrow-right
-  background: transparent
-  width: 20px
-  height: 12px    
+  padding: 1.25em 1.5em      
 .image-container
   position: relative
   width: 100%
@@ -551,35 +476,8 @@ div.code-toolbar>.toolbar
   -ms-transform: scale(1.05)
   -webkit-transform: scale(1.05)
   transform: scale(1.05)  
-.hgroup
-  margin-left: 0
-  margin-right: 0
-  margin-top: 0
-  padding-bottom: 0
-  padding-left: 0
-  padding-right: 0
-  padding-top: 0
-  margin-bottom: 1.45rem
 .hero
   margin-top: 1em !important
-.like-action
-  background-color: transparent
-  fill: #AAB8C2
-.like-action:hover
-  background-color: transparent
-  fill: #E81C4F
-.reply-action    
-  background-color: transparent
-  fill: #AAB8C2
-.reply-action:hover
-  background-color: transparent
-  fill: #19CF86
-.retweet-action  
-  background-color: transparent
-  fill: #AAB8C2
-.retweet-action:hover
-  background-color: transparent
-  fill: #19CF86
 .caption, figcaption
   position: absolute;
   bottom: 0
@@ -613,10 +511,6 @@ div.code-toolbar>.toolbar
   text-align: center
 .container:hover .overlay
   opacity: 1
-.twitter-btn
-  background-color: #1b95e0 !important
-  color: #fff
-  border: 1px thin #1b95e0 !important
 .gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before
   background-clip: content-box
 .cc-container.cc-theme-orange .cc-icon a
@@ -648,14 +542,17 @@ div.code-toolbar>.toolbar
 .gatsby-resp-image-figcaption
   text-align: center !important
 .twitter-btn
-    position: relative
-    height: 20px
-    box-sizing: border-box
-    padding: 1px 8px 1px 6px
-    background-color: #1b95e0
-    color: #fff
-    border-radius: 3px
-    font-weight: 500
-    cursor: pointer  
+  position: relative
+  height: 20px
+  box-sizing: border-box
+  padding: 1px 8px 1px 6px
+  background-color: #1b95e0
+  color: #fff
+  border-radius: 3px
+  font-weight: 500
+  cursor: pointer  
+.section
+  padding: 1.8rem 1.5rem !important
+
 
 @import "~bulma"

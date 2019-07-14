@@ -61,7 +61,7 @@ const WebIntents = ({ slug, tweet_id }) => {
                   aria-label='Message'
                   title={title}
                   url={url}
-                  key={tweet_id}
+                  key={url}
                   href='https://twitter.com/messages/compose?recipient_id=105217183'
                   className='twitter-dm-button twitter-btn'
                   data-screen-name='@donboulton'

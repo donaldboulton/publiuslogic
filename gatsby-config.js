@@ -11,6 +11,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
+    siteTitle: 'Publiuslogic',
     title: 'Publiuslogic',
     titleTemplate: '%s · To Publish Logic',
     titleAlt: 'To Publish Logic',

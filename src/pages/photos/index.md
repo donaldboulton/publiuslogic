@@ -5,7 +5,7 @@ slug: Photos
 cover: /img/tiger.jpg
 meta_title: Cat Photos
 meta_description: >-
-  This website is built as static HTML with Gatsby component-modular builds including a Node backend, with React components and Built with Webpack.
+  This Gallery is build using Cloudinary for the photos styled-ccs-grid for display and ImageGallery for the photo Gallery window display.
 ---
 
 ## Cat Photos

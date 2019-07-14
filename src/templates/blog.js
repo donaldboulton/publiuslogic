@@ -40,6 +40,10 @@ export default class BlogPage extends Component {
       <Global title={config.siteTitle}>
         <Helmet>
           <title>Blog | Publius Logic</title>
+          <meta name='description' content='Blog | Publius Logic' />
+          <meta name='keywords' content='PubliusLogic, Blog, Posts' />
+          <meta name='image' content='https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp' />
+          <meta name='robots' content='index, follow' />
           {/* Schema.org tags */}
           <script type='application/ld+json'>
             {JSON.stringify(websiteSchemaOrgJSONLD)}

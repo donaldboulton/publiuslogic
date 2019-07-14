@@ -81,7 +81,7 @@ export const Col = styled.div`
 `
 ```
 
-Using `Masonry` is as simple as wrapping it around an array of child elements. For example, here's how you'd use it to display a [list of image thumbnails](/nature) in a masonry layout.
+Using `Masonry` is as simple as wrapping it around an array of child elements. For example, here's how you'd use it to display a [list of image thumbnails](https://janosh.io/nature) in a masonry layout.
 
 ```jsx{3,11,24}
 import React, { useState, Fragment } from 'react'

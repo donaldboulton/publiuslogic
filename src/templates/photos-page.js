@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import PhotosPageTemplate from '../components/PhotosPageTemplate'
 import Global from '../components/Global'
@@ -8,6 +9,12 @@ const PhotosPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   return (
     <Global pageTitle={frontmatter.title}>
+      <Helmet>
+        <title>{frontmatter.meta_title}</title>
+        <meta name='description' content={frontmatter.meta_description} />
+        <meta name='keywords' content={frontmatter.tags} />
+        <meta name='image' content={frontmatter.cover} />
+      </Helmet>
       <PhotosPageTemplate
         title={frontmatter.title}
         cover={frontmatter.cover}

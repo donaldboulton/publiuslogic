@@ -16,7 +16,7 @@ const CategorysPage = ({
             <div className='column is-10 is-offset-1'>
               <div className='section'>
                 <h1 className='title'>
-                               Categories
+                  Categories
                 </h1>
               </div>
             </div>

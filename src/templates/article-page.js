@@ -2,6 +2,7 @@ import React from 'react'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
@@ -15,6 +16,20 @@ const ArticlePage = ({ data }) => {
 
   return (
     <Global title={post.frontmatter.title}>
+      <Helmet>
+        <title>{post.frontmatter.meta_title}</title>
+        <meta name='description' content={post.frontmatter.meta_description} />
+        <meta name='keywords' content={post.frontmatter.tags} />
+        <meta name='image' content={post.frontmatter.cover} />
+        <meta name='robots' content='index, follow' />
+        <meta property='og:url' content={post.fields.slug} />
+        <meta property='og:description' content={post.frontmatter.meta_description} />
+        <meta property='og:image' content={post.frontmatter.cover} />
+        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
+        <meta name='twitter:description' content={post.frontmatter.meta_description} />
+        <meta name='twitter:image' content={post.frontmatter.cover} />
+        <meta name='twitter:image:alt' content={post.frontmatter.meta_title} />
+      </Helmet>
       <section className='hero'>
         <div>
           <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
@@ -24,9 +39,9 @@ const ArticlePage = ({ data }) => {
         <SE0
           title={post.frontmatter.title}
           meta_title={post.frontmatter.meta_title}
-          meta_desc={post.frontmatter.meta_description}
+          meta_description={post.frontmatter.meta_description}
           categorys={post.frontmatter.categorys}
-          slug={post.fields.slug}
+          url={post.fields.slug}
           date={post.frontmatter.date}
           tweet_id={post.frontmatter.tweet_id}
           cover={post.frontmatter.cover && post.fields.slug.cover}
