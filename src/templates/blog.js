@@ -31,8 +31,9 @@ export default class BlogPage extends Component {
     const websiteSchemaOrgJSONLD = {
       '@context': 'http://schema.org',
       '@type': 'WebSite',
-      url: config.siteUrl,
+      url: 'https://publiuslogic.com/blog',
       name: config.siteTitle,
+      image: 'https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp',
       alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
     }
 
