@@ -7,7 +7,7 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
+const SEO = ({ siteTitle, title, description, cover, pathname, article, node }) => {
   const { site } = useStaticQuery(query)
 
   const {
@@ -27,8 +27,9 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
   } = site
 
   const seo = {
+    siteTitle: siteTitle || siteTitle,
     title: title || defaultTitle,
-    description: meta_description || defaultDescription,
+    description: description || defaultDescription,
     image: `${siteUrl}${cover || defaultCover}`,
     url: `${siteUrl}${pathname || ''}`,
   }
@@ -41,11 +42,12 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
     url: siteUrl,
+    siteTitle: siteTitle,
     headline,
     inLanguage: siteLanguage,
-    mainEntityOfPage: siteUrl,
+    mainEntityOfPage: defaultDescription,
     description: defaultDescription,
-    name: defaultTitle,
+    name: title,
     author: {
       '@type': 'Person',
       name: author,
@@ -113,7 +115,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
       },
       datePublished: node.first_publication_date,
       dateModified: node.last_publication_date,
-      description: seo.meta_description,
+      description: seo.description,
       headline: seo.title,
       inLanguage: 'en',
       url: seo.url,
@@ -122,7 +124,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
         '@type': 'ImageObject',
         url: seo.image,
       },
-      mainEntityOfPage: seo.url,
+      mainEntityOfPage: seo.description,
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
@@ -145,9 +147,9 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
 
   return (
     <>
-      <Helmet title={seo.title}>
+      <Helmet title={seo.siteTitle}>
         <html lang={siteLanguage} />
-        <meta name='description' content={seo.meta_description} />
+        <meta name='description' content={seo.description} />
         <meta name='image' content={seo.image} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
@@ -156,7 +158,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
         <script type='application/ld+json'>{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <Facebook
-        meta_description={seo.meta_description}
+        description={seo.description}
         image={seo.image}
         title={seo.title}
         type={article ? 'article' : 'website'}
@@ -164,7 +166,7 @@ const SEO = ({ title, meta_description, cover, pathname, article, node }) => {
         locale={ogLanguage}
         name={facebook}
       />
-      <Twitter title={seo.title} image={seo.image} description={seo.meta_description} username={twitter} />
+      <Twitter title={seo.title} image={seo.image} description={seo.description} username={twitter} />
     </>
   )
 }
@@ -173,7 +175,8 @@ export default SEO
 
 SEO.propTypes = {
   title: PropTypes.string,
-  meta_description: PropTypes.string,
+  siteTitle: PropTypes.string,
+  description: PropTypes.string,
   cover: PropTypes.string,
   pathname: PropTypes.string,
   article: PropTypes.bool,
@@ -182,7 +185,8 @@ SEO.propTypes = {
 
 SEO.defaultProps = {
   title: null,
-  meta_description: null,
+  siteTitle: PropTypes.string,
+  description: null,
   cover: null,
   pathname: null,
   article: false,
@@ -195,6 +199,7 @@ const query = graphql`
       buildTime(formatString: "YYYY-MM-DD")
       siteMetadata {
         siteUrl
+        siteTitle
         defaultTitle: title
         defaultDescription: description
         defaultCover: logo

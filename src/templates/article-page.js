@@ -21,7 +21,6 @@ const ArticlePage = ({ data }) => {
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={post.frontmatter.tags} />
         <meta name='image' content={post.frontmatter.cover} />
-        <meta name='robots' content='index, follow' />
         <meta property='og:url' content={post.fields.slug} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
         <meta property='og:image' content={post.frontmatter.cover} />
@@ -39,7 +38,7 @@ const ArticlePage = ({ data }) => {
         <SE0
           title={post.frontmatter.title}
           meta_title={post.frontmatter.meta_title}
-          meta_description={post.frontmatter.meta_description}
+          description={post.frontmatter.meta_description}
           categorys={post.frontmatter.categorys}
           url={post.fields.slug}
           date={post.frontmatter.date}

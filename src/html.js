@@ -16,6 +16,7 @@ export default class HTML extends Component {
           <meta name='geo.region' content='US-Oklahoma' />
           <meta name='ICBM' content='35.4582062, -97.6338859' />
           <meta name='slack-app-id' content='AGT7BS79R' />
+          <meta name='robots' content='index, follow' />
           {this.props.headComponents}
           <link rel='shortcut icon' href={favicon} />
         </head>
