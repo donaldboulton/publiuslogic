@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
-import AboutPageTemplate from '../components/AboutPageTemplate'
+import SiteMapPageTemplate from '../components/SiteMapPageTemplate'
 import Global from '../components/Global'
 
-const AboutPage = ({ data }) => {
+const SiteMapPage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
@@ -18,7 +18,7 @@ const AboutPage = ({ data }) => {
         <meta name='image' content={post.frontmatter.cover} />
         <meta name='robots' content='index, follow' />
       </Helmet>
-      <AboutPageTemplate
+      <SiteMapPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         cover={post.frontmatter.cover}
@@ -28,14 +28,14 @@ const AboutPage = ({ data }) => {
   )
 }
 
-AboutPage.propTypes = {
+SiteMapPage.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default AboutPage
+export default SiteMapPage
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const sitemapPageQuery = graphql`
+  query SiteMapPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
