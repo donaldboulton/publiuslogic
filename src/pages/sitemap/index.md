@@ -2,7 +2,7 @@
 templateKey: sitemap-page
 title: SiteMap
 slug: sitemap
-cover: ./sitemap.png
+cover: ./sitemap.jpg
 meta_title: Sitemap of PubliusLogic Pages
 meta_description: >-
   Sitemap of Publiuslogic Pages.
