@@ -46,19 +46,19 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                   <span itemProp='name'>Home</span>
                 </a>
                 <a className='navbar-item' href='/about' itemProp='url'>
-                  <span itemProp='name'>About</span>
+                  <span itemProp='name'>About Site</span>
                 </a>
                 <a className='navbar-item' href='/photos' itemProp='url'>
-                  <span itemProp='name'>Photos</span>
+                  <span itemProp='name'>Photo Gallery</span>
                 </a>
                 <a className='navbar-item' href='/contact' itemProp='url'>
-                  <span itemProp='name'>Contact</span>
+                  <span itemProp='name'>Email Contact</span>
                 </a>
                 <a className='navbar-item' href='/privacy' itemProp='url'>
                   <span itemProp='name'>Privacy & terms</span>
                 </a>
                 <a className='navbar-item' href='/sitemap' itemProp='url'>
-                  <span itemProp='name'>SiteMap</span>
+                  <span itemProp='name'>SiteMap Page</span>
                 </a>
               </div>
             </div>
