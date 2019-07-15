@@ -58,7 +58,7 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                   <span itemProp='name'>Privacy & terms</span>
                 </a>
                 <a className='navbar-item' href='/sitemap' itemProp='url'>
-                  <span itemProp='name'>SiteMap Page</span>
+                  <span itemProp='name'>Site Map Page</span>
                 </a>
               </div>
             </div>

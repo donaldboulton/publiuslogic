@@ -1,37 +1,41 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import SiteMapPageTemplate from '../components/SiteMapPageTemplate'
+import { HTMLContent } from '../components/Content'
+import AboutPageTemplate from '../components/AboutPageTemplate'
 import Global from '../components/Global'
 
-const SiteMapPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+const AboutPage = ({ data }) => {
+  const { markdownRemark: post } = data
 
   return (
-    <Global pageTitle={frontmatter.title}>
-      <SiteMapPageTemplate
-        title={frontmatter.title}
-        meta_title={frontmatter.meta_title}
-        cover={frontmatter.cover}
-        description={frontmatter.meta_description}
-        pricing={frontmatter.pricing}
-      />
+    <Global>
+      <Helmet>
+        <title>{post.frontmatter.meta_title}</title>
+        <meta name='description' content={post.frontmatter.meta_description} />
+        <meta name='keywords' content={post.frontmatter.tags} />
+        <meta name='image' content={post.frontmatter.cover} />
+        <meta name='robots' content='index, follow' />
+      </Helmet>
+      <AboutPageTemplate
+        contentComponent={HTMLContent}
+        title={post.frontmatter.title}
+        cover={post.frontmatter.cover}
+        content={post.html}
+      />      
     </Global>
   )
 }
 
-SiteMapPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
+AboutPage.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
-export default SiteMapPage
+export default AboutPage
 
-export const sitemapPageQuery = graphql`
-  query SiteMapPage($id: String!) {
+export const aboutPageQuery = graphql`
+  query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {

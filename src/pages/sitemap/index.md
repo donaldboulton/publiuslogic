@@ -5,7 +5,7 @@ slug: sitemap
 cover: /img/sitemap.jpg
 meta_title: Sitemap of PubliusLogic Pages
 meta_description: >-
-  Sitemap of Publiuslogic Pages.
+  Sitemap of PubliusLogic Pages.
 ---
 
 ## SiteMap of PubliusLogic Pages
