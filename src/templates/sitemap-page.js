@@ -12,6 +12,7 @@ const SiteMapPage = ({ data }) => {
       <SiteMapPageTemplate
         title={frontmatter.title}
         meta_title={frontmatter.meta_title}
+        cover={frontmatter.cover}
         description={frontmatter.meta_description}
         pricing={frontmatter.pricing}
       />
@@ -34,7 +35,8 @@ export const sitemapPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        title      
+        title
+        cover      
         meta_title
         meta_description
       }
