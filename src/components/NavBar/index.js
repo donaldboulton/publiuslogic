@@ -60,6 +60,12 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                 <a className='navbar-item' href='/sitemap' itemProp='url'>
                   <span itemProp='name'>Site Map Page</span>
                 </a>
+                <a className='navbar-item' href='/app/profile' itemProp='url'>
+                  <span itemProp='name'>User Profile</span>
+                </a>
+                <a className='navbar-item' href='/admin/#/collections/pages' itemProp='url'>
+                  <span itemProp='name'>Admin CMS</span>
+                </a>
               </div>
             </div>
             <div className='navbar-item has-dropdown is-hoverable'>

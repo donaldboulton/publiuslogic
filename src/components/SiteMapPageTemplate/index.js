@@ -1,6 +1,7 @@
 import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 const SiteMapPageTemplate = ({ title, cover, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -44,6 +45,7 @@ const SiteMapPageTemplate = ({ title, cover, content, contentComponent }) => {
 SiteMapPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
+  cover: PropTypes.image,
   contentComponent: PropTypes.func,
 }
 
