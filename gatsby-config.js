@@ -18,6 +18,7 @@ module.exports = {
     description: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
     siteUrl: config.siteUrl + pathPrefix,
+    keywords: 'Publiuslogic, Gatsby, React',
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
     headline: 'Writing and publishing content for PubliusLogic', // Headline for schema.org JSONLD
@@ -52,10 +53,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    {
-      resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/app/*`] },
-    },
     'gatsby-plugin-sass',
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-styled-components',
@@ -319,6 +316,10 @@ module.exports = {
           },
         },
       },
+    },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/app/*`] },
     },
     {
       resolve: `gatsby-plugin-mailchimp`,
