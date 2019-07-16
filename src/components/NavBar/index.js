@@ -18,7 +18,7 @@ const NavBar = ({ toggleNavbar, isActive }) => (
       <nav className='navbar is-fixed-top' aria-label='main navigation' itemScope='itemScope' itemType='https://schema.org/SiteNavigationElement'>
         <div className='navbar-brand'>
           <span className='navbar-item'>
-            <Link to='https://publiuslogic.com/img/logo.png' className='navbar-item' itemProp='image'>
+            <Link to='/img/logo.png' className='navbar-item' itemProp='image'>
               <img src={logo} alt='Publiuslogic' />
             </Link>
           </span>
@@ -46,7 +46,7 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                   <span itemProp='name'>Home</span>
                 </a>
                 <a className='navbar-item' href='/about' itemProp='url'>
-                  <span itemProp='name'>About Site</span>
+                  <span itemProp='name'>About This Site</span>
                 </a>
                 <a className='navbar-item' href='/photos' itemProp='url'>
                   <span itemProp='name'>Photo Gallery</span>

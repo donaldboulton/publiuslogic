@@ -7,16 +7,19 @@ const SiteMapPageTemplate = ({ title, cover, content, contentComponent }) => {
 
   return (
     <div>
-      <section className='hero'>
-        <img className='full-width-image' src={cover} alt={title} />
+      <section className='hero hero-blog-cover'>
         <div className='hero-body'>
           <div className='container'>
             <div className='columns'>
               <div className='column is-10 is-offset-1'>
                 <div className='section'>
                   <h1 className='title'>
-                    {title}
+                      Publius Logic Site Map
                   </h1>
+                    ✨ Listing all Pages and Posts.
+                  <p>
+                        For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
+                  </p>
                 </div>
               </div>
             </div>
@@ -40,7 +43,6 @@ const SiteMapPageTemplate = ({ title, cover, content, contentComponent }) => {
 
 SiteMapPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  cover: PropTypes.image,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }

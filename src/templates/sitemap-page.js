@@ -10,7 +10,7 @@ const SiteMapPage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Global>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
