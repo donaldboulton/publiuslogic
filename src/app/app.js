@@ -1,7 +1,6 @@
 import React from 'react'
 import { Router } from '@reach/router'
-import Layout from '../components/layout'
-import NavBar from './components/AdminNavBar'
+import Global from '../components/Global'
 import Profile from './profile'
 import Main from './main'
 import PrivateRoute from './components/PrivateRoute'
@@ -9,8 +8,7 @@ import Login from './login'
 
 const App = () => {
   return (
-    <Layout>
-      <NavBar />
+    <Global>
       <Router>
         <PrivateRoute path='/app/profile' component={Profile} />
         <PublicRoute path='/app'>
@@ -18,7 +16,7 @@ const App = () => {
           <Login path='/login' />
         </PublicRoute>
       </Router>
-    </Layout>
+    </Global>
   )
 }
 function PublicRoute (props) {

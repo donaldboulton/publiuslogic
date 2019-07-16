@@ -1,5 +1,6 @@
 import React from 'react'
 import { getUser } from './services/auth'
+const fetch = require(`node-fetch`)
 
 class Main extends React.Component {
   state = { loading: false, json: null }
