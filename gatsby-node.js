@@ -3,7 +3,7 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = ({ page, actions, graphql }) => {
   const { createPage } = actions
 
   return graphql(`
@@ -71,6 +71,8 @@ exports.createPages = ({ actions, graphql }) => {
 
     if (page.path.match(/^\/app/)) {
       page.matchPath = `/app/*`
+      createPage(page)
+    }
 
     let categorys = []
     // Iterate through each post, putting all found category into `categories`
