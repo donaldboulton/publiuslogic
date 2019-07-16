@@ -1,14 +1,14 @@
 ---
 templateKey: sitemap-page
-title: SiteMap
+title: Site Map
 slug: sitemap
-cover: ../img/sitemap.jpg
+cover: /img/sitemap.jpg
 meta_title: Sitemap of PubliusLogic Pages
 meta_description: >-
   Sitemap of PubliusLogic Pages.
 ---
 
-## SiteMap of PubliusLogic Pages
+## Site Map of PubliusLogic Pages
 
 |  Pages | Posts  | Admin CMS  |
 |----|:--------------------------:|---:|

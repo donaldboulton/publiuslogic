@@ -69,6 +69,9 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
 
+    if (page.path.match(/^\/app/)) {
+      page.matchPath = `/app/*`
+
     let categorys = []
     // Iterate through each post, putting all found category into `categories`
     postsAndPages.forEach(edge => {
