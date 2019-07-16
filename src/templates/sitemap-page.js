@@ -21,7 +21,6 @@ const SiteMapPage = ({ data }) => {
       <SiteMapPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
-        cover={post.frontmatter.cover}
         content={post.html}
       />      
     </Global>
@@ -39,8 +38,7 @@ export const sitemapPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        title
-        cover      
+        title    
         meta_title
         meta_description
       }
