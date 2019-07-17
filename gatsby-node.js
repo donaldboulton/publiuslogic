@@ -1,3 +1,4 @@
+const _ = require('@reach/router')
 const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
@@ -69,11 +70,6 @@ exports.createPages = ({ page, actions, graphql }) => {
       })
     })
 
-    if (page.path.match(/^\/app/)) {
-      page.matchPath = `/app/*`
-      createPage(page)
-    }
-
     let categorys = []
     // Iterate through each post, putting all found category into `categories`
     postsAndPages.forEach(edge => {
@@ -120,6 +116,19 @@ exports.createPages = ({ page, actions, graphql }) => {
       })
     })
   })
+}
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/app/)) {
+    page.matchPath = '/app/*'
+
+    // Update the page.
+    createPage(page)
+  }
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
