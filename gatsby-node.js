@@ -1,10 +1,9 @@
-const _ = require('@reach/router')
 const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 
-exports.createPages = ({ page, actions, graphql }) => {
+exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   return graphql(`
