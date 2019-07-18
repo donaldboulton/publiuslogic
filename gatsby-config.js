@@ -15,7 +15,7 @@ module.exports = {
     title: 'Publiuslogic',
     titleTemplate: '%s · To Publish Logic',
     titleAlt: 'To Publish Logic',
-    description: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
+    siteDescription: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
     siteUrl: config.siteUrl + pathPrefix,
     keywords: 'Publiuslogic, Gatsby, React',
