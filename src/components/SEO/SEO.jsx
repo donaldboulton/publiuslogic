@@ -2,13 +2,18 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import config from '../../../data/config'
 import Facebook from './Facebook'
 import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ siteTitle, title, description, cover, pathname, article, node }) => {
+const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
+  let url = config.siteUrl + slug
+  let image = config.siteUrl + slug + cover
+  let title = config.siteUrl + slug
+  let pageDescription = config.siteUrl + slug + meta_description
 
   const {
     buildTime,
@@ -27,11 +32,11 @@ const SEO = ({ siteTitle, title, description, cover, pathname, article, node }) 
   } = site
 
   const seo = {
-    siteTitle: siteTitle || siteTitle,
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    image: `${siteUrl}${cover || defaultCover}`,
-    url: `${siteUrl}${pathname || ''}`,
+    siteTitle: title || defaultTitle,
+    title: title || title,
+    description: meta_description || pageDescription,
+    image: `${url}${image || image}`,
+    url: `${url}${pathname || ''}`,
   }
 
   // schema.org in JSONLD format
@@ -69,7 +74,7 @@ const SEO = ({ siteTitle, title, description, cover, pathname, article, node }) 
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${siteUrl}${defaultCover}`,
+      url: `${url}${defaultCover}`,
     },
   }
 
@@ -110,7 +115,7 @@ const SEO = ({ siteTitle, title, description, cover, pathname, article, node }) 
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}${defaultCover}`,
+          url: `${url}${image}`,
         },
       },
       datePublished: node.first_publication_date,
@@ -119,7 +124,8 @@ const SEO = ({ siteTitle, title, description, cover, pathname, article, node }) 
       headline: seo.title,
       inLanguage: 'en',
       url: seo.url,
-      name: seo.title,
+      name: title,
+      title: seo.title,
       image: {
         '@type': 'ImageObject',
         url: seo.image,
@@ -159,14 +165,14 @@ const SEO = ({ siteTitle, title, description, cover, pathname, article, node }) 
       </Helmet>
       <Facebook
         description={seo.description}
-        image={seo.image}
-        title={seo.title}
+        image={image}
+        title={title}
         type={article ? 'article' : 'website'}
-        url={seo.url}
+        url={url}
         locale={ogLanguage}
         name={facebook}
       />
-      <Twitter title={seo.title} image={seo.image} description={seo.description} username={twitter} />
+      <Twitter title={title} image={image} description={seo.description} username={twitter} />
     </>
   )
 }
@@ -176,7 +182,7 @@ export default SEO
 SEO.propTypes = {
   title: PropTypes.string,
   siteTitle: PropTypes.string,
-  description: PropTypes.string,
+  meta_description: PropTypes.string,
   cover: PropTypes.string,
   pathname: PropTypes.string,
   article: PropTypes.bool,
@@ -200,7 +206,7 @@ const query = graphql`
       siteMetadata {
         siteUrl
         siteTitle
-        defaultTitle: title
+        defaultTitle: siteTitle
         defaultDescription: description
         defaultCover: logo
         headline
