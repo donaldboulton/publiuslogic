@@ -31,11 +31,7 @@ const ArticlePage = ({ data }) => {
           title={post.frontmatter.title}
           meta_title={post.frontmatter.meta_title}
           description={post.frontmatter.meta_description}
-          categorys={post.frontmatter.categorys}
-          url={post.fields.slug}
-          date={post.frontmatter.date}
-          tweet_id={post.frontmatter.tweet_id}
-          cover={post.frontmatter.cover && post.fields.slug.cover}
+          postSeo
         />
         <div className='container content'>
           <div className='columns'>
