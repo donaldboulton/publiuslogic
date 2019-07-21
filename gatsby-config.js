@@ -189,14 +189,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        enableIdentityWidget: true,
-        htmlTitle: `PubliusLogic Content Manager`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         develop: true,
@@ -208,14 +200,6 @@ module.exports = {
       options: {
         color: config.themeColor,
         showSpinner: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-recaptcha',
-      options: {
-        async: true,
-        defer: false,
-        args: '?onload=onloadCallback&render=explicit',
       },
     },
     {
