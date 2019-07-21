@@ -13,26 +13,54 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 
 const ArticlePage = ({ data }) => {
-  const { markdownRemark: post } = data
+  constructor(props) {
+    super(props);
+    this.state = {
+      mobile: true
+    };
+    this.handleResize = this.handleResize.bind(this);
+  }
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+  handleResize() {
+    if (window.innerWidth >= 640) {
+      this.setState({ mobile: false });
+    } else {
+      this.setState({ mobile: true });
+    }
+  }
+  const { mobile } = this.state;
+  const { slug } = this.props.pageContext;
+  const expanded = !mobile;
+  const postOverlapClass = mobile ? "post-overlap-mobile" : "post-overlap";
+  const postNode = this.props.data.markdownRemark
+  const post = postNode.frontmatter
+  if (!post.id) {
+    post.id = slug
+  }
+
+  const coverHeight = mobile ? 180 : 350;
 
   return (
     <Global title={post.frontmatter.title}>
       <Helmet>
-        <title>{`${post.title} | ${config.siteTitle}`}</title>
+        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <link rel='canonical' href={`${config.siteUrl}${post.id}`} />
       </Helmet>
       <section className='hero'>
         <div>
-          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
+          <img className='full-width-image' coverHeight={coverHeight} src={post.frontmatter.cover} alt={post.frontmatter.title} />
         </div>
       </section>
       <section className='section'>
-        <SE0
-          title={post.frontmatter.title}
-          meta_title={post.frontmatter.meta_title}
-          description={post.frontmatter.meta_description}
-          postSeo
-        />
+        <SEO postPath={slug} postNode={postNode} postSEO />
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>

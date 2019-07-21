@@ -24,7 +24,7 @@ const AboutSection = () => {
           </div>
           <div className='card-content'>
             <div className='media'>
-              <div className='media-left'>
+              <div className='media-left parent'>
                 <figure className='image is-32x32'>
                   <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
                     <img
@@ -36,7 +36,7 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>PubliusLogic</p>
-                <p className='title is-6 is-centered'>To Publish Logic-Common Sense</p>
+                <p className='title is-6 is-centered'>To Publish Common Sense</p>
               </div>
             </div>
             <div className='content'>
@@ -78,7 +78,7 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>Gatsby Powered</p>
-                <p className='subtitle is-6 is-centered'>React GraphQL Webpack Docker</p>
+                <p className='subtitle is-6 is-centered'>React GraphQL Webpack</p>
               </div>
             </div>
             <div className='content'>
@@ -106,7 +106,7 @@ const AboutSection = () => {
           </div>
           <div className='card-content'>
             <div className='media'>
-              <div className='media-left'>
+              <div className='media-left parent'>
                 <figure className='image is-32x32'>
                   <img
                     src={lambda}
