@@ -40,9 +40,10 @@ module.exports = {
         config.siteUrl,
         config.pathPrefix
       )}/icons/icon-512x512.png`,
-      },
+      author: config.userName,
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
+      stripe_public_key_test: `pk_test_Bin5YLSAsXbOcn9hv3tqqqq8001xk1vJdU`,
       social: {
         twitter: `donboulton`,
       },
@@ -65,6 +66,7 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
     {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/assets/img`,
@@ -77,13 +79,6 @@ module.exports = {
         path: `${__dirname}/src/assets/img`,
         name: 'images',
       },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "assets",
-        path: `${__dirname}/static/assets/`
-      }
     },
     {
       resolve: 'gatsby-source-filesystem',
@@ -126,12 +121,6 @@ module.exports = {
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
           `gatsby-remark-component`,
-          {
-            resolve: 'gatsby-remark-normalize-paths',
-            options: {
-              pathFields: ['image', 'cover'],
-            },
-          },
           {
             resolve: 'gatsby-remark-external-links',
             options: {
@@ -178,7 +167,7 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               linkImagesToOriginal: true,
-              maxWidth: 1400,
+              maxWidth: 2048,
               showCaptions: true,
               withWebp: true,
             },
@@ -200,6 +189,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        enableIdentityWidget: true,
+        htmlTitle: `PubliusLogic Content Manager`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         develop: true,
@@ -211,6 +208,14 @@ module.exports = {
       options: {
         color: config.themeColor,
         showSpinner: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-recaptcha',
+      options: {
+        async: true,
+        defer: false,
+        args: '?onload=onloadCallback&render=explicit',
       },
     },
     {
@@ -236,6 +241,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -273,7 +279,6 @@ module.exports = {
                 .map(edge => ({
                   tags: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
-                  cover: edge.node.frontmatter.cover,
                   title: edge.node.frontmatter.title,
                   categorys: edge.node.frontmatter.categorys,
                   description: edge.node.excerpt,
@@ -359,7 +364,6 @@ module.exports = {
         refetchInterval: 10,
       },
     },
-    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
