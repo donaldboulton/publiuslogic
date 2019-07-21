@@ -42,7 +42,7 @@ const AboutSection = () => {
             <div className='content'>
               GitHub Issues as Comments
               <br />
-              <div><a href='https://github.com/donaldboulton/publiuslogic' rel='me'>&nbsp;GitHub Repo</a></div>
+              <div><a href='https://github.com/donaldboulton/publiuslogic' rel='me' target='_blank'>&nbsp;GitHub Repo</a></div>
               <div><a href='https://twitter.com/donboulton' rel='me'>&nbsp;Twitter @publiuslogic</a></div>
               <br />
               <span>

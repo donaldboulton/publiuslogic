@@ -7,60 +7,36 @@ import { graphql } from 'gatsby'
 import config from '../../data/config'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
-import SE0 from '../components/SEO'
+import Seo from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 
 const ArticlePage = ({ data }) => {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mobile: true
-    };
-    this.handleResize = this.handleResize.bind(this);
-  }
-  componentDidMount() {
-    this.handleResize();
-    window.addEventListener("resize", this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize);
-  }
-
-  handleResize() {
-    if (window.innerWidth >= 640) {
-      this.setState({ mobile: false });
-    } else {
-      this.setState({ mobile: true });
-    }
-  }
-  const { mobile } = this.state;
-  const { slug } = this.props.pageContext;
-  const expanded = !mobile;
-  const postOverlapClass = mobile ? "post-overlap-mobile" : "post-overlap";
+  const { markdownRemark: post } = data
   const postNode = this.props.data.markdownRemark
-  const post = postNode.frontmatter
-  if (!post.id) {
-    post.id = slug
-  }
-
-  const coverHeight = mobile ? 180 : 350;
 
   return (
     <Global title={post.frontmatter.title}>
       <Helmet>
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
-        <link rel='canonical' href={`${config.siteUrl}${post.id}`} />
+        <link rel='canonical' href={`${post.fields.slug}`} />
       </Helmet>
+      <Seo
+        title={post.frontmatter.title}
+        meta_title={post.frontmatter.meta_title}
+        description={post.frontmatter.meta_description}
+        url={post.fields.slug}
+        image={post.frontmatter.cover}
+        postNode={postNode}
+        postSEO
+      />
       <section className='hero'>
         <div>
-          <img className='full-width-image' coverHeight={coverHeight} src={post.frontmatter.cover} alt={post.frontmatter.title} />
+          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
         </div>
       </section>
       <section className='section'>
-        <SEO postPath={slug} postNode={postNode} postSEO />
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
@@ -72,7 +48,7 @@ const ArticlePage = ({ data }) => {
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
                 meta_title={post.frontmatter.meta_title}
-                meta_desc={post.frontmatter.meta_description}
+                description={post.frontmatter.meta_description}
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
               />
