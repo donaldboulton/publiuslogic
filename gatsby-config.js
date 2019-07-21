@@ -4,13 +4,12 @@ const config = require('./data/config')
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
+  pathPrefix: config.pathPrefix === '' ? '/' : config.pathPrefix,
   siteMetadata: {
     siteTitle: 'Publiuslogic',
     title: 'Publiuslogic',
@@ -24,7 +23,7 @@ module.exports = {
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
     headline: 'Writing and publishing content for PubliusLogic', // Headline for schema.org JSONLD
-    url: config.siteUrl + pathPrefix,
+    url: config.siteUrl + config.pathPrefix,
     siteLanguage: 'en', // Language Tag on <html> element
     logo: '/img/logo.png', // Used for SEO
     siteLogo: '/img/logo.png',
