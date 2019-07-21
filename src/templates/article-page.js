@@ -6,28 +6,24 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
+import config from '../../data/config'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 
 const ArticlePage = ({ data }) => {
-  const { markdownRemark: post } = data
-
+  const { slug } = this.props.pageContext
+  const postNode = this.props.data.markdownRemark
+  const post = postNode.frontmatter
+  if (!post.id) {
+    post.id = slug
+  }
   return (
     <Global title={post.frontmatter.title}>
       <Helmet>
-        <title>{post.frontmatter.meta_title}</title>
-        <meta name='description' content={post.frontmatter.meta_description} />
-        <meta name='keywords' content={post.frontmatter.tags} />
-        <meta name='image' content={post.frontmatter.cover} />
-        <meta property='og:url' content={post.fields.slug} />
-        <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={post.frontmatter.cover} />
-        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
-        <meta name='twitter:description' content={post.frontmatter.meta_description} />
-        <meta name='twitter:image' content={post.frontmatter.cover} />
-        <meta name='twitter:image:alt' content={post.frontmatter.meta_title} />
+        <title>{`${post.title} | ${config.siteTitle}`}</title>
+        <link rel='canonical' href={`${config.siteUrl}${post.id}`} />
       </Helmet>
       <section className='hero'>
         <div>
@@ -35,15 +31,10 @@ const ArticlePage = ({ data }) => {
         </div>
       </section>
       <section className='section'>
-        <SE0
-          title={post.frontmatter.title}
-          meta_title={post.frontmatter.meta_title}
-          description={post.frontmatter.meta_description}
-          categorys={post.frontmatter.categorys}
-          url={post.fields.slug}
-          date={post.frontmatter.date}
-          tweet_id={post.frontmatter.tweet_id}
-          cover={post.frontmatter.cover && post.fields.slug.cover}
+        <SEO
+          postPath={slug}
+          postNode={postNode}
+          postSEO
         />
         <div className='container content'>
           <div className='columns'>

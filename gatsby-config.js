@@ -1,4 +1,5 @@
 const proxy = require('http-proxy-middleware')
+const urljoin = require('url-join')
 const config = require('./data/config')    
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
@@ -15,9 +16,10 @@ module.exports = {
     title: 'Publiuslogic',
     titleTemplate: '%s · To Publish Logic',
     titleAlt: 'To Publish Logic',
+    siteTitleAlt: 'To Publish Logic',
     siteDescription: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
-    siteUrl: config.siteUrl + pathPrefix,
+    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
     keywords: 'Publiuslogic, Gatsby, React',
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
@@ -25,16 +27,20 @@ module.exports = {
     url: config.siteUrl + pathPrefix,
     siteLanguage: 'en', // Language Tag on <html> element
     logo: '/img/logo.png', // Used for SEO
+    siteLogo: '/img/logo.png',
     ogLanguage: 'en_US', // Facebook Languag
     twitter: 'donboulton',
     facebook: 'don.boulton',
     rssMetadata: {
-      site_url: config.siteUrl + pathPrefix,
-      feed_url: config.siteUrl + pathPrefix + config.siteRss,
+      site_url: urljoin(config.siteUrl, config.pathPrefix),
+      feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${config.siteUrl + pathPrefix}/icons/icon-512x512.png`,
-      author: config.userName,
+      image_url: `${urljoin(
+        config.siteUrl,
+        config.pathPrefix
+      )}/icons/icon-512x512.png`,
+      },
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
       social: {
@@ -71,6 +77,13 @@ module.exports = {
         path: `${__dirname}/src/assets/img`,
         name: 'images',
       },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "assets",
+        path: `${__dirname}/static/assets/`
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
