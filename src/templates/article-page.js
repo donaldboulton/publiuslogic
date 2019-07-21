@@ -4,21 +4,17 @@ import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import config from '../../data/config'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
-import config from '../../data/config'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 
 const ArticlePage = ({ data }) => {
-  const { slug } = this.props.pageContext
-  const postNode = this.props.data.markdownRemark
-  const post = postNode.frontmatter
-  if (!post.id) {
-    post.id = slug
-  }
+  const { markdownRemark: post } = data
+
   return (
     <Global title={post.frontmatter.title}>
       <Helmet>
@@ -31,10 +27,15 @@ const ArticlePage = ({ data }) => {
         </div>
       </section>
       <section className='section'>
-        <SEO
-          postPath={slug}
-          postNode={postNode}
-          postSEO
+        <SE0
+          title={post.frontmatter.title}
+          meta_title={post.frontmatter.meta_title}
+          description={post.frontmatter.meta_description}
+          categorys={post.frontmatter.categorys}
+          url={post.fields.slug}
+          date={post.frontmatter.date}
+          tweet_id={post.frontmatter.tweet_id}
+          cover={post.frontmatter.cover && post.fields.slug.cover}
         />
         <div className='container content'>
           <div className='columns'>

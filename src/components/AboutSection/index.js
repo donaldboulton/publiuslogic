@@ -35,6 +35,7 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
+                <p className='title is-4 is-centered'>PubliusLogic</p>
                 <p className='title is-6 is-centered'>To Publish Logic-Common Sense</p>
               </div>
             </div>
@@ -76,7 +77,8 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='subtitle is-6 is-centered'>Gatsby React GraphQL Powered</p>
+                <p className='title is-4 is-centered'>Gatsby Powered</p>
+                <p className='subtitle is-6 is-centered'>React GraphQL Webpack Docker</p>
               </div>
             </div>
             <div className='content'>
@@ -113,7 +115,8 @@ const AboutSection = () => {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-6 is-centered'>Netlify Hosting Docker Build</p>
+                <p className='title is-4 is-centered'>Netlify Hosting</p>
+                <p className='title is-6 is-centered'>Lambda Hasura Driven</p>
               </div>
             </div>
             <div className='content'>
