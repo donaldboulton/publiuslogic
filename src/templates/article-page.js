@@ -14,7 +14,7 @@ import Global from '../components/Global'
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
-  const postNode = this.props.data.markdownRemark
+  const postNode = data.markdownRemark
 
   return (
     <Global title={post.frontmatter.title}>
