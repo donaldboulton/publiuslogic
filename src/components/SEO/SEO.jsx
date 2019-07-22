@@ -18,7 +18,6 @@ const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node
   let image = postMeta.cover
   let pageTitle = config.siteUrl + slug
   let pageDescription = config.siteUrl + slug + meta_description
-  let description = postMeta + meta_description
 
   const {
     buildTime,
@@ -125,7 +124,7 @@ const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node
       },
       datePublished: node.first_publication_date,
       dateModified: node.last_publication_date,
-      description: description,
+      description: meta_description,
       headline: seo.title,
       inLanguage: 'en',
       url: postURL,
@@ -160,7 +159,7 @@ const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node
     <>
       <Helmet title={seo.siteTitle}>
         <html lang={siteLanguage} />
-        <meta name='description' content={seo.description} />
+        <meta name='description' content={meta_description} />
         <meta name='image' content={image} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
@@ -169,7 +168,7 @@ const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node
         <script type='application/ld+json'>{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <Facebook
-        description={description}
+        description={meta_description}
         image={image}
         title={pageTitle}
         type={article ? 'article' : 'website'}
@@ -177,7 +176,7 @@ const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node
         locale={ogLanguage}
         name={facebook}
       />
-      <Twitter title={pageTitle} image={image} description={description} username={twitter} />
+      <Twitter title={pageTitle} image={image} description={meta_description} username={twitter} />
     </>
   )
 }
@@ -197,7 +196,7 @@ SEO.propTypes = {
 SEO.defaultProps = {
   title: null,
   siteTitle: PropTypes.string,
-  description: null,
+  meta_description: null,
   cover: null,
   pathname: null,
   article: false,
