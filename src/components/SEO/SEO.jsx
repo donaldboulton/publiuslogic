@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Content from '../Content'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import urljoin from 'url-join'
@@ -10,16 +9,15 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ siteTitle, title, meta_description, article, contentComponent, node }) => {
+const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
-  
-  const { postNode, postPath } = this.props
-  const postMeta = postNode.frontmatter
-  const content = contentComponent || Content
+
+  const postMeta = node.frontmatter
   let url = urljoin(config.siteUrl, config.pathPrefix)
-  let postURL = urljoin(config.siteUrl, config.pathPrefix, postPath)
+  let postURL = urljoin(config.siteUrl, config.pathPrefix, slug)
   let image = postMeta.cover
-  let pageTitle = postMeta + title
+  let pageTitle = config.siteUrl + slug
+  let pageDescription = config.siteUrl + slug + meta_description
   let description = postMeta + meta_description
 
   const {
@@ -39,12 +37,11 @@ const SEO = ({ siteTitle, title, meta_description, article, contentComponent, no
   } = site
 
   const seo = {
-    siteTitle: siteTitle || defaultTitle,
-    siteDescription: title || defaultDescription,
-    title: pageTitle || title,
-    description: description,
-    image: defaultCover,
-    url: url,
+    siteTitle: title || defaultTitle,
+    title: title || title,
+    description: meta_description || pageDescription,
+    image: `${url}${image || image}`,
+    url: `${url}${pathname || ''}`,
   }
 
   // schema.org in JSONLD format
@@ -54,13 +51,13 @@ const SEO = ({ siteTitle, title, meta_description, article, contentComponent, no
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: seo.url,
-    title: seo.title,
+    url: siteUrl,
+    siteTitle: siteTitle,
     headline,
     inLanguage: siteLanguage,
-    mainEntityOfPage: content,
-    description: description,
-    name: siteTitle,
+    mainEntityOfPage: defaultDescription,
+    description: defaultDescription,
+    name: title,
     author: {
       '@type': 'Person',
       name: author,
@@ -82,7 +79,7 @@ const SEO = ({ siteTitle, title, meta_description, article, contentComponent, no
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: image,
+      url: `${url}${defaultCover}`,
     },
   }
 
@@ -123,7 +120,7 @@ const SEO = ({ siteTitle, title, meta_description, article, contentComponent, no
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${url}${defaultCover}`,
+          url: `${url}${image}`,
         },
       },
       datePublished: node.first_publication_date,
@@ -132,13 +129,13 @@ const SEO = ({ siteTitle, title, meta_description, article, contentComponent, no
       headline: seo.title,
       inLanguage: 'en',
       url: postURL,
-      name: title,
-      title: title,
+      name: pageTitle,
+      title: pageTitle,
       image: {
         '@type': 'ImageObject',
         url: image,
       },
-      mainEntityOfPage: content,
+      mainEntityOfPage: node.content,
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
@@ -163,9 +160,8 @@ const SEO = ({ siteTitle, title, meta_description, article, contentComponent, no
     <>
       <Helmet title={seo.siteTitle}>
         <html lang={siteLanguage} />
-        <meta name='description' content={description} />
+        <meta name='description' content={seo.description} />
         <meta name='image' content={image} />
-        <meta name='content' content={content} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
@@ -175,13 +171,13 @@ const SEO = ({ siteTitle, title, meta_description, article, contentComponent, no
       <Facebook
         description={description}
         image={image}
-        title={title}
+        title={pageTitle}
         type={article ? 'article' : 'website'}
-        url={url}
+        url={postURL}
         locale={ogLanguage}
         name={facebook}
       />
-      <Twitter title={title} image={image} description={description} username={twitter} />
+      <Twitter title={pageTitle} image={image} description={description} username={twitter} />
     </>
   )
 }
@@ -189,21 +185,21 @@ const SEO = ({ siteTitle, title, meta_description, article, contentComponent, no
 export default SEO
 
 SEO.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
+  title: PropTypes.string,
   siteTitle: PropTypes.string,
   meta_description: PropTypes.string,
+  cover: PropTypes.string,
+  pathname: PropTypes.string,
   article: PropTypes.bool,
   node: PropTypes.object,
 }
 
 SEO.defaultProps = {
   title: null,
-  content: null,
-  contentComponent: null,
-  siteTitle: null,
-  meta_description: null,
+  siteTitle: PropTypes.string,
+  description: null,
+  cover: null,
+  pathname: null,
   article: false,
   node: null,
 }
@@ -214,8 +210,9 @@ const query = graphql`
       buildTime(formatString: "YYYY-MM-DD")
       siteMetadata {
         siteUrl
+        siteTitle
         defaultTitle: siteTitle
-        defaultDescription: siteDescription
+        defaultDescription: description
         defaultCover: logo
         headline
         siteLanguage
