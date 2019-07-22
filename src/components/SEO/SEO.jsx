@@ -10,8 +10,9 @@ import Twitter from './Twitter'
 
 const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
+  const postMeta = node.frontmatter
   let url = config.siteUrl + slug
-  let image = config.siteUrl + slug + cover
+  let image = postMeta + cover
   let title = config.siteUrl + slug
   let pageDescription = config.siteUrl + slug + meta_description
 
@@ -128,7 +129,7 @@ const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node
       title: seo.title,
       image: {
         '@type': 'ImageObject',
-        url: seo.image,
+        url: image,
       },
       mainEntityOfPage: seo.description,
     }
@@ -156,7 +157,7 @@ const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node
       <Helmet title={seo.siteTitle}>
         <html lang={siteLanguage} />
         <meta name='description' content={seo.description} />
-        <meta name='image' content={seo.image} />
+        <meta name='image' content={image} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
