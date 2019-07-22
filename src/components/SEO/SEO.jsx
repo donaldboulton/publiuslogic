@@ -2,21 +2,17 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import urljoin from 'url-join'
 import config from '../../../data/config'
 import Facebook from './Facebook'
 import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node }) => {
+const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
-
-  const postMeta = node.frontmatter
-  let url = urljoin(config.siteUrl, config.pathPrefix)
-  let postURL = urljoin(config.siteUrl, config.pathPrefix, slug)
-  let image = postMeta.cover
-  let pageTitle = config.siteUrl + slug
+  let url = config.siteUrl + slug
+  let image = config.siteUrl + slug + cover
+  let title = config.siteUrl + slug
   let pageDescription = config.siteUrl + slug + meta_description
 
   const {
@@ -124,17 +120,17 @@ const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node
       },
       datePublished: node.first_publication_date,
       dateModified: node.last_publication_date,
-      description: meta_description,
+      description: seo.description,
       headline: seo.title,
       inLanguage: 'en',
-      url: postURL,
-      name: pageTitle,
-      title: pageTitle,
+      url: seo.url,
+      name: title,
+      title: seo.title,
       image: {
         '@type': 'ImageObject',
-        url: image,
+        url: seo.image,
       },
-      mainEntityOfPage: node.content,
+      mainEntityOfPage: seo.description,
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
@@ -159,8 +155,8 @@ const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node
     <>
       <Helmet title={seo.siteTitle}>
         <html lang={siteLanguage} />
-        <meta name='description' content={meta_description} />
-        <meta name='image' content={image} />
+        <meta name='description' content={seo.description} />
+        <meta name='image' content={seo.image} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
@@ -168,15 +164,15 @@ const SEO = ({ siteTitle, meta_description, title, pathname, article, slug, node
         <script type='application/ld+json'>{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <Facebook
-        description={meta_description}
+        description={seo.description}
         image={image}
-        title={pageTitle}
+        title={title}
         type={article ? 'article' : 'website'}
-        url={postURL}
+        url={url}
         locale={ogLanguage}
         name={facebook}
       />
-      <Twitter title={pageTitle} image={image} description={meta_description} username={twitter} />
+      <Twitter title={title} image={image} description={seo.description} username={twitter} />
     </>
   )
 }
@@ -196,7 +192,7 @@ SEO.propTypes = {
 SEO.defaultProps = {
   title: null,
   siteTitle: PropTypes.string,
-  meta_description: null,
+  description: null,
   cover: null,
   pathname: null,
   article: false,
