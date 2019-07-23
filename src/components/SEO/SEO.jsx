@@ -8,11 +8,11 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ title, siteTitle, meta_description, cover, pathname, article, slug, node }) => {
+const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
-  const postMeta = node.frontmatter
   let url = config.siteUrl + slug
-  let image = postMeta + cover
+  let image = config.siteUrl + slug + cover
+  let title = config.siteUrl + slug
   let pageDescription = config.siteUrl + slug + meta_description
 
   const {
@@ -128,7 +128,7 @@ const SEO = ({ title, siteTitle, meta_description, cover, pathname, article, slu
       title: seo.title,
       image: {
         '@type': 'ImageObject',
-        url: image,
+        url: seo.image,
       },
       mainEntityOfPage: seo.description,
     }
@@ -156,7 +156,7 @@ const SEO = ({ title, siteTitle, meta_description, cover, pathname, article, slu
       <Helmet title={seo.siteTitle}>
         <html lang={siteLanguage} />
         <meta name='description' content={seo.description} />
-        <meta name='image' content={image} />
+        <meta name='image' content={seo.image} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
