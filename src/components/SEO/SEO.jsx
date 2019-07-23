@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Content from '../Content'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import config from '../../../data/config'
@@ -9,13 +8,14 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, contentComponent, slug, node }) => {
+const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
-  const content = contentComponent || Content
-  let url = config.siteUrl + slug
-  let image = config.siteUrl + slug + cover
-  let pageTitle = config.siteUrl + slug + title
-  let pageDescription = config.siteUrl + slug + meta_description
+
+  const postMeta = node.frontmatter
+  let url = config.siteUrl + config.pathPrefix + slug
+  let image = config.siteUrl + config.pathPrefix + postMeta + cover
+  let pageTitle = config.siteUrl + config.pathPrefix + postMeta + title
+  let pageDescription = config.siteUrl + config.pathPrefix + postMeta + meta_description
 
   const {
     buildTime,
@@ -34,10 +34,8 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, con
   } = site
 
   const seo = {
-    siteTitle: siteTitle || defaultTitle,
-    siteDescription: title || defaultDescription,
-    title: pageTitle || title,
-    description: meta_description || pageDescription,
+    title: pageTitle || defaultTitle,
+    description: meta_description || defaultDescription,
     image: `${url}${image || image}`,
     url: `${url}${pathname || ''}`,
   }
@@ -123,24 +121,23 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, con
       },
       datePublished: node.first_publication_date,
       dateModified: node.last_publication_date,
-      description: seo.description,
+      description: pageDescription,
       headline: seo.title,
       inLanguage: 'en',
-      url: seo.url,
-      name: title,
-      title: seo.title,
+      url: url,
+      name: pageTitle,
       image: {
         '@type': 'ImageObject',
-        url: seo.image,
+        url: image,
       },
-      mainEntityOfPage: seo.description,
+      mainEntityOfPage: url,
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
       item: {
-        '@id': seo.url,
-        name: seo.title,
+        '@id': url,
+        name: pageTitle,
       },
       position: 2,
     })
@@ -159,7 +156,7 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, con
       <Helmet title={seo.siteTitle}>
         <html lang={siteLanguage} />
         <meta name='description' content={seo.description} />
-        <meta name='image' content={seo.image} />
+        <meta name='image' content={image} />
         <meta name='content' content={content} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
@@ -168,7 +165,7 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, con
         <script type='application/ld+json'>{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <Facebook
-        description={seo.description}
+        description={pageDescription}
         image={image}
         title={title}
         type={article ? 'article' : 'website'}
@@ -176,7 +173,7 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, con
         locale={ogLanguage}
         name={facebook}
       />
-      <Twitter title={title} image={image} description={seo.description} username={twitter} />
+      <Twitter title={title} image={image} description={pageDescription} username={twitter} />
     </>
   )
 }
@@ -185,8 +182,6 @@ export default SEO
 
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
   siteTitle: PropTypes.string,
   meta_description: PropTypes.string,
   cover: PropTypes.string,
@@ -197,8 +192,6 @@ SEO.propTypes = {
 
 SEO.defaultProps = {
   title: null,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
   siteTitle: null,
   meta_description: null,
   cover: null,
