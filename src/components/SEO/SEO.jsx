@@ -34,7 +34,7 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slu
   } = site
 
   const seo = {
-    title: pageTitle || defaultTitle,
+    name: pageTitle || defaultTitle,
     description: meta_description || defaultDescription,
     image: `${url}${image || image}`,
     url: `${url}${pathname || ''}`,
