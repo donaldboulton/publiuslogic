@@ -8,12 +8,11 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node }) => {
+const SEO = ({ title, siteTitle, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
   const postMeta = node.frontmatter
   let url = config.siteUrl + slug
   let image = postMeta + cover
-  let title = config.siteUrl + slug
   let pageDescription = config.siteUrl + slug + meta_description
 
   const {
