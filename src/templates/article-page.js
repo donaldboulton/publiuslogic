@@ -34,10 +34,10 @@ const ArticlePage = props => {
       <section className='section'>
         <Seo
           description={description}
-          keywords={keywords}
+          keywords={frontmatter.tags}
           url={url}
           imageURL={imageURL}
-          siteName={siteUrl}
+          name={postTitle}
           author={author}
           twitterUserName={twitterUserName}
         />
@@ -80,16 +80,8 @@ ArticlePage.propTypes = {
 export default ArticlePage
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($id: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-        siteUrl
-        twitterUserName
-      }
-    }
-    markdownRemark(fields: { id: { eq: $id } }) {
+  query ArticleByID($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       id
       html
       fields {
@@ -109,6 +101,14 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        author
+        siteUrl
+        twitterUserName
       }
     }
   }
