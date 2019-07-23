@@ -11,11 +11,11 @@ import Twitter from './Twitter'
 const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
 
-  const postMeta = node.frontmatter
-  let url = config.siteUrl + config.pathPrefix + slug
-  let image = config.siteUrl + config.pathPrefix + postMeta + cover
-  let pageTitle = config.siteUrl + config.pathPrefix + postMeta + title
-  let pageDescription = config.siteUrl + config.pathPrefix + postMeta + meta_description
+  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+  const url = config.siteUrl + realPrefix + slug
+  const image = config.siteUrl + realPrefix + cover
+  const pageTitle = config.siteUrl + realPrefix + title
+  const pageDescription = config.siteUrl + realPrefix + meta_description
 
   const {
     buildTime,
@@ -51,7 +51,7 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slu
     title: seo.title,
     headline,
     inLanguage: siteLanguage,
-    mainEntityOfPage: content,
+    mainEntityOfPage: url,
     description: seo.description,
     name: siteTitle,
     author: {
@@ -155,9 +155,9 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slu
     <>
       <Helmet title={seo.siteTitle}>
         <html lang={siteLanguage} />
-        <meta name='description' content={seo.description} />
+        <meta name='description' content={pageDescription} />
         <meta name='image' content={image} />
-        <meta name='content' content={content} />
+        <meta name='content' content={pageDescription} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
