@@ -1,48 +1,42 @@
 const proxy = require('http-proxy-middleware')
-const urljoin = require('url-join')
 const config = require('./data/config')    
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
+
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
-  pathPrefix: config.pathPrefix === '' ? '/' : config.pathPrefix,
   siteMetadata: {
     siteTitle: 'Publiuslogic',
     title: 'Publiuslogic',
     titleTemplate: '%s · To Publish Logic',
     titleAlt: 'To Publish Logic',
-    siteTitleAlt: 'To Publish Logic',
     siteDescription: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
-    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
+    siteUrl: config.siteUrl + pathPrefix,
     keywords: 'Publiuslogic, Gatsby, React',
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
     headline: 'Writing and publishing content for PubliusLogic', // Headline for schema.org JSONLD
-    url: config.siteUrl + config.pathPrefix,
+    url: config.siteUrl + pathPrefix,
     siteLanguage: 'en', // Language Tag on <html> element
     logo: '/img/logo.png', // Used for SEO
-    siteLogo: '/img/logo.png',
     ogLanguage: 'en_US', // Facebook Languag
     twitter: 'donboulton',
     facebook: 'don.boulton',
     rssMetadata: {
-      site_url: urljoin(config.siteUrl, config.pathPrefix),
-      feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
+      site_url: config.siteUrl + pathPrefix,
+      feed_url: config.siteUrl + pathPrefix + config.siteRss,
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${urljoin(
-        config.siteUrl,
-        config.pathPrefix
-      )}/icons/icon-512x512.png`,
+      image_url: `${config.siteUrl + pathPrefix}/icons/icon-512x512.png`,
       author: config.userName,
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
-      stripe_public_key_test: `pk_test_Bin5YLSAsXbOcn9hv3tqqqq8001xk1vJdU`,
       social: {
         twitter: `donboulton`,
       },
@@ -65,7 +59,6 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/assets/img`,
@@ -121,6 +114,12 @@ module.exports = {
           `gatsby-remark-code-titles`,
           `gatsby-remark-component`,
           {
+            resolve: 'gatsby-remark-normalize-paths',
+            options: {
+              pathFields: ['image', 'cover'],
+            },
+          },
+          {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
@@ -166,7 +165,7 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               linkImagesToOriginal: true,
-              maxWidth: 2048,
+              maxWidth: 1400,
               showCaptions: true,
               withWebp: true,
             },
@@ -224,7 +223,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -262,6 +260,7 @@ module.exports = {
                 .map(edge => ({
                   tags: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
+                  cover: edge.node.frontmatter.cover,
                   title: edge.node.frontmatter.title,
                   categorys: edge.node.frontmatter.categorys,
                   description: edge.node.excerpt,
@@ -347,6 +346,7 @@ module.exports = {
         refetchInterval: 10,
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-netlify`,
       options: {

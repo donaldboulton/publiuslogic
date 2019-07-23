@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import Content from '../Content'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import config from '../../../data/config'
@@ -8,11 +9,12 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node }) => {
+const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, contentComponent, slug, node }) => {
   const { site } = useStaticQuery(query)
+  const content = contentComponent || Content
   let url = config.siteUrl + slug
   let image = config.siteUrl + slug + cover
-  let title = config.siteUrl + slug
+  let pageTitle = config.siteUrl + slug + title
   let pageDescription = config.siteUrl + slug + meta_description
 
   const {
@@ -32,8 +34,9 @@ const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node
   } = site
 
   const seo = {
-    siteTitle: title || defaultTitle,
-    title: title || title,
+    siteTitle: siteTitle || defaultTitle,
+    siteDescription: title || defaultDescription,
+    title: pageTitle || title,
     description: meta_description || pageDescription,
     image: `${url}${image || image}`,
     url: `${url}${pathname || ''}`,
@@ -46,13 +49,13 @@ const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: siteUrl,
-    siteTitle: siteTitle,
+    url: seo.url,
+    title: seo.title,
     headline,
     inLanguage: siteLanguage,
-    mainEntityOfPage: defaultDescription,
-    description: defaultDescription,
-    name: title,
+    mainEntityOfPage: content,
+    description: seo.description,
+    name: siteTitle,
     author: {
       '@type': 'Person',
       name: author,
@@ -157,6 +160,7 @@ const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node
         <html lang={siteLanguage} />
         <meta name='description' content={seo.description} />
         <meta name='image' content={seo.image} />
+        <meta name='content' content={content} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
@@ -180,7 +184,9 @@ const SEO = ({ siteTitle, meta_description, cover, pathname, article, slug, node
 export default SEO
 
 SEO.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string,
+  contentComponent: PropTypes.func,
   siteTitle: PropTypes.string,
   meta_description: PropTypes.string,
   cover: PropTypes.string,
@@ -191,8 +197,10 @@ SEO.propTypes = {
 
 SEO.defaultProps = {
   title: null,
-  siteTitle: PropTypes.string,
-  description: null,
+  content: PropTypes.string,
+  contentComponent: PropTypes.func,
+  siteTitle: null,
+  meta_description: null,
   cover: null,
   pathname: null,
   article: false,
@@ -207,7 +215,7 @@ const query = graphql`
         siteUrl
         siteTitle
         defaultTitle: siteTitle
-        defaultDescription: description
+        defaultDescription: siteDescription
         defaultCover: logo
         headline
         siteLanguage
