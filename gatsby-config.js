@@ -32,7 +32,7 @@ module.exports = {
       feed_url: config.siteUrl + config.siteRss,
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${config.siteUrl + pathPrefix}/icons/icon-512x512.png`,
+      image_url: `${config.siteUrl + config.pathPrefix}/icons/icon-512x512.png`,
       author: config.userName,
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
