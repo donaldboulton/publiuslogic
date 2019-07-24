@@ -14,8 +14,33 @@ import Comments from '../components/Comments'
 import PostCover from '../components/PostCover'
 
 const ArticlePage = ({ data }) => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mobile: true
+    };
+    this.handleResize = this.handleResize.bind(this);
+  }
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+  handleResize() {
+    if (window.innerWidth >= 640) {
+      this.setState({ mobile: false });
+    } else {
+      this.setState({ mobile: true });
+    }
+  }
   const { markdownRemark: post } = data
   const { mobile } = this.state
+  const expanded = !mobile;
+  const postOverlapClass = mobile ? "post-overlap-mobile" : "post-overlap";
   const { slug } = this.props.pageContext
   const postNode = this.props.data.markdownRemark
   if (!post.id) {
@@ -26,8 +51,8 @@ const ArticlePage = ({ data }) => {
   return (
     <Global title={post.frontmatter.title}>
       <Helmet>
-        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
-        <link rel='canonical' href={`${post.fields.slug}`} />
+        <title>{`${post.title} | ${config.siteTitle}`}</title>
+        <link rel='canonical' href={`${post.id}`} />
       </Helmet>
       <Seo
         title={post.frontmatter.title}
@@ -44,6 +69,9 @@ const ArticlePage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
+        <div
+            className={`contents mobile-fix ${postOverlapClass}`}
+          ></div>
       </section>
       <section className='section'>
         <div className='container content'>
@@ -65,6 +93,7 @@ const ArticlePage = ({ data }) => {
                 title={post.frontmatter.title}
                 slug={post.fields.slug}
                 excerpt={post.frontmatter.meta_description}
+                expanded={expanded}
               />
               <hr />
               <Comments />

@@ -66,16 +66,16 @@ module.exports = {
     },
     {
       resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `assets`,
+      options: {        
         path: `${__dirname}/static/images/`,
+        name: `images`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/assets/img`,
-        name: 'images',
+        name: 'icons',
       },
     },
     {
