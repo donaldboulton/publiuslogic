@@ -3,13 +3,12 @@ const config = require('./data/config')
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
+  pathPrefix: config.pathPrefix === '' ? '/' : config.pathPrefix,
   siteMetadata: {
     siteTitle: 'Publiuslogic',
     title: 'Publiuslogic',
@@ -63,6 +62,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/assets/img`,
         name: 'uploads',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/static/assets/`,
       },
     },
     {

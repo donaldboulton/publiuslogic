@@ -4,17 +4,24 @@ import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import Global from '../components/Global'
 import config from '../../data/config'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Seo from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
-import Global from '../components/Global'
+import PostCover from '../components/PostCover'
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
-  const postNode = data.markdownRemark
+  const { mobile } = this.state
+  const { slug } = this.props.pageContext
+  const postNode = this.props.data.markdownRemark
+  if (!post.id) {
+    post.id = slug
+  }
+  const coverHeight = mobile ? 180 : 350
 
   return (
     <Global title={post.frontmatter.title}>
@@ -32,9 +39,11 @@ const ArticlePage = ({ data }) => {
         postSEO
       />
       <section className='hero'>
-        <div>
-          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
-        </div>
+        <PostCover
+          postNode={postNode}
+          coverHeight={coverHeight}
+          coverClassName='post-cover'
+        />
       </section>
       <section className='section'>
         <div className='container content'>

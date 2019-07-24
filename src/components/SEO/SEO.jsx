@@ -12,7 +12,8 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slu
   const { site } = useStaticQuery(query)
 
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-  const url = config.siteUrl + realPrefix + slug
+  const url = config.siteUrl + realPrefix
+  const postUrl = config.siteUrl + realPrefix + slug
   const image = config.siteUrl + realPrefix + cover
   const pageTitle = config.siteUrl + realPrefix + title
   const pageDescription = config.siteUrl + realPrefix + meta_description
@@ -116,7 +117,7 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slu
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${url}${image}`,
+          url: `${seo.url}${image}`,
         },
       },
       datePublished: node.first_publication_date,
@@ -124,7 +125,7 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slu
       description: pageDescription,
       headline: seo.title,
       inLanguage: 'en',
-      url: url,
+      url: postUrl,
       name: pageTitle,
       image: {
         '@type': 'ImageObject',
@@ -169,7 +170,7 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slu
         image={image}
         title={title}
         type={article ? 'article' : 'website'}
-        url={url}
+        url={postUrl}
         locale={ogLanguage}
         name={facebook}
       />
