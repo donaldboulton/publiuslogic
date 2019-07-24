@@ -14,39 +14,12 @@ import Comments from '../components/Comments'
 import PostCover from '../components/PostCover'
 
 const ArticlePage = ({ data }) => {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mobile: true
-    };
-    this.handleResize = this.handleResize.bind(this);
-  }
-  componentDidMount() {
-    this.handleResize();
-    window.addEventListener("resize", this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize);
-  }
-
-  handleResize() {
-    if (window.innerWidth >= 640) {
-      this.setState({ mobile: false });
-    } else {
-      this.setState({ mobile: true });
-    }
-  }
   const { markdownRemark: post } = data
-  const { mobile } = this.state
-  const expanded = !mobile;
-  const postOverlapClass = mobile ? "post-overlap-mobile" : "post-overlap";
   const { slug } = this.props.pageContext
   const postNode = this.props.data.markdownRemark
   if (!post.id) {
     post.id = slug
   }
-  const coverHeight = mobile ? 180 : 350
 
   return (
     <Global title={post.frontmatter.title}>
@@ -66,19 +39,14 @@ const ArticlePage = ({ data }) => {
       <section className='hero'>
         <PostCover
           postNode={postNode}
-          coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <div
-            className={`contents mobile-fix ${postOverlapClass}`}
-          ></div>
       </section>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <ArticleTemplate
-                cover={post.frontmatter.cover}
                 content={post.html}
                 contentComponent={HTMLContent}
                 categorys={post.frontmatter.categorys}
@@ -93,7 +61,6 @@ const ArticlePage = ({ data }) => {
                 title={post.frontmatter.title}
                 slug={post.fields.slug}
                 excerpt={post.frontmatter.meta_description}
-                expanded={expanded}
               />
               <hr />
               <Comments />
@@ -129,7 +96,6 @@ export const pageQuery = graphql`
         meta_title
         meta_description
         tags
-        cover
       }
     }
   }
