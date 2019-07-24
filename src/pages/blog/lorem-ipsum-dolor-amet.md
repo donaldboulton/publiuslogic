@@ -3,7 +3,7 @@ templateKey: article-page
 title: Lorem Ipsum Dolor Amet
 slug: lorem-ipsum-dolor-amet
 date: 2018-03-29T03:55:49.370Z
-cover: /img/products-full-width.jpg
+cover: 'products-full-width.jpg'
 categorys: 'test'
 meta_title: Lorem Ipsum Dolor Amet
 meta_description: >-

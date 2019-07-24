@@ -4,7 +4,7 @@ title: Gatsby React Disqus Comments
 slug: Gatsby React Disqus Comments
 date: 2019-03-25T20:20:43.942Z
 categorys: 'tech'
-cover: /img/gatsby+disqus.jpg
+cover: 'gatsby+disqus.jpg'
 tags:
   - Gatsby 
   - React

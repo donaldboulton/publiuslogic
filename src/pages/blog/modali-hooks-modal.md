@@ -4,7 +4,7 @@ title: Modali Hooks Modal
 slug: Modali Hooks Modal
 date: 2019-04-20T20:20:43.942Z
 categorys: 'tech'
-cover: /img/modali-logo.png
+cover: 'modali-logo.png'
 tags:
   - React
   - Hooks

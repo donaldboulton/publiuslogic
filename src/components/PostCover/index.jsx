@@ -17,8 +17,6 @@ class queryWrapper extends Component {
                   childImageSharp {
                     id
                     resolutions {
-                      base64
-                      tracedSVG
                       aspectRatio
                       width
                       height
