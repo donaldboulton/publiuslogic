@@ -13,10 +13,9 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import PostCover from '../components/PostCover'
 
-const ArticlePage = ({ data }) => {
+const ArticlePage = ({ data, slug }) => {
   const { markdownRemark: post } = data
-  const { slug } = this.props.pageContext
-  const postNode = this.props.data.markdownRemark
+  const postNode = data.markdownRemark
   if (!post.id) {
     post.id = slug
   }

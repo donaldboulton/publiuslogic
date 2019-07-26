@@ -24,7 +24,7 @@ module.exports = {
     url: config.siteUrl + config.pathPrefix,
     siteLanguage: 'en', // Language Tag on <html> element
     logo: '/img/logo.png', // Used for SEO
-    ogLanguage: 'en_US', // Facebook Languag
+    ogLanguage: 'en_US', // Facebook Language
     twitter: 'donboulton',
     facebook: 'don.boulton',
     rssMetadata: {
