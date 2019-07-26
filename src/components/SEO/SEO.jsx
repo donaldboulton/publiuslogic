@@ -28,6 +28,7 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
       headline,
       siteLanguage,
       author,
+      twitterSite,
     },
   } = site
 
@@ -51,6 +52,7 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
     inLanguage: siteLanguage,
     mainEntityOfPage: seo.url,
     description: seo.description,
+    twitter: twitterSite,
     name: siteTitle,
     author: {
       '@type': 'Person',
@@ -189,7 +191,7 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
               },
               {
                 name: `twitter:site`,
-                content: data.site.siteMetadata.twitterId,
+                content: data.site.siteMetadata.twitterSite,
               },
               {
                 name: `twitter:card`,
@@ -272,7 +274,7 @@ const query = graphql`
         siteLanguage
         ogLanguage
         author
-        twitterId
+        twitterSite
         facebook
       }
     }
