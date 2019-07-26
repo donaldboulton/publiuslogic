@@ -3,12 +3,14 @@ const config = require('./data/config')
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
+
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
-  pathPrefix: config.pathPrefix === '' ? '/' : config.pathPrefix,
   siteMetadata: {
     siteTitle: 'Publiuslogic',
     title: 'Publiuslogic',
@@ -16,23 +18,23 @@ module.exports = {
     titleAlt: 'To Publish Logic',
     siteDescription: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
-    siteUrl: config.siteUrl + config.pathPrefix,
+    siteUrl: config.siteUrl + pathPrefix,
     keywords: 'Publiuslogic, Gatsby, React',
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
     headline: 'Writing and publishing content for PubliusLogic', // Headline for schema.org JSONLD
-    url: config.siteUrl + config.pathPrefix,
+    url: config.siteUrl + pathPrefix,
     siteLanguage: 'en', // Language Tag on <html> element
     logo: '/img/logo.png', // Used for SEO
     ogLanguage: 'en_US', // Facebook Language
     twitter: 'donboulton',
     facebook: 'don.boulton',
     rssMetadata: {
-      site_url: config.siteUrl + config.pathPrefix,
+      site_url: config.siteUrl + pathPrefix,
       feed_url: config.siteUrl + config.siteRss,
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${config.siteUrl + config.pathPrefix}/icons/icon-512x512.png`,
+      image_url: `${config.siteUrl + pathPrefix}/icons/icon-512x512.png`,
       author: config.userName,
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
@@ -52,6 +54,12 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://publiuslogic.com`,
+      },
+    },
     'gatsby-plugin-sass',
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-styled-components',

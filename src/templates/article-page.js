@@ -13,7 +13,7 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import PostCover from '../components/PostCover'
 
-const ArticlePage = ({ data, slug }) => {
+const ArticlePage = ({ data, slug, canonical }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   if (!post.id) {
@@ -22,10 +22,20 @@ const ArticlePage = ({ data, slug }) => {
 
   return (
     <Global title={post.frontmatter.title}>
-      <Helmet>
-        <title>{`${post.title} | ${config.siteTitle}`}</title>
-        <link rel='canonical' href={`${post.id}`} />
-      </Helmet>
+      <Helmet
+        htmlAttributes={{ lang }}
+        title={post.frontmatter.title}
+        titleTemplate={post.frontmatter.title ? `%s` : `%s | ${post.frontmatter.title}`}
+        link={
+          canonical
+            ? [{ rel: 'canonical', key: canonical, href: canonical }]
+            : []
+        }
+        meta={[
+          {
+            name: `description` }]
+        }
+      />
       <Seo
         title={post.frontmatter.title}
         meta_title={post.frontmatter.meta_title}
@@ -34,6 +44,7 @@ const ArticlePage = ({ data, slug }) => {
         image={post.frontmatter.cover}
         postNode={postNode}
         postSEO
+        canonical={post.frontmatter.canonical}
       />
       <section className='hero'>
         <PostCover
@@ -95,6 +106,7 @@ export const pageQuery = graphql`
         meta_title
         meta_description
         tags
+        canonical
       }
     }
   }

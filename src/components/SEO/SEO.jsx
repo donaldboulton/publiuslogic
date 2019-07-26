@@ -8,7 +8,7 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slug, node }) => {
+const SEO = ({ siteTitle, title, meta_description, cover, canonical, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
 
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
@@ -189,6 +189,7 @@ SEO.propTypes = {
   pathname: PropTypes.string,
   article: PropTypes.bool,
   node: PropTypes.object,
+  canonical: PropTypes.string,
 }
 
 SEO.defaultProps = {
@@ -199,6 +200,7 @@ SEO.defaultProps = {
   pathname: null,
   article: false,
   node: null,
+  canonical: null,
 }
 
 const query = graphql`
