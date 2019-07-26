@@ -2,6 +2,7 @@
 templateKey: article-page
 title: Gatsby GitHub Comments Utterances
 slug: Gatsby GitHub Comments Utterances
+canonical: "https://publiuslogic.com/blog/gatsby-github-comments-utterances/"
 date: 2019-04-16T20:20:43.942Z
 categorys: 'tech'
 cover: 'gatsby+react+utterances+home.jpg'

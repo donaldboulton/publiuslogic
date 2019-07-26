@@ -3,7 +3,6 @@ const config = require('./data/config')
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
-
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 require('dotenv').config({
@@ -22,6 +21,7 @@ module.exports = {
     keywords: 'Publiuslogic, Gatsby, React',
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
+    twitterSite: '1135998',
     headline: 'Writing and publishing content for PubliusLogic', // Headline for schema.org JSONLD
     url: config.siteUrl + pathPrefix,
     siteLanguage: 'en', // Language Tag on <html> element
@@ -34,7 +34,7 @@ module.exports = {
       feed_url: config.siteUrl + config.siteRss,
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${config.siteUrl + pathPrefix}/icons/icon-512x512.png`,
+      image_url: `${config.siteUrl}/icons/icon-512x512.png`,
       author: config.userName,
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
@@ -58,6 +58,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
         siteUrl: `https://publiuslogic.com`,
+        stripQueryString: true,
       },
     },
     'gatsby-plugin-sass',

@@ -2,6 +2,7 @@
 templateKey: article-page
 title: Google Maps + React Hooks
 slug: Google Maps + React Hooks
+canonical: "https://publiuslogic.com/blog/google-maps+react-hooks/"
 date: 2019-03-25T20:20:43.942Z
 categorys: 'tech'
 cover: 'google-maps+react-hooks.jpg'

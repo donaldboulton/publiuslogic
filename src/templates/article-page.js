@@ -22,23 +22,13 @@ const ArticlePage = ({ data, slug, canonical }) => {
 
   return (
     <Global title={post.frontmatter.title}>
-      <Helmet
-        htmlAttributes={{ lang }}
-        title={post.frontmatter.title}
-        titleTemplate={post.frontmatter.title ? `%s` : `%s | ${post.frontmatter.title}`}
-        link={
-          canonical
-            ? [{ rel: 'canonical', key: canonical, href: canonical }]
-            : []
-        }
-        meta={[
-          {
-            name: `description` }]
-        }
-      />
+      <Helmet>
+        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
+        <link rel='canonical' href={`${post.fields.slug}`} />
+      </Helmet>
       <Seo
         title={post.frontmatter.title}
-        meta_title={post.frontmatter.meta_title}
+        titleAlt={post.frontmatter.meta_title}
         description={post.frontmatter.meta_description}
         url={post.fields.slug}
         image={post.frontmatter.cover}
@@ -62,7 +52,7 @@ const ArticlePage = ({ data, slug, canonical }) => {
                 categorys={post.frontmatter.categorys}
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
-                meta_title={post.frontmatter.meta_title}
+                titleAlt={post.frontmatter.meta_title}
                 description={post.frontmatter.meta_description}
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
