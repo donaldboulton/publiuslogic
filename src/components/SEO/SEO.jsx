@@ -15,7 +15,7 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
   let postUrl = post.frontmatter.canonical
   let postImage = post.frontmatter.cover
   let logo = config.logo
-  let pageTitle = post.frontmatter.title
+
   let tweetId = post.frontmatter.tweet_id
 
   const {
@@ -33,7 +33,7 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
   } = site
 
   const seo = {
-    name: pageTitle || defaultTitle,
+    name: config.siteTitle || defaultTitle,
     description: config.siteDescription || defaultDescription,
     image: `${url}${logo || defaultCover}`,
     url: `${url}${pathname || ''}`,
@@ -282,7 +282,7 @@ const query = graphql`
 `
 
 const detailsQuery = graphql`
-  query PostsByID($id: String!) {
+  query posts($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
