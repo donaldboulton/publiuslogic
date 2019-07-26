@@ -280,7 +280,7 @@ const query = graphql`
 `
 
 const detailsQuery = graphql`
-  query ArticleByID($id: String!) {
+  query PostsByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
