@@ -8,12 +8,12 @@ import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slug, node }) => {
+const SEO = ({ siteTitle, title, meta_description, cover, canonical, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
 
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   const url = config.siteUrl + realPrefix + slug
-  const image = config.siteUrl + realPrefix + cover
+  const image = canonical + cover
   const pageTitle = config.siteUrl + realPrefix + title
   const pageDescription = config.siteUrl + realPrefix + meta_description
 
@@ -124,11 +124,11 @@ const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slu
       description: pageDescription,
       headline: seo.title,
       inLanguage: 'en',
-      url: url,
+      url: canonical,
       name: pageTitle,
       image: {
         '@type': 'ImageObject',
-        url: image,
+        url: `${canonical}${image}`,
       },
       mainEntityOfPage: url,
     }
@@ -188,6 +188,7 @@ SEO.propTypes = {
   pathname: PropTypes.string,
   article: PropTypes.bool,
   node: PropTypes.object,
+  canonical: PropTypes.string,
 }
 
 SEO.defaultProps = {
