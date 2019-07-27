@@ -31,6 +31,7 @@ const ArticlePage = ({ data }) => {
         }
       />
       <Seo
+        cover={post.frontmatter.cover}
         title={post.frontmatter.title}
         meta_title={post.frontmatter.meta_title}
         description={post.frontmatter.meta_description}
@@ -100,6 +101,7 @@ export const pageQuery = graphql`
         meta_title
         meta_description
         tags
+        cover
         canonical
       }
     }
