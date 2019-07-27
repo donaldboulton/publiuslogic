@@ -82,7 +82,7 @@ const AboutSection = () => {
               </div>
             </div>
             <div className='content'>
-                        Gatsby is Smoking Fast & Easy
+                Gatsby is Smoking Fast & Easy
               <br />
               <div><a href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
               <div><a href='https://bulma.io/'>CSS from @bulma.io</a></div>
