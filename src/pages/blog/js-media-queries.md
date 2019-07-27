@@ -5,7 +5,7 @@ slug: JavaScript media queries
 canonical: "https://publiuslogic.com/blog/js-media-queries/"
 date: 2019-04-18T20:20:43.942Z
 categorys: 'tech'
-cover: 'js-media-quries.jpg'
+cover: '/img/js-media-quries.jpg'
 tags:
   - mediaQueries
   - WebDev

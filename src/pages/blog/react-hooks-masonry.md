@@ -5,7 +5,7 @@ slug:  React Hooks Masonry
 canonical: "https://publiuslogic.com/blog/react-hooks-masonry/"
 date: 2019-03-25T20:20:43.942Z
 categorys: 'tech'
-cover: 'masonry.jpg'
+cover: '/img/masonry.jpg'
 tags:
   - React
   - Masonry

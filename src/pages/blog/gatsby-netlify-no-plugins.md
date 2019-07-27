@@ -4,7 +4,7 @@ title: Gatsby Netlify No Plugins
 slug: Gatsby Netlify No Plugins
 canonical: "https://publiuslogic.com/blog/gatsby-netlify-no-plugins/"
 date: 2019-07-06T17:29:36.776Z
-cover: 'Gatsby+Netlify+NoPlugins.jpg'
+cover: '/img/Gatsby+Netlify+NoPlugins.jpg'
 categorys: 'tech'
 tags:
   - Gatsby 
