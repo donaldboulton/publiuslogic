@@ -13,9 +13,10 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 
-const ArticlePage = ({ data, canonical }) => {
+const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
+  let canonical = post.frontmatter.canonical
 
   return (
     <Global title={post.frontmatter.title}>
@@ -24,7 +25,7 @@ const ArticlePage = ({ data, canonical }) => {
         title={`${post.frontmatter.title} | ${config.siteTitle}`}
         titleTemplate={post.frontmatter.title ? `%s` : `%s | ${config.siteTitle}`}
         link={
-          post.frontmatter.canonical
+          canonical
             ? [{ rel: 'canonical', key: canonical, href: canonical }]
             : []
         }
@@ -37,7 +38,7 @@ const ArticlePage = ({ data, canonical }) => {
         image={post.frontmatter.cover}
         postNode={postNode}
         postSEO
-        canonical={post.frontmatter.canonical}
+        canonical={canonical}
       />
       <section className='hero'>
         <PostCover
@@ -50,7 +51,6 @@ const ArticlePage = ({ data, canonical }) => {
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <ArticleTemplate
-                cover={post.frontmatter.cover}
                 content={post.html}
                 contentComponent={HTMLContent}
                 categorys={post.frontmatter.categorys}
@@ -100,7 +100,6 @@ export const pageQuery = graphql`
         meta_title
         meta_description
         tags
-        cover
         canonical
       }
     }
