@@ -1,22 +1,21 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
-import { StaticQuery, useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import config from '../../../data/config'
+import Facebook from './Facebook'
+import Twitter from './Twitter'
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
-const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, meta_description, node, overrideTitle = false }) => {
+const SEO = ({ siteTitle, title, meta_description, cover, pathname, article, slug, node }) => {
   const { site } = useStaticQuery(query)
 
-  const { markdownRemark: post } = data
-  const url = config.siteUrl
-  let postTitle = post.frontmatter.title
-  let postUrl = post.frontmatter.canonical
-  let postImage = post.frontmatter.cover
-  let logo = config.logo
-
-  let tweetId = post.frontmatter.tweet_id
+  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+  const url = config.siteUrl + realPrefix + slug
+  const image = config.siteUrl + realPrefix + cover
+  const pageTitle = config.siteUrl + realPrefix + title
+  const pageDescription = config.siteUrl + realPrefix + meta_description
 
   const {
     buildTime,
@@ -27,15 +26,17 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
       defaultCover,
       headline,
       siteLanguage,
+      ogLanguage,
       author,
-      twitterSite,
+      twitter,
+      facebook,
     },
   } = site
 
   const seo = {
-    name: config.siteTitle || defaultTitle,
-    description: config.siteDescription || defaultDescription,
-    image: `${url}${logo || defaultCover}`,
+    name: pageTitle || defaultTitle,
+    description: meta_description || defaultDescription,
+    image: `${url}${image || image}`,
     url: `${url}${pathname || ''}`,
   }
 
@@ -43,16 +44,15 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
   // https://developers.google.com/search/docs/guides/intro-structured-data
   // You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
 
-  const schemaOrgWebPage = {    
+  const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
     url: seo.url,
     title: seo.title,
     headline,
     inLanguage: siteLanguage,
-    mainEntityOfPage: seo.url,
+    mainEntityOfPage: url,
     description: seo.description,
-    twitter: twitterSite,
     name: siteTitle,
     author: {
       '@type': 'Person',
@@ -116,28 +116,28 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${seo.url}${logo}`,
+          url: `${url}${image}`,
         },
       },
       datePublished: node.first_publication_date,
       dateModified: node.last_publication_date,
-      description: post.frontmatter.meta_description,
-      headline: post.frontmatter.meta_title,
+      description: pageDescription,
+      headline: seo.title,
       inLanguage: 'en',
-      url: postUrl,
-      name: postTitle,
+      url: url,
+      name: pageTitle,
       image: {
         '@type': 'ImageObject',
-        url: postImage,
+        url: image,
       },
-      mainEntityOfPage: postUrl,
+      mainEntityOfPage: url,
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
       item: {
-        '@id': post.frontmatter.canonical,
-        name: post.frontmatter.title,
+        '@id': url,
+        name: pageTitle,
       },
       position: 2,
     })
@@ -152,112 +152,52 @@ const SEO = ({ data, siteTitle, canonical, pathname, article, keywords, meta, me
   }
 
   return (
-    <StaticQuery
-      query={detailsQuery}
-      render={data => {
-        const metaDescription =
-          post.frontmatter.meta_description || meta_description
-        const siteTitle = 'PubliusLogic'
-        return (
-          <Helmet
-            htmlAttributes={{ siteLanguage }}
-            title={postTitle}
-            titleTemplate={overrideTitle ? `%s` : `%s | ${siteTitle}`}
-            link={
-              canonical
-                ? [{ rel: 'canonical', key: canonical, href: canonical }]
-                : []
-            }
-            meta={[
-              {
-                name: `description`,
-                content: metaDescription,
-              },
-              {
-                property: `og:title`,
-                content: postTitle,
-              },
-              {
-                property: `og:description`,
-                content: metaDescription,
-              },
-              {
-                property: `og:type`,
-                content: `website`,
-              },
-              {
-                name: `twitter:url`,
-                content: postUrl,
-              },
-              {
-                name: `twitter:site`,
-                content: data.site.siteMetadata.twitterSite,
-              },
-              {
-                name: `twitter:card`,
-                content: `summary`,
-              },
-              {
-                name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
-              },
-              {
-                name: `twitter:title`,
-                content: postTitle,
-              },
-              {
-                name: `twitter:description`,
-                content: metaDescription,
-              },
-              {
-                name: `twitter:image`,
-                content: postImage,
-              },
-              {
-                name: `tweet_id:tweet_id`,
-                content: tweetId,
-              },
-            ]
-              .concat(
-                keywords.length > 0
-                  ? {
-                    name: `keywords`,
-                    content: keywords.join(`, `),
-                  }
-                  : []
-              )
-              .concat(meta)}
-          />
-        )
-      }}
-    />
+    <>
+      <Helmet title={seo.siteTitle}>
+        <html lang={siteLanguage} />
+        <meta name='description' content={pageDescription} />
+        <meta name='image' content={image} />
+        <meta name='content' content={pageDescription} />
+        <meta name='gatsby-starter' content='PubliusLogic' />
+        {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
+        {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
+        {article && <script type='application/ld+json'>{JSON.stringify(schemaArticle)}</script>}
+        <script type='application/ld+json'>{JSON.stringify(breadcrumb)}</script>
+      </Helmet>
+      <Facebook
+        description={pageDescription}
+        image={image}
+        title={title}
+        type={article ? 'article' : 'website'}
+        url={url}
+        locale={ogLanguage}
+        name={facebook}
+      />
+      <Twitter title={title} image={image} description={pageDescription} username={twitter} />
+    </>
   )
 }
 
 export default SEO
 
 SEO.propTypes = {
+  title: PropTypes.string.isRequired,
   siteTitle: PropTypes.string,
   meta_description: PropTypes.string,
+  cover: PropTypes.string,
   pathname: PropTypes.string,
   article: PropTypes.bool,
   node: PropTypes.object,
-  canonical: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
 }
 
 SEO.defaultProps = {
   title: null,
   siteTitle: null,
+  meta_description: null,
   cover: null,
   pathname: null,
   article: false,
   node: null,
-  canonical: null,
 }
 
 const query = graphql`
@@ -274,31 +214,8 @@ const query = graphql`
         siteLanguage
         ogLanguage
         author
-        twitterSite
+        twitter
         facebook
-      }
-    }
-  }
-`
-
-const detailsQuery = graphql`
-  query posts($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      html
-      fields {
-        slug
-      }      
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        cover
-        tweet_id
-        categorys
-        meta_title
-        meta_description
-        tags
-        canonical
       }
     }
   }

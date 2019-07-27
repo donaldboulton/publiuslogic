@@ -4,21 +4,17 @@ import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Global from '../components/Global'
 import config from '../../data/config'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Seo from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
-import PostCover from '../components/PostCover'
+import Global from '../components/Global'
 
-const ArticlePage = ({ data, slug, canonical }) => {
+const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  if (!post.id) {
-    post.id = slug
-  }
 
   return (
     <Global title={post.frontmatter.title}>
@@ -28,31 +24,30 @@ const ArticlePage = ({ data, slug, canonical }) => {
       </Helmet>
       <Seo
         title={post.frontmatter.title}
-        titleAlt={post.frontmatter.meta_title}
+        meta_title={post.frontmatter.meta_title}
         description={post.frontmatter.meta_description}
         url={post.fields.slug}
         image={post.frontmatter.cover}
         postNode={postNode}
         postSEO
-        canonical={post.frontmatter.canonical}
       />
       <section className='hero'>
-        <PostCover
-          postNode={postNode}
-          coverClassName='post-cover'
-        />
+        <div>
+          <img className='full-width-image' src={post.frontmatter.cover} alt={post.frontmatter.title} />
+        </div>
       </section>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <ArticleTemplate
+                cover={post.frontmatter.cover}
                 content={post.html}
                 contentComponent={HTMLContent}
                 categorys={post.frontmatter.categorys}
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
-                titleAlt={post.frontmatter.meta_title}
+                meta_title={post.frontmatter.meta_title}
                 description={post.frontmatter.meta_description}
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
@@ -96,7 +91,7 @@ export const pageQuery = graphql`
         meta_title
         meta_description
         tags
-        canonical
+        cover
       }
     }
   }
