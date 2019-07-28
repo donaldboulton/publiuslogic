@@ -6,15 +6,13 @@ import config from '../../../data/config'
 import Facebook from './Facebook'
 import Twitter from './Twitter'
 
-const replaceTrailing = _path => _path.replace(/\/$/, ``)
-
-const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname, article, slug, postData, node }) => {
+const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname, article, postData, node }) => {
   const { site } = useStaticQuery(query)
 
   const postMeta = postData || {}
   let postURL = canonical
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-  const URL = `${config.siteUrl}${replaceTrailing(pathname)}`
+  const URL = `${config.siteUrl}${realPrefix(pathname)}`
   const isBlog = URL === `${config.siteUrl}/blog`
   const pageTitle = config.siteUrl + realPrefix + title
   const pageDescription = config.siteUrl + realPrefix + meta_description
@@ -211,7 +209,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
         <meta property='og:see_also' content='https://github.com/donaldboulton' />
         <meta property='og:see_also' content='https://youtube.de/donboulton' />
         <meta property='og:see_also' content='https://twitter.com/donboulton' />
-        <link type="text/plain" href={`${config.siteUrl}/humans.txt`} rel="author" />
+        <link type='text/plain' href={`${config.siteUrl}/humans.txt`} rel='author' />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
         {article && <script type='application/ld+json'>{JSON.stringify(schemaArticle)}</script>}
