@@ -6,18 +6,21 @@ import config from '../../../data/config'
 import Facebook from './Facebook'
 import Twitter from './Twitter'
 
-// Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
+const replaceTrailing = _path => _path.replace(/\/$/, ``)
 
-const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, article, slug, postData, node }) => {
+const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname, article, slug, postData, node }) => {
   const { site } = useStaticQuery(query)
 
   const postMeta = postData || {}
   let postURL = canonical
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-  const url = config.siteUrl + realPrefix + slug
-  const image = canonical + cover
+  const URL = `${config.siteUrl}${replaceTrailing(pathname)}`
+  const isBlog = URL === `${config.siteUrl}/blog`
   const pageTitle = config.siteUrl + realPrefix + title
-  const pageDescription = config.siteUrl + realPrefix + siteDescription
+  const pageDescription = config.siteUrl + realPrefix + meta_description
+  let image
+  let imageWidth
+  let imageHeight
 
   const {
     buildTime,
@@ -38,8 +41,8 @@ const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, ar
   const seo = {
     name: pageTitle || defaultTitle,
     description: postMeta.meta_description || defaultDescription,
-    image: `${url}${image || image}`,
-    url: `${url}${pathname || ''}`,
+    image: `${site.siteUrl}${defaultCover || defaultCover}`,
+    url: `${URL}${pathname || ''}`,
   }
 
   // schema.org in JSONLD format
@@ -48,12 +51,12 @@ const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, ar
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
-    '@type': 'WebPage',
+    '@type': isBlog ? 'Blog' : 'WebPage',
     url: seo.url,
     title: seo.title,
     headline,
     inLanguage: siteLanguage,
-    mainEntityOfPage: url,
+    mainEntityOfPage: URL,
     description: seo.description,
     name: siteTitle,
     author: {
@@ -77,11 +80,13 @@ const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, ar
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${url}${defaultCover}`,
+      url: image,
     },
   }
 
   // Initial breadcrumb list
+
+  let schemaArticle = null
 
   const itemListElement = [
     {
@@ -92,11 +97,38 @@ const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, ar
       },
       position: 1,
     },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@id': `${siteUrl}/sitemap`,
+        name: 'Sitemap',
+      },
+      position: 2,
+    },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@id': `${siteUrl}/blog`,
+        name: 'Blog',
+      },
+      position: 3,
+    },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@id': `${siteUrl}/contact`,
+        name: 'Contact',
+      },
+      position: 4,
+    },
   ]
 
-  let schemaArticle = null
-
   if (article) {
+    const postMeta = postNode.data
+    const postImage = postMeta.cover.localFile.childImageSharp.resize
+    image = `${config.siteUrl}${postImage.src}`
+    imageWidth = postImage.width
+    imageHeight = postImage.height
     schemaArticle = {
       '@context': 'http://schema.org',
       '@type': 'Article',
@@ -118,7 +150,7 @@ const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, ar
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${url}${image}`,
+          url: `${config.siteUrl}${config.siteLogo}`,
         },
       },
       datePublished: node.first_publication_date,
@@ -130,18 +162,18 @@ const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, ar
       name: pageTitle,
       image: {
         '@type': 'ImageObject',
-        url: `${canonical}${image}`,
+        url: image,
       },
-      mainEntityOfPage: url,
+      mainEntityOfPage: URL,
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
       item: {
-        '@id': url,
-        name: pageTitle,
+        '@id': URL,
+        name: title,
       },
-      position: 2,
+      position: 5,
     })
   }
 
@@ -156,11 +188,30 @@ const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, ar
   return (
     <>
       <Helmet title={seo.siteTitle}>
-        <html lang={siteLanguage} />
-        <meta name='description' content={pageDescription} />
+        <html lang={config.siteLanguage} />
+        <meta name='description' content={meta_description} />
         <meta name='image' content={image} />
-        <meta name='content' content={pageDescription} />
+        <meta name='content' content={meta_description} />
         <meta name='gatsby-starter' content='PubliusLogic' />
+        <link rel='apple-touch-icon' href='/img/apple-touch-icon-180x180.png' />
+        <link rel='icon' type='image/png' sizes='32x32' href='/img/favicon-32x32.png' />
+        <link rel='icon' type='image/png' sizes='16x16' href='/img/favicon-16x16.png' />
+        <link rel='mask-icon' href='/img/safari-pinned-tab.svg' color='#d64000' />
+        <meta name='msapplication-TileColor' content='#3498db' />
+        <meta property='og:locale' content={config.siteLanguage} />
+        <meta property='og:site_name' content={config.facebook} />
+        <meta property='og:url' content={URL} />
+        <meta property='og:type' content={article ? 'article' : 'website'} />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content={meta_description} />
+        <meta property='og:image' content={image} />
+        <meta property='og:image:alt' content={meta_description} />
+        <meta property='og:image:width' content={imageWidth} />
+        <meta property='og:image:height' content={imageHeight} />
+        <meta property='og:see_also' content='https://github.com/donaldboulton' />
+        <meta property='og:see_also' content='https://youtube.de/donboulton' />
+        <meta property='og:see_also' content='https://twitter.com/donboulton' />
+        <link type="text/plain" href={`${config.siteUrl}/humans.txt`} rel="author" />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
         {article && <script type='application/ld+json'>{JSON.stringify(schemaArticle)}</script>}
@@ -171,7 +222,7 @@ const SEO = ({ siteTitle, title, siteDescription, cover, canonical, pathname, ar
         image={image}
         title={title}
         type={article ? 'article' : 'website'}
-        url={url}
+        url={URL}
         locale={ogLanguage}
         name={facebook}
       />
@@ -184,10 +235,12 @@ export default SEO
 
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
+  data: PropTypes.any.isRequired,
   siteTitle: PropTypes.string,
   meta_description: PropTypes.string,
   cover: PropTypes.string,
-  pathname: PropTypes.string,
+  postNode: PropTypes.object,
   article: PropTypes.bool,
   node: PropTypes.object,
   canonical: PropTypes.string,
@@ -199,6 +252,7 @@ SEO.defaultProps = {
   meta_description: null,
   cover: null,
   pathname: null,
+  postNode: null,
   article: false,
   node: null,
 }
