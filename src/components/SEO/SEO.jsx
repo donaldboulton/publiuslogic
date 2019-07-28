@@ -10,7 +10,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
   const { site } = useStaticQuery(query)
 
   const postMeta = postData || {}
-  let postURL = canonical
+
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   const URL = `${config.siteUrl}${realPrefix(pathname)}`
   const isBlog = URL === `${config.siteUrl}/blog`
@@ -156,7 +156,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
       description: pageDescription,
       headline: seo.title,
       inLanguage: 'en',
-      url: postURL,
+      url: URL,
       name: pageTitle,
       image: {
         '@type': 'ImageObject',
