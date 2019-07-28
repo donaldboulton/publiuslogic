@@ -3,8 +3,6 @@ import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import config from '../../../data/config'
-import Facebook from './Facebook'
-import Twitter from './Twitter'
 
 const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname, article, postData, node }) => {
   const { site } = useStaticQuery(query)
@@ -14,8 +12,8 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
   const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   const URL = `${config.siteUrl}${pathPrefix(pathname)}`
   const isBlog = URL === `${config.siteUrl}/blog`
-  const pageTitle = canonical + title
-  const pageDescription = canonical + meta_description
+  const pageTitle = canonical + postMeta.title
+  const pageDescription = canonical + postMeta.meta_description
   let image
   let imageWidth
   let imageHeight
@@ -29,10 +27,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
       defaultCover,
       headline,
       siteLanguage,
-      ogLanguage,
       author,
-      twitter,
-      facebook,
     },
   } = site
 
@@ -215,16 +210,6 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
         {article && <script type='application/ld+json'>{JSON.stringify(schemaArticle)}</script>}
         <script type='application/ld+json'>{JSON.stringify(breadcrumb)}</script>
       </Helmet>
-      <Facebook
-        description={pageDescription}
-        image={image}
-        title={title}
-        type={article ? 'article' : 'website'}
-        url={URL}
-        locale={ogLanguage}
-        name={facebook}
-      />
-      <Twitter title={title} image={image} description={pageDescription} username={twitter} />
     </>
   )
 }
