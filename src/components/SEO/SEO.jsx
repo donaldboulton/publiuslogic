@@ -9,8 +9,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
 
   const postMeta = postData || {}
 
-  const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-  const URL = `${config.siteUrl}${pathPrefix(pathname)}`
+  const URL = `${config.siteUrl}${pathname}`
   const isBlog = URL === `${config.siteUrl}/blog`
   const pageTitle = canonical + postMeta.title
   const pageDescription = canonical + postMeta.meta_description
