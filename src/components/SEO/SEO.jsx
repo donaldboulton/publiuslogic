@@ -11,11 +11,11 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
 
   const postMeta = postData || {}
 
-  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-  const URL = `${config.siteUrl}${realPrefix(pathname)}`
+  const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+  const URL = `${config.siteUrl}${pathPrefix(pathname)}`
   const isBlog = URL === `${config.siteUrl}/blog`
-  const pageTitle = config.siteUrl + realPrefix + title
-  const pageDescription = config.siteUrl + realPrefix + meta_description
+  const pageTitle = canonical + title
+  const pageDescription = canonical + meta_description
   let image
   let imageWidth
   let imageHeight
@@ -195,7 +195,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
         <link rel='icon' type='image/png' sizes='32x32' href='/img/favicon-32x32.png' />
         <link rel='icon' type='image/png' sizes='16x16' href='/img/favicon-16x16.png' />
         <link rel='mask-icon' href='/img/safari-pinned-tab.svg' color='#d64000' />
-        <meta name='msapplication-TileColor' content='#3498db' />
+        <meta name='msapplication-TileColor' content='#d64000' />
         <meta property='og:locale' content={config.siteLanguage} />
         <meta property='og:site_name' content={config.facebook} />
         <meta property='og:url' content={URL} />
