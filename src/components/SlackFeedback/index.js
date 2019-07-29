@@ -1,5 +1,5 @@
 import React from 'react'
-import SlackFeedback, { themes } from 'react-slack-feedback'
+import SlackFeedback, { SlackIcon, themes, defaultTranslations } from 'react-slack-feedback'
 const fetch = require('node-fetch')
 
 export { default as dark } from './dark'
