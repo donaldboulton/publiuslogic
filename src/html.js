@@ -17,6 +17,17 @@ export default class HTML extends Component {
           <meta name='ICBM' content='35.4582062, -97.6338859' />
           <meta name='slack-app-id' content='AGT7BS79R' />
           <meta name='robots' content='index, follow' />
+          <meta name='msapplication-TileColor' content='#d64000' />
+          <meta property='og:locale' content='en' />
+          <meta property='og:site_name' content='publiuslogic.com' />
+          <meta property='og:see_also' content='https://github.com/donaldboulton' />
+          <meta property='og:see_also' content='https://youtube.de/donboulton' />
+          <meta property='og:see_also' content='https://twitter.com/donboulton' />
+          <link rel='apple-touch-icon' href='/img/apple-touch-icon-180x180.png' />
+          <link rel='icon' type='image/png' sizes='32x32' href='/img/favicon-32x32.png' />
+          <link rel='icon' type='image/png' sizes='16x16' href='/img/favicon-16x16.png' />
+          <link rel='mask-icon' href='/img/safari-pinned-tab.svg' color='#d64000' />
+          <link type='text/plain' href='https//publiuslogic.com/humans.txt' rel='author' />
           {this.props.headComponents}
           <link rel='shortcut icon' href={favicon} />
         </head>
@@ -24,7 +35,7 @@ export default class HTML extends Component {
           <div
             id='___gatsby'
             dangerouslySetInnerHTML={{ __html: this.props.body }}
-            
+
           />
           {this.props.postBodyComponents}
           <script

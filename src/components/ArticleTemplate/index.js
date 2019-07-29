@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Content from '../Content'
-import config from '../../../data/config'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
@@ -25,28 +24,37 @@ require('prismjs/components/prism-graphql')
 
 const ArticleTemplate = ({
   content,
+  cover,
+  imageWidth,
+  imageHeight,
+  canonical,
   contentComponent,
   categorys,
+  meta_description,
   date,
   tags,
   title,
 }) => {
   const PostContent = contentComponent || Content
   const { markdownRemark: post } = date
-  const canonical = post.frontmatter.canonical
 
   return (
     <div>
-      <Helmet
-        htmlAttributes={config.siteLanguage}
-        title={title}
-        titleTemplate={title ? `%s` : `%s | ${config.siteTitle}`}
-        link={
-          canonical
-            ? [{ rel: 'canonical', key: canonical, href: canonical }]
-            : []
-        }
-      />
+      <Helmet>
+        <title>{title}</title>
+        <meta name='description' content={meta_description} />
+        <meta name='canonical' content={canonical} />
+        <meta property='og:type' content='article' />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content={meta_description} />
+        <meta property='og:image' content={cover} />
+        <meta property='og:image:alt' content={meta_description} />
+        <meta property='og:image:width' content={imageWidth} />
+        <meta property='og:image:height' content={imageHeight} />
+        <meta property='og:url' content={canonical} />
+        <meta name='rel' content={canonical} />
+        <meta name='key' content={canonical} />
+      </Helmet>
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>

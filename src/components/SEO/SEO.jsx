@@ -185,25 +185,8 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
         <meta name='image' content={image} />
         <meta name='content' content={meta_description} />
         <meta name='gatsby-starter' content='PubliusLogic' />
-        <link rel='apple-touch-icon' href='/img/apple-touch-icon-180x180.png' />
-        <link rel='icon' type='image/png' sizes='32x32' href='/img/favicon-32x32.png' />
-        <link rel='icon' type='image/png' sizes='16x16' href='/img/favicon-16x16.png' />
-        <link rel='mask-icon' href='/img/safari-pinned-tab.svg' color='#d64000' />
-        <meta name='msapplication-TileColor' content='#d64000' />
-        <meta property='og:locale' content={config.siteLanguage} />
-        <meta property='og:site_name' content={config.facebook} />
-        <meta property='og:url' content={URL} />
-        <meta property='og:type' content={article ? 'article' : 'website'} />
-        <meta property='og:title' content={title} />
-        <meta property='og:description' content={meta_description} />
-        <meta property='og:image' content={image} />
-        <meta property='og:image:alt' content={meta_description} />
-        <meta property='og:image:width' content={imageWidth} />
-        <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:see_also' content='https://github.com/donaldboulton' />
-        <meta property='og:see_also' content='https://youtube.de/donboulton' />
-        <meta property='og:see_also' content='https://twitter.com/donboulton' />
-        <link type='text/plain' href={`${config.siteUrl}/humans.txt`} rel='author' />
+        <meta name='msapplication-TileColor' content='#d64000' />        
+        <meta property='og:type' content={article ? 'article' : 'website'} />        
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!article && <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>}
         {article && <script type='application/ld+json'>{JSON.stringify(schemaArticle)}</script>}
