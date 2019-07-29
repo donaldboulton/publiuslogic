@@ -33,7 +33,7 @@ class TagRoute extends Component {
                 <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
                 <ul className='taglist read-more'>{postLinks}</ul>
                 <p>
-                  <Link className='button is-primary is-small' to='/tags/'>Browse all tags →</Link>
+                  <Link className='button is-primary' to='/tags/'>Browse all tags →</Link>
                 </p>
               </div>
             </div>

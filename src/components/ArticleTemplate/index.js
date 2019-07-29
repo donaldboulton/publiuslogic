@@ -1,5 +1,7 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Content from '../Content'
+import config from '../../../data/config'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
@@ -24,21 +26,27 @@ require('prismjs/components/prism-graphql')
 const ArticleTemplate = ({
   content,
   contentComponent,
-  cover,
   categorys,
-  meta_title,
-  meta_desc,
   date,
   tags,
   title,
-  slug,
-  tweet_id,
 }) => {
   const PostContent = contentComponent || Content
   const { markdownRemark: post } = date
+  const canonical = post.frontmatter.canonical
 
   return (
     <div>
+      <Helmet
+        htmlAttributes={config.siteLanguage}
+        title={title}
+        titleTemplate={title ? `%s` : `%s | ${config.siteTitle}`}
+        link={
+          canonical
+            ? [{ rel: 'canonical', key: canonical, href: canonical }]
+            : []
+        }
+      />
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>
@@ -73,7 +81,7 @@ const ArticleTemplate = ({
               {(tags && tags.length)
                 ? tags.map(tag => (
                   <li key={tag + `tag`}>
-                    <Link className='button is-primary' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    <Link className='button is-primary is-small' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                   </li>
                 ))
                 : null
@@ -82,7 +90,7 @@ const ArticleTemplate = ({
           </div>
           <div className='column'>
             <h4>Category</h4>
-            <Link className='button is-primary' to={`/categories/`}>{categorys}</Link>
+            <Link className='button is-primary is-small' to={`/categories/`}>{categorys}</Link>
           </div>
         </div>
       </div>

@@ -2,9 +2,7 @@ import React from 'react'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import config from '../../data/config'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Seo from '../components/SEO'
@@ -19,17 +17,7 @@ const ArticlePage = ({ data }) => {
   let canonical = post.frontmatter.canonical
 
   return (
-    <Global title={post.frontmatter.title}>
-      <Helmet
-        htmlAttributes={config.siteLanguage}
-        title={`${post.frontmatter.title} | ${config.siteTitle}`}
-        titleTemplate={post.frontmatter.title ? `%s` : `%s | ${config.siteTitle}`}
-        link={
-          canonical
-            ? [{ rel: 'canonical', key: canonical, href: canonical }]
-            : []
-        }
-      />
+    <Global pageTitle={post.frontmatter.title}>      
       <Seo
         cover={post.frontmatter.cover}
         title={post.frontmatter.title}
