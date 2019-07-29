@@ -3,7 +3,7 @@ import Content from '../Content'
 import PropTypes from 'prop-types'
 import Image from './image'
 import Author from '../Author'
-import Feedback from '../SLackFeedback'
+import Feedback from '../SlackFeedback'
 
 const AboutPageTemplate = ({ title, cover, content, contentComponent }) => {
   const PageContent = contentComponent || Content
