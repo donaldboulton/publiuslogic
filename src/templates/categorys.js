@@ -2,12 +2,8 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Global from '../components/Global'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
-
 class CategoryRoute extends Component {
   render () {
-    const { pageContext } = this.props
-    const { location, crumbs } = pageContext
     const posts = this.props.data.allMarkdownRemark.edges
     const postLinks = posts.map(post => (
       <li key={post.node.fields.slug}>
@@ -24,11 +20,10 @@ class CategoryRoute extends Component {
     } tagged with “${categorys}”`
 
     return (
-      <Global pageTitle={title} location={location}>
+      <Global pageTitle={title}>
         <section className='section'>
           <Helmet title={`${categorys} | ${title}`} />
           <div className='container content'>
-            <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
             <div className='columns'>
               <div
                 className='column is-10 is-offset-1'

@@ -32,7 +32,7 @@ const ArticlePage = ({ data, pageContext, location }) => {
     image: { cover },
     alternateName: { meta_title },
     mainEntityOfPage: { canonical },
-  }
+  }                                 
 
   return (
     <Global pageTitle={post.frontmatter.title} location={location}>
