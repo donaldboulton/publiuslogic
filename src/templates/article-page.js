@@ -1,4 +1,6 @@
 import React from 'react'
+import Helmet from 'react-helmet'
+import config from '../../data/config'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
@@ -14,10 +16,42 @@ import PostCover from '../components/PostCover'
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
+  let title = post.frontmatter.title
+  let meta_title = post.frontmatter.meta_title
   let canonical = post.frontmatter.canonical
+  let cover = post.frontmatter.cover
+
+  const articleSchemaOrgJSONLD = {
+    '@context': 'http://schema.org',
+    '@type': 'Article',
+    url: { canonical },
+    name: { title },
+    image: { cover },
+    alternateName: { meta_title },
+    mainEntityOfPage: { canonical },
+  }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>      
+    <Global pageTitle={post.frontmatter.title}>
+      <Helmet>
+        <title>{post.frontmatter.title}</title>
+        <meta name='description' content={post.frontmatter.meta_description} />
+        <meta name='canonical' content={post.frontmatter.canonical} />
+        <meta property='og:type' content='article' />
+        <meta property='og:title' content={post.frontmatter.title} />
+        <meta property='og:description' content={post.frontmatter.meta_description} />
+        <meta property='og:image' content={post.frontmatter.cover} />
+        <meta property='og:image:alt' content={post.frontmatter.meta_description} />
+        <meta property='og:image:width' content='100%' />
+        <meta property='og:image:height' content='400px' />
+        <meta property='og:url' content={post.frontmatter.canonical} />
+        <meta name='rel' content={post.frontmatter.canonical} />
+        <meta name='key' content={post.frontmatter.canonical} />
+        {/* Schema.org tags */}
+        <script type='application/ld+json'>
+          {JSON.stringify(articleSchemaOrgJSONLD)}
+        </script>
+      </Helmet>
       <Seo
         cover={post.frontmatter.cover}
         title={post.frontmatter.title}

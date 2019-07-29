@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
@@ -40,21 +39,6 @@ const ArticleTemplate = ({
 
   return (
     <div>
-      <Helmet>
-        <title>{title}</title>
-        <meta name='description' content={meta_description} />
-        <meta name='canonical' content={canonical} />
-        <meta property='og:type' content='article' />
-        <meta property='og:title' content={title} />
-        <meta property='og:description' content={meta_description} />
-        <meta property='og:image' content={cover} />
-        <meta property='og:image:alt' content={meta_description} />
-        <meta property='og:image:width' content={imageWidth} />
-        <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:url' content={canonical} />
-        <meta name='rel' content={canonical} />
-        <meta name='key' content={canonical} />
-      </Helmet>
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>

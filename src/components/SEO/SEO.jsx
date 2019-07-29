@@ -14,8 +14,6 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
   const pageTitle = canonical + postMeta.title
   const pageDescription = canonical + postMeta.meta_description
   let image
-  let imageWidth
-  let imageHeight
 
   const {
     buildTime,
@@ -119,8 +117,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
     const postMeta = postNode.data
     const postImage = postMeta.cover.localFile.childImageSharp.resize
     image = `${config.siteUrl}${postImage.src}`
-    imageWidth = postImage.width
-    imageHeight = postImage.height
+
     schemaArticle = {
       '@context': 'http://schema.org',
       '@type': 'Article',
@@ -150,13 +147,6 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
       description: pageDescription,
       headline: seo.title,
       inLanguage: 'en',
-      url: URL,
-      name: pageTitle,
-      image: {
-        '@type': 'ImageObject',
-        url: image,
-      },
-      mainEntityOfPage: URL,
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({

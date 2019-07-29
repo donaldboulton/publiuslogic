@@ -108,8 +108,18 @@ module.exports = {
         name: 'authors',
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        sitemapPath: `/sitemap.xml`,
+      },
     },
     {
       resolve: `gatsby-plugin-page-creator`,
