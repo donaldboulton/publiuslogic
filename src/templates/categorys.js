@@ -33,7 +33,7 @@ class CategoryRoute extends Component {
                 <h3 className='title is-size-4 is-bold-light'>{categorysHeader}</h3>
                 <ul className='taglist read-more'>{postLinks}</ul>
                 <p>
-                  <Link className='button is-primary' to='/categories/'>Browse all categories →</Link>
+                  <Link className='button is-primary is-small' to='/categories/'>Browse all categories →</Link>
                 </p>
               </div>
             </div>
