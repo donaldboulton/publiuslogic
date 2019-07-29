@@ -35,7 +35,7 @@ const ArticlePage = ({ data, pageContext, location }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title} location={location} >
+    <Global pageTitle={post.frontmatter.title} location={location}>
       <Helmet>
         <title>{post.frontmatter.title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />

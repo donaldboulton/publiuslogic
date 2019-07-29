@@ -26,10 +26,7 @@ const PaginationLink = props => {
 export default class BlogPage extends Component {
   render () {
     const { pageContext } = this.props
-    const { group, index, first, last } = pageContext
-    const {
-      breadcrumb: { crumbs },
-    } = pageContext
+    const { group, index, first, last, location, crumbs } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
 
@@ -43,7 +40,7 @@ export default class BlogPage extends Component {
     }
 
     return (
-      <Global title={config.siteTitle}>
+      <Global title={config.siteTitle} location={location}>
         <Helmet>
           <title>Blog | Publius Logic</title>
           <meta name='description' content='Blog | Publius Logic' />
