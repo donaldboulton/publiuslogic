@@ -41,8 +41,8 @@ export default class HTML extends Component {
           <script
             dangerouslySetInnerHTML={{
               __html: `
-                      var dropdown = document.querySelector('.dropdown');
-                      dropdown.classList.toggle('is-active');
+                      var name = 'world';
+                      console.log('Hello ' + name);
                     `,
             }}
           />
