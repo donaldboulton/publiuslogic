@@ -4,10 +4,12 @@ import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
 import StyledBackgroundSection from './image'
 import PropTypes from 'prop-types'
+import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 const HomePageTemplate = ({
   title,
   cover,
+  crumbs,
   heading,
   description,
   offerings,
@@ -49,6 +51,7 @@ const HomePageTemplate = ({
         <div className='section'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
+              <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
               <div className='content'>
                 <div>
                   <h3 className='has-text-weight-semibold is-size-2'>
@@ -66,7 +69,7 @@ const HomePageTemplate = ({
                       <article className='is-child'>
                         <a href='/blog/gatsby-github-comments-utterances/'>
                           <figure className='image is-2by1'>
-                            <img src='/img/gatsby+react+utterances+home.jpg' alt='Gatsby GitHub Comments Utterances' />
+                            <img src='/img/utterances.jpg' alt='Gatsby GitHub Comments Utterances' />
                           </figure>
                         </a>
                         <p>
@@ -91,7 +94,7 @@ const HomePageTemplate = ({
                       <article className='is-child'>
                         <a href='/blog/modali-hooks-modal/'>
                           <figure className='image is-2by1'>
-                            <img src='/img/modali-logo.png' alt='Modali Hooks Modals' />
+                            <img src='/img/modali-logo.jpg' alt='Modali Hooks Modals' />
                           </figure>
                         </a>
                         <p>

@@ -119,6 +119,16 @@ module.exports = {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
         sitemapPath: `/sitemap.xml`,
+        defaultCrumb: {
+          location: {
+            state: { crumbClicked: false },
+            pathname: '/',
+          },
+          crumbLabel: 'Home',
+          crumbSeparator: ' / ',
+          crumbStyle: { color: '#ccc' },
+          crumbActiveStyle: { color: '#d64000' },
+        },
       },
     },
     {

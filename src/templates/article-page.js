@@ -1,10 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import config from '../../data/config'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Seo from '../components/SEO'
@@ -13,10 +13,13 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 
-const ArticlePage = ({ data }) => {
+const ArticlePage = ({ data, pageContext, location }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  let title = post.frontmatter.title
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext
+  const title = post.frontmatter.title
   let meta_title = post.frontmatter.meta_title
   let canonical = post.frontmatter.canonical
   let cover = post.frontmatter.cover
@@ -32,7 +35,7 @@ const ArticlePage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Global pageTitle={post.frontmatter.title} location={location} >
       <Helmet>
         <title>{post.frontmatter.title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -69,6 +72,7 @@ const ArticlePage = ({ data }) => {
           coverClassName='post-cover'
         />
       </section>
+      <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
       <section className='section'>
         <div className='container content'>
           <div className='columns'>
@@ -111,6 +115,7 @@ export const pageQuery = graphql`
   query ArticleByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
+      timeToRead
       html
       fields {
         slug

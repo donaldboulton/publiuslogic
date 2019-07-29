@@ -4,10 +4,14 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import ContactForm from '../ContactForm'
 import logo from '../../img/logo.png'
+import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => {
   const PageContent = contentComponent || Content
-
+  const { pageContext } = this.props
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext
   return (
     <div>
       <Helmet>
@@ -35,6 +39,7 @@ const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => 
       <section className='section'>
         <div className='container'>
           <div className='columns is-10 is-offset-1'>
+            <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
             <PageContent className='content' content={content} />
             <div className='column is-8'>
               <ContactForm />
