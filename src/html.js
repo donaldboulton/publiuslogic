@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import 'babel-polyfill'
 import favicon from './assets/img/favicon.ico'
 require('typeface-kaushan-script')
 require('typeface-roboto')
