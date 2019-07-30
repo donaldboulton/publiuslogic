@@ -17,20 +17,20 @@ module.exports = {
     titleAlt: 'To Publish Logic',
     siteDescription: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
-    siteUrl: config.siteUrl + pathPrefix,
+    siteUrl: 'https://publiuslogic.com',
     keywords: 'Publiuslogic, Gatsby, React',
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
     twitterSite: '1135998',
     headline: 'Writing and publishing content for PubliusLogic', // Headline for schema.org JSONLD
-    url: config.siteUrl + pathPrefix,
+    url: 'https://publiuslogic.com',
     siteLanguage: 'en', // Language Tag on <html> element
     logo: '/img/logo.png', // Used for SEO
     ogLanguage: 'en_US', // Facebook Language
     twitter: 'donboulton',
     facebook: 'don.boulton',
     rssMetadata: {
-      site_url: config.siteUrl + pathPrefix,
+      site_url: 'https://publiuslogic.com',
       feed_url: config.siteUrl + config.siteRss,
       title: config.siteTitle,
       description: config.siteDescription,
