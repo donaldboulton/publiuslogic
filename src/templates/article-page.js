@@ -14,6 +14,7 @@ import PostCover from '../components/PostCover'
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
+  const postNode = data.markdownRemark
   const title = post.frontmatter.title
   let meta_title = post.frontmatter.meta_title
   let canonical = post.frontmatter.canonical
