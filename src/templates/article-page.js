@@ -35,7 +35,7 @@ const ArticlePage = ({ data, pageContext, location, crumbLabel }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title} path={location}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />

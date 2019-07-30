@@ -15,7 +15,7 @@ const AboutPage = ({ data }) => {
     breadcrumb: { crumbs },
   } = pageContext
   return (
-    <Global pageTitle={post.frontmatter.title} path={location}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
