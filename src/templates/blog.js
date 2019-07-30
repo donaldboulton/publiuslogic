@@ -39,7 +39,7 @@ export default class BlogPage extends Component {
     }
 
     return (
-      <Global pageTitle={config.siteTitleAlt} path={location}>
+      <Global pageTitle={config.siteTitleAlt}>
         <Helmet>
           <title>Blog | Publius Logic</title>
           <meta name='description' content='Blog | Publius Logic' />
