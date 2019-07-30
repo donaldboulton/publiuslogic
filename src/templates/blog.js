@@ -5,7 +5,6 @@ import config from '../../data/config'
 import Helmet from 'react-helmet'
 import PostCard from '../components/PostCard'
 import Global from '../components/Global'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 const PaginationLink = props => {
   if (!props.test) {
@@ -27,9 +26,6 @@ export default class BlogPage extends Component {
   render () {
     const { pageContext } = this.props
     const { group, index, first, last, location, crumbLabel } = pageContext
-    const {
-      breadcrumb: { crumbs },
-    } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
 
@@ -74,7 +70,6 @@ export default class BlogPage extends Component {
             </div>
           </div>
         </section>
-        <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
         <section className='section'>
           <PostCard posts={group} />
           <section className='section'>
