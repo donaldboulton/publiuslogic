@@ -6,6 +6,9 @@ cover: /img/sitemap.jpg
 meta_title: Sitemap of PubliusLogic Pages
 meta_description: >-
   Sitemap of PubliusLogic Pages.
+tags:
+  - Gatsby
+  - PubliusLogic Sitemap
 ---
 
 ## Site Map of PubliusLogic Pages

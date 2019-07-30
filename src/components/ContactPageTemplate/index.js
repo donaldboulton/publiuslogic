@@ -6,7 +6,7 @@ import ContactForm from '../ContactForm'
 import logo from '../../img/logo.png'
 import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
-const ContactPageTemplate = ({ title, subtitle, content, contentComponent }) => {
+const ContactPageTemplate = ({ title, subtitle, location, crumbLabel, content, contentComponent }) => {
   const PageContent = contentComponent || Content
   const { pageContext } = this.props
   const {

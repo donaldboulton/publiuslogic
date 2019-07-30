@@ -13,7 +13,7 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 
-const ArticlePage = ({ data, pageContext, location }) => {
+const ArticlePage = ({ data, pageContext, location, crumbLabel }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const {
@@ -32,24 +32,35 @@ const ArticlePage = ({ data, pageContext, location }) => {
     image: { cover },
     alternateName: { meta_title },
     mainEntityOfPage: { canonical },
-  }                                 
+  }
 
   return (
-    <Global pageTitle={post.frontmatter.title} location={location}>
+    <Global pageTitle={post.frontmatter.title} path={location}>
       <Helmet>
         <title>{post.frontmatter.title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
+        <meta name='keywords' content={post.frontmatter.tags} />
         <meta name='canonical' content={post.frontmatter.canonical} />
         <meta property='og:type' content='article' />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
         <meta property='og:image' content={post.frontmatter.cover} />
-        <meta property='og:image:alt' content={post.frontmatter.meta_description} />
+        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
         <meta property='og:url' content={post.frontmatter.canonical} />
         <meta name='rel' content={post.frontmatter.canonical} />
         <meta name='key' content={post.frontmatter.canonical} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content={post.frontmatter.title} />
+        <meta name='twitter:image' content={post.frontmatter.cover} />
+        <meta name='twitter:description' content={post.frontmatter.meta_description} />
+        <meta name='twitter:widgets:autoload' content='off' />
+        <meta name='twitter:widgets:theme' content='dark' />
+        <meta name='twitter:widgets:link-color' content='#d64000' />
+        <meta name='twitter:widgets:border-color' content='#000000' />
+        <meta name='twitter:dnt' content='on' />
+        <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
         <script type='application/ld+json'>
           {JSON.stringify(articleSchemaOrgJSONLD)}
@@ -58,7 +69,7 @@ const ArticlePage = ({ data, pageContext, location }) => {
       <Seo
         cover={post.frontmatter.cover}
         title={post.frontmatter.title}
-        meta_title={post.frontmatter.meta_title}
+        titleAlt={post.frontmatter.meta_title}
         description={post.frontmatter.meta_description}
         url={post.fields.slug}
         image={post.frontmatter.cover}

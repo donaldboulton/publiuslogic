@@ -12,7 +12,7 @@ const PricingPage = ({ data }) => {
       <PricingPageTemplate
         title={frontmatter.title}
         meta_title={frontmatter.meta_title}
-        meta_description={frontmatter.meta_description}
+        description={frontmatter.meta_description}
         pricing={frontmatter.pricing}
       />
     </Global>

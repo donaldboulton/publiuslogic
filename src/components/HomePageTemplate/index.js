@@ -16,6 +16,8 @@ const HomePageTemplate = ({
   meta_title,
   meta_description,
   testimonials,
+  location, 
+  crumbLabel,
 }) => (
   <div>
     <Helmet>

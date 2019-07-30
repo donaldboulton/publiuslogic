@@ -20,7 +20,7 @@ const PhotosPage = ({ data }) => {
         cover={frontmatter.cover}
         subtitle={frontmatter.subtitle}
         meta_title={frontmatter.meta_title}
-        meta_description={frontmatter.meta_description}
+        description={frontmatter.meta_description}
       />
     </Global>
   )
