@@ -5,15 +5,10 @@ import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Global from '../components/Global'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
-  const { pageContext } = this.props
-  const { location } = pageContext
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext
+
   return (
     <Global pageTitle={post.frontmatter.title}>
       <Helmet>
@@ -23,7 +18,6 @@ const AboutPage = ({ data }) => {
         <meta name='image' content={post.frontmatter.cover} />
         <meta name='robots' content='index, follow' />
       </Helmet>
-      <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}

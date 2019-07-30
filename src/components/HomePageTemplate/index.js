@@ -4,20 +4,16 @@ import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
 import StyledBackgroundSection from './image'
 import PropTypes from 'prop-types'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 const HomePageTemplate = ({
   title,
   cover,
-  crumbs,
   heading,
   description,
   offerings,
   meta_title,
   meta_description,
   testimonials,
-  location, 
-  crumbLabel,
 }) => (
   <div>
     <Helmet>
@@ -53,7 +49,6 @@ const HomePageTemplate = ({
         <div className='section'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
               <div className='content'>
                 <div>
                   <h3 className='has-text-weight-semibold is-size-2'>

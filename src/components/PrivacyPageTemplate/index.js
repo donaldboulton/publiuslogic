@@ -1,14 +1,9 @@
 import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 const PrivacyPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
-  const { pageContext } = this.props
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext
 
   return (
     <div>
@@ -31,7 +26,6 @@ const PrivacyPageTemplate = ({ title, content, contentComponent }) => {
         <div className='container'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
               <div className='section'>
                 <PageContent className='content' content={content} />
               </div>

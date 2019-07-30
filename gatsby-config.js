@@ -116,12 +116,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-breadcrumb`,
-      options: {
-        sitemapPath: `/sitemap.xml`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-page-creator`,
       options: {
         path: `${__dirname}/src/pages/privacy`,

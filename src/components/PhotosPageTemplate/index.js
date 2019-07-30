@@ -6,7 +6,6 @@ import Cloudinary from '../Cloudinary'
 import UploadWidget from '../Cloudinary/UploadWidget'
 import PropTypes from 'prop-types'
 import { media } from '../Hero/style'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 const SectionPageTitle = styled.h2`
   font-size: 2em;
@@ -17,10 +16,6 @@ const SectionPageTitle = styled.h2`
 `
 const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
-  const { pageContext } = this.props
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext
 
   return (
     <div>
@@ -35,7 +30,6 @@ const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, 
         <SectionPageTitle>My Cats</SectionPageTitle>
         <div className='container'>
           <div className='is-10 is-offset-1'>
-            <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
             <div>
               <Cloudinary />
             </div>

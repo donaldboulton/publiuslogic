@@ -2,13 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Pricing from '../Pricing'
 import PropTypes from 'prop-types'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 const PricingPageTemplate = ({ pricing, title, meta_title, meta_description }) => {
-  const { pageContext } = this.props
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext
 
   return (
     <div>
@@ -36,7 +31,6 @@ const PricingPageTemplate = ({ pricing, title, meta_title, meta_description }) =
           <div className='section'>
             <div className='columns'>
               <div className='column is-10 is-offset-1'>
-                <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
                 <div className='content'>
                   <h2 className='has-text-weight-semibold is-size-2'>
                     {pricing.heading}
