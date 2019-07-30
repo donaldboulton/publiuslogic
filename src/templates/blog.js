@@ -26,7 +26,7 @@ const PaginationLink = props => {
 export default class BlogPage extends Component {
   render () {
     const { pageContext } = this.props
-    const { group, index, crumbs, first, last, location, crumbLabel } = pageContext
+    const { group, index, first, last, location, crumbLabel } = pageContext
     const {
       breadcrumb: { crumbs },
     } = pageContext
