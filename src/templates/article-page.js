@@ -4,7 +4,6 @@ import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Seo from '../components/SEO'
@@ -13,12 +12,8 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 
-const ArticlePage = ({ data, pageContext, location, crumbLabel }) => {
+const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
-  const postNode = data.markdownRemark
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext
   const title = post.frontmatter.title
   let meta_title = post.frontmatter.meta_title
   let canonical = post.frontmatter.canonical
@@ -83,7 +78,6 @@ const ArticlePage = ({ data, pageContext, location, crumbLabel }) => {
           coverClassName='post-cover'
         />
       </section>
-      <SitemapCrumbs crumbs={crumbs} crumbSeparator=' / ' />
       <section className='section'>
         <div className='container content'>
           <div className='columns'>
