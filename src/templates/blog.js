@@ -25,7 +25,7 @@ const PaginationLink = props => {
 export default class BlogPage extends Component {
   render () {
     const { pageContext } = this.props
-    const { group, index, first, last, location, crumbLabel } = pageContext
+    const { group, index, first, last } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
 
