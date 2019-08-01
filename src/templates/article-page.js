@@ -24,13 +24,12 @@ const ArticlePage = ({ data, node }) => {
   const imageHeight = postImage.height
   const body = post.html
   const title = post.frontmatter.title
-
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
   let pageTags = post.frontmatter.tags
   let url = post.frontmatter.canonical
   let logo = config.siteLogo
-  let author = config.author
+
   
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -52,16 +51,16 @@ const ArticlePage = ({ data, node }) => {
     name: title,
     author: {
       '@type': 'Person',
-      name: author,
+      name: config.author,
     },
     copyrightHolder: {
       '@type': 'Person',
-      name: author,
+      name: config.author,
     },
     copyrightYear: config.copyrightYear,
     creator: {
       '@type': 'Person',
-      name: author,
+      name: config.author,
     },
     alternativeHeadline: alternativeHeadline,
     datePublished: buildTime,

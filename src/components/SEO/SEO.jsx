@@ -12,8 +12,6 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
   const URL = `${config.siteUrl}${pathname}`
   const isBlog = URL === `${config.siteUrl}/blog`
   const pageTitle = canonical + postMeta.title
-  let image
-
 
   const {
     buildTime,
@@ -41,8 +39,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
-    '@type': isBlog ? 'Blog' : 'WebPage',
-    url: seo.url,
+    url: `${URL}${pathname || ''}`,
     title: seo.title,
     headline,
     inLanguage: siteLanguage,
@@ -70,7 +67,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: image,
+      url: config.siteLogo,
     },
   }
 
@@ -157,10 +154,8 @@ export default SEO
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
   pathname: PropTypes.string.isRequired,
-  data: PropTypes.any.isRequired,
   siteTitle: PropTypes.string,
   meta_description: PropTypes.string,
-  cover: PropTypes.string,
   postNode: PropTypes.object,
   article: PropTypes.bool,
   node: PropTypes.object,
@@ -171,7 +166,6 @@ SEO.defaultProps = {
   title: null,
   siteTitle: null,
   meta_description: null,
-  cover: null,
   pathname: null,
   postNode: null,
   article: false,
