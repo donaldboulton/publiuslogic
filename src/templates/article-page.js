@@ -15,6 +15,7 @@ import config from '../../data/config'
 
 const ArticlePage = ({ data, node }) => {
   const { markdownRemark: post } = data
+  
   const postNode = data.markdownRemark
   const postMeta = postNode.data
   const postImage = postMeta.cover.localFile.childImageSharp.resize
@@ -76,9 +77,9 @@ const ArticlePage = ({ data, node }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Global pageTitle={title}>
       <Helmet>
-        <title>{post.frontmatter.title}</title>
+        <title>{title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={post.frontmatter.canonical} />
