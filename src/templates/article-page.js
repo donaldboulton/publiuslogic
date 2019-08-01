@@ -17,9 +17,9 @@ const ArticlePage = ({ data, node }) => {
   const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
-  const postMeta = postNode.data
+
   const cover = post.frontmatter.cover
-  const postImage = postMeta.cover.localFile.childImageSharp.resize
+  const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
