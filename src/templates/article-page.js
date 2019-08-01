@@ -17,7 +17,7 @@ const ArticlePage = ({ data, node }) => {
   const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
-
+  const buildTime = post.frontmatter.date
   const cover = post.frontmatter.cover
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
@@ -64,8 +64,8 @@ const ArticlePage = ({ data, node }) => {
       name: author,
     },
     alternativeHeadline: alternativeHeadline,
-    datePublished: node.first_publication_date,
-    dateModified: node.last_publication_date,
+    datePublished: buildTime,
+    dateModified: buildTime,
     description: pageDescription,
     headline: title,
     keywords: pageTags,
