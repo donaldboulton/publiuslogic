@@ -58,7 +58,7 @@ const ArticlePage = ({ data, node }) => {
       '@type': 'Person',
       name: author,
     },
-    copyrightYear: config.copyright,
+    copyrightYear: config.copyrightYear,
     creator: {
       '@type': 'Person',
       name: author,
