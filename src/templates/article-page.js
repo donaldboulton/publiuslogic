@@ -15,15 +15,16 @@ import config from '../../data/config'
 
 const ArticlePage = ({ data, node }) => {
   const { markdownRemark: post } = data
-  
+
   const postNode = data.markdownRemark
   const postMeta = postNode.data
+  const cover = post.frontmatter.cover
   const postImage = postMeta.cover.localFile.childImageSharp.resize
   const imageWidth = postImage.width
   const imageHeight = postImage.height
+  const body = post.html
+  const title = post.frontmatter.title
 
-  let title = post.frontmatter.title
-  let body = post.html
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
   let pageTags = post.frontmatter.tags
@@ -86,7 +87,7 @@ const ArticlePage = ({ data, node }) => {
         <meta property='og:type' content='article' />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={post.frontmatter.cover} />
+        <meta property='og:image' content={cover} />
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
@@ -109,7 +110,7 @@ const ArticlePage = ({ data, node }) => {
         </script>
       </Helmet>
       <Seo
-        title={post.frontmatter.title}
+        title={title}
         titleAlt={post.frontmatter.meta_title}
         description={post.frontmatter.meta_description}
         url={post.fields.slug}

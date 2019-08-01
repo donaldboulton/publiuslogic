@@ -16,6 +16,8 @@ export default class HTML extends Component {
           <meta name='geo.position' content='35.4582062;-97.6338859' />
           <meta name='geo.region' content='US-Oklahoma' />
           <meta name='ICBM' content='35.4582062, -97.6338859' />
+          <meta name='application-name' content='publiuslogic.com' />
+          <meta name='mobile-web-app-capable' content='yes' />
           <meta name='slack-app-id' content='AGT7BS79R' />
           <meta name='robots' content='index, follow' />
           <meta name='msapplication-TileColor' content='#d64000' />
@@ -24,7 +26,13 @@ export default class HTML extends Component {
           <meta property='og:see_also' content='https://github.com/donaldboulton' />
           <meta property='og:see_also' content='https://youtube.de/donboulton' />
           <meta property='og:see_also' content='https://twitter.com/donboulton' />
-          <link rel='apple-touch-icon' href='/img/apple-touch-icon-180x180.png' />
+          <meta name='apple-mobile-web-app-capable' content='yes' />
+          <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+          <meta name='apple-mobile-web-app-title' content='publiuslogic.com' />
+          <link rel='apple-touch-icon' sizes='32x32' href='/img/apple-touch-icon-32x32.png' />
+          <link rel='apple-touch-icon' sizes='76x76' href='/img/apple-touch-icon-76x76.png' />
+          <link rel='apple-touch-icon' sizes='152x152' href='/img/apple-touch-icon-152x152.png' />
+          <link rel='apple-touch-icon' sizes='180x180' href='/img/apple-touch-icon-180x180.png' />
           <meta name='twitter:widgets:theme' content='dark' />
           <meta name='twitter:widgets:link-color' content='#d64000' />
           <meta name='twitter:widgets:border-color' content='#434040' />
