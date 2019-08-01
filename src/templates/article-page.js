@@ -11,23 +11,68 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
+import config from '../../data/config'
 
-const ArticlePage = ({ data }) => {
+const ArticlePage = ({ data, node }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  const title = post.frontmatter.title
-  let meta_title = post.frontmatter.meta_title
-  let canonical = post.frontmatter.canonical
-  let cover = post.frontmatter.cover
+  const postMeta = postNode.data
+  const postImage = postMeta.cover.localFile.childImageSharp.resize
+  const imageWidth = postImage.width
+  const imageHeight = postImage.height
 
+  let title = post.frontmatter.title
+  let body = post.html
+  let alternativeHeadline = post.frontmatter.meta_title
+  let pageDescription = post.frontmatter.meta_description
+  let pageTags = post.frontmatter.tags
+  let url = post.frontmatter.canonical
+  let logo = config.siteLogo
+  let author = config.author
+  
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
     '@type': 'Article',
-    url: { canonical },
-    name: { title },
-    image: { cover },
-    alternateName: { meta_title },
-    mainEntityOfPage: { canonical },
+    publisher: {
+      '@type': 'Organization',
+      name: title,
+      'logo': {
+        '@type': 'ImageObject',
+        url: logo,
+      },
+    },
+    url: url,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
+    name: title,
+    author: {
+      '@type': 'Person',
+      name: author,
+    },
+    copyrightHolder: {
+      '@type': 'Person',
+      name: author,
+    },
+    copyrightYear: config.copyright,
+    creator: {
+      '@type': 'Person',
+      name: author,
+    },
+    alternativeHeadline: alternativeHeadline,
+    datePublished: node.first_publication_date,
+    dateModified: node.last_publication_date,
+    description: pageDescription,
+    headline: title,
+    keywords: pageTags,
+    inLanguage: 'en_US',
+    image: {
+      '@type': 'ImageObject',
+      url: postImage,
+    },
+    articleBody: body,
   }
 
   return (
@@ -35,15 +80,15 @@ const ArticlePage = ({ data }) => {
       <Helmet>
         <title>{post.frontmatter.title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
-        <meta name='keywords' content={post.frontmatter.tags} />
-        <meta name='canonical' content={post.frontmatter.canonical} />
+        <meta name='keywords' content={pageTags} />
+        <meta name='url' content={post.frontmatter.canonical} />
         <meta property='og:type' content='article' />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
         <meta property='og:image' content={post.frontmatter.cover} />
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
-        <meta property='og:image:width' content='100%' />
-        <meta property='og:image:height' content='400px' />
+        <meta property='og:image:width' content={imageWidth} />
+        <meta property='og:image:height' content={imageHeight} />
         <meta property='og:url' content={post.frontmatter.canonical} />
         <meta name='rel' content={post.frontmatter.canonical} />
         <meta name='key' content={post.frontmatter.canonical} />
@@ -63,15 +108,15 @@ const ArticlePage = ({ data }) => {
         </script>
       </Helmet>
       <Seo
-        cover={post.frontmatter.cover}
         title={post.frontmatter.title}
         titleAlt={post.frontmatter.meta_title}
         description={post.frontmatter.meta_description}
         url={post.fields.slug}
         image={post.frontmatter.cover}
+        keywords={pageTags}
         postNode={postNode}
         postSEO
-        canonical={canonical}
+        canonical={url}
       />
       <section className='hero'>
         <PostCover

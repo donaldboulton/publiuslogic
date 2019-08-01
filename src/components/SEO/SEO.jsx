@@ -12,8 +12,8 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
   const URL = `${config.siteUrl}${pathname}`
   const isBlog = URL === `${config.siteUrl}/blog`
   const pageTitle = canonical + postMeta.title
-  const pageDescription = canonical + postMeta.meta_description
   let image
+
 
   const {
     buildTime,
@@ -114,40 +114,6 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
   ]
 
   if (article) {
-    const postMeta = postNode.data
-    const postImage = postMeta.cover.localFile.childImageSharp.resize
-    image = `${config.siteUrl}${postImage.src}`
-
-    schemaArticle = {
-      '@context': 'http://schema.org',
-      '@type': 'Article',
-      author: {
-        '@type': 'Person',
-        name: author,
-      },
-      copyrightHolder: {
-        '@type': 'Person',
-        name: author,
-      },
-      copyrightYear: '2019',
-      creator: {
-        '@type': 'Person',
-        name: author,
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: author,
-        logo: {
-          '@type': 'ImageObject',
-          url: `${config.siteUrl}${config.siteLogo}`,
-        },
-      },
-      datePublished: node.first_publication_date,
-      dateModified: node.last_publication_date,
-      description: pageDescription,
-      headline: seo.title,
-      inLanguage: 'en',
-    }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
