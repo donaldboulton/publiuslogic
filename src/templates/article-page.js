@@ -76,9 +76,9 @@ const ArticlePage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={title}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
-        <title>{title}</title>
+        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={post.frontmatter.canonical} />
@@ -102,6 +102,8 @@ const ArticlePage = ({ data }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
+        <link rel='canonical' href={post.frontmatter.canonical} />
+        <link rel='image_src' href={`${config.siteUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
         <script type='application/ld+json'>
