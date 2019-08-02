@@ -13,24 +13,23 @@ import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 import config from '../../data/config'
 
-const ArticlePage = ({ data, node }) => {
+const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
-  const cover = post.frontmatter.cover
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
   const title = post.frontmatter.title
+
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
   let pageTags = post.frontmatter.tags
   let url = post.frontmatter.canonical
   let logo = config.siteLogo
 
-  
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
     '@type': 'Article',
@@ -51,16 +50,16 @@ const ArticlePage = ({ data, node }) => {
     name: title,
     author: {
       '@type': 'Person',
-      name: config.author,
+      name: 'donboulton',
     },
     copyrightHolder: {
       '@type': 'Person',
-      name: config.author,
+      name: 'donaldboulton',
     },
     copyrightYear: config.copyrightYear,
     creator: {
       '@type': 'Person',
-      name: config.author,
+      name: 'donboulton',
     },
     alternativeHeadline: alternativeHeadline,
     datePublished: buildTime,
@@ -86,13 +85,14 @@ const ArticlePage = ({ data, node }) => {
         <meta property='og:type' content='article' />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={cover} />
+        <meta property='og:image' content={post.frontmatter.cover} />
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
         <meta property='og:url' content={post.frontmatter.canonical} />
         <meta name='rel' content={post.frontmatter.canonical} />
         <meta name='key' content={post.frontmatter.canonical} />
+        <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
         <meta name='twitter:image' content={post.frontmatter.cover} />
