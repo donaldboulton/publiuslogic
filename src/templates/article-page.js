@@ -17,7 +17,7 @@ const ArticlePage = ({ data }) => {
 
   const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
-  const postImage = PostCover
+  const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
@@ -69,7 +69,7 @@ const ArticlePage = ({ data }) => {
     inLanguage: 'en_US',
     image: {
       '@type': 'ImageObject',
-      url: PostCover,
+      url: postImage,
     },
     articleBody: body,
   }
@@ -84,7 +84,7 @@ const ArticlePage = ({ data }) => {
         <meta property='og:type' content='article' />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={PostCover} />
+        <meta property='og:image' content={post.frontmatter.cover} />
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
@@ -94,7 +94,7 @@ const ArticlePage = ({ data }) => {
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
-        <meta name='twitter:image' content={PostCover} />
+        <meta name='twitter:image' content={post.frontmatter.cover} />
         <meta name='twitter:description' content={post.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
