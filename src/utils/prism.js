@@ -38,7 +38,7 @@ export default createGlobalStyle`
     color: #000000!important;
     padding: 0.2em 0.4em;
     width: max-content;
-    max-width: 300px;
+    max-width: 400px;
     margin: 1em 0 -2em 1em;
     border-radius: 0.3em;
     position: relative;

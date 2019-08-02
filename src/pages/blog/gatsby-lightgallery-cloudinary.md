@@ -5,7 +5,7 @@ slug: Gatsby LightGallery Cloudinary
 canonical: "https://publiuslogic.com/blog/gatsby-lightgallery-cloudinary/"
 date: 2019-06-17T20:14:43.942Z
 categorys: 'tech'
-cover: '/img/cloudinary.jpg'
+cover: '/images/cloudinary.jpg'
 tags:
   - Gatsby
   - Cloudinary

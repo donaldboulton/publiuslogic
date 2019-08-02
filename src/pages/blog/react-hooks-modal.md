@@ -5,7 +5,7 @@ slug: React Hooks Modal
 canonical: "https://publiuslogic.com/blog/react-hooks-modal/"
 date: 2019-03-25T20:20:43.942Z
 categorys: 'tech'
-cover: '/img/react-hooks-modal.jpg'
+cover: '/images/react-hooks-modal.jpg'
 tags:
   - React
   - Hooks

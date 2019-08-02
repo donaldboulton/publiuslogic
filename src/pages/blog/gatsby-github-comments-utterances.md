@@ -5,7 +5,7 @@ slug: Gatsby GitHub Comments Utterances
 canonical: "https://publiuslogic.com/blog/gatsby-github-comments-utterances/"
 date: 2019-04-16T20:20:43.942Z
 categorys: 'tech'
-cover: '/img/utterances.jpg'
+cover: '/images/utterances.jpg'
 tags:
   - Gatsby
   - GitHub
