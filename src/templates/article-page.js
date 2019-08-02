@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
-import Seo from '../components/SEO'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
@@ -18,7 +17,7 @@ const ArticlePage = ({ data }) => {
 
   const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
-  const postImage = post.frontmatter.cover
+  const postImage = PostCover
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
@@ -110,17 +109,6 @@ const ArticlePage = ({ data }) => {
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
       </Helmet>
-      <Seo
-        title={title}
-        titleAlt={post.frontmatter.meta_title}
-        description={post.frontmatter.meta_description}
-        url={post.fields.slug}
-        image={post.frontmatter.cover}
-        keywords={pageTags}
-        postNode={postNode}
-        postSEO
-        canonical={url}
-      />
       <section className='hero'>
         <PostCover
           postNode={postNode}

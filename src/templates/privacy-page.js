@@ -14,6 +14,7 @@ const PrivacyPage = ({ data }) => {
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
+        <meta name='keywords' content={post.frontmatter.tags} />
       </Helmet>
       <PrivacyPageTemplate
         contentComponent={HTMLContent}
@@ -38,6 +39,7 @@ export const privacyPageQuery = graphql`
         title
         meta_title
         meta_description
+        tags
       }
     }
   }

@@ -5,6 +5,9 @@ meta_title: Privacy Us | Gatsby Starter Business
 meta_description: >-
   The privacy of my visitors is extremely important.
   This Privacy Policy outlines the types of personal information that is received and collected and how it is used. Terms as stated herein are legally binding.
+tags:
+  - Privacy
+  - PubliusLogic
 ---
 
 # User data encrypted

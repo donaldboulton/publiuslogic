@@ -43,6 +43,7 @@ export const sitemapPageQuery = graphql`
         cover    
         meta_title
         meta_description
+        tags
       }
     }
   }

@@ -1,6 +1,7 @@
 ---
 templateKey: 'home-page'
 title: PubliusLogic
+canonical: "https://publiuslogic.com"
 meta_title: Home | publiuslogic.com
 meta_description: >-
   At PubliusLogic we Publish Logic as Common Sense. Our name was taken from my 
@@ -8,6 +9,11 @@ meta_description: >-
   of Notes and Letters from our Founding Fathers.
 heading: To Publish Logic - Common Sense
 cover: ./sunset-kitzeberg-fjord.jpg
+tags:
+  - Home Page
+  - PubliusLogic
+  - Gatsby
+  - Netlify
 description: >-
   At PubliusLogic we Publish Logic as Common Sense
 offerings:

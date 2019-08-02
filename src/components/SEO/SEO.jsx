@@ -4,11 +4,9 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import config from '../../../data/config'
 
-const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname, article, postData, node }) => {
+const SEO = ({ siteTitle, title, canonical, pathname, article, postData }) => {
   const { site } = useStaticQuery(query)
-
   const postMeta = postData || {}
-
   const URL = `${config.siteUrl}${pathname}`
   const isBlog = URL === `${config.siteUrl}/blog`
   const pageTitle = canonical + postMeta.title
@@ -30,7 +28,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
     name: pageTitle || defaultTitle,
     description: postMeta.meta_description || defaultDescription,
     image: `${site.siteUrl}${defaultCover || defaultCover}`,
-    url: `${URL}${pathname || ''}`,
+    url: 'URL',
   }
 
   // schema.org in JSONLD format
@@ -39,6 +37,7 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
+    '@type': isBlog ? 'Blog' : 'WebPage',
     url: `${URL}${pathname || ''}`,
     title: seo.title,
     headline,
