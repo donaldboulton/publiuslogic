@@ -134,9 +134,9 @@ const SEO = ({ siteTitle, title, meta_description, postNode, canonical, pathname
     <>
       <Helmet title={seo.siteTitle}>
         <html lang={config.siteLanguage} />
-        <meta name='description' content={meta_description} />
-        <meta name='image' content={image} />
-        <meta name='content' content={meta_description} />
+        <meta name='description' content={seo.description} />
+        <meta name='image' content={seo.image} />
+        <meta name='content' content={seo.description} />
         <meta name='gatsby-starter' content='PubliusLogic' />
         <meta name='msapplication-TileColor' content='#d64000' />        
         <meta property='og:type' content={article ? 'article' : 'website'} />        
