@@ -105,7 +105,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'ratings',
-        path: `${__dirname}/_data/ratings/`,
+        path: `${__dirname}/data/ratings/`,
       },
     },
     {
