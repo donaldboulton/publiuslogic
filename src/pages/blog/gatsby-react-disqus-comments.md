@@ -5,7 +5,7 @@ slug: Gatsby React Disqus Comments
 canonical: "https://publiuslogic.com/blog/gatsby-react-disqus-comments/"
 date: 2019-03-25T20:20:43.942Z
 categorys: 'tech'
-cover: '/img/gatsby-disqus.jpg'
+cover: '/images/gatsby-disqus.jpg'
 tags:
   - Gatsby 
   - React
