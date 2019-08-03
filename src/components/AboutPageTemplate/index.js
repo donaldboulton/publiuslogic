@@ -1,7 +1,6 @@
 import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import Image from './image'
 import Author from '../Author'
 
@@ -10,10 +9,6 @@ const AboutPageTemplate = ({ title, cover, content, contentComponent }) => {
 
   return (
     <div>
-      <Helmet>
-        <title>{title}</title>
-        <meta name='description' content={title} />
-      </Helmet>
       <section className='hero'>
         <Image />
       </section>

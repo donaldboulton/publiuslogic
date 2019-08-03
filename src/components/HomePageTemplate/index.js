@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
 import StyledBackgroundSection from './image'
@@ -16,10 +15,6 @@ const HomePageTemplate = ({
   testimonials,
 }) => (
   <div>
-    <Helmet>
-      <title>{meta_title}</title>
-      <meta name='description' content={meta_description} />
-    </Helmet>
     <StyledBackgroundSection className='hero cover-container'>
       <div
         style={{

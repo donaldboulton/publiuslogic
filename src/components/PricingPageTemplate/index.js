@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import Pricing from '../Pricing'
 import PropTypes from 'prop-types'
 
@@ -7,10 +6,6 @@ const PricingPageTemplate = ({ pricing, title, meta_title, meta_description }) =
 
   return (
     <div>
-      <Helmet>
-        <title>{meta_title}</title>
-        <meta name='description' content={meta_description} />
-      </Helmet>
       <section className='hero hero-blog-cover'>
         <div className='hero-body'>
           <div className='container'>

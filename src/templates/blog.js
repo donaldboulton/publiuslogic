@@ -29,13 +29,39 @@ export default class BlogPage extends Component {
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
 
-    const websiteSchemaOrgJSONLD = {
+    const blogSchemaOrgJSONLD = {
       '@context': 'http://schema.org',
       '@type': 'Blog',
       url: 'https://publiuslogic.com/blog',
-      name: config.siteTitle,
-      image: 'https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp',
+      name: 'Blog | PubliusLogic',
       alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
+      inLanguage: config.siteLanguage,
+      mainEntityOfPage: 'https://publiuslogic.com/blog',
+      description: config.siteDescription,
+      author: {
+        '@type': 'Person',
+        name: config.author,
+      },
+      copyrightHolder: {
+        '@type': 'Person',
+        name: config.author,
+      },
+      copyrightYear: '2019',
+      creator: {
+        '@type': 'Person',
+        name: config.author,
+      },
+      publisher: {
+        '@type': 'Person',
+        name: config.author,
+      },
+      datePublished: '2019-07-12T10:30:00+01:00',
+      dateModified: '2019-07-12T10:30:00+01:00',
+      image: {
+        '@type': 'ImageObject',
+        url: 'https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp',
+
+      },
     }
 
     return (
@@ -48,7 +74,7 @@ export default class BlogPage extends Component {
           <meta name='url' content='https://publiuslogic.com/blog' />
           {/* Schema.org tags */}
           <script type='application/ld+json'>
-            {JSON.stringify(websiteSchemaOrgJSONLD)}
+            {JSON.stringify(blogSchemaOrgJSONLD)}
           </script>
         </Helmet>
         <section className='hero hero-blog-cover'>

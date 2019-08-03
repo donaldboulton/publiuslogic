@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Content from '../Content'
 import Cloudinary from '../Cloudinary'
@@ -19,10 +18,6 @@ const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, 
 
   return (
     <div>
-      <Helmet>
-        <title>{meta_title}</title>
-        <meta name='description' content={meta_description} />
-      </Helmet>
       <div className='hero'>
         <img className='full-width-image' src={cover} alt={title} />
       </div>
