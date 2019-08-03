@@ -9,6 +9,7 @@ import config from '../../data/config'
 
 const SiteMapPage = ({ data }) => {
   const { markdownRemark: post } = data
+  const image = post.frontmatter.cover
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -40,7 +41,7 @@ const SiteMapPage = ({ data }) => {
     dateModified: '2019-07-12T10:30:00+01:00',
     image: {
       '@type': 'ImageObject',
-      url: config.siteLogo,
+      url: image,
     },
   }
 

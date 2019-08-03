@@ -9,6 +9,7 @@ import config from '../../data/config'
 
 const PrivacyPage = ({ data }) => {
   const { markdownRemark: post } = data
+  const image = post.frontmatter.cover
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -40,12 +41,12 @@ const PrivacyPage = ({ data }) => {
     dateModified: '2019-07-12T10:30:00+01:00',
     image: {
       '@type': 'ImageObject',
-      url: config.siteLogo,
+      url: image,
     },
   }
 
   return (
-    <Global pageTitle={post.post.frontmatter.title}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
