@@ -36,7 +36,6 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>PubliusLogic</p>
-                <p className='title is-6 is-centered'>To Publish Common Sense</p>
               </div>
             </div>
             <div className='content'>
@@ -116,7 +115,6 @@ const AboutSection = () => {
               </div>
               <div className='media-content'>
                 <p className='title is-4 is-centered'>Netlify Hosting</p>
-                <p className='title is-6 is-centered'>Lambda Hasura Driven</p>
               </div>
             </div>
             <div className='content'>

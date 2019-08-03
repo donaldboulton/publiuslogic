@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
@@ -27,6 +28,7 @@ const ArticleTemplate = ({
   imageWidth,
   imageHeight,
   canonical,
+  timeToRead,
   contentComponent,
   categorys,
   meta_description,
@@ -35,7 +37,6 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
-  const { markdownRemark: post } = date
 
   return (
     <div>
@@ -52,7 +53,8 @@ const ArticleTemplate = ({
         <div className='column is-7'>
           <span className='subtitle is-size-4'>
             <Calendar size='1.2em' />&nbsp;
-            <small>{date}&nbsp;</small>
+            <small>{date}&nbsp;</small>&nbsp;
+            <Time>{timeToRead} min read</Time>
           </span>
         </div>
         <GithubButtonsRepo className='is-size-6 is-pulled-right' />
@@ -90,5 +92,10 @@ const ArticleTemplate = ({
     </div>
   )
 }
+
+const Time = styled.span`
+  font-size: 1rem;
+  color: silver;
+`
 
 export default ArticleTemplate

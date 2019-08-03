@@ -72,6 +72,11 @@ const ArticlePage = ({ data }) => {
       url: postImage,
     },
     articleBody: body,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: 4.5,
+      ratingCount: 132,
+    },
   }
 
   return (
@@ -173,6 +178,18 @@ export const pageQuery = graphql`
         tags
         cover
         canonical
+      }
+    }
+    allRatingsJson(
+      filter: { postPath: { eq: $id } }
+      sort: { fields: [date], order: ASC }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          rating
+        }
       }
     }
   }

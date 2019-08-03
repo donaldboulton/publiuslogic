@@ -104,8 +104,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/data/authors`,
-        name: 'authors',
+        name: 'ratings',
+        path: `${__dirname}/_data/ratings/`,
       },
     },
     {
@@ -360,6 +360,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
