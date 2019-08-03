@@ -10,32 +10,35 @@ import config from '../../data/config'
 const SiteMapPage = ({ data }) => {
   const { markdownRemark: post } = data
   const image = post.frontmatter.cover
+  let author = config.author
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/contact',
-    title: 'Home | PubliusLogic',
+    url: 'https://publiuslogic.com/sitemap',
     inLanguage: config.siteLanguage,
-    mainEntityOfPage: 'https://publiuslogic.com/contact',
+    mainEntityOfPage: {
+      '@type': 'Url',
+      url: 'https://publiuslogic.com/sitemap',
+    },
     description: config.siteDescription,
-    name: config.siteTitle,
+    name: 'Sitemap | PubliusLogic',
     author: {
       '@type': 'Person',
-      name: config.author,
+      name: author,
     },
     copyrightHolder: {
       '@type': 'Person',
-      name: config.author,
+      name: author,
     },
     copyrightYear: '2019',
     creator: {
       '@type': 'Person',
-      name: config.author,
+      name: author,
     },
     publisher: {
       '@type': 'Person',
-      name: config.author,
+      name: author,
     },
     datePublished: '2019-07-12T10:30:00+01:00',
     dateModified: '2019-07-12T10:30:00+01:00',
@@ -53,6 +56,7 @@ const SiteMapPage = ({ data }) => {
         <meta name='keywords' content={post.frontmatter.tags} />
         <meta name='image' content={post.frontmatter.cover} />
         <meta name='url' content={post.frontmatter.canonical} />
+        <meta name='author' content={author} />
         <meta property='og:type' content='webpage' />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />

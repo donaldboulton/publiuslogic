@@ -5,9 +5,11 @@ import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Global from '../components/Global'
+import config from '../../data/config'
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
+  const author = config.author
 
   return (
     <Global pageTitle={post.frontmatter.title}>
@@ -17,6 +19,7 @@ const AboutPage = ({ data }) => {
         <meta name='keywords' content={post.frontmatter.tags} />
         <meta name='image' content={post.frontmatter.cover} />
         <meta name='url' content={post.frontmatter.canonical} />      
+        <meta name='author' content={author} />
       </Helmet>
       <AboutPageTemplate
         contentComponent={HTMLContent}

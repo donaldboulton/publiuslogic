@@ -8,6 +8,8 @@ import config from '../../data/config'
 
 const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
+  const image = frontmatter.cover
+  const author = config.author
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -20,26 +22,26 @@ const HomePage = ({ data }) => {
     name: config.siteTitle,
     author: {
       '@type': 'Person',
-      name: config.author,
+      name: author,
     },
     copyrightHolder: {
       '@type': 'Person',
-      name: config.author,
+      name: author,
     },
     copyrightYear: '2019',
     creator: {
       '@type': 'Person',
-      name: config.author,
+      name: author,
     },
     publisher: {
       '@type': 'Person',
-      name: config.author,
+      name: author,
     },
     datePublished: '2019-07-12T10:30:00+01:00',
     dateModified: '2019-07-12T10:30:00+01:00',
     image: {
       '@type': 'ImageObject',
-      url: config.siteLogo,
+      url: image,
     },
   }
 
@@ -51,6 +53,7 @@ const HomePage = ({ data }) => {
         <meta name='keywords' content={frontmatter.tags} />
         <meta name='image' content={frontmatter.cover} />
         <meta name='url' content={frontmatter.canonical} />
+        <meta name='author' content={author} />
         <meta property='og:type' content='article' />
         <meta property='og:title' content={frontmatter.title} />
         <meta property='og:description' content={frontmatter.meta_description} />
