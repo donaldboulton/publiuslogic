@@ -15,7 +15,6 @@ const HomePage = ({ data }) => {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
     url: 'https://publiuslogic.com',
-    title: 'Home | PubliusLogic',
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
