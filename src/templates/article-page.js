@@ -22,6 +22,7 @@ const ArticlePage = ({ data }) => {
   const imageHeight = postImage.height
   const body = post.html
   const title = post.frontmatter.title
+  const timeToRead = data.timeToRead
 
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
@@ -87,6 +88,7 @@ const ArticlePage = ({ data }) => {
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={post.frontmatter.canonical} />
         <meta property='og:type' content='article' />
+        <meta property='og:timeToRead' content={timeToRead} />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
         <meta property='og:image' content={post.frontmatter.cover} />
@@ -162,9 +164,9 @@ export default ArticlePage
 export const pageQuery = graphql`
   query ArticleByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      id
-      timeToRead
+      id      
       html
+      timeToRead                             
       fields {
         slug
       }      

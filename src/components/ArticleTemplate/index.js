@@ -23,12 +23,12 @@ require('prismjs/components/prism-markdown')
 require('prismjs/components/prism-graphql')
 
 const ArticleTemplate = ({
+  data,
   content,
   cover,
   imageWidth,
   imageHeight,
   canonical,
-  timeToRead,
   contentComponent,
   categorys,
   meta_description,
@@ -37,6 +37,7 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
+  const timeToRead = data.timeToRead
 
   return (
     <div>
