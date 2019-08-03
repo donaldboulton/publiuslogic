@@ -29,6 +29,7 @@ const ArticleTemplate = ({
   imageWidth,
   imageHeight,
   canonical,
+  timeToRead,
   contentComponent,
   categorys,
   meta_description,
@@ -37,7 +38,6 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
-  const timeToRead = data.timeToRead
 
   return (
     <div>
