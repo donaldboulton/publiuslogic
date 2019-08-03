@@ -1,7 +1,7 @@
 ---
 templateKey: about-page
 title: About Us
-cover: /about.jpg
+cover: ./about.jpg
 canonical: "https://publiuslogic.com/about"
 meta_title: About Us | Gatsby Starter Publius
 meta_description: >-

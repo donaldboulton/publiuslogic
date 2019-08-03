@@ -45,7 +45,7 @@ const AboutPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.post.frontmatter.title}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -80,6 +80,7 @@ const AboutPage = ({ data }) => {
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
+        cover={post.frontmatter.cover}
         content={post.html}
       />      
     </Global>
