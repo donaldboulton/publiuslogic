@@ -79,7 +79,7 @@ const AboutPage = ({ data }) => {
       </Helmet>
       <AboutPageTemplate
         contentComponent={HTMLContent}
-        title={post.post.frontmatter.title}
+        title={post.frontmatter.title}
         content={post.html}
       />      
     </Global>
