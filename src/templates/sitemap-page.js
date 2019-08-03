@@ -45,7 +45,7 @@ const SiteMapPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.post.frontmatter.title}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
