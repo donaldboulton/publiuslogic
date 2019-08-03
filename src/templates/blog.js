@@ -37,7 +37,10 @@ export default class BlogPage extends Component {
       name: 'Blog | PubliusLogic',
       alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
       inLanguage: config.siteLanguage,
-      mainEntityOfPage: 'https://publiuslogic.com/blog',
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': 'https://publiuslogic.com/blog',
+      },
       description: config.siteDescription,
       author: {
         '@type': 'Person',

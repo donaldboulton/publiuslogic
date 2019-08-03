@@ -19,26 +19,26 @@ const SiteMapPage = ({ data }) => {
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      url: 'https://publiuslogic.com/sitemap',
+      '@id': 'https://publiuslogic.com/sitemap',
     },
     description: config.siteDescription,
     name: 'Sitemap | PubliusLogic',
     author: {
       '@type': 'Person',
-      name: author,
+      name: 'donaldboulton',
     },
     copyrightHolder: {
       '@type': 'Person',
-      name: author,
+      name: 'donaldboulton',
     },
     copyrightYear: '2019',
     creator: {
       '@type': 'Person',
-      name: author,
+      name: 'donboulton',
     },
     publisher: {
       '@type': 'Person',
-      name: author,
+      name: 'donboulton',
     },
     datePublished: '2019-07-12T10:30:00+01:00',
     dateModified: '2019-07-12T10:30:00+01:00',
