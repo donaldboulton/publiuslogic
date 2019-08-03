@@ -15,10 +15,13 @@ const PrivacyPage = ({ data }) => {
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={post.frontmatter.tags} />
+        <meta name='image' content={post.frontmatter.cover} />
+        <meta name='url' content={post.frontmatter.canonical} />
       </Helmet>
       <PrivacyPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
+        cover={post.frontmatter.cover}
         content={post.html}
       />
     </Global>
@@ -37,6 +40,8 @@ export const privacyPageQuery = graphql`
       html
       frontmatter {
         title
+        cover
+        canonical
         meta_title
         meta_description
         tags

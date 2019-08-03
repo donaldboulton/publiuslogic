@@ -7,6 +7,8 @@ meta_description: >-
   ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
   venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
   consectetur purus sit amet fermentum.
+cover: /img/privacy.jpg
+canonical: "https://publiuslogic.com/pricing/"
 pricing:
   description: >-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta justo justo, 

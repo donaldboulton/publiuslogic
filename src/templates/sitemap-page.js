@@ -16,7 +16,7 @@ const SiteMapPage = ({ data }) => {
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={post.frontmatter.tags} />
         <meta name='image' content={post.frontmatter.cover} />
-        <meta name='robots' content='index, follow' />
+        <meta name='url' content={post.frontmatter.canonical} />
       </Helmet>
       <SiteMapPageTemplate
         contentComponent={HTMLContent}
@@ -40,7 +40,8 @@ export const sitemapPageQuery = graphql`
       html
       frontmatter {
         title
-        cover    
+        cover
+        canonical    
         meta_title
         meta_description
         tags

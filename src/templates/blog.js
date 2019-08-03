@@ -31,7 +31,7 @@ export default class BlogPage extends Component {
 
     const websiteSchemaOrgJSONLD = {
       '@context': 'http://schema.org',
-      '@type': 'WebSite',
+      '@type': 'Blog',
       url: 'https://publiuslogic.com/blog',
       name: config.siteTitle,
       image: 'https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp',
@@ -45,7 +45,7 @@ export default class BlogPage extends Component {
           <meta name='description' content='Blog | Publius Logic' />
           <meta name='keywords' content='PubliusLogic, Blog, Posts' />
           <meta name='image' content='https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp' />
-          <meta name='robots' content='index, follow' />
+          <meta name='url' content='https://publiuslogic.com/blog' />
           {/* Schema.org tags */}
           <script type='application/ld+json'>
             {JSON.stringify(websiteSchemaOrgJSONLD)}

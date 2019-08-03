@@ -14,6 +14,7 @@ const PhotosPage = ({ data }) => {
         <meta name='description' content={frontmatter.meta_description} />
         <meta name='keywords' content={frontmatter.tags} />
         <meta name='image' content={frontmatter.cover} />
+        <meta name='url' content={frontmatter.canonical} />
       </Helmet>
       <PhotosPageTemplate
         title={frontmatter.title}
@@ -42,6 +43,7 @@ export const photosPageQuery = graphql`
       frontmatter {
         title
         cover
+        canonical
         meta_title
         meta_description
         tags

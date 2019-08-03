@@ -8,6 +8,8 @@ meta_description: >-
 tags:
   - Privacy
   - PubliusLogic
+cover: /img/privacy.jpg
+canonical: "https://publiuslogic.com/privacy"
 ---
 
 # User data encrypted

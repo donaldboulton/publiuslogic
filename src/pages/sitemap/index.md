@@ -3,6 +3,8 @@ templateKey: sitemap-page
 title: Site Map
 slug: sitemap
 cover: /img/sitemap.jpg
+canonical: "https://publiuslogic.com/sitemap"
+
 meta_title: Sitemap of PubliusLogic Pages
 meta_description: >-
   Sitemap of PubliusLogic Pages.
