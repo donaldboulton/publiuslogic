@@ -17,7 +17,10 @@ const PrivacyPage = ({ data }) => {
     '@type': 'WebPage',
     url: 'https://publiuslogic.com/privacy',
     inLanguage: config.siteLanguage,
-    mainEntityOfPage: 'https://publiuslogic.com/privacy',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      url: 'https://publiuslogic.com/privacy',
+    },
     description: config.siteDescription,
     name: 'Privacy | PubliusLogic',
     author: {

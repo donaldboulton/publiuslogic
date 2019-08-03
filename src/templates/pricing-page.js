@@ -15,11 +15,13 @@ const PricingPage = ({ data }) => {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
     url: 'https://publiuslogic.com/pricing',
-    title: 'Home | PubliusLogic',
     inLanguage: config.siteLanguage,
-    mainEntityOfPage: 'https://publiuslogic.com/pricing',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      url: 'https://publiuslogic.com/pricing',
+    },
     description: config.siteDescription,
-    name: config.siteTitle,
+    name: 'Pricing | PubliusLogic',
     author: {
       '@type': 'Person',
       name: author,

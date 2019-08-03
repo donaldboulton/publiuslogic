@@ -17,9 +17,12 @@ const HomePage = ({ data }) => {
     url: 'https://publiuslogic.com',
     title: 'Home | PubliusLogic',
     inLanguage: config.siteLanguage,
-    mainEntityOfPage: 'https://publiuslogic.com',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      url: 'https://publiuslogic.com',
+    },
     description: config.siteDescription,
-    name: config.siteTitle,
+    name: 'Home | PubliusLogic',
     author: {
       '@type': 'Person',
       name: author,

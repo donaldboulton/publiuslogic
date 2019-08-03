@@ -16,9 +16,12 @@ const PhotosPage = ({ data }) => {
     '@type': 'WebPage',
     url: 'https://publiuslogic.com/photos',
     inLanguage: config.siteLanguage,
-    mainEntityOfPage: 'https://publiuslogic.com/photos',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      url: 'https://publiuslogic.com/photos',
+    },
     description: config.siteDescription,
-    name: Photos | Gallery
+    name: 'Photos | Gallery',
     author: {
       '@type': 'Person',
       name: author,

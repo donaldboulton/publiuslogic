@@ -15,11 +15,13 @@ const ContactPage = ({ data }) => {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
     url: 'https://publiuslogic.com/contact',
-    title: 'Home | PubliusLogic',
     inLanguage: config.siteLanguage,
-    mainEntityOfPage: 'https://publiuslogic.com/contact',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      url: 'https://publiuslogic.com/contact',
+    },
     description: config.siteDescription,
-    name: config.siteTitle,
+    name: 'Contact | PubliusLogic',
     author: {
       '@type': 'Person',
       name: author,

@@ -28,6 +28,7 @@ export default class BlogPage extends Component {
     const { group, index, first, last } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
+    const author = config.author
 
     const blogSchemaOrgJSONLD = {
       '@context': 'http://schema.org',
@@ -40,27 +41,26 @@ export default class BlogPage extends Component {
       description: config.siteDescription,
       author: {
         '@type': 'Person',
-        name: config.author,
+        name: author,
       },
       copyrightHolder: {
         '@type': 'Person',
-        name: config.author,
+        name: author,
       },
       copyrightYear: '2019',
       creator: {
         '@type': 'Person',
-        name: config.author,
+        name: author,
       },
       publisher: {
         '@type': 'Person',
-        name: config.author,
+        name: author,
       },
       datePublished: '2019-07-12T10:30:00+01:00',
       dateModified: '2019-07-12T10:30:00+01:00',
       image: {
         '@type': 'ImageObject',
         url: 'https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp',
-
       },
     }
 
@@ -72,6 +72,7 @@ export default class BlogPage extends Component {
           <meta name='keywords' content='PubliusLogic, Blog, Posts' />
           <meta name='image' content='https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp' />
           <meta name='url' content='https://publiuslogic.com/blog' />
+          <meta name='author' content={author} />
           {/* Schema.org tags */}
           <script type='application/ld+json'>
             {JSON.stringify(blogSchemaOrgJSONLD)}

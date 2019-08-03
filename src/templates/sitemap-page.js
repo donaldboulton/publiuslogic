@@ -18,7 +18,7 @@ const SiteMapPage = ({ data }) => {
     url: 'https://publiuslogic.com/sitemap',
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
-      '@type': 'Url',
+      '@type': 'WebPage',
       url: 'https://publiuslogic.com/sitemap',
     },
     description: config.siteDescription,
