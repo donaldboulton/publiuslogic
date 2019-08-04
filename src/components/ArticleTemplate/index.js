@@ -26,8 +26,6 @@ require('prismjs/components/prism-graphql')
 require('moment')
 
 const ArticleTemplate = ({
-  data,
-  node,
   content,
   cover,
   imageWidth,
@@ -57,10 +55,10 @@ const ArticleTemplate = ({
       <div className='columns is-desktop is-vcentered'>
         <div className='column is-7'>
           <span className='subtitle is-size-4'>
-            <Calendar size='1.2em' />&nbsp;
+            <Calendar size='1em' />&nbsp;
             <small>{date}&nbsp;</small>&nbsp;
-            <Timer size='1.2em' />
-            <Time>{node.timeToRead} 3 min read</Time>
+            <Timer size='1em' />
+            <Time>{timeToRead} 3 min read</Time>
           </span>
         </div>
         <GithubButtonsRepo className='is-size-6 is-pulled-right' />
