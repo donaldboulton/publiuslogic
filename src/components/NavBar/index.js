@@ -5,9 +5,6 @@ import logo from '../../img/site-logo250x80.png'
 
 import NetlifyIdentityWidget from '../IdentityWidget'
 
-// eslint-disable-next-line valid-typeof
-if (typeof document !== undefined) { require('./bluma') }
-
 const NavBar = ({ toggleNavbar, isActive }) => (
   <StaticQuery
     query={graphql`

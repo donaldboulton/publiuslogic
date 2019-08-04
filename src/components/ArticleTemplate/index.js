@@ -5,6 +5,7 @@ import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
 import { Calendar } from 'styled-icons/octicons/Calendar'
+import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import Prism from '../../utils/prism'
@@ -21,6 +22,8 @@ require('prismjs/components/prism-json')
 require('prismjs/components/prism-diff')
 require('prismjs/components/prism-markdown')
 require('prismjs/components/prism-graphql')
+
+require('moment')
 
 const ArticleTemplate = ({
   data,
@@ -55,6 +58,7 @@ const ArticleTemplate = ({
           <span className='subtitle is-size-4'>
             <Calendar size='1.2em' />&nbsp;
             <small>{date}&nbsp;</small>&nbsp;
+            <Timer size='1.2em' />
             <Time>{timeToRead} min read</Time>
           </span>
         </div>

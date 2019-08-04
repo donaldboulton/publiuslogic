@@ -10,6 +10,7 @@ export default class HTML extends Component {
       <html lang='en' className='has-navbar-fixed-top' itemScope='itemScope' itemType='https://schema.org/WebSite'>
         <head>
           <meta charSet='utf-8' />
+          <meta httpEquiv='x-ua-compatible' content='ie=edge' />
           <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
           <meta name='google-site-verification' content='i-TtqKB3U2OVB1KJRxagbBOxGtUrX-AqNP3ihqr6CN4' />
           <meta name='geo.placename' content='720 S Rockwell Ave, Oklahoma City, OK 73128, USA' />

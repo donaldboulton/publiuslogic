@@ -293,6 +293,7 @@ module.exports = {
                           node {
                             excerpt(pruneLength: 400)
                             html
+                            timeToRead
                             id
                             fields { slug }
                             frontmatter {
