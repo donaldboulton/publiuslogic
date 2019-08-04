@@ -20,10 +20,10 @@ tweet_id: '1118651504674725888'
 
 ## Gatsby LightGallery Cloudinary
 
-I have used [LightGalley](http://sachinchoolur.github.io/lightGallery/) in my ASP.NET, Core-2, Jekyll, React and now in my Gatsby site for Image Gallerys and iframes to display any kind of html content.
-Using Styled Components and mediaQuery in a Styled CSS Grid for the image Cells
+I have used [LightGalley](http://sachinchoolur.github.io/lightGallery/) in my ASP.NET, Core-2, Jekyll, React and now in my Gatsby site for Image Galleries and iframes to display any kind of html content.
+Using Styled Components and mediaQuery in a Styled CSS Grid for the image Cells.
 
- > LightGallery has a react SDK for usage in react and vanilla.js for the plugins. The jQuery plugins do not include the .js
+LightGallery has a react SDK for usage in react and vanilla.js for the plugins. The jQuery plugins do not include the .js. as the code blocks below indicate.
 
 ```js:title=for jQuery
 import 'lg-autoplay'

@@ -44,20 +44,20 @@ export default class BlogPage extends Component {
       description: config.siteDescription,
       author: {
         '@type': 'Person',
-        name: author,
+        name: 'donaldboulton',
       },
       copyrightHolder: {
         '@type': 'Person',
-        name: author,
+        name: 'donaldboulton',
       },
       copyrightYear: '2019',
       creator: {
         '@type': 'Person',
-        name: author,
+        name: 'donboulton',
       },
       publisher: {
         '@type': 'Person',
-        name: author,
+        name: 'donboulton',
       },
       datePublished: '2019-07-12T10:30:00+01:00',
       dateModified: '2019-07-12T10:30:00+01:00',
