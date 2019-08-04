@@ -5,6 +5,8 @@ import logo from '../../img/site-logo250x80.png'
 
 import NetlifyIdentityWidget from '../IdentityWidget'
 
+import './bluma.js'
+
 const NavBar = ({ toggleNavbar, isActive }) => (
   <StaticQuery
     query={graphql`
