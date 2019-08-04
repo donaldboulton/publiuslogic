@@ -41,8 +41,8 @@ const AboutSection = () => {
             <div className='content'>
               GitHub Issues as Comments
               <br />
-              <div><a href='https://github.com/donaldboulton/publiuslogic' rel='me' target='_blank'>&nbsp;GitHub Repo</a></div>
-              <div><a href='https://twitter.com/donboulton' rel='me'>&nbsp;Twitter @publiuslogic</a></div>
+              <div><a target='_blank' href='https://github.com/donaldboulton/publiuslogic' rel='me' target='_blank'>&nbsp;GitHub Repo</a></div>
+              <div><a target='_blank' href='https://twitter.com/donboulton' rel='me'>&nbsp;Twitter @publiuslogic</a></div>
               <br />
               <span>
                 <p>
@@ -82,8 +82,8 @@ const AboutSection = () => {
             <div className='content'>
                 Gatsby is Smoking Fast & Easy
               <br />
-              <div><a href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
-              <div><a href='https://bulma.io/'>CSS from @bulma.io</a></div>
+              <div><a target='_blank' href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
+              <div><a target='_blank' href='https://bulma.io/'>CSS from @bulma.io</a></div>
               <br />
               <span>Privacy<a href='https://publiuslogic.com'>&nbsp; - &nbsp;Terms & Conditions.</a></span>
             </div>
@@ -120,9 +120,9 @@ const AboutSection = () => {
               Netlify Continuous Deployment
               <br />
               <div><a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
-              <div><a href='https://www.netlify.com/features/'>SLL Security</a></div>
+              <div><a target='_blank' href='https://www.netlify.com/features/'>SLL Security</a></div>
               <br />
-              <span>Netlify CMS<a href='https://publiuslogic.com/admin/#/collections/pages'>&nbsp; - &nbsp;Administration</a></span>
+              <span>Netlify CMS<a target='_blank' href='https://publiuslogic.com/admin/#/collections/pages'>&nbsp; - &nbsp;Administration</a></span>
             </div>
           </div>
         </div>
