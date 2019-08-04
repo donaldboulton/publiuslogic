@@ -41,6 +41,7 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
+  const { markdownRemark } = data // data.markdownRemark holds our post data
 
   return (
     <div>
@@ -59,7 +60,7 @@ const ArticleTemplate = ({
             <Calendar size='1.2em' />&nbsp;
             <small>{date}&nbsp;</small>&nbsp;
             <Timer size='1.2em' />
-            <Time>{timeToRead} min read</Time>
+            <Time>{markdownRemark.timeToRead} 3 min read</Time>
           </span>
         </div>
         <GithubButtonsRepo className='is-size-6 is-pulled-right' />
