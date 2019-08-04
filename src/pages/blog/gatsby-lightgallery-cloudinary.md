@@ -25,11 +25,11 @@ Using Styled Components and mediaQuery in a Styled CSS Grid for the image Cells.
 
 LightGallery has a react SDK for usage in react and vanilla.js for the plugins. The jQuery plugins do not include the .js. as the code blocks below indicate.
 
-```js:title=for jQuery
+```js:title=jQuery
 import 'lg-autoplay'
 ```
 
-```jsx:title=React Usage vanilla.js
+```jsx:title=vanilla.js
 import 'lg-autoplay.js'
 ```
 
