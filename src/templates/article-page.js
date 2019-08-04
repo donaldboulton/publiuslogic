@@ -12,6 +12,8 @@ import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 import config from '../../data/config'
 
+require('moment')
+
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
 
