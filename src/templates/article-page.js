@@ -157,6 +157,7 @@ ArticlePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
+  timeToRead: PropTypes.number.isRequired,
 }
 
 export default ArticlePage
@@ -166,7 +167,7 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id      
       html
-      excerpt
+      excerpt(pruneLength: 500)
       timeToRead                             
       fields {
         slug
