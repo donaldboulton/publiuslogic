@@ -27,6 +27,7 @@ require('moment')
 
 const ArticleTemplate = ({
   data,
+  node,
   content,
   cover,
   imageWidth,
@@ -41,7 +42,6 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
-  const { markdownRemark } = data // data.markdownRemark holds our post data
 
   return (
     <div>
@@ -60,7 +60,7 @@ const ArticleTemplate = ({
             <Calendar size='1.2em' />&nbsp;
             <small>{date}&nbsp;</small>&nbsp;
             <Timer size='1.2em' />
-            <Time>{markdownRemark.timeToRead} 3 min read</Time>
+            <Time>{node.timeToRead} 3 min read</Time>
           </span>
         </div>
         <GithubButtonsRepo className='is-size-6 is-pulled-right' />
