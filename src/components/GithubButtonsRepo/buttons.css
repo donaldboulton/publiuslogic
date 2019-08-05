@@ -2,7 +2,7 @@
 	display: inline-block;
 	overflow: hidden;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-	font-size: 0;
+	font-size: 1em;
 	white-space: nowrap;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -52,8 +52,7 @@
 	border-color: rgba(27, 31, 35, 0.35)!important;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FF202020', endColorstr='#FF171717')"!important;
 	*filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#FF202020", endColorstr="#FF171717");
-  }
-  
+  }  
   .social-count {
 	position: relative;
 	margin-left: 5px;
@@ -66,18 +65,18 @@
   .social-count i {
 	position: absolute;
 	top: 50%;
-	left: 0;
+	left: 0px;
 	display: block;
-	width: 0;
-	height: 0;
-	margin: -4px 0 0 -4px;
+	width: 0px;
+	height: 0px;
+	margin: -4px 0px 0px -4px;
 	border: solid transparent;
-	border-width: 4px 4px 4px 0;
-	_line-height: 0;
-	_border-top-color: red !important;
-	_border-bottom-color: red !important;
-	_border-left-color: red !important;
-	_filter: chroma(color=red);
+	border-width: 4px 4px 4px 0px;
+	line-height: px;
+	border-top-color: red !important;
+	border-bottom-color: red !important;
+	border-left-color: red !important;
+	filter: chroma(color=red);
   }
   .social-count b {
 	border-right-color: #19191a!important;
@@ -99,8 +98,8 @@
   }
   .lg .social-count b,
   .lg .social-count i {
-	margin: -5px 0 0 -5px;
-	border-width: 5px 5px 5px 0;
+	margin: -5px 0px 0px -5px;
+	border-width: 5px 5px 5px 0px;
   }
   .lg .social-count i {
 	margin-left: -4px;
