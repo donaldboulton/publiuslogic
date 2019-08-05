@@ -55,9 +55,9 @@ const ArticleTemplate = ({
       <div className='columns is-desktop is-vcentered box'>
         <div className='column is-4'>
           <span className='subtitle is-size-4'>
-            <Calendar size='.95em' />&nbsp;
+            <Calendar size='.85em' />&nbsp;
             <Date>{date}&nbsp;</Date>&nbsp;
-            <Timer size='.95em' />
+            <Timer size='.85em' />
             <Time>{timeToRead} 3 min read</Time>
           </span>
         </div>
@@ -94,15 +94,15 @@ const ArticleTemplate = ({
 }
 
 const Time = styled.span`
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: silver;
 `
 const Date = styled.span`
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: silver;
 `
 const GithubButtons = styled.span`
-  top: .5px;
+  top: 1px;
 `
 
 export default ArticleTemplate
