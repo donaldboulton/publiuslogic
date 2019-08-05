@@ -62,7 +62,7 @@ const ArticleTemplate = ({
           </span>
         </div>
         <WebIntents />
-        <Github><GithubButtonsRepo className='is-size-6 is-pulled-right' /></Github>
+        <GithubButtonsRepo className='is-size-6 is-pulled-right' />
       </div>
       <br />
       <Prism />
@@ -100,9 +100,6 @@ const Time = styled.span`
 const Date = styled.span`
   font-size: 1rem;
   color: silver;
-`
-const Github = styled.span`
-top: .5px;
 `
 
 export default ArticleTemplate
