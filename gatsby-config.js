@@ -365,13 +365,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
-        allPageHeaders: [
-          'Link: <https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js>; rel=preload; as=script',
-          'Link: <https://www.googletagmanager.com/gtag/js?id=UA-24847941-1>; rel=preload; as=script',
-          'Link: <https://cookiehub.net/cc/0536e9f8.js>; rel=preload; as=script',
-        ],
         headers: {
-          '/blog*': [
+          '/*': [
+            'Link: <https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js>; rel=preload; as=script',
+            'Link: <https://www.googletagmanager.com/gtag/js?id=UA-24847941-1>; rel=preload; as=script',
+            'Link: <https://cookiehub.net/cc/0536e9f8.js>; rel=preload; as=script',
+          ],
+          '/blog/*': [
             'Link: <https://platform.twitter.com/widgets.js>; rel=preload; as=script',
           ],
           '/*.js': [
