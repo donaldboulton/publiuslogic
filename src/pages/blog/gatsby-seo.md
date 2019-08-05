@@ -1,9 +1,9 @@
 ---
 templateKey: article-page
-title: Gatsby SEO JSON-LD
-slug: Gatsby SEO JSON-LD
-canonical: "https://publiuslogic.com/blog/gatsby-seo-json-ld/"
-date: 2019-08-03T20:14:43.942Z
+title: Gatsby SEO
+slug: gatsby seo
+canonical: "https://publiuslogic.com/blog/gatsby-seo/"
+date: 2019-07-30T20:14:43.942Z
 categorys: 'tech'
 cover: '/images/json-ld.jpg'
 tags:
@@ -14,7 +14,7 @@ tags:
   - Tutorial
 meta_title: Gatsby SEO JSON-LD
 meta_description: Gatsby SEO JSON-LD per page is the only logical option for perfection in a WebPage or Article.
-tweet_id: '1118651504674725888'
+tweet_id: '1118651504674725889'
 ---
 
 ## Gatsby SEO JSON-LD

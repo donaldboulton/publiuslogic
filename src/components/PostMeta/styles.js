@@ -1,7 +1,4 @@
-import React, { Fragment } from 'react'
 import styled, { css } from 'styled-components'
-import { Tags } from 'styled-icons/fa-solid/Tags'
-import { Tag } from 'styled-icons/fa-solid/Tag'
 
 const inTitle = css`
   margin: 1.3em auto;
@@ -28,17 +25,3 @@ export const Meta = styled.div`
   ${props => props.inTitle && inTitle};
 `
 
-export const TagList = ({ tags }) => (
-  <span className='tags'>
-    <Tags
-      as={tags.length === 1 && Tag}
-      css='margin-right: 0.5em; width: 1.1em; min-width: 1.1em;'
-    />
-    {tags.map((tag, index) => (
-      <Fragment key={tag}>
-        {index > 0 && `, `}
-        {tag}
-      </Fragment>
-    ))}
-  </span>
-)
