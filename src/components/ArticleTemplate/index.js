@@ -53,7 +53,7 @@ const ArticleTemplate = ({
       />
       <br />
       <div className='columns is-desktop is-vcentered'>
-        <div className='column is-5'>
+        <div className='column is-4'>
           <span className='subtitle is-size-4'>
             <Calendar size='1em' />&nbsp;
             <small>{date}&nbsp;</small>&nbsp;
