@@ -4,7 +4,7 @@ import GithubButtonWatch from './watch'
 import GithubButtonStar from './star'
 import GithubButtonFork from './fork'
 import { ThemeProvider } from 'styled-components'
-import theme from './buttons.css'
+import theme from './buttons.scss'
 
 class GitHubRepo extends Component {
   render () {
@@ -13,7 +13,7 @@ class GitHubRepo extends Component {
         <>
           <Fragment>
             <div className='column'>
-              <div className='field is-grouped has-addons'>
+              <div className='field is-grouped'>
                 <p className='control'>
                   <GithubButtonFollow />
                 </p>

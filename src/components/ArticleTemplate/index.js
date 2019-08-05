@@ -55,9 +55,9 @@ const ArticleTemplate = ({
       <div className='columns is-desktop is-vcentered box'>
         <div className='column is-4'>
           <span className='subtitle is-size-4'>
-            <Calendar size='.85em' />&nbsp;
+            <Calendar size='.95em' />&nbsp;
             <Date>{date}&nbsp;</Date>&nbsp;
-            <Timer size='.85em' />
+            <Timer size='.95em' />
             <Time>{timeToRead} 3 min read</Time>
           </span>
         </div>
@@ -94,11 +94,11 @@ const ArticleTemplate = ({
 }
 
 const Time = styled.span`
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: silver;
 `
 const Date = styled.span`
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: silver;
 `
 
