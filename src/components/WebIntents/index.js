@@ -24,7 +24,7 @@ const WebIntents = ({ slug, tweet_id }) => {
                   data-screen-name='@donboulton'
                   data-show-count='true'
                   data-screen-data-show-count='true'
-                  className='twitter-share-button' 
+                  className='twitter-share-button button is-small'
                   href='https://twitter.com/intent/tweet?via=donboulton?ref_src=twsrc%5Etfw'>
                   <span>
                     <Twitter size='14' color='#1b95e0' />
@@ -43,7 +43,7 @@ const WebIntents = ({ slug, tweet_id }) => {
                   title={title}
                   key={url}
                   url={url}
-                  className='twitter-follow-button'
+                  className='twitter-follow-button button is-small'
                   data-related='donboulton'
                   data-show-screen-name='false'
                   href='https://twitter.com/donboulton?ref_src=twsrc%5Etfw'
@@ -63,7 +63,7 @@ const WebIntents = ({ slug, tweet_id }) => {
                   url={url}
                   key={url}
                   href='https://twitter.com/messages/compose?recipient_id=105217183'
-                  className='twitter-dm-button'
+                  className='twitter-dm-button button is-small'
                   data-screen-name='@donboulton'
                   data-show-count='true'
                   target='_blank'

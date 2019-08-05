@@ -52,17 +52,17 @@ const ArticleTemplate = ({
         css='position: fixed; right: 1em; top: 4.5em;'
       />
       <br />
-      <div className='columns is-desktop is-vcentered'>
+      <div className='columns is-desktop is-vcentered box'>
         <div className='column is-4'>
           <span className='subtitle is-size-4'>
-            <Calendar size='1em' />&nbsp;
-            <small>{date}&nbsp;</small>&nbsp;
-            <Timer size='1em' />
+            <Calendar size='.85em' />&nbsp;
+            <Date>{date}&nbsp;</Date>&nbsp;
+            <Timer size='.85em' />
             <Time>{timeToRead} 3 min read</Time>
           </span>
         </div>
         <WebIntents />
-        <GithubButtonsRepo className='is-size-6 is-pulled-right' />
+        <Github><GithubButtonsRepo className='is-size-6 is-pulled-right' /></Github>
       </div>
       <br />
       <Prism />
@@ -96,6 +96,13 @@ const ArticleTemplate = ({
 const Time = styled.span`
   font-size: 1rem;
   color: silver;
+`
+const Date = styled.span`
+  font-size: 1rem;
+  color: silver;
+`
+const Github = styled.span`
+top: .5px;
 `
 
 export default ArticleTemplate
