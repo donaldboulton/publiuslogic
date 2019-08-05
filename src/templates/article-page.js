@@ -157,8 +157,8 @@ const ArticlePage = ({ data }) => {
 ArticlePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
+    timeToRead: PropTypes.number.isRequired,
   }),
-  timeToRead: PropTypes.number.isRequired,
 }
 
 export default ArticlePage

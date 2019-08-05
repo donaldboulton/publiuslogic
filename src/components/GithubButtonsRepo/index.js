@@ -5,6 +5,7 @@ import GithubButtonStar from './star'
 import GithubButtonFork from './fork'
 import { ThemeProvider } from 'styled-components'
 import theme from './buttons.css'
+import '../node_modules/octicons/index'
 class GitHubRepo extends Component {
   render () {
     return (
