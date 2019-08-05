@@ -4,7 +4,7 @@ import GithubButtonWatch from './watch'
 import GithubButtonStar from './star'
 import GithubButtonFork from './fork'
 import { ThemeProvider } from 'styled-components'
-import theme from './buttons.scss'
+import theme from './buttons.css'
 class GitHubRepo extends Component {
   render () {
     return (
