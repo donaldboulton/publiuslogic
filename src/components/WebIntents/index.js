@@ -24,10 +24,10 @@ const WebIntents = ({ slug, tweet_id }) => {
                   data-screen-name='@donboulton'
                   data-show-count='true'
                   data-screen-data-show-count='true'
-                  className='twitter-share-button twitter-btn' 
+                  className='twitter-share-button' 
                   href='https://twitter.com/intent/tweet?via=donboulton?ref_src=twsrc%5Etfw'>
                   <span>
-                    <Twitter size='14' />
+                    <Twitter size='14' color='#1b95e0' />
                   </span>
                   <span>&nbsp;Tweet</span>
                 </a>
@@ -43,13 +43,13 @@ const WebIntents = ({ slug, tweet_id }) => {
                   title={title}
                   key={url}
                   url={url}
-                  className='twitter-follow-button twitter-btn'
+                  className='twitter-follow-button'
                   data-related='donboulton'
                   data-show-screen-name='false'
                   href='https://twitter.com/donboulton?ref_src=twsrc%5Etfw'
                 >
                   <span>
-                    <Twitter size='14' />
+                    <Twitter size='14' color='#1b95e0' />
                   </span>
                   <span>&nbsp;Follow</span>
                 </a>
@@ -63,15 +63,15 @@ const WebIntents = ({ slug, tweet_id }) => {
                   url={url}
                   key={url}
                   href='https://twitter.com/messages/compose?recipient_id=105217183'
-                  className='twitter-dm-button twitter-btn'
+                  className='twitter-dm-button'
                   data-screen-name='@donboulton'
                   data-show-count='true'
                   target='_blank'
                 >
                   <span>
-                    <Twitter size='14' />
+                    <Twitter size='14' color='#1b95e0' />
                   </span>
-                  <span>Message</span>
+                  <span>&nbsp;Message</span>
                 </a>
               </p>
             </div>

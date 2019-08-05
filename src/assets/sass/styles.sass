@@ -42,9 +42,9 @@ nav
 .navbar-item .icon 
   color: $primary
 .navbar-dropdown
-    background-color: #1d1d1d !important
-    border-top: 2px solid #1d1d1d !important  
-    color: #cccccc !important
+  background-color: #1d1d1d !important
+  border-top: 2px solid #1d1d1d !important  
+  color: #cccccc !important
 .navbar-link
   background-color: transparent !important
   color: #d64000 !important
@@ -385,8 +385,6 @@ text:nth-child(4)
   padding: 1.25em 1.5em
 strong
   color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
-gatsby-resp-image-image
-  box-shadow: none!important
 .navbar-item img
     max-height: 2em !important
 input.luna__input
@@ -479,7 +477,7 @@ div.code-toolbar>.toolbar
 .hero
   margin-top: 1em !important
 .caption, figcaption
-  position: absolute;
+  position: inherent
   bottom: 0
   right: 1em
   font-size: 0.8em
@@ -508,8 +506,6 @@ div.code-toolbar>.toolbar
   text-align: center
 .container:hover .overlay
   opacity: 1
-.gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before
-  background-clip: content-box
 .cc-container.cc-theme-orange .cc-icon a
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
   background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
@@ -536,18 +532,12 @@ div.code-toolbar>.toolbar
   justify-content: center
   align-items: center
   top: 20px !important
+.gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before
+  background-clip: content-box
+gatsby-resp-image-image
+  box-shadow: none !important
 .gatsby-resp-image-figcaption
   text-align: center !important
-.twitter-btn
-  position: relative
-  height: 20px
-  box-sizing: border-box
-  padding: 1px 8px 1px 6px
-  background-color: #1b95e0
-  color: #fff
-  border-radius: 3px
-  font-weight: 500
-  cursor: pointer 
 .EmbeddedTweet
   background-color: #1d1d1d !important
   border: 1px solid #434040 !important
