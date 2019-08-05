@@ -12,7 +12,7 @@ const WebIntents = ({ slug, tweet_id }) => {
     <ThemeProvider theme={theme}>
       <>
         <Fragment>
-          <div className='column'>
+          <div className='column box'>
             <div className='field is-grouped has-addons'>
               <p className='control'>
                 <a
