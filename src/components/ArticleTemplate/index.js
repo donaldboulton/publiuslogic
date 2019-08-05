@@ -53,7 +53,7 @@ const ArticleTemplate = ({
       />
       <br />
       <div className='columns is-desktop is-vcentered'>
-        <div className='column is-7'>
+        <div className='column is-5'>
           <span className='subtitle is-size-4'>
             <Calendar size='1em' />&nbsp;
             <small>{date}&nbsp;</small>&nbsp;
@@ -61,16 +61,12 @@ const ArticleTemplate = ({
             <Time>{timeToRead} 3 min read</Time>
           </span>
         </div>
+        <WebIntents />
         <GithubButtonsRepo className='is-size-6 is-pulled-right' />
       </div>
       <br />
       <Prism />
       <PostContent content={content} />
-      <div className='column is-10'>
-        <div className='is-vcentered'>
-          <WebIntents />
-        </div>
-      </div>
       <div className='container content'>
         <div className='columns is-desktop is-vcentered'>
           <div className='column is-10' style={{ marginTop: `2rem` }}>

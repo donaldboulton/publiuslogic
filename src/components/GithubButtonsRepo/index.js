@@ -11,7 +11,7 @@ class GitHubRepo extends Component {
     return (
       <ThemeProvider theme={theme}>
         <>
-          <Fragment>           
+          <Fragment>
             <div className='column'>
               <div className='field is-grouped has-addons'>
                 <p className='control'>
