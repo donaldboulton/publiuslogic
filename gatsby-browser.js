@@ -1,6 +1,8 @@
+'use strict'
+
 import { ExternalLink } from 'styled-icons/evil'
 
-export const onServiceWorkerUpdateFound = () => {
+export const onServiceWorkerUpdateFound = (self, event, clients, skipWaiting) => {
   const showNotification = () => {
     // eslint-disable-next-line no-undef
     Notification.requestPermission(result => {
@@ -28,6 +30,34 @@ export const onServiceWorkerUpdateFound = () => {
 
   showNotification()
 
+  self.addEventListener('install', (event) => {
+    event.waitUntil(skipWaiting())
+  }, false)
+
+  self.addEventListener('activate', (event) => {
+    event.waitUntil(self.clients.claim())
+  }, false)
+
+  self.addEventListener('push', (event) => {
+    if (!event.data) {
+      return
+    }
+
+    const parsedData = event.data.json()
+    const notification = parsedData.notification
+    const title = notification.title
+    const body = notification.body
+    const icon = notification.icon
+    const data = parsedData.data
+
+    event.waitUntil(
+      self.registration.showNotification(title, { body, icon, data })
+    )
+  }, false)
+
+  self.addEventListener('notificationclick', (event) => {
+    event.waitUntil(self.clients.openWindow(event.notification.data.url));
+  }, false)
   const url = 'https://publiuslogic.com/blog/modali-hooks-modal/'
   const promiseChain = clients.openWindow(url)
   event.waitUntil(promiseChain)
