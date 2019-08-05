@@ -55,7 +55,7 @@ const ArticleTemplate = ({
       <div className='columns is-desktop is-vcentered box'>
         <div className='column is-3'>
           <span className='subtitle is-size-5'>
-            <Calendar size='9em' />&nbsp;
+            <Calendar size='.9em' />&nbsp;
             <Date>{date}&nbsp;</Date>&nbsp;
             <Timer size='.9em' />
             <Time>{timeToRead} 3 min</Time>
