@@ -365,7 +365,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
+        allPageHeaders: [
+          'Link: <//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js>; rel=preload; as=script',
+          'Link: <//www.googletagmanager.com/gtag/js?id=UA-24847941-1>; rel=preload; as=script',
+          'Link: <//cookiehub.net/cc/0536e9f8.js>; rel=preload; as=script',
+        ],
         headers: {
+          '/blog*': [
+            'Link: <//platform.twitter.com/widgets.js>; rel=preload; as=script',
+          ],
           '/*.js': [
             'cache-control: public, max-age=31536000, immutable',
           ],
