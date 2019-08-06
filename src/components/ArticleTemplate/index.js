@@ -57,7 +57,7 @@ const ArticleTemplate = ({
             <Calendar size='.9em' />&nbsp;
             <Date>{date}&nbsp;</Date>&nbsp;
             <Timer size='.9em' />
-            <Time>{moment(timeToRead).local().format(`MMMM DD, YYYY`)}&nbsp;min</Time>
+            <Time>{moment(timeToRead)}&nbsp;min</Time>
           </span>
         </div>
         <WebIntents />
