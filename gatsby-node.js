@@ -15,6 +15,7 @@ exports.createPages = ({ actions, graphql }) => {
             id
             fields {
               slug
+              timeToRead
             }
             frontmatter {
               title
