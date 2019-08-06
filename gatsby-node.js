@@ -26,6 +26,8 @@ exports.createPages = ({ page, actions, graphql }) => {
   const { createPage } = actions
   if (page.path.match(/^\/app/)) {
     page.matchPath = '/src/app/*'
+
+    // Update the page.
     createPage(page)
   }
 
@@ -141,9 +143,16 @@ exports.createPages = ({ page, actions, graphql }) => {
   })
 }
 
-exports.onCreateNode = ({ type, node, actions, getNode }) => {
+exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
+  const { slug } = type
   const { createNodeField } = actions
-  const { name } = type
+  if (slug === 'MarkdownRemark') {
+    addSiblingNodes(createNodeField)
+  }
+}
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
