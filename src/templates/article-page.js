@@ -11,7 +11,6 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 import config from '../../data/config'
-import moment from 'moment'
 
 const ArticlePage = ({ data, timeToRead }) => {
   const { markdownRemark: post } = data
@@ -88,7 +87,7 @@ const ArticlePage = ({ data, timeToRead }) => {
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={post.frontmatter.canonical} />
         <meta property='og:type' content='article' />
-        <meta property='og:timeToRead' content={moment(timeToRead)} />
+        <meta property='og:timeToRead' content={timeToRead} />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
         <meta property='og:image' content={post.frontmatter.cover} />
