@@ -11,7 +11,7 @@ export default class HTML extends Component {
         <head>
           <meta charSet='utf-8' />
           <meta httpEquiv='x-ua-compatible' content='ie=edge' />
-          <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+          <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=3.0, minimum-scale=0.86' />
           <meta name='google-site-verification' content='i-TtqKB3U2OVB1KJRxagbBOxGtUrX-AqNP3ihqr6CN4' />
           <meta name='geo.placename' content='720 S Rockwell Ave, Oklahoma City, OK 73128, USA' />
           <meta name='geo.position' content='35.4582062;-97.6338859' />

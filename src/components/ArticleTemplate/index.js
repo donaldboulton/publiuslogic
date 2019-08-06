@@ -82,9 +82,9 @@ const ArticleTemplate = ({
               }
             </ul>
           </div>
-          <div className='column'>
-            <h4>Category</h4>
-            <Link className='button is-primary is-small' to={`/categories/`}>{categorys}</Link>
+          <div className='column is-pulled-right'>
+            <h4 className='is-pulled-right'>Category</h4>
+            <Link className='button is-primary is-small is-pulled-right' to={`/categories/`}>{categorys}</Link>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@ const Date = styled.span`
   color: silver;
 `
 const GithubButtons = styled.span`
-  top: 1.5px;
+  right: .5px;
 `
 
 export default ArticleTemplate
