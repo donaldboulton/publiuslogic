@@ -198,13 +198,13 @@ export default ArticlePage
 export const pageQuery = graphql`
   query ArticleByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      id      
+      id
       html
       excerpt(pruneLength: 500)
-      timeToRead                             
+      timeToRead
       fields {
         slug
-      }      
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
@@ -233,4 +233,4 @@ export const pageQuery = graphql`
 `
 ```
 
-Using the article query for individual Blog Post pages frontmatter data.
+Using the above article query for individual Blog Post pages frontmatter data.
