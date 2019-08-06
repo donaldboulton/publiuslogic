@@ -38,6 +38,7 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
+  const postNode = this.props.data.markdownRemark
 
   return (
     <div>
@@ -56,7 +57,7 @@ const ArticleTemplate = ({
             <Calendar size='.9em' />&nbsp;
             <Date>{date}&nbsp;</Date>&nbsp;
             <Timer size='.9em' />
-            <Time>{timeToRead}3&nbsp;min</Time>
+            <Time>{postNode.timeToRead}3&nbsp;min</Time>
           </span>
         </div>
         <WebIntents />
