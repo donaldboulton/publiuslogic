@@ -13,9 +13,9 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             excerpt(pruneLength: 400)
             id
+            timeToRead
             fields {
-              slug
-              timeToRead
+              slug              
             }
             frontmatter {
               title
