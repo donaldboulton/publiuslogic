@@ -336,7 +336,6 @@ module.exports = {
       options: {
         prefixes: [
           `/app/*`,
-          `/app/app/*`,
         ],
       },
     },
