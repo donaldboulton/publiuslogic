@@ -8,6 +8,7 @@ import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
+import moment from 'moment'
 import Prism from '../../utils/prism'
 
 require('prismjs')
@@ -23,7 +24,6 @@ require('prismjs/components/prism-diff')
 require('prismjs/components/prism-markdown')
 require('prismjs/components/prism-graphql')
 
-require('moment')
 
 const ArticleTemplate = ({
   content,
@@ -58,7 +58,7 @@ const ArticleTemplate = ({
             <Calendar size='.9em' />&nbsp;
             <Date>{date}&nbsp;</Date>&nbsp;
             <Timer size='.9em' />
-            <Time>{timeToRead} 3 min</Time>
+            <Time>{moment(timeToRead).local().format(`MMMM DD, YYYY`)}&nbsp;min</Time>
           </span>
         </div>
         <WebIntents />
