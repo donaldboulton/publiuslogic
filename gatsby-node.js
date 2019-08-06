@@ -1,10 +1,35 @@
 const _ = require('lodash')
 const path = require('path')
+const moment = require('moment')
+const config = require('./data/config') 
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 
-exports.createPages = ({ actions, graphql }) => {
+const postNodes = []
+
+function addSiblingNodes (createNodeField) {
+  postNodes.sort(
+    ({ frontmatter: { date: date1 } }, { frontmatter: { date: date2 } }) => {
+      const dateA = moment(date1, config.dateFromFormat)
+      const dateB = moment(date2, config.dateFromFormat)
+
+      if (dateA.isBefore(dateB)) return 1
+
+      if (dateB.isBefore(dateA)) return -1
+
+      return 0
+    }
+  )
+}
+
+exports.createPages = ({ page, actions, graphql }) => {
   const { createPage } = actions
+  if (page.path.match(/^\/app/)) {
+    page.matchPath = '/src/app/*'
+
+    // Update the page.
+    createPage(page)
+  }
 
   return graphql(`
     {
@@ -118,21 +143,12 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions
-
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/app/)) {
-    page.matchPath = '/app/*'
-
-    // Update the page.
-    createPage(page)
-  }
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ type, node, actions, getNode }) => {
   const { createNodeField } = actions
+  const { name } = type
+  if (name === 'MarkdownRemark') {
+    addSiblingNodes(createNodeField)
+  }
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
@@ -143,3 +159,4 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+

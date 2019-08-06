@@ -24,6 +24,7 @@ require('prismjs/components/prism-markdown')
 require('prismjs/components/prism-graphql')
 
 const ArticleTemplate = ({
+  data,
   content,
   cover,
   imageWidth,
@@ -38,7 +39,7 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
-  const postNode = this.props.data.markdownRemark
+  const postNode = data.markdownRemark
 
   return (
     <div>
