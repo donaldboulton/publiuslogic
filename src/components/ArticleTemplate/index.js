@@ -24,7 +24,6 @@ require('prismjs/components/prism-diff')
 require('prismjs/components/prism-markdown')
 require('prismjs/components/prism-graphql')
 
-
 const ArticleTemplate = ({
   content,
   cover,
