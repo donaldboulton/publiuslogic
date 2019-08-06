@@ -26,8 +26,6 @@ exports.createPages = ({ page, actions, graphql }) => {
   const { createPage } = actions
   if (page.path.match(/^\/app/)) {
     page.matchPath = '/src/app/*'
-
-    // Update the page.
     createPage(page)
   }
 
@@ -146,9 +144,6 @@ exports.createPages = ({ page, actions, graphql }) => {
 exports.onCreateNode = ({ type, node, actions, getNode }) => {
   const { createNodeField } = actions
   const { name } = type
-  if (name === 'MarkdownRemark') {
-    addSiblingNodes(createNodeField)
-  }
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
