@@ -70,26 +70,26 @@ const Reviews = ({ props }) => {
         0
       ) / ratings.totalCount
       : 0
-  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
+  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0;
 
   return (
     <StaticQuery
       query={graphql`
-      query RatingsQuery {
-        allRatingsJson(
-          filter: { postPath: { eq: $path } }
-          sort: { fields: [date], order: ASC }
-        ) {
-          totalCount
-          edges {
-            node {
-              id
-              rating
+        query RatingsQuery {
+          allRatingsJson(
+            filter: { postPath: { eq: $id } }
+            sort: { fields: [date], order: ASC }
+          ) {
+            totalCount
+            edges {
+              node {
+                id
+                rating
+              }
             }
           }
         }
-      }
-    `}
+      `}
       render={data => (
         <Content>
           <div
@@ -110,7 +110,7 @@ const Reviews = ({ props }) => {
         Is this post useful to you? Please give us a rating!
           <ReactStars
             onChange={rating => {
-              submitRating(rating, frontmatter.path)
+              submitRating(rating, frontmatter.id)
             }}
             half={false}
             size={36}
