@@ -88,23 +88,7 @@ const Reviews = ({ props }) => {
               }
             }
           }
-        }
-        allMarkdownRemark(id: { eq: $id }) {
-          id      
-          html
-          excerpt(pruneLength: 500)
-          timeToRead                             
-          fields {
-            slug
-          }      
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tags
-            cover
-            canonical
-          }
-        }
+        }        
       `}
       render={data => (
         <Content>
