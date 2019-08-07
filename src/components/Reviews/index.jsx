@@ -14,7 +14,7 @@ const submitRating = (rating, path) => {
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': path,
-    'options[reCaptcha][siteKey]': '6LeCvWMUAAAAAAYxtvLnM1HMzHIdoofRlV_4wPy4',
+    'options[reCaptcha][siteKey]': '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
   }
 
   const XHR = new XMLHttpRequest()
@@ -70,14 +70,14 @@ const Reviews = ({ props }) => {
         0
       ) / ratings.totalCount
       : 0
-  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0;
+  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
 
   return (
     <StaticQuery
       query={graphql`
         query RatingsQuery {
           allRatingsJson(
-            filter: { postPath: { eq: $id } }
+            filter: {id: { eq: $id } }
             sort: { fields: [date], order: ASC }
           ) {
             totalCount
@@ -87,6 +87,22 @@ const Reviews = ({ props }) => {
                 rating
               }
             }
+          }
+        }
+        allMarkdownRemark(id: { eq: $id }) {
+          id      
+          html
+          excerpt(pruneLength: 500)
+          timeToRead                             
+          fields {
+            slug
+          }      
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            tags
+            cover
+            canonical
           }
         }
       `}
@@ -99,7 +115,6 @@ const Reviews = ({ props }) => {
             }}
             rich
           />
-          <div dangerouslySetInnerHTML={{ __html: html }} />
           {/* TODO calculate score in gatsby-node */}
           {ratings ? (
             <Rating>
