@@ -19,13 +19,38 @@ meta_description: >-
 tweet_id: "1148277966230695936"
 ---
 
-I started using [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms) and it was slower than some of the other starters with my pages and posts on a production build.
+I started using Gatsby from Jekyll in March and I was already using netlify and Netlify Identity and Netlify CMS for my personal website so I picked [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)  for my first Gatsby Project, and it was slower than some of the other starters I messed around with.
 
-Adding Netlify Identify Widget through Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and  Netlify Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins
+Adding Netlify Identify Widget through Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and  Netlify Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins.
 
-I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from HotJar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject them in my Netlify builds with my deploy post processing snippet injection.
+I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from HotJar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject preload them in my Gatsby Netlify configuration for the gatsby-plugin-netlify in gatsby-config.
 
-I had incorporated Netlify CMS and Identity into a Jekyll site and did a custom build for Netlify CMS and Netlify Identity widget with my own styling and custom builds, Separate from my Jekyll build so I knew it could be done without plugins.
+```js
+{
+   resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/*': [
+            'Link: <https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js>; rel=preload; as=script',
+            'Link: <https://www.googletagmanager.com/gtag/js?id=UA-24847941-1>; rel=preload; as=script',
+            'Link: <https://cookiehub.net/cc/0536e9f8.js>; rel=preload; as=script',
+          ],
+          '/blog/*': [
+            'Link: <https://platform.twitter.com/widgets.js>; rel=preload; as=script',
+          ],
+          '/*.js': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/*.css': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/sw.js': [
+            'cache-control: public, max-age=0, must-revalidate',
+          ],
+        },
+```
+
+I had incorporated Netlify CMS and Identity into a Jekyll site and did a custom build for Netlify CMS and Netlify Identity widget with my own styling and custom builds, Separate from my Jekyll build so I knew it could be done in Gatsby without plugins.
 
 I liked having the ability to edit my pages and posts remotely from maybe a library computer and Netlify CMs works great for me in my Gatsby site but not in my Gatsby build.
 

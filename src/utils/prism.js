@@ -175,7 +175,7 @@ export default createGlobalStyle`
     align-items: center;
     background-color: #d64000 !important;
     border-radius: 4px;
-    color: #757474;
+    color: #ccccccc;
     display: -webkit-inline-flex;
     display: inline-flex;
     font-size: .75rem;

@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const path = require('path')
 const moment = require('moment')
-const config = require('./data/config') 
+const config = require('./data/config')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 
@@ -22,14 +22,8 @@ function addSiblingNodes (createNodeField) {
   )
 }
 
-exports.createPages = ({ page, actions, graphql }) => {
+exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
-  if (page.path.match(/^\/app/)) {
-    page.matchPath = '/src/app/*'
-
-    // Update the page.
-    createPage(page)
-  }
 
   return graphql(`
     {
@@ -40,11 +34,20 @@ exports.createPages = ({ page, actions, graphql }) => {
             id
             timeToRead
             fields {
-              slug              
+              slug
             }
             frontmatter {
               title
-              cover
+              cover {
+                filePath {
+                  childImageSharp {
+                    responsiveSizes(maxWidth: 1400) {
+                      src
+                      srcSet
+                    }
+                  }
+                }
+              }
               categorys
               tags
               templateKey
@@ -143,6 +146,19 @@ exports.createPages = ({ page, actions, graphql }) => {
   })
 }
 
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/app/)) {
+    page.matchPath = '/app/*'
+
+    // Update the page.
+    createPage(page)
+  }
+}
+
 exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
   const { slug } = type
   const { createNodeField } = actions
@@ -163,4 +179,3 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
-
