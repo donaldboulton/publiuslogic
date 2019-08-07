@@ -1,26 +1,7 @@
 const _ = require('lodash')
 const path = require('path')
-const moment = require('moment')
-const config = require('./data/config')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
-
-const postNodes = []
-
-function addSiblingNodes (createNodeField) {
-  postNodes.sort(
-    ({ frontmatter: { date: date1 } }, { frontmatter: { date: date2 } }) => {
-      const dateA = moment(date1, config.dateFromFormat)
-      const dateB = moment(date2, config.dateFromFormat)
-
-      if (dateA.isBefore(dateB)) return 1
-
-      if (dateB.isBefore(dateA)) return -1
-
-      return 0
-    }
-  )
-}
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -34,20 +15,11 @@ exports.createPages = ({ actions, graphql }) => {
             id
             timeToRead
             fields {
-              slug
+              slug              
             }
             frontmatter {
               title
-              cover {
-                filePath {
-                  childImageSharp {
-                    responsiveSizes(maxWidth: 1400) {
-                      src
-                      srcSet
-                    }
-                  }
-                }
-              }
+              cover
               categorys
               tags
               templateKey
@@ -156,14 +128,6 @@ exports.onCreatePage = async ({ page, actions }) => {
 
     // Update the page.
     createPage(page)
-  }
-}
-
-exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
-  const { slug } = type
-  const { createNodeField } = actions
-  if (slug === 'MarkdownRemark') {
-    addSiblingNodes(createNodeField)
   }
 }
 
