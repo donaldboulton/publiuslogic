@@ -10,6 +10,7 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
+import Reviews from '../Reviews'
 import config from '../../data/config'
 
 const ArticlePage = ({ data, timeToRead }) => {
@@ -144,6 +145,7 @@ const ArticlePage = ({ data, timeToRead }) => {
                 excerpt={post.frontmatter.meta_description}
               />
               <hr />
+              <Reviews />
               <Comments />
             </div>
           </div>

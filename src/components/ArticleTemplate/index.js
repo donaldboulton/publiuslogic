@@ -4,7 +4,6 @@ import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
-import Reviews from '../Reviews'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
@@ -66,7 +65,6 @@ const ArticleTemplate = ({
       <br />
       <Prism />
       <PostContent content={content} />
-      <Reviews />
       <div className='container content'>
         <div className='columns is-desktop is-vcentered'>
           <div className='column is-10' style={{ marginTop: `2rem` }}>
