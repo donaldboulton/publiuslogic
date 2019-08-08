@@ -5,15 +5,15 @@ import BasicContent from '../Global/Content'
 import ReactStars from 'react-stars'
 
 const Content = styled(BasicContent)`
-  @media (max-width: 900px) {
+  @media (max-width: 300px) {
     font-size: 1.5rem
     color: hsla(0, 0%, 0%, 0.9)
   }
 `
-const submitRating = (rating, path) => {
+const submitRating = (rating, slug) => {
   const data = {
     'fields[rating]': rating,
-    'fields[postPath]': path,
+    'fields[slug]': slug,
     'options[reCaptcha][siteKey]': '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
   }
 
@@ -61,7 +61,7 @@ const Reviews = ({ props }) => {
     markdownRemark,
     allRatingsJson: ratings = [],
   } = props.data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, slug } = markdownRemark
 
   const ratingValue =
     ratings && ratings.edges
@@ -77,7 +77,7 @@ const Reviews = ({ props }) => {
       query={graphql`
         query RatingsQuery {
           allRatingsJson(
-            filter: {id: { eq: $id } }
+            filter: {slug: { eq: $id } }
             sort: { fields: [date], order: ASC }
           ) {
             totalCount
@@ -109,7 +109,7 @@ const Reviews = ({ props }) => {
         Is this post useful to you? Please give us a rating!
           <ReactStars
             onChange={rating => {
-              submitRating(rating, frontmatter.id)
+              submitRating(rating, frontmatter.slug)
             }}
             half={false}
             size={36}

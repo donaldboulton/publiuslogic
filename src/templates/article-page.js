@@ -10,11 +10,32 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
-import Reviews from '../Reviews'
+import styled from 'styled-components'
+import Reviews from '../Reviews/Reviews'
+import BasicContent from '../Global/Content'
 import config from '../../data/config'
 
+const Content = styled(BasicContent)`
+  @media (max-width: 300px) {
+    font-size: 1.5rem
+    color: hsla(0, 0%, 0%, 0.9)
+  }
+`
+const Rating = styled.div`
+  font-size: 1.5rem
+`
+
 const ArticlePage = ({ data, timeToRead }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
+
+  const ratingValue =
+    ratings && ratings.edges
+      ? ratings.edges.reduce(
+        (accumulator, rating) => accumulator + parseInt(rating.node.rating),
+        0
+      ) / ratings.totalCount
+      : 0
+  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
 
   const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
@@ -75,8 +96,8 @@ const ArticlePage = ({ data, timeToRead }) => {
     articleBody: body,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: 4.5,
-      ratingCount: 132,
+      ratingValue: data.rating.ratingValue,
+      ratingCount: data.rating.ratingCount,
     },
   }
 
@@ -145,6 +166,22 @@ const ArticlePage = ({ data, timeToRead }) => {
                 excerpt={post.frontmatter.meta_description}
               />
               <hr />
+              <Content>
+                <div
+                  data={{
+                    ...frontmatter,
+                    rating: { ratingValue, ratingCount: ratingCount },
+                  }}
+                  rich
+                />
+                {/* TODO calculate score in gatsby-node */}
+                {ratings ? (
+                  <Rating>
+                    Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
+                    {ratings.totalCount} Reviews
+                  </Rating>
+                ) : null}
+              </Content>
               <Reviews />
               <Comments />
             </div>
@@ -187,7 +224,7 @@ export const pageQuery = graphql`
       }
     }
     allRatingsJson(
-      filter: { postPath: { eq: $id } }
+      filter: { postPath: { eq: $slug } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount
