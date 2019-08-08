@@ -224,7 +224,7 @@ export const pageQuery = graphql`
       }
     }
     allRatingsJson(
-      filter: { postPath: { eq: $slug } }
+      filter: { postPath: { eq: $id } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount

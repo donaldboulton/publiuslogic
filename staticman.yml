@@ -1,8 +1,3 @@
-# Name of the property. You can have multiple properties with completely
-# different config blocks for different sections of your site.
-# For example, you can have one property to handle comment submission and
-# another one to handle posts.
-
 ratings:
   allowedFields: ["rating", "postPath"]
   branch: "master"
@@ -14,7 +9,6 @@ ratings:
       type: date
       options:
         format: "timestamp-seconds"
-  # Generates a PR
   moderation: false
   name: "publiuslogic"
   path: "data/ratings/"

@@ -12,6 +12,7 @@ const ReviewContent = styled(BasicContent)`
 `
 
 const submitRating = (rating, slug) => {
+  const postPath = slug
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': slug,
@@ -60,16 +61,16 @@ const submitRating = (rating, slug) => {
 export default function Template (props) {
   const {
     markdownRemark,
-    allRatingsJson: slug = [],
+    allRatingsJson: ratings = [],
   } = props.data
   const { frontmatter } = markdownRemark
-
+  
   return (
     <ReviewContent>
         Is this post useful to you? Please give us a rating!
       <ReactStars
         onChange={rating => {
-          submitRating(rating, frontmatter.slug)
+          submitRating(rating, frontmatter.postPath)
         }}
         half={false}
         size={36}
@@ -81,4 +82,4 @@ export default function Template (props) {
 submitRating.propTypes = {
   slug: PropTypes.string,
 }
-  
+
