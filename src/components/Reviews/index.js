@@ -10,6 +10,8 @@ import config from '../../../_data/config'
   ⚠️ This is an example of a contact form powered with Netlify form handling.
   Be sure to review the Netlify documentation for more information:
   https://www.netlify.com/docs/form-handling/
+  Included in a XDR Post to StaticmanApp that you can set up at https://github.com/apps/staticman-net,
+  which will send a json response object to your /_data/reviews folder triggering a new Netlify build
   To Include Recaptcha V3
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
@@ -116,15 +118,10 @@ const ModalOverlay = styled.div`
 `
 
 const Review = styled.div`
-  top:0;
-  left:0;
+  top: 10px;
+  left: 40px;
   right: 0;
-  bottom: 0;
-  position: fixed;
-  z-index: 1000;
-  background-color: rgba(0,0,0,0.3);
-  opacity: ${props => (props.visible ? '1' : '0')};
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  bottom: 10px;
 `
 
 const submitRating = (rating, slug) => {
@@ -234,6 +231,7 @@ class ReviewForm extends React.Component {
   render (slug) {
     let url = config.siteUrl + slug
     return (
+      <h2>Submit Review</h2>
       <Form
         name='review-form'
         onSubmit={this.handleSubmit}
@@ -294,7 +292,7 @@ class ReviewForm extends React.Component {
         <Submit
           name='submit'
           type='submit'
-          class='g-recaptcha'
+          class='g-recaptcha button is-primary'
           data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
           data-callback='onSubmit'
           value={this.state.submitting ? 'Sending...' : 'Send'}
