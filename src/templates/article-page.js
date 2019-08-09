@@ -11,6 +11,7 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 import styled from 'styled-components'
+import Reviews from '../components/Reviews'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../data/config'
 
@@ -181,6 +182,7 @@ const ArticlePage = ({ data, timeToRead }) => {
                   </Rating>
                 ) : null}
               </Review>
+              <Reviews />
               <Comments />
             </div>
           </div>

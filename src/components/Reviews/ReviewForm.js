@@ -2,7 +2,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import config from '../../../data/config'
 import ReactStars from 'react-stars'
 import fetch from 'node-fetch'
 
@@ -231,11 +230,10 @@ class ReviewForm extends React.Component {
     this.setState({ showModal: false })
   }
 
-  render () {
-    let url = config.siteUrl + slug
-    const featuredPosts = featuredPostPaths.map(path =>
-        posts.find(post => post.node.frontmatter.path === path)
-      );
+  render (posts) {
+    const slug = posts.map(path =>
+      posts.find(post => post.node.frontmatter.slug === slug)
+    )
     return (
       <Form
         name='review-form'
@@ -247,7 +245,7 @@ class ReviewForm extends React.Component {
         netlify-recaptcha
       >
         <input type='hidden' name='form-name' value='contact' />
-        <input name='fields[postPath]' type='hidden' value={url} />
+        <input name='fields[postPath]' type='hidden' value={slug} />
         <p hidden>
           <label>
             Don’t fill this out:{' '}
@@ -258,7 +256,7 @@ class ReviewForm extends React.Component {
         Is this post useful to you? Please give us a rating!
           <ReactStars
             onChange={rating => {
-              submitRating(rating, url)
+              submitRating(rating, slug)
             }}
             half={false}
             size={36}
@@ -315,7 +313,7 @@ class ReviewForm extends React.Component {
   }
 }
 
-ContactForm.propTypes = {
+ReviewForm.propTypes = {
   data: PropTypes.object,
 }
 
