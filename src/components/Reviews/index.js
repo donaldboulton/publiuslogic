@@ -115,55 +115,6 @@ const Review = styled.div`
   bottom: 10px;
 `
 
-const setState = (rating, slug, email, message) => {
-  const url = config.siteUrl + slug
-  const data = {
-    'fields[rating]': rating,
-    'fields[email]': email,
-    'fields[message]': message,
-    'fields[postPath]': url,
-    'options[reCaptcha][siteKey]': '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
-  }
-
-  const XHR = new XMLHttpRequest()
-  let urlEncodedData = ''
-  let urlEncodedDataPairs = []
-  let name
-
-  // Turn the data object into an array of URL-encoded key/value pairs.
-  for (name in data) {
-    urlEncodedDataPairs.push(
-      encodeURIComponent(name) + '=' + encodeURIComponent(data[name])
-    )
-  }
-
-  // Combine the pairs into a single string and replace all %-encoded spaces to
-  // the '+' character; matches the behaviour of browser form submissions.
-  urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+')
-
-  // Define what happens on successful data submission
-  XHR.addEventListener('load', function (event) {
-    alert('Thanks for You Review us! Your Review is to appear soon. Stay tuned..')
-  })
-
-  // Define what happens in case of error
-  XHR.addEventListener('error', function (event) {
-    alert('Sorry, something went wrong. Please file an issue in github!')
-  })
-
-  // Set up our request
-  XHR.open(
-    'POST',
-    'https://api.staticman.net/v3/entry/github/donaldboulton/publiuslogic/master/ratings'
-  )
-
-  // Add the required HTTP header for form data POST requests
-  XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-
-  // Finally, send our data.
-  XHR.send(urlEncodedData)
-}
-
 const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -195,7 +146,7 @@ class ReviewForm extends React.Component {
     this.setState({
       submitting: true,
     })
-    fetch('/', {
+    fetch('//api.staticman.net/v3/entry/github/donaldboulton/publiuslogic/master/ratings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'reviews', ...this.state }),
@@ -220,6 +171,10 @@ class ReviewForm extends React.Component {
   }
 
   render (slug) {
+    const ratingChanged = (newRating) => {
+      console.log(newRating)
+    }
+
     let url = config.siteUrl + slug
     return (
       <div>
@@ -235,7 +190,7 @@ class ReviewForm extends React.Component {
               onClick={this.closeModal}
               netlify-recaptcha
             >
-              <input type='hidden' name='form-name' value='contact' />
+              <input type='hidden' name='form-name' value='reviews' />
               <input name='fields[postPath]' type='hidden' value={url} />
               <p hidden>
                 <label>
@@ -246,11 +201,11 @@ class ReviewForm extends React.Component {
               <Review>
                     Is this a useful post? Please give us a rating & review!
                 <ReactStars
-                  onChange={rating => {
-                    setState(rating, url)
-                  }}
+                  name='fields[rating]'
+                  onChange={ratingChanged}
                   half={false}
-
+                  value={this.state.rating}
+                  disabled={this.state.submitting}
                   size={36}
                   color2={'#d64000'}
                 />
@@ -300,7 +255,7 @@ class ReviewForm extends React.Component {
                 <img
                   src={logo}
                   alt='PubliusLogic'
-                  style={{ width: '130px', height: '130px' }}
+                  style={{ width: '240px', height: '240px' }}
                 />
               </a>
               <div>
