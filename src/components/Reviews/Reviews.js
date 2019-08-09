@@ -1,18 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import BasicContent from 'components/Layout/Content'
+import BasicContent from './Content'
 import ReactStars from 'react-stars'
 
 const ReviewContent = styled(BasicContent)`
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     font-size: 1.5rem;
     color: hsla(0, 0%, 0%, 0.9);
   }
 `
 
 const submitRating = (rating, slug) => {
-
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': slug,
