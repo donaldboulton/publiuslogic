@@ -13,6 +13,7 @@ import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
+import RelatedPosts from '../components/RelatedPosts'
 
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
@@ -25,7 +26,7 @@ const Rating = styled.div`
 `
 
 const ArticlePage = ({ data, timeToRead }) => {
-  const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
+  const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter, relatedPosts } = data
 
   const ratingValue =
     ratings && ratings.edges
@@ -180,8 +181,9 @@ const ArticlePage = ({ data, timeToRead }) => {
                     {ratings.totalCount} Reviews
                   </Rating>
                 ) : null}
-              </Review>              
+              </Review>
               <Comments />
+              {relatedPosts ? <RelatedPosts posts={relatedPosts} /> : null}
             </div>
           </div>
         </div>
@@ -228,7 +230,7 @@ export const pageQuery = graphql`
         node {
           id
           frontmatter {
-            title
+            title            
             slug
             tags
           }
