@@ -11,7 +11,7 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 import styled from 'styled-components'
-import Reviews from '../Reviews/Reviews'
+import Reviews from '../components/Reviews'
 import BasicContent from '../Global/Content'
 import config from '../../data/config'
 

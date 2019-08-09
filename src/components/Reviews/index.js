@@ -47,7 +47,7 @@ const submitRating = (rating, slug) => {
   // Set up our request
   XHR.open(
     'POST',
-    'https://api.staticman.net/v2/entry/donaldboulton/publiuslogic/master/ratings'
+    'https://api.staticman.net//v3/entry/github/entry/donaldboulton/publiuslogic/master/ratings'
   )
 
   // Add the required HTTP header for form data POST requests
