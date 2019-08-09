@@ -26,7 +26,7 @@ const Review = styled.div`
 `
 
 const submitRating = (rating) => {
-  const url = window.location.pathname === '/'
+  const url = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname
 
   const data = {
     'fields[rating]': rating,
@@ -82,7 +82,7 @@ class ReviewForm extends React.Component {
   }
 
   render () {
-    const url = window.location.pathname === '/'
+    const url = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname
     return (
       <div className='column'>
         <Form

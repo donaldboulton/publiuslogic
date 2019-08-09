@@ -221,8 +221,22 @@ export const pageQuery = graphql`
         canonical
       }
     }
+    relatedPosts: allMarkdownRemark(
+      filter: { frontmatter: { tags: { in: $tags }, path: { ne: $id } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            slug
+            tags
+          }
+        }
+      }
+    }
     allRatingsJson(
-      filter: { postPath: { eq: $canonical } }
+      filter: { postPath: { eq: $id } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount
