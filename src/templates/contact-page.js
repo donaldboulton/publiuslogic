@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import ContactPageTemplate from '../components/ContactPageTemplate'
 import Global from '../components/Global'
-import config from '../../data/config'
+import config from '../../_data/config'
 
 const ContactPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark

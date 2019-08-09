@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Global from '../components/Global'
-import config from '../../data/config'
+import config from '../../_data/config'
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data

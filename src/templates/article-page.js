@@ -12,7 +12,7 @@ import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
-import config from '../../data/config'
+import config from '../../_data/config'
 
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {

@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import config from '../../../data/config'
+import config from '../../../_data/config'
 
 const SEO = ({ siteTitle, title, canonical, pathname, article, postData }) => {
   const { site } = useStaticQuery(query)

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import config from '../../../data/config'
+import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
 import { Twitter } from 'styled-icons/fa-brands'
 import theme from './buttons.css'

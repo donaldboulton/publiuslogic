@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import PhotosPageTemplate from '../components/PhotosPageTemplate'
 import Global from '../components/Global'
-import config from '../../data/config'
+import config from '../../_data/config'
 
 const PhotosPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark

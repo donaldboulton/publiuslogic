@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Helmet from 'react-helmet'
-import config from '../../../data/config'
+import config from '../../../_data/config'
 
 const Facebook = ({ url, name, type, title, siteTitle, locale }) => (
   <Helmet>

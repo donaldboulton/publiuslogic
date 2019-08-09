@@ -1,5 +1,5 @@
 const proxy = require('http-proxy-middleware')
-const config = require('./data/config')    
+const config = require('./_data/config')    
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
@@ -105,7 +105,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'ratings',
-        path: `${__dirname}/data/ratings/`,
+        path: `${__dirname}/_data/ratings/`,
       },
     },
     {

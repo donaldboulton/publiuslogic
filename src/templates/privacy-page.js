@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import PrivacyPageTemplate from '../components/PrivacyPageTemplate'
 import Global from '../components/Global'
-import config from '../../data/config'
+import config from '../../_data/config'
 
 const PrivacyPage = ({ data }) => {
   const { markdownRemark: post } = data

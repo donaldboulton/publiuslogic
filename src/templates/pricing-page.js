@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import PricingPageTemplate from '../components/PricingPageTemplate'
 import Global from '../components/Global'
-import config from '../../data/config'
+import config from '../../_data/config'
 
 const PricingPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark

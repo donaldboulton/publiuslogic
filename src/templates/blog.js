@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import config from '../../data/config'
+import config from '../../_data/config'
 import Helmet from 'react-helmet'
 import PostCard from '../components/PostCard'
 import Global from '../components/Global'
