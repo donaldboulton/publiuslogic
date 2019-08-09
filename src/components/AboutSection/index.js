@@ -5,7 +5,7 @@ import logo from '../../img/logo.png'
 import webpack from '../../img/ApolloReact-320.png'
 import lambda from '../../img/lambda.png'
 import netlify from '../../img/logomark.svg'
-import config from '../../../data/config'
+import config from '../../../_data/config'
 
 const AboutSection = () => {
   return (
