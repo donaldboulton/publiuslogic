@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ReactStars from 'react-stars'
 import fetch from 'node-fetch'
-import config from '../../_data/config'
+import config from '../../../_data/config'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
