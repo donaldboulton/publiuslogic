@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ReactStars from 'react-stars'
 import fetch from 'node-fetch'
+import config from '../../data/config'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -126,10 +127,11 @@ const Review = styled.div`
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 `
 
-const submitRating = (rating, frontmatter, slug) => {
+const submitRating = (rating, slug) => {
+  const url = config.siteUrl + slug
   const data = {
     'fields[rating]': rating,
-    'fields[postPath]': slug,
+    'fields[postPath]': url,
     'options[reCaptcha][siteKey]': '6LeCvWMUAAAAAAYxtvLnM1HMzHIdoofRlV_4wPy4',
   }
 
@@ -137,7 +139,6 @@ const submitRating = (rating, frontmatter, slug) => {
   let urlEncodedData = ''
   let urlEncodedDataPairs = []
   let name
-  let postPath = frontmatter.slug
 
   // Turn the data object into an array of URL-encoded key/value pairs.
   for (name in data) {
@@ -163,7 +164,7 @@ const submitRating = (rating, frontmatter, slug) => {
   // Set up our request
   XHR.open(
     'POST',
-    'https://api.staticman.net//v3/entry/github/entry/donaldboulton/publiuslogic/master/ratings'
+    'https://api.staticman.net/v3/entry/github/entry/donaldboulton/publiuslogic/master/ratings'
   )
 
   // Add the required HTTP header for form data POST requests
@@ -230,10 +231,8 @@ class ReviewForm extends React.Component {
     this.setState({ showModal: false })
   }
 
-  render (posts) {
-    const slug = posts.map(path =>
-      posts.find(post => post.node.frontmatter.slug === slug)
-    )
+  render (slug) {
+    let url = config.siteUrl + slug
     return (
       <Form
         name='review-form'
@@ -245,7 +244,7 @@ class ReviewForm extends React.Component {
         netlify-recaptcha
       >
         <input type='hidden' name='form-name' value='contact' />
-        <input name='fields[postPath]' type='hidden' value={slug} />
+        <input name='fields[postPath]' type='hidden' value={url} />
         <p hidden>
           <label>
             Don’t fill this out:{' '}
@@ -256,7 +255,7 @@ class ReviewForm extends React.Component {
         Is this post useful to you? Please give us a rating!
           <ReactStars
             onChange={rating => {
-              submitRating(rating, slug)
+              submitRating(rating, url)
             }}
             half={false}
             size={36}
