@@ -20,16 +20,6 @@ import logo from '../../img/logo.png'
 const Form = styled.form`
 
 `
-const Name = styled.input`
-  padding:10px;
-  color:#ccc;
-  background: #1d1d1d;
-  border: 1px solid #434040;
-  margin:0 0 20px;
-  border-radius: 6px;
-  width:100%;
-  box-sizing: border-box;
-`
 
 const Email = styled.input`
   padding:10px;
@@ -50,7 +40,7 @@ const Message = styled.textarea`
   margin:0 0 20px;
   border-radius: 6px;
   width:100%;
-  height: 220px;
+  height: 180px;
   box-sizing: border-box;
 `
 
@@ -125,15 +115,14 @@ const Review = styled.div`
   bottom: 10px;
 `
 
-const setState = (rating, slug, name, email, message) => {
+const setState = (rating, slug, email, message) => {
   const url = config.siteUrl + slug
   const data = {
     'fields[rating]': rating,
-    'fields[name]': name,
     'fields[email]': email,
     'fields[message]': message,
     'fields[postPath]': url,
-    'options[reCaptcha][siteKey]': '6LeCvWMUAAAAAAYxtvLnM1HMzHIdoofRlV_4wPy4',
+    'options[reCaptcha][siteKey]': '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
   }
 
   const XHR = new XMLHttpRequest()
@@ -186,7 +175,6 @@ class ReviewForm extends React.Component {
     super(props)
     this.state = {
       rating: '',
-      name: '',
       email: '',
       message: '',
       showModal: false,
@@ -220,7 +208,6 @@ class ReviewForm extends React.Component {
   handleSuccess = () => {
     this.setState({
       rating: '',
-      name: '',
       email: '',
       message: '',
       showModal: true,
@@ -268,16 +255,6 @@ class ReviewForm extends React.Component {
                   color2={'#d64000'}
                 />
               </Review>
-              <Name
-                name='fields[name]'
-                type='text'
-                title='Name'
-                placeholder='Full Name'
-                value={this.state.name}
-                onChange={this.handleInputChange}
-                required
-                disabled={this.state.submitting}
-              />
               <Email
                 name='fields[email]'
                 type='email'
@@ -310,7 +287,7 @@ class ReviewForm extends React.Component {
               <ModalOverlay onClick={this.closeModal} visible={this.state.showModal} />
               <Modal visible={this.state.showModal}>
                 <p>
-                      Thank you for reaching out. I will get back to you as soon as possible.
+                  Thank you for reaching out. I will get back to you as soon as possible.
                 </p>
                 <ModalButton onClick={this.closeModal}>Okay</ModalButton>
               </Modal>
@@ -319,7 +296,7 @@ class ReviewForm extends React.Component {
           <div className='column'>
             <h4>Reviews</h4>
             <div>
-              <a href='https://publiuslogic.com/privacy'>
+              <a href='https://publiuslogic.com/privacy#Comment Policy/'>
                 <img
                   src={logo}
                   alt='PubliusLogic'
