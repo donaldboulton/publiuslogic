@@ -222,7 +222,7 @@ export const pageQuery = graphql`
       }
     }
     relatedPosts: allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: $tags }, path: { ne: $id } } }
+      filter: { frontmatter: { tags: { in: $tags }, slug: { ne: $slug } } }
     ) {
       edges {
         node {
