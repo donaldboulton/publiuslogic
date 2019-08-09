@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import ReactStars from 'react-stars'
 import fetch from 'node-fetch'
 import config from '../../../_data/config'
+import logo from '../../img/logo.png'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -231,81 +232,107 @@ class ReviewForm extends React.Component {
   render (slug) {
     let url = config.siteUrl + slug
     return (
-      <h2>Submit Review</h2>
-      <Form
-        name='review-form'
-        onSubmit={this.handleSubmit}
-        data-netlify='true'
-        data-netlify-honeypot='bot'
-        overlay={this.state.showModal}
-        onClick={this.closeModal}
-        netlify-recaptcha
-      >
-        <input type='hidden' name='form-name' value='contact' />
-        <input name='fields[postPath]' type='hidden' value={url} />
-        <p hidden>
-          <label>
-            Don’t fill this out:{' '}
-            <input name='bot' onChange={this.handleInputChange} />
-          </label>
-        </p>
-        <Review>
-        Is this post useful to you? Please give us a rating!
-          <ReactStars
-            onChange={rating => {
-              submitRating(rating, url)
-            }}
-            half={false}
-            size={36}
-          />
-        </Review>
-        <Name
-          name='name'
-          type='text'
-          title='Name'
-          placeholder='Full Name'
-          value={this.state.name}
-          onChange={this.handleInputChange}
-          required
-          disabled={this.state.submitting}
-        />
-        <Email
-          name='email'
-          type='email'
-          title='Email'
-          placeholder='Email'
-          value={this.state.email}
-          onChange={this.handleInputChange}
-          required
-          disabled={this.state.submitting}
-        />
-        <Message
-          name='message'
-          title='Message'
-          type='text'
-          placeholder='Message'
-          value={this.state.message}
-          onChange={this.handleInputChange}
-          required
-          disabled={this.state.submitting}
-        />
-        <Submit
-          name='submit'
-          type='submit'
-          class='g-recaptcha button is-primary'
-          data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
-          data-callback='onSubmit'
-          value={this.state.submitting ? 'Sending...' : 'Send'}
-          disabled={this.state.submitting}
-        />
-        <ModalOverlay onClick={this.closeModal} visible={this.state.showModal} />
-        <Modal visible={this.state.showModal}>
-          <p>
-            Thank you for reaching out. I will get back to you as soon as possible.
-          </p>
-          <ModalButton onClick={this.closeModal}>Okay</ModalButton>
-        </Modal>
-      </Form>
+      <div>
+        <section className='section'>
+          <div className='container'>
+            <div className='columns'>
+              <div className='column is-8'>
+                <h2>Submit Review</h2>
+                <Form
+                  name='review-form'
+                  onSubmit={this.handleSubmit}
+                  data-netlify='true'
+                  data-netlify-honeypot='bot'
+                  overlay={this.state.showModal}
+                  onClick={this.closeModal}
+                  netlify-recaptcha
+                >
+                  <input type='hidden' name='form-name' value='contact' />
+                  <input name='fields[postPath]' type='hidden' value={url} />
+                  <p hidden>
+                    <label>
+                      Don’t fill this out:{' '}
+                      <input name='bot' onChange={this.handleInputChange} />
+                    </label>
+                  </p>
+                  <Review>
+                    Is this post useful to you? Please give us a rating!
+                    <ReactStars
+                      onChange={rating => {
+                        submitRating(rating, url)
+                      }}
+                      half={false}
+                      size={36}
+                    />
+                  </Review>
+                  <Name
+                    name='name'
+                    type='text'
+                    title='Name'
+                    placeholder='Full Name'
+                    value={this.state.name}
+                    onChange={this.handleInputChange}
+                    required
+                    disabled={this.state.submitting}
+                  />
+                  <Email
+                    name='email'
+                    type='email'
+                    title='Email'
+                    placeholder='Email'
+                    value={this.state.email}
+                    onChange={this.handleInputChange}
+                    required
+                    disabled={this.state.submitting}
+                  />
+                  <Message
+                    name='message'
+                    title='Message'
+                    type='text'
+                    placeholder='Message'
+                    value={this.state.message}
+                    onChange={this.handleInputChange}
+                    required
+                    disabled={this.state.submitting}
+                  />
+                  <Submit
+                    name='submit'
+                    type='submit'
+                    class='g-recaptcha button is-primary'
+                    data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
+                    data-callback='onSubmit'
+                    value={this.state.submitting ? 'Sending...' : 'Send'}
+                    disabled={this.state.submitting}
+                  />
+                  <ModalOverlay onClick={this.closeModal} visible={this.state.showModal} />
+                  <Modal visible={this.state.showModal}>
+                    <p>
+                      Thank you for reaching out. I will get back to you as soon as possible.
+                    </p>
+                    <ModalButton onClick={this.closeModal}>Okay</ModalButton>
+                  </Modal>
+                </Form>
+              </div>
+              <div className='column'>
+                <h4>Reviews</h4>
+                <div>
+                  <a href='https://publiuslogic.com/privacy'>
+                    <img
+                      src={logo}
+                      alt='PubliusLogic'
+                      style={{ width: '130px', height: '130px' }}
+                    />
+                  </a>
+                  <div>
+                    <div>Governed by our!</div>
+                    <div className='is-centered'><a href='/privacy#Comment Policy/'>Submitting Policy</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     )
   }
 }
