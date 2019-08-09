@@ -12,10 +12,10 @@ import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import Reviews from '../components/Reviews'
-import BasicContent from '../Global/Content'
+import ReviewContent from '../components/Reviews/Styles'
 import config from '../../data/config'
 
-const Content = styled(BasicContent)`
+const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
     font-size: 1.5rem
     color: hsla(0, 0%, 0%, 0.9)
@@ -166,7 +166,7 @@ const ArticlePage = ({ data, timeToRead }) => {
                 excerpt={post.frontmatter.meta_description}
               />
               <hr />
-              <Content>
+              <Review>
                 <div
                   data={{
                     ...frontmatter,
@@ -181,7 +181,7 @@ const ArticlePage = ({ data, timeToRead }) => {
                     {ratings.totalCount} Reviews
                   </Rating>
                 ) : null}
-              </Content>
+              </Review>
               <Reviews />
               <Comments />
             </div>
