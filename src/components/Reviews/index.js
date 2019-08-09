@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ReactStars from 'react-stars'
 import fetch from 'node-fetch'
-import config from '../../../_data/config'
 import logo from '../../img/logo.png'
 
 /*
@@ -18,7 +17,7 @@ import logo from '../../img/logo.png'
 */
 
 const Form = styled.form`
-
+  padding:10px;
 `
 
 const Email = styled.input`
@@ -121,11 +120,11 @@ const encode = data => {
     .join('&')
 }
 
+const url = window.location.pathname === '/',
 class ReviewForm extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      rating: '',
       email: '',
       message: '',
       showModal: false,
@@ -158,7 +157,6 @@ class ReviewForm extends React.Component {
 
   handleSuccess = () => {
     this.setState({
-      rating: '',
       email: '',
       message: '',
       showModal: true,
@@ -175,7 +173,6 @@ class ReviewForm extends React.Component {
       console.log(newRating)
     }
 
-    let url = config.siteUrl + slug
     return (
       <div>
         <div className='columns'>
@@ -204,8 +201,6 @@ class ReviewForm extends React.Component {
                   name='fields[rating]'
                   onChange={ratingChanged}
                   half={false}
-                  value={this.state.rating}
-                  disabled={this.state.submitting}
                   size={36}
                   color2={'#d64000'}
                 />
