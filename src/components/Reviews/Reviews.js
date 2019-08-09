@@ -12,7 +12,7 @@ const ReviewContent = styled(BasicContent)`
 `
 
 const submitRating = (rating, slug) => {
-  const postPath = slug
+
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': slug,
@@ -70,7 +70,7 @@ export default function Template (props) {
         Is this post useful to you? Please give us a rating!
       <ReactStars
         onChange={rating => {
-          submitRating(rating, frontmatter.postPath)
+          submitRating(rating, frontmatter.slug)
         }}
         half={false}
         size={36}
