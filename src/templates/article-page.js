@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
@@ -14,36 +13,8 @@ import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
-import { generateMedia } from 'styled-media-query'
 
-const media = generateMedia({
-  ws: '280px',
-  xs: '350px',
-  sm: '768px',
-  md: '1224px',
-  lg: '1824px',
-})
 
-const Cover = styled(Img)`
-  width: 100vw;
-  height: 400px;
-  z-index: 1;
-  background-clip: border-box;
-  background-origin: border-box;
-  position: absolute !important;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  
-  ${media.lessThan('lg')`
-    background-size: cover;
-      &:after, &:before {
-      background-size: contain;
-    }
-  `}
-}
-`
 const StyledSymetryWrapper = styled.div`
 width: 100vw;
 height: 400px;
@@ -200,15 +171,13 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
       </Helmet>
       <StyledWrapper>
         <StyledSymetryWrapper>
-          <Cover>
-            <PostCover
-              postNode={postNode}
-              coverClassName='Img'
-              fluid={cover}
-              objectFit='cover'
-              objectPosition='50% 50%'
-            />
-          </Cover>        
+          <PostCover
+            postNode={postNode}
+            coverClassName='cover'
+            fluid={cover}
+            objectFit='cover'
+            objectPosition='50% 50%'
+          />
           <Overlay>
             {post.frontmatter.meta_title}
           </Overlay>
