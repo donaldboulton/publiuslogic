@@ -42,9 +42,6 @@ const ArticleTemplate = ({
 
   return (
     <div>
-      <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
-        {title}
-      </h1>
       <ScrollDown
         direction='down' to={25}
         showAbove={-1500}

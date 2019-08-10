@@ -17,10 +17,11 @@ import config from '../../_data/config'
 import { generateMedia } from 'styled-media-query'
 
 const media = generateMedia({
+  ws: '280px',
   xs: '350px',
   sm: '768px',
-  md: '1200px',
-  lg: '1400px',
+  md: '1224px',
+  lg: '1824px',
 })
 
 const Cover = styled.div`
@@ -67,7 +68,7 @@ const Styledh1 = styled.h1`
   font-size: 60px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
-  z-index: 22;
+  z-index: 25;
   background: radial-gradient(
     circle farthest-corner at center center,
     #8e0436,
@@ -77,7 +78,7 @@ const Styledh1 = styled.h1`
   -webkit-text-fill-color: transparent;
 }
 `
-export const StyledTitle = styled.div`
+const StyledTitle = styled.div`
   text-align: center;
   font-size: 1.5em;
   margin: 1em;
@@ -215,7 +216,7 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
           <Cover>
             <PostCover
               postNode={postNode}
-              coverClassName='hero'
+              coverClassName='img'
               fluid={cover}
               objectFit='cover'
               objectPosition='50% 50%'
