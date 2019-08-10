@@ -13,6 +13,37 @@ import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
+import { generateMedia } from 'styled-media-query'
+
+const media = generateMedia({
+  xs: '250px',
+  sm: '450px',
+  md: '768px',
+  lg: '1200px',
+})
+
+const Cover = styled.div`
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
+  ${media.lessThan('lg')`
+    background-size: cover;
+      &:after, &:before {
+      background-size: contain;
+    }
+  `}
+  
+  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
+  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
+  //&:after, &:before {
+  //   background-clip: content-box;
+  //   background-size: contain;
+  //}
+`
 
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
@@ -136,12 +167,12 @@ const ArticlePage = ({ data, timeToRead, html }) => {
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
       </Helmet>
-      <section className='hero'>
+      <Cover>
         <PostCover
           postNode={postNode}
           coverClassName='post-cover'
         />
-      </section>
+      </Cover>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>

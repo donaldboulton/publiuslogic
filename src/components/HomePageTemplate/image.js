@@ -12,7 +12,7 @@ const BackgroundSection = ({ className, title, backdrop }) => (
       query {
         desktop: file(relativePath: { eq: "sunset-kitzeberg-fjord.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 4160) {
+            fluid(quality: 90, maxWidth: 1400) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
