@@ -1,8 +1,9 @@
-/* eslint-disable react/jsx-indent */
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import ReactStars from 'react-stars'
+import React, { Fragment } from 'react'
 import config from '../../../_data/config'
+import { ThemeProvider, styled } from 'styled-components'
+import ReactStars from 'react-stars'
+import theme from './buttons.css'
+
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
   Be sure to review the Netlify documentation for more information:
@@ -16,19 +17,19 @@ import config from '../../../_data/config'
 const Form = styled.form`
 
 `
-
 const Review = styled.div`
   top: 10px;
   left: 40px;
   right: 0;
   bottom: 10px;
 `
+const submitRating = (rating, slug) => {
+  let url = config.siteUrl + slug
 
-const submitRating = (rating, slug) => {  
   const data = {
     'fields[rating]': rating,
-    'fields[postPath]': slug,
-    'options[reCaptcha][siteKey]': '6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
+    'fields[postPath]': url,
+    'options[reCaptcha][siteKey]': '6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk',
   }
 
   const XHR = new XMLHttpRequest()
@@ -70,42 +71,38 @@ const submitRating = (rating, slug) => {
   XHR.send(urlEncodedData)
 }
 
-class ReviewForm extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      rating: '',
-    }
-  }
+const ReviewForm = ({ slug }) => {
+  let title = config.userTwitter
+  let url = config.siteUrl + slug
 
-  render () {
-    const { title, slug } = this.props
-    const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-    const url = config.siteUrl + realPrefix + slug
-    return (
-      <div className='column'>
-        <Form
-          name='reviews'
-        >
-          <input type='hidden' name='form-name' value='review' />
-          <input name='fields[postPath]' type='hidden' value={url} />
-          <input name='title' type='hidden' value={title} />
-          <Review>
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <Fragment>
+          <div className='column reviews'>
+            <Form
+              name='reviews'
+            >
+              <input type='hidden' name='form-name' value='review' />
+              <input name='fields[postPath]' type='hidden' value={url} />
+              <input name='title' type='hidden' value={title} />
+              <Review>
                     Is this a useful post? Please give us a rating!
-            <ReactStars
-              onChange={rating => {
-                submitRating(rating, url)
-              }}
-              half={false}
-              size={24}
-              color2={'#d64000'}
-            />
-          </Review>
-        </Form>
-      </div>
-
-    )
-  }
+                <ReactStars
+                  onChange={rating => {
+                    submitRating(rating, url)
+                  }}
+                  half={false}
+                  size={24}
+                  color2={'#d64000'}
+                />
+              </Review>
+            </Form>
+          </div>
+        </Fragment>
+      </>
+    </ThemeProvider>
+  )
 }
 
 export default ReviewForm
