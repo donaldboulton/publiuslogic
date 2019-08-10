@@ -24,7 +24,7 @@ const Rating = styled.div`
   font-size: 1.5rem
 `
 
-const ArticlePage = ({ data, timeToRead }) => {
+const ArticlePage = ({ data, timeToRead, html }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
   const ratingValue =
@@ -173,6 +173,7 @@ const ArticlePage = ({ data, timeToRead }) => {
                   }}
                   rich
                 />
+                <div dangerouslySetInnerHTML={{ __html: html }} />
                 {/* TODO calculate score in gatsby-node */}
                 {ratings ? (
                   <Rating>

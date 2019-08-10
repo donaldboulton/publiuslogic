@@ -83,9 +83,9 @@ const ArticleTemplate = ({
               }
             </ul>
           </div>
-          <div className='column is-pulled-right'>
-            <h4 className='is-pulled-right'>Category</h4>
-            <Link className='button is-primary is-small is-pulled-right' to={`/categories/`}>{categorys}</Link>
+          <div className='column'>
+            <h4>Category</h4>
+            <Link className='button is-primary is-small' to={`/categories/`}>{categorys}</Link>
           </div>
         </div>
       </div>

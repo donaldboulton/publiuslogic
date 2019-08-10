@@ -3,6 +3,8 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 
+const R = require('ramda')
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -140,6 +142,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+  }
+  // console.log(R.path("internal.type")(node));
+  // console.log(node.parent);
+  if (R.path(['internal', 'type'])(node) === `MarkdownRemark`) {
+    // Get the parent node
+    const parent = getNode(R.prop('parent', node))
+
+    // Create a field on this node for the "collection" of the parent
+    // NOTE: This is necessary so we can filter `allMarkdownRemark` by
+    // `collection` otherwise there is no way to filter for only markdown
+    // documents of type `post`.
+    createNodeField({
+      node,
+      name: 'collection',
+      value: R.prop('sourceInstanceName', parent),
     })
   }
 }
