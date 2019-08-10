@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-indent */
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import ReactStars from 'react-stars'
-
+import config from '../../../_data/config'
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
   Be sure to review the Netlify documentation for more information:
@@ -25,12 +24,10 @@ const Review = styled.div`
   bottom: 10px;
 `
 
-const submitRating = (rating) => {
-  const url = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname
-
+const submitRating = (rating, slug) => {  
   const data = {
     'fields[rating]': rating,
-    'fields[postPath]': url,
+    'fields[postPath]': slug,
     'options[reCaptcha][siteKey]': '6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
   }
 
@@ -73,7 +70,7 @@ const submitRating = (rating) => {
   XHR.send(urlEncodedData)
 }
 
-class ReviewForm extends React.Component {
+class ReviewForm extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -82,7 +79,9 @@ class ReviewForm extends React.Component {
   }
 
   render () {
-    const url = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname
+    const { title, slug } = this.props
+    const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+    const url = config.siteUrl + realPrefix + slug
     return (
       <div className='column'>
         <Form
@@ -90,6 +89,7 @@ class ReviewForm extends React.Component {
         >
           <input type='hidden' name='form-name' value='review' />
           <input name='fields[postPath]' type='hidden' value={url} />
+          <input name='title' type='hidden' value={title} />
           <Review>
                     Is this a useful post? Please give us a rating!
             <ReactStars
@@ -106,10 +106,6 @@ class ReviewForm extends React.Component {
 
     )
   }
-}
-
-ReviewForm.propTypes = {
-  data: PropTypes.object,
 }
 
 export default ReviewForm

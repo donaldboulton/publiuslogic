@@ -21,6 +21,9 @@ class queryWrapper extends Component {
                       width
                       height
                       src
+                      srcSet
+                      srcWebp
+                      srcSetWebp
                       originalName
                     }
                     internal {
@@ -28,7 +31,7 @@ class queryWrapper extends Component {
                       type
                       owner
                     }
-                    fluid(quality: 90, maxWidth: 4160) {
+                    fluid(quality: 90, maxWidth: 1400) {
                       ...GatsbyImageSharpFluid_withWebp
                       originalName
                     }
