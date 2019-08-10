@@ -24,10 +24,14 @@ const media = generateMedia({
   lg: '1824px',
 })
 
-const Cover = styled.div`
-  position: relative;
-  text-align: center;
+const Cover = styled(Img)`
   width: 100vw;
+  height: 400px;
+  z-index: 1;
+  background-clip: border-box;
+  background-origin: border-box;
+  position: absolute !important;
+  text-align: center;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -38,15 +42,8 @@ const Cover = styled.div`
       background-size: contain;
     }
   `}
-  
-  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
-  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
-  //&:after, &:before {
-  //   background-clip: content-box;
-  //   background-size: contain;
-  //}
+}
 `
-
 const StyledSymetryWrapper = styled.div`
 width: 100vw;
 height: 400px;
@@ -58,30 +55,19 @@ const StyledWrapper = styled.div`
   height: 400px;
   display: flex;
   overflow: hidden;
-  // This is an example how to target the pseudo-elements via classId (deprecated):
-  //.gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before {
-  //  background-clip: content-box;
-  //}
-`
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 60px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  z-index: 25;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #8e0436,
-    #d64000
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 `
-const StyledTitle = styled.div`
+const Overlay = styled.div`
+  width:80%;
   text-align: center;
-  font-size: 1.5em;
-  margin: 1em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:0;
+  bottom:0;
+  display: flex;
+  align-items: center;
+  text-align: center;
   z-index: 20;
   box-sizing: border-box;
   display: grid;
@@ -89,6 +75,7 @@ const StyledTitle = styled.div`
     justify-content: center;
     margin: 1em;
 `
+
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
     font-size: 1.5rem
@@ -221,12 +208,10 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
               objectFit='cover'
               objectPosition='50% 50%'
             />
-          </Cover>
-          <StyledTitle>
-            <Styledh1>
-              <title>{post.frontmatter.meta_title}</title>
-            </Styledh1>
-          </StyledTitle>
+          </Cover>        
+          <Overlay>
+            {post.frontmatter.meta_title}
+          </Overlay>
         </StyledSymetryWrapper>
       </StyledWrapper>
       <section className='section'>
