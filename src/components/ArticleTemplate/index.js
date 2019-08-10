@@ -68,7 +68,6 @@ const ArticleTemplate = ({
       <PostContent content={content} />
       <hr />
       <Reviews />
-      <hr />
       <div className='container content'>
         <div className='columns is-desktop is-vcentered'>
           <div className='column is-10' style={{ marginTop: `2rem` }}>
@@ -90,7 +89,6 @@ const ArticleTemplate = ({
           </div>
         </div>
       </div>
-      <hr />
     </div>
   )
 }
