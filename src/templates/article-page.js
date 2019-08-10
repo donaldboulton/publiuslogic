@@ -62,7 +62,7 @@ const StyledWrapper = styled.div`
   //  background-clip: content-box;
   //}
 `
-const Styledh1 = styled.h1`
+const Overlay = styled.h1`
   display: inline-block;
   font-size: 60px;
   font-family: 'Roboto', sans-serif;
@@ -84,9 +84,9 @@ export const StyledTitle = styled.div`
   z-index: 20;
   box-sizing: border-box;
   display: grid;
-    -webkit-box-pack: center;
-    justify-content: center;
-    margin: 1em;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin: 1em;
 `
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
@@ -222,9 +222,9 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
             />
           </Cover>
           <StyledTitle>
-            <Styledh1>
-              <title>{post.frontmatter.meta_title}</title>
-            </Styledh1>
+            <Overlay>
+              {post.frontmatter.meta_title}
+            </Overlay>
           </StyledTitle>
         </StyledSymetryWrapper>
       </StyledWrapper>
