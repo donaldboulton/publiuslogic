@@ -203,7 +203,7 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
           <Cover>
             <PostCover
               postNode={postNode}
-              coverClassName='img'
+              coverClassName='Img'
               fluid={cover}
               objectFit='cover'
               objectPosition='50% 50%'
