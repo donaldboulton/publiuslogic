@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import config from '../../../_data/config'
-import { ThemeProvider, styled } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
 
@@ -14,15 +14,6 @@ import theme from './buttons.css'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const Form = styled.form`
-
-`
-const Review = styled.div`
-  top: 10px;
-  left: 40px;
-  right: 0;
-  bottom: 10px;
-`
 const submitRating = (rating, slug) => {
   let url = config.siteUrl + slug
 
@@ -80,13 +71,13 @@ const ReviewForm = ({ slug }) => {
       <>
         <Fragment>
           <div className='column reviews'>
-            <Form
+            <form
               name='reviews'
             >
               <input type='hidden' name='form-name' value='review' />
               <input name='fields[postPath]' type='hidden' value={url} />
               <input name='title' type='hidden' value={title} />
-              <Review>
+              <div>
                     Is this a useful post? Please give us a rating!
                 <ReactStars
                   onChange={rating => {
@@ -96,8 +87,8 @@ const ReviewForm = ({ slug }) => {
                   size={24}
                   color2={'#d64000'}
                 />
-              </Review>
-            </Form>
+              </div>
+            </form>
           </div>
         </Fragment>
       </>

@@ -1,5 +1,4 @@
 .reviews {
   visibility: visible;
   display: flex !important;
-  transform: rotate(0deg);
 }
