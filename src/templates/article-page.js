@@ -135,7 +135,7 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
         <script type='application/ld+json'>
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
-      </Helmet> 
+      </Helmet>
       <section>
         <StyledBackgroundSection className='hero cover-container'>
           <div

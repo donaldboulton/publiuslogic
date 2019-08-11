@@ -46,17 +46,15 @@ class PostCover extends Component {
         <StyledWrapper>
           <StyledSymetryWrapper>
             <StyledImage>
-              <PostCover
-                fluid={coverURL}
-                postNode={postNode}
-                coverClassName='hero'
-                objectFit='cover'
-                objectPosition='50% 50%'
+              <div
+                style={{
+                  backgroundImage: `url(${coverURL})`,
+                }}
               />
             </StyledImage>
             <StyledTitle>
               <Styledh1>
-                {post.frontmatter.meta_title}
+                {post.meta_title}
               </Styledh1>
             </StyledTitle>
           </StyledSymetryWrapper>
