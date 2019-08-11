@@ -10,29 +10,6 @@ const media = generateMedia({
   md: '1200px',
   lg: '1400px',
 })
-
-const StyledBackgroundSection = styled(BackgroundSection)`
-position: relative;
-text-align: center;
-width: 100vw;
-background-repeat: no-repeat;
-background-position: center center;
-background-size: cover;
-
-${media.lessThan('lg')`
-  background-size: cover;
-    &:after, &:before {
-    background-size: contain;
-  }
-`}
-
-// For pseudo-elements you have to overwrite the default options (see style={{}} above).
-// See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
-//&:after, &:before {
-//   background-clip: content-box;
-//   background-size: contain;
-//}
-`
 class PostCover extends Component {
   render () {
     const { fileEdges, postNode, coverHeight, coverClassName } = this.props
@@ -93,5 +70,28 @@ class PostCover extends Component {
     )
   }
 }
+
+const StyledBackgroundSection = styled(PostCover)`
+position: relative;
+text-align: center;
+width: 100vw;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: cover;
+
+${media.lessThan('lg')`
+  background-size: cover;
+    &:after, &:before {
+    background-size: contain;
+  }
+`}
+
+// For pseudo-elements you have to overwrite the default options (see style={{}} above).
+// See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
+//&:after, &:before {
+//   background-clip: content-box;
+//   background-size: contain;
+//}
+`
 
 export default PostCover
