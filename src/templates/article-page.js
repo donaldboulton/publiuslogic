@@ -102,6 +102,8 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
       'logo': {
         '@type': 'ImageObject',
         url: logo,
+        width: '450px',
+        height: '450px',
       },
     },
     url: url,
