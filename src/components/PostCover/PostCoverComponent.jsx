@@ -36,71 +36,17 @@ class PostCover extends Component {
       post.cover.substring(0, 1) === '/'
         ? __PATH_PREFIX__ + post.cover
         : post.cover
-    return (
-      <div>
-        <StyledWrapper>
-          <StyledSymetryWrapper>
-            <StyledImage
-              postNode={postNode}
-              background={coverURL}
-              fluid={cover}
-              objectFit='cover'
-              objectPosition='50% 50%'
-            />
-            <StyledTitle>
-              <Styledh1>
-                {post.meta_title}
-              </Styledh1>
-            </StyledTitle>
-          </StyledSymetryWrapper>
-        </StyledWrapper>
-      </div>
+    return (      
+      <StyledWelcomeImage
+        fluid={coverURL}
+        objectFit='cover'
+        objectPosition='50% 50%'
+      />
     )
   }
 }
 
-export const StyledTitle = styled.div`
-  text-align: center;
-  font-size: 1.5em;
-  margin: 1em;
-  z-index: 20;
-  box-sizing: border-box;
-  display: grid;
-    -webkit-box-pack: center;
-    justify-content: center;
-    margin: 1em;
-`
-const StyledSymetryWrapper = styled.div`
-width: 100vw;
-height: 400px;
-overflow: hidden;
-`
-const StyledWrapper = styled.div`
-  width: 100vw;
-  height: 400px;
-  display: flex;
-  overflow: hidden;
-  // This is an example how to target the pseudo-elements via classId (deprecated):
-  //.gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before {
-  //  background-clip: content-box;
-  //}
-`
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 60px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  z-index: 22;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #8e0436,
-    #d64000
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-`
-const StyledImage = styled(Img)`
+const StyledWelcomeImage = styled(Img)`
   width: 100vw;
   height: 400px;
   z-index: 1;
