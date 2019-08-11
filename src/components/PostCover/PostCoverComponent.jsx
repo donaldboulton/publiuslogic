@@ -4,12 +4,7 @@ import path from 'path'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
-const media = generateMedia({
-  xs: '350px',
-  sm: '768px',
-  md: '1200px',
-  lg: '1400px',
-})
+const media = generateMedia()
 class PostCover extends Component {
   render () {
     const { fileEdges, postNode, coverHeight, coverClassName } = this.props
@@ -45,13 +40,13 @@ class PostCover extends Component {
       <div>
         <StyledWrapper>
           <StyledSymetryWrapper>
-            <StyledImage>
-              <div
-                style={{
-                  backgroundImage: `url(${coverURL})`,
-                }}
-              />
-            </StyledImage>
+            <StyledImage
+              postNode={postNode}
+              background={coverURL}
+              fluid={cover}
+              objectFit='cover'
+              objectPosition='50% 50%'
+            />
             <StyledTitle>
               <Styledh1>
                 {post.meta_title}
@@ -113,7 +108,7 @@ const StyledImage = styled(Img)`
   background-origin: border-box;
   position: absolute !important;
 `
-export const StyledBackgroundSection = styled(PostCover)`
+export const StyledBackgroundSection = styled(queryWrapper)`
   position: relative;
   text-align: center;
   width: 100vw;

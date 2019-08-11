@@ -9,10 +9,13 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
-import StyledBackgroundSection from '../components/PostCover'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
+
+import { generateMedia } from 'styled-media-query'
+
+const media = generateMedia()
 
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
@@ -217,6 +220,28 @@ ArticlePage.propTypes = {
   }),
 }
 
+const StyledBackgroundSection = styled.div`
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
+  ${media.lessThan('large')`
+    background-size: cover;
+      &:after, &:before {
+      background-size: contain;
+    }
+  `}
+  
+  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
+  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
+  //&:after, &:before {
+  //   background-clip: content-box;
+  //   background-size: contain;
+  //}
+`
 export default ArticlePage
 
 export const pageQuery = graphql`
