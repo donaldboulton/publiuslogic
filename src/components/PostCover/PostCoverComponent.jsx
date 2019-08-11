@@ -1,8 +1,30 @@
 import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import path from 'path'
-import './PostCover.scss'
+import styled from 'styled-components'
 
+const StyledBackgroundSection = styled(BackgroundSection)`
+position: relative;
+text-align: center;
+width: 100vw;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: cover;
+
+${media.lessThan('large')`
+  background-size: cover;
+    &:after, &:before {
+    background-size: contain;
+  }
+`}
+
+// For pseudo-elements you have to overwrite the default options (see style={{}} above).
+// See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
+//&:after, &:before {
+//   background-clip: content-box;
+//   background-size: contain;
+//}
+`
 class PostCover extends Component {
   render () {
     const { fileEdges, postNode, coverHeight, coverClassName } = this.props
@@ -35,31 +57,34 @@ class PostCover extends Component {
         ? __PATH_PREFIX__ + post.cover
         : post.cover
     return (
-      <div
-        style={{
-          backgroundImage: `url(${coverURL})`,
-          height: `400px`,
-          width: `100%`,
-          display: `flex`,
-          placeContent: `start`,
-        }}
-        className='hero cover-container'
-      >
-        <div
-          className='hero-body overlay'
-          style={{
-            placeSelf: `center`,
-            textAlign: `center`,
-            height: `50vh`,
-            maxWidth: 1260,
-            padding: `0px 1.0875rem 1.45rem`,
-            marginTop: `5rem`,
-          }}
-        /><div className='overlay'>{post.meta_title}</div>
+      <div>
+        <StyledBackgroundSection className='hero cover-container'>
+          <div
+            style={{
+              backgroundImage: `url(${coverURL})`,
+              height: `400px`,
+              width: `100%`,
+              display: `flex`,
+              placeContent: `start`,
+            }}
+            className='hero cover-container'
+          >
+            <div
+              className='hero-body'
+              style={{
+                placeSelf: `center`,
+                textAlign: `center`,
+                height: `50vh`,
+                maxWidth: 1260,
+                padding: `0px 1.0875rem 1.45rem`,
+                marginTop: `5rem`,
+              }}
+            /><div className='overlay'>{post.meta_title}</div>
+          </div>
+        </StyledBackgroundSection>
       </div>
     )
   }
 }
 
 export default PostCover
-
