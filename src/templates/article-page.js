@@ -210,24 +210,26 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
       </Helmet>
-      <StyledWrapper>
-        <StyledSymetryWrapper>
-          <Cover>
-            <PostCover
-              postNode={postNode}
-              coverClassName='hero'
-              fluid={cover}
-              objectFit='cover'
-              objectPosition='50% 50%'
-            />
-          </Cover>
-          <StyledTitle>
-            <Overlay>
-              {post.frontmatter.meta_title}
-            </Overlay>
-          </StyledTitle>
-        </StyledSymetryWrapper>
-      </StyledWrapper>
+      <section className='hero'>
+        <StyledWrapper>
+          <StyledSymetryWrapper>
+            <Cover>
+              <PostCover
+                postNode={postNode}
+                coverClassName='hero'
+                fluid={cover}
+                objectFit='cover'
+                objectPosition='50% 50%'
+              />
+            </Cover>
+            <StyledTitle>
+              <Overlay>
+                {post.frontmatter.meta_title}
+              </Overlay>
+            </StyledTitle>
+          </StyledSymetryWrapper>
+        </StyledWrapper>
+      </section>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>

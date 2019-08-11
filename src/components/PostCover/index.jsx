@@ -45,7 +45,6 @@ class queryWrapper extends Component {
         render={data => (
           <PostCover>
             <Img
-              fluid={data.coverQuery.childImageSharp.fluid}
               fileEdges={data.allFile.edges}
               postNode={postNode}
               coverHeight={coverHeight}
