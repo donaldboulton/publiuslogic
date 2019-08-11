@@ -53,9 +53,9 @@ export const StyledTitle = styled.div`
   z-index: 20;
   box-sizing: border-box;
   display: grid;
-    -webkit-box-pack: center;
-    justify-content: center;
-    margin: 1em;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin: 1em;
 `
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
@@ -66,7 +66,6 @@ const Review = styled(ReviewContent)`
 const Rating = styled.div`
   font-size: 1.5rem
 `
-
 const ArticlePage = ({ data, cover, timeToRead, html }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
