@@ -210,7 +210,7 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
       </Helmet>
-      <section className='hero'>
+      <section>
         <StyledWrapper>
           <StyledSymetryWrapper>
             <Cover>
