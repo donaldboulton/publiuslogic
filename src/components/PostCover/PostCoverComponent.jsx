@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import path from 'path'
 import styled from 'styled-components'
+import { generateMedia } from 'styled-media-query'
+
+const media = generateMedia({
+  xs: '350px',
+  sm: '768px',
+  md: '1200px',
+  lg: '1400px',
+})
 
 const StyledBackgroundSection = styled(BackgroundSection)`
 position: relative;
@@ -11,7 +19,7 @@ background-repeat: no-repeat;
 background-position: center center;
 background-size: cover;
 
-${media.lessThan('large')`
+${media.lessThan('lg')`
   background-size: cover;
     &:after, &:before {
     background-size: contain;
@@ -67,7 +75,6 @@ class PostCover extends Component {
               display: `flex`,
               placeContent: `start`,
             }}
-            className='hero cover-container'
           >
             <div
               className='hero-body'
