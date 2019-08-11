@@ -36,12 +36,17 @@ class PostCover extends Component {
       post.cover.substring(0, 1) === '/'
         ? __PATH_PREFIX__ + post.cover
         : post.cover
-    return (      
-      <StyledWelcomeImage
-        fluid={coverURL}
-        objectFit='cover'
-        objectPosition='50% 50%'
-      />
+    return (
+      <StyledWelcomeImage>
+        <div
+          style={{
+            backgroundImage: `url(${coverURL})`,
+            width: `100vw`,
+            height: `400px`,
+          }}
+          className={coverClassName}
+        />
+      </StyledWelcomeImage>
     )
   }
 }
