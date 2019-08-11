@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import path from 'path'
 import styled from 'styled-components'
+import './PostCover.scss'
 import { generateMedia } from 'styled-media-query'
 
 const media = generateMedia()
