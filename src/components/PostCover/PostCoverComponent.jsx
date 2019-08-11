@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import path from 'path'
-import styled from 'styled-components'
 import './PostCover.scss'
-import { generateMedia } from 'styled-media-query'
 
-const media = generateMedia()
 class PostCover extends Component {
   render () {
     const { fileEdges, postNode, coverHeight, coverClassName } = this.props
@@ -27,7 +24,7 @@ class PostCover extends Component {
         <Img
           fluid={coverNodeList[0].node.childImageSharp.fluid}
           outerWrapperClassName={coverClassName}
-          style={{ height: '400px', width: '100%' }}
+          style={{ height: '400px', width: '100vw' }}
         />
       )
     }
@@ -38,49 +35,17 @@ class PostCover extends Component {
         ? __PATH_PREFIX__ + post.cover
         : post.cover
     return (
-      <StyledWelcomeImage>
-        <div
-          style={{
-            backgroundImage: `url(${coverURL})`,
-            width: `100vw`,
-            height: `400px`,
-          }}
-          className={coverClassName}
-        />
-      </StyledWelcomeImage>
+      <div
+        style={{
+          backgroundImage: `url(${coverURL})`,
+          width: `100vw`,
+          height: `400px`,
+        }}
+        className={coverClassName}
+      />
     )
   }
 }
 
-const StyledWelcomeImage = styled(Img)`
-  width: 100vw;
-  height: 400px;
-  z-index: 1;
-  background-clip: border-box;
-  background-origin: border-box;
-  position: absolute !important;
-`
-export const StyledBackgroundSection = styled(PostCover)`
-  position: relative;
-  text-align: center;
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  
-  ${media.lessThan('large')`
-    background-size: cover;
-      &:after, &:before {
-      background-size: contain;
-    }
-  `}
-  
-  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
-  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
-  //&:after, &:before {
-  //   background-clip: content-box;
-  //   background-size: contain;
-  //}
-`
-
 export default PostCover
+
