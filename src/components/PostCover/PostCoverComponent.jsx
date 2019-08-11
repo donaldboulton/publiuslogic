@@ -46,7 +46,7 @@ class PostCover extends Component {
         className='hero cover-container'
       >
         <div
-          className='hero-body'
+          className='hero-body overlay'
           style={{
             placeSelf: `center`,
             textAlign: `center`,
@@ -55,9 +55,7 @@ class PostCover extends Component {
             padding: `0px 1.0875rem 1.45rem`,
             marginTop: `5rem`,
           }}
-        >
-          <div className='overlay'>{post.meta_title}</div>
-        </div>
+        /><div className='overlay'>{post.meta_title}</div>
       </div>
     )
   }

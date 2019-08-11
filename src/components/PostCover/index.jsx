@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import PostCover from './PostCoverComponent'
 
 class queryWrapper extends Component {
@@ -8,7 +9,7 @@ class queryWrapper extends Component {
     return (
       <StaticQuery
         query={graphql`
-          query CoverQuery {
+          query coverQuery {
             allFile {
               edges {
                 node {
@@ -42,12 +43,15 @@ class queryWrapper extends Component {
           }
         `}
         render={data => (
-          <PostCover
-            fileEdges={data.allFile.edges}
-            postNode={postNode}
-            coverHeight={coverHeight}
-            coverClassName={coverClassName}
-          />
+          <PostCover>
+            <Img
+              fluid={data.coverQuery.childImageSharp.fluid}
+              fileEdges={data.allFile.edges}
+              postNode={postNode}
+              coverHeight={coverHeight}
+              coverClassName={coverClassName}
+            />
+          </PostCover>
         )}
       />
     )
