@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
@@ -10,57 +9,11 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
-import PostCover from '../components/PostCover'
+import StyledBackgroundSection from '../components/PostCover'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
 
-const Cover = styled.div`
-  position: relative;
-  text-align: center;
-`
-const StyledSymetryWrapper = styled.div`
-width: 100vw;
-height: 400px;
-overflow: hidden;
-`
-
-const StyledWrapper = styled.div`
-  width: 100vw;
-  height: 400px;
-  display: flex;
-  overflow: hidden;
-  // This is an example how to target the pseudo-elements via classId (deprecated):
-  //.gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before {
-  //  background-clip: content-box;
-  //}
-`
-const Overlay = styled.h1`
-  display: inline-block;
-  font-size: 60px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  z-index: 22;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #8e0436,
-    #d64000
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-`
-export const StyledTitle = styled.div`
-  text-align: center;
-  font-size: 1.5em;
-  margin: 1em;
-  z-index: 20;
-  box-sizing: border-box;
-  display: grid;
-  -webkit-box-pack: center;
-  justify-content: center;
-  margin: 1em;
-`
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
     font-size: 1rem
@@ -82,8 +35,6 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
       ) / ratings.totalCount
       : 0
   const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
-
-  const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
@@ -182,26 +133,30 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
         <script type='application/ld+json'>
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
-      </Helmet>
+      </Helmet> 
       <section>
-        <StyledWrapper>
-          <StyledSymetryWrapper>
-            <Cover>
-              <PostCover
-                postNode={postNode}
-                coverClassName='hero'
-                fluid={cover}
-                objectFit='cover'
-                objectPosition='50% 50%'
-              />
-            </Cover>
-            <StyledTitle>
-              <Overlay>
-                {post.frontmatter.meta_title}
-              </Overlay>
-            </StyledTitle>
-          </StyledSymetryWrapper>
-        </StyledWrapper>
+        <StyledBackgroundSection className='hero cover-container'>
+          <div
+            style={{
+              height: `400px`,
+              width: `100%`,
+              display: `flex`,
+              placeContent: `start`,
+            }}
+          >
+            <div
+              className='hero-body'
+              style={{
+                placeSelf: `center`,
+                textAlign: `center`,
+                height: `50vh`,
+                maxWidth: 1260,
+                padding: `0px 1.0875rem 1.45rem`,
+                marginTop: `5rem`,
+              }}
+            /><div className='overlay'>{post.meta_title}</div>
+          </div>
+        </StyledBackgroundSection>
       </section>
       <section className='section'>
         <div className='container content'>
