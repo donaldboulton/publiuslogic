@@ -45,13 +45,15 @@ class PostCover extends Component {
       <div>
         <StyledWrapper>
           <StyledSymetryWrapper>
-            <StyledPostCover
-              fluid={coverURL}
-              postNode={postNode}
-              coverClassName='hero'
-              objectFit='cover'
-              objectPosition='50% 50%'
-            />
+            <StyledImage>
+              <PostCover
+                fluid={coverURL}
+                postNode={postNode}
+                coverClassName='hero'
+                objectFit='cover'
+                objectPosition='50% 50%'
+              />
+            </StyledImage>
             <StyledTitle>
               <Styledh1>
                 {post.frontmatter.meta_title}
@@ -105,7 +107,7 @@ const Styledh1 = styled.h1`
   -webkit-text-fill-color: transparent;
 }
 `
-const StyledPostCover = styled(Img)`
+const StyledImage = styled(Img)`
   width: 100vw;
   height: 400px;
   z-index: 1;

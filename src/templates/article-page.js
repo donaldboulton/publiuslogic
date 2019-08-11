@@ -35,6 +35,8 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
       ) / ratings.totalCount
       : 0
   const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
+
+  const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
@@ -137,6 +139,7 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
       <section>
         <StyledBackgroundSection className='hero cover-container'>
           <div
+            postNode={postNode}
             style={{
               height: `400px`,
               width: `100%`,
