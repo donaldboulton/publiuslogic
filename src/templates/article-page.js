@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
@@ -14,13 +13,15 @@ import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
+import { generateMedia } from 'styled-media-query'
+
+const media = generateMedia()
 
 const StyledSymetryWrapper = styled.div`
 width: 100vw;
 height: 400px;
 overflow: hidden;
 `
-
 const StyledWrapper = styled.div`
   width: 100vw;
   height: 400px;
@@ -178,22 +179,24 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
       </Helmet>
-      <StyledWrapper>
-        <StyledSymetryWrapper>
-          <PostCover
-            postNode={postNode}
-            coverClassName='hero'
-            fluid={cover}
-            objectFit='cover'
-            objectPosition='50% 50%'
-          />
-          <StyledTitle>
-            <Styledh1>
-              <title>{post.frontmatter.meta_title}</title>
-            </Styledh1>
-          </StyledTitle>
-        </StyledSymetryWrapper>
-      </StyledWrapper>
+      <StyledBackgroundSection className='hero cover-container'>
+        <StyledWrapper>
+          <StyledSymetryWrapper>
+            <PostCover
+              postNode={postNode}
+              coverClassName='hero'
+              fluid={cover}
+              objectFit='cover'
+              objectPosition='50% 50%'
+            />
+            <StyledTitle>
+              <Styledh1>
+                <title>{post.frontmatter.meta_title}</title>
+              </Styledh1>
+            </StyledTitle>
+          </StyledSymetryWrapper>
+        </StyledWrapper>
+      </StyledBackgroundSection>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>
@@ -242,6 +245,29 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
     </Global>
   )
 }
+
+export const StyledBackgroundSection = styled(PostCover)`
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
+  ${media.lessThan('large')`
+    background-size: cover;
+      &:after, &:before {
+      background-size: contain;
+    }
+  `}
+  
+  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
+  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
+  //&:after, &:before {
+  //   background-clip: content-box;
+  //   background-size: contain;
+  //}
+`
 
 ArticlePage.propTypes = {
   data: PropTypes.shape({

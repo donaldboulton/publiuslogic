@@ -54,7 +54,7 @@ const StyledWelcomeImage = styled(Img)`
   background-origin: border-box;
   position: absolute !important;
 `
-export const StyledBackgroundSection = styled(queryWrapper)`
+export const StyledBackgroundSection = styled(PostCover)`
   position: relative;
   text-align: center;
   width: 100vw;
