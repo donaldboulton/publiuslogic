@@ -2,8 +2,28 @@ import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import config from '../../_data/config'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
+
+import Image from '../components/SiteMapPageTemplate/image'
 import PostCard from '../components/PostCard'
 import Global from '../components/Global'
+
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 38px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #8e0436,
+    #d64000
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
 
 const PaginationLink = props => {
   if (!props.test) {
@@ -110,8 +130,15 @@ export default class BlogPage extends Component {
           </script>
         </Helmet>
         <section className='hero'>
-          <div className='hero-body'>
-     
+          <Image />
+          <div className='column is-10 is-offset-1'>
+            <Styledh1>
+              <title>Blog | PubliusLogic</title>
+            </Styledh1>
+            <p>✨ Listing all Posts.</p>
+            <p>
+                For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
+            </p>
           </div>
         </section>
         <section className='section'>

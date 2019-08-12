@@ -121,7 +121,7 @@ const ContactPage = ({ data }) => {
           </Styledh1>
           <p>✨ Contact US.</p>
           <p>
-              For Refinements see <Link className='is-warning' to={`https://github.com/donaldboulton`}>GitHub Issues</Link> or <Link className='is-warning' to={`/https://twitter.com/messages/compose?recipient_id=105217183`}>Twitter Message</Link>
+              Social Contacts see <Link className='is-warning' to={`https://github.com/donaldboulton`}>GitHub Issues</Link> or <Link className='is-warning' to={`/https://twitter.com/messages/compose?recipient_id=105217183`}>Twitter Message</Link>
           </p>
 
         </div>
