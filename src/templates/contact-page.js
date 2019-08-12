@@ -120,7 +120,7 @@ const ContactPage = ({ data }) => {
             {post.frontmatter.title}
           </Styledh1>
           <p>
-          ✨ Social Contacts see <a className='is-warning' to={`https://github.com/donaldboulton`}>GitHub Issues</a> or <a className='is-warning' to={`/https://twitter.com/messages/compose?recipient_id=105217183`}>Twitter Message</a>
+          ✨ Social Contacts see <a className='is-warning' href='https://github.com/donaldboulton'>GitHub Issues</a> or <a className='is-warning' href='https://twitter.com/messages/compose?recipient_id=105217183'>Twitter Message</a>
           </p>
 
         </div>

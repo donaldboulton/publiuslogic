@@ -130,13 +130,15 @@ export default class BlogPage extends Component {
         </Helmet>
         <section className='hero'>
           <Image />
-          <Styledh1>
-            <title>Blog | PubliusLogic</title>
-          </Styledh1>
-          <p>✨ Listing all Posts.</p>
-          <p>
+          <div className='column is-10 is-offset-1'>
+            <Styledh1>
+              Blog | PubliusLogic
+            </Styledh1>
+            <p>✨ Listing all Posts.</p>
+            <p>
                 For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
-          </p>
+            </p>
+          </div>
         </section>
         <section className='section'>
           <PostCard posts={group} />
