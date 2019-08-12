@@ -12,6 +12,7 @@ import Global from '../components/Global'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
+import PostCover from '../components/PostCover'
 
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
@@ -22,8 +23,23 @@ const Review = styled(ReviewContent)`
 const Rating = styled.div`
   font-size: 1.5rem
 `
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #8e0436,
+    #d64000
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
 
-const ArticlePage = ({ data, cover, timeToRead, html }) => {
+const ArticlePage = ({ data, markdownRemark, cover, timeToRead, html }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
   const ratingValue =
@@ -34,6 +50,7 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
       ) / ratings.totalCount
       : 0
   const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
+  
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
@@ -46,6 +63,8 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
   let pageTags = post.frontmatter.tags
   let url = post.frontmatter.canonical
   let logo = config.siteLogo
+  const postNode = markdownRemark
+  const coverHeight = '100%'
 
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -133,6 +152,29 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
       </Helmet>
+      <section className='hero'>
+        <PostCover
+          postNode={postNode}
+          coverHeight={coverHeight}
+          coverClassName='post-cover'
+        />
+        <div className='hero-body'>
+          <div className='container'>
+            <div className='columns'>
+              <div className='column is-10 is-offset-1'>
+                <div className='section'>
+                  <Styledh1>
+                    {post.frontmatter.title}
+                  </Styledh1>
+                  <h2 className='subtitle'>
+                    {post.frontmatter.meta_title}
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>

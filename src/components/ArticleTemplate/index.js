@@ -4,7 +4,6 @@ import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
-import PostCover from '../PostCover'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
@@ -42,33 +41,9 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
-  const postNode = markdownRemark
-  const coverHeight = '100%'
+ 
   return (
-    <div>
-      <section className='hero'>
-        <PostCover
-          postNode={postNode}
-          coverHeight={coverHeight}
-          coverClassName='post-cover'
-        />
-        <div className='hero-body'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <div className='section'>
-                  <Styledh1>
-                    {title}
-                  </Styledh1>
-                  <h2 className='subtitle'>
-                    {meta_title}
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div>      
       <ScrollDown
         direction='down' to={25}
         showAbove={-1500}
@@ -128,19 +103,5 @@ const Date = styled.span`
 const GithubButtons = styled.span`
   right: .5px;
 `
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 60px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  z-index: 22;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #8e0436,
-    #d64000
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-`
+
 export default ArticleTemplate
