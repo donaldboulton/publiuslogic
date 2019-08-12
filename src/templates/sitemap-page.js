@@ -11,7 +11,8 @@ import PostCover from '../components/PostCover'
 
 const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 60px;
+  font-size: 38px;
+  text-align: center;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 22;
@@ -112,15 +113,13 @@ const SiteMapPage = ({ data }) => {
           <div className='container'>
             <div className='columns'>
               <div className='column is-10 is-offset-1'>
-                <div className='section'>
-                  <Styledh1 className='hero-body'>
-                    {post.frontmatter.title}
-                  </Styledh1>
+                <Styledh1 className='hero-body'>
+                  {post.frontmatter.title}
+                </Styledh1>
                     ✨ Listing all Pages and Posts.
-                  <p>
+                <p>
                         For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
-                  </p>
-                </div>
+                </p>
               </div>
             </div>
           </div>

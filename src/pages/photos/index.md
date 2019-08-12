@@ -2,7 +2,7 @@
 templateKey: photos-page
 title: Photos
 slug: Photos
-cover: /img/tiger.jpg
+cover: /images/tiger.jpg
 canonical: "https://publiuslogic.com/photos"
 meta_title: Cat Photos
 meta_description: >-

@@ -11,7 +11,8 @@ import config from '../../_data/config'
 
 const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 60px;
+  font-size: 38px;
+  text-align: center;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 22;
@@ -112,7 +113,7 @@ const PrivacyPage = ({ data }) => {
           <div className='container'>
             <div className='columns'>
               <div className='column is-10 is-offset-1'>
-                <div className='section'>
+                <div>
                   <Styledh1 className='hero-body'>
                     {post.frontmatter.title}
                   </Styledh1>

@@ -2,15 +2,40 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
 import PhotosPageTemplate from '../components/PhotosPageTemplate'
 import Global from '../components/Global'
 import config from '../../_data/config'
+import PostCover from '../components/PostCover'
+
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 38px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #8e0436,
+    #d64000
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
 
 const PhotosPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-  const image = frontmatter.cover
-  const author = config.author
+  const { markdownRemark: post, timeToRead, tags } = data
+  const image = post.frontmatter.cover
+  const postNode = data.markdownRemark
+  const postImage = post.frontmatter.cover
+  const imageWidth = postImage.width
+  const imageHeight = postImage.height
+  const coverHeight = '100%'
+
   let logo = config.siteLogo
+  let pageTags = post.frontmatter.tags
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -55,45 +80,64 @@ const PhotosPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={frontmatter.title}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
-        <title>{frontmatter.meta_title}</title>
-        <meta name='description' content={frontmatter.meta_description} />
-        <meta name='keywords' content={frontmatter.tags} />
-        <meta name='image' content={frontmatter.cover} />
-        <meta name='url' content={frontmatter.canonical} />
-        <meta name='author' content={author} />
-        <meta property='og:type' content='webpage' />
-        <meta property='og:title' content={frontmatter.title} />
-        <meta property='og:description' content={frontmatter.meta_description} />
-        <meta property='og:image' content={frontmatter.cover} />
-        <meta property='og:image:alt' content={frontmatter.meta_title} />
-        <meta property='og:image:width' content='100%' />
-        <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={frontmatter.canonical} />
-        <meta name='rel' content={frontmatter.canonical} />
-        <meta name='key' content={frontmatter.canonical} />
+        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
+        <meta name='description' content={post.frontmatter.meta_description} />
+        <meta name='keywords' content={pageTags} />
+        <meta name='url' content={post.frontmatter.canonical} />
+        <meta property='og:type' content='article' />
+        <meta property='og:timeToRead' content={timeToRead} />
+        <meta property='og:title' content={post.frontmatter.title} />
+        <meta property='og:description' content={post.frontmatter.meta_description} />
+        <meta property='og:image' content={post.frontmatter.cover} />
+        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
+        <meta property='og:image:width' content={imageWidth} />
+        <meta property='og:image:height' content={imageHeight} />
+        <meta property='og:url' content={post.frontmatter.canonical} />
+        <meta name='rel' content={post.frontmatter.canonical} />
+        <meta name='key' content={post.frontmatter.canonical} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={frontmatter.title} />
-        <meta name='twitter:image' content={frontmatter.cover} />
-        <meta name='twitter:description' content={frontmatter.meta_description} />
+        <meta name='twitter:title' content={post.frontmatter.title} />
+        <meta name='twitter:image' content={post.frontmatter.cover} />
+        <meta name='twitter:description' content={post.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={frontmatter.canonical} />
-        <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
+        <link rel='canonical' href={post.frontmatter.canonical} />
+        <link rel='image_src' href={`${config.siteUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
+        {/* Schema.org tags */}
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
+      <section className='hero'>
+        <PostCover
+          postNode={postNode}
+          coverHeight={coverHeight}
+          coverClassName='post-cover'
+        />
+        <div className='hero-body'>
+          <div className='container'>
+            <div className='columns'>
+              <div className='column is-10 is-offset-1'>
+                <Styledh1 className='hero-body'>
+                  {post.frontmatter.title}
+                </Styledh1>
+                <p>✨ My Cats</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <PhotosPageTemplate
-        title={frontmatter.title}
-        cover={frontmatter.cover}
-        subtitle={frontmatter.subtitle}
-        meta_title={frontmatter.meta_title}
-        description={frontmatter.meta_description}
+        title={post.frontmatter.title}
+        cover={post.frontmatter.cover}
+        subtitle={post.frontmatter.subtitle}
+        meta_title={post.frontmatter.meta_title}
+        description={post.frontmatter.meta_description}
       />
     </Global>
   )

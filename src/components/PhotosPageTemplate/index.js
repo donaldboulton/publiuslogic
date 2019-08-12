@@ -18,9 +18,6 @@ const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, 
 
   return (
     <div>
-      <div className='hero'>
-        <img className='full-width-image' src={cover} alt={title} />
-      </div>
       <section className='section section--gradient'>
         <SectionPageTitle>My Cats</SectionPageTitle>
         <div className='container'>
