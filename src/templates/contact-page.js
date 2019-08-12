@@ -7,8 +7,8 @@ import Global from '../components/Global'
 import config from '../../_data/config'
 
 const ContactPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-  const image = frontmatter.cover
+  const { markdownRemark: post } = data
+  const image = post.frontmatter.cover
   const author = config.author
   let logo = config.siteLogo
 
@@ -55,56 +55,53 @@ const ContactPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={frontmatter.title}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
-        <title>{frontmatter.meta_title}</title>
-        <meta name='description' content={frontmatter.meta_description} />
-        <meta name='keywords' content={frontmatter.tags} />
-        <meta name='image' content={frontmatter.cover} />
-        <meta name='url' content={frontmatter.canonical} />
+        <title>{post.frontmatter.meta_title}</title>
+        <meta name='description' content={post.frontmatter.meta_description} />
+        <meta name='keywords' content={post.frontmatter.tags} />
+        <meta name='image' content={post.frontmatter.cover} />
+        <meta name='url' content={post.frontmatter.canonical} />
         <meta name='author' content={author} />
         <meta property='og:type' content='webpage' />
-        <meta property='og:title' content={frontmatter.title} />
-        <meta property='og:description' content={frontmatter.meta_description} />
-        <meta property='og:image' content={frontmatter.cover} />
-        <meta property='og:image:alt' content={frontmatter.meta_title} />
+        <meta property='og:title' content={post.frontmatter.title} />
+        <meta property='og:description' content={post.frontmatter.meta_description} />
+        <meta property='og:image' content={post.frontmatter.cover} />
+        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={frontmatter.canonical} />
-        <meta name='rel' content={frontmatter.canonical} />
-        <meta name='key' content={frontmatter.canonical} />
+        <meta property='og:url' content={post.frontmatter.canonical} />
+        <meta name='rel' content={post.frontmatter.canonical} />
+        <meta name='key' content={post.frontmatter.canonical} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={frontmatter.title} />
-        <meta name='twitter:image' content={frontmatter.cover} />
-        <meta name='twitter:description' content={frontmatter.meta_description} />
+        <meta name='twitter:title' content={post.frontmatter.title} />
+        <meta name='twitter:image' content={post.frontmatter.cover} />
+        <meta name='twitter:description' content={post.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={frontmatter.canonical} />
+        <link rel='canonical' href={post.frontmatter.canonical} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
       <ContactPageTemplate
-        title={frontmatter.title}
-        subtitle={frontmatter.subtitle}
-        cover={frontmatter.cover}
-        meta_title={frontmatter.meta_title}
-        description={frontmatter.meta_description}
+        content={post.html}
+        cover={post.frontmatter.cover}
+        meta_title={post.frontmatter.meta_title}
+        description={post.frontmatter.meta_description}
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
       />
     </Global>
   )
 }
 
 ContactPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
+  data: PropTypes.object.isRequired,
 }
 
 export default ContactPage
@@ -119,6 +116,7 @@ export const contactPageQuery = graphql`
         subtitle
         meta_title
         meta_description
+        tags
         heading
       }
     }

@@ -26,7 +26,7 @@ const Styledh1 = styled.h1`
 `
 
 const PhotosPage = ({ data }) => {
-  const { markdownRemark: post, timeToRead, tags } = data
+  const { markdownRemark: post, timeToRead } = data
   const image = post.frontmatter.cover
   const postNode = data.markdownRemark
   const postImage = post.frontmatter.cover
@@ -136,19 +136,17 @@ const PhotosPage = ({ data }) => {
         title={post.frontmatter.title}
         cover={post.frontmatter.cover}
         subtitle={post.frontmatter.subtitle}
+        content={post.html}
         meta_title={post.frontmatter.meta_title}
         description={post.frontmatter.meta_description}
+        tags={post.frontmatter.tags}
       />
     </Global>
   )
 }
 
 PhotosPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
+  data: PropTypes.object.isRequired,
 }
 
 export default PhotosPage

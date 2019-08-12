@@ -91,8 +91,12 @@ const AboutPage = ({ data }) => {
       </Helmet>
       <AboutPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
         content={post.html}
+        cover={post.frontmatter.cover}
+        meta_title={post.frontmatter.meta_title}
+        description={post.frontmatter.meta_description}
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
       />      
     </Global>
   )
@@ -114,6 +118,7 @@ export const aboutPageQuery = graphql`
         canonical   
         meta_title
         meta_description
+        tags
       }
     }
   }

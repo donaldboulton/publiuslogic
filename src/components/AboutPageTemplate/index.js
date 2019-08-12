@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Image from './image'
 import Author from '../Author'
 
-const AboutPageTemplate = ({ title, cover, content, contentComponent }) => {
+const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -31,8 +31,11 @@ const AboutPageTemplate = ({ title, cover, content, contentComponent }) => {
 }
 
 AboutPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   cover: PropTypes.image,
+  canonical: PropTypes.string,
+  meta_title: PropTypes.string,
+  meta_description: PropTypes.string,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }

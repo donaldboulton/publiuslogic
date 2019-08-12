@@ -32,6 +32,7 @@ const PrivacyPage = ({ data }) => {
   const author = config.author
   const postNode = data.markdownRemark
   const coverHeight = '100%'
+  let logo = config.siteLogo
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -58,8 +59,14 @@ const PrivacyPage = ({ data }) => {
       name: 'donboulton',
     },
     publisher: {
-      '@type': 'Person',
-      name: 'donboulton',
+      '@type': 'Organization',
+      name: 'donaldboulton',
+      'logo': {
+        '@type': 'ImageObject',
+        url: logo,
+        width: '450px',
+        height: '450px',
+      },
     },
     datePublished: '2019-07-12T10:30:00+01:00',
     dateModified: '2019-07-12T10:30:00+01:00',
@@ -109,29 +116,26 @@ const PrivacyPage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <div className='hero-body'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <div>
-                  <Styledh1 className='hero-body'>
-                    {post.frontmatter.title}
-                  </Styledh1>
-                    ✨ Privacy & Terms.
-                  <p>
-                        For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
-                  </p>
-                </div>
-              </div>
-            </div>
+        <div className='column is-10 is-offset-1'>
+          <div>
+            <Styledh1 className='hero-body'>
+              {post.frontmatter.title}
+            </Styledh1>
+              ✨ Privacy & Terms.
+            <p>
+              For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
+            </p>
           </div>
         </div>
       </section>
       <PrivacyPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        cover={post.frontmatter.cover}
         content={post.html}
+        cover={post.frontmatter.cover}
+        meta_title={post.frontmatter.meta_title}
+        description={post.frontmatter.meta_description}
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
       />
     </Global>
   )

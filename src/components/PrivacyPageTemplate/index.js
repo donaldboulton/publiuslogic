@@ -2,14 +2,11 @@ import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
 
-const PrivacyPageTemplate = ({ title, cover, content, contentComponent }) => {
+const PrivacyPageTemplate = ({ title, cover, canonical, meta_description, meta_title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
     <div>
-      <div className='hero'>
-        <img className='full-width-image' src={cover} alt={title} />
-      </div>
       <section className='section section--gradient'>
         <div className='container'>
           <div className='columns'>
@@ -26,8 +23,11 @@ const PrivacyPageTemplate = ({ title, cover, content, contentComponent }) => {
 }
 
 PrivacyPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   cover: PropTypes.image,
+  canonical: PropTypes.string,
+  meta_title: PropTypes.string,
+  meta_description: PropTypes.string,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }

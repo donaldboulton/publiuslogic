@@ -13,7 +13,7 @@ const SectionPageTitle = styled.h2`
     font-size:1.5em;
   `}
 `
-const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, content, contentComponent }) => {
+const PhotosPageTemplate = ({ data, canonical, cover, title, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -41,6 +41,7 @@ const PhotosPageTemplate = ({ data, cover, title, meta_title, meta_description, 
 PhotosPageTemplate.propTypes = {
   title: PropTypes.string,
   cover: PropTypes.image,
+  canonical: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
   content: PropTypes.string,

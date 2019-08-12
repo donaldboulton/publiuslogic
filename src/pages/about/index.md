@@ -6,6 +6,8 @@ canonical: "https://publiuslogic.com/about"
 meta_title: About Us | Gatsby Starter Publius
 meta_description: >-
   This website is built as static HTML with Gatsby component-modular builds including a Node backend, with React components and Built with Webpack.
+tags:
+  - About
 ---
 
 ## Technical notes about this website

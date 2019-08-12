@@ -8,8 +8,7 @@ meta_title: Sitemap of PubliusLogic Pages
 meta_description: >-
   Sitemap of PubliusLogic Pages.
 tags:
-  - Gatsby
-  - PubliusLogic Sitemap
+  - Sitemap
 ---
 
 ## Site Map of PubliusLogic Pages

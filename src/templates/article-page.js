@@ -77,6 +77,8 @@ const ArticlePage = ({ data, timeToRead, html }) => {
       'logo': {
         '@type': 'ImageObject',
         url: logo,
+        width: '450px',
+        height: '450px',
       },
     },
     url: url,
@@ -160,7 +162,7 @@ const ArticlePage = ({ data, timeToRead, html }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <Styledh1 className='hero-body'>
+        <Styledh1>
           {post.frontmatter.title}
         </Styledh1>
       </section>

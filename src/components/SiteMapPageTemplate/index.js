@@ -2,7 +2,7 @@ import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
 
-const SiteMapPageTemplate = ({ title, cover, content, contentComponent }) => {
+const SiteMapPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -23,9 +23,12 @@ const SiteMapPageTemplate = ({ title, cover, content, contentComponent }) => {
 }
 
 SiteMapPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
+  title: PropTypes.string,
   cover: PropTypes.image,
+  canonical: PropTypes.string,
+  meta_title: PropTypes.string,
+  meta_description: PropTypes.string,
+  content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
 

@@ -32,6 +32,7 @@ const SiteMapPage = ({ data }) => {
   let author = config.author
   const postNode = data.markdownRemark
   const coverHeight = '100%'
+  let logo = config.siteLogo
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -58,8 +59,14 @@ const SiteMapPage = ({ data }) => {
       name: 'donboulton',
     },
     publisher: {
-      '@type': 'Person',
-      name: 'donboulton',
+      '@type': 'Organization',
+      name: 'donaldboulton',
+      'logo': {
+        '@type': 'ImageObject',
+        url: logo,
+        width: '450px',
+        height: '450px',
+      },
     },
     datePublished: '2019-07-12T10:30:00+01:00',
     dateModified: '2019-07-12T10:30:00+01:00',
@@ -122,9 +129,12 @@ const SiteMapPage = ({ data }) => {
       </section>
       <SiteMapPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        cover={post.frontmatter.cover}
         content={post.html}
+        cover={post.frontmatter.cover}
+        meta_title={post.frontmatter.meta_title}
+        description={post.frontmatter.meta_description}
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
       />
     </Global>
   )
