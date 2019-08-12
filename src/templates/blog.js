@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import config from '../../_data/config'
