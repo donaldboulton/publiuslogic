@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import config from '../../_data/config'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-
 import Image from '../components/SiteMapPageTemplate/image'
 import PostCard from '../components/PostCard'
 import Global from '../components/Global'
@@ -131,15 +130,13 @@ export default class BlogPage extends Component {
         </Helmet>
         <section className='hero'>
           <Image />
-          <div className='column is-10 is-offset-1'>
-            <Styledh1>
-              <title>Blog | PubliusLogic</title>
-            </Styledh1>
-            <p>✨ Listing all Posts.</p>
-            <p>
+          <Styledh1>
+            <title>Blog | PubliusLogic</title>
+          </Styledh1>
+          <p>✨ Listing all Posts.</p>
+          <p>
                 For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
-            </p>
-          </div>
+          </p>
         </section>
         <section className='section'>
           <PostCard posts={group} />
