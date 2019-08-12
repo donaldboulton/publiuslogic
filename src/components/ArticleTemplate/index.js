@@ -4,7 +4,7 @@ import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
-import PostCover from '../components/PostCover'
+import PostCover from '../PostCover'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
@@ -41,9 +41,44 @@ const ArticleTemplate = ({
   tags,
   title,
 }) => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mobile: true
+    };
+    this.handleResize = this.handleResize.bind(this);
+  }
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+  handleResize() {
+    if (window.innerWidth >= 640) {
+      this.setState({ mobile: false });
+    } else {
+      this.setState({ mobile: true });
+    }
+  }
   const PostContent = contentComponent || Content
-  const postNode = markdownRemark
-  const coverHeight = '400px'
+
+  const { mobile } = this.state;
+  const { slug } = this.props.pageContext;
+  const expanded = !mobile;
+  const postOverlapClass = mobile ? "post-overlap-mobile" : "post-overlap";
+  const postNode = this.props.data.markdownRemark;
+  const post = postNode.frontmatter;
+  if (!post.id) {
+    post.id = slug;
+  }
+  if (!post.category_id) {
+    post.category_id = config.postDefaultCategoryID;
+  }
+  const coverHeight = mobile ? 180 : 350;
   return (
     <div>
       <section className='hero'>
