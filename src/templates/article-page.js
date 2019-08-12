@@ -71,7 +71,7 @@ const ArticlePage = ({ data, timeToRead, html }) => {
     '@type': 'Article',
     publisher: {
       '@type': 'Organization',
-      name: title,
+      name: 'donaldboulton',
       'logo': {
         '@type': 'ImageObject',
         url: logo,

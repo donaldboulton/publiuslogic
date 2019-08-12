@@ -28,6 +28,7 @@ export default class BlogPage extends Component {
     const { group, index, first, last } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
+    let logo = config.siteLogo
 
     const blogSchemaOrgJSONLD = {
       '@context': 'http://schema.org',
@@ -55,8 +56,14 @@ export default class BlogPage extends Component {
         name: 'donboulton',
       },
       publisher: {
-        '@type': 'Person',
-        name: 'donboulton',
+        '@type': 'Organization',
+        name: 'donaldboulton',
+        'logo': {
+          '@type': 'ImageObject',
+          url: logo,
+          width: '450px',
+          height: '450px',
+        },
       },
       datePublished: '2018-07-12T10:30:00+01:00',
       dateModified: '2019-07-12T10:30:00+01:00',
@@ -75,6 +82,29 @@ export default class BlogPage extends Component {
           <meta name='image' content='https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp' />
           <meta name='url' content='https://publiuslogic.com/blog' />
           <meta name='author' content='donaldboulton' />
+          <meta property='og:type' content='blog' />
+          <meta property='og:title' content='https://publiuslogic.com/blog' />
+          <meta property='og:description' content='PubliusLogic Blog Posts' />
+          <meta property='og:image' content='https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp' />
+          <meta property='og:image:alt' content='Blog' />
+          <meta property='og:image:width' content='100%' />
+          <meta property='og:image:height' content='400px' />
+          <meta property='og:url' content='https://publiuslogic.com/blog' />
+          <meta name='rel' content='https://publiuslogic.com/blog' />
+          <meta name='key' content='https://publiuslogic.com/blog' />
+          <meta name='twitter:author' content='donboulton' />
+          <meta name='twitter:card' content='summary_large_image' />
+          <meta name='twitter:title' content='PubliusLogic Blog Posts' />
+          <meta name='twitter:image' content='https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp' />
+          <meta name='twitter:description' content='PubliusLogic Blog Posts'} />
+          <meta name='twitter:widgets:autoload' content='off' />
+          <meta name='twitter:widgets:theme' content='dark' />
+          <meta name='twitter:widgets:link-color' content='#d64000' />
+          <meta name='twitter:widgets:border-color' content='#000000' />
+          <meta name='twitter:dnt' content='on' />
+          <link rel='canonical' content='https://publiuslogic.com/blog' />
+          <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
+          <link rel='me' href='https://twitter.com/donboulton' />
           {/* Schema.org tags */}
           <script type='application/ld+json'>
             {JSON.stringify(blogSchemaOrgJSONLD)}

@@ -10,6 +10,7 @@ const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   const image = frontmatter.cover
   const author = config.author
+  let logo = config.siteLogo
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -36,8 +37,14 @@ const HomePage = ({ data }) => {
       name: 'donboulton',
     },
     publisher: {
-      '@type': 'Person',
-      name: 'donboulton',
+      '@type': 'Organization',
+      name: 'donaldboulton',
+      'logo': {
+        '@type': 'ImageObject',
+        url: logo,
+        width: '450px',
+        height: '450px',
+      },
     },
     datePublished: '2019-07-12T10:30:00+01:00',
     dateModified: '2019-07-12T10:30:00+01:00',

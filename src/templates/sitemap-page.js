@@ -1,16 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
+import styled from 'styled-components'
 import SiteMapPageTemplate from '../components/SiteMapPageTemplate'
 import Global from '../components/Global'
 import config from '../../_data/config'
+import PostCover from '../components/PostCover'
+
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #8e0436,
+    #d64000
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
 
 const SiteMapPage = ({ data }) => {
   const { markdownRemark: post } = data
   const image = post.frontmatter.cover
   let author = config.author
+  const postNode = data.markdownRemark
+  const coverHeight = '100%'
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -82,12 +102,36 @@ const SiteMapPage = ({ data }) => {
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
+      <section className='hero'>
+        <PostCover
+          postNode={postNode}
+          coverHeight={coverHeight}
+          coverClassName='post-cover'
+        />
+        <div className='hero-body'>
+          <div className='container'>
+            <div className='columns'>
+              <div className='column is-10 is-offset-1'>
+                <div className='section'>
+                  <Styledh1 className='hero-body'>
+                    {post.frontmatter.title}
+                  </Styledh1>
+                    ✨ Listing all Pages and Posts.
+                  <p>
+                        For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <SiteMapPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         cover={post.frontmatter.cover}
         content={post.html}
-      />      
+      />
     </Global>
   )
 }

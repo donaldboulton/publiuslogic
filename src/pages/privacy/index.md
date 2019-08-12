@@ -8,7 +8,7 @@ meta_description: >-
 tags:
   - Privacy
   - PubliusLogic
-cover: /img/privacy.jpg
+cover: /images/privacy.jpg
 canonical: "https://publiuslogic.com/privacy"
 ---
 
