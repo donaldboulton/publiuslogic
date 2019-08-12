@@ -118,12 +118,12 @@ const PrivacyPage = ({ data }) => {
         />
         <div className='column is-10 is-offset-1'>
           <div>
-            <Styledh1 className='hero-body'>
+            <Styledh1>
               {post.frontmatter.title}
             </Styledh1>
-              ✨ Privacy & Terms.
+            <p>✨ Privacy & Terms.</p>
             <p>
-              For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
+              For Refinements see <Link className='is-warning' to={`/#Disabling-Cookies`}>Cookies</Link> or <Link className='is-warning' to={`/#Privacy-Google`}>Google Privacy</Link>
             </p>
           </div>
         </div>

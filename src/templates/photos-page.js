@@ -119,17 +119,11 @@ const PhotosPage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <div className='hero-body'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <Styledh1 className='hero-body'>
-                  {post.frontmatter.title}
-                </Styledh1>
-                <p>✨ My Cats</p>
-              </div>
-            </div>
-          </div>
+        <div className='column is-10 is-offset-1'>
+          <Styledh1>
+            {post.frontmatter.title}
+          </Styledh1>
+          <p>✨ My Cats</p>
         </div>
       </section>
       <PhotosPageTemplate

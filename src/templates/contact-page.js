@@ -1,15 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+import PostCover from '../components/PostCover'
+import styled from 'styled-components'
 import ContactPageTemplate from '../components/ContactPageTemplate'
 import Global from '../components/Global'
 import config from '../../_data/config'
+
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 38px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #8e0436,
+    #d64000
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
 
 const ContactPage = ({ data }) => {
   const { markdownRemark: post } = data
   const image = post.frontmatter.cover
   const author = config.author
+  const postNode = data.markdownRemark
+  const coverHeight = '100%'
   let logo = config.siteLogo
 
   const schemaOrgWebPage = {
@@ -88,6 +109,23 @@ const ContactPage = ({ data }) => {
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
+      <section className='hero'>
+        <PostCover
+          postNode={postNode}
+          coverHeight={coverHeight}
+          coverClassName='post-cover'
+        />
+        <div className='column is-10 is-offset-1'>
+          <Styledh1>
+            {post.frontmatter.title}
+          </Styledh1>
+          <p>✨ Contact US.</p>
+          <p>
+              For Refinements see <Link className='is-warning' to={`https://github.com/donaldboulton`}>GitHub Issues</Link> or <Link className='is-warning' to={`/https://twitter.com/messages/compose?recipient_id=105217183`}>Twitter Message</Link>
+          </p>
+
+        </div>
+      </section>
       <ContactPageTemplate
         content={post.html}
         cover={post.frontmatter.cover}

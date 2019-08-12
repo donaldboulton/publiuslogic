@@ -1,7 +1,7 @@
 ---
 templateKey: 'contact-page'
 title: Contact Us
-cover: /images/contact-us.jpg
+cover: /images/contact.jpg
 canonical: "https://publiuslogic.com/contact"
 subtitle: We'd Love To Help You, Feel Free To Drop A Mail
 meta_title: Contact Us | PubliusLogic
