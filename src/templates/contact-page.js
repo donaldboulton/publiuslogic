@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import ContactPageTemplate from '../components/ContactPageTemplate'
@@ -119,9 +119,8 @@ const ContactPage = ({ data }) => {
           <Styledh1>
             {post.frontmatter.title}
           </Styledh1>
-          <p>✨ Contact US.</p>
           <p>
-              Social Contacts see <Link className='is-warning' to={`https://github.com/donaldboulton`}>GitHub Issues</Link> or <Link className='is-warning' to={`/https://twitter.com/messages/compose?recipient_id=105217183`}>Twitter Message</Link>
+          ✨ Social Contacts see <a className='is-warning' to={`https://github.com/donaldboulton`}>GitHub Issues</a> or <a className='is-warning' to={`/https://twitter.com/messages/compose?recipient_id=105217183`}>Twitter Message</a>
           </p>
 
         </div>
