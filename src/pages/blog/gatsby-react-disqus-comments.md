@@ -12,7 +12,7 @@ tags:
   - React Hooks
   - Disqus Comments
   - Tutorial
-meta_title: Gatsby React Disqus Comments
+meta_title: Disqus Comments for the weak
 meta_description: Gatsby React Disqus Comments
 tweet_id: '1118651504674725888'
 ---

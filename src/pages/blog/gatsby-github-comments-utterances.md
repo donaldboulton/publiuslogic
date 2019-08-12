@@ -13,7 +13,7 @@ tags:
   - Comments
   - WebDev
   - Tutorial
-meta_title: Gatsby GitHub Comments Utterances
+meta_title: Comments as GitHub Issues
 meta_description: Gatsby GitHub Comments Utterances uses withUtterances React npm module. Built with React Hooks and Love
 tweet_id: '1118651504674725888'
 ---

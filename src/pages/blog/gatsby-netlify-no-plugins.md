@@ -12,7 +12,7 @@ tags:
   - Identity Widget
   - WebDev
   - Tutorial
-meta_title: Gatsby Netlify No Plugins
+meta_title: Keep it clean = No Plugins
 meta_description: >-
   Gatsby Netlify No Plugins; Netlify CMS and Netlify Identity with my own styling
   and custom builds

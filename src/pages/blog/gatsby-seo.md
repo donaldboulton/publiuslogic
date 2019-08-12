@@ -12,12 +12,12 @@ tags:
   - SEO
   - WebDev
   - Tutorial
-meta_title: Gatsby SEO JSON-LD
+meta_title: SEO JSON-LD done right.
 meta_description: Gatsby SEO JSON-LD per page is the only logical option for perfection in a WebPage or Article.
 tweet_id: '1118651504674725889'
 ---
 
-## Gatsby SEO JSON-LD
+## JSON-LD Per Template
 
 Gatsby SEO JSON-LD and meta tags, "per page", is the only logical option for SEO = microdata perfection in a WebPage or Article.
 

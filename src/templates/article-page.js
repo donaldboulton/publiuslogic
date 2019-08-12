@@ -158,22 +158,9 @@ const ArticlePage = ({ data, timeToRead, html }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <div className='hero-body'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <div className='section'>
-                  <Styledh1>
-                    {post.frontmatter.title}
-                  </Styledh1>
-                  <h2 className='subtitle'>
-                    {post.frontmatter.meta_title}
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Styledh1 className='hero-body'>
+          {post.frontmatter.title}
+        </Styledh1>
       </section>
       <section className='section'>
         <div className='container content'>
