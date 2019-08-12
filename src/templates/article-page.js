@@ -51,20 +51,20 @@ const ArticlePage = ({ data, markdownRemark, cover, timeToRead, html }) => {
       : 0
   const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
   
+  const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
   const title = post.frontmatter.title
+  const coverHeight = '100%'
 
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
   let pageTags = post.frontmatter.tags
   let url = post.frontmatter.canonical
   let logo = config.siteLogo
-  const postNode = markdownRemark
-  const coverHeight = '100%'
 
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
