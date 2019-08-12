@@ -9,24 +9,6 @@ const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent
 
   return (
     <div>
-      <section className='hero hero-blog-cover'>
-        <div className='hero-body'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <div className='section'>
-                  <h1 className='title'>
-                    {title}
-                  </h1>
-                  <h2 className='subtitle'>
-                    {subtitle}
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <section className='section'>
         <div className='container'>
           <div className='columns is-10 is-offset-1'>
