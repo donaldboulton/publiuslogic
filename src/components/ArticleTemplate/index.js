@@ -4,7 +4,7 @@ import Content from '../Content'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
-import PostCover from '../components/PostCover'
+import PostCover from '../PostCover'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
@@ -43,7 +43,7 @@ const ArticleTemplate = ({
 }) => {
   const PostContent = contentComponent || Content
   const postNode = markdownRemark
-  const coverHeight = '400px'
+  const coverHeight = '100%'
   return (
     <div>
       <section className='hero'>
