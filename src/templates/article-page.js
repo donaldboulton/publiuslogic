@@ -15,13 +15,42 @@ import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
 import { generateMedia } from 'styled-media-query'
 
-const media = generateMedia()
+const media = generateMedia({
+  xs: '350px',
+  sm: '768px',
+  md: '1200px',
+  lg: '1400px',
+})
+
+const StyledBackgroundSection = styled.div`
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
+  ${media.lessThan('large')`
+    background-size: cover;
+      &:after, &:before {
+      background-size: contain;
+    }
+  `}
+  
+  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
+  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
+  //&:after, &:before {
+  //   background-clip: content-box;
+  //   background-size: contain;
+  //}
+`
 
 const StyledSymetryWrapper = styled.div`
 width: 100vw;
 height: 400px;
 overflow: hidden;
 `
+
 const StyledWrapper = styled.div`
   width: 100vw;
   height: 400px;
@@ -54,9 +83,9 @@ export const StyledTitle = styled.div`
   z-index: 20;
   box-sizing: border-box;
   display: grid;
-  -webkit-box-pack: center;
-  justify-content: center;
-  margin: 1em;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin: 1em;
 `
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
@@ -67,6 +96,7 @@ const Review = styled(ReviewContent)`
 const Rating = styled.div`
   font-size: 1.5rem
 `
+
 const ArticlePage = ({ data, cover, timeToRead, html }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
@@ -102,8 +132,6 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
       'logo': {
         '@type': 'ImageObject',
         url: logo,
-        width: '450px',
-        height: '450px',
       },
     },
     url: url,
@@ -191,9 +219,9 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
               objectFit='cover'
               objectPosition='50% 50%'
             />
-            <StyledTitle>
+            <StyledTitle className='hero-body'>
               <Styledh1>
-                <title>{post.frontmatter.meta_title}</title>
+                {post.frontmatter.meta_title}
               </Styledh1>
             </StyledTitle>
           </StyledSymetryWrapper>
@@ -247,29 +275,6 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
     </Global>
   )
 }
-
-export const StyledBackgroundSection = styled(PostCover)`
-  position: relative;
-  text-align: center;
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  
-  ${media.lessThan('large')`
-    background-size: cover;
-      &:after, &:before {
-      background-size: contain;
-    }
-  `}
-  
-  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
-  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
-  //&:after, &:before {
-  //   background-clip: content-box;
-  //   background-size: contain;
-  //}
-`
 
 ArticlePage.propTypes = {
   data: PropTypes.shape({
