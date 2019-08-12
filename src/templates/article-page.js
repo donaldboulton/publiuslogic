@@ -39,7 +39,7 @@ const Styledh1 = styled.h1`
 }
 `
 
-const ArticlePage = ({ data, markdownRemark, cover, timeToRead, html }) => {
+const ArticlePage = ({ data, timeToRead, html }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
   const ratingValue =
@@ -50,7 +50,7 @@ const ArticlePage = ({ data, markdownRemark, cover, timeToRead, html }) => {
       ) / ratings.totalCount
       : 0
   const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
-  
+
   const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
