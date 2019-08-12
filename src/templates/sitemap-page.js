@@ -109,20 +109,15 @@ const SiteMapPage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <div className='hero-body'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <Styledh1 className='hero-body'>
-                  {post.frontmatter.title}
-                </Styledh1>
-                    ✨ Listing all Pages and Posts.
-                <p>
-                        For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className='column is-10 is-offset-1'>
+          <Styledh1>
+            {post.frontmatter.title}
+          </Styledh1>
+          <p>✨ Listing all Pages and Posts.</p>
+          <p>
+              For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
+          </p>
+
         </div>
       </section>
       <SiteMapPageTemplate
