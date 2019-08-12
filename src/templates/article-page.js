@@ -9,82 +9,10 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
-import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import ReviewContent from '../components/Reviews/Styles'
 import config from '../../_data/config'
-import { generateMedia } from 'styled-media-query'
 
-const media = generateMedia({
-  xs: '350px',
-  sm: '768px',
-  md: '1200px',
-  lg: '1400px',
-})
-
-const StyledBackgroundSection = styled.div`
-  position: relative;
-  text-align: center;
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  
-  ${media.lessThan('large')`
-    background-size: cover;
-      &:after, &:before {
-      background-size: contain;
-    }
-  `}
-  
-  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
-  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
-  //&:after, &:before {
-  //   background-clip: content-box;
-  //   background-size: contain;
-  //}
-`
-const StyledSymetryWrapper = styled.div`
-width: 100vw;
-height: 400px;
-overflow: hidden;
-`
-const StyledWrapper = styled.div`
-  width: 100vw;
-  height: 400px;
-  display: flex;
-  overflow: hidden;
-  // This is an example how to target the pseudo-elements via classId (deprecated):
-  //.gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before {
-  //  background-clip: content-box;
-  //}
-`
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 60px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  z-index: 22;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #8e0436,
-    #d64000
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-`
-export const StyledTitle = styled.div`
-  text-align: center;
-  font-size: 1.5em;
-  margin: 1em;
-  z-index: 20;
-  box-sizing: border-box;
-  display: grid;
-    -webkit-box-pack: center;
-    justify-content: center;
-    margin: 1em;
-`
 const Review = styled(ReviewContent)`
   @media (max-width: 300px) {
     font-size: 1.5rem
@@ -106,8 +34,6 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
       ) / ratings.totalCount
       : 0
   const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
-
-  const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
@@ -207,24 +133,6 @@ const ArticlePage = ({ data, cover, timeToRead, html }) => {
           {JSON.stringify(articleSchemaOrgJSONLD)}
         </script>
       </Helmet>
-      <StyledBackgroundSection className='hero cover-container'>
-        <StyledWrapper>
-          <StyledSymetryWrapper>
-            <PostCover
-              postNode={postNode}
-              coverClassName='hero'
-              fluid={cover}
-              objectFit='cover'
-              objectPosition='50% 50%'
-            />
-            <StyledTitle className='hero-body'>
-              <Styledh1>
-                {post.frontmatter.meta_title}
-              </Styledh1>
-            </StyledTitle>
-          </StyledSymetryWrapper>
-        </StyledWrapper>
-      </StyledBackgroundSection>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>
