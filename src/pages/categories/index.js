@@ -29,7 +29,7 @@ const CategorysPage = ({
         <div className='columns'>
           <div
             className='column is-10 is-offset-1'
-            style={{ marginBottom: '6rem' }}
+            style={{ marginBottom: '2rem' }}
           >
             <ul className='taglist field is-grouped is-grouped-multiline'>
               {group.map(categroy => (

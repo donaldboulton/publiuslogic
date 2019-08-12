@@ -25,10 +25,11 @@ const Rating = styled.div`
 `
 const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 60px;
+  font-size: 30px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 22;
+  background-position: 50% 50%;
   background: radial-gradient(
     circle farthest-corner at center center,
     #8e0436,

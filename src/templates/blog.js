@@ -95,7 +95,7 @@ export default class BlogPage extends Component {
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:title' content='PubliusLogic Blog Posts' />
           <meta name='twitter:image' content='https://res.cloudinary.com/mansbooks/image/upload/v1559828638/photos/support.webp' />
-          <meta name='twitter:description' content='PubliusLogic Blog Posts'} />
+          <meta name='twitter:description' content='PubliusLogic Blog Posts' />
           <meta name='twitter:widgets:autoload' content='off' />
           <meta name='twitter:widgets:theme' content='dark' />
           <meta name='twitter:widgets:link-color' content='#d64000' />
