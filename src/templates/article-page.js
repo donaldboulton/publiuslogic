@@ -44,13 +44,11 @@ const StyledBackgroundSection = styled.div`
   //   background-size: contain;
   //}
 `
-
 const StyledSymetryWrapper = styled.div`
 width: 100vw;
 height: 400px;
 overflow: hidden;
 `
-
 const StyledWrapper = styled.div`
   width: 100vw;
   height: 400px;
