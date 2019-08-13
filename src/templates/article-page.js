@@ -23,6 +23,10 @@ const Review = styled(ReviewContent)`
 const Rating = styled.div`
   font-size: 1.5rem
 `
+const Message = styled.div`
+  font-size: 1rem;
+  font-weight: 400;
+`
 const Styledh1 = styled.h1`
   display: inline-block;
   padding-top: 2em;
@@ -43,7 +47,7 @@ const Styledh1 = styled.h1`
 `
 
 const ArticlePage = ({ data, timeToRead, html }) => {
-  const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
+  const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data.markdownremark
 
   const ratingValue =
     ratings && ratings.edges
@@ -202,7 +206,6 @@ const ArticlePage = ({ data, timeToRead, html }) => {
                   }}
                   rich
                 />
-                <div dangerouslySetInnerHTML={{ __html: html }} />
                 {/* TODO calculate score in gatsby-node */}
                 {ratings ? (
                   <Rating>
@@ -210,6 +213,9 @@ const ArticlePage = ({ data, timeToRead, html }) => {
                     {ratings.totalCount} Reviews
                   </Rating>
                 ) : null}
+                <Message
+                  dangerouslySetInnerHTML={{ __html: ratings.fields.messageHtml }}
+                />
               </Review>
               <Comments />
             </div>
@@ -260,6 +266,9 @@ export const pageQuery = graphql`
         node {
           id
           rating
+          fields {
+            messageHtml
+          }
         }
       }
     }

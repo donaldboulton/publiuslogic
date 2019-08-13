@@ -2,6 +2,16 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
+const toHAST = require(`mdast-util-to-hast`)
+const hastToHTML = require(`hast-util-to-html`)
+const Remark = require(`remark`)
+
+// Initialise remark
+const remark = new Remark().data(`settings`, {
+  commonmark: true,
+  footnotes: true,
+  pedantic: true,
+})
 
 const R = require('ramda')
 
@@ -142,6 +152,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+  }
+
+  // For comment nodes (which are stored in JSON) parse the `message` field from
+  // markdown into HTML, and add it to the node as a field called `messageHtml`.
+  // Then we can use that field to render the comments.
+  if (_.get(node, 'internal.type') === `RatingsJson`) {
+    // Generate an HTML version of the markdown field `message`
+    const ast = remark.parse(_.get(node, 'message'))
+    const htmlAst = toHAST(ast, { allowDangerousHTML: true })
+    const html = hastToHTML(htmlAst, {
+      allowDangerousHTML: true,
+    })
+
+    createNodeField({
+      node,
+      name: 'messageHtml',
+      value: html,
     })
   }
   // console.log(R.path("internal.type")(node));

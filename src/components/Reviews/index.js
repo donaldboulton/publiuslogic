@@ -1,8 +1,20 @@
 import React, { Fragment } from 'react'
 import config from '../../../_data/config'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, styled } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
+
+const Textarea = styled.textarea`
+  font-size: 1rem;
+  color:#ccc;
+  background: #1d1d1d;
+  border: 1px solid #434040;
+  margin:0 0 20px;
+  border-radius: 6px;
+  width:200px;
+  height: 120px;
+  box-sizing: border-box
+`
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -88,6 +100,7 @@ const ReviewForm = ({ slug }) => {
                   color2={'#d64000'}
                 />
               </div>
+              <Textarea name='fields[message]' required />
             </form>
           </div>
         </Fragment>

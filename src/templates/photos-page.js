@@ -125,7 +125,7 @@ const PhotosPage = ({ data }) => {
           <Styledh1>
             {post.frontmatter.title}
           </Styledh1>
-          <p>✨ My Cats</p>
+          <p>🐱 My Cats</p>
         </div>
       </section>
       <PhotosPageTemplate
