@@ -23,10 +23,6 @@ const Review = styled(ReviewContent)`
 const Rating = styled.div`
   font-size: 1.5rem
 `
-const Message = styled.div`
-  font-size: 1rem;
-  font-weight: 400;
-`
 const Styledh1 = styled.h1`
   display: inline-block;
   padding-top: 2em;
@@ -46,7 +42,7 @@ const Styledh1 = styled.h1`
 }
 `
 
-const ArticlePage = ({ data, timeToRead, messageHtml }) => {
+const ArticlePage = ({ data, timeToRead }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
   const ratingValue =
@@ -213,9 +209,6 @@ const ArticlePage = ({ data, timeToRead, messageHtml }) => {
                     {ratings.totalCount} Reviews
                   </Rating>
                 ) : null}
-                <Message
-                  dangerouslySetInnerHTML={{ __html: ratings.fields.messageHtml }}
-                />
               </Review>
               <Comments />
             </div>
