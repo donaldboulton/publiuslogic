@@ -12,7 +12,7 @@ cover: /images/privacy.jpg
 canonical: "https://publiuslogic.com/privacy"
 ---
 
-# User data encrypted
+### User data encrypted
 
 The privacy of my visitors is extremely important.
 

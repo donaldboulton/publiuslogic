@@ -116,14 +116,14 @@ const PrivacyPage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <div className='column is-10 is-offset-1'>
+        <div className='column is-10 is-offset-1 is-overlay'>
           <div>
             <Styledh1>
               {post.frontmatter.title}
             </Styledh1>
             <p>✨ Privacy & Terms.</p>
             <p>
-              For Refinements see <Link className='is-warning' to={`/#Disabling-Cookies`}>Cookies</Link> or <Link className='is-warning' to={`/#Privacy-Google`}>Google Privacy</Link>
+              For Refinements see <Link className='is-warning' to={`/privacy/#Disabling-Cookies`}>Cookies</Link> or <Link className='is-warning' to={`/#Privacy-Google`}>Google Privacy</Link>
             </p>
           </div>
         </div>

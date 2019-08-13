@@ -11,8 +11,6 @@ tags:
   - Sitemap
 ---
 
-## Site Map of PubliusLogic Pages
-
 |  Pages | Posts  | Admin CMS  |
 |----|:--------------------------:|---:|
 | [Home](https://publiuslogic.com/)  | [All Posts](https://publiuslogic.com/blog)  | [Admin](/admin/#/collections/pages)  |

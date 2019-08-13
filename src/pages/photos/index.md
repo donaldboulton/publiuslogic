@@ -14,4 +14,3 @@ tags:
   - Cloudinary
 ---
 
-## Cat Photos

@@ -16,7 +16,7 @@ const TagsPage = ({
             <div className='column is-10 is-offset-1'>
               <div className='section'>
                 <h1 className='title'>
-                                    Tags
+                  Tags
                 </h1>
               </div>
             </div>
