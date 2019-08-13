@@ -1,7 +1,7 @@
 ---
 templateKey: privacy-page
 title: Privacy and Terms
-meta_title: Privacy Us | Gatsby Starter Business
+meta_title: Privacy | PubliusLogic
 meta_description: >-
   The privacy of my visitors is extremely important.
   This Privacy Policy outlines the types of personal information that is received and collected and how it is used. Terms as stated herein are legally binding.

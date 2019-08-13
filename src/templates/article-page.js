@@ -25,6 +25,7 @@ const Rating = styled.div`
 `
 const Styledh1 = styled.h1`
   display: inline-block;
+  padding-top: 2em;
   font-size: 38px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
