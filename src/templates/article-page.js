@@ -46,7 +46,7 @@ const Styledh1 = styled.h1`
 }
 `
 
-const ArticlePage = ({ data, timeToRead, html }) => {
+const ArticlePage = ({ data, timeToRead, messageHtml }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
   const ratingValue =
