@@ -47,7 +47,7 @@ const Styledh1 = styled.h1`
 `
 
 const ArticlePage = ({ data, timeToRead, html }) => {
-  const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = markdownremark
+  const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
   const ratingValue =
     ratings && ratings.edges
