@@ -116,6 +116,8 @@ const SiteMapPage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
+      </section>
+      <section>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}
@@ -124,7 +126,6 @@ const SiteMapPage = ({ data }) => {
           <p>
               For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
           </p>
-
         </div>
       </section>
       <SiteMapPageTemplate
