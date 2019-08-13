@@ -165,9 +165,11 @@ const ArticlePage = ({ data, timeToRead, html }) => {
         />
       </section>
       <section>
-        <Styledh1>
-          {post.frontmatter.title}
-        </Styledh1>
+        <div className='column is-10 is-offset-1'>
+          <Styledh1>
+            {post.frontmatter.title}
+          </Styledh1>
+        </div>
       </section>
       <section className='section'>
         <div className='container content'>
