@@ -116,7 +116,7 @@ const SiteMapPage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <div className='column is-10 is-offset-1'>
+        <div className='column is-10 is-offset-1 is-overlay'>
           <Styledh1>
             {post.frontmatter.title}
           </Styledh1>
