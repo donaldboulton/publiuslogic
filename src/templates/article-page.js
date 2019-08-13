@@ -163,6 +163,8 @@ const ArticlePage = ({ data, timeToRead, html }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
+      </section>
+      <section>
         <Styledh1>
           {post.frontmatter.title}
         </Styledh1>

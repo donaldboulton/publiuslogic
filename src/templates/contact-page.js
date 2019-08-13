@@ -115,6 +115,8 @@ const ContactPage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
+      </section>
+      <section>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}
@@ -122,7 +124,6 @@ const ContactPage = ({ data }) => {
           <p>
           ✨ Social Contacts see <a className='is-warning' href='https://github.com/donaldboulton'>GitHub Issues</a> or <a className='is-warning' href='https://twitter.com/messages/compose?recipient_id=105217183'>Twitter Message</a>
           </p>
-
         </div>
       </section>
       <ContactPageTemplate

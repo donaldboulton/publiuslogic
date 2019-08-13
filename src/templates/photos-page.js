@@ -119,6 +119,8 @@ const PhotosPage = ({ data }) => {
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
+      </section>
+      <section>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}
