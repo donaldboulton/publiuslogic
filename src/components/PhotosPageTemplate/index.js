@@ -3,7 +3,6 @@ import Content from '../Content'
 import Cloudinary from '../Cloudinary'
 import UploadWidget from '../Cloudinary/UploadWidget'
 import PropTypes from 'prop-types'
-import { media } from '../Hero/style'
 
 const PhotosPageTemplate = ({ data, canonical, cover, title, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
