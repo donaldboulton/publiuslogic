@@ -1,5 +1,5 @@
 ratings:
-  allowedFields: ["rating", "postPath", "review"]
+  allowedFields: ["rating", "postPath", "message"]
   branch: "master"
   commitMessage: "Rating PubliusLogic"
   filename: "rating{@timestamp}"
@@ -12,6 +12,6 @@ ratings:
   moderation: false
   name: "publiuslogic"
   path: "_data/ratings/"
-  requiredFields: ["rating", "postPath", "review"]
+  requiredFields: ["rating", "postPath"]
   recaptcha:
     enabled: false

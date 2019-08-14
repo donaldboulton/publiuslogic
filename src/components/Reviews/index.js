@@ -14,14 +14,13 @@ import theme from './buttons.css'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = (rating, slug) => {
-  let url = config.siteUrl + slug
+const submitRating = (rating, message, slug) => {
+  let url = slug
 
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': url,
-    'fields[review]': review,
-    'options[reCaptcha][siteKey]': '6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk',
+    'fields[message]': message,
   }
 
   const XHR = new XMLHttpRequest()
@@ -72,14 +71,14 @@ const ReviewForm = ({ slug }) => {
       <>
         <Fragment>
           <div className='column reviews'>
+             Is this a useful post? Please give us a rating!
             <form
               name='ratings'
             >
               <input type='hidden' name='form-name' value='review' />
               <input name='fields[postPath]' type='hidden' value={url} />
               <input name='title' type='hidden' value={title} />
-              <div>
-                    Is this a useful post? Please give us a rating!
+              <div>                    
                 <ReactStars
                   onChange={rating => {
                     submitRating(rating, url)
@@ -90,7 +89,7 @@ const ReviewForm = ({ slug }) => {
                 />
               </div>
               <label>Add a Review</label>
-              <textarea name='fields[review]' className='textarea' required />
+              <textarea name='fields[message]' className='textarea' required />
             </form>
           </div>
         </Fragment>
