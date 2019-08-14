@@ -63,7 +63,7 @@ const submitRating = (rating, message, slug) => {
 }
 
 const ReviewForm = ({ slug }) => {
-  let title = config.userTwitter
+  let title = config.siteUrl
   let url = slug
 
   return (
