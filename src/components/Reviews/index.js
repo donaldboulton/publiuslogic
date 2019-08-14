@@ -71,14 +71,14 @@ const ReviewForm = ({ slug, frontmatter }) => {
       <>
         <Fragment>
           <div className='column reviews'>
-             Is this a useful post? Please give us a rating!
             <form
               name='ratings'
             >
               <input type='hidden' name='form-name' value='review' />
               <input name='fields[postPath]' type='hidden' value={url} />
               <input name='title' type='hidden' value={title} />
-              <div>                    
+              Is this a useful post? Please give us a rating!
+              <div>
                 <ReactStars
                   onChange={rating => {
                     submitRating(rating, url)
