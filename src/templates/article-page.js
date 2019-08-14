@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { globalHistory } from '@reach/router'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
@@ -42,7 +43,7 @@ const Styledh1 = styled.h1`
 }
 `
 
-const ArticlePage = ({ data, timeToRead, html }) => {
+const ArticlePage = ({ data, timeToRead, html, location }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
   const ratingValue =
@@ -62,6 +63,7 @@ const ArticlePage = ({ data, timeToRead, html }) => {
   const body = post.html
   const title = post.frontmatter.title
   const coverHeight = '100%'
+  const postPath = globalHistory.location.pathname
 
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
@@ -85,7 +87,7 @@ const ArticlePage = ({ data, timeToRead, html }) => {
     url: url,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': url,
+      '@id': postPath,
     },
     alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
     name: title,
@@ -127,7 +129,7 @@ const ArticlePage = ({ data, timeToRead, html }) => {
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
-        <meta name='url' content={post.frontmatter.canonical} />
+        <meta name='url' content={postPath} />
         <meta property='og:type' content='article' />
         <meta property='og:timeToRead' content={timeToRead} />
         <meta property='og:title' content={post.frontmatter.title} />
@@ -194,7 +196,7 @@ const ArticlePage = ({ data, timeToRead, html }) => {
                 excerpt={post.frontmatter.meta_description}
               />
               <hr />
-              <Review>
+              <Review location={location}>
                 <div
                   data={{
                     ...frontmatter,

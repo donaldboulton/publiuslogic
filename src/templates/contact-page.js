@@ -25,18 +25,19 @@ const Styledh1 = styled.h1`
 }
 `
 
-const ContactPage = ({ data }) => {
+const ContactPage = ({ data, location }) => {
   const { markdownRemark: post } = data
   const image = post.frontmatter.cover
   const author = config.author
   const postNode = data.markdownRemark
   const coverHeight = '100%'
   let logo = config.siteLogo
+  const url = location
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/contact',
+    url: 'url',
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -91,7 +92,7 @@ const ContactPage = ({ data }) => {
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={post.frontmatter.canonical} />
+        <meta property='og:url' content={url} />
         <meta name='rel' content={post.frontmatter.canonical} />
         <meta name='key' content={post.frontmatter.canonical} />
         <meta name='twitter:author' content='donboulton' />

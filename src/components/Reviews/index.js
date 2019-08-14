@@ -3,6 +3,7 @@ import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
+import { globalHistory } from '@reach/router'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -14,12 +15,12 @@ import theme from './buttons.css'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = (rating, message, slug) => {
-  let url = slug
+const submitRating = (rating, message, location) => {
 
+  const path = globalHistory.location.pathname
   const data = {
     'fields[rating]': rating,
-    'fields[postPath]': url,
+    'fields[postPath]': path,
     'fields[message]': message,
   }
 
@@ -62,9 +63,9 @@ const submitRating = (rating, message, slug) => {
   XHR.send(urlEncodedData)
 }
 
-const ReviewForm = ({ slug, frontmatter }) => {
-  let title = config.siteUrl
-  let url = slug
+const ReviewForm = ({ location }) => {
+  let title = config.siteTitle
+  let path = globalHistory.location.pathname
 
   return (
     <ThemeProvider theme={theme}>
@@ -74,14 +75,14 @@ const ReviewForm = ({ slug, frontmatter }) => {
             <form
               name='ratings'
             >
-              <input type='hidden' name='form-name' value='review' />
-              <input name='fields[postPath]' type='hidden' value={url} />
+              <input type='hidden' name='form-name' value='ratings' />
+              <input name='fields[postPath]' type='hidden' value={path} />
               <input name='title' type='hidden' value={title} />
               Is this a useful post? Please give us a rating!
               <div>
                 <ReactStars
                   onChange={rating => {
-                    submitRating(rating, url)
+                    submitRating(rating, path)
                   }}
                   half={false}
                   size={24}
