@@ -42,7 +42,7 @@ const Styledh1 = styled.h1`
 }
 `
 
-const ArticlePage = ({ data, timeToRead }) => {
+const ArticlePage = ({ data, timeToRead, html }) => {
   const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
 
   const ratingValue =
@@ -53,8 +53,7 @@ const ArticlePage = ({ data, timeToRead }) => {
       ) / ratings.totalCount
       : 0
   const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0;
-  
-  const message = ratings.fields.messageHtml
+
   const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
@@ -203,7 +202,7 @@ const ArticlePage = ({ data, timeToRead }) => {
                   }}
                   rich
                 />
-                <div dangerouslySetInnerHTML={{ __html: message }} />
+                <div dangerouslySetInnerHTML={{ __html: html }} />
                 {ratings ? (
                   <Rating>
                     Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
