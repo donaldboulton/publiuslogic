@@ -62,9 +62,9 @@ const submitRating = (rating, message, slug) => {
   XHR.send(urlEncodedData)
 }
 
-const ReviewForm = ({ slug }) => {
+const ReviewForm = ({ slug, frontmatter }) => {
   let title = config.siteUrl
-  let url = slug
+  let url = document.location.pathname
 
   return (
     <ThemeProvider theme={theme}>
@@ -89,7 +89,7 @@ const ReviewForm = ({ slug }) => {
                 />
               </div>
               <label>Add a Review</label>
-              <textarea name='fields[message]' className='textarea' required />
+              <textarea name='fields[message]' className='textarea' placeholder='Review is Optional' required />
             </form>
           </div>
         </Fragment>

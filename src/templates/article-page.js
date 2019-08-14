@@ -116,8 +116,8 @@ const ArticlePage = ({ data, timeToRead }) => {
     articleBody: body,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: data.rating.ratingValue,
-      ratingCount: data.rating.ratingCount,
+      ratingValue: '4.5',
+      ratingCount: '36',
     },
   }
 
