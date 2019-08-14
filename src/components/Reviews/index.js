@@ -64,7 +64,7 @@ const submitRating = (rating, message, slug) => {
 
 const ReviewForm = ({ slug, frontmatter }) => {
   let title = config.siteUrl
-  let url = document.location.pathname
+  let url = slug
 
   return (
     <ThemeProvider theme={theme}>
