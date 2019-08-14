@@ -11,19 +11,11 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 import styled from 'styled-components'
-import ReviewContent from '../components/Reviews/Styles'
+import Ratings from '../components/Ratings/Ratings'
+import Reviews from '../components/Ratings'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 
-const Review = styled(ReviewContent)`
-  @media (max-width: 300px) {
-    font-size: 1.5rem
-    color: hsla(0, 0%, 0%, 0.9)
-  }
-`
-const Rating = styled.div`
-  font-size: 1.5rem
-`
 const Styledh1 = styled.h1`
   display: inline-block;
   padding-top: 2em;
@@ -44,16 +36,7 @@ const Styledh1 = styled.h1`
 `
 
 const ArticlePage = ({ data, timeToRead, html, location }) => {
-  const { markdownRemark: post, allRatingsJson: ratings = [], frontmatter } = data
-
-  const ratingValue =
-    ratings && ratings.edges
-      ? ratings.edges.reduce(
-        (accumulator, rating) => accumulator + parseInt(rating.node.rating),
-        0
-      ) / ratings.totalCount
-      : 0
-  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0;
+  const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
   const buildTime = post.frontmatter.date
@@ -129,7 +112,7 @@ const ArticlePage = ({ data, timeToRead, html, location }) => {
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
-        <meta name='url' content={postPath} />
+        <meta name='url' content={post.frontmatter.canonical} />
         <meta property='og:type' content='article' />
         <meta property='og:timeToRead' content={timeToRead} />
         <meta property='og:title' content={post.frontmatter.title} />
@@ -140,7 +123,7 @@ const ArticlePage = ({ data, timeToRead, html, location }) => {
         <meta property='og:image:height' content={imageHeight} />
         <meta property='og:url' content={post.frontmatter.canonical} />
         <meta name='rel' content={post.frontmatter.canonical} />
-        <meta name='key' content={post.frontmatter.canonical} />
+        <meta name='key' content={postPath} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
@@ -190,28 +173,14 @@ const ArticlePage = ({ data, timeToRead, html, location }) => {
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
               />
+              <Ratings location={location} />
+              <Reviews location={location} />
               <Share
                 title={post.frontmatter.title}
                 slug={post.fields.slug}
                 excerpt={post.frontmatter.meta_description}
               />
               <hr />
-              <Review location={location}>
-                <div
-                  data={{
-                    ...frontmatter,
-                    rating: { ratingValue, ratingCount: ratingCount },
-                  }}
-                  rich
-                />
-                <div dangerouslySetInnerHTML={{ __html: html }} />
-                {ratings ? (
-                  <Rating>
-                    Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
-                    {ratings.totalCount} Reviews
-                  </Rating>
-                ) : null}
-              </Review>
               <Comments />
             </div>
           </div>

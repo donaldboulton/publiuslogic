@@ -8,7 +8,7 @@ import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
-import Reviews from '../Reviews'
+import Reviews from '../Ratings'
 import Prism from '../../utils/prism'
 
 require('prismjs')

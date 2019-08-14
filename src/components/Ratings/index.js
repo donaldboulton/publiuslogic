@@ -15,8 +15,7 @@ import { globalHistory } from '@reach/router'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = (rating, message, location) => {
-
+const submitRating = (rating, message) => {
   const path = globalHistory.location.pathname
   const data = {
     'fields[rating]': rating,
@@ -63,7 +62,7 @@ const submitRating = (rating, message, location) => {
   XHR.send(urlEncodedData)
 }
 
-const ReviewForm = ({ location }) => {
+const RatingForm = ({ location }) => {
   let title = config.siteTitle
   let path = globalHistory.location.pathname
 
@@ -99,4 +98,4 @@ const ReviewForm = ({ location }) => {
   )
 }
 
-export default ReviewForm
+export default RatingForm

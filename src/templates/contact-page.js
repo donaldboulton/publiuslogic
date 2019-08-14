@@ -32,12 +32,12 @@ const ContactPage = ({ data, location }) => {
   const postNode = data.markdownRemark
   const coverHeight = '100%'
   let logo = config.siteLogo
-  const url = location
+  const url = post.frontmatter.canonical
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'url',
+    url: url,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
