@@ -72,8 +72,7 @@ const ReviewForm = ({ slug }) => {
         <Fragment>
           <div className='column reviews'>
             <form
-              name='reviews'
-              onSubmit={this.handleSubmit}
+              name='ratings'
             >
               <input type='hidden' name='form-name' value='review' />
               <input name='fields[postPath]' type='hidden' value={url} />
