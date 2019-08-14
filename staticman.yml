@@ -1,7 +1,7 @@
 ratings:
-  allowedFields: ["rating", "postPath", message]
+  allowedFields: ["rating", "postPath", "review"]
   branch: "master"
-  commitMessage: "Rating via Staticman"
+  commitMessage: "Rating PubliusLogic"
   filename: "rating{@timestamp}"
   format: "json"
   generatedFields:
@@ -12,6 +12,6 @@ ratings:
   moderation: false
   name: "publiuslogic"
   path: "_data/ratings/"
-  requiredFields: ["rating", "postPath", message]
+  requiredFields: ["rating", "postPath", "review"]
   recaptcha:
     enabled: false

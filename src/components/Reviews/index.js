@@ -20,6 +20,7 @@ const submitRating = (rating, slug) => {
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': url,
+    'fields[review]': review,
     'options[reCaptcha][siteKey]': '6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk',
   }
 
@@ -64,7 +65,7 @@ const submitRating = (rating, slug) => {
 
 const ReviewForm = ({ slug }) => {
   let title = config.userTwitter
-  let url = config.siteUrl + slug
+  let url = slug
 
   return (
     <ThemeProvider theme={theme}>
@@ -88,7 +89,8 @@ const ReviewForm = ({ slug }) => {
                   color2={'#d64000'}
                 />
               </div>
-              <input name='fields[message]' className='input' required />
+              <label>Add a Review</label>
+              <textarea name='fields[review]' className='textarea' required />
             </form>
           </div>
         </Fragment>
