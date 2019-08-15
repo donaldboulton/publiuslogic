@@ -20,7 +20,7 @@ const RatingDiv = styled.div`
 `
 const Date = styled.span``
 
-const Element = ({ props, location, first, rating: { node: rating } }) => {
+const Element = ({ props, location, first, rating }) => {
   const {
     markdownRemark,
     allRatingsJson: ratings = [],
@@ -47,7 +47,7 @@ const Element = ({ props, location, first, rating: { node: rating } }) => {
       />
       {ratings ? (
         <RatingDiv>
-      Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
+          Rating: {ratingValue !==0 ? ratingValue.toFixed(1) : null} -{' '}
           {ratings.totalCount} Reviews
         </RatingDiv>
       ) : null}
