@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import EmailIcon from '../../img/enewsletter_icon.png'
 import { Mailchimp } from 'styled-icons/fa-brands/'
@@ -134,6 +135,13 @@ export default class Subscribe extends React.Component {
                     </div>
                   </form>
                 )}
+              </div>
+              <div className='column'>
+                <p className='subtitle is-5'>
+                  <Link to='/privacy/#MailChimp' itemProp='url' rel='no-follow' className='is-small'>
+                     MailChimp Privacy & Terms
+                  </Link>
+                </p>
               </div>
             </div>
           </div>

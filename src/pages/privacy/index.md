@@ -145,7 +145,9 @@ Google Analytics is a web analytics tool I use to help understand how visitors e
 
 Google AdSense, a third party affiliate marketing network, uses cookies to help make sure I get a commission when you buy a product after clicking on a link or ad banner that takes you to the site of one of their merchants.
 
-### You can read: [Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182)
+### You can read:
+
+[Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182)
 
 ## MailChimp
 
@@ -157,7 +159,7 @@ New articles we think you will be interested in reading.
 Products that we think you will be interested in learning about.
 We won’t sell or rent your data to anyone else.
 
-Feel free to read MailChimp’s privacy policy and terms.
+Feel free to read MailChimp’s [privacy policy](https://mailchimp.com/legal/privacy/) and [terms](https://mailchimp.com/legal/terms/)
 
 ## Donation Policy
 
