@@ -11,8 +11,6 @@ import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
 import styled from 'styled-components'
-import Ratings from '../components/Ratings/Ratings'
-import Reviews from '../components/Ratings'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 
@@ -173,8 +171,6 @@ const ArticlePage = ({ data, timeToRead, html, location }) => {
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
               />
-              <Ratings location={location} />
-              <Reviews location={location} />
               <Share
                 title={post.frontmatter.title}
                 slug={post.fields.slug}

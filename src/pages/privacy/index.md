@@ -147,6 +147,18 @@ Google AdSense, a third party affiliate marketing network, uses cookies to help 
 
 ### You can read: [Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182)
 
+## MailChimp
+
+If you choose to sign up for our Subscriptions email newsletter (we hope you will), we use MailChimp. You’re free to unsubscribe at any time. If you want us to delete your entire history on MaiChimp at any time, contact donboulton@gmail.com and we’ll do that.
+
+We’ll email you about:
+
+New articles we think you will be interested in reading.
+Products that we think you will be interested in learning about.
+We won’t sell or rent your data to anyone else.
+
+Feel free to read MailChimp’s privacy policy and terms.
+
 ## Donation Policy
 
 All Donations thought our external pay sites and or through our PayPal buttons will not be refundable, as they are a donation to a free website designer, that has limited ability's to do money transfers back to you. Thank You for your donations to publiuslogic.com.
@@ -166,16 +178,6 @@ Weigh in with smart, informed ideas that contribute further to the story.
 Give us useful, constructive criticism. Spot a typo or an error? Let us know and we will correct it.
 
 Demonstrate and share the intelligence, wisdom, and humor we know you possess.
-
-## Purchases
-
-### Purchase Policy
-
-working
-
-### Return Policy
-
-working
 
 ## Disclosure Policy
 
@@ -199,3 +201,13 @@ All original content (e.g. articles, blog posts, illustrations, artwork, and pho
 ## Attribution
 
 Working
+
+## Purchases
+
+### Purchase Policy
+
+working
+
+### Return Policy
+
+working
