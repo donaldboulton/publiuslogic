@@ -2,18 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 
-class Ratings extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = { rating: 0 }
-  }
+export default function Ratings(props) {
+  const {
+    markdownRemark,
+    allRatingsJson: ratings = []
+  } = props.data
+  const { frontmatter, html, first } = markdownRemark
 
-  render (props) {
-    const {
-      markdownRemark,
-      allRatingsJson: ratings = [],
-    } = props.data
-    const { frontmatter, first } = markdownRemark
     const rating = this.props.data.allRatingsJson.edges
     const ratingValue =
       ratings && ratings.edges
