@@ -32,7 +32,7 @@ const ArticleTemplate = ({
   imageWidth,
   imageHeight,
   canonical,
-  timeToRead,
+  readingTime,
   contentComponent,
   categorys,
   meta_title,
@@ -57,7 +57,7 @@ const ArticleTemplate = ({
             <Calendar size='.9em' />&nbsp;
             <Date>{date}&nbsp;</Date>&nbsp;
             <Timer size='.9em' />
-            <Time>{timeToRead}3&nbsp;min</Time>
+            <Time>{readingTime}min</Time>
           </span>
         </div>
         <WebIntents />

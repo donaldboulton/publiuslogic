@@ -162,7 +162,7 @@ adding
   import { Meta, TagList, Calendar, Timer, Comments } from './styles'
   import config from '../../data/config'
 
-  const PostMeta = ({ title, slug, date, timeToRead, tags }) => (
+  const PostMeta = ({ title, slug, date, readingTime, tags }) => (
     <Meta>
       <span>
         <Calendar size='1.2em' />
@@ -170,7 +170,7 @@ adding
       </span>
       <span>
         <Timer size='1.2em' />
-        {timeToRead} min read
+        {readingTime} min read
       </span>
       <span>
         <Comments size='1.2em' />

@@ -26,7 +26,7 @@ const Styledh1 = styled.h1`
 `
 
 const PhotosPage = ({ data }) => {
-  const { markdownRemark: post, timeToRead } = data
+  const { markdownRemark: post, readingTime } = data
   const image = post.frontmatter.cover
   const postNode = data.markdownRemark
   const postImage = post.frontmatter.cover
@@ -87,7 +87,7 @@ const PhotosPage = ({ data }) => {
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={post.frontmatter.canonical} />
         <meta property='og:type' content='article' />
-        <meta property='og:timeToRead' content={timeToRead} />
+        <meta property='og:readingTime' content={readingTime} />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
         <meta property='og:image' content={post.frontmatter.cover} />

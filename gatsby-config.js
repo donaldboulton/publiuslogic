@@ -125,6 +125,7 @@ module.exports = {
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
           `gatsby-remark-component`,
+          `gatsby-remark-reading-time-v2`,
           {
             resolve: 'gatsby-remark-normalize-paths',
             options: {
@@ -293,7 +294,6 @@ module.exports = {
                           node {
                             excerpt(pruneLength: 400)
                             html
-                            timeToRead
                             id
                             fields { slug }
                             frontmatter {

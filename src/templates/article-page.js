@@ -33,7 +33,7 @@ const Styledh1 = styled.h1`
 }
 `
 
-const ArticlePage = ({ data, timeToRead, html, location }) => {
+const ArticlePage = ({ data, readingTime, html, location }) => {
   const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
@@ -112,7 +112,7 @@ const ArticlePage = ({ data, timeToRead, html, location }) => {
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={post.frontmatter.canonical} />
         <meta property='og:type' content='article' />
-        <meta property='og:timeToRead' content={timeToRead} />
+        <meta property='og:readingTime' content={readingTime} />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
         <meta property='og:image' content={post.frontmatter.cover} />
@@ -162,7 +162,7 @@ const ArticlePage = ({ data, timeToRead, html, location }) => {
                 content={post.html}
                 contentComponent={HTMLContent}
                 cover={post.frontmatter.cover}
-                timeToRead={timeToRead}
+                readingTime={readingTime}
                 categorys={post.frontmatter.categorys}
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
@@ -189,7 +189,7 @@ const ArticlePage = ({ data, timeToRead, html, location }) => {
 ArticlePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
-    timeToRead: PropTypes.number.isRequired,
+    readingTime: PropTypes.number.isRequired,
   }),
 }
 
@@ -200,10 +200,12 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id      
       html
-      excerpt(pruneLength: 500)
-      timeToRead                             
+      excerpt(pruneLength: 200)                          
       fields {
         slug
+        readingTime {
+          text
+        }
       }      
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
