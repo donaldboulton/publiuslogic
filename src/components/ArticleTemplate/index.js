@@ -9,6 +9,7 @@ import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import Reviews from '../Ratings'
+import Ratings from '../Ratings/Ratings'
 import Prism from '../../utils/prism'
 
 require('prismjs')
@@ -66,6 +67,7 @@ const ArticleTemplate = ({
       <Prism />
       <PostContent content={content} />
       <hr />
+      <Ratings />
       <Reviews />
       <div className='container content'>
         <div className='columns is-desktop is-vcentered'>
