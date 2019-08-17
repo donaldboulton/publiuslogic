@@ -7,7 +7,7 @@ export default function Ratings(props) {
     markdownRemark,
     allRatingsJson: ratings = []
   } = props.data
-  const { frontmatter, html, first } = markdownRemark
+  const { frontmatter, first } = markdownRemark
 
     const rating = this.props.data.allRatingsJson.edges
     const ratingValue =
@@ -47,7 +47,6 @@ export default function Ratings(props) {
         <Date>{moment.unix(rating.date).format('LLL')}</Date> by{' '}
       </Rating>
     )
-  }
 }
 
 const Rating = styled.div`
