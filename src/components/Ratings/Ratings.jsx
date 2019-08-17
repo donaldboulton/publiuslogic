@@ -1,5 +1,4 @@
 import React from 'react'
-import { StaticQuery } from './Reviews'
 import styled from 'styled-components'
 import moment from 'moment'
 
@@ -12,11 +11,10 @@ class Ratings extends React.Component {
   render (props) {
     const {
       markdownRemark,
-      rating,
       allRatingsJson: ratings = [],
     } = props.data
     const { frontmatter, first } = markdownRemark
-
+    const rating = this.props.data.allRatingsJson.edges
     const ratingValue =
       ratings && ratings.edges
         ? ratings.edges.reduce(
@@ -56,8 +54,6 @@ class Ratings extends React.Component {
     )
   }
 }
-// eslint-disable-next-line no-unused-vars
-<StaticQuery />
 
 const Rating = styled.div`
   ${({ first }) =>
