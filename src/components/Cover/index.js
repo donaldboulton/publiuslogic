@@ -7,7 +7,7 @@ export default (props) => {
       {props.cover.childImageSharp ? (
         <Img sizes={props.cover.childImageSharp.sizes} />
       ) : (
-        <img src={props.cover.publicURL} className='full-width-image' />
+        <img src={props.cover.publicURL} className='post-image' />
       )}
     </figure>
   )

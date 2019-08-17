@@ -31,12 +31,16 @@ I stripped Netlify CMS and Netlify identity and related plugins out of my packag
       options: {
         headers: {
           '/*': [
-            'Link: <https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js>; rel=preload; as=script',
-            'Link: <https://www.googletagmanager.com/gtag/js?id=UA-24847941-1>; rel=preload; as=script',
-            'Link: <https://cookiehub.net/cc/0536e9f8.js>; rel=preload; as=script',
+            'Link: <https://pagead2.googlesyndication.com/pagead/js/
+            adsbygoogle.js>; rel=preload; as=script',
+            'Link: <https://www.googletagmanager.com/gtag/js?id=UA-24847941-1>; 
+            rel=preload; as=script',
+            'Link: <https://cookiehub.net/cc/0536e9f8.js>; 
+            rel=preload; as=script',
           ],
           '/blog/*': [
-            'Link: <https://platform.twitter.com/widgets.js>; rel=preload; as=script',
+            'Link: <https://platform.twitter.com/widgets.js>; 
+            rel=preload; as=script',
           ],
           '/*.js': [
             'cache-control: public, max-age=31536000, immutable',
@@ -82,11 +86,13 @@ Code for the index.html page is below.
 
 ```html{3-5,23-25}:title=static/admin/index.html
 
-<!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
+<!doctype html><html lang="en" class="no-js" itemscope 
+itemtype="https://schema.org/WebSite">
 <head>
   <script src="./index.js"></script>
   <script src="./netlify-identity.js"></script>
   <script>
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       netlifyIdentity.init({
@@ -101,12 +107,14 @@ Code for the index.html page is below.
   <title>Content Manager</title>
 </head>
 
-<body id="style-3" class="body" auth-false" itemscope itemtype="https://schema.org/WebPage">
+<body id="style-3" class="body" auth-false" itemscope 
+itemtype="https://schema.org/WebPage">
 <div class="page">
-    <script src="./netlify-cms.js"></script>    
+    <script src="./netlify-cms.js"></script>
     <script src="../admin/cms/cms.js"></script>
 <script>
   CMS.registerEditorComponent({
+
     // Internal id of the component
     id: "youtube",
     // Visible label
@@ -129,7 +137,8 @@ Code for the index.html page is below.
     // (component gives better render performance)
     toPreview: function(obj) {
       return (
-        '<img src="https://www.w3.org/2000/svgimg.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+        '<img src="https://www.w3.org/2000/svgimg.youtube.com/vi/' + 
+        obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
       );
     }
   });</script>

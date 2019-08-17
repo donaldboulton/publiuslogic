@@ -50,7 +50,7 @@ const ArticleTemplate = ({
         css='position: fixed; right: 1em; top: 4.5em;'
       />
       <br />
-      <div className='columns is-desktop is-vcentered box'>
+      <div className='columns is-desktop is-vcentered'>
         <div className='column is-3'>
           <span className='subtitle is-size-5'>
             <Calendar size='.9em' />&nbsp;
