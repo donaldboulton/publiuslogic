@@ -124,7 +124,10 @@ module.exports = {
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
-          `gatsby-remark-component`,
+          {
+            resolve: 'gatsby-remark-component',
+            options: { components: ['Ratings', 'Reviews'] },
+          },
           `gatsby-remark-reading-time-v2`,
           {
             resolve: 'gatsby-remark-normalize-paths',

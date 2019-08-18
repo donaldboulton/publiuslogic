@@ -1,4 +1,5 @@
 import React from 'react'
+import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
 import 'prismjs/themes/prism-okaidia.css'
@@ -32,11 +33,16 @@ const Styledh1 = styled.h1`
   -webkit-text-fill-color: transparent;
 }
 `
-
-const ArticlePage = ({ data, readingTime, html, location }) => {
+const ArticlePage = ({ data, location }) => {
   const { markdownRemark: post } = data
 
+  const renderAst = new RehypeReact({
+    createElement: React.createElement,
+    components: { 'reviews': 'Reviews' },
+  }).Compiler
+
   const postNode = data.markdownRemark
+  const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
@@ -158,6 +164,7 @@ const ArticlePage = ({ data, readingTime, html, location }) => {
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
+              <div>{renderAst(post.htmlAst)}</div>
               <ArticleTemplate
                 content={post.html}
                 contentComponent={HTMLContent}
@@ -199,7 +206,7 @@ export const pageQuery = graphql`
   query ArticleByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id      
-      html
+      htmlAst
       excerpt(pruneLength: 200)                          
       fields {
         slug
