@@ -41,9 +41,9 @@ const ArticleTemplate = ({
   title,
 }) => {
   const PostContent = contentComponent || Content
- 
+
   return (
-    <div>      
+    <div>
       <ScrollDown
         direction='down' to={25}
         showAbove={-1500}

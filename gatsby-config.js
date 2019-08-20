@@ -66,6 +66,7 @@ module.exports = {
     'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
+    `gatsby-transformer-json`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -363,7 +364,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-netlify`,
       options: {

@@ -105,6 +105,8 @@
     "react-slack-feedback": "^2.1.0",
     "react-stars": "^2.2.5",
     "react-typist": "^2.0.5",
+    "rehype-react": "^4.0.1",
+    "remark-rehype": "^5.0.0",
     "sharp": "^0.23.0",
     "snyk": "^1.192.3",
     "styled-components": "^4.3.2",

@@ -33,13 +33,13 @@ const Styledh1 = styled.h1`
   -webkit-text-fill-color: transparent;
 }
 `
-const ArticlePage = ({ data, location }) => {
-  const { markdownRemark: post } = data
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: { 'reviews': 'Reviews' },
+}).Compiler
 
-  const renderAst = new RehypeReact({
-    createElement: React.createElement,
-    components: { 'reviews': 'Reviews' },
-  }).Compiler
+const ArticlePage = ({ data, htmlAst, location }) => {
+  const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
   const readingTime = data.readingTime

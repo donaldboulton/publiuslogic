@@ -1,8 +1,26 @@
 import React from 'react'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Global from '../../components/Global'
+
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 38px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #8e0436,
+    #d64000
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
 
 const CategorysPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
@@ -15,9 +33,9 @@ const CategorysPage = ({
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <div className='section'>
-                <h1 className='title'>
-                  Categories
-                </h1>
+                <Styledh1>
+                   All Site Categories
+                </Styledh1>
               </div>
             </div>
           </div>

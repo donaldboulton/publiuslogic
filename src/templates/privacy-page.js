@@ -123,7 +123,7 @@ const PrivacyPage = ({ data }) => {
             <Styledh1>
               {post.frontmatter.title}
             </Styledh1>
-            <p>Individual Privacy & Terms of Site Usage.</p>
+            <p>Users Privacy & Terms of Site Usage.</p>
             <p>
             🔐 For Refinements see <Link className='is-warning' to={`/privacy/#Disabling-Cookies`}>Cookies</Link> or <Link className='is-warning' to={`/privacy/#Privacy-Google`}>Google Privacy</Link>
             </p>
