@@ -10,7 +10,7 @@ tags:
   - Gatsby
   - Json-LD
   - SEO
-  - WebDev
+  - Webdev
   - Tutorial
 meta_title: SEO JSON-LD done right.
 meta_description: Gatsby SEO JSON-LD per page is the only logical option for perfection in a WebPage or Article.

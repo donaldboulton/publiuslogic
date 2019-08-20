@@ -8,10 +8,9 @@ category: 'tech'
 cover: '/images/top.jpg'
 tags:
   - Gatsby
-  - toTop
   - React
   - Scroll
-  - WebDev
+  - Webdev
   - Tutorial
 meta_title: Scroll toTop or Bottom
 meta_description: Gatsby React Scroll toTop. Built with React Hooks, Styled Components and Love

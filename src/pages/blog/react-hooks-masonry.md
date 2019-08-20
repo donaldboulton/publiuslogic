@@ -10,7 +10,7 @@ tags:
   - React
   - Masonry
   - Hooks
-  - WebDev
+  - Webdev
   - Tutorial
 meta_title: React Hooks Masonry
 meta_description: React Hooks Masonry

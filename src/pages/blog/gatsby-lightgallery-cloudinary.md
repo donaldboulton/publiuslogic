@@ -11,7 +11,7 @@ tags:
   - Cloudinary
   - LightGallery 
   - Gallery
-  - WebDev
+  - Webdev
   - Tutorial
 meta_title: LightGallery is the Coolest
 meta_description: Gatsby Image Gallery using cloudinary-react and react-lightgallery npm modules, styled with styled components and styled-css-grid.
