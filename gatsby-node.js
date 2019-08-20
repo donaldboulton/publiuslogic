@@ -31,7 +31,7 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               title
               cover
-              categorys
+              category
               tags
               templateKey
               date(formatString: "MMMM DD, YYYY")
@@ -70,7 +70,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
-        categorys: edge.node.frontmatter.categorys,
+        category: edge.node.frontmatter.category,
         component: path.resolve(
           `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
@@ -81,23 +81,23 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
 
-    let categorys = []
+    let category = []
     // Iterate through each post, putting all found category into `categories`
     postsAndPages.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.categorys`)) {
-        categorys = categorys.concat(edge.node.frontmatter.categorys)
+      if (_.get(edge, `node.frontmatter.category`)) {
+        category = category.concat(edge.node.frontmatter.category)
       }
     })
     // Eliminate duplicate tags
-    categorys = _.uniq(categorys)
+    category = _.uniq(category)
 
     // Make category pages
-    categorys.forEach(category => {
-      const categoryPath = `/categorys/${_.kebabCase(category)}/`
+    category.forEach(category => {
+      const categoryPath = `/categories/${_.kebabCase(category)}/`
 
       createPage({
         path: categoryPath,
-        component: path.resolve(`src/templates/categorys.js`),
+        component: path.resolve(`src/templates/category.js`),
         context: {
           category,
         },

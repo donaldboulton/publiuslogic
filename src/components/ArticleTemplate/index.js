@@ -28,7 +28,7 @@ const ArticleTemplate = ({
   canonical,
   readingTime,
   contentComponent,
-  categorys,
+  category,
   meta_title,
   meta_description,
   date,
@@ -66,7 +66,7 @@ const ArticleTemplate = ({
           </div>
           <div className='column'>
             <h4>Category</h4>
-            <Link className='button is-primary is-small' to={`/categories/`}>{categorys}</Link>
+            <Link className='button is-primary is-small' to={`/categories/`}>{category}</Link>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ title: Gatsby React Scroll toTop
 slug: Gatsby GitHub Comments Utterances
 canonical: "https://publiuslogic.com/blog/gatsby-react-scroll-toTop/"
 date: 2019-04-22T20:20:43.942Z
-categorys: 'tech'
+category: 'tech'
 cover: '/images/top.jpg'
 tags:
   - Gatsby

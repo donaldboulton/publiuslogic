@@ -22,7 +22,7 @@ const Styledh1 = styled.h1`
 }
 `
 
-const CategorysPage = ({
+const CategoriesPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
   <Global>
@@ -50,12 +50,12 @@ const CategorysPage = ({
             style={{ marginBottom: '2rem' }}
           >
             <ul className='taglist field is-grouped is-grouped-multiline'>
-              {group.map(categroy => (
-                <li className='control' key={categroy.fieldValue}>
-                  <Link to={`/categorys/${kebabCase(categroy.fieldValue)}/`}>
+              {group.map(category => (
+                <li className='control' key={category.fieldValue}>
+                  <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>
                     <div className='tags has-addons is-large'>
-                      <span className='tag is-primary'>{categroy.fieldValue}</span>
-                      <span className='tag is-dark'>{categroy.totalCount}</span>
+                      <span className='tag is-primary'>{category.fieldValue}</span>
+                      <span className='tag is-dark'>{category.totalCount}</span>
                     </div>
                   </Link>
                 </li>
@@ -68,17 +68,17 @@ const CategorysPage = ({
   </Global>
 )
 
-export default CategorysPage
+export default CategoriesPage
 
 export const categoryPageQuery = graphql`
-  query CategorysQuery {
+  query CategoryQuery {
     site {
       siteMetadata {
         title
       }
     }
     allMarkdownRemark(limit: 1000) {
-      group(field: frontmatter___categorys) {
+      group(field: frontmatter___category) {
         fieldValue
         totalCount
       }

@@ -199,7 +199,7 @@ const ArticlePage = ({ data, htmlAst, location }) => {
                 contentComponent={HTMLContent}
                 cover={post.frontmatter.cover}
                 readingTime={readingTime}
-                categorys={post.frontmatter.categorys}
+                category={post.frontmatter.category}
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
                 meta_title={post.frontmatter.meta_title}
@@ -247,7 +247,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         tweet_id
-        categorys
+        category
         meta_title
         meta_description
         tags

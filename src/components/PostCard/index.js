@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { Meta } from './styles'
 import { Calendar, FileSymlinkFile } from 'styled-icons/octicons/'
 
-const PostCard = ({ posts, categorys, date, inTitle = false }) => {
+const PostCard = ({ posts, category, date, inTitle = false }) => {
   return (
     <section className='section'>
       <div className='container'>
@@ -31,7 +31,7 @@ const PostCard = ({ posts, categorys, date, inTitle = false }) => {
                       <div>
                         <span className='subtitle is-size-5'>
                           <Calendar size='1.2em' /><small>&nbsp;{post.frontmatter.date}</small>
-                          <span className='is-pulled-right'>&nbsp;&nbsp;Category&nbsp;<FileSymlinkFile size='1.2em' /><Link to={`/categories/`}><small>&nbsp;{post.frontmatter.categorys}</small></Link></span>
+                          <span className='is-pulled-right'>&nbsp;&nbsp;Category&nbsp;<FileSymlinkFile size='1.2em' /><Link to={`/categories/`}><small>&nbsp;{post.frontmatter.category}</small></Link></span>
                         </span>
                       </div>
                     </Meta>

@@ -4,7 +4,7 @@ title: Gatsby SEO
 slug: gatsby seo
 canonical: "https://publiuslogic.com/blog/gatsby-seo/"
 date: 2019-07-30T20:14:43.942Z
-categorys: 'tech'
+category: 'tech'
 cover: '/images/json-ld.jpg'
 tags:
   - Gatsby
@@ -163,7 +163,7 @@ const ArticlePage = ({ data }) => {
                 contentComponent={HTMLContent}
                 cover={post.frontmatter.cover}
                 readingTime={readingTime}
-                categorys={post.frontmatter.categorys}
+                category={post.frontmatter.category}
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
                 meta_title={post.frontmatter.meta_title}
@@ -209,7 +209,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         tweet_id
-        categorys
+        category
         meta_title
         meta_description
         tags

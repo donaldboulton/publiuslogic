@@ -3,8 +3,6 @@ const config = require('./_data/config')
 const fetch = require(`node-fetch`)
 const { createHttpLink } = require(`apollo-link-http`)
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -280,7 +278,7 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   cover: edge.node.frontmatter.cover,
                   title: edge.node.frontmatter.title,
-                  categorys: edge.node.frontmatter.categorys,
+                  category: edge.node.frontmatter.category,
                   description: edge.node.excerpt,
                   author: rssMetadata.author,
                   url: rssMetadata.site_url + edge.node.fields.slug,
@@ -305,7 +303,7 @@ module.exports = {
                               templateKey
                               cover
                               date(formatString: "MMMM DD, YYYY")
-                              categorys
+                              category
                               tags
                               tweet_id
                             }

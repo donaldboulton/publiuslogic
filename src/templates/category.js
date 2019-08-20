@@ -30,12 +30,12 @@ class CategoryRoute extends Component {
         </Link>
       </li>
     ))
-    const categorys = this.props.pageContext.categroys
+    const category = this.props.pageContext.category
     const title = this.props.data.site.siteMetadata.title
     const totalCount = this.props.data.allMarkdownRemark.totalCount
-    const categorysHeader = `${totalCount} post${
+    const categoryHeader = `${totalCount} post${
       totalCount === 1 ? '' : 's'
-    } tagged with “${categorys}”`
+    } tagged with “${category}”`
 
     return (
       <Global pageTitle={title}>
@@ -55,14 +55,14 @@ class CategoryRoute extends Component {
           </div>
         </section>
         <section className='section'>
-          <Helmet title={`${categorys} | ${title}`} />
+          <Helmet title={`${category} | ${title}`} />
           <div className='container content'>
             <div className='columns'>
               <div
                 className='column is-10 is-offset-1'
                 style={{ marginBottom: '6rem' }}
               >
-                <h3 className='title is-size-4 is-bold-light'>{categorysHeader}</h3>
+                <h3 className='title is-size-4 is-bold-light'>{categoryHeader}</h3>
                 <ul className='taglist read-more'>{postLinks}</ul>
                 <p>
                   <Link className='button is-primary' to='/categories/'>Browse all categories →</Link>
@@ -88,7 +88,7 @@ export const categoryPageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { categorys: { in: [$category] } } }
+      filter: { frontmatter: { category: { in: [$category] } } }
     ) {
       totalCount
       edges {
