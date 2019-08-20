@@ -1,11 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import Content from '../Content'
-import GithubButtonsRepo from '../GithubButtonsRepo'
-import WebIntents from '../WebIntents'
 import ScrollDown from '../ScrollDown'
-import { Calendar } from 'styled-icons/octicons/Calendar'
-import { Timer } from 'styled-icons/material/Timer'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import Reviews from '../Ratings'
@@ -50,19 +45,6 @@ const ArticleTemplate = ({
         css='position: fixed; right: 1em; top: 4.5em;'
       />
       <br />
-      <div className='columns is-desktop is-vcentered'>
-        <div className='column is-3'>
-          <span className='subtitle is-size-5'>
-            <Calendar size='.9em' />&nbsp;
-            <Date>{date}&nbsp;</Date>&nbsp;
-            <Timer size='.9em' />
-            <Time>{readingTime}min</Time>
-          </span>
-        </div>
-        <WebIntents />
-        <GithubButtons><GithubButtonsRepo className='is-size-6 is-pulled-right' /></GithubButtons>
-      </div>
-      <br />
       <Prism />
       <PostContent content={content} />
       <hr />
@@ -91,17 +73,5 @@ const ArticleTemplate = ({
     </div>
   )
 }
-
-const Time = styled.span`
-  font-size: 1rem;
-  color: silver;
-`
-const Date = styled.span`
-  font-size: 1rem;
-  color: silver;
-`
-const GithubButtons = styled.span`
-  right: .5px;
-`
 
 export default ArticleTemplate

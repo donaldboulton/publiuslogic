@@ -2,6 +2,11 @@ import React from 'react'
 import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
+import styled from 'styled-components'
+import GithubButtonsRepo from '../GithubButtonsRepo'
+import WebIntents from '../WebIntents'
+import { Calendar } from 'styled-icons/octicons/Calendar'
+import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
@@ -11,7 +16,6 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
-import styled from 'styled-components'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 
@@ -32,6 +36,17 @@ const Styledh1 = styled.h1`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+`
+const Time = styled.span`
+  font-size: 1rem;
+  color: silver;
+`
+const Date = styled.span`
+  font-size: 1rem;
+  color: silver;
+`
+const GithubButtons = styled.span`
+  right: .5px;
 `
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -158,6 +173,18 @@ const ArticlePage = ({ data, htmlAst, location }) => {
           <Styledh1>
             {post.frontmatter.title}
           </Styledh1>
+        </div>
+        <div className='columns is-desktop is-vcentered'>
+          <div className='column is-3'>
+            <span className='subtitle is-size-5'>
+              <Calendar size='.9em' />&nbsp;
+              <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
+              <Timer size='.9em' />
+              <Time>{readingTime}3 min</Time>
+            </span>
+          </div>
+          <WebIntents />
+          <GithubButtons><GithubButtonsRepo className='is-size-6 is-pulled-right' /></GithubButtons>
         </div>
       </section>
       <section className='section'>
