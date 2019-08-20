@@ -1,7 +1,25 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 import Global from '../components/Global'
+
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 38px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  z-index: 22;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #8e0436,
+    #d64000
+  ) no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+`
 class CategoryRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges
@@ -21,6 +39,21 @@ class CategoryRoute extends Component {
 
     return (
       <Global pageTitle={title}>
+        <section className='hero hero-blog-cover'>
+          <div className='hero-body'>
+            <div className='container'>
+              <div className='columns'>
+                <div className='column is-10 is-offset-1'>
+                  <div className='section'>
+                    <Styledh1>
+                      Categories
+                    </Styledh1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className='section'>
           <Helmet title={`${categorys} | ${title}`} />
           <div className='container content'>

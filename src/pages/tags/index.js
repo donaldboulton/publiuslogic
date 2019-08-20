@@ -25,7 +25,7 @@ const Styledh1 = styled.h1`
 const TagsPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
-  <Global>
+  <Global pageTitle={title}>
     <Helmet title={`Tags | ${title}`} />
     <section className='hero hero-blog-cover'>
       <div className='hero-body'>
