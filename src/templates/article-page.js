@@ -174,17 +174,19 @@ const ArticlePage = ({ data, htmlAst, location }) => {
             {post.frontmatter.title}
           </Styledh1>
         </div>
-        <div className='columns is-desktop is-vcentered'>
-          <div className='column is-3'>
-            <span className='subtitle is-size-5'>
-              <Calendar size='.9em' />&nbsp;
-              <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
-              <Timer size='.9em' />
-              <Time>{readingTime}3 min</Time>
-            </span>
+        <div className='column is-10 is-offset-1'>
+          <div className='columns is-desktop is-vcentered'>
+            <div className='column is-3'>
+              <span className='subtitle is-size-5'>
+                <Calendar size='.9em' />&nbsp;
+                <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
+                <Timer size='.9em' />
+                <Time>{readingTime}3 min</Time>
+              </span>
+            </div>
+            <WebIntents />
+            <GithubButtons><GithubButtonsRepo className='is-size-6 is-pulled-right' /></GithubButtons>
           </div>
-          <WebIntents />
-          <GithubButtons><GithubButtonsRepo className='is-size-6 is-pulled-right' /></GithubButtons>
         </div>
       </section>
       <section className='section'>
