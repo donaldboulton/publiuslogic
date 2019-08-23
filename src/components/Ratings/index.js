@@ -71,8 +71,8 @@ const RatingForm = () => {
           <div className='column reviews'>
             <input type='hidden' name='form-name' value='ratings' />
             <input name='fields[postPath]' type='hidden' value={path} />
-              Is this a useful post? Please give us a rating!
             <Content>
+              <strong>Is this a useful post? Please give us a rating!</strong>
               <ReactStars
                 onChange={rating => {
                   submitRating(rating, path)
