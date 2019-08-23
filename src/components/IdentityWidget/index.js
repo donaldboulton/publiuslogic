@@ -1,5 +1,5 @@
 import React from 'react'
-import signin from '/img/sign-in-alt.svg'
+import signin from './assets/img/sign-in-alt.svg'
 import netlifyIdentity from './netlify-identity.js'
 
 export const isBrowser = () => typeof window !== 'undefined'

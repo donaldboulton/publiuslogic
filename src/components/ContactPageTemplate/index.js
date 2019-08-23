@@ -2,7 +2,7 @@ import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
 import ContactForm from '../ContactForm'
-import logo from '/img/logo.png'
+import logo from './assets/img/logo.png'
 
 const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent }) => {
   const PageContent = contentComponent || Content

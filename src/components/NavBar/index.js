@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import SearchBox from '../SearchBox'
-import logo from '/img/site-logo250x80.png'
+import logo from './assets/img/site-logo250x80.png'
 
 import NetlifyIdentityWidget from '../IdentityWidget'
 

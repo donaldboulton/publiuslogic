@@ -1,7 +1,7 @@
 import React from 'react'
 import CommentForm from './comments'
 import GitHubIssues from '../GithubIssues'
-import logo from '/img/logo.png'
+import logo from './assets/img/logo.png'
 
 class Comments extends React.Component {
   render () {
