@@ -6,7 +6,7 @@ import GithubButtonFork from './fork'
 import { ThemeProvider } from 'styled-components'
 import theme from './buttons.css'
 
-require('primer/octicons/index')
+require('@primer/octicons-react/index')
 class GitHubRepo extends Component {
   render () {
     return (
