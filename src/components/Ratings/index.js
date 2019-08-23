@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
@@ -15,12 +14,11 @@ import { globalHistory } from '@reach/router'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = (rating, message) => {
+const submitRating = (rating) => {
   const path = globalHistory.location.pathname
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': path,
-    'fields[message]': message,
   }
 
   const XHR = new XMLHttpRequest()
@@ -63,7 +61,6 @@ const submitRating = (rating, message) => {
 }
 
 const RatingForm = ({ location }) => {
-  let title = config.siteTitle
   let path = globalHistory.location.pathname
 
   return (
@@ -76,7 +73,6 @@ const RatingForm = ({ location }) => {
             >
               <input type='hidden' name='form-name' value='ratings' />
               <input name='fields[postPath]' type='hidden' value={path} />
-              <input name='title' type='hidden' value={title} />
               Is this a useful post? Please give us a rating!
               <div>
                 <ReactStars
@@ -88,8 +84,6 @@ const RatingForm = ({ location }) => {
                   color2={'#d64000'}
                 />
               </div>
-              <label>Add a Review</label>
-              <textarea name='fields[message]' className='textarea' placeholder='Review is Optional' required />
             </form>
           </div>
         </Fragment>
