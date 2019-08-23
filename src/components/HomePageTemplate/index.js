@@ -3,6 +3,8 @@ import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
 import StyledBackgroundSection from './image'
 import PropTypes from 'prop-types'
+import utterances from '../../assets/img/utterances.jpg'
+import modali from '../../assets/img/modali-logo.jpg'
 
 const HomePageTemplate = ({
   title,
@@ -61,7 +63,10 @@ const HomePageTemplate = ({
                       <article className='is-child'>
                         <a href='/blog/gatsby-github-comments-utterances/'>
                           <figure className='image is-2by1'>
-                            <img src='../../assets/img/utterances.jpg' alt='Gatsby GitHub Comments Utterances' />
+                            <img
+                              src={utterances}
+                              alt='Modali Hooks Modals'
+                            />
                           </figure>
                         </a>
                         <p>
@@ -73,7 +78,7 @@ const HomePageTemplate = ({
                           </span>
                         </p>
                         <p>
-                          React withUtterances  Repo Why use Utterances Taken From: bhnywl.com Lets say all your users are developers and already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
+                          React withUtterances Repo. Why use Utterances Taken From: bhnywl.com Lets say all your users are developers and already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
                           Unlike Staticman GitHub Issues are truly dynamic so new comments will show without having to wait for your site to rebuild…
                         </p>
                         <br />
@@ -86,7 +91,10 @@ const HomePageTemplate = ({
                       <article className='is-child'>
                         <a href='/blog/modali-hooks-modal/'>
                           <figure className='image is-2by1'>
-                            <img src='../../assets/img/modali-logo.jpg' alt='Modali Hooks Modals' />
+                            <img
+                              src={modali}
+                              alt='Modali Hooks Modals'
+                            />
                           </figure>
                         </a>
                         <p>
