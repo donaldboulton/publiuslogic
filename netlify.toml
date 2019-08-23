@@ -17,7 +17,6 @@
   Access-Control-Allow-Origin = "*"
   Vary = "Accept-Encoding"
   Access-Control-Allow-Credentials = "true"
-  Access-Control-Allow-Origin: *
   Feature-Policy = "geolocation 'self' https://publiuslogic.com; autoplay 'none'; sync-xhr 'self' https://publiuslogic.com"
 [[headers]]
   for = "/assets/*"
