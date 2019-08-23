@@ -3,8 +3,15 @@
   command = "gatsby build"
   functions = "functions-build"
 [build.environment]
+  NODE_VERSION = "12.9.0"
   YARN_VERSION = "1.9.4"
   YARN_FLAGS = "--no-ignore-optional"
+[context.production]
+  NODE_ENV = "production"
+[context.deploy-preview]
+  NODE_ENV = "production"
+[context.branch-deploy] 
+  NODE_ENV = "production"
 [[headers]]
   for = "/*"
 [headers.values]
