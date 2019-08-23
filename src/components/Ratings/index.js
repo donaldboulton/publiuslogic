@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
+import Content from './Content'
 import { globalHistory } from '@reach/router'
 
 /*
@@ -60,7 +61,7 @@ const submitRating = (rating) => {
   XHR.send(urlEncodedData)
 }
 
-const RatingForm = ({ location }) => {
+const RatingForm = () => {
   let path = globalHistory.location.pathname
 
   return (
@@ -68,23 +69,19 @@ const RatingForm = ({ location }) => {
       <>
         <Fragment>
           <div className='column reviews'>
-            <form
-              name='ratings'
-            >
-              <input type='hidden' name='form-name' value='ratings' />
-              <input name='fields[postPath]' type='hidden' value={path} />
+            <input type='hidden' name='form-name' value='ratings' />
+            <input name='fields[postPath]' type='hidden' value={path} />
               Is this a useful post? Please give us a rating!
-              <div>
-                <ReactStars
-                  onChange={rating => {
-                    submitRating(rating, path)
-                  }}
-                  half={false}
-                  size={24}
-                  color2={'#d64000'}
-                />
-              </div>
-            </form>
+            <Content>
+              <ReactStars
+                onChange={rating => {
+                  submitRating(rating, path)
+                }}
+                half={false}
+                size={36}
+                color2={'#d64000'}
+              />
+            </Content>
           </div>
         </Fragment>
       </>
