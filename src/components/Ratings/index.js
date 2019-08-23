@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
 import Content from './Content'
+import config from '../../../_data/config'
 import { globalHistory } from '@reach/router'
 
 /*
@@ -63,7 +64,7 @@ const submitRating = (rating) => {
 
 const RatingForm = () => {
   let path = globalHistory.location.pathname
-
+  let title = config.siteUrl + globalHistory.location.pathname
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -71,6 +72,7 @@ const RatingForm = () => {
           <div className='column'>
             <input type='hidden' name='form-name' value='ratings' />
             <input name='fields[postPath]' type='hidden' value={path} />
+            <input name='title' type='hidden' value={title} />
             <Content>
               <strong>Is this a useful post? Please give us a rating!</strong>
               <ReactStars
