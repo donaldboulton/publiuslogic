@@ -1,6 +1,6 @@
 import React from 'react'
-import hotjar from './assets/img/HotJar-250x100_logo.png'
-import hotjarIcon from './assets/img/hotjar-icon.png'
+import hotjar from '../../assets/img/HotJar-250x100_logo.png'
+import hotjarIcon from '../../assets/img/hotjar-icon.png'
 
 const HotJar = () => {
   return (

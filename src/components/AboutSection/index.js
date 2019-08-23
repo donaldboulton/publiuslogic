@@ -1,10 +1,10 @@
 import React from 'react'
-import github from './assets/img/GitHub-Mark-Light-64px.png'
-import gatsby from './assets/img/gatsby.svg'
-import logo from './assets/img/logo.png'
-import webpack from './assets/img/ApolloReact-320.png'
-import lambda from './assets/img/lambda.png'
-import netlify from './assets/img/logomark.svg'
+import github from '../../assets/img/GitHub-Mark-Light-64px.png'
+import gatsby from '../../assets/img/gatsby.svg'
+import logo from '../../assets/img/logo.png'
+import webpack from '../../assets/img/ApolloReact-320.png'
+import lambda from '../../assets/img/lambda.png'
+import netlify from '../../assets/img/logomark.svg'
 import config from '../../../_data/config'
 
 const AboutSection = () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
-import EmailIcon from './assets/img/enewsletter_icon.png'
+import EmailIcon from '../../assets/img/enewsletter_icon.png'
 import { Mailchimp } from 'styled-icons/fa-brands/'
 import Email from '../Email'
 
