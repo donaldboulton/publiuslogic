@@ -68,7 +68,7 @@ const RatingForm = () => {
     <ThemeProvider theme={theme}>
       <>
         <Fragment>
-          <div className='column reviews'>
+          <div className='column'>
             <input type='hidden' name='form-name' value='ratings' />
             <input name='fields[postPath]' type='hidden' value={path} />
             <Content>
