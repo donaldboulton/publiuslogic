@@ -73,8 +73,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/assets/img`,
+        name: 'img',
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
-      options: {        
+      options: {
         path: `${__dirname}/static/images`,
         name: `images`,
       },
@@ -172,7 +179,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              linkImagesToOriginal: true,
+              linkImagesToOriginal: false,
               maxWidth: 1400,
               showCaptions: true,
               withWebp: true,

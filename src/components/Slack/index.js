@@ -1,6 +1,6 @@
 import React from 'react'
-import SlackIcon from '../../img/1547804322-slack_icon_80x80_transparent.png'
-import lambda from '../../img/lambda.png'
+import SlackIcon from '/img/1547804322-slack_icon_80x80_transparent.png'
+import lambda from '/img/lambda.png'
 
 require('node-fetch')
 

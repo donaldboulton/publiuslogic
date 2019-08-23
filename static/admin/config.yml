@@ -18,8 +18,8 @@ media_library:
  name: uploadcare
  config:
    publicKey: a10993e96ebedcb0dd54
-public_folder: /img
-
+media_folder: static/img
+public_folder: img
 collections:
   - name: "pages"
     label: "Pages"
