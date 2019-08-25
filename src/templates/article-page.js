@@ -240,7 +240,7 @@ export const pageQuery = graphql`
       fields {
         slug
         readingTime {
-          minutes
+          text
         }
       }      
       frontmatter {

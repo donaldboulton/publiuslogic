@@ -2,7 +2,6 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
-const readingTime = require('reading-time')
 const toHAST = require(`mdast-util-to-hast`)
 const hastToHTML = require(`hast-util-to-html`)
 const Remark = require(`remark`)
@@ -26,11 +25,14 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             excerpt(pruneLength: 400)
             id
-            fields { slug }
+            timeToRead
+            fields {
+              slug              
+            }
             frontmatter {
               title
               cover
-              category
+              categorys
               tags
               templateKey
               date(formatString: "MMMM DD, YYYY")
@@ -69,7 +71,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
-        category: edge.node.frontmatter.category,
+        categorys: edge.node.frontmatter.categorys,
         component: path.resolve(
           `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
@@ -80,23 +82,23 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
 
-    let category = []
+    let categorys = []
     // Iterate through each post, putting all found category into `categories`
     postsAndPages.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.category`)) {
-        category = category.concat(edge.node.frontmatter.category)
+      if (_.get(edge, `node.frontmatter.categorys`)) {
+        categorys = categorys.concat(edge.node.frontmatter.categorys)
       }
     })
     // Eliminate duplicate tags
-    category = _.uniq(category)
+    categorys = _.uniq(categorys)
 
     // Make category pages
-    category.forEach(category => {
-      const categoryPath = `/categories/${_.kebabCase(category)}/`
+    categorys.forEach(category => {
+      const categoryPath = `/categorys/${_.kebabCase(category)}/`
 
       createPage({
         path: categoryPath,
-        component: path.resolve(`src/templates/category.js`),
+        component: path.resolve(`src/templates/categorys.js`),
         context: {
           category,
         },
@@ -152,16 +154,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
-  exports.onCreateNode = ({ node, actions }) => {
-    const { createNodeField } = actions
-    if (node.internal.type === `MarkdownRemark`) {
-      createNodeField({
-        node,
-        name: `readingTime`,
-        value: readingTime(node.rawMarkdownBody),
-      })
-    }
-  }
+
   // For comment nodes (which are stored in JSON) parse the `message` field from
   // markdown into HTML, and add it to the node as a field called `messageHtml`.
   // Then we can use that field to render the comments.
