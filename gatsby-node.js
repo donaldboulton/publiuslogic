@@ -2,7 +2,7 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
-
+const readingTime = require('reading-time')
 const R = require('ramda')
 
 exports.createPages = ({ actions, graphql }) => {
@@ -16,7 +16,10 @@ exports.createPages = ({ actions, graphql }) => {
             excerpt(pruneLength: 400)
             id
             fields {
-              slug              
+              slug
+              readingTime {
+                text
+              }              
             }
             frontmatter {
               title
@@ -142,6 +145,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+  }
+  exports.onCreateNode = ({ node, actions }) => {
+    const { createNodeField } = actions
+    if (node.internal.type === `MarkdownRemark`) {
+      createNodeField({
+        node,
+        name: `readingTime`,
+        value: readingTime(node.rawMarkdownBody),
+      })
+    }
   }
 
   // console.log(R.path("internal.type")(node));

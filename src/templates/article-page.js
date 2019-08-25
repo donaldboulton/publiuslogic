@@ -18,6 +18,7 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
+import * as readingTime from 'reading-time'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -57,7 +58,6 @@ const ArticlePage = ({ data, htmlAst, location }) => {
   const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
-  const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width

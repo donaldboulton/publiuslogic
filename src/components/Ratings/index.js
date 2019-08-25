@@ -16,7 +16,7 @@ import { globalHistory } from '@reach/router'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = (rating) => {
+const submitRating = (rating, location) => {
   const path = globalHistory.location.pathname
   const data = {
     'fields[rating]': rating,
@@ -64,27 +64,31 @@ const submitRating = (rating) => {
 
 const RatingForm = () => {
   let path = globalHistory.location.pathname
-  let title = config.siteUrl + globalHistory.location.pathname
+  let title = config.siteTitle
   return (
     <ThemeProvider theme={theme}>
       <>
         <Fragment>
-          <div className='column'>
-            <input type='hidden' name='form-name' value='ratings' />
-            <input name='fields[postPath]' type='hidden' value={path} />
-            <input name='title' type='hidden' value={title} />
-            <Content>
+          <Content className='column reviews'>
+            <form
+              name='ratings'
+            >
+              <input type='hidden' name='form-name' value='ratings' />
+              <input name='fields[postPath]' type='hidden' value={path} />
+              <input name='title' type='hidden' value={title} />
               <strong>Is this a useful post? Please give us a rating!</strong>
-              <ReactStars
-                onChange={rating => {
-                  submitRating(rating, path)
-                }}
-                half={false}
-                size={36}
-                color2={'#d64000'}
-              />
-            </Content>
-          </div>
+              <div>
+                <ReactStars
+                  onChange={rating => {
+                    submitRating(rating, path)
+                  }}
+                  half={false}
+                  size={24}
+                  color2={'#d64000'}
+                />
+              </div>
+            </form>
+          </Content>
         </Fragment>
       </>
     </ThemeProvider>
