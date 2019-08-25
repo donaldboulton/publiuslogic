@@ -304,12 +304,7 @@ module.exports = {
                             excerpt(pruneLength: 400)
                             html
                             id
-                            fields {
-                              slug
-                              readingTime {
-                                minutes
-                              }              
-                            }
+                            fields { slug }
                             frontmatter {
                               title
                               templateKey

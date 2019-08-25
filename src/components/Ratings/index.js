@@ -3,7 +3,6 @@ import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
 import Content from './Content'
-import config from '../../../_data/config'
 import { globalHistory } from '@reach/router'
 
 /*
@@ -64,7 +63,7 @@ const submitRating = (rating, location) => {
 
 const RatingForm = () => {
   let path = globalHistory.location.pathname
-  let title = config.siteTitle
+  let title = globalHistory.location.pathname
   return (
     <ThemeProvider theme={theme}>
       <>
