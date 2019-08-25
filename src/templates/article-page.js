@@ -240,7 +240,7 @@ export const pageQuery = graphql`
       fields {
         slug
         readingTime {
-          text
+          minutes
         }
       }      
       frontmatter {
@@ -253,6 +253,21 @@ export const pageQuery = graphql`
         tags
         cover
         canonical
+      }
+    }
+    allCommentsJson(
+      filter: { postPath: { eq: $id } }
+      sort: { fields: [date], order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          name
+          date
+          fields {
+            messageHtml
+          }
+        }
       }
     }
     allRatingsJson(

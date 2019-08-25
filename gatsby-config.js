@@ -103,6 +103,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'comments',
+        path: `${__dirname}/_data/comments/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'ratings',
         path: `${__dirname}/_data/ratings/`,
       },
@@ -297,7 +304,12 @@ module.exports = {
                             excerpt(pruneLength: 400)
                             html
                             id
-                            fields { slug }
+                            fields {
+                              slug
+                              readingTime {
+                                minutes
+                              }              
+                            }
                             frontmatter {
                               title
                               templateKey
