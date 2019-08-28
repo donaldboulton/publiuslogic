@@ -3,6 +3,7 @@ import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
+import Content from './Content'
 import { globalHistory } from '@reach/router'
 
 /*
@@ -69,23 +70,22 @@ const RatingForm = ({ location }) => {
     <ThemeProvider theme={theme}>
       <>
         <Fragment>
-          <div className='column reviews'>
+          <Content>
             <input type='hidden' name='form-name' value='ratings' />
             <input name='fields[postPath]' type='hidden' value={path} />
             <input name='title' type='hidden' value={title} />
-              Is this a useful post? Please give us a rating!
-            <div>
+            <strong>Is this a useful post? Please give us a rating!</strong>
+            <div className='reviews'>
               <ReactStars
                 onChange={rating => {
                   submitRating(rating, path)
                 }}
                 half={false}
-                size={24}
+                size={36}
                 color2={'#d64000'}
               />
             </div>
-            <label>Add a Review</label>
-          </div>
+          </Content>
         </Fragment>
       </>
     </ThemeProvider>
