@@ -15,12 +15,11 @@ import { globalHistory } from '@reach/router'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = (rating, message) => {
+const submitRating = (rating) => {
   const path = globalHistory.location.pathname
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': path,
-    'fields[message]': message,
   }
 
   const XHR = new XMLHttpRequest()
@@ -71,26 +70,21 @@ const RatingForm = ({ location }) => {
       <>
         <Fragment>
           <div className='column reviews'>
-            <form
-              name='ratings'
-            >
-              <input type='hidden' name='form-name' value='ratings' />
-              <input name='fields[postPath]' type='hidden' value={path} />
-              <input name='title' type='hidden' value={title} />
+            <input type='hidden' name='form-name' value='ratings' />
+            <input name='fields[postPath]' type='hidden' value={path} />
+            <input name='title' type='hidden' value={title} />
               Is this a useful post? Please give us a rating!
-              <div>
-                <ReactStars
-                  onChange={rating => {
-                    submitRating(rating, path)
-                  }}
-                  half={false}
-                  size={24}
-                  color2={'#d64000'}
-                />
-              </div>
-              <label>Add a Review</label>
-              <textarea name='fields[message]' className='textarea' placeholder='Review is Optional' required />
-            </form>
+            <div>
+              <ReactStars
+                onChange={rating => {
+                  submitRating(rating, path)
+                }}
+                half={false}
+                size={24}
+                color2={'#d64000'}
+              />
+            </div>
+            <label>Add a Review</label>
           </div>
         </Fragment>
       </>
