@@ -302,7 +302,7 @@ module.exports = {
                         edges {
                           node {
                             excerpt(pruneLength: 400)
-                            html
+                            htmlAst
                             id
                             fields { slug }
                             frontmatter {
