@@ -10,7 +10,7 @@ tags:
   - React
   - Hooks
   - Modal
-  - Webdev
+  - WebDev
   - Tutorial
 meta_title: React Hooks Modal
 meta_description: React Hooks Modal  

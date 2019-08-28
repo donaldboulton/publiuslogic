@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
+import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
-import Content from './Content'
 import { globalHistory } from '@reach/router'
 
 /*
@@ -15,11 +15,12 @@ import { globalHistory } from '@reach/router'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = (rating, location) => {
+const submitRating = (rating, message) => {
   const path = globalHistory.location.pathname
   const data = {
     'fields[rating]': rating,
     'fields[postPath]': path,
+    'fields[message]': message,
   }
 
   const XHR = new XMLHttpRequest()
@@ -61,21 +62,22 @@ const submitRating = (rating, location) => {
   XHR.send(urlEncodedData)
 }
 
-const RatingForm = () => {
+const RatingForm = ({ location }) => {
+  let title = config.siteTitle
   let path = globalHistory.location.pathname
-  let title = globalHistory.location.pathname
+
   return (
     <ThemeProvider theme={theme}>
       <>
         <Fragment>
-          <Content className='column reviews'>
+          <div className='column reviews'>
             <form
               name='ratings'
             >
               <input type='hidden' name='form-name' value='ratings' />
               <input name='fields[postPath]' type='hidden' value={path} />
               <input name='title' type='hidden' value={title} />
-              <strong>Is this a useful post? Please give us a rating!</strong>
+              Is this a useful post? Please give us a rating!
               <div>
                 <ReactStars
                   onChange={rating => {
@@ -86,8 +88,10 @@ const RatingForm = () => {
                   color2={'#d64000'}
                 />
               </div>
+              <label>Add a Review</label>
+              <textarea name='fields[message]' className='textarea' placeholder='Review is Optional' required />
             </form>
-          </Content>
+          </div>
         </Fragment>
       </>
     </ThemeProvider>

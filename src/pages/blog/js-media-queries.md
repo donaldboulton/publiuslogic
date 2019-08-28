@@ -8,7 +8,7 @@ category: 'tech'
 cover: '/images/js-media-quries.jpg'
 tags:
   - mediaQueries
-  - Webdev
+  - WebDev
   - Tutorial
 meta_title: JS media queries & Styled Components
 meta_description: And how to hook into them

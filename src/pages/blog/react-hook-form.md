@@ -23,9 +23,6 @@ I chose this module to validate my forms, its lightweight and integrates with yu
 
 You can see this form validation in action on my contact page and on my email form in a modali window, the button for the popup email form is in the email section at the lower part of every PubliusLogic page.
 
-I have built my own hooks validation form code, and no longer use the above.
- But React Hooks Form is cool and easy for all to use.
-
 [简体中文](https://github.com/bluebill1049/react-hook-form/blob/master/docs/README.zh-CN.md")
 
 ![](https://raw.githubusercontent.com/bluebill1049/react-hook-form/master/website/logo.png)

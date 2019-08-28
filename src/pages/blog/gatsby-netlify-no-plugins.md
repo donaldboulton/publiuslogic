@@ -10,7 +10,7 @@ tags:
   - Gatsby 
   - Netlify CMS
   - Identity Widget
-  - Webdev
+  - WebDev
   - Tutorial
 meta_title: Keep it clean = No Plugins
 meta_description: >-

@@ -11,7 +11,7 @@ tags:
   - Hooks
   - Modali
   - Modal
-  - Webdev
+  - WebDev
   - Tutorial
 meta_title: Modali Hooks Modal
 meta_description: Modali Hooks Modal

@@ -18,7 +18,6 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
-import * as readingTime from 'reading-time'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -58,6 +57,7 @@ const ArticlePage = ({ data, htmlAst, location }) => {
   const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
+  const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
@@ -255,21 +255,6 @@ export const pageQuery = graphql`
         canonical
       }
     }
-    allCommentsJson(
-      filter: { postPath: { eq: $id } }
-      sort: { fields: [date], order: ASC }
-    ) {
-      edges {
-        node {
-          id
-          name
-          date
-          fields {
-            messageHtml
-          }
-        }
-      }
-    }
     allRatingsJson(
       filter: { postPath: { eq: $id } }
       sort: { fields: [date], order: ASC }
@@ -278,7 +263,10 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          rating          
+          rating
+          fields {
+            messageHtml
+          }
         }
       }
     }

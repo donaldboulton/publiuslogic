@@ -8,8 +8,8 @@ const RelatedPosts = props => {
     <div>
       <h1>Related Posts</h1>
       {posts.edges.map(post => (
-        <div key={post.frontmatter.tag}>
-          <Link to={post.fields.slug}>
+        <div key={post.node.id}>
+          <Link to={post.node.frontmatter.path}>
             {post.node.frontmatter.title}
           </Link>
         </div>

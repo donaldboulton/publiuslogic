@@ -10,7 +10,7 @@ tags:
   - React
   - Hooks
   - Maps
-  - Webdev
+  - WebDev
   - Tutorial
 meta_title: zero-dependency GMaps Hooks
 meta_description: Google Maps + React Hooks 

@@ -3,22 +3,21 @@
   command = "gatsby build"
   functions = "functions-build"
 [build.environment]
-  NODE_VERSION = "10.16.3"
   YARN_VERSION = "1.9.4"
   YARN_FLAGS = "--no-ignore-optional"
 [[headers]]
   for = "/*"
 [headers.values]
-  Cache-Control = "public, max-age=31536000"
-  Referrer-Policy = "strict-origin-when-cross-origin"
-  X-Content-Type-Options = "nosniff"
-  X-Frame-Options = "DENY"
-  X-XSS-Protection = "1; mode=block"
-  Access-Control-Allow-Origin = "*"
-  Vary = "Accept-Encoding"
-  Access-Control-Allow-Credentials = "true"
-  Feature-Policy = "geolocation 'self' https://publiuslogic.com; autoplay 'none'; sync-xhr 'self' https://publiuslogic.com"
+Cache-Control = "public, max-age=31536000"
+Referrer-Policy = "strict-origin-when-cross-origin"
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+Access-Control-Allow-Origin = "*"
+Vary = "Accept-Encoding"
+Access-Control-Allow-Credentials = "true"
+Feature-Policy = "geolocation 'self' https://publiuslogic.com; autoplay 'none'; sync-xhr 'self' https://publiuslogic.com"
 [[headers]]
-  for = "/assets/*"
+for = "/assets/*"
 [headers.values]
-  Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=31536000"

@@ -157,7 +157,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // For comment nodes (which are stored in JSON) parse the `message` field from
   // markdown into HTML, and add it to the node as a field called `messageHtml`.
   // Then we can use that field to render the comments.
-  if (_.get(node, 'internal.type') === `CommentsJson`) {
+  if (_.get(node, 'internal.type') === `RatingsJson`) {
     // Generate an HTML version of the markdown field `message`
     const ast = remark.parse(_.get(node, 'message'))
     const htmlAst = toHAST(ast, { allowDangerousHTML: true })

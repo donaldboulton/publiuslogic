@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-const Content = styled.span`
-  flex: 1 60%;
-  max-width: 600px;
+const Content = styled.div`
+  flex: 1;
+  max-width: 300px;
   margin: auto;
-  text-align: left;
 `
 
 export default Content
