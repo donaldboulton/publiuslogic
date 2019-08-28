@@ -33,10 +33,7 @@ const NavBar = ({ toggleNavbar, isActive }) => (
           </button>
         </div>
         <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} id='navMenu'>
-          <div className='navbar-end'>
-            <div className='navbar-item'>
-              <SearchBox searchIndex={data.siteSearchIndex.index} />
-            </div>
+          <div className='navbar-end'>            
             <div className='navbar-item has-dropdown is-hoverable'>
               <a className='navbar-link is-active' href='/sitemap' itemProp='url'>
                 <span itemProp='name'>Docs</span>
@@ -104,6 +101,9 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                   <span itemProp='name'>GMaps React Hooks</span>
                 </a>
               </div>
+            </div>
+            <div className='navbar-item'>
+              <SearchBox searchIndex={data.siteSearchIndex.index} />
             </div>
             <div className='navbar-item' id='login'>
               <NetlifyIdentityWidget />
