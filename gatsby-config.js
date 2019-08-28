@@ -73,17 +73,17 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/assets/img`,
-        name: 'img',
+      resolve: `gatsby-source-filesystem`,
+      options: {        
+        path: `${__dirname}/static/images`,
+        name: `images`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/images`,
-        name: `images`,
+        path: `${__dirname}/src/assets/img`,
+        name: 'icons',
       },
     },
     {
@@ -98,13 +98,6 @@ module.exports = {
       options: {
         name: `stack`,
         path: `${__dirname}/src/assets/img/stack`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'comments',
-        path: `${__dirname}/_data/comments/`,
       },
     },
     {
@@ -186,7 +179,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              linkImagesToOriginal: false,
+              linkImagesToOriginal: true,
               maxWidth: 1400,
               showCaptions: true,
               withWebp: true,
@@ -302,7 +295,7 @@ module.exports = {
                         edges {
                           node {
                             excerpt(pruneLength: 400)
-                            htmlAst
+                            html
                             id
                             fields { slug }
                             frontmatter {
