@@ -34,7 +34,6 @@ const submitRating = (rating) => {
       encodeURIComponent(name) + '=' + encodeURIComponent(data[name])
     )
   }
-
   // Combine the pairs into a single string and replace all %-encoded spaces to
   // the '+' character; matches the behaviour of browser form submissions.
   urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+')
@@ -49,6 +48,8 @@ const submitRating = (rating) => {
     alert('Sorry, something went wrong. Please file an issue in github!')
   })
 
+  XHR.setRequestHeader('Access-Control-Allow-Origin', '*')
+  
   // Set up our request
   XHR.open(
     'POST',

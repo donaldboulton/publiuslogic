@@ -27,7 +27,7 @@ const CategoriesPage = ({
 }) => (
   <Global>
     <Helmet title={`Categories | ${title}`} />
-    <section className='hero hero-blog-cover'>
+    <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
         <div className='container'>
           <div className='columns'>

@@ -66,19 +66,29 @@ class Gallery extends Component {
 
   componentDidMount () {
     // Request for images tagged cats
-    axios.get('https://res.cloudinary.com/mansbooks/image/list/v1557911334/cats.json')
+    axios.get('https://res.cloudinary.com/mansbooks/image/
+
+    list/v1557911334/cats.json')
       .then(res => {
         console.log(res.data.resources)
         this.setState({ gallery: res.data.resources })
       })
   }
   onLink (event) {
-    this.setState({ link: this.href = `https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg` })
+    this.setState({ link: this.href = `https://res.cloudinary.com/mansbooks/
+
+    image/upload/${data.public_id}.jpg` })
   }
   uploadWidget () {
     let _this = this
     // eslint-disable-next-line no-undef
-    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
+    cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset:
+
+    'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera',
+
+    'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey:
+
+    'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
       // eslint-disable-next-line handle-callback-err
       function (error, result) {
       // Update gallery state with newly uploaded image
@@ -98,8 +108,14 @@ class Gallery extends Component {
                 this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
-                    <LightgalleryItem group='group1' src={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
-                      <Image publicId={data.public_id} onClick={() => this.setState({ isOpen: true })}>
+                    <LightgalleryItem group='group1' src={`
+
+                    https://res.cloudinary.com/mansbooks/image/upload/$
+
+                    {data.public_id}.jpg`}>
+                      <Image publicId={data.public_id} onClick={() =>
+
+                      this.setState({ isOpen: true })}>
                         <Transformation
                           crop='scale'
                           width='250'
