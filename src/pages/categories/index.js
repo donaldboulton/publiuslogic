@@ -14,8 +14,8 @@ const Styledh1 = styled.h1`
   z-index: 22;
   background: radial-gradient(
     circle farthest-corner at center center,
-    #8e0436,
-    #d64000
+    #ccccccc,
+    #ffffff
   ) no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
