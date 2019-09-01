@@ -2,6 +2,7 @@ import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
 import Image from './image'
+import Author from '../Author'
 
 const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -15,6 +16,9 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
         <div className='container'>
           <div className='columns is-10 is-offset-1'>
             <div className='column'>
+              <div>
+                <Author />
+              </div>
               <div>
                 <PageContent className='content' content={content} />
               </div>
