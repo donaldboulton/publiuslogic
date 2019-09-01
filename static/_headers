@@ -1,2 +1,4 @@
+/*
+   Access-Control-Allow-Origin = "*"
 /sw.js   # Gatsby's default service worker file path
    Cache-Control: no-cache
