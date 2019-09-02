@@ -45,15 +45,24 @@ const Date = styled.span`
   font-size: 1rem;
   color: silver;
 `
+const Meta = styled.div`
+  font-size: 1rem;
+  color: silver;
+`
 const GithubButtons = styled.span`
   right: .5px;
 `
+const Rating = styled.div`
+  font-size: 1rem;
+  color: silver;
+`
+
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: { 'reviews': 'Reviews' },
 }).Compiler
 
-const ArticlePage = ({ data, htmlAst, location }) => {
+const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
@@ -66,6 +75,14 @@ const ArticlePage = ({ data, htmlAst, location }) => {
   const title = post.frontmatter.title
   const coverHeight = '100%'
   const postPath = globalHistory.location.pathname
+  const ratingValue =
+    ratings && ratings.edges
+      ? ratings.edges.reduce(
+        (accumulator, rating) => accumulator + parseInt(rating.node.rating),
+        0
+      ) / ratings.totalCount
+      : 0
+  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
 
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
@@ -188,6 +205,20 @@ const ArticlePage = ({ data, htmlAst, location }) => {
             <GithubButtons><GithubButtonsRepo className='is-size-6 is-pulled-right' /></GithubButtons>
           </div>
         </div>
+        <Meta
+          data={{
+            ...frontmatter,
+            rating: { ratingValue, ratingCount: ratingCount },
+          }}
+          rich
+        />
+        <div dangerouslySetInnerHTML={{ __html: htmlAst }} />
+        {ratings ? (
+          <Rating>
+            Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
+            {ratings.totalCount} Reviews
+          </Rating>
+        ) : null}
       </section>
       <section className='section'>
         <div className='container content'>
