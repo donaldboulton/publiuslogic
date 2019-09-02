@@ -57,8 +57,8 @@ const GithubButtons = styled.span`
   right: .5px;
 `
 const Rating = styled.div`
-   font-size: 1rem;
-  margin-left: 8.33333%;
+  font-size: 1rem;
+  margin-left: 9.33333%;
   flex: none;
   max-width: 83.33333%;
   color: silver;
@@ -66,7 +66,7 @@ const Rating = styled.div`
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
-  components: { 'reviews': 'Reviews' },
+  components: { 'ratings': 'Ratings' },
 }).Compiler
 
 const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRatingsJson: ratings = [] }) => {
@@ -86,7 +86,9 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
   const ratingValue =
     data.ratings && ratings.edges
       ? ratings.edges.reduce(
-        (accumulator, rating) => accumulator + parseInt(data.rating.node.rating),
+        (accumulator, rating) => {
+          return accumulator + parseInt(rating.node.rating)
+        },
         0
       ) / ratings.totalCount
       : 0
@@ -265,6 +267,8 @@ ArticlePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
     readingTime: PropTypes.number.isRequired,
+    ratingValue: PropTypes.number.isRequired,
+    ratingCount: PropTypes.number,
   }),
 }
 
