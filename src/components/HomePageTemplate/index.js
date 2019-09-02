@@ -61,7 +61,7 @@ const HomePageTemplate = ({
                       <article className='is-child'>
                         <a href='/blog/gatsby-github-comments-utterances/'>
                           <figure className='image is-2by1'>
-                            <img src='../../assets/img/utterances.jpg' alt='Gatsby GitHub Comments Utterances' />
+                            <img src='../../static/images/utterances.jpg' alt='Gatsby GitHub Comments Utterances' />
                           </figure>
                         </a>
                         <p>
@@ -86,7 +86,7 @@ const HomePageTemplate = ({
                       <article className='is-child'>
                         <a href='/blog/modali-hooks-modal/'>
                           <figure className='image is-2by1'>
-                            <img src='../../assets/img/modali-logo.jpg' alt='Modali Hooks Modals' />
+                            <img src='../../static/images/modali-logo.jpg' alt='Modali Hooks Modals' />
                           </figure>
                         </a>
                         <p>
