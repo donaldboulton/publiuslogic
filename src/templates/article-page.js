@@ -90,7 +90,7 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
         0
       ) / ratings.totalCount
       : 0
-  const ratingCount = data.ratings && ratings.edges ? ratings.totalCount : 0
+  const ratingCount = data.ratings && ratings.edges ? data.ratings.totalCount : 0
 
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
@@ -223,8 +223,8 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
         <div dangerouslySetInnerHTML={{ __html: htmlAst }} />
         {ratings ? (
           <Rating>
-            Rating: {data.ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
-            {data.ratings.totalCount} Reviews
+            Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
+            {ratings.totalCount} Reviews
           </Rating>
         ) : null}
       </section>
