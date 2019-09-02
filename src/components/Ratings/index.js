@@ -48,8 +48,6 @@ const submitRating = (rating) => {
     alert('Sorry, something went wrong. Please file an issue in github!')
   })
 
-  XHR.setRequestHeader('Access-Control-Allow-Origin', '*')
-  
   // Set up our request
   XHR.open(
     'POST',
