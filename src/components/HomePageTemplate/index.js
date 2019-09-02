@@ -32,7 +32,7 @@ const HomePageTemplate = ({
             height: `50vh`,
             maxWidth: 1260,
             padding: `0px 1.0875rem 1.45rem`,
-            marginTop: `5rem`,
+            marginTop: `10rem`,
           }}
         >
           <div className='overlay'>PubliusLogic</div>
@@ -61,7 +61,7 @@ const HomePageTemplate = ({
                       <article className='is-child'>
                         <a href='/blog/gatsby-github-comments-utterances/'>
                           <figure className='image is-2by1'>
-                            <img src='../../static/images/utterances.jpg' alt='Gatsby GitHub Comments Utterances' />
+                            <img src='../../../images/utterances.jpg' alt='Gatsby GitHub Comments Utterances' />
                           </figure>
                         </a>
                         <p>
@@ -86,7 +86,7 @@ const HomePageTemplate = ({
                       <article className='is-child'>
                         <a href='/blog/modali-hooks-modal/'>
                           <figure className='image is-2by1'>
-                            <img src='../../static/images/modali-logo.jpg' alt='Modali Hooks Modals' />
+                            <img src='../../../images/modali-logo.jpg' alt='Modali Hooks Modals' />
                           </figure>
                         </a>
                         <p>
