@@ -14,7 +14,7 @@ class Comments extends React.Component {
               <GitHubIssues />
             </div>
             <div className='columns is-10 is-offset-1'>
-              <div className='column is-8'>
+              <div className='column is-10'>
                 <CommentForm />
               </div>
               <div className='column'>

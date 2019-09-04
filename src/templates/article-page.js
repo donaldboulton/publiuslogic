@@ -69,7 +69,7 @@ const renderAst = new RehypeReact({
   components: { 'ratings': 'Ratings' },
 }).Compiler
 
-const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRatingsJson: ratings = [] }) => {
+const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
 
   const postNode = data.markdownRemark
@@ -84,7 +84,7 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
   const postPath = globalHistory.location.pathname
 
   const ratingValue =
-    data.ratings && ratings.edges
+    props.data.ratings && ratings.edges
       ? ratings.edges.reduce(
         (accumulator, rating) => {
           return accumulator + parseInt(rating.node.rating)
@@ -92,7 +92,7 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
         0
       ) / ratings.totalCount
       : 0
-  const ratingCount = data.ratings && ratings.edges ? data.ratings.totalCount : 0
+  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
 
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
@@ -240,6 +240,8 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
                 contentComponent={HTMLContent}
                 cover={post.frontmatter.cover}
                 readingTime={readingTime}
+                ratingValue={data.ratingValue}
+                ratingCount={data.ratingCount}
                 category={post.frontmatter.category}
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
@@ -264,11 +266,11 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
 }
 
 ArticlePage.propTypes = {
+  readingTime: PropTypes.number.isRequired,
+  ratingValue: PropTypes.number,
+  ratingCount: PropTypes.number,
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
-    readingTime: PropTypes.number.isRequired,
-    ratingValue: PropTypes.number.isRequired,
-    ratingCount: PropTypes.number,
   }),
 }
 
