@@ -215,6 +215,7 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
             <GithubButtons><GithubButtonsRepo className='is-size-6 is-pulled-right' /></GithubButtons>
           </div>
         </div>
+        <div dangerouslySetInnerHTML={{ __html: htmlAst }} />
         <Meta
           data={{
             ...frontmatter,
@@ -222,7 +223,6 @@ const ArticlePage = ({ data, htmlAst, location, frontmatter, rich = false, allRa
           }}
           rich
         />
-        <div dangerouslySetInnerHTML={{ __html: htmlAst }} />
         {ratings ? (
           <Rating>
             Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
@@ -299,7 +299,7 @@ export const pageQuery = graphql`
       }
     }
     allRatingsJson(
-      filter: { postPath: { eq: $id } }
+      filter: { id: { eq: $id } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount
@@ -307,9 +307,6 @@ export const pageQuery = graphql`
         node {
           id
           rating
-          fields {
-            messageHtml
-          }
         }
       }
     }
