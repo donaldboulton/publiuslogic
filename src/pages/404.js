@@ -1,9 +1,13 @@
 import React from 'react'
 import gatsbyastro from './gatsby-astronaut.png'
 import Global from '../components/Global'
+import Helmet from 'react-helmet'
 
 const NotFoundPage = () => (
   <Global>
+    <Helmet>
+      <title>Error 404 | PubliusLogic</title>
+    </Helmet>
     <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
         <div className='container'>
