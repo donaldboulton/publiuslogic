@@ -84,7 +84,7 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
   const postPath = globalHistory.location.pathname
 
   const ratingValue =
-    props.data.ratings && ratings.edges
+    ratings && ratings.edges
       ? ratings.edges.reduce(
         (accumulator, rating) => {
           return accumulator + parseInt(rating.node.rating)
@@ -301,7 +301,7 @@ export const pageQuery = graphql`
       }
     }
     allRatingsJson(
-      filter: { id: { eq: $id } }
+      filter: { postPath: { eq: $id } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount

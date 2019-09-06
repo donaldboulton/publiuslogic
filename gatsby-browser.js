@@ -55,14 +55,14 @@ export const onServiceWorkerUpdateFound = (self, event, clients, skipWaiting) =>
     )
   }, false)
 
-  self.addEventListener('notificationclick', (event) => {
-    event.waitUntil(self.clients.openWindow(event.notification.data.url));
+  self.addEventListener('notificationClick', (event) => {
+    event.waitUntil(self.clients.openWindow(event.notification.data.url))
   }, false)
   const url = 'https://publiuslogic.com/blog/modali-hooks-modal/'
   const promiseChain = clients.openWindow(url)
   event.waitUntil(promiseChain)
 
-  self.addEventListener('notificationclick', function (event) {
+  self.addEventListener('notificationClick', function (event) {
     let url = 'https://publiuslogic.com/blog/modali-hooks-modal/'
     event.notification.close() // Android needs explicit close.
     event.waitUntil(
