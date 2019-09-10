@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import { cloudinary } from 'cloudinary-react'
 class UploadWidget extends Component {
   uploadWidget () {
     cloudinary.openUploadWidget({
@@ -34,10 +33,11 @@ class UploadWidget extends Component {
           textDark: '#000000',
           textLight: '#FFFFFF',
         },
+
       },
     },
-    function (e, data) {
-      console.log('Global success', e, data)
+    function (error, result) {
+      console.log(result)
     })
   }
   render () {
