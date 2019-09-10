@@ -3,7 +3,7 @@ templateKey: article-page
 title: Gatsby LightGallery Cloudinary
 slug: Gatsby LightGallery Cloudinary
 canonical: "https://publiuslogic.com/blog/gatsby-lightgallery-cloudinary/"
-date: 2019-06-17T20:14:43.942Z
+date: 2019-09-09T20:14:43.942Z
 category: 'tech'
 cover: '/images/cloudinary.jpg'
 tags:
@@ -20,8 +20,19 @@ tweet_id: '1118651504674725888'
 
 ## Gatsby LightGallery Cloudinary
 
+### [Using Cloudinary React Library](https://www.npmjs.com/package/cloudinary-react/v/1.1.0)
+
+Cloudinary is a cloud service that offers a solution to a web application's entire image management pipeline.
+
+Easily upload images to the cloud. Automatically perform smart image resizing, cropping and conversion without installing any complex software. Integrate Facebook or Twitter profile image extraction in a snap, in any dimension and style to match your website’s graphics requirements. Images are seamlessly delivered through a fast CDN, and much much more.
+
+Cloudinary offers comprehensive APIs and administration capabilities and is easy to integrate with any web application, existing or new.
+
+Cloudinary provides URL and HTTP based APIs that can be easily integrated with any Web development framework.
+
 I have used [LightGalley](http://sachinchoolur.github.io/lightGallery/) in my ASP.NET, Core-2, Jekyll, React and now in my Gatsby site for Image Galleries and iframes to display any kind of html content.
-Using Styled Components and mediaQuery in a Styled CSS Grid for the image Cells.
+
+This demo is using Styled Components and mediaQuery in a Styled CSS Grid for the image Cells.
 
 LightGallery has a react SDK for usage in react and vanilla.js for the plugins. The jQuery plugins do not include the .js. as the code blocks below indicate.
 
@@ -143,5 +154,79 @@ class Gallery extends Component {
 }
 
 export default Gallery
+
+```
+
+### The Upload Widget
+
+The upload widget uses Cloudinary CND or the scripts, not a node module.
+
+```html
+https://widget.cloudinary.com/v2.0/global/all.js
+```
+
+The Upload Widget Code with advanced styling
+
+```jsx:title=src/components/Cloudinary/UploadWidget.js
+import React, { Component } from 'react'
+import Helmet from 'react-helmet'
+class UploadWidget extends Component {
+  uploadWidget () {
+    cloudinary.openUploadWidget({
+      cloud_name: 'mansbooks',
+      api_key: '228989664973733',
+      api_secret: '2RIKEQL1bOOxMNKBoeiCYQR8SnI',
+      username: 'donaldboulton@gmail.com',
+      upload_preset: 'photos-preset',
+      tags: ['cats', 'uploads'],
+      sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'],
+      dropboxAppKey: 'ADD YOUR DROPBOX APP KEY',
+      googleApiKey: 'ADD YOUR API KEY',
+      showAdvancedOptions: true,
+      cropping: true,
+      multiple: true,
+      image_metadata: 'true',
+      defaultSource: 'local',
+      styles: {
+        palette: {
+          window: '#1D1D1D',
+          sourceBg: '#000000',
+          windowBorder: '#434040',
+          tabIcon: '#FFFFFF',
+          inactiveTabIcon: '#8E9FBF',
+          menuIcons: '#D64000',
+          link: '#D64000',
+          action: '#9C3204',
+          inProgress: '#D64000',
+          complete: '#33ff00',
+          error: '#EA2727',
+          textDark: '#000000',
+          textLight: '#FFFFFF',
+        },
+
+      },
+    },
+    function (error, result) {
+      console.log(result)
+    })
+  }
+  render () {
+    return (
+      <div className='main'>
+        <Helmet>
+          <script src='https://widget.cloudinary.com/v2.0/global/all.js' type='text/javascript' />
+        </Helmet>
+        <h1>Upload</h1>
+        <div className='upload'>
+          <button onClick={this.uploadWidget.bind(this)} className='upload-button button is-primary'>
+            Add Image
+          </button>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default UploadWidget
 
 ```

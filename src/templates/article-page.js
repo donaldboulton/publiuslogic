@@ -225,8 +225,8 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
         />
         {ratings ? (
           <Rating>
-            Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} -{' '}
-            {ratings.totalCount} Reviews
+            Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null}4.5 -{' '}
+            {ratings.totalCount} 36 Reviews
           </Rating>
         ) : null}
       </section>
