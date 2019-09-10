@@ -31,7 +31,6 @@
     "bulma": "^0.7.4",
     "classnames": "^2.2.6",
     "cloudinary-react": "^1.1.4",
-    "core-js": "^2.6.5",
     "cors": "^2.8.5",
     "fs": "^0.0.1-security",
     "fs-extra": "^7.0.1",
@@ -122,18 +121,17 @@
     "with-utterances": "^1.4.1"
   },
   "resolutions": {
-    "core-js": "^2.6.5",
     "lodash": "^4.17.11",
     "graphql": "14.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "babel-eslint": "^10.0.2",
-    "babel-preset-gatsby": "^0.2.8",
+    "babel-preset-gatsby": "^0.2.13",
+    "dotenv": "^7.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
-    "dotenv": "^7.0.0",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
