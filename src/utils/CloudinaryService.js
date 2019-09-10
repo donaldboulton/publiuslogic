@@ -1,4 +1,4 @@
-import { Cloudinary as CoreCloudinary, Util } from 'cloudinary-core';
+import { Cloudinary as CoreCloudinary, Util } from 'cloudinary-core'
 
 export const url = (publicId, options) => {
     const scOptions = Util.withSnakeCaseKeys(options);

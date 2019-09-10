@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { cloudinary } from 'cloudinary-react'
 class UploadWidget extends Component {
   uploadWidget () {
-    cloudinary.openUploadWidget({
+    cloudinary.UploadWidget({
       cloud_name: 'mansbooks',
       api_key: '228989664973733',
       api_secret: '2RIKEQL1bOOxMNKBoeiCYQR8SnI',
@@ -39,6 +39,7 @@ class UploadWidget extends Component {
     function (e, data) {
       console.log('Global success', e, data)
     })
+    UploadWidget.open()
   }
   render () {
     return (
@@ -48,8 +49,8 @@ class UploadWidget extends Component {
         </Helmet>
         <h1>Upload</h1>
         <div className='upload'>
-          <button onClick={this.uploadWidget.bind(this)} className='upload-button button is-primary'>
-                        Add Image
+          <button onClick={this.uploadWidget(this)} className='upload-button button is-primary'>
+            Add Image
           </button>
         </div>
       </div>
