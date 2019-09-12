@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery'
 import axios from 'axios'
 import styled from 'styled-components'
@@ -34,11 +34,13 @@ class Gallery extends Component {
         this.setState({ gallery: res.data.resources })
       })
   }
+
   onLink (event) {
     this.setState({ link: this.href = `https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg` })
   }
+
   uploadWidget () {
-    let _this = this
+    const _this = this
     // eslint-disable-next-line no-undef
     cloudinary.openUploadWidget({ cloud_name: 'mansbooks', upload_preset: 'photos-preset', tags: ['cats'], sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey: 'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
       // eslint-disable-next-line handle-callback-err
@@ -47,10 +49,11 @@ class Gallery extends Component {
           _this.setState({ gallery: _this.state.gallery.concat(result) })
       })
   }
-  render () { 
+
+  render () {
     return (
       <div>
-        <Fragment>
+        <>
           <SectionTitle>Cloudinary LightGallery</SectionTitle>
           <div>
             <CloudinaryContext cloudName='mansbooks'>
@@ -82,7 +85,7 @@ class Gallery extends Component {
               </Grid>
             </CloudinaryContext>
           </div>
-        </Fragment>
+        </>
       </div>
     )
   }

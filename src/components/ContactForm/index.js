@@ -175,7 +175,7 @@ class ContactForm extends React.Component {
         data-netlify='true'
         data-netlify-honeypot='bot'
         overlay={this.state.showModal}
-        onClick={this.closeModal}
+        onClick={this.handleCloseModal}
         netlify-recaptcha
       >
         <input type='hidden' name='form-name' value='contact' />
@@ -225,12 +225,12 @@ class ContactForm extends React.Component {
           value={this.state.submitting ? 'Sending...' : 'Send'}
           disabled={this.state.submitting}
         />
-        <ModalOverlay onClick={this.closeModal} visible={this.state.showModal} />
+        <ModalOverlay onClick={this.handleCloseModal} visible={this.state.showModal} />
         <Modal visible={this.state.showModal}>
           <p>
             Thank you for reaching out. I will get back to you as soon as possible.
           </p>
-          <ModalButton onClick={this.closeModal}>Okay</ModalButton>
+          <ModalButton onClick={this.handleCloseModal}>Okay</ModalButton>
         </Modal>
       </Form>
     )

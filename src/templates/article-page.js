@@ -18,6 +18,7 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
+import Toc from '../components/Toc'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -196,6 +197,7 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
         />
       </section>
       <section>
+        <Toc />
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}

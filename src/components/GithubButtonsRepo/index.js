@@ -12,7 +12,7 @@ class GitHubRepo extends Component {
     return (
       <ThemeProvider theme={theme}>
         <>
-          <Fragment>
+          <>
             <div className='column'>
               <div className='field is-grouped'>
                 <p className='control'>
@@ -29,7 +29,7 @@ class GitHubRepo extends Component {
                 </p>
               </div>
             </div>
-          </Fragment>
+          </>
         </>
       </ThemeProvider>
     )

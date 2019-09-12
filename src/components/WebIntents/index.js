@@ -1,17 +1,17 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
 import { Twitter } from 'styled-icons/fa-brands'
 import theme from './buttons.css'
 
 const WebIntents = ({ slug, tweet_id }) => {
-  let title = config.userTwitter
-  let url = config.siteUrl + slug
+  const title = config.userTwitter
+  const url = config.siteUrl + slug
 
   return (
     <ThemeProvider theme={theme}>
       <>
-        <Fragment>
+        <>
           <div className='column'>
             <div className='field is-grouped has-addons'>
               <p className='control'>
@@ -76,7 +76,7 @@ const WebIntents = ({ slug, tweet_id }) => {
               </p>
             </div>
           </div>
-        </Fragment>
+        </>
       </>
     </ThemeProvider>
   )
