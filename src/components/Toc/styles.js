@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Close as Cross } from 'styled-icons/material/Close'
 import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
 
-import mediaQuery from '../../utils/mediaQuery'
+import mediaQuery from '../../utils/mediaQueryStyles'
 
 const openTocDiv = css`
   background: ${props => props.theme.background};
