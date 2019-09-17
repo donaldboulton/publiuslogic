@@ -42,37 +42,23 @@ const Time = styled.span`
   font-size: 1rem;
   color: silver;
 `
+
 const Date = styled.span`
   font-size: 1rem;
   color: silver;
 `
 
-const Meta = styled.div`
-  font-size: 1rem;
-  margin-left: 8.33333%;
-  flex: none;
-  max-width: 83.33333%;
-  color: silver;
-`
 const GithubButtons = styled.span`
   right: .5px;
 `
-const Rating = styled.div`
-  font-size: 1rem;
-  margin-left: 9.33333%;
-  flex: none;
-  max-width: 83.33333%;
-  color: silver;
-`
-
 const renderAst = new RehypeReact({
   createElement: React.createElement,
-  components: { 'ratings': 'Ratings' },
+  components: { showToc: 'Toc' },
 }).Compiler
 
-const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false, allRatingsJson: ratings = [] }) => {
+const ArticlePage = ({ props, data, htmlAst, location, frontmatter }) => {
   const { markdownRemark: post } = data
-
+  const { showToc } = frontmatter
   const postNode = data.markdownRemark
   const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
@@ -84,22 +70,11 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
   const coverHeight = '100%'
   const postPath = globalHistory.location.pathname
 
-  const ratingValue =
-    ratings && ratings.edges
-      ? ratings.edges.reduce(
-        (accumulator, rating) => {
-          return accumulator + parseInt(rating.node.rating)
-        },
-        0
-      ) / ratings.totalCount
-      : 0
-  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
-
-  let alternativeHeadline = post.frontmatter.meta_title
-  let pageDescription = post.frontmatter.meta_description
-  let pageTags = post.frontmatter.tags
-  let url = post.frontmatter.canonical
-  let logo = config.siteLogo
+  const alternativeHeadline = post.frontmatter.meta_title
+  const pageDescription = post.frontmatter.meta_description
+  const pageTags = post.frontmatter.tags
+  const url = post.frontmatter.canonical
+  const logo = config.siteLogo
 
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -107,7 +82,7 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
     publisher: {
       '@type': 'Organization',
       name: 'donaldboulton',
-      'logo': {
+      logo: {
         '@type': 'ImageObject',
         url: logo,
         width: '450px',
@@ -197,7 +172,7 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
         />
       </section>
       <section>
-        <Toc />
+        {showToc && <Toc />}
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}
@@ -217,20 +192,6 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
             <GithubButtons><GithubButtonsRepo className='is-size-6 is-pulled-right' /></GithubButtons>
           </div>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: htmlAst }} />
-        <Meta
-          data={{
-            ...frontmatter,
-            rating: { ratingValue, ratingCount: ratingCount },
-          }}
-          rich
-        />
-        {ratings ? (
-          <Rating>
-            Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null}4.5 -{' '}
-            {ratings.totalCount} 36 Reviews
-          </Rating>
-        ) : null}
       </section>
       <section className='section'>
         <div className='container content'>
@@ -238,12 +199,10 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
             <div className='column is-10 is-offset-1'>
               <div>{renderAst(post.htmlAst)}</div>
               <ArticleTemplate
-                content={post.html}
+                content={post.htmlAst}
                 contentComponent={HTMLContent}
                 cover={post.frontmatter.cover}
                 readingTime={readingTime}
-                ratingValue={data.ratingValue}
-                ratingCount={data.ratingCount}
                 category={post.frontmatter.category}
                 date={post.frontmatter.date}
                 tweet_id={post.frontmatter.tweet_id}
@@ -269,8 +228,6 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter, rich = false
 
 ArticlePage.propTypes = {
   readingTime: PropTypes.number.isRequired,
-  ratingValue: PropTypes.number,
-  ratingCount: PropTypes.number,
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),

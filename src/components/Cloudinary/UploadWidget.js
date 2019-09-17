@@ -33,20 +33,20 @@ class UploadWidget extends Component {
           textDark: '#000000',
           textLight: '#FFFFFF',
         },
-
       },
     },
     function (error, result) {
       console.log(result)
     })
   }
+
   render () {
     return (
       <div className='main'>
         <Helmet>
           <script src='https://widget.cloudinary.com/v2.0/global/all.js' type='text/javascript' />
         </Helmet>
-        <h1>Upload</h1>
+        <h1>Uploads</h1>Uploads widget takes a second to open Cloudinary data.
         <div className='upload'>
           <button onClick={this.uploadWidget.bind(this)} className='upload-button button is-primary'>
             Add Image

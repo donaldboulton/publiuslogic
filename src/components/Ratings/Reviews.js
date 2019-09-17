@@ -1,21 +1,37 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-
-const Reviews = () => {
-  const data = useStaticQuery(graphql`
-    {
-      allRatingsJson(filter: {postPath: {eq: "id"}}, sort: {fields: date, order: ASC}) {
-        totalCount
-        edges {
-          node {
-            id
-            rating
+import React, { Component } from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import Reviews from './ReviewsComponent'
+class reviewsWrapper extends Component {
+  render () {
+    const { rating, postPath, ratingValue, date, ratingCount, rich = false, allRatingsJson: ratings = [] } = this.props
+    return (
+      <StaticQuery
+        query={graphql`
+          {
+            allRatingsJson(filter: {postPath: {eq: "id"}}, sort: {fields: date, order: ASC}) {
+              totalCount
+              edges {
+                node {
+                  id
+                  rating
+                }
+              }
+            }
           }
-        }
-      }
-    }
-  `)
-  return <pre>{JSON.stringify(data, null, 4)}</pre>
+        `}
+        render={data => (
+          <Reviews
+            fileEdges={data.allFile.edges}
+            postPath={postPath}
+            ratings={rating}
+            ratingValue={data.ratingValue}
+            ratingCount={data.ratingCount}
+            date={date}
+          />
+        )}
+      />
+    )
+  }
 }
 
-export default Reviews
+export default reviewsWrapper
