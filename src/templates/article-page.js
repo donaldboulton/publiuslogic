@@ -199,7 +199,7 @@ const ArticlePage = ({ props, data, htmlAst, location, frontmatter }) => {
             <div className='column is-10 is-offset-1'>
               <div>{renderAst(post.htmlAst)}</div>
               <ArticleTemplate
-                content={post.htmlAst}
+                content={post.html}
                 contentComponent={HTMLContent}
                 cover={post.frontmatter.cover}
                 readingTime={readingTime}

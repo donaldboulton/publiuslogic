@@ -7,7 +7,7 @@ if (typeof window !== undefined) { require('react-github-btn') }
 class GitHubFollow extends PureComponent {
   render () {
     return (
-      <GitHubButton href='https://github.com/donaldboulton' className='btn' data-show-count='true' aria-label='Follow @donaldboulton on GitHub'>Follow</GitHubButton>    
+      <GitHubButton href='https://github.com/donaldboulton' className='btn' data-show-count='true' data-color-scheme='no-preference: dark; light: dark' aria-label='Follow @donaldboulton on GitHub'>Follow</GitHubButton>    
     )
   }
 }
