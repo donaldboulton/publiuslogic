@@ -1,7 +1,5 @@
 const proxy = require('http-proxy-middleware')
-const config = require('./_data/config')    
-const fetch = require(`node-fetch`)
-const { createHttpLink } = require(`apollo-link-http`)
+const config = require('./_data/config')
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -74,7 +72,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-source-filesystem`,
-      options: {        
+      options: {
         path: `${__dirname}/static/images`,
         name: `images`,
       },

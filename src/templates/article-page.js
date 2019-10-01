@@ -56,9 +56,8 @@ const renderAst = new RehypeReact({
   components: { showToc: 'Toc' },
 }).Compiler
 
-const ArticlePage = ({ props, data, htmlAst, location, frontmatter }) => {
+const ArticlePage = ({ props, data, htmlAst, location, showToc, frontmatter }) => {
   const { markdownRemark: post } = data
-  const { showToc } = frontmatter
   const postNode = data.markdownRemark
   const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
