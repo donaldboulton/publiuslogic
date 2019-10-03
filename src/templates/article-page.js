@@ -18,7 +18,6 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
-import Toc from '../components/Toc'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -42,21 +41,19 @@ const Time = styled.span`
   font-size: 1rem;
   color: silver;
 `
-
 const Date = styled.span`
   font-size: 1rem;
   color: silver;
 `
-
 const GithubButtons = styled.span`
   right: .5px;
 `
 const renderAst = new RehypeReact({
   createElement: React.createElement,
-  components: { showToc: 'Toc' },
+  components: { reviews: 'reviews' },
 }).Compiler
 
-const ArticlePage = ({ props, data, htmlAst, location, showToc, frontmatter }) => {
+const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const readingTime = data.readingTime
@@ -138,7 +135,7 @@ const ArticlePage = ({ props, data, htmlAst, location, showToc, frontmatter }) =
         <meta property='og:readingTime' content={readingTime} />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={post.frontmatter.cover} />
+        <meta property='og:image' content={logo} />
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
@@ -148,7 +145,7 @@ const ArticlePage = ({ props, data, htmlAst, location, showToc, frontmatter }) =
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
-        <meta name='twitter:image' content={post.frontmatter.cover} />
+        <meta name='twitter:image' content={logo} />
         <meta name='twitter:description' content={post.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
@@ -171,7 +168,6 @@ const ArticlePage = ({ props, data, htmlAst, location, showToc, frontmatter }) =
         />
       </section>
       <section>
-        {showToc && <Toc />}
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}
