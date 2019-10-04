@@ -207,3 +207,10 @@ patch:
         patched: '2019-07-06T02:25:49.676Z'
     - gatsby-plugin-webpack-bundle-analyzer > webpack-bundle-analyzer > lodash:
         patched: '2019-07-09T20:54:11.908Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - web-push > https-proxy-agent:
+        patched: '2019-10-04T02:25:15.949Z'
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T02:25:15.949Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T02:25:15.949Z'
