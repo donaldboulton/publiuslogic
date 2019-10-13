@@ -109,7 +109,7 @@
     "rehype-react": "^4.0.1",
     "remark-rehype": "^5.0.0",
     "sharp": "^0.23.0",
-    "snyk": "^1.192.3",
+    "snyk": "^1.230.5",
     "styled-components": "^4.3.2",
     "styled-css-grid": "^1.2.1",
     "styled-icons": "^8.4.0",
