@@ -10,19 +10,17 @@ const NotFoundPage = () => (
     </Helmet>
     <section className='hero'>
       <div className='hero-body'>
-        <div className='container'>
-          <div className='columns'>
-            <div className='column'>
-              <div className='is-centered'>
-                <div className='column'>
-                  <KnockOut />
-                </div>
-                <h2 className='subtitle'>
+        <div className='columns'>
+          <div className='column'>
+            <div className='is-centered'>
+              <div className='column'>
+                <KnockOut />
+              </div>
+              <h2 className='subtitle'>
                   You just hit a route that doesn&#39;t exist... the
                   sadness.
-                </h2>
+              </h2>
                 Click send the email icon below to send us a email about the error!
-              </div>
             </div>
           </div>
         </div>
