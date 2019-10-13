@@ -116,7 +116,7 @@
     "styled-media-query": "^2.1.2",
     "typeface-bowlby-one-sc": "^0.0.72",
     "typeface-kaushan-script": "0.0.72",
-    "typeface-roboto": "^0.0.54",
+    "typeface-roboto": "^0.0.75",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "uploadcare-widget": "^3.7.7",
     "web-push": "^3.3.5",
