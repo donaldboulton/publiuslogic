@@ -173,11 +173,13 @@ footer.footer
     padding: 1.25em 1.5em
 .message
     background-color: #1d1d1d !important
+    background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important
     border-radius: 4px
     font-size: 1rem
     border-left: 5px solid #d64000 !important
 .input, .textarea
     background-color: #1d1d1d !important
+    background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important
     color: #cccccc !important
     border: #434040 !important
     border-radius: 4px
@@ -225,8 +227,9 @@ hr, hr.thick
     background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
     background-image: linear-gradient(to right,#d64000,#da1b60) !important
 .card
-    background-color: #1d1d1d !important
-    border-radius: 5px
+    background-image: webkit-gradient(180px at top right,#685e31,rgba(0,0,0,0)),radial-gradient(180px at top left,#0d92c3,rgba(0,0,0,0)),radial-gradient(180px at bottom left,#8a43bd,rgba(0,0,0,0)),radial-gradient(180px at bottom right,#1d8d42,rgba(0,0,0,0)) !important
+    background: radial-gradient(180px at top right,#685e31,rgba(0,0,0,0)),radial-gradient(180px at top left,#0d92c3,rgba(0,0,0,0)),radial-gradient(180px at bottom left,#8a43bd,rgba(0,0,0,0)),radial-gradient(180px at bottom right,#1d8d42,rgba(0,0,0,0)) !important
+    border-radius: 8px !important
     color: #cccccc !important
     max-width: 100%
     position: relative
@@ -535,5 +538,9 @@ pre[class*=language-]
   overflow: hidden !important
 code
   background-color: #1d1d1d !important
+.navbar-item.is-hoverable:hover .navbar-dropdown.is-boxed
+    opacity: 1 !important
+    pointer-events: auto !important
+    transform: translateY(0) !important
   
 @import "~bulma"

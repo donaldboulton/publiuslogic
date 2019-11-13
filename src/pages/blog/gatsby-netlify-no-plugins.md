@@ -25,6 +25,8 @@ Adding Netlify Identify Widget through Gatsby configurations and plugin "gatsby-
 
 I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from HotJar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject preload them in my Gatsby Netlify configuration for the gatsby-plugin-netlify in gatsby-config.
 
+<interactive-counter></interactive-counter>
+
 ```js
 {
    resolve: `gatsby-plugin-netlify`,

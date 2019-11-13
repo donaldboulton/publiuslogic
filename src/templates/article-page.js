@@ -18,6 +18,7 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
+import Counter from '../components/Counter'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -50,7 +51,7 @@ const GithubButtons = styled.span`
 `
 const renderAst = new RehypeReact({
   createElement: React.createElement,
-  components: { reviews: 'reviews' },
+  components: { 'interactive-counter': Counter },
 }).Compiler
 
 const ArticlePage = ({ data }) => {

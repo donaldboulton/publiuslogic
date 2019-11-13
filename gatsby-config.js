@@ -123,7 +123,7 @@ module.exports = {
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['Ratings', 'Reviews'] },
+            options: { components: ['interactive-counter', 'Reviews'] },
           },
           `gatsby-remark-reading-time-v2`,
           {
@@ -346,6 +346,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-netlify`,
       options: {

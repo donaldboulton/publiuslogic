@@ -13,7 +13,7 @@ const AboutSection = () => {
       <div className='column is-one-third'>
         <div className='card'>
           <div className='card-image'>
-            <figure className='image is-4by3'>
+            <figure className='image is-128by128'>
               <a href='https://publiuslogic.com'>
                 <img
                   src={logo}
@@ -56,7 +56,7 @@ const AboutSection = () => {
       <div className='column'>
         <div className='card'>
           <div className='card-image'>
-            <figure className='image is-4by3'>
+            <figure className='image is-128by128'>
               <a title='Gatsby' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
                 <img
                   src={gatsby}
@@ -93,7 +93,7 @@ const AboutSection = () => {
       <div className='column'>
         <div className='card'>
           <div className='card-image'>
-            <figure className='image is-4by3'>
+            <figure className='image is-128by128'>
               <a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
                 <img
                   src={netlify}
