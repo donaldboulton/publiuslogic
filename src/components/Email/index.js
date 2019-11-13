@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Modali, { useModali } from 'modali'
 import { Mail } from 'styled-icons/material'
 import Button from './ModaliButton'
