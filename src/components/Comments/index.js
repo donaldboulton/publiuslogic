@@ -28,7 +28,6 @@ class Comments extends React.Component {
                     />
                   </a>
                   <div>
-                    <div>Governed by our!</div>
                     <div className='is-centered'><a href='/privacy#Comment Policy/'>Submitting Policy</a></div>
                   </div>
                 </div>
