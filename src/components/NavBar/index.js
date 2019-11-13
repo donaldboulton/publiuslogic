@@ -33,7 +33,7 @@ const NavBar = ({ toggleNavbar, isActive }) => (
           </button>
         </div>
         <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} id='navMenu'>
-          <div className='navbar-end'>            
+          <div className='navbar-end'>
             <div className='navbar-item has-dropdown is-hoverable'>
               <a className='navbar-link is-active' href='/sitemap' itemProp='url'>
                 <span itemProp='name'>Docs</span>
