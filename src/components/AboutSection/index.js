@@ -11,9 +11,9 @@ const AboutSection = () => {
   return (
     <div className='columns'>
       <div className='column is-one-third'>
-        <div className='card'>
+        <div className='card card1'>
           <div className='card-image'>
-            <figure className='image is-128by128'>
+            <figure className='image is-4by3'>
               <a href='https://publiuslogic.com'>
                 <img
                   src={logo}
@@ -41,8 +41,8 @@ const AboutSection = () => {
             <div className='content'>
               GitHub Issues as Comments
               <br />
-              <div><a target='_blank' href='https://github.com/donaldboulton/publiuslogic' rel='me noopener'>&nbsp;GitHub Repo</a></div>
-              <div><a target='_blank' href='https://twitter.com/donboulton' rel='me noopener'>&nbsp;Twitter @publiuslogic</a></div>
+              <div><a rel='me noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic'>&nbsp;GitHub Repo</a></div>
+              <div><a target='_blank' href='https://twitter.com/donboulton' rel='me noopener noreferrer'>&nbsp;Twitter @publiuslogic</a></div>
               <br />
               <span>
                 <p>
@@ -54,9 +54,9 @@ const AboutSection = () => {
         </div>
       </div>
       <div className='column'>
-        <div className='card'>
+        <div className='card card2'>
           <div className='card-image'>
-            <figure className='image is-128by128'>
+            <figure className='image is-4by3'>
               <a title='Gatsby' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
                 <img
                   src={gatsby}
@@ -91,9 +91,9 @@ const AboutSection = () => {
         </div>
       </div>
       <div className='column'>
-        <div className='card'>
+        <div className='card card3'>
           <div className='card-image'>
-            <figure className='image is-128by128'>
+            <figure className='image is-4by3'>
               <a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
                 <img
                   src={netlify}
