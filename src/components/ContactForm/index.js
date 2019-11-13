@@ -19,6 +19,7 @@ const Name = styled.input`
   padding:10px;
   color:#ccc;
   background: #1d1d1d;
+  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
   border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
@@ -30,6 +31,7 @@ const Email = styled.input`
   padding:10px;
   color:#ccc;
   background: #1d1d1d;
+  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
   border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
@@ -41,6 +43,7 @@ const Message = styled.textarea`
   padding:10px;
   color:#ccc;
   background: #1d1d1d;
+  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
   border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
@@ -58,7 +61,7 @@ const Submit = styled.input`
   cursor:pointer;
   border-radius: 6px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   color: #fff;
 `
@@ -72,7 +75,7 @@ const ModalButton = styled.button`
   cursor:pointer;
   border-radius:4px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   color: #fff;
 `

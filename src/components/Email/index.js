@@ -15,11 +15,11 @@ const Email = () => {
 
   return (
     <div>
-      <Fragment>
+      <>
         <Button handleClick={toggleCompleteModal}>
           <Mail className='button is-primary is-medium' />
         </Button>
-      </Fragment>
+      </>
       <Modali.Modal {...completeExample} className='modali-size-large'>
         <div>
           <p>

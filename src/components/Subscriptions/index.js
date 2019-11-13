@@ -12,10 +12,12 @@ export default class Subscribe extends React.Component {
       email: ``,
     }
   }
+
     // Update state each time user edits their email address
     _handleEmailChange = e => {
       this.setState({ email: e.target.value })
     }
+
     // Post to MC server & handle its response
     _postEmailToMailchimp = (email, attributes) => {
       addToMailchimp(email, attributes)
@@ -43,6 +45,7 @@ export default class Subscribe extends React.Component {
           })
         })
     }
+
     _handleFormSubmit = e => {
       e.preventDefault()
       e.stopPropagation()
@@ -56,7 +59,7 @@ export default class Subscribe extends React.Component {
           {
             status: `sending`,
             msg: null,
-          }
+          },
         )
         // setState callback (subscribe email to MC)
         this._postEmailToMailchimp(this.state.email, {
@@ -113,8 +116,9 @@ export default class Subscribe extends React.Component {
                       <div className='control'>
                         <input
                           className='input input-control'
-                          type={'text'}
+                          type='text'
                           placeholder='your@email.com *'
+                          // eslint-disable-next-line react/jsx-handler-names
                           onChange={this._handleEmailChange}
                           required
                         />
@@ -123,6 +127,7 @@ export default class Subscribe extends React.Component {
                         <button
                           className='button is-primary'
                           type='submit'
+                          // eslint-disable-next-line react/jsx-handler-names
                           onClick={this._handleFormSubmit}
                         >Sign Up
                         </button>
