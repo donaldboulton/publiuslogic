@@ -13,7 +13,7 @@ export const Arrow = styled(Up).attrs(({ direction, size }) => ({
   border-radius: 50%;
   transition: ${theme.shortTrans};
   position: fixed;
-  top: 4.5em;
+  top: 5em;
   opacity: ${show ? 1 : 0};
   visibility: ${show ? `visible` : `hidden`};
   :hover {

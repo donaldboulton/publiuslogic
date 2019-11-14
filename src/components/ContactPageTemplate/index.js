@@ -19,7 +19,7 @@ const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent
             <div className='column'>
               <h4>Realtime Contact Message</h4>
               <div>
-                <a href='https://publiuslogic.com/privacy'>
+                <a aria-label='Privacy Link' href='https://publiuslogic.com/privacy'>
                   <img
                     src={logo}
                     alt='PubliusLogic'
@@ -28,7 +28,7 @@ const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent
                 </a>
                 <div>
                   <div>Contacts are governed by our!</div>
-                  <div className='is-centered'><a href='/privacy#Comment Policy'>Submitting Policy</a></div>
+                  <div className='is-centered'><a aria-label='Comment Policy' href='/privacy#Comment Policy'>Submitting Policy</a></div>
                 </div>
               </div>
             </div>

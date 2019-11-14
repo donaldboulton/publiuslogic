@@ -27,6 +27,7 @@ const Slack = () => {
                   href='https://mansbooks.slack.com/messages/DDMGYN0QY/'
                   target='_blank'
                   rel='noopener noreferrer'
+                  aria-label='Slack Message'
                 >
                   <small>&nbsp;@donboulton</small></a></span></span>
             <p className='subtitle is-5'>
@@ -34,7 +35,7 @@ const Slack = () => {
             </p>
           </div>
           <div className='column'>
-            <a className='button is-primary is-medium' href='https://slack.com/oauth/authorize?client_id=295732203780.571249891331&scope=incoming-webhook,admin'>
+            <a aria-label='Add to Slack' className='button is-primary is-medium' href='https://slack.com/oauth/authorize?client_id=295732203780.571249891331&scope=incoming-webhook,admin'>
               <span className='icon'>
                 <img
                   src={SlackIcon}
@@ -71,7 +72,10 @@ const Slack = () => {
                     <div className='control'>
                       <input
                         className='input input-control'
-                        type={'email'}
+                        type='email'
+                        aria-label='Input Email'
+                        aria-required='true'
+                        id='email2'
                         placeholder='your@email.com *'
                         required
                       />
@@ -81,6 +85,7 @@ const Slack = () => {
                         className='button is-primary'
                         type='submit'
                         onClick='submit'
+                        aria-label='Submit Slack Message'
                       >Send
                       </button>
                     </div>

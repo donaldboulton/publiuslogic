@@ -17,7 +17,10 @@ export default class SearchBox extends Component {
         <meta itemProp='target' content='https://query.publiuslogic.com/search?q={search_term_string}' />
         <input
           className='luna__input js-luna__input'
-          type='text'
+          type='search'
+          id='search'
+          aria-label='Search Input'
+          aria-required='false'
           value={this.state.query}
           // eslint-disable-next-line react/jsx-handler-names
           onChange={this.search}
@@ -26,7 +29,7 @@ export default class SearchBox extends Component {
         />
         <div className='navbar-dropdown'>
           {this.state.results.map(page => (
-            <Link itemProp='url' className='navbar-item' key={page.id} to={page.slug}>{page.title}</Link>
+            <Link aria-label='Results Links' itemProp='url' className='navbar-item' key={page.id} to={page.slug}>{page.title}</Link>
           ))}
         </div>
       </div>

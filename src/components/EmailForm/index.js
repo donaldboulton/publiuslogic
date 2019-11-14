@@ -51,29 +51,51 @@ class ContactForm extends Component {
             action='/.netlify/functions/ContactForm/'
             onSubmit={this.handleSubmit}
           >
+            <label htmlFor='name' className='hidden'>Name</label>
             <div className='field'>
-              <label className='label'>Full Name</label>
               <div className='control'>
-                <input className='input input-control' type='text' placeholder='Full Name' name='name' id='name' onChange={this.handleChange} />
+                <input
+                  className='input input-control'
+                  type='text'
+                  placeholder='Your Name'
+                  aria-label='Your Name'
+                  aria-required='true'
+                  name='name'
+                  id='name'
+                  onChange={this.handleChange} />
               </div>
             </div>
-
+            <label htmlFor='email' className='hidden'>Email</label>
             <div className='field'>
-              <label className='label'>Email</label>
               <div className='control'>
-                <input className='input input-control' type='email' placeholder='Email' name='email' id='email' onChange={this.handleChange} />
+                <input
+                  className='input input-control'
+                  type='email'
+                  aria-label='Search Input'
+                  aria-required='true'
+                  placeholder='Email'
+                  name='email'
+                  id='email'
+                  onChange={this.handleChange} />
               </div>
             </div>
-
+            <label htmlFor='message' className='hidden'>Message</label>
             <div className='field'>
-              <label className='label'>Message</label>
               <div className='control'>
-                <textarea className='textarea input-control' type='text' name='message' rows='5' id='message' onChange={this.handleChange} />
+                <textarea
+                  className='textarea input-control'
+                  type='textarea'
+                  name='message'
+                  aria-label='Message'
+                  aria-required='true'
+                  rows='5'
+                  id='message'
+                  onChange={this.handleChange} />
               </div>
             </div>
             <div className='field'>
               <div className='control'>
-                <button className='button is-primary' type='submit'>Submit</button>
+                <button aria-label='Submit Message' className='button is-primary' type='submit'>Submit</button>
               </div>
             </div>
           </form>

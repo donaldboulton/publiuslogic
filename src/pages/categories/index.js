@@ -11,14 +11,7 @@ const Styledh1 = styled.h1`
   text-align: center;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
-  z-index: 22;
-  color: radial-gradient(
-    circle farthest-corner at center center,
-    #ccccccc,
-    #ffffff
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 `
 
@@ -54,8 +47,8 @@ const CategoriesPage = ({
                 <li className='control' key={category.fieldValue}>
                   <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>
                     <div className='tags has-addons is-large'>
-                      <span className='tag is-primary'>{category.fieldValue}</span>
-                      <span className='tag is-dark'>{category.totalCount}</span>
+                      <span aria-label='Category' className='tag is-primary'>{category.fieldValue}</span>
+                      <span aria-label='Category Count' className='tag is-dark'>{category.totalCount}</span>
                     </div>
                   </Link>
                 </li>

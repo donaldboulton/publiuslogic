@@ -52,13 +52,13 @@ const Message = styled.textarea`
   box-sizing: border-box;
 `
 
-const Submit = styled.input`
-  border:solid 1px #d64000;
-  padding:15px 30px;
-  margin:0 0 20px;
-  text-transform:uppercase;
-  font-weight:bold;
-  cursor:pointer;
+const Submit = styled.button`
+  border: solid 1px #d64000;
+  padding: 15px 30px;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
   border-radius: 6px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
   background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
@@ -181,39 +181,50 @@ class ContactForm extends React.Component {
         onClick={this.handleCloseModal}
         netlify-recaptcha
       >
-        <input type='hidden' name='form-name' value='contact' />
+        <input aria-label='hidden do not fill this out' type='hidden' name='form-name' value='contact' />
         <p hidden>
           <label>
             Don’t fill this out:{' '}
             <input name='bot' onChange={this.handleInputChange} />
           </label>
         </p>
-
+        <label htmlFor='name' className='label'>Name</label>
         <Name
           name='name'
+          id='name'
           type='text'
           title='Name'
+          aria-label='Your Name'
+          aria-required='true'
           placeholder='Full Name'
           value={this.state.name}
           onChange={this.handleInputChange}
           required
           disabled={this.state.submitting}
         />
+        <label htmlFor='email' className='label'>Email</label>
         <Email
           name='email'
+          id='email'
           type='email'
           title='Email'
           placeholder='Email'
+          aria-label='Your Email'
+          aria-required='true'
           value={this.state.email}
           onChange={this.handleInputChange}
           required
           disabled={this.state.submitting}
         />
+        <label htmlFor='message' className='label'>Message</label>
         <Message
           name='message'
+          id='message'
           title='Message'
-          type='text'
+          type='textarea'
           placeholder='Message'
+          aria-label='Message'
+          aria-required='true'
           value={this.state.message}
           onChange={this.handleInputChange}
           required
@@ -222,18 +233,21 @@ class ContactForm extends React.Component {
         <Submit
           name='submit'
           type='submit'
+          aria-label='Submit Message'
           class='g-recaptcha'
           data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
           data-callback='onSubmit'
           value={this.state.submitting ? 'Sending...' : 'Send'}
           disabled={this.state.submitting}
-        />
+        >
+        Submit
+        </Submit>
         <ModalOverlay onClick={this.handleCloseModal} visible={this.state.showModal} />
         <Modal visible={this.state.showModal}>
           <p>
             Thank you for reaching out. I will get back to you as soon as possible.
           </p>
-          <ModalButton onClick={this.handleCloseModal}>Okay</ModalButton>
+          <ModalButton aria-label='Close Ok' onClick={this.handleCloseModal}>Okay</ModalButton>
         </Modal>
       </Form>
     )

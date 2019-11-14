@@ -65,7 +65,7 @@ const HomePageTemplate = ({
                           </figure>
                         </a>
                         <p>
-                          <a className='title has-text-primary is-size-4' href='/blog/gatsby-github-comments-utterances/'>Gatsby Comments Utterances</a>
+                          <a className='is-size-4' href='/blog/gatsby-github-comments-utterances/'>Gatsby Comments Utterances</a>
                         </p>
                         <p>
                           <span className='subtitle is-size-5'>
@@ -90,7 +90,7 @@ const HomePageTemplate = ({
                           </figure>
                         </a>
                         <p>
-                          <a className='title has-text-primary is-size-4' href='/blog/modali-hooks-modal/'>Modali Hooks Modal</a>
+                          <a className='is-size-4' href='/blog/modali-hooks-modal/'>Modali Hooks Modal</a>
                         </p>
                         <p>
                           <span className='subtitle is-size-5'>

@@ -116,7 +116,10 @@ export default class Subscribe extends React.Component {
                       <div className='control'>
                         <input
                           className='input input-control'
-                          type='text'
+                          type='email'
+                          id='email3'
+                          aria-label='Input Your Email'
+                          aria-required='false'
                           placeholder='your@email.com *'
                           // eslint-disable-next-line react/jsx-handler-names
                           onChange={this._handleEmailChange}
@@ -127,6 +130,7 @@ export default class Subscribe extends React.Component {
                         <button
                           className='button is-primary'
                           type='submit'
+                          aria-label='Submit Subscription'
                           // eslint-disable-next-line react/jsx-handler-names
                           onClick={this._handleFormSubmit}
                         >Sign Up
@@ -143,7 +147,7 @@ export default class Subscribe extends React.Component {
               </div>
               <div className='column'>
                 <p className='subtitle is-5'>
-                  <Link to='/privacy/#MailChimp' itemProp='url' rel='no-follow' className='is-small'>
+                  <Link aria-label='MailChimp Privacy' to='/privacy/#MailChimp' itemProp='url' rel='no-follow' className='is-small'>
                      MailChimp Privacy & Terms
                   </Link>
                 </p>

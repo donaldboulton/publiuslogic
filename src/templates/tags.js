@@ -10,15 +10,7 @@ const Styledh1 = styled.h1`
   text-align: center;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
-  z-index: 22;
-  color: radial-gradient(
-    circle farthest-corner at center center,
-    #ffffff,
-    #cccccc
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+  color: #ffffff;
 `
 
 class TagRoute extends Component {
@@ -64,9 +56,9 @@ class TagRoute extends Component {
                 style={{ marginBottom: '6rem' }}
               >
                 <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
-                <ul className='taglist read-more'>{postLinks}</ul>
+                <ul aria-label='Read More' className='taglist read-more'>{postLinks}</ul>
                 <p>
-                  <Link className='button is-primary' to='/tags/'>Browse all tags →</Link>
+                  <Link aria-label='Browse all tags' className='button is-primary' to='/tags/'>Browse all tags →</Link>
                 </p>
               </div>
             </div>

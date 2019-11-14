@@ -11,14 +11,7 @@ const Styledh1 = styled.h1`
   text-align: center;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
-  z-index: 22;
-  color: radial-gradient(
-    circle farthest-corner at center center,
-    #ffffff,
-    #cccccc
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 `
 
@@ -54,8 +47,8 @@ const TagsPage = ({
                 <li className='control' key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
                     <div className='tags has-addons is-large'>
-                      <span className='tag is-primary'>{tag.fieldValue}</span>
-                      <span className='tag is-dark'>{tag.totalCount}</span>
+                      <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
+                      <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
                     </div>
                   </Link>
                 </li>

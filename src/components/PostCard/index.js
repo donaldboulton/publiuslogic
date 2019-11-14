@@ -23,7 +23,7 @@ const PostCard = ({ posts, category, date, inTitle = false }) => {
                       </figure>
                     </Link>
                     <p>
-                      <Link className='title has-text-primary is-size-4' to={post.fields.slug}>
+                      <Link aria-label='Post Link' className='is-size-4' to={post.fields.slug}>
                         {post.frontmatter.title}
                       </Link>
                     </p>
@@ -31,14 +31,14 @@ const PostCard = ({ posts, category, date, inTitle = false }) => {
                       <div>
                         <span className='subtitle is-size-5'>
                           <Calendar size='1.2em' /><small>&nbsp;{post.frontmatter.date}</small>
-                          <span className='is-pulled-right'>&nbsp;&nbsp;Category&nbsp;<FileSymlinkFile size='1.2em' /><Link to={`/categories/`}><small>&nbsp;{post.frontmatter.category}</small></Link></span>
+                          <span className='is-pulled-right'>&nbsp;&nbsp;Category&nbsp;<FileSymlinkFile size='1.2em' /><Link aria-label='Categories' to={`/categories/`}><small>&nbsp;{post.frontmatter.category}</small></Link></span>
                         </span>
                       </div>
                     </Meta>
                     {post.excerpt}
                     <br />
                     <br />
-                    <Link className='button is-small' to={post.fields.slug}>
+                    <Link aria-label='Keep Reading' className='button is-small' to={post.fields.slug}>
                       Keep Reading →
                     </Link>
                   </p>
