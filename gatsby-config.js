@@ -159,6 +159,15 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: 'Table of Contents',
+              tight: false,
+              fromHeading: 2,
+              toHeading: 6,
+            },
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: 'language-',

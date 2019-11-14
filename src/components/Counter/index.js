@@ -1,7 +1,11 @@
 import React from 'react'
 
 const counterStyle = {
-  /* styles skipped for brevity */
+  width: '300px',
+  height: '60px',
+  margin: '2em',
+  padding: '5px',
+  display: 'inline',
 }
 
 export default class Counter extends React.Component {
@@ -32,9 +36,9 @@ export default class Counter extends React.Component {
   render () {
     return (
       <span style={counterStyle}>
-        <strong style={{ flex: `1 1` }}>{this.state.value}</strong>
-        <button onClick={this.handleDecrement}>-1</button>
-        <button onClick={this.handleIncrement}>+1</button>
+        <span className='button is-primary' style={{ flex: `1 1` }}>{this.state.value}</span>
+        <button className='button is-primary' type='button' onClick={this.handleDecrement}>-1</button>
+        <button className='button is-primary' type='button' onClick={this.handleIncrement}>+1</button>
       </span>
     )
   }

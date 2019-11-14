@@ -19,13 +19,17 @@ meta_description: >-
 tweet_id: "1148277966230695936"
 ---
 
+## Gatsby
+
 I started using Gatsby from Jekyll in March and I was already using netlify and Netlify Identity and Netlify CMS for my personal website so I picked [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)  for my first Gatsby Project, and it was slower than some of the other starters I messed around with.
 
-Adding Netlify Identify Widget through Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and  Netlify Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins.
+### Adding Netlify Identify Widget
+
+Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and  Netlify Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins.
 
 I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from HotJar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject preload them in my Gatsby Netlify configuration for the gatsby-plugin-netlify in gatsby-config.
 
-<interactive-counter></interactive-counter>
+### Gatsby Config
 
 ```js
 {
@@ -68,7 +72,7 @@ Netlify CMS building this post
 
 ![Netlify CMS building this post](/img/Cms+Gatsby+Netlify+NoPlugins.jpg)
 
-Adding to my NavBar
+### Adding to my NavBar
 
 ```jsx
 import NetlifyIdentityWidget from '../IdentityWidget'
@@ -82,7 +86,7 @@ import NetlifyIdentityWidget from '../IdentityWidget'
 
 Moving the CMS folder that came with the Gatsby Netlify Starter, with the, "cms.js and preview templates", to the /static/admin/cms folder.
 
-Code for the index.html page is below.
+### Code for the index.html
 
 [Repo Link](https://github.com/donaldboulton/publiuslogic/blob/master/static/admin/index.html)
 
@@ -195,6 +199,8 @@ itemtype="https://schema.org/WebPage">
 </html>
 ```
 
+### CMS index file
+
 Then a index.js file to import and export the Netlify CMS
 
 ```js{1,4}:title=static/admin/cms/cms.js
@@ -204,6 +210,8 @@ export default {
   CMS,
 }
 ```
+
+## External Images
 
 I am using an external service for my Images with uploadcare or you can use cloudinary library and not have to use all the plugins slowing your Gatsby build and site speed; "like, "gatsby-plugin-netlify-cms' and "gatsby-plugin-netlify-identity-widget" "gatsby-remark-relative-images", "gatsby-remark-copy-linked-files", "netlify-cms-app", netlify-cms-media-library-cloudinary", "netlify-cms-media-library-uploadcare". No does Gatsby have to care about uploaded files or folder configurations for static uploads and/or images in gatbsy.config.
 
@@ -215,5 +223,18 @@ I added the preview styles from my Netlify build style sheet using styled compon
 CMS.registerPreviewStyle("./styles.d5154f21eaaa9091536f.css");
 ```
 
-My repo holds all the code for the discussion above at [DWB publislogic repo Static Admin Folder](https://github.com/donaldboulton/publiuslogic)
+## No MDX
 
+Here is an example of not using MDX Plugins, but only using remark-rehype with HTMLAst to render a component in markdown pages.
+
+### Counter
+
+<interactive-counter></interactive-counter>
+
+My repo holds all the code for the discussion above at [DWB publislogic repo](https://github.com/donaldboulton/publiuslogic)
+
+```toc
+exclude: Table of Contents
+from-heading: 2
+to-heading: 6
+```

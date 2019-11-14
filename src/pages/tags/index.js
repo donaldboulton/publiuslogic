@@ -12,7 +12,7 @@ const Styledh1 = styled.h1`
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 22;
-  background: radial-gradient(
+  color: radial-gradient(
     circle farthest-corner at center center,
     #ffffff,
     #cccccc
