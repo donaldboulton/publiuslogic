@@ -75,7 +75,7 @@ const Slack = () => {
                         type='email'
                         aria-label='Input Email'
                         aria-required='true'
-                        id='email2'
+                        id='email'
                         placeholder='your@email.com *'
                         required
                       />

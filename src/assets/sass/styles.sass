@@ -1,9 +1,26 @@
 @import "~bulma/sass/utilities/initial-variables"
 
+// Config vars
+// Kalidi logo brand color: #FD461E
+$kaldi-red: #D64000
+$kaldi-red-invert: #fff
+
+$primary: $kaldi-red
+$primary-invert: $kaldi-red-invert
+$body-color: #fff
+$black: #2b2523
+$menu-item-color: $white-ter
+$menu-item-hover-color: $black !important
+$menu-item-hover-background-color: $black
+$menu-item-active-color: $kaldi-red-invert
+$menu-item-active-background-color:	$kaldi-red-invert
+$menu-list-border-left: 1px solid $kaldi-red-invert	
+$menu-label-color: $white-ter
+
 body
   background-image: url(/img/bg10-min.png)
   background-repeat: repeat
-  color: #ffffff !important
+  color: #ccc
   font-size: 1.25rem !important
   font-weight: 600 !important
   line-height: 1.5em
@@ -23,7 +40,7 @@ nav
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 .navbar-item .icon 
-  color: #fff
+  color: $primary
 .navbar-dropdown
   background-color: #1d1d1d !important
   border-top: 2px solid #1d1d1d !important  
@@ -149,17 +166,17 @@ footer.footer
 .message-body code
     background-color: transparent !important
 .message-body
-    border-radius: 0px
+    border-radius: 4px
     border: solid #000000 !important
     border-width: 0 0 0 4px
     color: #cccccc !important
     padding: 1.25em 1.5em
 .message
-    background-color: #1d1d1d
+    background-color: #1d1d1d !important
     background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important
     border-radius: 8px
     font-size: 1rem
-    border-left: 5px solid #813102 !important
+    border-left: 5px solid #812102 !important
 .input, .textarea
     background-color: #1d1d1d !important
     background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important
@@ -206,6 +223,9 @@ hr, hr.thick
     background-image: linear-gradient(to right,#d64000,#da1b60)
     background-color: transparent
     border-radius: 5px
+.navbar-divider
+    background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
+    background-image: linear-gradient(to right,#d64000,#da1b60) !important
 .card
     border-radius: 8px !important
     color: #cccccc !important
@@ -220,6 +240,12 @@ hr, hr.thick
 .card3
     background-image: webkit-gradient(180px at top left,#685e31,rgba(0,0,0,0)),radial-gradient(180px at top right,#0d92c3,rgba(0,0,0,0)),radial-gradient(180px at bottom right,#8a43bd,rgba(0,0,0,0)),radial-gradient(180px at bottom left,#1d8d42,rgba(0,0,0,0)) !important
     background: radial-gradient(180px at top left,#685e31,rgba(0,0,0,0)),radial-gradient(180px at top right,#0d92c3,rgba(0,0,0,0)),radial-gradient(180px at bottom right,#8a43bd,rgba(0,0,0,0)),radial-gradient(180px at bottom left,#1d8d42,rgba(0,0,0,0)) !important
+.navbar-item.is-mega
+  position: static
+.is-mega-menu-title
+  margin-bottom: 0
+  padding: .375rem 1rem
+  color: #ccc !important
 .site-title
   font-family: Kaushan Script,cursive
   color: #d64000 !important
@@ -236,11 +262,25 @@ a:hover
   color: #cccccc !important
 a:focus
   outline: none !important 
+.productFigure img
+  border: solid 1px #d64000
+  border-radius: 50%
+  padding: 1em
+  width: 250px
 section 
   clear: both
+.productFigure
+  float: left
 .actions 
   margin-top: 1em
   text-align: center
+.buyButton 
+  border: none
+  background-color: #d64000
+  color: white
+  padding: 0.5em
+  border-radius: 5px
+  cursor: pointer
 .breadcrumb
   margin-top: -1em
   margin-bottom: 1em
@@ -257,6 +297,14 @@ section
   width: 100%
   line-height: 1.45em
   padding: 15px
+.textarea-wrapper
+  background: #1d1d1d !important
+  background-color: #1d1d1d !important
+  border: 2px solid #1d1d1d !important
+  color: #ccc !important
+  position: relative
+  border-radius: 4px
+  margin: 0 0 0 48px
 #no-posts
   opacity: .6
   line-height: 107px
@@ -302,7 +350,7 @@ label, input
 .knockout
   background-image: linear-gradient(to left, #d64000 , #da1b60)
   font-family: 'Bowlby One SC', cursive
-  height: 30vh
+  height: 60vh
   text-transform: uppercase
   width: 100%
 text:nth-child(2)
@@ -448,6 +496,17 @@ div.code-toolbar>.toolbar
   font-size: 20px
   padding: 20px
   text-align: center
+.container:hover .overlay
+  opacity: 1
+.cc-container.cc-theme-orange .cc-icon a
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
+  background-color: #d64000 !important
+  border-color: transparent !important
+  color: #cccccc !important
+.cc-container.cc-theme-orange .cc-icon a:hover
+  background-color: #c93c00 !important    
+  border-color: #c93c00 !important
 .input-control  
   border: 1px solid #434040!important    
   background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important
@@ -460,6 +519,22 @@ gatsby-resp-image-image
   box-shadow: none !important
 .gatsby-resp-image-figcaption
   text-align: center !important
+.EmbeddedTweet
+  background-color: #1d1d1d !important
+  border: 1px solid #434040 !important
+  width: 800px !important
+  height: auto !important
+.TweetAuthor-name
+  color: #999999 !important
+.Tweet-header
+    color: #2a2e2e !important
+.EmbeddedTweet:hover .TweetAuthor-name
+  color: #eeeeee
+.Tweet-text
+  padding: 10px
+  border-radius: 5px
+  border: 1px solid #000 !important
+  background-color: #2a2e2e !important
 .section
   padding: 1.8rem 1.5rem !important
 .content table td, .content table th
@@ -506,5 +581,5 @@ textarea[type="textarea"]:focus
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important
   background: linear-gradient(90deg,#d64000,#8e0436) !important
   color: #ffffff !important
-
+  
 @import "~bulma"

@@ -11,6 +11,7 @@ const remark = new Remark().data(`settings`, {
   commonmark: true,
   footnotes: true,
   pedantic: true,
+  gfm: true,
 })
 
 const R = require('ramda')
@@ -23,7 +24,11 @@ exports.createPages = ({ actions, graphql }) => {
       allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {
-            excerpt(pruneLength: 400)
+            headings {
+              depth
+              value
+            }
+            excerpt(pruneLength: 200)
             id
             fields {
               slug              

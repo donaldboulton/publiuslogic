@@ -117,7 +117,7 @@ export default class Subscribe extends React.Component {
                         <input
                           className='input input-control'
                           type='email'
-                          id='email3'
+                          id='email'
                           aria-label='Input Your Email'
                           aria-required='false'
                           placeholder='your@email.com *'
