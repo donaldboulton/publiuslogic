@@ -15,6 +15,7 @@ tags:
 meta_title: Earths Magnetic Flux
 meta_description: Earths Magnetic Flux and Common Sense on Planetary Issues
 tweet_id: '1118651504674725888'
+showToc: true
 ---
 
 ## Common Sense on Planetary Issues
@@ -32,3 +33,4 @@ We pump out the oil, store it above ground in areas away from where it came from
 
 Distribute the minerals all over the place and the mother cannot balance itself, and we all die, most likely it will be from Yellowstone Caldera exploding and killing all living things on land and in the oceans. All from our formalized and complete stupidity and greed.
 
+<table-of-contents></table-of-comtents>

@@ -8,6 +8,7 @@ meta_description: >-
   This website is built as static HTML with Gatsby component-modular builds including a Simple Node Express Heroku Server. Hasura GraphQL backend, with React components and Built with Webpack in a Docker Container.
 tags:
   - About
+showToc: true  
 ---
 
 ## Technical notes about this website
@@ -103,3 +104,4 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 * Contact Form (Netlify Forms)
 * Easy Configuration using `config.js` file
 
+<table-of-contents></table-of-contents>

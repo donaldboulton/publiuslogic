@@ -8,7 +8,8 @@ import { generateMedia } from 'styled-media-query'
 const media = generateMedia()
 
 const BackgroundSection = ({ className, title, backdrop }) => (
-  <StaticQuery query={graphql`
+  <StaticQuery
+    query={graphql`
       query {
         desktop: file(relativePath: { eq: "sunset-kitzeberg-fjord.jpg" }) {
           childImageSharp {
@@ -20,26 +21,25 @@ const BackgroundSection = ({ className, title, backdrop }) => (
       }
     `}
     render={data => {
-    const imageData = data.desktop.childImageSharp.fluid
-    return (
-      <StyledWrapper>
-        <StyledSymetryWrapper>
-          <StyledWelcomeImage
-            fluid={imageData}
-            backgroundColor='#040e18'
-            objectFit='cover'
-            objectPosition='50% 50%'
-          />
-          <StyledTitle>
-            <Styledh1>              
-              <HeroText />
-            </Styledh1>
-          </StyledTitle>
-        </StyledSymetryWrapper>
-      </StyledWrapper>
-    )
-  }
-  }
+      const imageData = data.desktop.childImageSharp.fluid
+      return (
+        <StyledWrapper>
+          <StyledSymetryWrapper>
+            <StyledWelcomeImage
+              fluid={imageData}
+              backgroundColor='#040e18'
+              objectFit='cover'
+              objectPosition='50% 50%'
+            />
+            <StyledTitle>
+              <Styledh1>
+                <HeroText />
+              </Styledh1>
+            </StyledTitle>
+          </StyledSymetryWrapper>
+        </StyledWrapper>
+      )
+    }}
   />
 )
 

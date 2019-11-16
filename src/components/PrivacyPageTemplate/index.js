@@ -7,13 +7,11 @@ const PrivacyPageTemplate = ({ title, cover, canonical, meta_description, meta_t
 
   return (
     <div>
-      <section className='section section--gradient'>
-        <div className='container'>
+      <section className='section'>
+        <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <div className='section'>
-                <PageContent className='content' content={content} />
-              </div>
+              <PageContent className='content' content={content} />
             </div>
           </div>
         </div>

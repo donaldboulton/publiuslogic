@@ -46,7 +46,7 @@ const AboutSection = () => {
               <br />
               <span>
                 <p>
-                  {config.copyright}
+                  {config.copyright} - <a title='PubliusLogic Home' href='https://publiuslogic.com' rel='noopener noreferrer'>PubliusLogic</a>
                 </p>
               </span>
             </div>

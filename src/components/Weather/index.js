@@ -1,19 +1,15 @@
-
 import React from 'react'
 import OpenWeatherMap from 'react-open-weather-map'
-import { ThemeProvider } from 'styled-components'
-import theme from '../styles/Section'
+import axios from 'axios'
 
-class Weather extends Component {
+const Slack = () => {
   constructor (props) {
     super(props)
     this.link = React.createRef()
     this.state = {
       link: this.href,
-    }
   }
   componentDidMount () {
-    // Request for images tagged cats
     axios.get('http://maps.openweathermap.org/maps/2.0/weather/{CL}/{2}/{35.3931}/{-97.6006}?date=1527811200&
     opacity=0.9&fill_bound=true&appid={8f4c1537b5fad3b111dae7b441fd0937}')
       .then(res => {
@@ -21,6 +17,7 @@ class Weather extends Component {
         this.setState({ weather: res.data.resources })
       })
   }
+}
 
   onLink (event) {
     this.setState({ link: this.href = `http://maps.openweathermap.org/maps/2.0/weather/{CL}/{2}/{35.3931}/{-97.6006}?date=1527811200&
@@ -29,11 +26,11 @@ class Weather extends Component {
   const config = { containerClassName: 'column is-2 react-open-weather-map' }
 
   return (
-    <ThemeProvider theme={theme}>
       <>
         <OpenWeatherMap config={config} />
+        <div id="openweathermap-widget-11"></div>
+        <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4544349',appid: '8f4c1537b5fad3b111dae7b441fd0937',units: 'metric',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
       </>
-    </ThemeProvider>
   )
 }
 

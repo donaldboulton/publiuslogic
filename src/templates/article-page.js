@@ -19,6 +19,7 @@ import Global from '../components/Global'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
+import Toc from '../components/Toc'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -51,7 +52,10 @@ const GithubButtons = styled.span`
 `
 const renderAst = new RehypeReact({
   createElement: React.createElement,
-  components: { 'interactive-counter': Counter },
+  components: {
+    'interactive-counter': Counter,
+    'table-of-contents': Toc,
+  },
 }).Compiler
 
 const ArticlePage = ({ data }) => {

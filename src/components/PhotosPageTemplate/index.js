@@ -8,23 +8,25 @@ const PhotosPageTemplate = ({ data, canonical, cover, title, meta_title, meta_de
   const PageContent = contentComponent || Content
 
   return (
-    <div>
-      <section className='section section--gradient'>
+    <>
+      <section className='section'>
         <div className='container'>
-          <div className='is-10 is-offset-1'>
-            <div>
-              <Cloudinary />
-            </div>
-            <div>
-              <div className='container'>
-                <PageContent className='content' content={content} />
+          <div className='columns'>
+            <div className='column'>
+              <div>
+                <Cloudinary />
               </div>
-              <div><UploadWidget /></div>
+              <div>
+                <div className='column container'>
+                  <PageContent className='content' content={content} />
+                </div>
+                <div><UploadWidget /></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }
 
