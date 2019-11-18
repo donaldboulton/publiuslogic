@@ -51,31 +51,6 @@ const Date = styled.span`
 const GithubButtons = styled.span`
   right: 2px;
 `
-const TocIcon = styled(BookContent)`
-  width: 1em;
-  margin-right: 0.2em;
-`
-const TocDiv = styled.div`
-  height: max-content;
-  position: fixed;
-  height: max-content;
-  max-height: 60vh;
-  overflow-y: none;
-  z-index: 1;
-  top: 50vh;
-  right: 5px;
-  max-width: 150px;
-  -webkit-overflow-scrolling: touch;
-  }
-`
-const Title = styled.h2`
-  margin: 0;
-  padding-bottom: 0.5em;
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  grid-template-columns: auto auto 1fr;
-`
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
@@ -248,16 +223,6 @@ const ArticlePage = ({ data }) => {
             </div>
           </div>
         </div>
-        <TocDiv>
-          <Title>
-            <TocIcon />
-             &nbsp;Contents
-          </Title>
-          <div
-            dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
-            className='toc'
-          />
-        </TocDiv>
       </section>
     </Global>
   )

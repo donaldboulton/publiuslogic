@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import GithubButtonFollow from './follow'
 import GithubButtonWatch from './watch'
 import GithubButtonStar from './star'
-import GithubButtonFork from './fork'
 import { ThemeProvider } from 'styled-components'
 import theme from './buttons.css'
 
@@ -22,9 +21,6 @@ class GitHubRepo extends Component {
               </p>
               <p className='control'>
                 <GithubButtonStar />
-              </p>
-              <p className='control'>
-                <GithubButtonFork />
               </p>
             </div>
           </div>
