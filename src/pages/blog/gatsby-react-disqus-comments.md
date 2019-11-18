@@ -15,6 +15,7 @@ tags:
 meta_title: Disqus Comments for the weak
 meta_description: Gatsby React Disqus Comments
 tweet_id: '1118651504674725888'
+showToc: true
 ---
 
 ## Taken From

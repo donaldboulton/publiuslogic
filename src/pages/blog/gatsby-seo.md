@@ -15,6 +15,7 @@ tags:
 meta_title: SEO JSON-LD done right.
 meta_description: Gatsby SEO JSON-LD per page is the only logical option for perfection in a WebPage or Article.
 tweet_id: '1118651504674725889'
+showToc: true
 ---
 
 ## JSON-LD Per Template

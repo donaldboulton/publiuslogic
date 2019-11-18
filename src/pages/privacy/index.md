@@ -10,6 +10,7 @@ tags:
   - PubliusLogic
 cover: /images/privacy.jpg
 canonical: "https://publiuslogic.com/privacy"
+showToc: true
 ---
 
 ### User data encrypted

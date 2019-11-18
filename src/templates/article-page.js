@@ -3,6 +3,7 @@ import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
 import styled from 'styled-components'
+import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import WebIntents from '../components/WebIntents'
 import { Calendar } from 'styled-icons/octicons/Calendar'
@@ -19,7 +20,7 @@ import Global from '../components/Global'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
-import Toc from '../components/Toc'
+import HitCounter from '../components/HitCounter'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -50,11 +51,36 @@ const Date = styled.span`
 const GithubButtons = styled.span`
   right: .5px;
 `
+const TocIcon = styled(BookContent)`
+  width: 1em;
+  margin-right: 0.2em;
+`
+const TocDiv = styled.div`
+  height: max-content;
+  position: fixed;
+  height: max-content;
+  max-height: 60vh;
+  overflow-y: none;
+  z-index: 1;
+  top: 30vh;
+  right: 5px;
+  max-width: 150px;
+  -webkit-overflow-scrolling: touch;
+  }
+`
+const Title = styled.h2`
+  margin: 0;
+  padding-bottom: 0.5em;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-template-columns: auto auto 1fr;
+`
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
     'interactive-counter': Counter,
-    'table-of-contents': Toc,
+    'interactive-hit-counter': HitCounter,
   },
 }).Compiler
 
@@ -68,6 +94,7 @@ const ArticlePage = ({ data }) => {
   const imageHeight = postImage.height
   const body = post.html
   const title = post.frontmatter.title
+  const showToc = post.frontmatter.showToc
   const coverHeight = '100%'
   const postPath = globalHistory.location.pathname
 
@@ -178,18 +205,18 @@ const ArticlePage = ({ data }) => {
             {post.frontmatter.title}
           </Styledh1>
         </div>
-        <div className='column is-10 is-offset-1'>
+        <div className='column is-9 is-offset-1'>
           <div className='columns is-desktop is-vcentered'>
-            <div className='column is-3'>
-              <span className='subtitle is-size-5'>
-                <Calendar size='.9em' />&nbsp;
+            <div className='column is-4'>
+              <span>
+                <Calendar size='0.9em' />&nbsp;
                 <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
-                <Timer size='.9em' />
-                <Time>{readingTime}3 min</Time>
+                <Timer size='0.9em' />&nbsp;
+                <Time>{post.timeToRead}&nbsp;min read</Time>
               </span>
             </div>
             <WebIntents />
-            <GithubButtons><GithubButtonsRepo className='is-size-6 is-pulled-right' /></GithubButtons>
+            <GithubButtons><GithubButtonsRepo /></GithubButtons>
           </div>
         </div>
       </section>
@@ -221,13 +248,22 @@ const ArticlePage = ({ data }) => {
             </div>
           </div>
         </div>
+        <TocDiv>
+          <Title>
+            <TocIcon />
+             &nbsp;Contents
+          </Title>
+          <div
+            dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
+            className='toc'
+          />
+        </TocDiv>
       </section>
     </Global>
   )
 }
 
 ArticlePage.propTypes = {
-  readingTime: PropTypes.number.isRequired,
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
@@ -240,13 +276,11 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id      
       htmlAst
-      tableOfContents 
+      timeToRead
+      tableOfContents
       excerpt(pruneLength: 200)                          
       fields {
         slug
-        readingTime {
-          text
-        }
       }      
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
@@ -258,6 +292,7 @@ export const pageQuery = graphql`
         tags
         cover
         canonical
+        showToc
       }
     }
     allRatingsJson(

@@ -16,6 +16,7 @@ tags:
 meta_title: Comments as GitHub Issues
 meta_description: Gatsby GitHub Comments Utterances uses withUtterances React npm module. Built with React Hooks and Love
 tweet_id: '1118651504674725888'
+showToc: true
 ---
 
 # React withUtterances [Repo](https://github.com/khw1031/withUtterances)

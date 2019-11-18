@@ -61,7 +61,7 @@ const ContactPage = ({ data, location }) => {
     publisher: {
       '@type': 'Organization',
       name: 'donaldboulton',
-      'logo': {
+      logo: {
         '@type': 'ImageObject',
         url: logo,
         width: '450px',

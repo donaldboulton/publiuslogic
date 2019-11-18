@@ -16,6 +16,7 @@ tags:
 meta_title: Scroll toTop or Bottom
 meta_description: Gatsby React Scroll toTop. Built with React Hooks, Styled Components and Love
 tweet_id: '1118651504674725888'
+showToc: true
 ---
 
 ## Gatsby React Scroll toTop or Bottom

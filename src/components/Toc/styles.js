@@ -24,8 +24,8 @@ export const TocDiv = styled.div`
   ${mediaQuery.maxLaptop} {
     max-width: 16em;
     position: fixed;
-    bottom: 1em;
-    left: 1em;
+    top: 6em;
+    right: 1em;
     ${props => !props.open && `height: 0;`};
     ${props => props.open && openTocDiv};
     visibility: ${props => (props.open ? `visible` : `hidden`)};

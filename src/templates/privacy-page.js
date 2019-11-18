@@ -61,7 +61,7 @@ const PrivacyPage = ({ data }) => {
     publisher: {
       '@type': 'Organization',
       name: 'donaldboulton',
-      'logo': {
+      logo: {
         '@type': 'ImageObject',
         url: logo,
         width: '450px',
@@ -152,7 +152,8 @@ export default PrivacyPage
 export const privacyPageQuery = graphql`
   query PrivacyPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      html
+      htmlAst
+      tableOfContents
       frontmatter {
         title
         cover
@@ -160,6 +161,7 @@ export const privacyPageQuery = graphql`
         meta_title
         meta_description
         tags
+        showToc
       }
     }
   }

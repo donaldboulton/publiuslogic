@@ -44,15 +44,15 @@ export const colors = {
   darkYellow: `#d0d500`,
   lightYellow: `#fbff6c`,
 
-  orange: `#efbf00`,
-  darkOrange: `#ff9100`,
-  lightOrange: `#ffbe41`,
+  orange: `##dd581f`,
+  darkOrange: `#d64000`,
+  lightOrange: `#e57342`,
 
   gray: `#464849`,
-  darkGray: `#3d3d3d`,
+  darkGray: `#282828`,
   darkerGray: `#1a1d23`,
   darkestGray: `#060606`,
-  lightGray: `#bcbcbc`,
+  lightGray: `#ebebeb`,
   lighterGray: `#e5e5e5`,
   lightestGray: `#f7f7f7`,
 }

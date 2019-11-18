@@ -10,20 +10,20 @@ import config from '../../_data/config'
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
   const author = config.author
-  const logo = config.siteLogo
+  let logo = config.siteLogo
   const image = post.frontmatter.cover
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/about',
+    url: 'https://publiuslogic.com/contact',
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://publiuslogic.com/about',
+      '@id': 'https://publiuslogic.com/contact',
     },
     description: config.siteDescription,
-    name: 'About | PubliusLogic',
+    name: 'Contact | PubliusLogic',
     author: {
       '@type': 'Person',
       name: 'donaldboulton',
@@ -40,7 +40,7 @@ const AboutPage = ({ data }) => {
     publisher: {
       '@type': 'Organization',
       name: 'donaldboulton',
-      logo: {
+      'logo': {
         '@type': 'ImageObject',
         url: logo,
         width: '450px',
@@ -97,7 +97,7 @@ const AboutPage = ({ data }) => {
         description={post.frontmatter.meta_description}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
-      />
+      />      
     </Global>
   )
 }
@@ -119,7 +119,6 @@ export const aboutPageQuery = graphql`
         meta_title
         meta_description
         tags
-        showToc
       }
     }
   }

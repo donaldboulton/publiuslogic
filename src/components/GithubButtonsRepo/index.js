@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import GithubButtonFollow from './follow'
 import GithubButtonWatch from './watch'
 import GithubButtonStar from './star'
@@ -12,24 +12,22 @@ class GitHubRepo extends Component {
     return (
       <ThemeProvider theme={theme}>
         <>
-          <>
-            <div className='column'>
-              <div className='field is-grouped'>
-                <p className='control'>
-                  <GithubButtonFollow />
-                </p>
-                <p className='control'>
-                  <GithubButtonWatch />
-                </p>
-                <p className='control'>
-                  <GithubButtonStar />
-                </p>
-                <p className='control'>
-                  <GithubButtonFork />
-                </p>
-              </div>
+          <div className='column'>
+            <div className='field is-grouped'>
+              <p className='control'>
+                <GithubButtonFollow />
+              </p>
+              <p className='control'>
+                <GithubButtonWatch />
+              </p>
+              <p className='control'>
+                <GithubButtonStar />
+              </p>
+              <p className='control'>
+                <GithubButtonFork />
+              </p>
             </div>
-          </>
+          </div>
         </>
       </ThemeProvider>
     )

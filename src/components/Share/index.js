@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import {
   FacebookShareButton,
-  LinkedinShareButton,
   TwitterShareButton,
+  TumblrShareButton,
+
   PinterestShareButton,
   RedditShareButton,
   FacebookShareCount,
-  LinkedinShareCount,
   RedditShareCount,
+  TumblrShareCount,
+  TumblrIcon,
   FacebookIcon,
   TwitterIcon,
   PinterestIcon,
-  LinkedinIcon,
   RedditIcon,
 } from 'react-share'
 import config from '../../../_data/config'
@@ -43,16 +44,16 @@ class Share extends Component {
             {count => <div className='share-count'>{filter(count)}</div>}
           </FacebookShareCount>
         </FacebookShareButton>
-        <LinkedinShareButton
+        <TumblrShareButton
           url={url}
           title={title}
           description={excerpt}
         >
-          <LinkedinIcon round size={iconSize} />
-          <LinkedinShareCount url={url}>
+          <TumblrIcon round size={iconSize} />
+          <TumblrShareCount url={url}>
             {count => <div className='share-count'>{filter(count)}</div>}
-          </LinkedinShareCount>
-        </LinkedinShareButton>
+          </TumblrShareCount>
+        </TumblrShareButton>
         <PinterestShareButton url={url}>
           <PinterestIcon round size={iconSize} />
         </PinterestShareButton>
