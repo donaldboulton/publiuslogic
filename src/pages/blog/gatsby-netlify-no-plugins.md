@@ -235,9 +235,3 @@ Here is an example of not using MDX Plugins, but only using remark-rehype with H
 <interactive-counter></interactive-counter>
 
 My repo holds all the code for the discussion above at [DWB publislogic repo](https://github.com/donaldboulton/publiuslogic)
-
-```toc
-exclude: Table of Contents
-from-heading: 2
-to-heading: 6
-```

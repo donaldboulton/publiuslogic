@@ -46,7 +46,7 @@ export default class BlogPage extends Component {
     const { group, index, first, last } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
-    let logo = config.siteLogo
+    const logo = config.siteLogo
 
     const blogSchemaOrgJSONLD = {
       '@context': 'http://schema.org',
@@ -130,13 +130,15 @@ export default class BlogPage extends Component {
         </Helmet>
         <section className='hero'>
           <Image />
+        </section>
+        <section className='section'>
           <div className='column is-10 is-offset-1'>
             <Styledh1>
               Blog | PubliusLogic
             </Styledh1>
             <p>✨ Listing all Posts.</p>
             <p>
-                For Refinements see <Link className='is-warning' to={`/categories/`}>Categories</Link> or <Link className='is-warning' to={`/tags/`}>Tags</Link>
+                For Refinements see <Link className='is-warning' to='/categories/'>Categories</Link> or <Link className='is-warning' to='/tags/'>Tags</Link>
             </p>
           </div>
         </section>

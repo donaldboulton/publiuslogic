@@ -49,7 +49,7 @@ const Date = styled.span`
   color: silver;
 `
 const GithubButtons = styled.span`
-  right: .5px;
+  right: 10px;
 `
 const TocIcon = styled(BookContent)`
   width: 1em;
@@ -199,31 +199,31 @@ const ArticlePage = ({ data }) => {
           coverClassName='post-cover'
         />
       </section>
-      <section>
+      <section className='section'>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}
           </Styledh1>
         </div>
-        <div className='column is-9 is-offset-1'>
+        <div className='column is-10 is-offset-1'>
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-4'>
-              <span>
-                <Calendar size='0.9em' />&nbsp;
+              <span className='subtitle is-size-5'>
+                <Calendar size='1.2em' />&nbsp;
                 <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
-                <Timer size='0.9em' />&nbsp;
+                <Timer size='1.2em' />&nbsp;
                 <Time>{post.timeToRead}&nbsp;min read</Time>
               </span>
             </div>
             <WebIntents />
-            <GithubButtons><GithubButtonsRepo /></GithubButtons>
+            <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
           </div>
         </div>
       </section>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>
-            <div className='column is-10 is-offset-1'>
+            <div className='column is-9 is-offset-1'>
               <div>{renderAst(post.htmlAst)}</div>
               <ArticleTemplate
                 content={post.html}

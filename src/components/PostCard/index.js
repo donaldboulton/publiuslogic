@@ -2,11 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Meta } from './styles'
 import { Calendar, FileSymlinkFile } from 'styled-icons/octicons/'
+import { Timer } from 'styled-icons/material/Timer'
 
-const PostCard = ({ posts, category, date, inTitle = false }) => {
+const PostCard = ({ posts, category, date, timeToRead, inTitle = false }) => {
+
   return (
     <section className='section'>
-      <div className='container'>
+      <div className='container content'>
         <div className='columns is-multiline is-10 is-offset-1'>
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'article-page')
@@ -30,8 +32,10 @@ const PostCard = ({ posts, category, date, inTitle = false }) => {
                     <Meta inTitle={inTitle}>
                       <div>
                         <span className='subtitle is-size-5'>
-                          <Calendar size='1.2em' /><small>&nbsp;{post.frontmatter.date}</small>
-                          <span className='is-pulled-right'>&nbsp;&nbsp;Category&nbsp;<FileSymlinkFile size='1.2em' /><Link aria-label='Categories' to={`/categories/`}><small>&nbsp;{post.frontmatter.category}</small></Link></span>
+                          <Calendar size='1em' /><small>&nbsp;{post.frontmatter.date}</small>&nbsp;
+                          <Timer size='1em' />&nbsp;
+                          <small>{post.timeToRead}&nbsp;min read</small>
+                          <span className='is-pulled-right'>&nbsp;<small>Category</small>&nbsp;<FileSymlinkFile size='1em' /><Link aria-label='Categories' to='/categories/'><small>&nbsp;{post.frontmatter.category}</small></Link></span>
                         </span>
                       </div>
                     </Meta>
