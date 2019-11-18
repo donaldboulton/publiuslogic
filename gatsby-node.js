@@ -28,6 +28,7 @@ exports.createPages = ({ actions, graphql }) => {
               depth
               value
             }
+            timeToRead                  
             excerpt(pruneLength: 200)
             id
             fields {

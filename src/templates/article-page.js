@@ -49,7 +49,7 @@ const Date = styled.span`
   color: silver;
 `
 const GithubButtons = styled.span`
-  right: 10px;
+  right: 2px;
 `
 const TocIcon = styled(BookContent)`
   width: 1em;
@@ -62,7 +62,7 @@ const TocDiv = styled.div`
   max-height: 60vh;
   overflow-y: none;
   z-index: 1;
-  top: 30vh;
+  top: 50vh;
   right: 5px;
   max-width: 150px;
   -webkit-overflow-scrolling: touch;
@@ -205,7 +205,7 @@ const ArticlePage = ({ data }) => {
             {post.frontmatter.title}
           </Styledh1>
         </div>
-        <div className='column is-10 is-offset-1'>
+        <div className='column is-9 is-offset-1'>
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-4'>
               <span className='subtitle is-size-5'>
