@@ -8,6 +8,7 @@ const Styledh1 = styled.h1`
   display: inline-block;
   font-size: 38px;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   color: #ffffff;
 `
@@ -57,7 +58,7 @@ class TagRoute extends Component {
                 <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
                 <ul aria-label='Read More' className='taglist read-more'>{postLinks}</ul>
                 <p>
-                  <Link aria-label='Browse all tags' className='button' to='/tags/'>Browse all tags →</Link>
+                  <Link aria-label='Browse all tags' className='button is-primary' to='/tags/'>Browse all tags →</Link>
                 </p>
               </div>
             </div>

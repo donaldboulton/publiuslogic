@@ -1,8 +1,7 @@
 import React from 'react'
 import { useTransition } from 'react-spring'
-import { useDarkMode } from '../../utils/hooks'
+import { useDarkMode } from '../../hooks'
 import { Box, Div, SunIcon, MoonIcon, SunMoonIcon, Notification } from './styles'
-import { Link } from 'gatsby'
 
 export default function DarkMode () {
   const [colorMode, setColorMode] = useDarkMode().slice(1)

@@ -109,6 +109,7 @@
     "react-stars": "^2.2.5",
     "react-typist": "^2.0.5",
     "react-typography": "^0.16.19",
+    "react-use-localstorage": "^3.3.2",
     "rehype-react": "^4.0.1",
     "remark-rehype": "^5.0.0",
     "resize-observer-polyfill": "^1.5.1",

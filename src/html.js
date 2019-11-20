@@ -44,7 +44,7 @@ export default class HTML extends Component {
           {this.props.headComponents}
           <link rel='shortcut icon' href={favicon} />
         </head>
-        <body itemScope='itemScope' itemType='https://schema.org/WebPage'>
+        <body>
           <div
             id='___gatsby'
             dangerouslySetInnerHTML={{ __html: this.props.body }}

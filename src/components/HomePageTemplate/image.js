@@ -64,12 +64,19 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-position: center center;
   background-size: cover;
   
-  ${media.lessThan('desktop')`
+  ${media.lessThan('large')`
     background-size: cover;
       &:after, &:before {
       background-size: contain;
     }
   `}
+  
+  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
+  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
+  //&:after, &:before {
+  //   background-clip: content-box;
+  //   background-size: contain;
+  //}
 `
 
 export const StyledTitle = styled.div`
@@ -96,6 +103,7 @@ const StyledWrapper = styled.div`
 const Styledh1 = styled.h1`
   display: inline-block;
   font-size: 60px;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 22;
   background: radial-gradient(

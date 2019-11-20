@@ -9,7 +9,7 @@ import Subscriptions from '../Subscriptions'
 import Adds from '../GoogleAdds'
 import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
-import { useDarkMode } from '../../utils/hooks'
+import { useDarkMode } from '../../hooks'
 import theme from '../../utils/theme'
 import { GlobalStyle } from './styles'
 
@@ -19,8 +19,8 @@ class Global extends Component {
     return (
       <ThemeProvider theme={theme(darkMode)}>
         <>
-          <Header />
           <GlobalStyle />
+          <Header />
           <Fragment itemScope='itemScope' itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>        <Subscriptions />
           <Slack />
           <HotJar />
