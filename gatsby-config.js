@@ -121,13 +121,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `stack`,
-        path: `${__dirname}/src/assets/img/stack`,
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'ratings',

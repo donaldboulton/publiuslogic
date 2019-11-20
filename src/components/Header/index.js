@@ -11,6 +11,7 @@ class Header extends Component {
   toggleNavbar () {
     this.setState({ isActive: !this.state.isActive })
   }
+
   render () {
     return (
       <>

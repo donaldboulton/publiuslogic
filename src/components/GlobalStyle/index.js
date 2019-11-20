@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     hyphens: auto;
-    /* below rules enable dark mode */
     background: ${props => props.theme.background};
     color: ${props => props.theme.textColor};
     margin: 0;
@@ -31,7 +30,6 @@ export const GlobalStyle = createGlobalStyle`
       font-size: ${maxFontSize}em;
       line-height: ${maxLineHeight}em;
     }
-    /* ensure full height page even if unsufficient content */
     div[role="group"][tabindex] {
       min-height: 100vh;
       display: flex;
@@ -84,7 +82,6 @@ export const GlobalStyle = createGlobalStyle`
       background: ${props => props.theme.darkerOrange};
     }
   }
-  /* center image captions */
   .gatsby-resp-image-wrapper + em {
     margin-top: 0.3em;
     display: block;

@@ -4,7 +4,9 @@ import mediaQuery from '../utils/mediaQuery'
 export const useMediaQuery = query => {
   if (typeof window !== `undefined`) {
     query = window.matchMedia(query)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [match, setMatch] = useState(query.matches)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       const handleMatch = q => setMatch(q.matches)
       query.addListener(handleMatch)
@@ -14,7 +16,6 @@ export const useMediaQuery = query => {
   }
 }
 
-// React hook for JS screen queries
 export const useScreenQuery = cond => {
   if (!mediaQuery[cond + `Js`])
     throw new TypeError(

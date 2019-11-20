@@ -130,7 +130,7 @@ const ArticlePage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title} description={post.frontmatter.meta_description}>
+    <Global pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
