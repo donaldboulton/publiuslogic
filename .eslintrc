@@ -5,12 +5,17 @@
     "standard-trailing-commas",
     "standard-react"
   ],
+  "plugins": [
+    "react-hooks"
+  ],
   "globals": {
     "graphql": true,
     "__PATH_PREFIX__": true
   },
   "rules": {
     "react/prop-types": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
