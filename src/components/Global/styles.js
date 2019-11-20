@@ -69,10 +69,10 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   .button {
-    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important;
-    background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
-    background-color: #d64000 !important;
-    border-color: transparent !important;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
+    background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+    background-color: #d64000;
+    border-color: transparent;
     border-radius: ${props => props.theme.smallBorderRadius};
     padding: 0.3em 0.6em;
     transition: ${props => props.theme.shortTrans};
@@ -96,10 +96,25 @@ export const GlobalStyle = createGlobalStyle`
   }
   blockquote {
     border-left: 5px solid ${props => props.theme.darkerOrange};
-    background-color: #1d1d1d !important;
-    color: #dbdbdb !important;
+    background-color: #1d1d1d;
+    color: #dbdbdb;
     padding: 1.25em 1.5em;
     margin: 0;
+  }
+  .site-title {
+    font-family: Kaushan Script,cursive;
+    color: #d64000;
+    font-weight: 800;
+    z-index: 20;
+    padding-left: 5px;
+  }
+  label, input {
+    font-family: Kaushan Script,cursive;
+  }
+  strong {
+    font-family: Kaushan Script,cursive;
+    color: #928c8c !important;
+    font-weight: 700;
   }
   .modali-overlay {
     position: fixed;

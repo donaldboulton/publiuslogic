@@ -8,7 +8,6 @@ const Styledh1 = styled.h1`
   display: inline-block;
   font-size: 38px;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   color: #ffffff;
 }

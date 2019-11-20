@@ -5,7 +5,6 @@ const max = width => `only screen and (max-width: ${width}em)`
 
 const mediaQuery = {
   screens: {
-    // screen sizes in em units
     phone: 30,
     phablet: 40,
     tablet: 50,

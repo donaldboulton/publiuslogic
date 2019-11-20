@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Typist from 'react-typist'
 
-import { media } from './style'
-
 const StyledTypist = styled(Typist)`
   color: #fff;
   letter-spacing: 14px;
@@ -13,14 +11,7 @@ const StyledTypist = styled(Typist)`
   z-index: 22;
   font-weight: 100;
   text-transform: uppercase;
-  font-family: 'Roboto';
-  ${ media.xs`
-    font-size:38px;
-    line-height: 44px;
-    letter-spacing: 8px;
-  ` }
 `
-
 class HeroText extends React.Component {
   render () {
     if (this.props.text) {
