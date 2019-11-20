@@ -95,7 +95,7 @@ class ContactForm extends Component {
             </div>
             <div className='field'>
               <div className='control'>
-                <button aria-label='Submit Message' className='button is-primary' type='submit'>Submit</button>
+                <button aria-label='Submit Message' className='button' type='submit'>Submit</button>
               </div>
             </div>
           </form>

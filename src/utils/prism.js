@@ -222,7 +222,7 @@ export default createGlobalStyle`
   .language-text {
     color: #cccccc!important;
     border-radius: 0.2em;
-    background: #363636!important;
+    background: #1d1d1d!important;
     padding: 0.15em 0.2em 0.05em;
   }
 
@@ -242,7 +242,7 @@ export default createGlobalStyle`
     position: absolute;
     top: 1em !important;
     right: .5em !important;
-    background: #363636!important;
+    background: #1d1d1d!important;
     border-radius: .5em;
   }
 

@@ -5,15 +5,11 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 import { Grid, Cell } from 'styled-css-grid'
-import { media } from '../../utils/mediaQuery'
 import 'lightgallery.js/dist/css/lightgallery.css'
 
 const SectionTitle = styled.h3`
   font-size: 1em;
   margin: 0.67em 0;
-  ${media.xs`
-    font-size: .85em;
-  `}
 `
 class Gallery extends Component {
   constructor (props) {

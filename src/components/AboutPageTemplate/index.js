@@ -11,8 +11,8 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
       <section className='hero'>
         <Image />
       </section>
-      <section className='section section--gradient'>
-        <div className='container'>
+      <section className='section'>
+        <div className='container content'>
           <div className='columns is-10 is-offset-1'>
             <div className='column'>
               <div>

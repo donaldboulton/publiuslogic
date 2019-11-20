@@ -57,7 +57,7 @@ const ArticleTemplate = ({
               {(tags && tags.length)
                 ? tags.map(tag => (
                   <li key={tag + `tag`}>
-                    <Link className='button is-primary is-small' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    <Link className='button is-small' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                   </li>
                 ))
                 : null
@@ -66,7 +66,7 @@ const ArticleTemplate = ({
           </div>
           <div className='column'>
             <h4>Category</h4>
-            <Link className='button is-primary is-small' to={`/categories/`}>{category}</Link>
+            <Link className='button is-small' to='/categories/'>{category}</Link>
           </div>
         </div>
       </div>

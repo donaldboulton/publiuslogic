@@ -9,7 +9,6 @@ cover: '/images/json-ld.jpg'
 tags:
   - Gatsby
   - Json-LD
-  - SEO
   - WebDev
   - Tutorial
 meta_title: SEO JSON-LD done right.

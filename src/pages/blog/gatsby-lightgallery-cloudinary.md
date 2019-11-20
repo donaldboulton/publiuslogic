@@ -221,7 +221,7 @@ class UploadWidget extends Component {
         </Helmet>
         <h1>Upload</h1>
         <div className='upload'>
-          <button onClick={this.uploadWidget.bind(this)} className='upload-button button is-primary'>
+          <button onClick={this.uploadWidget.bind(this)} className='upload-button button'>
             Add Image
           </button>
         </div>

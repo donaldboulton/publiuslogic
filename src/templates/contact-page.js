@@ -25,7 +25,7 @@ const Styledh1 = styled.h1`
 }
 `
 
-const ContactPage = ({ data, location }) => {
+const ContactPage = ({ data }) => {
   const { markdownRemark: post } = data
   const image = post.frontmatter.cover
   const author = config.author

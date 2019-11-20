@@ -48,7 +48,7 @@ class UploadWidget extends Component {
         </Helmet>
         <h1>Uploads</h1>Uploads widget takes a second to open Cloudinary data.
         <div className='upload'>
-          <button onClick={this.uploadWidget.bind(this)} className='upload-button button is-primary'>
+          <button onClick={this.uploadWidget.bind(this)} className='upload-button button'>
             Add Image
           </button>
         </div>

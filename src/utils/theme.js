@@ -1,31 +1,3 @@
-const theme = {
-  orange: `##dd581f`,
-  darkOrange: `#d64000`,
-  lightOrange: `#e57342`,
-
-  gray: `#464849`,
-  darkGray: `#282828`,
-  lightGray: `#ebebeb`,
-  veryLightGray: `#f7f7f7`,
-
-  white: `white`,
-  black: `black`,
-
-  maxWidth: `40em`,
-
-  smallBorder: `0.1em`,
-  mediumBorder: `0.15em`,
-  largeBorder: `0.2em`,
-
-  smallBorderRadius: `0.2em`,
-  mediumBorderRadius: `0.5em`,
-  largeBorderRadius: `1em`,
-
-  shortTrans: `0.3s`,
-  mediumTrans: `0.6s`,
-  longTrans: `1s`,
-}
-
 export const colors = {
   blue: `#2202a9`,
   darkBlue: `#190c65`,
@@ -34,6 +6,8 @@ export const colors = {
   lightBlue: `#1f59cd`,
   lighterBlue: `#279AF1`,
   lightestBlue: `#83aaff`,
+
+  lighterBlack: `#171717`,
 
   green: `#3f7912`,
   darkGreen: `#0c511a`,
@@ -46,13 +20,14 @@ export const colors = {
 
   orange: `##dd581f`,
   darkOrange: `#d64000`,
+  darkerOrange: `#813102`,
   lightOrange: `#e57342`,
 
   gray: `#464849`,
-  darkGray: `#282828`,
+  darkGray: `#3d3d3d`,
   darkerGray: `#1a1d23`,
   darkestGray: `#060606`,
-  lightGray: `#ebebeb`,
+  lightGray: `#bcbcbc`,
   lighterGray: `#e5e5e5`,
   lightestGray: `#f7f7f7`,
 }
@@ -73,7 +48,7 @@ export const measures = {
   longTrans: `1s`,
 }
 
-export const themeMdx = { ...colors, ...measures }
+export const theme = { ...colors, ...measures }
 
 export const lightTheme = {
   background: `white`,
@@ -98,12 +73,12 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  background: theme.darkerGray,
-  textColor: theme.lighterGray,
+  background: theme.lighterBlack,
+  textColor: theme.lightestGray,
   quoteBg: theme.darkestGray,
 
-  links: theme.lighterBlue,
-  hoveredLinks: theme.orange,
+  links: theme.darkOrange,
+  hoveredLinks: theme.darkerOrange,
 
   shadowColor: `black`,
   borderColor: `black`,
@@ -119,4 +94,5 @@ export const darkTheme = {
   inlineCodeColor: theme.darkestGray,
 }
 
-export default theme
+export default darkMode =>
+  darkMode ? { ...theme, ...darkTheme } : { ...theme, ...lightTheme }

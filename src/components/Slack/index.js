@@ -35,7 +35,7 @@ const Slack = () => {
             </p>
           </div>
           <div className='column'>
-            <a aria-label='Add to Slack' className='button is-primary is-medium' href='https://slack.com/oauth/authorize?client_id=295732203780.571249891331&scope=incoming-webhook,admin'>
+            <a aria-label='Add to Slack' className='button is-medium' href='https://slack.com/oauth/authorize?client_id=295732203780.571249891331&scope=incoming-webhook,admin'>
               <span className='icon'>
                 <img
                   src={SlackIcon}
@@ -82,7 +82,7 @@ const Slack = () => {
                     </div>
                     <div className='control'>
                       <button
-                        className='button is-primary'
+                        className='button'
                         type='submit'
                         onClick='submit'
                         aria-label='Submit Slack Message'

@@ -1,5 +1,4 @@
 import React from 'react'
-import KnockOut from '../components/Knockout'
 import Global from '../components/Global'
 import Helmet from 'react-helmet'
 
@@ -14,7 +13,7 @@ const NotFoundPage = () => (
           <div className='column'>
             <div className='is-centered'>
               <div className='column'>
-                <KnockOut />
+                <h1>404 Not Found</h1>
               </div>
               <h2 className='subtitle'>
                   You just hit a route that doesn&#39;t exist... the
@@ -23,17 +22,6 @@ const NotFoundPage = () => (
                 Click send the email icon below to send us a email about the error!
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div className='column is-10 is-offset-1'>
-        <div className='is-centered'>
-          <h2 className='subtitle'>
-                  You just hit a route that doesn&#39;t exist... the
-                  sadness.
-          </h2>
-                Click send the email icon below to send us a email about the error!
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const HTMLContent = ({ content, className }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
+  <div className={className} dangerouslySetInnerHTML={{ __htmlAst: content }} />
 )
 
 const Content = ({ content, className }) => (

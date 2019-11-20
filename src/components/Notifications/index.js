@@ -16,12 +16,14 @@ class Notify extends Component {
       ignore: false,
     })
   }
+
   handlePermissionDenied () {
     console.log('Permission Denied')
     this.setState({
       ignore: true,
     })
   }
+
   handleNotSupported () {
     console.log('Web Notification not Supported')
     this.setState({
@@ -55,7 +57,6 @@ class Notify extends Component {
     }
 
     const now = Date.now()
-
     const title = 'Don Boulton Notifications' + now
     const body = 'Hello' + new Date()
     const tag = now
@@ -79,7 +80,7 @@ class Notify extends Component {
     return (
       <div className='AppCenter'>
         <div className='notifyCenter'>
-          <button className='btn btn-primary' onClick={this.handleButtonClick.bind(this)}>
+          <button className='button' onClick={this.handleButtonClick.bind(this)}>
             <img
               src={bell}
               alt='Notify'

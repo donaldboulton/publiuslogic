@@ -30,7 +30,7 @@ const ImagesSection = ({ className, title, img, photo, photos }) => (
           <StyledSymetryWrapper key={photo.title} >
             {photos.map((photo, index) => (
               <StyledImage
-                alt={photo.title} fluid={photo.fluid} image={photo.fluid}
+                key={photo.title} alt={photo.title} fluid={photo.fluid} image={photo.fluid}
               />
             ))}
           </StyledSymetryWrapper>

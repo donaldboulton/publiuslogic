@@ -58,7 +58,7 @@ class CategoryRoute extends Component {
                 <h3 className='title is-size-4 is-bold-light'>{categoryHeader}</h3>
                 <ul className='taglist read-more'>{postLinks}</ul>
                 <p>
-                  <Link aria-label='All Categories' className='button is-primary' to='/categories/'>Browse all categories →</Link>
+                  <Link aria-label='All Categories' className='button' to='/categories/'>Browse all categories →</Link>
                 </p>
               </div>
             </div>

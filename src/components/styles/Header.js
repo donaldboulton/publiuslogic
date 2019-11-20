@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import mediaQuery from '../../utils/mediaQuery'
 
-export const PageBody = styled.main`
+export const Header = styled.div`
   position: relative;
   margin: calc(3em + 3vh) 0;
   display: grid;

@@ -3,7 +3,6 @@ import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
 import styled from 'styled-components'
-import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import WebIntents from '../components/WebIntents'
 import { Calendar } from 'styled-icons/octicons/Calendar'
@@ -17,6 +16,7 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
+import { PageBody, Header } from '../components/styles'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
@@ -49,6 +49,7 @@ const Date = styled.span`
   color: silver;
 `
 const GithubButtons = styled.span`
+  display: inline-block;
   right: 2px;
 `
 const renderAst = new RehypeReact({
@@ -62,17 +63,15 @@ const renderAst = new RehypeReact({
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
+  const readingTime = post.timeToRead
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
   const title = post.frontmatter.title
-  const showToc = post.frontmatter.showToc
   const coverHeight = '100%'
   const postPath = globalHistory.location.pathname
-
   const alternativeHeadline = post.frontmatter.meta_title
   const pageDescription = post.frontmatter.meta_description
   const pageTags = post.frontmatter.tags
@@ -132,7 +131,7 @@ const ArticlePage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Global pageTitle={post.frontmatter.title} description={post.frontmatter.meta_description}>
       <Helmet>
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -174,7 +173,7 @@ const ArticlePage = ({ data }) => {
           coverClassName='post-cover'
         />
       </section>
-      <section className='section'>
+      <Header as='div'>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}
@@ -187,19 +186,19 @@ const ArticlePage = ({ data }) => {
                 <Calendar size='1.2em' />&nbsp;
                 <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
                 <Timer size='1.2em' />&nbsp;
-                <Time>{post.timeToRead}&nbsp;min read</Time>
+                <Time>{readingTime}&nbsp;min read</Time>
               </span>
             </div>
             <WebIntents />
             <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
           </div>
         </div>
-      </section>
-      <section className='section'>
+      </Header>
+      <PageBody as='div'>
         <div className='container content'>
           <div className='columns'>
             <div className='column is-9 is-offset-1'>
-              <div>{renderAst(post.htmlAst)}</div>
+              <main>{renderAst(post.htmlAst)}</main>
               <ArticleTemplate
                 content={post.html}
                 contentComponent={HTMLContent}
@@ -223,7 +222,7 @@ const ArticlePage = ({ data }) => {
             </div>
           </div>
         </div>
-      </section>
+      </PageBody>
     </Global>
   )
 }

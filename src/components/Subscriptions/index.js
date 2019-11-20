@@ -128,7 +128,7 @@ export default class Subscribe extends React.Component {
                       </div>
                       <div className='control'>
                         <button
-                          className='button is-primary'
+                          className='button'
                           type='submit'
                           aria-label='Submit Subscription'
                           // eslint-disable-next-line react/jsx-handler-names

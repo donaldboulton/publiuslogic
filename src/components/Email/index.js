@@ -2,8 +2,6 @@ import React from 'react'
 import Modali, { useModali } from 'modali'
 import { Mail } from 'styled-icons/material'
 import Button from './ModaliButton'
-import './styles.css'
-
 import EmailForm from '../ContactForm'
 
 const Email = () => {
@@ -17,7 +15,7 @@ const Email = () => {
     <div>
       <>
         <Button handleClick={toggleCompleteModal}>
-          <Mail className='button is-primary is-medium' />
+          <Mail className='button is-medium' />
         </Button>
       </>
       <Modali.Modal {...completeExample} className='modali-size-large'>

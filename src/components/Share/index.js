@@ -28,36 +28,38 @@ class Share extends Component {
     const filter = count => (count > 0 ? count : '')
 
     return (
-      <div className='social-links'>
-        <RedditShareButton url={url} title={title}>
-          <RedditIcon round size={iconSize} />
-          <RedditShareCount url={url}>
-            {count => <div className='share-count'>{filter(count)}</div>}
-          </RedditShareCount>
-        </RedditShareButton>
-        <TwitterShareButton url={url} title={title}>
-          <TwitterIcon round size={iconSize} />
-        </TwitterShareButton>
-        <FacebookShareButton url={url} quote={excerpt}>
-          <FacebookIcon round size={iconSize} />
-          <FacebookShareCount url={url}>
-            {count => <div className='share-count'>{filter(count)}</div>}
-          </FacebookShareCount>
-        </FacebookShareButton>
-        <TumblrShareButton
-          url={url}
-          title={title}
-          description={excerpt}
-        >
-          <TumblrIcon round size={iconSize} />
-          <TumblrShareCount url={url}>
-            {count => <div className='share-count'>{filter(count)}</div>}
-          </TumblrShareCount>
-        </TumblrShareButton>
-        <PinterestShareButton url={url}>
-          <PinterestIcon round size={iconSize} />
-        </PinterestShareButton>
-      </div>
+      <>
+        <div>
+          <RedditShareButton url={url} title={title}>
+            <RedditIcon round size={iconSize} />
+            <RedditShareCount url={url}>
+              {count => <div className='share-count'>{filter(count)}</div>}
+            </RedditShareCount>
+          </RedditShareButton>
+          <TwitterShareButton url={url} title={title}>
+            <TwitterIcon round size={iconSize} />
+          </TwitterShareButton>
+          <FacebookShareButton url={url} quote={excerpt}>
+            <FacebookIcon round size={iconSize} />
+            <FacebookShareCount url={url}>
+              {count => <div className='share-count'>{filter(count)}</div>}
+            </FacebookShareCount>
+          </FacebookShareButton>
+          <TumblrShareButton
+            url={url}
+            title={title}
+            description={excerpt}
+          >
+            <TumblrIcon round size={iconSize} />
+            <TumblrShareCount url={url}>
+              {count => <div className='share-count'>{filter(count)}</div>}
+            </TumblrShareCount>
+          </TumblrShareButton>
+          <PinterestShareButton url={url}>
+            <PinterestIcon round size={iconSize} />
+          </PinterestShareButton>
+        </div>
+      </>
     )
   }
 }

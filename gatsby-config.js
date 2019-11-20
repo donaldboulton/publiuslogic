@@ -58,6 +58,35 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        develop: true,
+        purgeOnly: ['/sass/styles.sass'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `montserrat`,
+          `roboto\:300,400,400i,700`,
+        ],
+        display: 'swap',
+      },
+    },
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,
@@ -117,21 +146,13 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        commonmark: true,
-        footnotes: true,
-        pedantic: true,
-        gfm: true,
-        tableOfContents: {
-          heading: null,
-          maxDepth: 6,
-        },
         plugins: [
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['interactive-counter', 'Charts'] },
+            options: { components: ['interactive-counter', 'Reviews'] },
           },
           {
             resolve: 'gatsby-remark-normalize-paths',
@@ -204,13 +225,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        develop: true,
-        purgeOnly: ['/sass/styles.sass'],
       },
     },
     {
@@ -344,7 +358,12 @@ module.exports = {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        globPatterns: ['**/*.{js,jpg,html,css}'],
+      },
+    },
     `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-netlify`,
