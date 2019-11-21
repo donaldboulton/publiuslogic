@@ -16,7 +16,6 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Global from '../components/Global'
-import { PageBody, Header } from '../components/styles'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
@@ -26,6 +25,7 @@ const Styledh1 = styled.h1`
   display: inline-block;
   padding-top: 2em;
   font-size: 38px;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 22;
   background-position: 50% 50%;
@@ -48,7 +48,6 @@ const Date = styled.span`
   color: silver;
 `
 const GithubButtons = styled.span`
-  display: inline-block;
   right: 2px;
 `
 const renderAst = new RehypeReact({
@@ -62,15 +61,17 @@ const renderAst = new RehypeReact({
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
+  const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
-  const readingTime = post.timeToRead
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
   const title = post.frontmatter.title
+  const showToc = post.frontmatter.showToc
   const coverHeight = '100%'
   const postPath = globalHistory.location.pathname
+
   const alternativeHeadline = post.frontmatter.meta_title
   const pageDescription = post.frontmatter.meta_description
   const pageTags = post.frontmatter.tags
@@ -172,7 +173,7 @@ const ArticlePage = ({ data }) => {
           coverClassName='post-cover'
         />
       </section>
-      <Header as='div'>
+      <section className='section'>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
             {post.frontmatter.title}
@@ -185,19 +186,19 @@ const ArticlePage = ({ data }) => {
                 <Calendar size='1.2em' />&nbsp;
                 <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
                 <Timer size='1.2em' />&nbsp;
-                <Time>{readingTime}&nbsp;min read</Time>
+                <Time>{post.timeToRead}&nbsp;min read</Time>
               </span>
             </div>
             <WebIntents />
             <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
           </div>
         </div>
-      </Header>
-      <PageBody as='div'>
+      </section>
+      <section className='section'>
         <div className='container content'>
           <div className='columns'>
             <div className='column is-9 is-offset-1'>
-              <main>{renderAst(post.htmlAst)}</main>
+              <div>{renderAst(post.htmlAst)}</div>
               <ArticleTemplate
                 content={post.html}
                 contentComponent={HTMLContent}
@@ -221,7 +222,7 @@ const ArticlePage = ({ data }) => {
             </div>
           </div>
         </div>
-      </PageBody>
+      </section>
     </Global>
   )
 }

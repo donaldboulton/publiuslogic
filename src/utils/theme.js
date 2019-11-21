@@ -55,6 +55,9 @@ export const lightTheme = {
   textColor: `black`,
   quoteBg: theme.lightestGray,
 
+  toggleBorder: theme.lightestGray,
+  gradient: 'linear-gradient(#39598A, #79D7ED)',
+
   links: theme.blue,
   hoveredLinks: theme.orange,
 
@@ -92,6 +95,8 @@ export const darkTheme = {
   grayHoveredButtonBg: theme.orange,
 
   inlineCodeColor: theme.darkestGray,
+  toggleBorder: '#6B8096',
+  gradient: 'linear-gradient(#813102, #da1b60)',
 }
 
 export default darkMode =>

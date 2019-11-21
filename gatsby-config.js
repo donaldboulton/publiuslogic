@@ -71,22 +71,6 @@ module.exports = {
         postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })],
       },
     },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Kaushan Script`,
-          `roboto`,
-        ],
-        display: 'swap',
-      },
-    },
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,

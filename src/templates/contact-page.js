@@ -11,6 +11,7 @@ import config from '../../_data/config'
 const Styledh1 = styled.h1`
   display: inline-block;
   font-size: 38px;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   text-transform: uppercase;
   z-index: 22;
