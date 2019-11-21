@@ -1,5 +1,4 @@
 import React from 'react'
-import React from 'react'
 import { ExternalLink } from 'styled-icons/evil'
 import 'typeface-kaushan-script'
 import 'typeface-roboto'

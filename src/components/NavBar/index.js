@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import { Moon } from 'styled-icons/fa-solid/Moon'
 import { Sun } from 'styled-icons/fa-solid/Sun'
 import Toggle from '../Toggle'
-import { useTheme } from '../Context/theme-context'
+import { useTheme } from '../../Context/theme-context'
 
 const Container = styled.header`
   color: ${({ theme }) => theme.textColor};
