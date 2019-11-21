@@ -9,10 +9,10 @@ import HotJar from '../HotJar'
 import Subscriptions from '../Subscriptions'
 import Adds from '../GoogleAdds'
 import Scroll from '../Scroll'
-import { useDarkMode } from '../DarkMode';
+import { useDarkMode } from '../DarkMode'
 import { lightTheme, darkTheme } from '../../utils/theme'
 import { GlobalStyles } from '../GlobalStyle'
-import Toggle from './components/Toggle'
+import Toggle from '../Toggle'
 
 const Container = styled.div`
   color: ${({ theme }) => theme.textColor};
