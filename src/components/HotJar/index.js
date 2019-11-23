@@ -10,7 +10,7 @@ const HotJar = () => {
           <div className='media column is-1'>
             <figure className='media-left'>
               <p className='image is-64x64'>
-                <a href='https://www.hotjar.com/r/r543e6a' className='native-main' target='_blank'>
+                <a href='https://www.hotjar.com/r/r543e6a' className='native-main' rel='noopener noreferrer' target='_blank'>
                   <img
                     src={hotjarIcon}
                     alt='PubliusLogic'
@@ -27,7 +27,7 @@ const HotJar = () => {
             </p>
           </div>
           <div className='column'>
-            <a href='https://www.hotjar.com/r/r543e6a' className='native-main' target='_blank'>
+            <a href='https://www.hotjar.com/r/r543e6a' className='native-main' rel='noopener noreferrer' target='_blank'>
               <img
                 src={hotjar}
                 alt='Hotjar'

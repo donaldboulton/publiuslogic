@@ -4,7 +4,6 @@ import SearchBox from '../SearchBox'
 import logo from '../../assets/img/site-logo250x80.png'
 import DarkModeToggle from '../DarkMode/DarkModeToggle'
 import NetlifyIdentityWidget from '../IdentityWidget'
-import SlideMenu from '../SlideMenu'
 
 const NavBar = () => (
   <StaticQuery
@@ -33,10 +32,7 @@ const NavBar = () => (
               <SearchBox searchIndex={data.siteSearchIndex.index} />
             </div>
             <div className='navbar-item' id='login'>
-              <NetlifyIdentityWidget />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <div className='navbar-item'>
-              <SlideMenu />
+              <NetlifyIdentityWidget />
             </div>
           </div>
         </div>

@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 const StyledBurgerMenu = styled.div`
     .bm-item {
-        text-align:center;  
+        text-align: center;
+        background: transparent important
         display: inline-block;
         text-decoration: none;
         margin-bottom: 2vh;
