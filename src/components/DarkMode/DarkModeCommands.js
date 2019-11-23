@@ -11,7 +11,7 @@ const DarkModeCommands = () => {
       <button onClick={darkMode.toggle}>{darkMode.value ? 'off' : 'on'}</button>
       .
     </span>
-  );
-};
+  )
+}
 
 export default DarkModeCommands

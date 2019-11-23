@@ -1,9 +1,10 @@
-import useDarkMode from 'use-dark-mode';
+import useDarkMode from 'use-dark-mode'
 
 const DarkModeStatus = () => {
-  const { value } = useDarkMode(false);
+  const { value } = useDarkMode(false)
 
-  return value ? 'Dark Mode' : 'Light Mode';
+  return value ? 'Dark Mode' : 'Light Mode'
 };
 
-export default DarkModeStatus;
+export default DarkModeStatus
+

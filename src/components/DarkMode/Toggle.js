@@ -11,6 +11,6 @@ const Toggle = ({ checked, onChange }) => (
     />
     <label htmlFor='dmcheck' />
   </span>
-);
+)
 
 export default Toggle
