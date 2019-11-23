@@ -20,22 +20,25 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               <div className='content'>
                 <h1>This Site Uses useDarkMode</h1>
                 <p>
-      This is an example app that uses the <code>useDarkMode</code> custom hook.
-      It persists across sessions (i.e., uses <code>localStorage</code>) and
-      shares state across instances and even tabs and/or browser windows.
+                I have incorporated this into PubliusLogic and below is an example of its usage.
                 </p>
                 <p>
-      For example, here is a component that shares the custom hook{' '}
+                This is an example app that uses the <code>useDarkMode</code> custom hook.
+                It persists across sessions (i.e., uses <code>localStorage</code>) and
+                shares state across instances and even tabs and/or browser windows.
+                </p>
+                <p>
+                For example, here is a component that shares the custom hook{' '}
                   <code>useDarkMode</code> with the toggle component above.
                 </p>
                 <p>
-      It is reporting that the current mode is:{' '}
+                 It is reporting that the current mode is:{' '}
                   <code>
                     <DarkModeStatus />
                   </code>
                 </p>
                 <p>
-      And here's another: <DarkModeCommands />
+                 And here's another: <DarkModeCommands />
                 </p>
                 <p>It couldn't be any easier!</p>
                 <p>
@@ -45,11 +48,11 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
                   />
                 </p>
                 <p>
-      View the source for this{' '}
+                View the source for this{' '}
                   <a href='https://codesandbox.io/s/mzj64x80ny'>demo app</a> or see the
-      useDarkMode{' '}
+                useDarkMode{' '}
                   <a href='https://github.com/donavon/use-dark-mode'>
-        source code on Github
+                source code on Github
                   </a>
                 .{' '}
                 </p>
