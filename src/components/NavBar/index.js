@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import SearchBox from '../SearchBox'
 import logo from '../../assets/img/site-logo250x80.png'
-
+import DarkModeToggle from '../DarkMode/DarkModeToggle'
 import NetlifyIdentityWidget from '../IdentityWidget'
 
 const NavBar = ({ toggleNavbar, isActive }) => (
@@ -34,6 +34,9 @@ const NavBar = ({ toggleNavbar, isActive }) => (
         </div>
         <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} id='navMenu'>
           <div className='navbar-end'>
+            <div className='navbar-item'>
+              <span itemProp='name'><DarkModeToggle /></span>
+            </div>
             <div className='navbar-item has-dropdown is-hoverable'>
               <a className='navbar-link is-active' href='/sitemap' itemProp='url'>
                 <span itemProp='name'>Docs</span>

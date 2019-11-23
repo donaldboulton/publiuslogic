@@ -13,8 +13,7 @@ const HitCounter = () => (
     <RetroHitCounter
       hits={1337}
       // eslint-disable-next-line react/jsx-boolean-value
-      withBorder={true}
-      withGlow={false}
+      withBorder={false}
       minLength={4}
       size={40}
       padding={4}
@@ -22,9 +21,9 @@ const HitCounter = () => (
       segmentThickness={4}
       segmentSpacing={0.5}
       segmentActiveColor='#d64000'
-      segmentInactiveColor='#315324'
+      segmentInactiveColor='#222222'
       backgroundColor='#222222'
-      borderThickness={7}
+      borderThickness={1}
       glowStrength={0.5}
     />
   </Container>
