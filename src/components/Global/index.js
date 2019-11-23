@@ -9,7 +9,7 @@ import Subscriptions from '../Subscriptions'
 import Adds from '../GoogleAdds'
 import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
-import theme from '../DarkMode/styles'
+import theme from '../../utils/theme'
 
 class Global extends Component {
   render () {

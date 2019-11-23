@@ -65,14 +65,8 @@ module.exports = {
         minify: true,
       },
     },
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-sass',
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        develop: true,
-        purgeOnly: ['/sass/styles.sass'],
-      },
-    },
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -81,8 +75,14 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        develop: true,
+        purgeOnly: ['/sass/styles.sass'],
+      },
+    },
     'gatsby-plugin-robots-txt',
-    'gatsby-plugin-styled-components',
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
     `gatsby-transformer-json`,

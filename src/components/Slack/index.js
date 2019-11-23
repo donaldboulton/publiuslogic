@@ -29,7 +29,10 @@ const Slack = () => {
                   rel='noopener noreferrer'
                   aria-label='Slack Message'
                 >
-                  <small>&nbsp;@donboulton</small></a></span></span>
+                  <small>&nbsp;@donboulton</small>
+                </a>
+              </span>
+            </span>
             <p className='subtitle is-5'>
               <div>Bring your team together with Slack, Work collaboration hub.</div>
             </p>

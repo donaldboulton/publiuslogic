@@ -2,7 +2,7 @@
 templateKey: article-page
 title: Modali Hooks Modal
 slug: Modali Hooks Modal
-canonical: 'https://publiuslogic.com/blog/modali-hooks-modal/'
+canonical: 'https://publiuslogic.com/blog/modali-hooks-modal'
 date: 2019-04-20T20:20:43.942Z
 category: 'tech'
 cover: '/images/modali-logo.jpg'

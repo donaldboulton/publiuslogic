@@ -73,28 +73,28 @@ const NavBar = ({ toggleNavbar, isActive }) => (
                 <a className='navbar-item' href='/blog' itemProp='url'>
                   <span itemProp='name'>All Posts</span>
                 </a>
-                <a className='navbar-item' href='/blog/gatsby-netlify-no-plugins/' itemProp='url'>
+                <a className='navbar-item' href='/blog/gatsby-netlify-no-plugins' itemProp='url'>
                   <span itemProp='name'>Gatsby Netlify No Plugins</span>
                 </a>
-                <a className='navbar-item' href='/blog/gatsby-lightgallery-cloudinary/' itemProp='url'>
+                <a className='navbar-item' href='/blog/gatsby-lightgallery-cloudinary' itemProp='url'>
                   <span itemProp='name'>Gatsby LightGallery Cloudinary</span>
                 </a>
-                <a className='navbar-item' href='/blog/modali-hooks-modal/' itemProp='url'>
+                <a className='navbar-item' href='/blog/modali-hooks-modal' itemProp='url'>
                   <span itemProp='name'>Modali Hooks Modal</span>
                 </a>
-                <a className='navbar-item' href='/blog/gatsby-github-comments-utterances/' itemProp='url'>
+                <a className='navbar-item' href='/blog/gatsby-github-comments-utterances' itemProp='url'>
                   <span itemProp='name'>Utterances Comments</span>
                 </a>
-                <a className='navbar-item' href='/blog/gatsby-react-scroll-toTop/' itemProp='url'>
+                <a className='navbar-item' href='/blog/gatsby-react-scroll-toTop' itemProp='url'>
                   <span itemProp='name'>Gatsby Scroll toTop</span>
                 </a>
-                <a className='navbar-item' href='/blog/react-hooks-modal/' itemProp='url'>
+                <a className='navbar-item' href='/blog/react-hooks-modal' itemProp='url'>
                   <span itemProp='name'>React Hooks Modal</span>
                 </a>
-                <a className='navbar-item' href='/blog/js-media-queries/' itemProp='url'>
+                <a className='navbar-item' href='/blog/js-media-queries' itemProp='url'>
                   <span itemProp='name'>JavaScript media queries</span>
                 </a>
-                <a className='navbar-item' href='/blog/react-hooks-masonry/' itemProp='url'>
+                <a className='navbar-item' href='/blog/react-hooks-masonry' itemProp='url'>
                   <span itemProp='name'>React Hooks Masonary</span>
                 </a>
                 <a className='navbar-item' href='/blog/google-maps+react-hooks' itemProp='url'>

@@ -40,11 +40,11 @@ const Styledh1 = styled.h1`
 }
 `
 const Time = styled.span`
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: silver;
 `
 const Date = styled.span`
-  font-size: 1rem;
+  font-size: 0.9em;
   color: silver;
 `
 const GithubButtons = styled.span`
@@ -183,9 +183,9 @@ const ArticlePage = ({ data }) => {
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-4'>
               <span className='subtitle is-size-5'>
-                <Calendar size='1.2em' />&nbsp;
+                <Calendar size='0.9em' />&nbsp;
                 <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
-                <Timer size='1.2em' />&nbsp;
+                <Timer size='0.9em' />&nbsp;
                 <Time>{post.timeToRead}&nbsp;min read</Time>
               </span>
             </div>

@@ -2,7 +2,7 @@
 templateKey: article-page
 title: React Hooks Masonry
 slug:  React Hooks Masonry
-canonical: "https://publiuslogic.com/blog/react-hooks-masonry/"
+canonical: "https://publiuslogic.com/blog/react-hooks-masonry"
 date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: '/images/masonry.jpg'

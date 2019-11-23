@@ -8,7 +8,7 @@ const DarkModeToggle = () => {
 
   return (
     <div className='dark-mode-toggle'>
-      <button type='button' onClick={darkMode.disable}>
+      <button className='button-transparent' type='button' onClick={darkMode.disable}>
         ☀
       </button>
       <Toggle checked={darkMode.value} onChange={darkMode.toggle} />
@@ -17,6 +17,6 @@ const DarkModeToggle = () => {
       </button>
     </div>
   )
-};
+}
 
 export default DarkModeToggle
