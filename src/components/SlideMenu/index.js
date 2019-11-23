@@ -44,6 +44,7 @@ const StyledBurgerMenu = styled.div`
     }
     .bm-item-list {
         color: #b8b7ad;
+        background: transparent !important
     }
     .bm-overlay {
         background: rgba(0, 0, 0, 0.3);

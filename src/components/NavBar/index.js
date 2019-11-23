@@ -32,7 +32,7 @@ const NavBar = () => (
               <SearchBox searchIndex={data.siteSearchIndex.index} />
             </div>
             <div className='navbar-item' id='login'>
-              <NetlifyIdentityWidget />
+              <NetlifyIdentityWidget />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
           </div>
         </div>

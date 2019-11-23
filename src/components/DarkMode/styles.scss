@@ -14,7 +14,7 @@ body.light-mode {
   color: #333;
   transition: background-image 0.3s ease;
   nav {
-    background: #ffffff !important;
+    background: transparent !important;
   }
   .navbar {
     background: #ffffff !important;
@@ -23,7 +23,7 @@ body.light-mode {
     background: transparent !important;
   }
   .navbar-brand {
-    background: transparent !important;
+    background: #ffffff !important;
   }
   .github-icon {
     background-image: url(/img/GitHub-Mark-Light-64px.png);
@@ -49,16 +49,16 @@ body.dark-mode {
   background-repeat: repeat;
   color: #ccc;
   nav {
-    background: #1d1d1d !important;
+    background: transparent !important;
   }
   .navbar {
     background: #1d1d1d !important;
   }
   .navbar-menu {
-    background: transparent !important;
+    background: #1d1d1d !important;
   }
   .navbar-brand {
-    background: transparent !important;
+    background: #1d1d1d !important;
   }
   .dark-mode-toggle > button {
     color: #999;
