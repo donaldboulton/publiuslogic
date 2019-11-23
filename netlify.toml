@@ -15,7 +15,7 @@
   X-XSS-Protection = "1; mode=block"
   Access-Control-Allow-Origin = "*"
   Vary = "Accept-Encoding"
-  Set-Cookie "HttpOnly;Secure;SameSite=Strict"
+  Set-Cookie = "HttpOnly; Secure; SameSite=Strict"
   Feature-Policy = "geolocation 'self' https://publiuslogic.com; autoplay 'none'; sync-xhr 'self' https://publiuslogic.com"
 [[headers]]
 for = "/assets/*"
