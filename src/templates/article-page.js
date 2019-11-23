@@ -184,9 +184,9 @@ const ArticlePage = ({ data }) => {
             <div className='column is-4'>
               <span className='subtitle is-size-5'>
                 <Calendar size='0.9em' />&nbsp;
-                <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
+                <Date><small>{post.frontmatter.date}&</small>&nbsp;</Date>&nbsp;
                 <Timer size='0.9em' />&nbsp;
-                <Time>{post.timeToRead}&nbsp;min read</Time>
+                <Time><small>{post.timeToRead}&nbsp;min </small></Time>
               </span>
             </div>
             <WebIntents />

@@ -1,5 +1,5 @@
 import React from 'react'
-import hotjar from '../../assets/img/HotJar-250x100_logoBlank.png'
+import hotjar from '../../assets/img/HotJar-250x100_logo.png'
 import hotjarIcon from '../../assets/img/hotjar-icon.png'
 
 const HotJar = () => {
@@ -10,11 +10,10 @@ const HotJar = () => {
           <div className='media column is-1'>
             <figure className='media-left'>
               <p className='image is-64x64'>
-                <a href='https://www.hotjar.com/r/r543e6a' className='native-main' rel='noopener noreferrer' target='_blank'>
+                <a href='https://www.hotjar.com/r/r543e6a' className='native-main' target='_blank'>
                   <img
                     src={hotjarIcon}
                     alt='PubliusLogic'
-                    className='hotjar-icon'
                   />
                 </a>
               </p>
@@ -27,7 +26,7 @@ const HotJar = () => {
             </p>
           </div>
           <div className='column'>
-            <a href='https://www.hotjar.com/r/r543e6a' className='native-main' rel='noopener noreferrer' target='_blank'>
+            <a href='https://www.hotjar.com/r/r543e6a' className='native-main' target='_blank'>
               <img
                 src={hotjar}
                 alt='Hotjar'
