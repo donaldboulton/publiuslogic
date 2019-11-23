@@ -182,11 +182,11 @@ const ArticlePage = ({ data }) => {
         <div className='column is-9 is-offset-1'>
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-4'>
-              <span className='subtitle is-size-5'>
+              <span>
                 <Calendar size='0.9em' />&nbsp;
-                <Date><small>{post.frontmatter.date}&</small>&nbsp;</Date>&nbsp;
+                <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
                 <Timer size='0.9em' />&nbsp;
-                <Time><small>{post.timeToRead}&nbsp;min </small></Time>
+                <Time><small>{post.timeToRead}&nbsp;min read </small></Time>
               </span>
             </div>
             <WebIntents />
