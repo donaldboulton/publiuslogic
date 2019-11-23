@@ -18,13 +18,13 @@ $menu-list-border-left: 1px solid $kaldi-red-invert
 $menu-label-color: $white-ter
 
 nav
-  background-color: #1d1d1d !important
+  background-color: rgba(0, 0, 0, 0.3) !important
 .navbar
   box-shadow:none !important
-  background-color: #1d1d1d !important
+  background-color: rgba(0, 0, 0, 0.3) !important
 .navbar .navbar-menu
   box-shadow:none !important
-  background-color: transparent !important
+  background-color: #292929 !important
 .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover
   background-color: transparent !important
   color: #cccccc !important
@@ -88,8 +88,6 @@ li
 .button-transparent
   background-color: transparent !important    
   border-color: transparent !important
-.margin-top-0
-  margin-top: 0 !important
 .icon svg 
   width: 1.5rem
   height: 1.5rem
@@ -121,7 +119,6 @@ footer.footer
     border-width: 0 0 0 4px
     padding: 1.25em 1.5em
 .message
-    background-color: #1d1d1d !important
     background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important
     border-radius: 8px
     font-size: 1rem
@@ -169,7 +166,7 @@ hr, hr.thick
   background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
   background-image: linear-gradient(to right,#d64000,#da1b60) !important
   text-align: center
-  max-width: 80%
+  max-width: 100%
 .navbar-dropdown
   background-color: #1d1d1d !important
   border-top: 2px solid #1d1d1d !important  
@@ -274,8 +271,6 @@ strong
     padding: 0 2rem 1rem 0
     margin-bottom: 1.5rem
     margin-top: 0
-.margin-top-0
-  margin-top: 0 !important
 label, input
   font-family: Kaushan Script,cursive
 text:nth-child(2)
@@ -290,11 +285,11 @@ text:nth-child(4)
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2))
   color: #fff
 .hero.is-primary.is-bold
-    background-image: linear-gradient(141deg,#a31600,#f07000 81%,#d64000) !important
+  background-image: linear-gradient(141deg,#a31600,#f07000 81%,#d64000) !important
 .message-body
   border-radius: 4px
   border: #000000 !important
-  border-width: 0 0 0 4px !important
+  border-width: 0 0 0 5px !important
   border-left-width: 4px !important
   padding: 1.25em 1.5em
 strong
@@ -455,9 +450,6 @@ code
   transform: translateY(0) !important
 .content ul
   list-style: none !important
-.toc
-  line-height: 2.2em
-  font-size: 0.85em
 .hidden
   visibility: hidden
 input[type="search"]:focus 

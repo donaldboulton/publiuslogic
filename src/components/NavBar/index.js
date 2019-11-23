@@ -6,7 +6,7 @@ import DarkModeToggle from '../DarkMode/DarkModeToggle'
 import NetlifyIdentityWidget from '../IdentityWidget'
 import SlideMenu from '../SlideMenu'
 
-const NavBar = ({ toggleNavbar, isActive }) => (
+const NavBar = () => (
   <StaticQuery
     query={graphql`
             query SearchIndexQuery {
@@ -33,7 +33,7 @@ const NavBar = ({ toggleNavbar, isActive }) => (
               <SearchBox searchIndex={data.siteSearchIndex.index} />
             </div>
             <div className='navbar-item' id='login'>
-              <NetlifyIdentityWidget />&nbsp;&nbsp;
+              <NetlifyIdentityWidget />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div className='navbar-item'>
               <SlideMenu />

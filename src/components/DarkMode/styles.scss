@@ -20,7 +20,7 @@ body.dark-mode {
   background-repeat: repeat;
   color: #ccc;
   .navbar {
-    background-color: #1d1d1d;
+    background: #292929;
   }
 
   .dark-mode-toggle > button {
@@ -38,6 +38,12 @@ body.dark-mode .box {
     background-color: #1d1d1d !important;
     color: #cccccc !important;
     border: 1px solid #434040 !important;
+}
+body.dark-mode .navbar-menu {
+  background: #292929;
+}
+body.dark-mode .navbar-brand {
+  background-color: #292929;
 }
 body.dark-mode .subtitle {
   color: #cccccc !important
@@ -59,6 +65,11 @@ body.dark-mode .content button {
 }
 body.dark-mode input::placeholder {
   color: #cccccc !important;
+}
+body.dark-mode content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+  color: #999;
+  font-weight: 600;
+  line-height: 1.125;
 }
 .dark-mode-toggle {
   display: flex;
