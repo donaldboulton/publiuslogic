@@ -29,7 +29,7 @@ class Share extends Component {
 
     return (
       <>
-        <div>
+        <div className='social-links'>
           <RedditShareButton url={url} title={title}>
             <RedditIcon round size={iconSize} />
             <RedditShareCount url={url}>

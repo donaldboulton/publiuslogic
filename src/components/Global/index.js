@@ -10,26 +10,29 @@ import Adds from '../GoogleAdds'
 import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
-
+import SideBar from '../SlideMenu'
 class Global extends Component {
   render () {
     return (
-      <ThemeProvider theme={theme}>
-        <>
-          <Header />
-          <Fragment itemScope='itemScope' itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>
-          <Subscriptions />
-          <Slack />
-          <HotJar />
-          <Adds />
-          <Hr />
-          <Scroll
-            showBelow={1500}
-            css='position: fixed; right: 1em; bottom: 1em;'
-          />
-          <Footer />
-        </>
-      </ThemeProvider>
+      <>
+        <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />
+        <div id='page-wrap'>
+          <ThemeProvider theme={theme}>
+            <Header />
+            <Fragment itemScope='itemScope' itemType='http://schema.org/CreativeWork'>{this.props.children}</Fragment>
+            <Subscriptions />
+            <Slack />
+            <HotJar />
+            <Adds />
+            <Hr />
+            <Scroll
+              showBelow={1500}
+              css='position: fixed; right: 1em; bottom: 1em;'
+            />
+            <Footer />
+          </ThemeProvider>
+        </div>
+      </>
     )
   }
 }

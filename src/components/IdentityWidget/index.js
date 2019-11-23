@@ -47,6 +47,7 @@ export default class netlifyIdentityWidget extends React.Component {
   componentDidMount () {
     netlifyIdentity.init()
   }
+
   constructor () {
     super()
 
@@ -60,7 +61,7 @@ export default class netlifyIdentityWidget extends React.Component {
   render () {
     return (
       <div>
-        <button id='mySigninBtn' aria-label='Sign In' className='button' type='button' onClick={this.handleLogIn} >
+        <button id='mySigninBtn' aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogIn}>
           <img src={signin} className='icon' alt='Login' />
         </button>
       </div>

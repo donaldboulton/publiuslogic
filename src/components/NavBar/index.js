@@ -4,6 +4,7 @@ import SearchBox from '../SearchBox'
 import logo from '../../assets/img/site-logo250x80.png'
 import DarkModeToggle from '../DarkMode/DarkModeToggle'
 import NetlifyIdentityWidget from '../IdentityWidget'
+import SlideMenu from '../SlideMenu'
 
 const NavBar = ({ toggleNavbar, isActive }) => (
   <StaticQuery
@@ -22,91 +23,20 @@ const NavBar = ({ toggleNavbar, isActive }) => (
               <img itemProp='image' src={logo} alt='Publiuslogic Sitemap' />
             </Link>
           </span>
-          <button
-            className={`button is-primary navbar-burger ${isActive ? 'is-active' : ''}`}
-            data-target='navMenu'
-            onClick={toggleNavbar}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
         </div>
-        <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} id='navMenu'>
+        <div id='navMenu' className='navbar-menu'>
           <div className='navbar-end'>
             <div className='navbar-item'>
-              <span itemProp='name'><DarkModeToggle /></span>
-            </div>
-            <div className='navbar-item has-dropdown is-hoverable'>
-              <a className='navbar-link is-active' href='/sitemap' itemProp='url'>
-                <span itemProp='name'>Docs</span>
-              </a>
-              <div className='navbar-dropdown'>
-                <a className='navbar-item' href='/' itemProp='url'>
-                  <span itemProp='name'>Home</span>
-                </a>
-                <a className='navbar-item' href='/about' itemProp='url'>
-                  <span itemProp='name'>About This Site</span>
-                </a>
-                <a className='navbar-item' href='/photos' itemProp='url'>
-                  <span itemProp='name'>Photo Gallery</span>
-                </a>
-                <a className='navbar-item' href='/contact' itemProp='url'>
-                  <span itemProp='name'>Email Contact</span>
-                </a>
-                <a className='navbar-item' href='/privacy' itemProp='url'>
-                  <span itemProp='name'>Privacy & terms</span>
-                </a>
-                <a className='navbar-item' href='/sitemap' itemProp='url'>
-                  <span itemProp='name'>Site Map Page</span>
-                </a>
-                <a className='navbar-item' href='/admin/#/collections/pages' itemProp='url'>
-                  <span itemProp='name'>Admin CMS</span>
-                </a>
-              </div>
-            </div>
-            <div className='navbar-item has-dropdown is-hoverable'>
-              <a className='navbar-link is-active' href='/blog' itemProp='url'>
-                <span itemProp='name'>Blog</span>
-              </a>
-              <div className='navbar-dropdown'>
-                <a className='navbar-item' href='/blog' itemProp='url'>
-                  <span itemProp='name'>All Posts</span>
-                </a>
-                <a className='navbar-item' href='/blog/gatsby-netlify-no-plugins' itemProp='url'>
-                  <span itemProp='name'>Gatsby Netlify No Plugins</span>
-                </a>
-                <a className='navbar-item' href='/blog/gatsby-lightgallery-cloudinary' itemProp='url'>
-                  <span itemProp='name'>Gatsby LightGallery Cloudinary</span>
-                </a>
-                <a className='navbar-item' href='/blog/modali-hooks-modal' itemProp='url'>
-                  <span itemProp='name'>Modali Hooks Modal</span>
-                </a>
-                <a className='navbar-item' href='/blog/gatsby-github-comments-utterances' itemProp='url'>
-                  <span itemProp='name'>Utterances Comments</span>
-                </a>
-                <a className='navbar-item' href='/blog/gatsby-react-scroll-toTop' itemProp='url'>
-                  <span itemProp='name'>Gatsby Scroll toTop</span>
-                </a>
-                <a className='navbar-item' href='/blog/react-hooks-modal' itemProp='url'>
-                  <span itemProp='name'>React Hooks Modal</span>
-                </a>
-                <a className='navbar-item' href='/blog/js-media-queries' itemProp='url'>
-                  <span itemProp='name'>JavaScript media queries</span>
-                </a>
-                <a className='navbar-item' href='/blog/react-hooks-masonry' itemProp='url'>
-                  <span itemProp='name'>React Hooks Masonary</span>
-                </a>
-                <a className='navbar-item' href='/blog/google-maps+react-hooks' itemProp='url'>
-                  <span itemProp='name'>GMaps React Hooks</span>
-                </a>
-              </div>
+              <DarkModeToggle />
             </div>
             <div className='navbar-item'>
               <SearchBox searchIndex={data.siteSearchIndex.index} />
             </div>
             <div className='navbar-item' id='login'>
-              <NetlifyIdentityWidget />
+              <NetlifyIdentityWidget />&nbsp;&nbsp;
+            </div>
+            <div className='navbar-item'>
+              <SlideMenu />
             </div>
           </div>
         </div>

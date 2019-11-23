@@ -24,7 +24,7 @@ nav
   background-color: #1d1d1d !important
 .navbar .navbar-menu
   box-shadow:none !important
-  background-color: #1d1d1d !important
+  background-color: transparent !important
 .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover
   background-color: transparent !important
   color: #cccccc !important
@@ -33,11 +33,7 @@ nav
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 .navbar-item .icon 
-  color: $primary
-.navbar-dropdown
-  background-color: #1d1d1d !important
-  border-top: 2px solid #1d1d1d !important  
-  color: #cccccc !important
+  color: #cccccc
 .navbar-link
   background-color: transparent !important
   color: #d64000 !important
@@ -162,16 +158,22 @@ html
 .title
   color: #cccccc !important
 hr, hr.thick
-    border: 0
-    height: 5px
-    margin: 2rem 0
-    background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60))
-    background-image: linear-gradient(to right,#d64000,#da1b60)
-    background-color: transparent
-    border-radius: 5px
+  border: 0
+  height: 5px
+  margin: 2rem 0
+  background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60))
+  background-image: linear-gradient(to right,#d64000,#da1b60)
+  background-color: transparent
+  border-radius: 5px
 .navbar-divider
-    background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
-    background-image: linear-gradient(to right,#d64000,#da1b60) !important
+  background-image: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60)) !important
+  background-image: linear-gradient(to right,#d64000,#da1b60) !important
+  text-align: center
+  max-width: 80%
+.navbar-dropdown
+  background-color: #1d1d1d !important
+  border-top: 2px solid #1d1d1d !important  
+  color: #cccccc !important
 .card
     border-radius: 8px !important
     max-width: 100%
@@ -207,11 +209,6 @@ a:hover
   color: #cccccc !important
 a:focus
   outline: none !important 
-.productFigure img
-  border: solid 1px #d64000
-  border-radius: 50%
-  padding: 1em
-  width: 250px
 section 
   clear: both
 .productFigure
@@ -219,13 +216,6 @@ section
 .actions 
   margin-top: 1em
   text-align: center
-.buyButton 
-  border: none
-  background-color: #d64000
-  color: white
-  padding: 0.5em
-  border-radius: 5px
-  cursor: pointer
 .breadcrumb
   margin-top: -1em
   margin-bottom: 1em
@@ -265,8 +255,6 @@ strong
   font-family: Kaushan Script,cursive
   color: #928c8c !important
   font-weight: 700
-.button
-  background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 .media-content
   overflow-x: none !important
   overflow: hidden !important
@@ -290,12 +278,6 @@ strong
   margin-top: 0 !important
 label, input
   font-family: Kaushan Script,cursive
-.knockout
-  background-image: linear-gradient(to left, #d64000 , #da1b60)
-  font-family: 'Bowlby One SC', cursive
-  height: 60vh
-  text-transform: uppercase
-  width: 100%
 text:nth-child(2)
   font-size: 5em
 text:nth-child(3)
@@ -455,22 +437,6 @@ gatsby-resp-image-image
   box-shadow: none !important
 .gatsby-resp-image-figcaption
   text-align: center !important
-.EmbeddedTweet
-  background-color: #1d1d1d !important
-  border: 1px solid #434040 !important
-  width: 800px !important
-  height: auto !important
-.TweetAuthor-name
-  color: #999999 !important
-.Tweet-header
-    color: #2a2e2e !important
-.EmbeddedTweet:hover .TweetAuthor-name
-  color: #eeeeee
-.Tweet-text
-  padding: 10px
-  border-radius: 5px
-  border: 1px solid #000 !important
-  background-color: #2a2e2e !important
 .section
   padding: 1.8rem 1.5rem !important
 .content table td, .content table th
@@ -513,17 +479,5 @@ textarea[type="textarea"]:focus
 .is-primary
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important
   background: linear-gradient(90deg,#d64000,#8e0436) !important
-.social-links
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  justify-content: center
-  align-content: center
-  align-items: center
-  margin: 15px 0
-.social-links > div
-  margin: 5px 15px
-.share-count
-  text-align: center  
-  
+    
 @import "~bulma"
