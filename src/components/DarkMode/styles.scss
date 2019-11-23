@@ -14,16 +14,33 @@ body.light-mode {
   color: #333;
   transition: background-image 0.3s ease;
   nav {
-    background: #292929;
+    background: #ffffff !important;
   }
   .navbar {
-    background: #292929;
+    background: transparent !important;
   }
   .navbar-menu {
-    background: #292929;
+    background: transparent !important;
   }
   .navbar-brand {
-    background: #292929;
+    background: transparent !important;
+  }
+  .github-icon {
+    background-image: url(/img/GitHub-Mark-Light-64px.png);
+    background-repeat: no-repeat;
+    width: 32px;
+    height:32px
+  }
+  .hotjar-icon {
+    background-image: url(/img/HotJar-250x100_logoDark.png);
+    background-repeat: no-repeat;
+    flex: flex-end;
+    width: 250px;
+    height: 116px
+  }
+  .content blockquote {
+    background: #ffffff;
+    color: #333;
   }
 }
 
@@ -31,16 +48,18 @@ body.dark-mode {
   background-image: url(/img/bg10-min.png);
   background-repeat: repeat;
   color: #ccc;
+  nav {
+    background: #1d1d1d !important;
+  }
   .navbar {
-    background: #292929;
+    background: transparent !important;
   }
   .navbar-menu {
-    background: #292929;
+    background: transparent !important;
   }
   .navbar-brand {
-    background: #292929;
+    background: transparent !important;
   }
-
   .dark-mode-toggle > button {
     color: #999;
     &:last-child {
@@ -57,11 +76,28 @@ body.dark-mode .box {
     color: #cccccc !important;
     border: 1px solid #434040 !important;
 }
+body.dark-mode .content blockquote {
+  background: #1d1d1d;
+  color: #ccc;
+}
 body.dark-mode .navbar-menu {
-  background: #292929;
+  background: transparent !important;
 }
 body.dark-mode .navbar-brand {
-  background-color: #292929;
+  background: transparent !important;
+}
+body.dark-mode .github-icon {
+  background-image: url(/img/GitHub-Mark-Dark-64px.png);
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px
+}
+body.dark-mode .hotjar-icon {
+  background-image: url(/img/HotJar-250x100_logoLight.png);
+  background-repeat: no-repeat;
+  flex: flex-end;
+  width: 250px;
+  height: 116px
 }
 body.dark-mode .subtitle {
   color: #cccccc !important

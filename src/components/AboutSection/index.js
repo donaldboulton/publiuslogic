@@ -1,5 +1,5 @@
 import React from 'react'
-import github from '../../assets/img/GitHub-Mark-Light-64px.png'
+import github from '../../assets/img/blank-64px.png'
 import gatsby from '../../assets/img/gatsby.svg'
 import logo from '../../assets/img/logo.png'
 import webpack from '../../assets/img/ApolloReact-320.png'
@@ -30,6 +30,7 @@ const AboutSection = () => {
                     <img
                       src={github}
                       alt='GitHub'
+                      className='github-logo'
                     />
                   </a>
                 </figure>
