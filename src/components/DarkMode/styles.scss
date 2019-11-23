@@ -13,6 +13,18 @@ body.light-mode {
   background-repeat: repeat;
   color: #333;
   transition: background-image 0.3s ease;
+  nav {
+    background: #292929;
+  }
+  .navbar {
+    background: #292929;
+  }
+  .navbar-menu {
+    background: #292929;
+  }
+  .navbar-brand {
+    background: #292929;
+  }
 }
 
 body.dark-mode {
@@ -20,6 +32,12 @@ body.dark-mode {
   background-repeat: repeat;
   color: #ccc;
   .navbar {
+    background: #292929;
+  }
+  .navbar-menu {
+    background: #292929;
+  }
+  .navbar-brand {
     background: #292929;
   }
 

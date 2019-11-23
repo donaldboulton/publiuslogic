@@ -8,7 +8,7 @@ const DarkModeCommands = () => {
     <span>
       Dark Mode is <code>{darkMode.value ? 'enabled' : 'disabled'}</code>. Turn
       it{' '}
-      <button onClick={darkMode.toggle}>{darkMode.value ? 'off' : 'on'}</button>
+      <button className='button is-small' onClick={darkMode.toggle}>{darkMode.value ? 'off' : 'on'}</button>
       .
     </span>
   )

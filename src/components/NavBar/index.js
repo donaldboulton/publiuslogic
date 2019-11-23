@@ -19,8 +19,8 @@ const NavBar = () => (
       <nav className='navbar is-fixed-top' aria-label='main navigation' itemScope='itemScope' itemType='https://schema.org/SiteNavigationElement'>
         <div className='navbar-brand'>
           <span className='navbar-item'>
-            <Link to='/sitemap' itemProp='url' rel='no-follow' className='navbar-item'>
-              <img itemProp='image' src={logo} alt='Publiuslogic Sitemap' />
+            <Link to='/' itemProp='url' rel='no-follow' className='navbar-item'>
+              <img itemProp='image' src={logo} alt='Publiuslogic' />
             </Link>
           </span>
         </div>

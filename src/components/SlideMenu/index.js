@@ -53,20 +53,17 @@ export default props => {
   return (
     <StyledBurgerMenu>
       <Menu right {...props}>
-        <a className='menu-item' href='/' itemProp='url'>
-          <span itemProp='name'>Home</span>
+        <a className='menu-item' href='/about' itemProp='url'>
+          <span itemProp='name'>About</span>
         </a>
         <a className='menu-item' href='/blog' itemProp='url'>
           <span itemProp='name'>Blog</span>
-        </a>
-        <a className='menu-item' href='/about' itemProp='url'>
-          <span itemProp='name'>About</span>
         </a>
         <a className='menu-item' href='/contact' itemProp='url'>
           <span itemProp='name'>Contact</span>
         </a>
         <a className='menu-item' href='/photos' itemProp='url'>
-          <span itemProp='name'>Photo Gallery</span>
+          <span itemProp='name'>Photo's</span>
         </a>
         <a className='menu-item' href='/sitemap' itemProp='url'>
           <span itemProp='name'>Sitemap</span>
@@ -84,6 +81,11 @@ export default props => {
         </a>
         <a className='menu-item' href='/blog/gatsby-react-scroll-toTop' itemProp='url'>
           <span itemProp='name'>Scroll toTop</span>
+        </a>
+        <hr className='navbar-divider' />
+        <h4>Common Sense</h4>
+        <a className='menu-item' href='/blog/earths-magnetic-flux' itemProp='url'>
+          <span itemProp='name'>Magnetic Flux</span>
         </a>
       </Menu>
     </StyledBurgerMenu>
