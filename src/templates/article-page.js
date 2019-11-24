@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
 import styled from 'styled-components'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
-import WebIntents from '../components/WebIntents'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
@@ -68,7 +67,6 @@ const ArticlePage = ({ data }) => {
   const imageHeight = postImage.height
   const body = post.html
   const title = post.frontmatter.title
-  const showToc = post.frontmatter.showToc
   const coverHeight = '100%'
   const postPath = globalHistory.location.pathname
 
@@ -181,15 +179,14 @@ const ArticlePage = ({ data }) => {
         </div>
         <div className='column is-9 is-offset-1'>
           <div className='columns is-desktop is-vcentered'>
-            <div className='column is-4'>
+            <div className='column is-6'>
               <span className='subtitle is-size-5'>
                 <Calendar size='0.9em' />&nbsp;
-                <Date>{post.frontmatter.date}&nbsp;</Date>&nbsp;
+                <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
                 <Timer size='0.9em' />&nbsp;
                 <Time>{post.timeToRead}&nbsp;min read</Time>
               </span>
             </div>
-            <WebIntents />
             <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
           </div>
         </div>
@@ -197,7 +194,7 @@ const ArticlePage = ({ data }) => {
       <section className='section'>
         <div className='container content'>
           <div className='columns'>
-            <div className='column is-9 is-offset-1'>
+            <div className='column is-10 is-offset-1'>
               <div>{renderAst(post.htmlAst)}</div>
               <ArticleTemplate
                 content={post.html}

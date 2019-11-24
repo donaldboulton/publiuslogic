@@ -10,6 +10,8 @@ const config = {
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: 'PubliusLogic to publish common sense.', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
+  siteRssTitle: 'PubliusLogic', // Path to the RSS file.
+  siteRssDescription: 'PubliusLogic to publish common sense.', // Website description used for RSS feeds/meta description tag.
   siteRssAuthor: 'Donald Boulton', // The author name used in the RSS file
   siteFBAppID: '1825356251115265', // optional, sets the FB Application ID for using app insights
   sitePaginationLimit: 8, // The max number of posts per page.

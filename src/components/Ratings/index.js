@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
@@ -25,13 +25,13 @@ const submitRating = (rating) => {
 
   const XHR = new XMLHttpRequest()
   let urlEncodedData = ''
-  let urlEncodedDataPairs = []
+  const urlEncodedDataPairs = []
   let name
 
   // Turn the data object into an array of URL-encoded key/value pairs.
   for (name in data) {
     urlEncodedDataPairs.push(
-      encodeURIComponent(name) + '=' + encodeURIComponent(data[name])
+      encodeURIComponent(name) + '=' + encodeURIComponent(data[name]),
     )
   }
   // Combine the pairs into a single string and replace all %-encoded spaces to
@@ -51,7 +51,7 @@ const submitRating = (rating) => {
   // Set up our request
   XHR.open(
     'POST',
-    'https://api.staticman.net/v3/entry/github/donaldboulton/publiuslogic/master/ratings'
+    'https://api.staticman.net/v3/entry/github/donaldboulton/publiuslogic/master/ratings',
   )
 
   // Add the required HTTP header for form data POST requests
@@ -62,30 +62,28 @@ const submitRating = (rating) => {
 }
 
 const RatingForm = ({ location }) => {
-  let title = config.siteTitle
-  let path = globalHistory.location.pathname
+  const title = config.siteTitle
+  const path = globalHistory.location.pathname
 
   return (
     <ThemeProvider theme={theme}>
       <>
-        <Fragment>
-          <Content>
-            <input type='hidden' name='form-name' value='ratings' />
-            <input name='fields[postPath]' type='hidden' value={path} />
-            <input name='title' type='hidden' value={title} />
-            <strong>Is this a useful post? Please give us a rating!</strong>
-            <div className='reviews'>
-              <ReactStars
-                onChange={rating => {
-                  submitRating(rating, path)
-                }}
-                half={false}
-                size={36}
-                color2={'#d64000'}
-              />
-            </div>
-          </Content>
-        </Fragment>
+        <Content>
+          <input type='hidden' name='form-name' value='ratings' />
+          <input name='fields[postPath]' type='hidden' value={path} />
+          <input name='title' type='hidden' value={title} />
+          <strong>Is this a useful post? Please give us a rating!</strong>
+          <div className='reviews'>
+            <ReactStars
+              onChange={rating => {
+                submitRating(rating, path)
+              }}
+              half={false}
+              size={36}
+              color2='#d64000'
+            />
+          </div>
+        </Content>
       </>
     </ThemeProvider>
   )

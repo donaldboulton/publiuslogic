@@ -5,6 +5,7 @@ import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import Reviews from '../Ratings'
 import Prism from '../../utils/prism'
+import WebIntents from '../WebIntents'
 
 require('prismjs')
 require('prismjs/plugins/toolbar/prism-toolbar.js')
@@ -48,7 +49,16 @@ const ArticleTemplate = ({
       <Prism />
       <PostContent content={content} />
       <hr />
-      <Reviews />
+      <div className='container content'>
+        <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
+          <div className='column is-7'>
+            <Reviews />
+          </div>
+          <div className='column is-pulled-right'>
+            <WebIntents />
+          </div>
+        </div>
+      </div>
       <div className='container content'>
         <div className='columns is-desktop is-vcentered'>
           <div className='column is-10' style={{ marginTop: `2rem` }}>

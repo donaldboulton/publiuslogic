@@ -11,7 +11,8 @@ const WebIntents = ({ slug, tweet_id }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        <div className='column'>
+        <div className='tweet'>
+          <strong>Is this post Cool? Please Tweet About it!</strong>
           <div className='field is-grouped has-addons'>
             <p className='control'>
               <a
