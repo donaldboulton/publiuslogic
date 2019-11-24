@@ -1,6 +1,6 @@
 import React from 'react'
-import signin from '../../assets/img/sign-in-alt.svg'
 import netlifyIdentity from './netlify-identity.js'
+import { SignInAlt } from 'styled-icons/fa-solid'
 
 export const isBrowser = () => typeof window !== 'undefined'
 export const initAuth = () => {
@@ -62,7 +62,7 @@ export default class netlifyIdentityWidget extends React.Component {
     return (
       <div>
         <button id='mySigninBtn' aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogIn}>
-          <img src={signin} className='icon' alt='Login' />
+          <span><SignInAlt size='1.5em' color='#d64000' />&nbsp;</span><span className='h4'>Login</span>
         </button>
       </div>
     )

@@ -15,10 +15,10 @@ meta_description: Netlify CMS backend for editing data and site pages
 tweet_id: '1118651504674725888'
 showToc: true
 ---
+ 
+### Static + content management = ♥
 
-## Netlify CMS
-
-[Static + content management = ♥](https://www.netlifycms.org/)
+[Cms Site](https://www.netlifycms.org/)
 
 Netlify CMS is Always the latest GitHub repo pull, with my custom Webpack hashed build.
 My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
@@ -28,7 +28,6 @@ My custom dark build of the Netlify Identity Widget is used on the Gatsby fronte
 ## CMS index.html File exclusive build
 
 ```html
-
 <!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
 <head>
   <script src="./index.js"></script>

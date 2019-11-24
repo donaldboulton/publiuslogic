@@ -455,9 +455,21 @@ textarea[type="textarea"]:focus
 .is-primary
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important
   background: linear-gradient(90deg,#d64000,#8e0436) !important
-.twitter-dm-button
-  visibility: visible
-  display: flex !important
-  transform: rotate(0deg)
+.flex-container
+  padding: 0
+  margin: 0
+  -ms-box-orient: horizontal
+  display: -webkit-box
+  display: -moz-box
+  display: -ms-flexbox
+  display: -moz-flex
+  display: -webkit-flex
+  display: flex
+.flex1
+  flex: 1 1 20em
+.flex2
+  flex: 2 2 20em
+.flex
+  flex: 3 3 20em
 
 @import "~bulma"

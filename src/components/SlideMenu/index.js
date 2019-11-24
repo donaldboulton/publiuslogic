@@ -1,10 +1,13 @@
 import React from 'react'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
+import NetlifyIdentityWidget from '../IdentityWidget'
+import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
+import { Images, FileAlt } from 'styled-icons/fa-regular'
 
 const StyledBurgerMenu = styled.div`
     .bm-item {
-        text-align: center;
+        text-align: left;
         background: transparent important
         display: inline-block;
         text-decoration: none;
@@ -55,39 +58,33 @@ export default props => {
   return (
     <StyledBurgerMenu>
       <Menu right {...props}>
-        <a className='menu-item' href='/about' itemProp='url'>
-          <span itemProp='name'>About</span>
-        </a>
+        <div className='menu-item' id='login'>
+          <NetlifyIdentityWidget />
+        </div>
         <a className='menu-item' href='/blog' itemProp='url'>
-          <span itemProp='name'>Blog</span>
+          <span itemProp='name'><Blog size='1em' />&nbsp;Blog</span>
         </a>
         <a className='menu-item' href='/contact' itemProp='url'>
-          <span itemProp='name'>Contact</span>
+          <span itemProp='name'><PeopleCarry size='1em' />&nbsp;Contact</span>
         </a>
         <a className='menu-item' href='/photos' itemProp='url'>
-          <span itemProp='name'>Photo's</span>
+          <span itemProp='name'><Images size='1em' />&nbsp;Photo's</span>
         </a>
         <a className='menu-item' href='/sitemap' itemProp='url'>
-          <span itemProp='name'>Sitemap</span>
+          <span itemProp='name'><Sitemap size='1em' />&nbsp;Sitemap</span>
         </a>
         <hr className='navbar-divider' />
         <h4>Gatsby Posts</h4>
         <a className='menu-item' href='/blog/gatsby-netlify-no-plugins' itemProp='url'>
-          <span itemProp='name'>Netlify No Plugins</span>
+          <span itemProp='name'><FileAlt size='1em' />&nbsp;Netlify No Plugins</span>
         </a>
         <a className='menu-item' href='/blog/gatsby-lightgallery-cloudinary' itemProp='url'>
-          <span itemProp='name'>LightGallery Cloudinary</span>
-        </a>
-        <a className='menu-item' href='/blog/gatsby-github-comments-utterances' itemProp='url'>
-          <span itemProp='name'>Utterances Comments</span>
-        </a>
-        <a className='menu-item' href='/blog/gatsby-react-scroll-toTop' itemProp='url'>
-          <span itemProp='name'>Scroll toTop</span>
+          <span itemProp='name'><FileAlt size='1em' />&nbsp;LightGallery Cloudinary</span>
         </a>
         <hr className='navbar-divider' />
         <h4>Common Sense</h4>
         <a className='menu-item' href='/blog/earths-magnetic-flux' itemProp='url'>
-          <span itemProp='name'>Magnetic Flux</span>
+          <span itemProp='name'><FileAlt size='1em' />&nbsp;Magnetic Flux</span>
         </a>
       </Menu>
     </StyledBurgerMenu>
