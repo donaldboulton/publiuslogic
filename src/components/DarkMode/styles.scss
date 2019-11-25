@@ -52,6 +52,25 @@ body.light-mode {
     background: url(/img/blankw.png) 15px 50%/1.1em 1.5em no-repeat !important;
     background-color: transparent !important;
   }
+  .input, .textarea {
+    background: radial-gradient(circle at top right,#cccccc,rgba(0,0,0,0)) !important;
+    border-left: 3px solid gray !important;
+    border: #434040 !important;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
+    max-width: 100%;
+    width: 100% ;
+  }
+  .navbar-dropdown {
+    background-color: gray !important;
+    border-top: 2px solid #cccccc !important;
+    color: #1d1d1d !important;
+  }
+  .input-control  {
+    border: 1px solid gray !important;
+    border-left: 5px solid gray !important;
+    background: radial-gradient(circle at top right,#cccccc,rgba(0,0,0,0)) !important;
+  }
 }
 
 body.dark-mode {
@@ -101,13 +120,13 @@ body.dark-mode .navbar-brand {
   background: transparent !important;
 }
 body.dark-mode .subtitle {
-  color: #cccccc !important
+  color: #cccccc !important;
 }
 body.dark-mode .label {
-  color: #cccccc !important ;
+  color: #cccccc !important;
 }
 body.dark-mode .content a {
-  color: rgb(218, 27, 96);
+  color: #812102;
 }
 body.dark-mode .is-primary {
   color: #ffffff !important;
@@ -119,6 +138,25 @@ body.dark-mode .content button {
   color: #ccc;
 }
 body.dark-mode input::placeholder {
+  color: #cccccc !important;
+}
+body.dark-mode.input-control  {
+  border: 1px solid #434040 !important;
+  border-left: 5px solid #812102 !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
+}
+body.dark-mode .input, .textarea {
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
+  border-left: 3px solid #812102 !important;
+  border: #434040 !important;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
+  max-width: 100%;
+  width: 100%;
+}
+body.dark-mode .navbar-dropdown {
+  background-color: #1d1d1d !important;
+  border-top: 2px solid #1d1d1d !important;
   color: #cccccc !important;
 }
 body.dark-mode .content h2, .content h3, .content h4, .content h5, .content h6 {
@@ -149,6 +187,7 @@ body.dark-mode input.luna__input:focus {
 }
 .dark-mode-toggle {
   display: flex;
+  grid-area: toggle;
   margin: 0 auto;
   & > button {
     font-size: 1.2em;

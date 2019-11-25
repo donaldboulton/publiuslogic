@@ -60,7 +60,7 @@ export default class netlifyIdentityWidget extends React.Component {
 
   render () {
     return (
-      <div className='is-pulled-right'>
+      <div>
         <button id='mySigninBtn' aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogIn}>
           <SignInAlt size='1.85em' color='#d64000' />
         </button>

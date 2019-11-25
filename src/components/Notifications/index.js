@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import bell from '../../assets/img/bell.svg'
+import bell from '../../../static/img/bell.svg'
 
 class Notify extends Component {
   constructor (props) {

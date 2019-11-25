@@ -27,7 +27,7 @@ const config = {
   userEmail: 'donaldboulton@gmail.com', // Email used for RSS feed's author segment
   userTwitter: 'donboulton', // Optionally renders 'Follow Me' in the UserInfo segment.
   userLocation: 'OKC, Oklahoma', // User location to display in the author segment.
-  userAvatar: 'https://donboulton.com/assets/images/donald-boulton.jpg', // User avatar to display in the author segment.
+  userAvatar: 'https://donboulton.com/img/donald-boulton.jpg', // User avatar to display in the author segment.
   userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
   recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
   copyright: 'Copyright © 2019.', // Copyright string for the footer of the website and RSS feed.

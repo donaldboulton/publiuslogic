@@ -18,9 +18,9 @@ const Form = styled.form`
 const Name = styled.input`
   padding:10px;
   color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
   border: 1px solid #434040;
+  border-left: 5px solid #812102 !important;
   margin:0 0 20px;
   border-radius: 6px;
   width:100%;
@@ -31,8 +31,9 @@ const Email = styled.input`
   padding:10px;
   color:#ccc;
   background: #1d1d1d;
-  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
   border: 1px solid #434040;
+  border-left: 5px solid #812102 !important;
   margin:0 0 20px;
   border-radius: 6px;
   width:100%;
@@ -42,9 +43,9 @@ const Email = styled.input`
 const Message = styled.textarea`
   padding:10px;
   color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
   border: 1px solid #434040;
+  border-left: 5px solid #812102 !important;
   margin:0 0 20px;
   border-radius: 6px;
   width:100%;
