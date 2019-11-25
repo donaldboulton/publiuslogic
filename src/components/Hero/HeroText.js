@@ -14,11 +14,11 @@ const StyledTypist = styled(Typist)`
   font-weight: 100;
   text-transform: uppercase;
   font-family: 'Roboto';
-  ${ media.xs`
+  ${media.tablet`
     font-size:38px;
     line-height: 44px;
     letter-spacing: 8px;
-  ` }
+  `}
 `
 
 class HeroText extends React.Component {
