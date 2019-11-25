@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Typist from 'react-typist'
 
-import mediaQuery from '../../utils/mediaQuery'
-
-const { minPhone, maxPhone } = mediaQuery
+import { media } from './style'
 
 const StyledTypist = styled(Typist)`
   color: #fff;
@@ -16,16 +14,11 @@ const StyledTypist = styled(Typist)`
   font-weight: 100;
   text-transform: uppercase;
   font-family: 'Roboto';
-  ${maxPhone} {
-    font-size: 18px;
-    line-height: 6px;
-    letter-spacing: 5px;  
-  }
-  ${minPhone} {
-    font-size: 52px;
-    line-height: 60em;
-    letter-spacing: 14px;
-  }
+  ${ media.xs`
+    font-size:38px;
+    line-height: 44px;
+    letter-spacing: 8px;
+  ` }
 `
 
 class HeroText extends React.Component {
@@ -53,9 +46,7 @@ class HeroText extends React.Component {
           <Typist.Delay ms={900} />
           <span key={7}>.</span>
           <Typist.Backspace count={20} delay={10} />
-          <strong key={8}>But Mostly I Just</strong>
-          <span key={9}> Do Awesome Stuff</span>
-          <span key={10}>With Web Tech</span>
+          <strong key={8}>But Mostly I Just</strong> Do Awesome Stuff With Web Tech
         </StyledTypist>
       )
     }
