@@ -2,8 +2,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-size: 1.1em !important;
-  font-weight: 500 !important;
+  font-size: 1.1em;
+  font-weight: 500;
   line-height: 1.5em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Kaushan Script,cursive', Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -23,31 +23,37 @@ body.light-mode {
     background: transparent !important;
   }
   .navbar-brand {
-    background: #ffffff !important;
+    background: #dbdbdb !important;
   }
-  .github-icon {
-    background-image: url(/img/GitHub-Mark-Light-64px.png);
-    background-repeat: no-repeat;
-    width: 32px;
-    height:32px
-  }
-  .hotjar-icon {
-    background-image: url(/img/HotJar-250x100_logoDark.png);
-    background-repeat: no-repeat;
-    flex: flex-end;
-    width: 250px;
-    height: 116px
-  }
+  code {
+    background: #dbdbdb !important;
+  }    
   .content blockquote {
-    background: #ffffff;
-    color: #333;
+    border-radius: 8px !important;
+    background: radial-gradient(circle at top right,#dbdbdb,rgba(0,0,0,0)) !important;
+    color: #343434;
+  }
+  .message-body {
+    border-radius: 8px;
+    border: solid #dbdbdb !important;
+    border-width: 0 0 0 4px;
+    padding: 1.25em 1.5em;
+  }
+  footer.footer {
+    background-color: #dbdbdb !important;
+  }
+  .message {
+    background: radial-gradient(circle at top right,#ccc,rgba(0,0,0,0)) !important;
+    border-radius: 8px;
+    font-size: 1rem;
+    border-left: 5px solid gray !important;
   }
 }
 
 body.dark-mode {
   background-image: url(/img/bg10-min.png);
   background-repeat: repeat;
-  color: #ccc;
+  color: #dbdbdb;
   nav {
     background: transparent !important;
   }
@@ -59,6 +65,13 @@ body.dark-mode {
   }
   .navbar-brand {
     background: #1d1d1d !important;
+  }
+  code {
+    background: #1d1d1d !important;
+  }
+  input.luna__input:focus {
+    background: url(/img/blankw.png) 15px 50%/1.1em 1.5em no-repeat !important;
+    background-color: transparent !important;
   }
   .dark-mode-toggle > button {
     color: #999;
@@ -77,6 +90,7 @@ body.dark-mode .box {
     border: 1px solid #434040 !important;
 }
 body.dark-mode .content blockquote {
+  border-radius: 8px !important;
   background: #1d1d1d;
   color: #ccc;
 }
@@ -86,19 +100,6 @@ body.dark-mode .navbar-menu {
 body.dark-mode .navbar-brand {
   background: transparent !important;
 }
-body.dark-mode .github-icon {
-  background-image: url(/img/GitHub-Mark-Dark-64px.png);
-  background-repeat: no-repeat;
-  width: 32px;
-  height: 32px
-}
-body.dark-mode .hotjar-icon {
-  background-image: url(/img/HotJar-250x100_logoLight.png);
-  background-repeat: no-repeat;
-  flex: flex-end;
-  width: 250px;
-  height: 116px
-}
 body.dark-mode .subtitle {
   color: #cccccc !important
 }
@@ -106,7 +107,7 @@ body.dark-mode .label {
   color: #cccccc !important ;
 }
 body.dark-mode .content a {
-  color: #d64000;
+  color: rgb(218, 27, 96);
 }
 body.dark-mode .is-primary {
   color: #ffffff !important;
@@ -115,15 +116,36 @@ body.dark-mode .footer {
   background-color: #181818 !important;
 }  
 body.dark-mode .content button {
-  color: #ee09;
+  color: #ccc;
 }
 body.dark-mode input::placeholder {
   color: #cccccc !important;
 }
-body.dark-mode content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-  color: #999;
+body.dark-mode .content h2, .content h3, .content h4, .content h5, .content h6 {
+  color: #cccccc;
   font-weight: 600;
   line-height: 1.125;
+}
+body.dark-mode .content blockquote {
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
+  color: #ffffff;
+}
+body.dark-mode .message-body {
+  border-radius: 8px;
+  border: solid #000000 !important;
+  color: whitesmoke;
+  border-width: 0 0 0 4px;
+  padding: 1.25em 1.5em;
+}
+body.dark-mode .message {
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
+  border-radius: 8px;
+  font-size: 1rem;
+  border-left: 5px solid #812102 !important;
+}
+body.dark-mode input.luna__input:focus {
+  background: url(/img/blank.png) 15px 50%/1.1em 1.5em no-repeat !important;
+  background-color: transparent !important;
 }
 .dark-mode-toggle {
   display: flex;

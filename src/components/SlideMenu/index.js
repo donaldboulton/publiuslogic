@@ -68,7 +68,7 @@ export default props => {
           <span itemProp='name'><PeopleCarry size='1em' />&nbsp;Contact</span>
         </a>
         <a className='menu-item' href='/photos' itemProp='url'>
-          <span itemProp='name'><Images size='1em' />&nbsp;Photo's</span>
+          <span itemProp='name'><Images size='1em' />&nbsp;Gallery</span>
         </a>
         <a className='menu-item' href='/sitemap' itemProp='url'>
           <span itemProp='name'><Sitemap size='1em' />&nbsp;Sitemap</span>

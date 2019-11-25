@@ -44,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: ${props => props.theme.darkOrange};
     :hover {
-      color: ${props => props.theme.lightOrange};
+      color: ${props => props.theme.burntOrange};
     }
   }
   .grid {
@@ -58,15 +58,13 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
       }
       img {
-        border: 1px solid darkgray;
-        border-radius: 5px;
+        border: 1px solid ${props => props.theme.darkGray};
+        border-radius: ${props => props.theme.smallBorderRadius};
         overflow: hidden;
       }
     }
   }
   .button {
-    background: ${props => props.theme.orange};
-    color: ${props => props.theme.white} !important;
     border-radius: ${props => props.theme.smallBorderRadius};
     padding: 0.3em 0.6em;
     transition: ${props => props.theme.shortTrans};
@@ -75,7 +73,7 @@ export const GlobalStyle = createGlobalStyle`
     width: max-content;
     margin: 0 auto;
     :hover {
-      background: ${props => props.theme.lightOrange};
+      background: ${props => props.theme.burntOrange};
     }
   }
   /* center image captions */
@@ -85,7 +83,7 @@ export const GlobalStyle = createGlobalStyle`
     text-align: center;
   }
   blockquote {
-    border-left: 5px solid ${props => props.theme.darkOrange};
+    border-left: 5px solid ${props => props.theme.burntOrange};
     background: rgba(0, 0, 0, 0.03);
     padding: 0.1em 0 0.1em 1em;
     margin: 0;

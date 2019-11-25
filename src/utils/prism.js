@@ -35,7 +35,7 @@ const languageTags = langExtColor
 export default createGlobalStyle`
   .gatsby-code-title {
     background: ${props => props.theme.darkOrange};
-    color: ${props => props.theme.gray};
+    color: ${props => props.theme.white};
     padding: 0.2em 0.4em;
     width: max-content;
     max-width: 400px;
@@ -71,7 +71,7 @@ export default createGlobalStyle`
 
   code[class*='language-'],
   pre[class*='language-'] {
-    color: lightGray;
+    color: ${props => props.theme.lightGray};
     font-family: Consolas, Menlo, Monaco, source-code-pro, 'Courier New', monospace;
     white-space: pre;
     word-spacing: normal;
@@ -173,9 +173,9 @@ export default createGlobalStyle`
   .tag:not(body) {
     -webkit-align-items: center;
     align-items: center;
-    background-color: #d64000 !important;
+    background: ${props => props.theme.darkOrange};
     border-radius: 4px;
-    color: #ccccccc;
+    color: ${props => props.theme.white};
     display: -webkit-inline-flex;
     display: inline-flex;
     font-size: .75rem;
@@ -220,9 +220,9 @@ export default createGlobalStyle`
   }
 
   .language-text {
-    color: #cccccc!important;
+    color: ${props => props.theme.white};
     border-radius: 0.2em;
-    background: #1d1d1d!important;
+    background: ${props => props.theme.darkBg};
     padding: 0.15em 0.2em 0.05em;
   }
 
@@ -242,7 +242,7 @@ export default createGlobalStyle`
     position: absolute;
     top: 1em !important;
     right: .5em !important;
-    background: #1d1d1d!important;
+    background: ${props => props.theme.darkBg};
     border-radius: .5em;
   }
 

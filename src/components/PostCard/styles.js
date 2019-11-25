@@ -34,6 +34,10 @@ const inTitle = css`
     color: ${props => props.theme.lightGreen};
   }
 `
+export const Category = styled.span`
+  flex: end;
+  justify-content: right;
+`
 
 export const Meta = styled.div`
   display: flex;
@@ -42,7 +46,7 @@ export const Meta = styled.div`
   margin: 0.5em 0;
   > * {
     display: flex;
-    align-items: left;
+    align-items: justify;
   }
   > :not(:last-child) {
     margin-right: 1em;

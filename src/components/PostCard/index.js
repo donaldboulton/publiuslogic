@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Meta } from './styles'
+import { Meta, Category } from './styles'
 import { Calendar, FileSymlinkFile } from 'styled-icons/octicons/'
 import { Timer } from 'styled-icons/material/Timer'
 
 const PostCard = ({ posts, category, date, timeToRead, inTitle = false }) => {
-  
   return (
     <section className='section'>
       <div className='container content'>
@@ -34,8 +33,8 @@ const PostCard = ({ posts, category, date, timeToRead, inTitle = false }) => {
                         <span className='subtitle is-size-5'>
                           <Calendar size='1em' /><small>&nbsp;{post.frontmatter.date}</small>&nbsp;
                           <Timer size='1em' />&nbsp;
-                          <small key={post.timeToRead}>{post.timeToRead}&nbsp;min read</small>
-                          <span className='is-pulled-right'>&nbsp;<small>Category</small>&nbsp;<FileSymlinkFile size='1em' /><Link aria-label='Categories' to='/categories/'><small>&nbsp;{post.frontmatter.category}</small></Link></span>
+                          <small key={post.timeToRead}>{post.timeToRead}&nbsp;min read</small>&nbsp;
+                          <Category><FileSymlinkFile size='1em' />&nbsp;<small>Category:</small>&nbsp;<Link aria-label='Categories' to='/categories/'><small>{post.frontmatter.category}</small></Link></Category>
                         </span>
                       </div>
                     </Meta>

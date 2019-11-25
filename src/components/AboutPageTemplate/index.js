@@ -18,7 +18,7 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
           <div className='columns is-10 is-offset-1'>
             <div className='column'>
               <div className='content'>
-                <h1>This Site Uses useDarkMode</h1>
+                <h2>This Site Uses useDarkMode</h2>
                 <p>
                 I have incorporated this into PubliusLogic and below is an example of its usage.
                 </p>

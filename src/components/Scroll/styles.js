@@ -20,5 +20,5 @@ export const Arrow = styled(Down).attrs(({ direction, size }) => ({
     transform: scale(1.15);
     background: ${theme.orange};
   }
-  right: calc(1vw - ${size} / 1);`}
+  right: calc(1.1vw - ${size} / 1);`}
 `

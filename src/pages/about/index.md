@@ -103,5 +103,3 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 * Pagination
 * Contact Form (Netlify Forms)
 * Easy Configuration using `config.js` file
-
-<table-of-contents></table-of-contents>

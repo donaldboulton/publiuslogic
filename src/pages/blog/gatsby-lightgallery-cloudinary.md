@@ -17,8 +17,6 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## Gatsby LightGallery Cloudinary
-
 ### [Using Cloudinary React Library](https://www.npmjs.com/package/cloudinary-react/v/1.1.0)
 
 Cloudinary is a cloud service that offers a solution to a web application's entire image management pipeline.
@@ -100,7 +98,7 @@ class Gallery extends Component {
 
     'image_search', 'facebook', 'dropbox', 'instagram'], dropboxAppKey:
 
-    'fk4ayp4zwevjgl7', googleApiKey: 'AIzaSyCEL0HqEXvP42ZYK-xd7CBqO50-ZzLKwFM' },
+    'YOUR KEY', googleApiKey: 'YOUR KEY' },
       // eslint-disable-next-line handle-callback-err
       function (error, result) {
       // Update gallery state with newly uploaded image
@@ -175,8 +173,8 @@ class UploadWidget extends Component {
   uploadWidget () {
     cloudinary.openUploadWidget({
       cloud_name: 'mansbooks',
-      api_key: '228989664973733',
-      api_secret: '2RIKEQL1bOOxMNKBoeiCYQR8SnI',
+      api_key: 'YOUR KEY',
+      api_secret: 'YOUR SECRET',
       username: 'donaldboulton@gmail.com',
       upload_preset: 'photos-preset',
       tags: ['cats', 'uploads'],
@@ -230,4 +228,39 @@ class UploadWidget extends Component {
 
 export default UploadWidget
 
+```
+
+## The mediaQuery
+
+> This use's matchMedia for screen according to window size
+
+```js:title=mediaQuery
+import { startCase } from 'lodash'
+
+const min = width => `only screen and (min-width: ${width}em)`
+const max = width => `only screen and (max-width: ${width}em)`
+
+const mediaQuery = {
+  screens: {
+    phone: 30,
+    phablet: 40,
+    tablet: 50,
+    netbook: 60,
+    laptop: 70,
+    desktop: 100,
+  },
+}
+
+for (const key of Object.keys(mediaQuery.screens)) {
+  const Key = startCase(key)
+  for (const [func, name] of [[min, `min`], [max, `max`]]) {
+    // css query
+    const query = func(mediaQuery.screens[key])
+    mediaQuery[name + Key] = `@media ` + query
+    // js query (see window.matchMedia)
+    mediaQuery[name + Key + `Js`] = query
+  }
+}
+
+export default mediaQuery
 ```
