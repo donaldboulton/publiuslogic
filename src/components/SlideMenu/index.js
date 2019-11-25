@@ -20,8 +20,8 @@ const StyledBurgerMenu = styled.div`
     }
     .bm-burger-button {
         position: fixed;
-        margin-left: 5em;
-        padding-left: 10px;
+        margin-left: 8vw;
+        padding-left: 8vw;
         width: 30px;
         height: 26px;
         right: 2vw;
