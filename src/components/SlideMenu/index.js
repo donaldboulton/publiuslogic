@@ -12,7 +12,7 @@ const StyledBurgerMenu = styled.div`
         display: inline-block;
         text-decoration: none;
         margin-bottom: 2vh;
-        color: ${props => props.theme.darkOrange};
+        color: ${props => props.theme.veryLightGray};
         transition: color 0.2s;
     }
     .bm-item:hover {
