@@ -18,7 +18,6 @@ const Form = styled.form`
 const Name = styled.input`
   padding:10px;
   color:#ccc;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
   border: 1px solid #434040;
   border-left: 5px solid #812102 !important;
   margin:0 0 20px;
@@ -28,27 +27,23 @@ const Name = styled.input`
 `
 
 const Email = styled.input`
-  padding:10px;
-  color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
+  padding: 10px;
+  color: #ccc;
   border: 1px solid #434040;
   border-left: 5px solid #812102 !important;
   margin:0 0 20px;
   border-radius: 6px;
-  width:100%;
+  width: 100%;
   box-sizing: border-box;
 `
 
 const Message = styled.textarea`
-  padding:10px;
-  color:#ccc;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
-  border: 1px solid #434040;
+  padding: 10px;
+  color: #ccc;
   border-left: 5px solid #812102 !important;
   margin:0 0 20px;
   border-radius: 6px;
-  width:100%;
+  width: 100%;
   height: 220px;
   box-sizing: border-box;
 `
@@ -68,13 +63,13 @@ const Submit = styled.button`
 `
 
 const ModalButton = styled.button`
-  border:solid 1px #ccc;
-  padding:15px 30px;
-  margin:0 0 20px;
-  text-transform:uppercase;
-  font-weight:bold;
-  cursor:pointer;
-  border-radius:4px;
+  border: solid 1px #ccc;
+  padding: 15px 30px;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
   background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
@@ -194,6 +189,7 @@ class ContactForm extends React.Component {
           name='name'
           id='name'
           type='text'
+          className='input'
           title='Name'
           aria-label='Your Name'
           aria-required='true'
@@ -208,6 +204,7 @@ class ContactForm extends React.Component {
           name='email'
           id='email'
           type='email'
+          className='input'
           title='Email'
           placeholder='Email'
           aria-label='Your Email'
@@ -223,6 +220,7 @@ class ContactForm extends React.Component {
           id='message'
           title='Message'
           type='textarea'
+          className='textarea'
           placeholder='Message'
           aria-label='Message'
           aria-required='true'

@@ -14,16 +14,19 @@ body.light-mode {
   color: #333;
   transition: background-image 0.3s ease;
   nav {
-    background: transparent !important;
+    background: #00a396 !important;
   }
   .navbar {
-    background: #ffffff !important;
+    background: #00a396 !important;
   }
   .navbar-menu {
     background: transparent !important;
   }
   .navbar-brand {
-    background: #dbdbdb !important;
+    background: #00a396 !important;
+  }
+  .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
+    color : #1d1d1d;
   }
   code {
     background: #dbdbdb !important;
@@ -41,6 +44,14 @@ body.light-mode {
   }
   footer.footer {
     background-color: #dbdbdb !important;
+  }
+  .button {
+    background: #00a396;
+    color: #ffffff;
+  }
+  .button:focus {
+    background: #00c2b2;
+    color: #dbdbdb;
   }
   .message {
     background: radial-gradient(circle at top right,#ccc,rgba(0,0,0,0)) !important;
@@ -89,6 +100,9 @@ body.dark-mode {
   .navbar-brand {
     background: #1d1d1d !important;
   }
+  .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
+    color: #ccc;
+  }
   code {
     background: #1d1d1d !important;
   }
@@ -107,11 +121,6 @@ body.dark-mode .box {
     background-color: #1d1d1d !important;
     color: #cccccc !important;
     border: 1px solid #434040 !important;
-}
-body.dark-mode .content blockquote {
-  border-radius: 8px !important;
-  background: #1d1d1d;
-  color: #ccc;
 }
 body.dark-mode .navbar-menu {
   background: transparent !important;
@@ -133,14 +142,29 @@ body.dark-mode .is-primary {
 }
 body.dark-mode .footer {
   background-color: #181818 !important;
-}  
+}
+body.dark-mode .button {
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important;
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
+  background-color: #d64000 !important;
+  border-color: transparent !important;
+  color: #cccccc !important;
+  border-radius: 4px !important;
+}
+body.dark-mode .button:hover {
+  border-color: #c93c00 !important  ;
+}
+body.dark-mode .button:focus {
+  outline: none !important;
+}
+
 body.dark-mode .content button {
-  color: #ccc;
+  color: #dbdbdb;
 }
 body.dark-mode input::placeholder {
   color: #cccccc !important;
 }
-body.dark-mode.input-control  {
+body.dark-mode .input-control  {
   border: 1px solid #434040 !important;
   border-left: 5px solid #812102 !important;
   background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
@@ -167,6 +191,9 @@ body.dark-mode .content h2, .content h3, .content h4, .content h5, .content h6 {
 body.dark-mode .content blockquote {
   background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
   color: #ffffff;
+  border-radius: 8px;
+  border: solid #181818 !important;
+  border-left: 5px solid #812102 !important;
 }
 body.dark-mode .message-body {
   border-radius: 8px;

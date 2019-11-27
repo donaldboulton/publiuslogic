@@ -25,7 +25,7 @@ const StyledBurgerMenu = styled.div`
         width: 30px;
         height: 26px;
         right: 2vw;
-        top: 2vh;
+        top: 2.3vh;
     }
     .bm-burger-bars {
       background: ${props => props.theme.darkOrange};
