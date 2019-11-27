@@ -39,18 +39,16 @@ const BgImage = styled(Image)`
   }
 `
 
-class Hero extends React.Component {
-  render () {
-    const { children } = this.props
-    return (
-      <Container>
-        <BgImage {...this.props}/>
-        <Overlay>
-          {children}
-        </Overlay>
-      </Container>
-    )
-  }
+const Hero = () => {
+  const { children } = this.props
+  return (
+    <Container>
+      <BgImage {...this.props} />
+      <Overlay>
+        {children}
+      </Overlay>
+    </Container>
+  )
 }
 
 export default Hero

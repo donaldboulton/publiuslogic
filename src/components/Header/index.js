@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NavBar from '../NavBar'
 import SlideMenu from '../SlideMenu'
 
-class Header extends Component {
-  render () {
-    return (
-      <>
-        <NavBar />
-        <SlideMenu />
-      </>
-    )
-  }
+const Header = () => {
+  return (
+    <>
+      <NavBar />
+      <SlideMenu />
+    </>
+  )
 }
 
 export default Header

@@ -14,7 +14,7 @@ const HitCounter = () => (
     <RetroHitCounter
       hits={1337}
       // eslint-disable-next-line react/jsx-boolean-value
-      withBorder={false}
+      withBorder={true}
       minLength={4}
       size={40}
       padding={4}

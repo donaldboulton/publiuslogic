@@ -3,7 +3,7 @@ import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 import NetlifyIdentityWidget from '../IdentityWidget'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
-import { Images, FileAlt } from 'styled-icons/fa-regular'
+import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
 
 const StyledBurgerMenu = styled.div`
     .bm-item {
@@ -63,6 +63,9 @@ export default props => {
         </div>
         <a className='menu-item' href='/blog' itemProp='url'>
           <span itemProp='name'><Blog size='1em' />&nbsp;Blog</span>
+        </a>
+        <a className='menu-item' href='/about' itemProp='url'>
+          <span itemProp='name'><AddressCard size='1em' />&nbsp;About</span>
         </a>
         <a className='menu-item' href='/contact' itemProp='url'>
           <span itemProp='name'><PeopleCarry size='1em' />&nbsp;Contact</span>

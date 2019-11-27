@@ -13,6 +13,10 @@ body.light-mode {
   background-repeat: repeat;
   color: #333;
   transition: background-image 0.3s ease;
+  html {
+    background-image: url(/img/bg10W-min.png);
+    background-repeat: repeat;
+  }
   nav {
     background: #dbdbdb !important;
   }
@@ -31,33 +35,65 @@ body.light-mode {
   code {
     background: #dbdbdb !important;
   }    
+  a {
+    color: rgba(0, 163, 150,.5) !important;
+  }
+  a:hover {
+    color: rgba(0, 194, 178,.2) !important;
+  }
   .content blockquote {
+    border-left: 5px solid gray !important;
+    border-top: 1px solid #dbdbdb !important;
+    border-right: 1px solid #dbdbdb !important;
+    border-bottom: 1px solid #dbdbdb !important;
     border-radius: 8px !important;
     background: radial-gradient(circle at top right,#dbdbdb,rgba(0,0,0,0)) !important;
     color: #343434;
-  }
-  .message-body {
-    border-radius: 8px;
-    border: 4px solid #dbdbdb !important;
-    border-width: 0 0 0 4px;
-    padding: 1.25em 1.5em;
-  }
-  footer.footer {
-    background-color: #dbdbdb !important;
-  }
-  .button {
-    background: #00a396;
-    color: #ffffff;
-  }
-  .button:focus {
-    background: #00c2b2;
-    color: #dbdbdb;
   }
   .message {
     background: radial-gradient(circle at top right,#ccc,rgba(0,0,0,0)) !important;
     border-radius: 8px;
     font-size: 1rem;
     border-left: 5px solid gray !important;
+  }
+  .message-body {
+    border-radius: 8px;
+    border-top: 1px solid #dbdbdb !important;
+    border-right: 1px solid #dbdbdb !important;
+    border-bottom: 1px solid #dbdbdb !important;
+    padding: 1.25em 1.5em;
+  }
+  footer.footer {
+    background-color: #dbdbdb !important;
+  }
+  strong {
+    color: #343434 !important;
+  }
+  .button {
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2))) !important;
+    background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
+    background-color: #00a396 !important;
+    color: #ffffff;
+  }
+  .button:focus {
+    background: #00c2b2;
+    color: #dbdbdb;
+  }
+  .modali-close-button {
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2)));
+    background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
+    background-color: #00a396;
+    border-radius: 50px;
+    padding: 1rem;
+    margin: -3rem -1rem -3rem auto;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: .5;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: 0!important;
+    top: 20px;
   }
   input.luna__input:focus {
     background: url(/img/blankw.png) 15px 50%/1.1em 1.5em no-repeat !important;
@@ -66,15 +102,17 @@ body.light-mode {
   .input, .textarea {
     background: radial-gradient(circle at top right,#cccccc,rgba(0,0,0,0)) !important;
     border-left: 3px solid gray !important;
-    border: #434040 !important;
-    border-radius: 4px;
+    border-top: 1px thin #434040 !important;
+    border-right: 1px thin #434040 !important;
+    border-bottom: 1px thin #434040 !important;
+    border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
     max-width: 100%;
     width: 100% ;
   }
   .navbar-dropdown {
     background-color: gray !important;
-    border-top: 2px solid #cccccc !important;
+    border-top: 2px solid #dbdbdb !important;
     color: #1d1d1d !important;
   }
   .input-control  {
@@ -82,12 +120,37 @@ body.light-mode {
     border-left: 5px solid gray !important;
     background: radial-gradient(circle at top right,#cccccc,rgba(0,0,0,0)) !important;
   }
+  hr, hr.thick {
+    border: 0;
+    height: 5px;
+    margin: 2rem 0;
+    background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2)));
+    background-color: transparent;
+    border-radius: 5px;
+  }
+  .navbar-divider {
+    border: 0;
+    height: 2px;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2)));
+    background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
+    text-align: center;
+    border-radius: 2px;
+    max-width: 100%;
+  }
+  .card {
+    color: #343434 !important;
+  }
 }
 
 body.dark-mode {
   background-image: url(/img/bg10-min.png);
   background-repeat: repeat;
   color: #dbdbdb;
+  html {
+    background-image: url(/img/bg10-min.png) !important;
+    background-repeat: repeat !important;
+  }
   nav {
     background: transparent !important;
   }
@@ -118,9 +181,9 @@ body.dark-mode .card {
   color: #cccccc !important;
 }
 body.dark-mode .box {
-    background-color: #1d1d1d !important;
-    color: #cccccc !important;
-    border: 1px solid #434040 !important;
+  background-color: #1d1d1d !important;
+  color: #cccccc !important;
+  border: 1px solid #434040 !important;
 }
 body.dark-mode .navbar-menu {
   background: transparent !important;
@@ -144,15 +207,15 @@ body.dark-mode .footer {
   background-color: #181818 !important;
 }
 body.dark-mode .button {
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2))) !important;
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(214,62,0,.5)),to(rgba(218,27,0,.2))) !important;
+  background: linear-gradient(180deg,rgba(214,62,0,.2),rgba(218,27,0,.2)) !important;
   background-color: #d64000 !important;
   border-color: transparent !important;
   color: #cccccc !important;
   border-radius: 4px !important;
 }
 body.dark-mode .button:hover {
-  border-color: #c93c00 !important  ;
+  border-color: #c93c00 !important;
 }
 body.dark-mode .button:focus {
   outline: none !important;
@@ -162,17 +225,34 @@ body.dark-mode .content button {
   color: #dbdbdb;
 }
 body.dark-mode input::placeholder {
-  color: #cccccc !important;
+  color: #dbdbdb !important;
 }
 body.dark-mode .input-control  {
-  border: 1px solid #434040 !important;
   border-left: 3px solid #812102 !important;
+  border-right: 1px solid #434040 !important;
+  border-bottom: 1px solid #434040 !important;
+  border-top: 1px solid #434040 !important;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
   background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
 }
-body.dark-mode .input, .textarea {
+body.dark-mode .textarea {
   background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
   border-left: 3px solid #812102 !important;
-  border: #434040 !important;
+  border-right: 1px solid #434040 !important;
+  border-bottom: 1px solid #434040 !important;
+  border-top: 1px solid #434040 !important;  
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
+  max-width: 100%;
+  width: 100%;
+}
+body.dark-mode .input {
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
+  border-left: 3px solid #812102 !important;
+  border-right: 1px solid #434040 !important;
+  border-bottom: 1px solid #434040 !important;
+  border-top: 1px solid #434040 !important;
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
   max-width: 100%;
@@ -192,12 +272,17 @@ body.dark-mode .content blockquote {
   background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
   color: #ffffff;
   border-radius: 8px;
-  border: solid #181818 !important;
+  border-top: 1px solid #181818 !important;
   border-left: 5px solid #812102 !important;
+  border-right: 1px solid #181818 !important;
+  border-bottom: 1px solid #181818 !important;
+
 }
 body.dark-mode .message-body {
   border-radius: 8px;
-  border: solid #181818 !important;
+  border-top: 1px solid #181818 !important;
+  border-right: 1px solid #181818 !important;
+  border-bottom: 1px solid #181818 !important;
   color: whitesmoke;
   border-width: 0 0 0 4px;
   padding: 1.25em 1.5em;
@@ -211,6 +296,47 @@ body.dark-mode .message {
 body.dark-mode input.luna__input:focus {
   background: url(/img/blank.png) 15px 50%/1.1em 1.5em no-repeat !important;
   background-color: transparent !important;
+}
+body.dark-mode .modali-close-button {
+  background: linear-gradient(180deg,rgba(214,62,0,.2),rgba(218,27,0,.2)) !important;
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(214,62,0,.5)),to(rgba(218,62,0,.2)));
+  background-color: #d64000;
+  border-radius: 50px;
+  padding: 1rem;
+  margin: -3rem -1rem -3rem auto;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: .5;
+  color: #000;
+  cursor: pointer;
+  border: none;
+  outline: 0!important;
+  top: 20px;
+}
+body.dark-mode hr, hr.thick {
+  border: 0;
+  height: 5px;
+  margin: 2rem 0;
+  background: linear-gradient(180deg,rgba(214,62,0,.2),rgba(218,27,0,.2)) !important;
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(214,62,0,.5)),to(rgba(218,62,0,.2)));
+  background-color: transparent;
+  border-radius: 5px;
+}
+body.dark-mode .navbar-divider {
+  height: 3px;
+  border-radius: 3px;
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(214,62,0,.5)),to(rgba(218,62,0,.2)));
+  background: linear-gradient(180deg,rgba(214,62,0,.2),rgba(218,27,0,.2)) !important;
+  background-color: transparent;
+  text-align: center;
+  max-width: 100%;
+}
+body.dark-mode a {
+  color: -webkit-gradient(linear,left top,left bottom,from(rgba(214, 62, 0)),to(rgba(218, 62, 0)));
+  color: linear-gradient(180deg,rgba(214,62,0,.2),rgba(218,27,0,.2)) !important;
+}
+body.dark-mode a:hover {
+  color: rgba(218, 62, 0) !important;
 }
 .dark-mode-toggle {
   display: flex;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const Meta = styled.div`
@@ -17,8 +17,7 @@ const Reviews = styled.div`
   color: silver;
 `
 
-class ReviewsComponent extends Component {
-  render () {
+const ReviewsComponent = () => {
     const ratingValue =
     ratings && ratings.edges
       ? ratings.edges.reduce(
@@ -45,7 +44,6 @@ class ReviewsComponent extends Component {
         </Reviews>
       ) : null}
     )
-  }
 }
 
 export default ReviewsComponent
