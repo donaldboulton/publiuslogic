@@ -35,12 +35,6 @@ body.light-mode {
   code {
     background: #dbdbdb !important;
   }    
-  a {
-    color: rgba(0, 163, 150,.5) !important;
-  }
-  a:hover {
-    color: rgba(0, 194, 178,.2) !important;
-  }
   .content blockquote {
     border-left: 5px solid gray !important;
     border-top: 1px solid #dbdbdb !important;
@@ -63,8 +57,8 @@ body.light-mode {
     border-bottom: 1px solid #dbdbdb !important;
     padding: 1.25em 1.5em;
   }
-  footer.footer {
-    background-color: #dbdbdb !important;
+  .footer {
+    background: radial-gradient(circle farthest-side, #dbdbdb, gray) !important;
   }
   strong {
     color: #343434 !important;
@@ -151,6 +145,9 @@ body.dark-mode {
     background-image: url(/img/bg10-min.png) !important;
     background-repeat: repeat !important;
   }
+  .title {
+    color: #dbdbdb !important;
+  }
   nav {
     background: transparent !important;
   }
@@ -204,7 +201,7 @@ body.dark-mode .is-primary {
   color: #ffffff !important;
 }
 body.dark-mode .footer {
-  background-color: #181818 !important;
+  background: radial-gradient(circle farthest-side, #5c5b5b, #1d1d1d);
 }
 body.dark-mode .button {
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(214,62,0,.5)),to(rgba(218,27,0,.2))) !important;
@@ -276,15 +273,14 @@ body.dark-mode .content blockquote {
   border-left: 5px solid #812102 !important;
   border-right: 1px solid #181818 !important;
   border-bottom: 1px solid #181818 !important;
-
 }
 body.dark-mode .message-body {
   border-radius: 8px;
+  border-left: transparent !important;
   border-top: 1px solid #181818 !important;
   border-right: 1px solid #181818 !important;
   border-bottom: 1px solid #181818 !important;
   color: whitesmoke;
-  border-width: 0 0 0 4px;
   padding: 1.25em 1.5em;
 }
 body.dark-mode .message {
@@ -296,6 +292,12 @@ body.dark-mode .message {
 body.dark-mode input.luna__input:focus {
   background: url(/img/blank.png) 15px 50%/1.1em 1.5em no-repeat !important;
   background-color: transparent !important;
+}
+.modali-body {
+  background-color: #1d1d1d !important;
+}
+.modali-content {
+  background-color: #1d1d1d !important;
 }
 body.dark-mode .modali-close-button {
   background: linear-gradient(180deg,rgba(214,62,0,.2),rgba(218,27,0,.2)) !important;
@@ -332,11 +334,11 @@ body.dark-mode .navbar-divider {
   max-width: 100%;
 }
 body.dark-mode a {
-  color: -webkit-gradient(linear,left top,left bottom,from(rgba(214, 62, 0)),to(rgba(218, 62, 0)));
+  color: -webkit-gradient(linear,left top,left bottom,from(rgba(214,62,0,.5)),to(rgba(218,62,0,.2)));
   color: linear-gradient(180deg,rgba(214,62,0,.2),rgba(218,27,0,.2)) !important;
 }
 body.dark-mode a:hover {
-  color: rgba(218, 62, 0) !important;
+  color: #d64000 !important;
 }
 .dark-mode-toggle {
   display: flex;

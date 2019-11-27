@@ -12,7 +12,7 @@ const StyledBurgerMenu = styled.div`
         display: inline-block;
         text-decoration: none;
         margin-bottom: 2vh;
-        color: ${props => props.theme.veryLightGray};
+        color: ${props => props.theme.darkOrange};
         transition: color 0.2s;
     }
     .bm-item:hover {
@@ -76,7 +76,6 @@ export default props => {
         <a className='menu-item' href='/sitemap' itemProp='url'>
           <span itemProp='name'><Sitemap size='1em' />&nbsp;Sitemap</span>
         </a>
-        <hr className='navbar-divider' />
         <h4>Gatsby Posts</h4>
         <a className='menu-item' href='/blog/gatsby-netlify-no-plugins' itemProp='url'>
           <span itemProp='name'><FileAlt size='1em' />&nbsp;Netlify No Plugins</span>
@@ -84,8 +83,7 @@ export default props => {
         <a className='menu-item' href='/blog/gatsby-lightgallery-cloudinary' itemProp='url'>
           <span itemProp='name'><FileAlt size='1em' />&nbsp;LightGallery Cloudinary</span>
         </a>
-        <hr className='navbar-divider' />
-        <h4>Common Sense</h4>
+        <h4 className=''>Common Sense</h4>
         <a className='menu-item' href='/blog/earths-magnetic-flux' itemProp='url'>
           <span itemProp='name'><FileAlt size='1em' />&nbsp;Magnetic Flux</span>
         </a>

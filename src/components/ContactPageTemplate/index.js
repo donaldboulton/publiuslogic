@@ -14,22 +14,24 @@ const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <PageContent className='content' content={content} />
-              <div className='column is-6'>
-                <ContactForm />
-              </div>
-              <div className='column'>
-                <h4>Realtime Contact Message</h4>
-                <div>
-                  <a aria-label='Privacy Link' href='https://publiuslogic.com/privacy'>
-                    <img
-                      src={logo}
-                      alt='PubliusLogic'
-                      style={{ width: '230px', height: '230px' }}
-                    />
-                  </a>
+              <div className='columns'>
+                <div className='column is-6'>
+                  <ContactForm />
+                </div>
+                <div className='column'>
+                  <h4>Realtime Contact Message</h4>
                   <div>
-                    <div>Contacts are governed by our!</div>
-                    <div className='is-centered'><a aria-label='Comment Policy' href='/privacy#Comment Policy'>Submitting Policy</a></div>
+                    <a aria-label='Privacy Link' href='https://publiuslogic.com/privacy'>
+                      <img
+                        src={logo}
+                        alt='PubliusLogic'
+                        style={{ width: '230px', height: '230px' }}
+                      />
+                    </a>
+                    <div>
+                      <div>Contacts are governed by our!</div>
+                      <div className='is-centered'><a aria-label='Comment Policy' href='/privacy#Comment Policy'>Submitting Policy</a></div>
+                    </div>
                   </div>
                 </div>
               </div>
