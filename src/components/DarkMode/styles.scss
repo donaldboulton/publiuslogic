@@ -214,7 +214,7 @@ body.dark-mode input.luna__input:focus {
 }
 
 input[type='checkbox'].dmcheck {
-  width: 40px;
+  width: 30px;
   height: 10px;
   background: #555;
   position: relative;
@@ -227,7 +227,7 @@ input[type='checkbox'].dmcheck {
   outline: none;
 
   &:checked + label {
-    left: 30px;
+    left: 25px;
   }
 
   &:focus-visible {
@@ -236,8 +236,8 @@ input[type='checkbox'].dmcheck {
 
   & + label {
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     transition: all 0.3s ease;
     cursor: pointer;
