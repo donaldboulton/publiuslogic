@@ -1,8 +1,8 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { Link, graphql, StaticQuery } from 'gatsby'
 import SearchBox from '../SearchBox'
-import { DesktopNavDiv } from './styles'
-import SlideMenu from '../SlideMenu'
+import DarkModeToggle from '../DarkMode/DarkModeToggle'
+import logo from '../../../static/img/site-logo250x80.png'
 
 const NavBar = () => (
   <StaticQuery
@@ -14,10 +14,15 @@ const NavBar = () => (
             }
         `}
     render={data => (
-      <DesktopNavDiv>
-        <SearchBox searchIndex={data.siteSearchIndex.index} />
-        <SlideMenu />
-      </DesktopNavDiv>
+      <nav className='navbar is-fixed-top' aria-label='main navigation' itemScope='itemScope' itemType='https://schema.org/SiteNavigationElement'>
+        <div className='navbar-brand'>
+          <Link to='/' itemProp='url' rel='no-follow' className='navbar-item'>
+            <img itemProp='image' src={logo} alt='Publiuslogic' />
+          </Link>
+          <DarkModeToggle />
+          <SearchBox searchIndex={data.siteSearchIndex.index} />
+        </div>
+      </nav>
     )}
   />
 )

@@ -13,7 +13,7 @@ export default class SearchBox extends Component {
 
   render () {
     return (
-      <div className={`navbar-item ${this.state.isActive ? 'is-active' : ''}`} itemProp='potentialAction' itemScope='itemScope' itemType='https://schema.org/SearchAction'>
+      <span className={`navbar-item ${this.state.isActive ? 'is-active' : ''}`} itemProp='potentialAction' itemScope='itemScope' itemType='https://schema.org/SearchAction'>
         <meta itemProp='target' content='https://query.publiuslogic.com/search?q={search_term_string}' />
         <input
           className='luna__input js-luna__input'
@@ -32,7 +32,7 @@ export default class SearchBox extends Component {
             <Link aria-label='Results Links' itemProp='url' className='navbar-item' key={page.id} to={page.slug}>{page.title}</Link>
           ))}
         </div>
-      </div>
+      </span>
     )
   }
 

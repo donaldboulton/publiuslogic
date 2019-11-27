@@ -16,16 +16,16 @@ const StyledBurgerMenu = styled.div`
         transition: color 0.2s;
     }
     .bm-item:hover {
-        color: #da1b60;
+        color: ${props => props.theme.burntOrange};
     }
     .bm-burger-button {
         position: fixed;
-        margin-left: 8vw;
-        padding-left: 8vw;
+        margin-left: 5em;
+        padding-left: 10px;
         width: 30px;
         height: 26px;
         right: 2vw;
-        top: 3.5vh;
+        top: 2vh;
     }
     .bm-burger-bars {
       background: ${props => props.theme.darkOrange};
