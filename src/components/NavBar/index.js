@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import SearchBox from '../SearchBox'
 import DarkModeToggle from '../DarkMode/DarkModeToggle'
-import logo from '../../../static/img/site-logo250x80.png'
+import logo from '../../../static/img/apple-touch-icon-64x64.png'
 
 const NavBar = () => (
   <StaticQuery
