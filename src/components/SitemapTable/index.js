@@ -10,107 +10,71 @@ const CustomTable = styled.table`
 table {
   border-collapse: separate;
   border-spacing: 0;
-  color: #ffffff;
-  font: 14px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #dbdbdb;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-tbody {
-  display: block;
-  width: auto;
-  position: relative;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-.is-responsive {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: block;
-    position: relative;
+th,
+td {
+  padding: 10px 15px;
+  vertical-align: middle;
 }
 thead {
-  background: #395870;
-  background: linear-gradient(#d64000, #812102);
+  background: #171717;
+  background: linear-gradient(#d64000,#c93c00);
   color: #fff;
   font-size: 11px;
   text-transform: uppercase;
 }
 th:first-child {
-  border-top-left-radius: ${props => props.theme.mediumBorderRadius};
+    border-top-left-radius: ${props => props.theme.mediumBorderRadius};
+
   text-align: left;
 }
 th:last-child {
-  border-top-right-radius: ${props => props.theme.mediumBorderRadius};
-}
-td:empty:before {
-      content: '\00a0';
-}
-th, td
-  margin: 0;
-  vertical-align: top;
-}
-th {
-  text-align: left
-}
-tr {
-  display: block;
-  padding: 0 10px 0 0;
-    th::before;
-        content: "\00a0";
-}
-td, th {
-  border-width: 0 0 1px;
-}
+    border-top-right-radius: ${props => props.theme.mediumBorderRadius};
 
-tr {
-  display: inline-block;
-  vertical-align: top;
 }
-th {
-  display: block;
-  text-align: right;
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
 }
 td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+.book-title {
+  color: #dedede;
   display: block;
-  min-height: 1.25em;
-  text-align: left;
 }
-th, td {
-  &:last-child;
-  border-top-right-radius: ${props => props.theme.smallBorderRadius};
+.text-offset {
+  color: #7c7c80;
+  font-size: 12px;
 }
-    tr {
-      &:last-child
-        td:not(:last-child);
-          border: $table-cell-border;
-          border-width: $table-cell-border-width;
-
-    &.is-bordered
-      td,
-      th
-        border-width: 1px;
+.item-stock,
+.item-qty {
+  text-align: center;
 }
-tr td, th
-    &:last-child
-        border-bottom-width: 1px;
-        &:last-child
-          td,
-          th
-            border-width: 1px;
+.item-price {
+  text-align: right;
+}
+.item-multiple {
+  display: block;
 }
 tfoot {
   text-align: right;
 }
 tfoot tr:last-child {
-  background: #f0f0f2;
+  background: #343434;
   color: #395870;
   font-weight: bold;
 }
 tfoot tr:last-child td:first-child {
-  border-bottom-left-radius: ${props => props.theme.mediumBorderRadius};
+    border-bottom-left-radius: ${props => props.theme.mediumBorderRadius};
 }
 tfoot tr:last-child td:last-child {
-  border-bottom-right-radius: ${props => props.theme.mediumBorderRadius};
-
+    border-top-right-radius: ${props => props.theme.mediumBorderRadius};
 } 
 `
 
@@ -129,8 +93,8 @@ const StyledTable = () => {
           <tbody>
             <tr>
               <td>
-                <strong className='book-title'>Don&#8217;t Make Me Think</strong>
-                <span className='text-offset'>by Steve Krug</span>
+                <strong className='book-title'>Home Page</strong>
+                <span className='text-offset'>By Donald Boulton</span>
               </td>
               <td className='item-stock'>In Stock</td>
               <td className='item-qty'>1</td>

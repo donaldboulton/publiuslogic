@@ -151,7 +151,7 @@ export default PrivacyPage
 export const privacyPageQuery = graphql`
   query PrivacyPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      htmlAst
+      html
       tableOfContents
       frontmatter {
         title

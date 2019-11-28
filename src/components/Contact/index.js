@@ -1,10 +1,10 @@
 import React from 'react'
 import Modali, { useModali } from 'modali'
 import { Mail } from 'styled-icons/material'
-import Button from './'
-import EmailForm from '../ContactForm'
+import Button from '../Email/ModaliButton'
+import EmailForm from '../EmailForm'
 
-const Email = () => {
+const ContactEmail = () => {
   const [completeExample, toggleCompleteModal] = useModali({
     animated: true,
     title: 'Send Us a Email 📫',
@@ -31,4 +31,4 @@ const Email = () => {
   )
 }
 
-export default Email
+export default ContactEmail

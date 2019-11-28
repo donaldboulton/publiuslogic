@@ -10,6 +10,40 @@ $primary-invert: $kaldi-red-invert
 $body-color: #fff
 $black: #2b2523
 
+html,
+body
+  margin: 0
+  border: 0
+  padding: 0
+  height: 100%
+  overflow: hidden
+  font-weight: 500
+  line-height: 1.6em
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Kaushan Script,cursive', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  -ms-text-size-adjust: 100% !important
+  -webkit-text-size-adjust: 100% !important
+.overflow
+  overflow-x: hidden
+  overflow-y: scroll
+  background: #1d1d1d
+  width: 100%
+  height: 100%
+  position: relative
+  -webkit-overflow-scrolling: touch
+pre[class*=language-]
+  overflow-y: hidden !important
+  overflow-x: scroll  
+pre[class*=language-]
+  ::-webkit-scrollbar-thumb
+  background: #201c29
+  border-radius: 10px
+  box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25)
+pre[class*=language-]
+  ::-webkit-scrollbar-track
+  background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d)
+::selection 
+    background: #9c27b0
+    color: #fff
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 .navbar-item .icon 
@@ -204,7 +238,7 @@ input.luna__input
   padding-bottom: 0
   padding-top: 0
 input.luna__input:focus
-  width: 130px !important
+  width: 110px !important
   height: 30px
   padding-left: 1.8em
   padding-bottom: 0
@@ -324,10 +358,6 @@ gatsby-resp-image-image
   border: transparent !important
 .caption, figcaption
   position: inherit !important
-.content pre
-  overflow-x: hidden !important
-pre[class*=language-]
-  overflow: hidden !important
 .navbar-item.is-hoverable:hover .navbar-dropdown.is-boxed
   opacity: 1 !important
   pointer-events: auto !important

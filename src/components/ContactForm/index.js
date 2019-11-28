@@ -19,8 +19,8 @@ const Name = styled.input`
   padding:10px;
   color:#ccc;
   background: #1d1d1d;
-  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
-  border-left: 5px solid #812102 !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
+  border-left: 5px solid #812102;
   border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
@@ -32,8 +32,8 @@ const Email = styled.input`
   padding:10px;
   color:#ccc;
   background: #1d1d1d;
-  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
-  border-left: 5px solid #812102 !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
+  border-left: 5px solid #812102;
   border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
@@ -45,8 +45,8 @@ const Message = styled.textarea`
   padding:10px;
   color:#ccc;
   background: #1d1d1d;
-  background: radial-gradient(circle at top right,#813102,rgba(0,0,0,0)) !important;
-  border-left: 5px solid #812102 !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
+  border-left: 5px solid #812102;
   border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
@@ -64,7 +64,7 @@ const Submit = styled.button`
   cursor: pointer;
   border-radius: 6px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   color: #fff;
 `
@@ -78,7 +78,7 @@ const ModalButton = styled.button`
   cursor:pointer;
   border-radius:4px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   color: #fff;
 `
@@ -149,7 +149,7 @@ class ContactForm extends React.Component {
     this.setState({
       submitting: true,
     })
-    fetch('/', {
+    fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state }),
@@ -237,7 +237,7 @@ class ContactForm extends React.Component {
           name='submit'
           type='submit'
           aria-label='Submit Message'
-          class='g-recaptcha'
+          className='button g-recaptcha'
           data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
           data-callback='onSubmit'
           value={this.state.submitting ? 'Sending...' : 'Send'}

@@ -1,7 +1,7 @@
 const theme = {
   orange: `##dd581f`,
   darkOrange: `#d64000`,
-  burntOrange: `rgb(218, 27, 96)`,
+  burntOrange: `#da1b60`,
   lightOrange: `#e57342`,
 
   gray: `#464849`,
@@ -12,7 +12,7 @@ const theme = {
   white: `white`,
   black: `black`,
 
-  maxWidth: `40em`,
+  maxWidth: `100%`,
 
   smallBorder: `0.1em`,
   mediumBorder: `0.15em`,
@@ -28,7 +28,7 @@ const theme = {
 
   darkBg: `#1d1d1d`,
   lightestBg: `#ffffff`,
-  lightBg: `#cccccc`,
+  lightBg: `#dbdbdb`,
 }
 
 export default theme
