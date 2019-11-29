@@ -1,7 +1,6 @@
 import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
-import StyledTable from '../SitemapTable'
 
 const SiteMapPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -14,7 +13,6 @@ const SiteMapPageTemplate = ({ title, cover, canonical, meta_title, meta_descrip
             <div className='column is-10 is-offset-1'>
               <div className='section'>
                 <PageContent className='content' content={content} />
-                <StyledTable />
               </div>
             </div>
           </div>

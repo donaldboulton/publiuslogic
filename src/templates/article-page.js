@@ -238,7 +238,11 @@ export const pageQuery = graphql`
       id      
       htmlAst
       timeToRead
-      tableOfContents
+      tableOfContents(
+        pathToSlugField: "frontmatter.path"
+        heading: "only show toc from this heading onwards"
+        maxDepth: 2
+      ) 
       excerpt(pruneLength: 200)                          
       fields {
         slug

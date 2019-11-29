@@ -10,7 +10,6 @@ const Styledh1 = styled.h1`
   font-size: 38px;
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
 }
 `
 

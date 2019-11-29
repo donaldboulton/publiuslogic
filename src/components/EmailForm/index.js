@@ -1,266 +1,112 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { navigate } from 'gatsby-link'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import fetch from 'node-fetch'
 
-/*
-  ⚠️ This is an example of a contact form powered with Netlify form handling.
-  Be sure to review the Netlify documentation for more information:
-  https://www.netlify.com/docs/form-handling/
-  To Include Recaptcha V3
-  https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
-*/
-
-const Form = styled.form`
-  overflow-x: auto;
-`
-
-const Name = styled.input`
-  padding:10px;
-  color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
-  border-left: 5px solid #812102;
-  border: 1px solid #434040;
-  margin:0 0 20px;
-  border-radius: 6px;
-  width:100%;
-  box-sizing: border-box;
-`
-
-const Email = styled.input`
-  padding:10px;
-  color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
-  border-left: 5px solid #812102;
-  border: 1px solid #434040;
-  margin:0 0 20px;
-  border-radius: 6px;
-  width:100%;
-  box-sizing: border-box;
-`
-
-const Message = styled.textarea`
-  padding:10px;
-  color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
-  border-left: 5px solid #812102;
-  border: 1px solid #434040;
-  margin:0 0 20px;
-  border-radius: 6px;
-  width:100%;
-  height: 220px;
-  box-sizing: border-box;
-`
-
-const Submit = styled.button`
-  border: solid 1px #d64000;
-  padding: 15px 30px;
-  margin: 0 0 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 6px;
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
-  background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
-  color: #fff;
-`
-
-const ModalButton = styled.button`
-  border:solid 1px #ccc;
-  padding:15px 30px;
-  margin:0 0 20px;
-  text-transform:uppercase;
-  font-weight:bold;
-  cursor:pointer;
-  border-radius:4px;
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
-  background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
-  color: #fff;
-`
-
-const Modal = styled.div`
-  background: #1d1d1d;
-  color: #ccc;
-  padding: 2em;
-  border-radius: 2px;
-  position: fixed;
-  min-width: 75%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  z-index: 2000;
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-  transition: 0.2s all;
-  opacity: ${props => (props.visible ? '1' : '0')};
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-  p {
-    line-height: 1.6;
-    margin: 0 0 2em 0;
-  }
-`
-
-const ModalOverlay = styled.div`
-  top:0;
-  left:0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  z-index: 1000;
-  background-color: rgba(0,0,0,0.3);
-  opacity: ${props => (props.visible ? '1' : '0')};
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-`
-
-const encode = data => {
+const encode = (data) => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
 }
-class EmailForm extends React.Component {
+
+class ContactForm extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      name: '',
-      email: '',
-      message: '',
-      showModal: false,
-      submitting: false,
-    }
+    this.state = { isValidated: false }
   }
 
-  handleInputChange = event => {
-    const target = event.target
-    const value = target.value
-    const name = target.name
-    this.setState({
-      [name]: value,
-    })
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleSubmit = event => {
-    this.setState({
-      submitting: true,
-    })
+  handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    // eslint-disable-next-line
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
     })
-      .then(this.handleSuccess)
+      .then(() => navigate(form.getAttribute('action')))
+      // eslint-disable-next-line
       .catch(error => alert(error))
-    event.preventDefault()
-  }
-
-  handleSuccess = () => {
-    this.setState({
-      name: '',
-      email: '',
-      message: '',
-      showModal: true,
-      submitting: false,
-    })
-  }
-
-  closeModal = () => {
-    this.setState({ showModal: false })
   }
 
   render () {
+    const { title } = this.props
     return (
-      <Form
-        name='email-form'
-        onSubmit={this.handleSubmit}
-        data-netlify='true'
-        data-netlify-honeypot='bot'
-        overlay={this.state.showModal}
-        onClick={this.handleCloseModal}
-        netlify-recaptcha
-      >
-        <input aria-label='hidden do not fill this out' type='hidden' name='form-name' value='contact' />
-        <p hidden>
-          <label>
-            Don’t fill this out:{' '}
-            <input name='bot' onChange={this.handleInputChange} />
-          </label>
-        </p>
-        <label htmlFor='name' className='label'>Name</label>
-        <Name
-          name='name'
-          id='name'
-          type='text'
-          title='Name'
-          aria-label='Your Name'
-          aria-required='true'
-          placeholder='Full Name'
-          value={this.state.name}
-          onChange={this.handleInputChange}
-          required
-          disabled={this.state.submitting}
-        />
-        <label htmlFor='email' className='label'>Email</label>
-        <Email
-          name='email'
-          id='email'
-          type='email'
-          title='Email'
-          placeholder='Email'
-          aria-label='Your Email'
-          aria-required='true'
-          value={this.state.email}
-          onChange={this.handleInputChange}
-          required
-          disabled={this.state.submitting}
-        />
-        <label htmlFor='message' className='label'>Message</label>
-        <Message
-          name='message'
-          id='message'
-          title='Message'
-          type='textarea'
-          placeholder='Message'
-          aria-label='Message'
-          aria-required='true'
-          value={this.state.message}
-          onChange={this.handleInputChange}
-          required
-          disabled={this.state.submitting}
-        />
-        <Submit
-          name='submit'
-          type='submit'
-          aria-label='Submit Message'
-          className='button g-recaptcha'
-          data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
-          data-callback='onSubmit'
-          value={this.state.submitting ? 'Sending...' : 'Send'}
-          disabled={this.state.submitting}
-        >
-        Submit
-        </Submit>
-        <ModalOverlay onClick={this.handleCloseModal} visible={this.state.showModal} />
-        <Modal visible={this.state.showModal}>
-          <p>
-            Thank you for reaching out. I will get back to you as soon as possible.
-          </p>
-          <ModalButton aria-label='Close Ok' onClick={this.handleCloseModal}>Okay</ModalButton>
-        </Modal>
-      </Form>
+      <div className='column'>
+        <div>
+          <h2 className='subtitle'>
+            {title}
+          </h2>
+        </div>
+        <div>
+          <form
+            name='contact'
+            method='post'
+            action='/.netlify/functions/ContactForm/'
+            onSubmit={this.handleSubmit}
+          >
+            <label htmlFor='name' className='hidden'>Name</label>
+            <div className='field'>
+              <div className='control'>
+                <input
+                  className='input input-control'
+                  type='text'
+                  placeholder='Your Name'
+                  aria-label='Your Name'
+                  aria-required='true'
+                  name='name'
+                  id='name'
+                  onChange={this.handleChange} />
+              </div>
+            </div>
+            <label htmlFor='email' className='hidden'>Email</label>
+            <div className='field'>
+              <div className='control'>
+                <input
+                  className='input input-control'
+                  type='email'
+                  aria-label='Search Input'
+                  aria-required='true'
+                  placeholder='Email'
+                  name='email'
+                  id='email'
+                  onChange={this.handleChange} />
+              </div>
+            </div>
+            <label htmlFor='message' className='hidden'>Message</label>
+            <div className='field'>
+              <div className='control'>
+                <textarea
+                  className='textarea input-control'
+                  type='textarea'
+                  name='message'
+                  aria-label='Message'
+                  aria-required='true'
+                  rows='5'
+                  id='message'
+                  onChange={this.handleChange} />
+              </div>
+            </div>
+            <div className='field'>
+              <div className='control'>
+                <button aria-label='Submit Message' className='button' type='submit'>Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     )
   }
+};
+
+ContactForm.propTypes = {
+  title: PropTypes.string,
 }
 
-EmailForm.propTypes = {
-  data: PropTypes.object,
-}
-
-export default EmailForm
-
-
+export default ContactForm

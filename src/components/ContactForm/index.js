@@ -17,11 +17,6 @@ const Form = styled.form`
 
 const Name = styled.input`
   padding:10px;
-  color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
-  border-left: 5px solid #812102;
-  border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
   width:100%;
@@ -30,11 +25,6 @@ const Name = styled.input`
 
 const Email = styled.input`
   padding:10px;
-  color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
-  border-left: 5px solid #812102;
-  border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
   width:100%;
@@ -43,10 +33,6 @@ const Email = styled.input`
 
 const Message = styled.textarea`
   padding:10px;
-  color:#ccc;
-  background: #1d1d1d;
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
-  border-left: 5px solid #812102;
   border: 1px solid #434040;
   margin:0 0 20px;
   border-radius: 6px;
@@ -56,17 +42,12 @@ const Message = styled.textarea`
 `
 
 const Submit = styled.button`
-  border: solid 1px #d64000;
   padding: 15px 30px;
   margin: 0 0 20px;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
   border-radius: 6px;
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
-  background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
-  color: #fff;
 `
 
 const ModalButton = styled.button`
@@ -78,7 +59,7 @@ const ModalButton = styled.button`
   cursor:pointer;
   border-radius:4px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   color: #fff;
 `
@@ -149,7 +130,7 @@ class ContactForm extends React.Component {
     this.setState({
       submitting: true,
     })
-    fetch('/?no-cache=1', {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state }),
@@ -194,6 +175,7 @@ class ContactForm extends React.Component {
         <label htmlFor='name' className='label'>Name</label>
         <Name
           name='name'
+          className='input'
           id='name'
           type='text'
           title='Name'
@@ -208,6 +190,7 @@ class ContactForm extends React.Component {
         <label htmlFor='email' className='label'>Email</label>
         <Email
           name='email'
+          className='input'
           id='email'
           type='email'
           title='Email'
@@ -222,6 +205,7 @@ class ContactForm extends React.Component {
         <label htmlFor='message' className='label'>Message</label>
         <Message
           name='message'
+          className='textarea'
           id='message'
           title='Message'
           type='textarea'
@@ -237,7 +221,7 @@ class ContactForm extends React.Component {
           name='submit'
           type='submit'
           aria-label='Submit Message'
-          className='button g-recaptcha'
+          className='g-recaptcha button'
           data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
           data-callback='onSubmit'
           value={this.state.submitting ? 'Sending...' : 'Send'}

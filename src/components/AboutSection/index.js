@@ -41,12 +41,12 @@ const AboutSection = () => {
             <div className='content'>
               GitHub Issues as Comments
               <br />
-              <div><a rel='me noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic'>&nbsp;GitHub Repo</a></div>
-              <div><a target='_blank' href='https://twitter.com/donboulton' rel='me noopener noreferrer'>&nbsp;Twitter @publiuslogic</a></div>
+              <div><a className='a' rel='me noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic'>&nbsp;GitHub Repo</a></div>
+              <div><a className='a' target='_blank' href='https://twitter.com/donboulton' rel='me noopener noreferrer'>&nbsp;Twitter @publiuslogic</a></div>
               <br />
               <span>
                 <p>
-                  {config.copyright} - <a title='PubliusLogic Home' href='https://publiuslogic.com' rel='noopener noreferrer'>PubliusLogic</a>
+                  {config.copyright} - <a className='a' title='PubliusLogic Home' href='https://publiuslogic.com' rel='noopener noreferrer'>PubliusLogic</a>
                 </p>
               </span>
             </div>
@@ -82,10 +82,10 @@ const AboutSection = () => {
             <div className='content'>
                 Gatsby is Smoking Fast & Easy
               <br />
-              <div><a target='_blank' rel='noopener noreferrer' href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
-              <div><a target='_blank' rel='noopener noreferrer' href='https://bulma.io/'>CSS from @bulma.io</a></div>
+              <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
+              <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://bulma.io/'>CSS from @bulma.io</a></div>
               <br />
-              <span>Privacy<a href='https://publiuslogic.com'>&nbsp; - &nbsp;Terms & Conditions.</a></span>
+              <span>Privacy<a className='a' href='https://publiuslogic.com'>&nbsp; - &nbsp;Terms & Conditions.</a></span>
             </div>
           </div>
         </div>
@@ -119,10 +119,10 @@ const AboutSection = () => {
             <div className='content'>
               Netlify Continuous Deployment
               <br />
-              <div><a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
-              <div><a target='_blank' rel='noreferrer' href='https://www.netlify.com/features/'>SLL Security</a></div>
+              <div><a className='a' title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
+              <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://www.netlify.com/features/'>SLL Security</a></div>
               <br />
-              <span>Netlify CMS<a target='_blank' rel='noreferrer' href='https://publiuslogic.com/admin/#/collections/pages'>&nbsp; - &nbsp;Administration</a></span>
+              <span>Netlify CMS<a className='a' target='_blank' rel='noopener noreferrer' href='https://publiuslogic.com/admin/#/collections/pages'>&nbsp; - &nbsp;Administration</a></span>
             </div>
           </div>
         </div>

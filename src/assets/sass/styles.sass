@@ -1,27 +1,5 @@
 @import "~bulma/sass/utilities/initial-variables"
 
-// Config vars
-// Kalidi logo brand color: #FD461E
-$kaldi-red: #D64000
-$kaldi-red-invert: #fff
-
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
-$body-color: #fff
-$black: #2b2523
-
-html,
-body
-  margin: 0
-  border: 0
-  padding: 0
-  height: 100%
-  overflow: hidden
-  font-weight: 500
-  line-height: 1.6em
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Kaushan Script,cursive', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  -ms-text-size-adjust: 100% !important
-  -webkit-text-size-adjust: 100% !important
 .overflow
   overflow-x: hidden
   overflow-y: scroll
@@ -29,16 +7,6 @@ body
   width: 100%
   height: 100%
   position: relative
-  -webkit-overflow-scrolling: touch
-pre[class*=language-]
-  overflow-y: hidden !important
-  overflow-x: scroll  
-pre[class*=language-]::-webkit-scrollbar-thumb
-  background: #201c29
-  border-radius: 10px
-  box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25)
-pre[class*=language-]::-webkit-scrollbar-track
-  background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d)
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 .navbar-item .icon 
@@ -54,20 +22,6 @@ pre[class*=language-]::-webkit-scrollbar-track
 .navbar-item .icon:only-child, .navbar-link .icon:only-child
   margin-left: -.2rem !important
   margin-right: -.2rem !important
-.content .taglist
-  list-style: none
-  margin-bottom: 0
-  margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
-  display: flex
-  flex-wrap: wrap
-  justify-content: left
-  align-items: center
-li
-  padding: 0 2rem 1rem 0
-  margin-bottom: 1.5rem
-  margin-top: 0
 .btnIcon
   position: absolute
   top: 0
@@ -84,6 +38,8 @@ li
     width: 2em !important
 .button:active
   border-color: transparent !important   
+.button    
+  border-radius: 4px !important
 .button-transparent
   background-color: transparent !important    
   border-color: transparent !important
@@ -142,12 +98,6 @@ footer.footer
 .card3
   background-image: webkit-gradient(180px at top left,#685e31,rgba(0,0,0,0)),radial-gradient(180px at top right,#0d92c3,rgba(0,0,0,0)),radial-gradient(180px at bottom right,#8a43bd,rgba(0,0,0,0)),radial-gradient(180px at bottom left,#1d8d42,rgba(0,0,0,0)) !important
   background: radial-gradient(180px at top left,#685e31,rgba(0,0,0,0)),radial-gradient(180px at top right,#0d92c3,rgba(0,0,0,0)),radial-gradient(180px at bottom right,#8a43bd,rgba(0,0,0,0)),radial-gradient(180px at bottom left,#1d8d42,rgba(0,0,0,0)) !important
-.site-title
-  font-family: Kaushan Script,cursive
-  color: #d64000 !important
-  font-weight: 800
-  z-index: 20
-  padding-left: 5px
 a:-webkit-any-link
     cursor: pointer
 *|*:any-link
@@ -163,7 +113,7 @@ section
   text-align: center
 .comment-policy
   margin-bottom: 25px
-  color: #ccc !important
+  color: #dbdbdb !important
   background-color: #1d1d1d !important
   font-size: 16px
   width: 100%
@@ -210,15 +160,6 @@ text:nth-child(3)
   font-size: 5.1em
 text:nth-child(4)
   font-size: 15em  
-.hero.is-primary
-  background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)))
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2))
-  background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2))
-  color: #fff
-.hero.is-primary.is-bold
-  background-image: linear-gradient(141deg,#a31600,#f07000 81%,#d64000) !important
-strong
-  color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important
 .navbar-item img
     max-height: 2em !important
 input.luna__input
@@ -229,7 +170,6 @@ input.luna__input
   height: 30px
   padding-right: 20px
   border: 0 !important
-  color: #FFFFFf
   padding-bottom: 0
   padding-top: 0
 input.luna__input:focus
@@ -244,7 +184,6 @@ input.luna__input:focus
 html 
   scrollbar-color: linear-gradient(to bottom,#d64000,#da1b60)
   scrollbar-width: 10px
-  background: #100e17
   overflow-x: hidden
 html::-webkit-scrollbar
   width: 10px
@@ -257,21 +196,8 @@ html::-webkit-scrollbar-thumb
   box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25)
 html::-webkit-scrollbar-track
   background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17)
-.link-read-more, .read-more
-  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436))
-  background: linear-gradient(90deg,#d64000,#8e0436)
-  background-clip: border-box
-  -webkit-background-clip: text
-  -webkit-text-fill-color: transparent
-  -webkit-box-decoration-break: clone
-  box-decoration-break: clone
-  font-weight: 700
-  border-bottom: 1px solid #da1b60 !important
-  padding-bottom: .15rem
 .number
   background-color: #d64000 !important
-.language-text
-  backround-color: transparent !important
 div.code-toolbar>.toolbar
   position: absolute
   top: 1em !important
@@ -377,24 +303,5 @@ textarea[type="textarea"]:focus
   outline: 0
   border-radius: 3px
   box-shadow: 0 0 0 2px rgba(214, 64, 0, .5) 
-.is-primary
-  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important
-  background: linear-gradient(90deg,#d64000,#8e0436) !important
-.flex-container
-  padding: 0
-  margin: 0
-  -ms-box-orient: horizontal
-  display: -webkit-box
-  display: -moz-box
-  display: -ms-flexbox
-  display: -moz-flex
-  display: -webkit-flex
-  display: flex
-.flex1
-  flex: 1 1 20em
-.flex2
-  flex: 2 2 20em
-.flex
-  flex: 3 3 20em
 
 @import "~bulma"

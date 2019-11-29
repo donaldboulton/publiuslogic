@@ -83,10 +83,20 @@ export default createGlobalStyle`
     hyphens: none;
     margin: 0;
   }
-
+  pre[class*='language-'] {
+    overflow-y: hidden !important;
+    overflow-x: scroll;
+  }
+  pre[class*='language-']::-webkit-scrollbar-thumb {
+    background: #201c29;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+  }
+  pre[class*='language-']::-webkit-scrollbar-track {
+    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d);
+  }
   /* Code blocks */
   pre[class*='language-'] {
-    overflow: auto;
     padding: 1em;
   }
 
@@ -101,11 +111,6 @@ export default createGlobalStyle`
   code[class*='language-']::selection {
     text-shadow: none;
     background: hsla(0, 0%, 93%, 0.15);
-  }
-
-  .token.attr-name {
-    color: rgb(173, 219, 103);
-    font-style: italic;
   }
 
   .token.comment {

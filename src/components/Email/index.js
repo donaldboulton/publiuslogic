@@ -1,7 +1,7 @@
 import React from 'react'
 import Modali, { useModali } from 'modali'
 import { Mail } from 'styled-icons/material'
-import Button from './'
+import Button from './ModaliButton'
 import EmailForm from '../ContactForm'
 
 const Email = () => {

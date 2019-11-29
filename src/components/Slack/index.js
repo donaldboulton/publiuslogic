@@ -29,6 +29,7 @@ const Slack = () => {
                     target='_blank'
                     rel='noopener noreferrer'
                     aria-label='Slack Message'
+                    className='a'
                   >
                     <small>&nbsp;@donboulton</small>
                   </a>
@@ -100,7 +101,7 @@ const Slack = () => {
             </div>
           </div>
         </div>
-    </article>
+      </article>
     </div>
   )
 }

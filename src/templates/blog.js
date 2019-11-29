@@ -137,7 +137,7 @@ export default class BlogPage extends Component {
             </Styledh1>
             <p>✨ Listing all Posts.</p>
             <p>
-                For Refinements see <Link className='is-warning' to='/categories/'>Categories</Link> or <Link className='is-warning' to='/tags/'>Tags</Link>
+                For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
             </p>
           </div>
         </section>

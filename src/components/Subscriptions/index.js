@@ -148,7 +148,7 @@ export default class Subscribe extends React.Component {
                 </div>
                 <div className='column'>
                   <p className='subtitle is-5'>
-                    <Link aria-label='MailChimp Privacy' to='/privacy/#MailChimp' itemProp='url' rel='no-follow' className='is-small'>
+                    <Link aria-label='MailChimp Privacy' to='/privacy/#MailChimp' itemProp='url' rel='no-follow' className='a is-small'>
                      MailChimp Privacy & Terms
                     </Link>
                   </p>

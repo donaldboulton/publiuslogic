@@ -58,7 +58,7 @@ class TagRoute extends Component {
                 <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
                 <ul aria-label='Read More' className='taglist read-more'>{postLinks}</ul>
                 <p>
-                  <Link aria-label='Browse all tags' className='button is-primary' to='/tags/'>Browse all tags →</Link>
+                  <Link aria-label='Browse all tags' className='a' to='/tags/'>Browse all tags →</Link>
                 </p>
               </div>
             </div>
