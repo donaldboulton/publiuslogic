@@ -46,6 +46,11 @@ body.light-mode {
   .footer {
     background: radial-gradient(circle farthest-side, #dbdbdb, gray) !important;
   }
+  .content h2, .content h3, .content h4, .content h5, .content h6 {
+    color: #343434 !important;
+    font-weight: 600;
+    line-height: 1.125;
+  }
   strong {
     color: #343434 !important;
   }
@@ -93,7 +98,7 @@ body.light-mode {
   .navbar-dropdown {
     background-color: gray !important;
     border-top: 2px solid #dbdbdb !important;
-    color: #1d1d1d !important;
+    color: #dbdbdb !important;
   }
   .input-control  {
     border: 1px solid gray !important;
@@ -117,6 +122,9 @@ body.light-mode {
     text-align: center;
     border-radius: 2px;
     max-width: 100%;
+  }
+  .subtitle {
+    color: #4a4a4a !important;
   }
   .card {
     color: #343434 !important;
@@ -243,7 +251,7 @@ body.dark-mode .navbar-dropdown {
   color: #cccccc !important;
 }
 body.dark-mode .content h2, .content h3, .content h4, .content h5, .content h6 {
-  color: #cccccc;
+  color: #dbdbdb !important;
   font-weight: 600;
   line-height: 1.125;
 }
@@ -273,6 +281,8 @@ body.dark-mode .message {
 }
 body.dark-mode input.luna__input:focus {
   background: url(/img/blank.png) 15px 50%/1.1em 1.5em no-repeat !important;
+  border-left: 5px solid #812102 !important;
+  color: #dbdbdb !important;
   background-color: transparent !important;
 }
 .modali-body {
@@ -327,7 +337,13 @@ body.dark-mode a {
   padding-bottom: .15rem;
 }
 body.dark-mode a:hover {
-  color: #d64000 !important;
+  color: #da1b60 !important;
+}
+body.dark-mode .subtitle {
+  color: #dbdbdb !important;
+}
+body.dark-mode strong {
+  color: #dbdbdb !important;
 }
 .dark-mode-toggle {
   display: flex;

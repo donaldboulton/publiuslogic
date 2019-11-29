@@ -146,18 +146,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
-  exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-    if (stage === 'build-javascript') {
-      const config = getConfig()
-      const miniCssExtractPlugin = config.plugins.find(
-        plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
-      )
-      if (miniCssExtractPlugin) {
-        miniCssExtractPlugin.options.ignoreOrder = true
-      }
-      actions.replaceWebpackConfig(config)
-    }
-  }
   // For comment nodes (which are stored in JSON) parse the `message` field from
   // markdown into HTML, and add it to the node as a field called `messageHtml`.
   // Then we can use that field to render the comments.
