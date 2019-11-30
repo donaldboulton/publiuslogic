@@ -2,7 +2,6 @@
 templateKey: article-page
 title: Earths Magnetic Flux
 slug: Earths Magnetic Flux
-canonical: "https://publiuslogic.com/blog/earths-magnetic-flux"
 date: 2019-09-02T20:20:43.942Z
 category: 'Logic'
 cover: '/images/earths-magnetic-flux.jpg'

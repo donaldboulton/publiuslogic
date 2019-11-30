@@ -50,13 +50,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
-      options: {
-        siteUrl: `https://publiuslogic.com`,
-        stripQueryString: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-use-dark-mode`,
       options: {
         classNameDark: `dark-mode`,
@@ -119,12 +112,6 @@ module.exports = {
       options: {
         name: 'ratings',
         path: `${__dirname}/_data/ratings/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/pages/privacy`,
       },
     },
     'gatsby-transformer-yaml',

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import mediaQuery from '../utils/mediaQuery'
+import mediaQuery from '../utils/mediaQueryStyles'
 
 export const useMediaQuery = query => {
   if (typeof window !== `undefined`) {

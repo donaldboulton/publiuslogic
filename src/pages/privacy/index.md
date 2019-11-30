@@ -9,7 +9,6 @@ tags:
   - Privacy
   - PubliusLogic
 cover: /images/privacy.jpg
-canonical: "https://publiuslogic.com/privacy"
 showToc: true
 ---
 

@@ -2,7 +2,6 @@
 templateKey: article-page
 title: JavaScript media queries
 slug: JavaScript media queries
-canonical: "https://publiuslogic.com/blog/js-media-queries"
 date: 2019-04-18T20:20:43.942Z
 category: 'tech'
 cover: '/images/js-media-quries.jpg'

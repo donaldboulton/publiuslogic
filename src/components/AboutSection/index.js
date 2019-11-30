@@ -85,7 +85,7 @@ const AboutSection = () => {
               <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
               <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://bulma.io/'>CSS from @bulma.io</a></div>
               <br />
-              <span>Privacy<a className='a' href='https://publiuslogic.com'>&nbsp; - &nbsp;Terms & Conditions.</a></span>
+              <span>Privacy<a className='a' href='https://publiuslogic.com/privacy'>&nbsp; - &nbsp;Terms & Conditions.</a></span>
             </div>
           </div>
         </div>

@@ -14,47 +14,59 @@ body.light-mode {
   color: #333;
   transition: background-image 0.3s ease;
   nav {
-    background: #dbdbdb !important;
+    background: #00a396 !important;
   }
   .navbar {
-    background: #dbdbdb !important;
+    background: #00a396 !important;
   }
   .navbar-menu {
     background: transparent !important;
   }
   .navbar-brand {
-    background: #dbdbdb !important;
+    background: transparent !important;
   }
   .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
     color : #1d1d1d;
   }
+  .box {
+    background-color: #f5f5f5 !important;
+  }
   code {
-    background: #dbdbdb !important;
+    background: transparent !important;
   }    
+  h1, .h1 {
+    background: radial-gradient(
+      circle farthest-corner at center center,
+      #00a396,
+      #00c2b2
+    ) no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   .content blockquote {
-    border-left: 5px solid gray !important;
-    border-top: 1px solid #dbdbdb !important;
-    border-right: 1px solid #dbdbdb !important;
-    border-bottom: 1px solid #dbdbdb !important;
+    border-left: 5px solid rgba(0,194,178,.2) !important;
+    border-top: 1px solid rgba(0,194,178,.2) !important;
+    border-right: 1px solid rgba(0,194,178,.2) !important;
+    border-bottom: 1px solid rgba(0,194,178,.2) !important;
     border-radius: 8px !important;
-    background: radial-gradient(circle at top right,#dbdbdb,rgba(0,0,0,0)) !important;
+    background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
     color: #343434;
   }
   .message {
-    background: radial-gradient(circle at top right,#ccc,rgba(0,0,0,0)) !important;
+    background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
     border-radius: 8px !important;
     font-size: 1rem;
-    border-left: 5px solid gray !important;
+    border-left: 5px solid rgba(0,194,178,.2) !important;
   }
   .message-body {
     border-radius: 8px;
-    border-top: 1px solid #dbdbdb !important;
-    border-right: 1px solid #dbdbdb !important;
-    border-bottom: 1px solid #dbdbdb !important;
+    border-top: 1px solid rgba(0,194,178,.2) !important;
+    border-right: 1px solid rgba(0,194,178,.2) !important;
+    border-bottom: 1px solid rgba(0,194,178,.2), !important;
     padding: 1.25em 1.5em;
   }
   .footer {
-    background: radial-gradient(circle farthest-side, #dbdbdb, gray) !important;
+    background: radial-gradient(circle farthest-side, #dbdbdb, rgba(0,194,178,.2)) !important;
   }
   .content h2, .content h3, .content h4, .content h5, .content h6 {
     color: #343434 !important;
@@ -139,29 +151,29 @@ body.light-mode {
     background-color: transparent !important;
   }
   .input, .textarea {
-    background: radial-gradient(circle at top right,#cccccc,rgba(0,0,0,0)) !important;
-    border-left: 3px solid gray !important;
-    border-top: 1px thin #434040 !important;
-    border-right: 1px thin #434040 !important;
-    border-bottom: 1px thin #434040 !important;
+    background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
+    border-left: 3px solid rgba(0,194,178,.2) !important;
+    border-top: 1px thin rgba(0,194,178,.2) !important;
+    border-right: 1px thin rgba(0,194,178,.2) !important;
+    border-bottom: 1px thin rgba(0,194,178,.2) !important;
     border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
     max-width: 100%;
     width: 100% ;
   }
   .navbar-dropdown {
-    background-color: gray !important;
+    background-color: #95d3ff !important;
     border-top: 2px solid #dbdbdb !important;
-    color: #dbdbdb !important;
+    color: whitesmoke !important;
   }
   .navbar-item {
     background: transparent !important;
     color: whitesmoke !important
   }
   .input-control  {
-    border: 1px solid gray !important;
-    border-left: 5px solid gray !important;
-    background: radial-gradient(circle at top right,#cccccc,rgba(0,0,0,0)) !important;
+    border: 1px solid rgba(0,194,178,.2) !important;
+    border-left: 5px solid rgba(0,194,178,.2) !important;
+    background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
   }
   hr, hr.thick {
     border: 0;
@@ -212,11 +224,20 @@ body.dark-mode {
     color: #dbdbdb !important;
     background: transparent !important;
   }
+  h1, .h1 {
+    background: radial-gradient(
+      circle farthest-corner at center center,
+      #8e0436,
+      #d64000
+    ) no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   code {
-    background: #1d1d1d !important;
+    background: transparent !important;
   }
   a {
-    color: whitesmoke;
+    color: #666666;
   }
   .dark-mode-toggle > button {
     color: #999;
@@ -478,7 +499,7 @@ input[type='checkbox'].dmcheck {
   }
 
   &:focus-visible {
-    outline: solid 2px #d64000;
+    outline: solid 2px #343434;
   }
 
   & + label {
@@ -492,7 +513,7 @@ input[type='checkbox'].dmcheck {
     left: 2px;
     background: #343434;
     opacity: 0.9;
-    background-color: #d64000;
+    background-color: #343434;
   }
 }
 

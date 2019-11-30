@@ -1,7 +1,6 @@
 ---
 templateKey: 'home-page'
 title: PubliusLogic
-canonical: "https://publiuslogic.com"
 meta_title: Home | publiuslogic.com
 meta_description: >-
   At PubliusLogic we Publish Logic as Common Sense. Our name was taken from my 

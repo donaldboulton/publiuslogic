@@ -181,21 +181,30 @@ input.luna__input:focus
 .hero.is-medium .hero-body
   padding-bottom: 3em !important
   padding-top: 3em !important
-html 
-  scrollbar-color: linear-gradient(to bottom,#d64000,#da1b60)
+html  
+  scrollbar-color: linear-gradient(to bottom,#201c29,#100e17)
   scrollbar-width: 10px
   overflow-x: hidden
 html::-webkit-scrollbar
   width: 10px
   height: 10px
 html::-webkit-scrollbar-thumb
-  background: -webkit-gradient(linear,left top,left bottom,from(#d64000),to(#da1b60))
-  background: linear-gradient(to bottom,#d64000,#da1b60)
+  background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17))
+  background: linear-gradient(to bottom,#201c29,#100e17)
   border-radius: 10px
   -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25)
   box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25)
 html::-webkit-scrollbar-track
   background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17)
+pre::-webkit-scrollbar
+  width: 10px
+  height: 10px
+  pre::-webkit-scrollbar-thumb
+    background: #201c29
+    border-radius: 10px
+    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25)
+  pre::-webkit-scrollbar-track
+    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d)  
 .number
   background-color: #d64000 !important
 div.code-toolbar>.toolbar
@@ -303,5 +312,14 @@ textarea[type="textarea"]:focus
   outline: 0
   border-radius: 3px
   box-shadow: 0 0 0 2px rgba(214, 64, 0, .5) 
+pre::-webkit-scrollbar
+  width: 10px
+  height: 10px
+  pre::-webkit-scrollbar-thumb
+    background: #201c29
+    border-radius: 10px
+    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25)
+  pre::-webkit-scrollbar-track
+    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d)
 
 @import "~bulma"

@@ -1,28 +1,34 @@
-import { startCase } from 'lodash'
+import { css } from 'styled-components'
 
-const min = width => `only screen and (min-width: ${width}em)`
-const max = width => `only screen and (max-width: ${width}em)`
-
-const mediaQuery = {
-  screens: {
-    phone: 30,
-    phablet: 40,
-    tablet: 50,
-    netbook: 60,
-    laptop: 70,
-    desktop: 100,
-  },
-}
-
-for (const key of Object.keys(mediaQuery.screens)) {
-  const Key = startCase(key)
-  for (const [func, name] of [[min, `min`], [max, `max`]]) {
-    // css query
-    const query = func(mediaQuery.screens[key])
-    mediaQuery[name + Key] = `@media ` + query
-    // js query (see window.matchMedia)
-    mediaQuery[name + Key + `Js`] = query
+export const media = {
+  phone: (...args) => css`
+    @media (max-width: 30em) {
+      ${css(...args)}
+    }
+  `,
+  phablet: (...args) => css`
+    @media (max-width: 40em) {
+      ${css(...args)}
+    }
+  `,
+  tablet: (...args) => css`
+  @media (max-width: 0em) {
+    ${css(...args)}
   }
+`,
+  netbook: (...args) => css`
+    @media (max-width: 60em) {
+      ${css(...args)}
+    }
+  `,
+  laptop: (...args) => css`
+    @media (max-width: 70em) {
+      ${css(...args)}
+    }
+  `,
+  desktop: (...args) => css`
+    @media (min-width: 100em) {
+      ${css(...args)}
+    }
+  `,
 }
-
-export default mediaQuery

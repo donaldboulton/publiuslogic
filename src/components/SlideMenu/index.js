@@ -12,11 +12,11 @@ const StyledBurgerMenu = styled.div`
         display: inline-block;
         text-decoration: none;
         margin-bottom: 2vh;
-        color: ${props => props.theme.darkOrange};
+        color: ${props => props.theme.lightBg};
         transition: color 0.2s;
     }
     .bm-item:hover {
-        color: ${props => props.theme.burntOrange};
+        color: ${props => props.theme.lightestGray};
     }
     .bm-burger-button {
         position: fixed;
@@ -28,7 +28,7 @@ const StyledBurgerMenu = styled.div`
         top: 2.3vh;
     }
     .bm-burger-bars {
-      background: ${props => props.theme.darkOrange};
+      background: ${props => props.theme.lightBg};
     }
     .bm-cross-button {
         height: 30px;

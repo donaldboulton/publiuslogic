@@ -8,7 +8,7 @@ export const Arrow = styled(Up).attrs(({ direction, size }) => ({
 }))`
   ${({ theme, show, size }) => `
   z-index: 2;
-  background: ${theme.darkOrange};
+  background: ${theme.darkbg};
   color: ${theme.white};
   border-radius: 50%;
   transition: ${theme.shortTrans};
@@ -18,7 +18,7 @@ export const Arrow = styled(Up).attrs(({ direction, size }) => ({
   visibility: ${show ? `visible` : `hidden`};
   :hover {
     transform: scale(1.15);
-    background: ${theme.orange};
+    background: ${theme.noBack};
   }
   right: calc(1.1vw - ${size} / 1);`}
 `

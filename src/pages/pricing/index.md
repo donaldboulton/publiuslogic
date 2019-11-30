@@ -7,8 +7,7 @@ meta_description: >-
   Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
   ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
   venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
-  consectetur purus sit amet fermentum.
-                                                                                 canonical: "https://publiuslogic.com/pricing/"
+  consectetur purus sit amet fermentum.                      
 pricing:
   description: >-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta justo justo, 

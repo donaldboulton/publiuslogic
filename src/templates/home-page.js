@@ -117,7 +117,6 @@ export const pageQuery = graphql`
       frontmatter {        
         title
         cover
-        canonical
         tags
         meta_title
         meta_description

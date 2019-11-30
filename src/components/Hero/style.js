@@ -6,11 +6,16 @@ export const media = {
       ${css(...args)}
     }
   `,
-  tablet: (...args) => css`
+  phablet: (...args) => css`
     @media (max-width: 40em) {
       ${css(...args)}
     }
   `,
+  tablet: (...args) => css`
+  @media (max-width: 0em) {
+    ${css(...args)}
+  }
+`,
   netbook: (...args) => css`
     @media (max-width: 60em) {
       ${css(...args)}

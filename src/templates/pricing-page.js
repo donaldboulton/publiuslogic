@@ -108,7 +108,6 @@ export const pricingPageQuery = graphql`
       frontmatter {
         title
         cover
-        canonical
         meta_title
         meta_description
         pricing {

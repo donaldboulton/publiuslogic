@@ -2,7 +2,6 @@
 templateKey: about-page
 title: About Us
 cover: ./about.jpg
-canonical: "https://publiuslogic.com/about"
 meta_title: About Us | Gatsby Starter Publius
 meta_description: >-
   This website is built as static HTML with Gatsby component-modular builds including a Simple Node Express Heroku Server. Hasura GraphQL backend, with React components and Built with Webpack in a Docker Container.

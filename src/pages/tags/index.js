@@ -4,10 +4,11 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Global from '../../components/Global'
+import Image from '../../components/SiteMapPageTemplate/image'
 
 const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 38px;
+  font-size: 32px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -18,7 +19,8 @@ const TagsPage = ({
 }) => (
   <Global pageTitle={title}>
     <Helmet title={`Tags | ${title}`} />
-    <section className='hero is-primary is-bold is-medium'>
+    <section className='hero is-medium'>
+      <Image />
       <div className='hero-body'>
         <div className='container'>
           <div className='columns'>

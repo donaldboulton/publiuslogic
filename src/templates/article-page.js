@@ -23,19 +23,12 @@ import HitCounter from '../components/HitCounter'
 const Styledh1 = styled.h1`
   display: inline-block;
   padding-top: 2em;
-  font-size: 38px;
+  font-size: 32px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 22;
   background-position: 50% 50%;
   text-align: center;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #8e0436,
-    #d64000
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 `
 const Time = styled.span`
@@ -256,8 +249,6 @@ export const pageQuery = graphql`
         meta_description
         tags
         cover
-        canonical
-        showToc
       }
     }
     allRatingsJson(

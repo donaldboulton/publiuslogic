@@ -2,7 +2,6 @@
 templateKey: article-page
 title: React Hook Form
 slug: React Hook Form
-canonical: "https://publiuslogic.com/blog/react-hook-form"
 date: 2019-04-23T20:20:43.942Z
 category: 'tech'
 cover: '/images/react-hook-form.jpg'

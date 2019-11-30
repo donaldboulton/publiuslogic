@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import mediaQuery from '../../utils/mediaQuery'
+import mediaQuery from '../../utils/mediaQueryStyles'
 
 export const HeaderContainer = styled.nav`
   grid-area: nav;

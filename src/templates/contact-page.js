@@ -10,18 +10,11 @@ import config from '../../_data/config'
 
 const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 38px;
+  font-size: 32px;
   font-family: 'Roboto', sans-serif;
   text-align: center;
   text-transform: uppercase;
   z-index: 22;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #8e0436,
-    #d64000
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 `
 
@@ -151,7 +144,6 @@ export const contactPageQuery = graphql`
       frontmatter {
         title
         cover
-        canonical
         subtitle
         meta_title
         meta_description
