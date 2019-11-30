@@ -116,6 +116,26 @@ body.light-mode {
   input.luna__input {
   color: #343434 !important;
   }
+  input[type="search"]:focus {
+    outline: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(0,163,150,.2);
+  }
+  input[type="email"]:focus {
+    outline: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(0,163,150,.2);
+  }
+  input[type="text"]:focus  {
+    outline: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(0,163,150,.2);
+  }
+  textarea[type="textarea"]:focus {
+    outline: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(0,163,150,.2);
+  }
   .tag:not(body).is-primary {
     background-color: #00a396;
     color: #343434;
@@ -357,10 +377,30 @@ body.dark-mode .input {
   max-width: 100%;
   width: 100%;
 }
+body.dark-mode input[type="search"]:focus {
+  outline: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px rgba(218,27,0,.2);
+}
+body.dark-mode input[type="email"]:focus {
+  outline: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px rgba(218,27,0,.2);
+}
+body.dark-mode input[type="text"]:focus  {
+  outline: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px rgba(218,27,0,.2);
+}
+body.dark-mode textarea[type="textarea"]:focus {
+  outline: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px rgba(218,27,0,.2);
+}
 body.dark-mode .navbar-dropdown {
   background-color: #1d1d1d !important;
   border-top: 2px solid #1d1d1d !important;
-  color: #dbdbdb !important;
+  color: #f5f5f5 !important;
 }
 body.dark-mode .content h2, .content h3, .content h4, .content h5, .content h6 {
   color: #dbdbdb !important;
