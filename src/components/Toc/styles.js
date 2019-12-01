@@ -1,9 +1,15 @@
 import styled, { css } from 'styled-components'
-
 import { Close as Cross } from 'styled-icons/material/Close'
 import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
+import { generateMedia } from 'styled-media-query'
 
-import mediaQuery from '../../utils/mediaQueryStyles'
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobile: '320px',
+})
 
 const openTocDiv = css`
   padding: 0.7em 1.2em;
@@ -19,7 +25,7 @@ export const TocDiv = styled.div`
   z-index: 1;
   line-height: 2.2em;
   -webkit-overflow-scrolling: touch;
-  ${mediaQuery.maxLaptop} {
+  ${customMedia.lessThan('laptop')} {
     max-width: 16em;
     position: fixed;
     bottom: 1em;
@@ -30,7 +36,7 @@ export const TocDiv = styled.div`
     opacity: ${props => (props.open ? 1 : 0)};
     transition: ${props => props.theme.shortTrans};
   }
-  ${mediaQuery.minLaptop} {
+  ${customMedia.lessThan('tablet')} {
     max-width: 15em;
     font-size: 0.85em;
     grid-column: 4 / -1;
@@ -85,7 +91,7 @@ export const Toggle = styled(Cross).attrs(props => ({
   :hover {
     transform: scale(1.1);
   }
-  ${mediaQuery.minLaptop} {
+  ${customMedia.lessThan('laptop')} {
     display: none;
   }
   ${props => (props.opener ? openerCss : closerCss)};

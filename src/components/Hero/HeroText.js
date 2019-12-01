@@ -1,8 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import Typist from 'react-typist'
+import { generateMedia } from 'styled-media-query'
 
-import { media } from './style'
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobile: '320px',
+})
 
 const StyledTypist = styled(Typist)`
   color: #fff;
@@ -14,11 +21,12 @@ const StyledTypist = styled(Typist)`
   font-weight: 100;
   text-transform: uppercase;
   font-family: 'Roboto';
-  ${media.tablet`
-    font-size:38px;
-    line-height: 44px;
-    letter-spacing: 8px;
-  `}
+  ${customMedia.lessThan('desktop')} {
+    background-size: 80vw;
+      &:after, &:before {
+      background-size: contain;
+    }
+  }
 `
 
 class HeroText extends React.Component {

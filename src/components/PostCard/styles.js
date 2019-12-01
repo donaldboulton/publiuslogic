@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 
 export const Posts = styled.article`
   height: 100%;
-  width: 100%;
+  width: 100vw;
   display: grid;
   border-radius: ${props => props.theme.mediumBorderRadius};
   border: 1px solid ${props => props.theme.lightGray};
@@ -22,7 +22,7 @@ export const Cover = styled(Img).attrs(
   ({ fluid, src }) => !fluid && { as: (src && `img`) || `div` }
 )`
   height: calc(10em + 4vh);
-  width: 100%;
+  width: 100vw;
   object-fit: cover;
 `
 
@@ -31,7 +31,7 @@ const inTitle = css`
   justify-content: left;
   max-width: 80vw;
   a {
-    color: ${props => props.theme.lightGreen};
+    color: ${props => props.theme.white};
   }
 `
 export const Category = styled.span`

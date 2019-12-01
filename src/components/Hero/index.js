@@ -27,7 +27,7 @@ const BgImage = styled(Image)`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: -1;
   height: ${props => props.height || '100vh'};
 

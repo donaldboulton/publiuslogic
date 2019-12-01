@@ -21,7 +21,7 @@ export default class HTML extends Component {
           <meta name='mobile-web-app-capable' content='yes' />
           <meta name='slack-app-id' content='AGT7BS79R' />
           <meta name='robots' content='index, follow' />
-          <meta name='msapplication-TileColor' content='#d64000' />
+          <meta name='msapplication-TileColor' content='#000000' />
           <meta property='og:locale' content='en_US' />
           <meta property='og:site_name' content='publiuslogic.com' />
           <meta property='og:see_also' content='https://github.com/donaldboulton' />

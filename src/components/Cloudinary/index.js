@@ -4,12 +4,37 @@ import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery'
 import axios from 'axios'
 import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
-import { Grid, Cell } from 'styled-css-grid'
-import 'lightgallery.js/dist/css/lightgallery.css'
 
 const SectionTitle = styled.h3`
   font-size: 1em;
   margin: 0.67em 0;
+`
+
+const Grid = styled.div`
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 6vmin;
+  font-size: 1.6em;
+  color: ${props => props.theme.white};
+  right: 100%;
+  display: grid;
+  grid-gap: 1em;
+  grid-auto-columns: max-content;
+  grid-auto-rows: max-content;
+  transform: translate(${props => (props.open ? `99%` : `0`)});
+  transition: ${props => props.theme.shortTrans};
+`
+
+const Cell = styled.div`
+  position: fixed;
+  height: 170px;
+  width: 200px;
+  border-radius: 6px;
+  color: ${props => props.theme.white};
 `
 class Gallery extends Component {
   constructor (props) {

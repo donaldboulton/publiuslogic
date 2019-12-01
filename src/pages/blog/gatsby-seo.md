@@ -58,7 +58,7 @@ const ArticlePage = ({ data }) => {
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
   let pageTags = post.frontmatter.tags
-  let url = post.frontmatter.canonical
+  let url = post.frontmatter.slug
   let logo = config.siteLogo
 
   const articleSchemaOrgJSONLD = {
@@ -117,7 +117,7 @@ const ArticlePage = ({ data }) => {
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
-        <meta name='url' content={post.frontmatter.canonical} />
+        <meta name='url' content={post.frontmatter.slug} />
         <meta property='og:type' content='article' />
         <meta property='og:readingTime' content={readingTime} />
         <meta property='og:title' content={post.frontmatter.title} />
@@ -126,9 +126,9 @@ const ArticlePage = ({ data }) => {
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:url' content={post.frontmatter.canonical} />
-        <meta name='rel' content={post.frontmatter.canonical} />
-        <meta name='key' content={post.frontmatter.canonical} />
+        <meta property='og:url' content={post.frontmatter.slug} />
+        <meta name='rel' content={post.frontmatter.slug} />
+        <meta name='key' content={post.frontmatter.slug} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
@@ -139,7 +139,7 @@ const ArticlePage = ({ data }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.canonical} />
+        <link rel='canonical' href={post.frontmatter.slug} />
         <link rel='image_src' href={`${config.siteUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}

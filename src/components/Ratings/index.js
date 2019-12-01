@@ -79,8 +79,8 @@ const RatingForm = ({ location }) => {
                 submitRating(rating, path)
               }}
               half={false}
-              size={36}
-              color2='#d64000'
+              size={24}
+              color2='#ffe600'
             />
           </div>
         </Content>

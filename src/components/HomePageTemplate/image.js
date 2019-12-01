@@ -5,7 +5,13 @@ import Img from 'gatsby-image'
 import HeroText from '../Hero/HeroText'
 import { generateMedia } from 'styled-media-query'
 
-const media = generateMedia()
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobile: '320px',
+})
 
 const BackgroundSection = ({ className, title, backdrop }) => (
   <StaticQuery
@@ -63,20 +69,12 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  
-  ${media.lessThan('large')`
+  ${customMedia.lessThan('desktop')} {
     background-size: cover;
       &:after, &:before {
       background-size: contain;
     }
-  `}
-  
-  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
-  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
-  //&:after, &:before {
-  //   background-clip: content-box;
-  //   background-size: contain;
-  //}
+  }
 `
 
 export const StyledTitle = styled.div`
@@ -95,10 +93,6 @@ const StyledWrapper = styled.div`
   height: 400px;
   display: flex;
   overflow: hidden;
-  // This is an example how to target the pseudo-elements via classId (deprecated):
-  //.gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before {
-  //  background-clip: content-box;
-  //}
 `
 const Styledh1 = styled.h1`
   display: inline-block;

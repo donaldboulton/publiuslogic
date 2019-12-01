@@ -20,7 +20,6 @@ const Name = styled.input`
   margin:0 0 20px;
   border-radius: 6px;
   width:100%;
-  box-sizing: border-box;
 `
 
 const Email = styled.input`
@@ -28,7 +27,6 @@ const Email = styled.input`
   margin:0 0 20px;
   border-radius: 6px;
   width:100%;
-  box-sizing: border-box;
 `
 
 const Message = styled.textarea`
@@ -38,7 +36,6 @@ const Message = styled.textarea`
   border-radius: 6px;
   width:100%;
   height: 220px;
-  box-sizing: border-box;
 `
 
 const Submit = styled.button`

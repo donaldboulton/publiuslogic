@@ -33,11 +33,11 @@ const Styledh1 = styled.h1`
 `
 const Time = styled.span`
   font-size: 0.9rem;
-  color: silver;
+  color: ${props => props.theme.white};
 `
 const Date = styled.span`
   font-size: 0.9em;
-  color: silver;
+  color: ${props => props.theme.white};
 `
 const GithubButtons = styled.span`
   right: 2px;
@@ -66,7 +66,7 @@ const ArticlePage = ({ data }) => {
   const alternativeHeadline = post.frontmatter.meta_title
   const pageDescription = post.frontmatter.meta_description
   const pageTags = post.frontmatter.tags
-  const url = post.frontmatter.canonical
+  const url = post.frontmatter.slug
   const logo = config.siteLogo
 
   const articleSchemaOrgJSONLD = {
@@ -127,7 +127,7 @@ const ArticlePage = ({ data }) => {
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
-        <meta name='url' content={post.frontmatter.canonical} />
+        <meta name='url' content={post.frontmatter.slug} />
         <meta property='og:type' content='article' />
         <meta property='og:readingTime' content={readingTime} />
         <meta property='og:title' content={post.frontmatter.title} />
@@ -136,8 +136,8 @@ const ArticlePage = ({ data }) => {
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:url' content={post.frontmatter.canonical} />
-        <meta name='rel' content={post.frontmatter.canonical} />
+        <meta property='og:url' content={post.frontmatter.slug} />
+        <meta name='rel' content={post.frontmatter.slug} />
         <meta name='key' content={postPath} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
@@ -149,7 +149,7 @@ const ArticlePage = ({ data }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.canonical} />
+        <link rel='canonical' href={post.frontmatter.slug} />
         <link rel='image_src' href={`${config.siteUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}

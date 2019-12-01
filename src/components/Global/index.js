@@ -11,6 +11,7 @@ import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
+
 class Global extends Component {
   render () {
     return (

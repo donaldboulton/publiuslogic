@@ -75,7 +75,7 @@ const PrivacyPage = ({ data }) => {
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={post.frontmatter.tags} />
         <meta name='image' content={post.frontmatter.cover} />
-        <meta name='url' content={post.frontmatter.canonical} />
+        <meta name='url' content={post.frontmatter.slug} />
         <meta name='author' content={author} />
         <meta property='og:type' content='webpage' />
         <meta property='og:title' content={post.frontmatter.title} />
@@ -84,9 +84,9 @@ const PrivacyPage = ({ data }) => {
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={post.frontmatter.canonical} />
-        <meta name='rel' content={post.frontmatter.canonical} />
-        <meta name='key' content={post.frontmatter.canonical} />
+        <meta property='og:url' content={post.frontmatter.slug} />
+        <meta name='rel' content={post.frontmatter.slug} />
+        <meta name='key' content={post.frontmatter.slug} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
@@ -97,7 +97,7 @@ const PrivacyPage = ({ data }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.canonical} />
+        <link rel='canonical' href={post.frontmatter.slug} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>

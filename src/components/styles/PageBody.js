@@ -1,5 +1,13 @@
 import styled from 'styled-components'
-import mediaQuery from '../../utils/mediaQueryStyles'
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobile: '320px',
+})
 
 export const PageBody = styled.main`
   position: relative;
@@ -12,7 +20,7 @@ export const PageBody = styled.main`
   > * {
     grid-column: ${props => props.cols || 3};
   }
-  ${mediaQuery.minPhablet} {
+  ${customMedia.lessThan('tablet')} {
     > p {
       text-align: justify;
     }

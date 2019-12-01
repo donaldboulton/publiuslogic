@@ -4,9 +4,15 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { generateMedia } from 'styled-media-query'
 
-const media = generateMedia()
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobile: '320px',
+})
 
-const ImagesSection = ({ className, title, img, photo, photos }) => (
+const ImagesSection = ({ className, title, Img, photo, photos }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -27,7 +33,7 @@ const ImagesSection = ({ className, title, img, photo, photos }) => (
       photos = photo.filter(photo => photo.title)
       return (
         <StyledWrapper>
-          <StyledSymetryWrapper key={photo.title} >
+          <StyledSymetryWrapper key={photo.title}>
             {photos.map((photo, index) => (
               <StyledImage
                 key={photo.title} alt={photo.title} fluid={photo.fluid} image={photo.fluid}
@@ -36,8 +42,7 @@ const ImagesSection = ({ className, title, img, photo, photos }) => (
           </StyledSymetryWrapper>
         </StyledWrapper>
       )
-    }
-    }
+    }}
   />
 )
 
@@ -53,30 +58,18 @@ const StyledImage = styled(Img)`
 const StyledImagesSection = styled(ImagesSection)`
   position: relative;
   text-align: center;
-  
-  ${media.lessThan('small')`
+  ${customMedia.lessThan('desktop')} {
     background-size: 200px;
       &:after, &:before {
       background-size: contain;
     }
-  `}
-  
-  // For pseudo-elements you have to overwrite the default options (see style={{}} above).
-  // See: https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles 
-  //&:after, &:before {
-  //   background-clip: content-box;
-  //   background-size: contain;
-  //}
-`
+  }
+  `
 const StyledWrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 400px;
   display: flex;
   overflow: hidden;
-  // This is an example how to target the pseudo-elements via classId (deprecated):
-  //.gatsby-background-image-gbi:after, .gatsby-background-image-gbi:before {
-  //  background-clip: content-box;
-  //}
 `
 
 export default StyledImagesSection

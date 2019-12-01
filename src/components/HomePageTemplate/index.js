@@ -19,7 +19,7 @@ const HomePageTemplate = ({
       <div
         style={{
           height: `400px`,
-          width: `100%`,
+          width: `100vw`,
           display: `flex`,
           placeContent: `start`,
         }}

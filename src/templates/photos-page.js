@@ -78,7 +78,7 @@ const PhotosPage = ({ data }) => {
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
-        <meta name='url' content={post.frontmatter.canonical} />
+        <meta name='url' content={post.frontmatter.slug} />
         <meta property='og:type' content='article' />
         <meta property='og:readingTime' content={readingTime} />
         <meta property='og:title' content={post.frontmatter.title} />
@@ -87,9 +87,9 @@ const PhotosPage = ({ data }) => {
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:url' content={post.frontmatter.canonical} />
-        <meta name='rel' content={post.frontmatter.canonical} />
-        <meta name='key' content={post.frontmatter.canonical} />
+        <meta property='og:url' content={post.frontmatter.slug} />
+        <meta name='rel' content={post.frontmatter.slug} />
+        <meta name='key' content={post.frontmatter.slug} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
@@ -100,11 +100,12 @@ const PhotosPage = ({ data }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.canonical} />
+        <link rel='canonical' href={post.frontmatter.slug} />
         <link rel='image_src' href={`${config.siteUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css' />
       </Helmet>
       <section className='hero'>
         <PostCover
