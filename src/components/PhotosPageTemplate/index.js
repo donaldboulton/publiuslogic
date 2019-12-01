@@ -14,13 +14,17 @@ const PhotosPageTemplate = ({ data, canonical, cover, title, meta_title, meta_de
           <div className='columns'>
             <div className='column'>
               <div>
-                <Cloudinary />
-              </div>
-              <div>
                 <div className='column container'>
                   <PageContent className='content' content={content} />
                 </div>
-                <div><UploadWidget /></div>
+                <section className='section'>
+                  <div className='column is-10 is-offset-1'>
+                    <Cloudinary />
+                  </div>
+                  <div>
+                    <UploadWidget />
+                  </div>
+                </section>
               </div>
             </div>
           </div>

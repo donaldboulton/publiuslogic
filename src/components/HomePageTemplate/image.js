@@ -10,6 +10,7 @@ const customMedia = generateMedia({
   desktop: '1960px',
   laptop: '1024px',
   tablet: '768px',
+  mobileL: '720px',
   mobile: '320px',
 })
 

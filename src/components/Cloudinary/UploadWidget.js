@@ -35,6 +35,7 @@ class UploadWidget extends Component {
         },
       },
     },
+    // eslint-disable-next-line handle-callback-err
     function (error, result) {
       console.log(result)
     })
