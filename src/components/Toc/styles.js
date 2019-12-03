@@ -12,19 +12,26 @@ const customMedia = generateMedia({
 })
 
 const openTocDiv = css`
+  background: ${props => props.theme.background};
+  color: ${props => props.theme.textColor};
   padding: 0.7em 1.2em;
   border-radius: 0.5em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   border: 1px solid ${props => props.theme.borderColor};
 `
-
 export const TocDiv = styled.div`
   height: max-content;
   max-height: 80vh;
   overflow-y: scroll;
-  z-index: 1;
-  line-height: 2.2em;
+  z-index: 4;
+  line-height: 2em;
   -webkit-overflow-scrolling: touch;
+  right: 1em;
+  nav {
+    max-height: 78vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
   ${customMedia.lessThan('laptop')} {
     max-width: 16em;
     position: fixed;
@@ -56,6 +63,8 @@ export const Title = styled.h2`
 `
 
 export const TocLink = styled.a`
+  color: ${({ theme, active }) => (active ? theme.linkColor : theme.textColor)};
+  font-weight: ${props => props.active && `bold`};
   display: block;
   margin-left: ${props => props.depth + `em`};
   border-top: ${props =>
@@ -67,25 +76,31 @@ export const TocIcon = styled(BookContent)`
   margin-right: 0.2em;
 `
 
-const openerCss = css`
+const openedCss = css`
   position: fixed;
-  bottom: 1em;
+  bottom: 10vh;
+  ${customMedia.lessThan('tablet')} {
+    bottom: 2vh;
+  }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  z-index: 1;
+  background: ${props => props.theme.background};
+  border: 2px solid ${props => props.theme.borderColor};
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
 `
 
-const closerCss = css`
+const closedCss = css`
   margin-left: 1em;
+  border: 1px solid ${props => props.theme.borderColor};
   border-radius: 50%;
 `
 
-export const Toggle = styled(Cross).attrs(props => ({
+export const TocToggle = styled(Cross).attrs(props => ({
   as: props.opener && BookContent,
-  size: props.size || `1.2em`,
+  size: props.size || `1.6em`,
 }))`
+  z-index: 2;
   transition: ${props => props.theme.shortTrans};
   justify-self: end;
   :hover {
@@ -94,5 +109,5 @@ export const Toggle = styled(Cross).attrs(props => ({
   ${customMedia.lessThan('laptop')} {
     display: none;
   }
-  ${props => (props.opener ? openerCss : closerCss)};
-`
+  ${props => (props.opener ? openedCss : closedCss)};
+  `

@@ -29,7 +29,6 @@ const Styledh1 = styled.h1`
   z-index: 22;
   background-position: 50% 50%;
   text-align: center;
-}
 `
 const Time = styled.span`
   font-size: 0.9rem;
@@ -231,11 +230,7 @@ export const pageQuery = graphql`
       id      
       htmlAst
       timeToRead
-      tableOfContents(
-        pathToSlugField: "frontmatter.path"
-        heading: "only show toc from this heading onwards"
-        maxDepth: 2
-      ) 
+      tableOfContents
       excerpt(pruneLength: 200)                          
       fields {
         slug

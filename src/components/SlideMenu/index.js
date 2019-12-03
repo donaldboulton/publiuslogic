@@ -20,11 +20,9 @@ const StyledBurgerMenu = styled.div`
     }
     .bm-burger-button {
         position: fixed;
-        margin-left: 5em;
-        padding-left: 10px;
         width: 30px;
         height: 26px;
-        right: 2vw;
+        right: 1.4vw;
         top: 2.3vh;
     }
     .bm-burger-bars {
