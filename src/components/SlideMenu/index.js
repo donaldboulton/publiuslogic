@@ -1,5 +1,5 @@
 import React from 'react'
-import { stack as Menu } from 'react-burger-menu'
+import Menu from 'react-burger-menu/lib/menus/stack'
 import styled from 'styled-components'
 import NetlifyIdentityWidget from '../IdentityWidget'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'

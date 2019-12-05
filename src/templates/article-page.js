@@ -3,6 +3,7 @@ import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
 import styled from 'styled-components'
+import Menu2 from 'react-burger-menu/lib/menus/stack'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
@@ -19,6 +20,19 @@ import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
 import HitCounter from '../components/HitCounter'
+import detailsStyles from '../../src/styles/details-panel-styles'
+import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
+import { generateMedia } from 'styled-media-query'
+
+import profilePic from '../../static/img/donald-boulton.jpg'
+
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobile: '320px',
+})
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -29,6 +43,69 @@ const Styledh1 = styled.h1`
   z-index: 22;
   background-position: 50% 50%;
   text-align: center;
+`
+const Title = styled.h2`
+  margin: 0;
+  padding-bottom: 0.5em;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-template-columns: auto auto 1fr;
+`
+const TocDiv = styled.div`
+  height: max-content;
+  max-height: 80vh;
+  z-index: 4;
+  line-height: 2em;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  left: 1.1em;
+  ul {
+    max-height: 78vh;
+  }
+  ${customMedia.lessThan('laptop')} {
+    max-width: 16em;
+    bottom: 1em;
+    left: 1em;
+    transition: ${props => props.theme.shortTrans};
+  }
+  ${customMedia.lessThan('tablet')} {
+    max-width: 15em;
+    font-size: 0.85em;
+    grid-column: 4 / -1;
+    position: sticky;
+    top: 2em;
+    left: 2em;
+  }
+`
+const TocIcon = styled(BookContent)`
+  width: 1.2em;
+  margin-right: 0.2em;
+`
+const TocMenuIcon = styled(BookContent)`
+  width: 1.2em;
+  height: 1.2em;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
+  justify-self: end;
+  :hover {
+    transform: scale(1.1);
+  }
+  :active {
+    background: transparent;
+    color: transparent;
+  }
+`
+const TableOfContents = styled.div`
+  ul {
+    color: ${props => props.theme.black};
+  }
+  a {
+    color: ${props => props.theme.white};
+  }
+  a:hover {
+    color: ${props => props.theme.hoveredLinks};
+  }
 `
 const Time = styled.span`
   font-size: 0.9rem;
@@ -61,7 +138,6 @@ const ArticlePage = ({ data }) => {
   const title = post.frontmatter.title
   const coverHeight = '100%'
   const postPath = globalHistory.location.pathname
-
   const alternativeHeadline = post.frontmatter.meta_title
   const pageDescription = post.frontmatter.meta_description
   const pageTags = post.frontmatter.tags
@@ -170,8 +246,23 @@ const ArticlePage = ({ data }) => {
           </Styledh1>
         </div>
         <div className='column is-9 is-offset-1'>
+          <div className='columns is-mobile is-5 is-vcentered'>
+            <div className='column'>
+              <img
+                className='profilePic'
+                src={profilePic}
+                alt='PubliusLogic'
+              />
+            </div>
+            <div className='column'>
+              Written by <strong>Donald Boulton</strong> who lives in OKC OK.
+              <a href='https://twitter.com/donboulton'>
+                You should follow him on Twitter
+              </a>
+            </div>
+          </div>
           <div className='columns is-desktop is-vcentered'>
-            <div className='column is-6'>
+            <div className='column is-7'>
               <span className='subtitle is-size-5'>
                 <Calendar size='0.9em' />&nbsp;
                 <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
@@ -183,6 +274,18 @@ const ArticlePage = ({ data }) => {
           </div>
         </div>
       </section>
+      <TocDiv id='containerElement'>
+        <Menu2 left noOverlay styles={detailsStyles} customBurgerIcon={<TocMenuIcon />} customCrossIcon={<TocMenuIcon />}>
+          <Title>
+            <TocIcon />
+                | Contents
+          </Title>
+          <TableOfContents
+            id='link'
+            dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
+          />
+        </Menu2>
+      </TocDiv>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>

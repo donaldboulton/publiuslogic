@@ -53,7 +53,7 @@ export const measures = {
 export const theme = { ...colors, ...measures }
 
 export const lightTheme = {
-  background: `white`,
+  background: `lightBG`,
   textColor: `black`,
   quoteBg: theme.lightestGray,
 

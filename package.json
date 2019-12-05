@@ -107,6 +107,7 @@
     "remark-rehype": "^5.0.0",
     "resize-observer-polyfill": "^1.5.1",
     "sharp": "^0.23.3",
+    "smooth-scroll": "^16.1.0",
     "snyk": "^1.248.0",
     "styled-components": "^4.4.1",
     "styled-css-grid": "^1.2.1",

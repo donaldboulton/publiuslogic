@@ -13,7 +13,7 @@ tags:
 ### All Pages and Posts
 
 |  Pages | Posts  | Admin CMS  |
-|----|:--------------------------:|---:|
+|----|:--------------------:|---:|
 | [Home](https://publiuslogic.com/)  | [All Posts](/blog)  | [Admin](/admin/#/collections/pages)  |
 | [About](/about)  | [Gatsby Netlify noPlugins](/blog/gatsby-netlify-no-plugins/)  | [User Profile](/app/profile)  |
 | [Contact](/contact)  | [Gatsby LightGallery Cloudinary](/blog/gatsby-lightgallery-cloudinary/)  |   |
