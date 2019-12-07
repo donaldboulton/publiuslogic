@@ -253,18 +253,6 @@ const ArticlePage = ({ data, location }) => {
         </script>
       </Helmet>
       <section className='hero'>
-        <PostCover
-          postNode={postNode}
-          coverHeight={coverHeight}
-          coverClassName='post-cover'
-        />
-      </section>
-      <section className='section'>
-        <div className='column is-10 is-offset-1'>
-          <Styledh1>
-            {post.frontmatter.title}
-          </Styledh1>
-        </div>
         <StyledTableMenu>
           <Menu2 right noOverlay customBurgerIcon={<BookContent />}>
             <Title>
@@ -277,6 +265,18 @@ const ArticlePage = ({ data, location }) => {
             />
           </Menu2>
         </StyledTableMenu>
+        <PostCover
+          postNode={postNode}
+          coverHeight={coverHeight}
+          coverClassName='post-cover'
+        />
+      </section>
+      <section className='section'>
+        <div className='column is-10 is-offset-1'>
+          <Styledh1>
+            {post.frontmatter.title}
+          </Styledh1>
+        </div>
         <div className='column is-9 is-offset-1'>
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-7'>
