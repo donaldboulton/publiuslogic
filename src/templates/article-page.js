@@ -20,19 +20,76 @@ import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
 import HitCounter from '../components/HitCounter'
-import detailsStyles from '../../src/styles/details-panel-styles'
-import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
-import { generateMedia } from 'styled-media-query'
-
+import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 import profilePic from '../../static/img/donald-boulton.jpg'
 
-const customMedia = generateMedia({
-  desktopL: '2560px',
-  desktop: '1960px',
-  laptop: '1024px',
-  tablet: '768px',
-  mobile: '320px',
-})
+const StyledTableMenu = styled.div` 
+  .bm-item {
+    text-align: left;
+    background: transparent !important
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 2vh;
+    color: ${props => props.theme.lightBg};
+    transition: color 0.2s;
+  }
+  .bm-item:hover {
+    color: ${props => props.theme.lightestGray};
+  }
+  .bm-burger-button {
+    position: fixed;
+    width: 30px;
+    height: 26px;
+    right: 1.4vw;
+    top: 2.2vh;
+  }
+  .bm-burger-bars {
+    background: ${props => props.theme.lightBg};  
+  }
+  .bm-cross-button {
+    height: 30px;
+    width: 15px;
+  }
+  .bm-cross {
+    background: #bdc3c7;
+  }
+  .bm-menu {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2.5em 1.5em 0;
+    font-size: 1.1em;
+  }
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  .bm-item-list {
+    color: #b8b7ad;
+    background: transparent !important
+    overflow-y: scroll;
+    scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
+    scrollbar-width: 10px;
+    overflow-x: hidden;
+  }
+  .bm-item-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .bm-item-list::-webkit-scrollbar-thumb {
+    background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17));
+    background: linear-gradient(to bottom,#201c29,#100e17);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
+    box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
+  }
+  .bm-item-list::-webkit-scrollbar-track {
+    background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
+  }
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  ul {
+    max-height: 78vh;
+  }
+`
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -51,50 +108,13 @@ const Title = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
+  border-bottom: 1px solid ${props => props.theme.black};
 `
-const TocDiv = styled.div`
-  height: max-content;
-  max-height: 80vh;
-  z-index: 4;
-  line-height: 2em;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  left: 1.1em;
-  ul {
-    max-height: 78vh;
-  }
-  ${customMedia.lessThan('laptop')} {
-    max-width: 16em;
-    bottom: 1em;
-    left: 1em;
-    transition: ${props => props.theme.shortTrans};
-  }
-  ${customMedia.lessThan('tablet')} {
-    max-width: 15em;
-    font-size: 0.85em;
-    grid-column: 4 / -1;
-    position: sticky;
-    top: 2em;
-    left: 2em;
-  }
-`
-const TocIcon = styled(BookContent)`
-  width: 1.2em;
+const TocIcon = styled(Table)`
+  width: 1em;
   margin-right: 0.2em;
-`
-const TocMenuIcon = styled(BookContent)`
-  width: 1.2em;
-  height: 1.2em;
   background: ${props => props.theme.black};
   color: ${props => props.theme.white};
-  justify-self: end;
-  :hover {
-    transform: scale(1.1);
-  }
-  :active {
-    background: transparent;
-    color: transparent;
-  }
 `
 const TableOfContents = styled.div`
   ul {
@@ -126,7 +146,7 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data }) => {
+const ArticlePage = ({ data, location }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const readingTime = data.readingTime
@@ -245,19 +265,33 @@ const ArticlePage = ({ data }) => {
             {post.frontmatter.title}
           </Styledh1>
         </div>
+        <StyledTableMenu>
+          <Menu2 right noOverlay customBurgerIcon={<BookContent />}>
+            <Title>
+              <TocIcon />
+                | Contents
+            </Title>
+            <TableOfContents
+              id='link'
+              dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
+            />
+          </Menu2>
+        </StyledTableMenu>
         <div className='column is-9 is-offset-1'>
-          <div className='columns is-mobile is-5 is-vcentered'>
-            <div className='column'>
+          <div className='columns is-desktop is-vcentered'>
+            <div className='column is-7'>
               <img
-                className='profilePic'
+                className='profile-pic'
                 src={profilePic}
                 alt='PubliusLogic'
               />
+              <span>
+                  Written by <strong>Donald Boulton</strong>
+              </span>
             </div>
-            <div className='column'>
-              Written by <strong>Donald Boulton</strong> who lives in OKC OK.
+            <div className='column is-pulled-right'>
               <a href='https://twitter.com/donboulton'>
-                You should follow him on Twitter
+                Follow him on Twitter
               </a>
             </div>
           </div>
@@ -274,18 +308,6 @@ const ArticlePage = ({ data }) => {
           </div>
         </div>
       </section>
-      <TocDiv id='containerElement'>
-        <Menu2 left noOverlay styles={detailsStyles} customBurgerIcon={<TocMenuIcon />} customCrossIcon={<TocMenuIcon />}>
-          <Title>
-            <TocIcon />
-                | Contents
-          </Title>
-          <TableOfContents
-            id='link'
-            dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
-          />
-        </Menu2>
-      </TocDiv>
       <section className='section'>
         <div className='container content'>
           <div className='columns'>

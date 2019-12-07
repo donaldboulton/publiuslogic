@@ -2,12 +2,11 @@
 
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
+.navbar-brand
+  margin-left: 40px
+  padding-left: 20px
 .navbar-item .icon 
   color: #d64000
-.navbar-link
-  background-color: transparent !important
-.navbar-end
-  margin-right: 40px !important
 .navbar-link:not(.is-arrowless):after
   border-color: #f5f5f5 !important
   margin-top: -.375em
@@ -27,8 +26,8 @@
   margin: 6px
   background-image: url(/img/bafcd30dffce3a8d81bb7ec738ec2688.png) !important
 .button .icon
-    height: 2em !important
-    width: 2em !important
+  height: 2em !important
+  width: 2em !important
 .button:active
   border-color: transparent !important   
 .button    
@@ -84,7 +83,7 @@ footer.footer
   background-image: webkit-gradient(180px at top left,#685e31,rgba(0,0,0,0)),radial-gradient(180px at top right,#0d92c3,rgba(0,0,0,0)),radial-gradient(180px at bottom right,#8a43bd,rgba(0,0,0,0)),radial-gradient(180px at bottom left,#1d8d42,rgba(0,0,0,0)) !important
   background: radial-gradient(180px at top left,#685e31,rgba(0,0,0,0)),radial-gradient(180px at top right,#0d92c3,rgba(0,0,0,0)),radial-gradient(180px at bottom right,#8a43bd,rgba(0,0,0,0)),radial-gradient(180px at bottom left,#1d8d42,rgba(0,0,0,0)) !important
 a:-webkit-any-link
-    cursor: pointer
+  cursor: pointer
 *|*:any-link
   cursor: pointer
 a:focus
@@ -138,7 +137,7 @@ text:nth-child(3)
 text:nth-child(4)
   font-size: 15em  
 .navbar-item img
-    max-height: 2em !important
+  max-height: 2em !important
 input.luna__input
   background: url(/img/search.svg) 15px 50%/1.1em 1.5em no-repeat !important
   background-color: transparent !important
@@ -254,7 +253,10 @@ gatsby-resp-image-image
   list-style: none !important
 .hidden
   visibility: hidden
-.profilePic
-  
+.profile-pic
+  display: block
+  width: 25px
+  height: 25px
+  border-radius: 50%
 
 @import "~bulma"

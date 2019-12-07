@@ -31,7 +31,7 @@ export const colors = {
 
   noBack: `transparent`,
   darkBg: `#1d1d1d`,
-  lightBg: `#f5f5f5`,
+  lightBg: `#ffffff`,
 }
 
 export const measures = {

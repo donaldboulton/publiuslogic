@@ -30,16 +30,13 @@ body.light-mode {
   color: #333;
   transition: background-image 0.3s ease;
   nav {
-    background: #00a396 !important;
+    background: transparent !important;
   }
   .navbar {
     background: #00a396 !important;
   }
-  .navbar-menu {
-    background: transparent !important;
-  }
   .navbar-brand {
-    background: transparent !important;
+    background: #00a396 !important;
   }
   .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
     color : #1d1d1d;
@@ -256,9 +253,6 @@ body.dark-mode {
     background: transparent !important;
   }
   .navbar {
-    background: #1d1d1d !important;
-  }
-  .navbar-menu {
     background: #1d1d1d !important;
   }
   .navbar-brand {
@@ -533,17 +527,16 @@ body.dark-mode .tag:not(body).is-primary {
 
 .toggle-control {
   position: relative;
-  padding: 0 4px;
+  padding: 0px;
   display: flex;
   align-items: center;
 }
 
 input[type='checkbox'].dmcheck {
-  width: 30px;
-  height: 10px;
-  background: #555;
+  width: 0px;
+  height: 0px;
+  background: transparent;
   position: relative;
-  border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -552,25 +545,24 @@ input[type='checkbox'].dmcheck {
   outline: none;
 
   &:checked + label {
-    left: 25px;
+    left: 5px;
   }
 
   &:focus-visible {
-    outline: solid 2px #343434;
+    outline: none;
   }
 
   & + label {
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 0px;
+    height: 0px;
     border-radius: 50%;
     transition: all 0.3s ease;
     cursor: pointer;
     position: absolute;
     left: 2px;
-    background: #343434;
+    background: transparent;
     opacity: 0.9;
-    background-color: #343434;
   }
 }
 

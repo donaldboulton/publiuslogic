@@ -11,6 +11,11 @@ import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
+
+if (typeof window !== 'undefined') {
+  // eslint-disable-next-line global-require
+  require('smooth-scroll')('a[href*="#"]')
+}
 class Global extends Component {
   render () {
     return (
