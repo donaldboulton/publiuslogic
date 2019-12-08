@@ -26,15 +26,17 @@ import profilePic from '../../static/img/donald-boulton.jpg'
 const StyledTableMenu = styled.div` 
   .bm-item {
     text-align: left;
-    background: transparent !important
+    background: transparent;
     display: inline-block;
     text-decoration: none;
     margin-bottom: 2vh;
-    color: ${props => props.theme.lightBg};
+    background: ${props => props.theme.black};
+    color: ${props => props.theme.white};
     transition: color 0.2s;
   }
   .bm-item:hover {
-    color: ${props => props.theme.lightestGray};
+    background: ${props => props.theme.black};
+    color: ${props => props.theme.white};
   }
   .bm-burger-button {
     position: fixed;
@@ -56,31 +58,33 @@ const StyledTableMenu = styled.div`
   .bm-menu {
     background: rgba(0, 0, 0, 0.3);
     padding: 2.5em 1.5em 0;
-    font-size: 1.1em;
+    font-size: 1em;
   }
   .bm-morph-shape {
     fill: #373a47;
   }
   .bm-item-list {
     color: #b8b7ad;
-    background: transparent !important
+    background: transparent;
+  }
+  linktoc {
     overflow-y: scroll;
     scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
     scrollbar-width: 10px;
     overflow-x: hidden;
   }
-  .bm-item-list::-webkit-scrollbar {
+  linktoc::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
-  .bm-item-list::-webkit-scrollbar-thumb {
+  linktoc::-webkit-scrollbar-thumb {
     background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17));
     background: linear-gradient(to bottom,#201c29,#100e17);
     border-radius: 10px;
     -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
     box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
   }
-  .bm-item-list::-webkit-scrollbar-track {
+  linktoc::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
   .bm-overlay {
@@ -108,6 +112,7 @@ const Title = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
+  color: ${props => props.theme.black};
   border-bottom: 1px solid ${props => props.theme.black};
 `
 const TocIcon = styled(Table)`
@@ -121,10 +126,12 @@ const TableOfContents = styled.div`
     color: ${props => props.theme.black};
   }
   a {
+    background: ${props => props.theme.black};
     color: ${props => props.theme.white};
   }
   a:hover {
-    color: ${props => props.theme.hoveredLinks};
+    background: ${props => props.theme.black};
+    color: ${props => props.theme.white};
   }
 `
 const Time = styled.span`
@@ -257,10 +264,10 @@ const ArticlePage = ({ data, location }) => {
           <Menu2 right noOverlay customBurgerIcon={<BookContent />}>
             <Title>
               <TocIcon />
-                | Contents
+                | Page Contents
             </Title>
             <TableOfContents
-              id='link'
+              id='linktoc'
               dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
             />
           </Menu2>

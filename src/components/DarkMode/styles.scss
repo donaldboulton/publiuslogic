@@ -198,7 +198,7 @@ body.light-mode {
     border-top: 1px solid #00c2b2 !important;
     border-bottom: 1px solid #00c2b2 !important;
     color: #1d1d1d !important;
-
+    border-radius: 3px;
   }
   .input, .textarea {
     background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
@@ -274,9 +274,6 @@ body.dark-mode {
   }
   code {
     background: transparent !important;
-  }
-  a {
-    color: #666666;
   }
   .dark-mode-toggle > button {
     color: #999;
@@ -490,6 +487,9 @@ body.dark-mode .navbar-divider {
   background-color: transparent;
   text-align: center;
   max-width: 100%;
+}
+body.dark-mode a {
+  color: #f5f5f5 !important;
 }
 body.dark-mode .a:hover {
   color: #812102 !important;
