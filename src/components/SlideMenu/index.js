@@ -51,7 +51,7 @@ const StyledBurgerMenu = styled.div`
     background: transparent;
   }
   .bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.59);
   }
 `
 

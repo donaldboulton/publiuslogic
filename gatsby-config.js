@@ -61,14 +61,6 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sass',
     {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          require(`postcss-preset-env`)({ stage: 0 }),
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         develop: true,
@@ -127,12 +119,6 @@ module.exports = {
         plugins: [
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-code-titles`,
-          {
-            resolve: 'gatsby-remark-smartypants',
-            options: {
-              dashes: 'oldschool',
-            },
-          },
           {
             resolve: 'gatsby-remark-component',
             options: { components: ['interactive-counter', 'Reviews'] },
@@ -348,7 +334,6 @@ module.exports = {
         globPatterns: ['**/*.{js,jpg,html,css}'],
       },
     },
-    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-netlify`,
       options: {

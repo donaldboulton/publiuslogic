@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import 'babel-polyfill'
 import favicon from './assets/img/favicon.ico'
 require('typeface-kaushan-script')
+require('typeface-roboto-slab')
 require('typeface-roboto')
 
 export default class HTML extends Component {
@@ -46,6 +47,7 @@ export default class HTML extends Component {
         </head>
         <body>
           <div
+            key='body'
             id='___gatsby'
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />

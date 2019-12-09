@@ -56,7 +56,7 @@ const StyledTableMenu = styled.div`
     background: #bdc3c7;
   }
   .bm-menu {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.59);
     padding: 2.5em 1.5em 0;
     font-size: 1em;
   }
@@ -88,7 +88,7 @@ const StyledTableMenu = styled.div`
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
   .bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.59);
   }
   ul {
     max-height: 78vh;
@@ -261,7 +261,7 @@ const ArticlePage = ({ data, location }) => {
       </Helmet>
       <section className='hero'>
         <StyledTableMenu>
-          <Menu2 right noOverlay customBurgerIcon={<BookContent />}>
+          <Menu2 right customBurgerIcon={<BookContent />}>
             <Title>
               <TocIcon />
                 | Page Contents
