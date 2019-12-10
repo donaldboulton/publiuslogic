@@ -87,6 +87,7 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
 
+    // Category pages:
     let category = []
     // Iterate through each post, putting all found category into `categories`
     postsAndPages.forEach(edge => {
@@ -94,7 +95,7 @@ exports.createPages = ({ actions, graphql }) => {
         category = category.concat(edge.node.frontmatter.category)
       }
     })
-    // Eliminate duplicate tags
+    // Eliminate duplicate categories
     category = _.uniq(category)
 
     // Make category pages

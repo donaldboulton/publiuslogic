@@ -86,7 +86,7 @@
     "ramda": "^0.26.1",
     "react": "^16.12.0",
     "react-adsense": "^0.1.0",
-    "react-burger-menu": "^2.6.12",
+    "react-burger-menu": "^2.6.13",
     "react-dom": "^16.12.0",
     "react-dropzone": "^10.2.0",
     "react-github-btn": "^1.0.5",

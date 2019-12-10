@@ -25,6 +25,9 @@ module.exports = {
     ogLanguage: 'en_US', // Facebook Language
     twitter: 'donboulton',
     facebook: 'don.boulton',
+    social: {
+      twitter: `donboulton`,
+    },
     rssMetadata: {
       site_url: 'https://publiuslogic.com',
       feed_url: config.siteUrl + config.siteRss,

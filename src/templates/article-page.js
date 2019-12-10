@@ -20,8 +20,8 @@ import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
 import HitCounter from '../components/HitCounter'
+import Bio from '../components/Bio'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
-import profilePic from '../../static/img/donald-boulton.jpg'
 
 const StyledTableMenu = styled.div` 
   .bm-item {
@@ -51,6 +51,7 @@ const StyledTableMenu = styled.div`
   .bm-cross-button {
     height: 30px;
     width: 15px;
+    left: 8px !important;
   }
   .bm-cross {
     background: #bdc3c7;
@@ -123,7 +124,8 @@ const TocIcon = styled(Table)`
 `
 const TableOfContents = styled.div`
   ul {
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.white};
+    textIndent: -1em hanging;
   }
   a {
     background: ${props => props.theme.black};
@@ -267,6 +269,7 @@ const ArticlePage = ({ data, location }) => {
                 | Page Contents
             </Title>
             <TableOfContents
+              style={{ textIndent: '-1em hanging' }}
               id='linktoc'
               dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
             />
@@ -285,23 +288,7 @@ const ArticlePage = ({ data, location }) => {
           </Styledh1>
         </div>
         <div className='column is-9 is-offset-1'>
-          <div className='columns is-desktop is-vcentered'>
-            <div className='column is-7'>
-              <img
-                className='profile-pic'
-                src={profilePic}
-                alt='PubliusLogic'
-              />
-              <span>
-                  Written by <strong>Donald Boulton</strong>
-              </span>
-            </div>
-            <div className='column is-pulled-right'>
-              <a href='https://twitter.com/donboulton'>
-                Follow him on Twitter
-              </a>
-            </div>
-          </div>
+          <Bio />
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-7'>
               <span className='subtitle is-size-5'>

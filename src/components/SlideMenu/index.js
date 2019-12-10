@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 import NetlifyIdentityWidget from '../IdentityWidget'
@@ -37,11 +38,6 @@ const StyledBurgerMenu = styled.div`
   }
   .bm-cross {
     background: #bdc3c7;
-  }
-  .bm-menu {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 2.5em 1.5em 0;
-    font-size: 1em;
   }
   .bm-morph-shape {
     fill: #373a47;
@@ -83,34 +79,34 @@ export default props => {
         <div className='menu-item' id='login'>
           <NetlifyIdentityWidget />
         </div>
-        <a className='menu-item' href='/blog' itemProp='url'>
+        <Link className='menu-item' to='/blog' itemProp='url'>
           <span itemProp='name'>Blog&nbsp;<Blog size='1em' /></span>
-        </a>
-        <a className='menu-item' href='/about' itemProp='url'>
+        </Link>
+        <Link className='menu-item' to='/about' itemProp='url'>
           <span itemProp='name'>About&nbsp;<AddressCard size='1em' /></span>
-        </a>
-        <a className='menu-item' href='/contact' itemProp='url'>
+        </Link>
+        <Link className='menu-item' to='/contact' itemProp='url'>
           <span itemProp='name'>Contact&nbsp;<PeopleCarry size='1em' /></span>
-        </a>
-        <a className='menu-item' href='/photos' itemProp='url'>
+        </Link>
+        <Link className='menu-item' to='/photos' itemProp='url'>
           <span itemProp='name'>Gallery&nbsp;<Images size='1em' /></span>
-        </a>
-        <a className='menu-item' href='/sitemap' itemProp='url'>
+        </Link>
+        <Link className='menu-item' to='/sitemap' itemProp='url'>
           <span itemProp='name'>Sitemap&nbsp;<Sitemap size='1em' /></span>
-        </a>
+        </Link>
         <h4 className='h4'>Gatsby Posts</h4>
         <div className='navbar-divider' />
-        <a className='menu-item' href='/blog/gatsby-netlify-no-plugins' itemProp='url'>
+        <Link className='menu-item' to='/blog/gatsby-netlify-no-plugins' itemProp='url'>
           <span itemProp='name'>Netlify No Plugins&nbsp;<FileAlt size='1em' /></span>
-        </a>
-        <a className='menu-item' href='/blog/gatsby-lightgallery-cloudinary' itemProp='url'>
+        </Link>
+        <Link className='menu-item' to='/blog/gatsby-lightgallery-cloudinary' itemProp='url'>
           <span itemProp='name'>LightGallery Cloudinary&nbsp;<FileAlt size='1em' /></span>
-        </a>
+        </Link>
         <h4 className='h4'>Common Sense Posts</h4>
         <div className='navbar-divider' />
-        <a className='menu-item' href='/blog/earths-magnetic-flux' itemProp='url'>
+        <Link className='menu-item' to='/blog/earths-magnetic-flux' itemProp='url'>
           <span itemProp='name'>Magnetic Flux&nbsp;<FileAlt size='1em' /></span>
-        </a>
+        </Link>
       </Menu>
     </StyledBurgerMenu>
   )
