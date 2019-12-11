@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -207,6 +207,8 @@ patch:
         patched: '2019-07-06T02:25:49.676Z'
     - gatsby-plugin-webpack-bundle-analyzer > webpack-bundle-analyzer > lodash:
         patched: '2019-07-09T20:54:11.908Z'
+    - netlify-cli > netlify > archiver > async > lodash:
+        patched: '2019-12-11T23:07:49.653Z'
   SNYK-JS-HTTPSPROXYAGENT-469131:
     - web-push > https-proxy-agent:
         patched: '2019-10-04T02:25:15.949Z'

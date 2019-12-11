@@ -17,7 +17,7 @@
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect",
+    "prepublish": "yarn run snyk-protect",
     "test": "remark . --quiet --frail && node test.js"
   },
   "dependencies": {
@@ -81,7 +81,7 @@
     "lodash-webpack-plugin": "^0.11.5",
     "modali": "^1.2.0",
     "moment": "^2.24.0",
-    "netlify-cli": "^2.0.0-beta.7",
+    "netlify-cli": "^2.0.0",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.0",
     "octicons": "^8.5.0",
@@ -108,7 +108,7 @@
     "rehype-react": "^4.0.1",
     "remark-rehype": "^5.0.0",
     "sharp": "^0.23.3",
-    "snyk": "^1.258.1",
+    "snyk": "^1.258.2",
     "styled-components": "^4.4.1",
     "styled-css-grid": "^1.2.1",
     "styled-icons": "^9.0.1",
