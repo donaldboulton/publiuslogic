@@ -53,6 +53,21 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          'UA-24847941-1',
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-use-dark-mode`,
       options: {
         classNameDark: `dark-mode`,

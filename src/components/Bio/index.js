@@ -38,6 +38,7 @@ const Bio = (slug) => {
   const url = config.siteUrl + slug
   return (
     <div
+      className='column is-6'
       style={{
         display: `flex`,
         marginBottom: rhythm(1.5),
@@ -58,8 +59,6 @@ const Bio = (slug) => {
       />
       <p>
         Written by <strong>{author}</strong>  who lives and works in OKC OK.&nbsp;
-      </p>
-      <p>
         <a
           itemProp='url'
           rel='noopener noreferrer'
