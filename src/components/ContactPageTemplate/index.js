@@ -22,7 +22,7 @@ const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent
                 <div className='column'>
                   <h4>Realtime Contact Message</h4>
                   <div>
-                    <Link aria-label='Privacy Link' href='https://publiuslogic.com/privacy'>
+                    <Link aria-label='Privacy Link' to='/privacy'>
                       <img
                         src={logo}
                         alt='PubliusLogic'

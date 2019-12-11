@@ -16,7 +16,7 @@ const AboutSection = () => {
         <div className='card card1'>
           <div className='card-image'>
             <figure className='image is-4by3'>
-              <Link href='https://publiuslogic.com'>
+              <Link to='/'>
                 <img
                   src={logo}
                   alt='PubliusLogic'
@@ -28,7 +28,7 @@ const AboutSection = () => {
             <div className='media'>
               <div className='media-left parent'>
                 <figure className='image is-32x32'>
-                  <OutboundLink title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
+                  <OutboundLink title='Github' to='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
                     <img
                       src={github}
                       alt='GitHub'
@@ -43,12 +43,12 @@ const AboutSection = () => {
             <div className='content'>
               GitHub Issues as Comments
               <br />
-              <div><OutboundLink className='a' rel='me noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic'>&nbsp;GitHub Repo</OutboundLink></div>
-              <div><OutboundLink className='a' target='_blank' href='https://twitter.com/donboulton' rel='me noopener noreferrer'>&nbsp;Twitter @publiuslogic</OutboundLink></div>
+              <div><OutboundLink className='a' rel='me noopener noreferrer' target='_blank' to='https://github.com/donaldboulton/publiuslogic'>&nbsp;GitHub Repo</OutboundLink></div>
+              <div><OutboundLink className='a' target='_blank' to='https://twitter.com/donboulton' rel='me noopener noreferrer'>&nbsp;Twitter @publiuslogic</OutboundLink></div>
               <br />
               <span>
                 <p>
-                  {config.copyright} - <Link className='a' title='PubliusLogic Home' href='https://publiuslogic.com' rel='noopener noreferrer'>PubliusLogic</Link>
+                  {config.copyright} - <Link className='a' title='PubliusLogic Home' to='https://publiuslogic.com' rel='noopener noreferrer'>PubliusLogic</Link>
                 </p>
               </span>
             </div>
@@ -59,7 +59,7 @@ const AboutSection = () => {
         <div className='card card2'>
           <div className='card-image'>
             <figure className='image is-4by3'>
-              <OutboundLink title='Gatsby' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
+              <OutboundLink title='Gatsby' to='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
                 <img
                   src={gatsby}
                   alt='Gatsby'
@@ -84,10 +84,10 @@ const AboutSection = () => {
             <div className='content'>
                 Gatsby is Smoking Fast & Easy
               <br />
-              <div><OutboundLink className='a' target='_blank' rel='noopener noreferrer' href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</OutboundLink></div>
-              <div><OutboundLink className='a' target='_blank' rel='noopener noreferrer' href='https://bulma.io/'>CSS from @bulma.io</OutboundLink></div>
+              <div><OutboundLink className='a' target='_blank' rel='noopener noreferrer' to='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</OutboundLink></div>
+              <div><OutboundLink className='a' target='_blank' rel='noopener noreferrer' to='https://bulma.io/'>CSS from @bulma.io</OutboundLink></div>
               <br />
-              <span>Privacy<Link className='a' href='https://publiuslogic.com/privacy'>&nbsp; - &nbsp;Terms & Conditions.</Link></span>
+              <span>Privacy<Link className='a' to='/privacy/#Comment-Policy'>&nbsp; - &nbsp;Terms & Conditions.</Link></span>
             </div>
           </div>
         </div>
