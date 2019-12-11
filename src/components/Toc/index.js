@@ -6,7 +6,7 @@ import {Link} from 'gatsby'
 
 export const HtmlContent = React.FunctionComponent = ({html, content, classname}) => {
   const transform = {
-    a: node = 'props' => {
+    a: (node: Partial<ReactHTMLElement<HTMLAnchorElement>['props']>) => {
       const {href} = node
 
       if(href.substr(0, 4) === 'http'){

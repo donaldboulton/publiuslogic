@@ -3,6 +3,7 @@ import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
 import { Twitter } from 'styled-icons/fa-brands'
 import theme from './buttons.css'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const WebIntents = ({ slug, tweet_id }) => {
   const title = config.userTwitter
@@ -15,7 +16,7 @@ const WebIntents = ({ slug, tweet_id }) => {
           <strong>Is this post Cool? Please Tweet About it!</strong>
           <div className='field is-grouped has-addons'>
             <p className='control'>
-              <a
+              <OutboundLink
                 itemProp='url'
                 rel='me'
                 title={title}
@@ -32,10 +33,10 @@ const WebIntents = ({ slug, tweet_id }) => {
                   <Twitter size='14' color='#1b95e0' />
                 </span>
                 <span>&nbsp;Tweet</span>
-              </a>
+              </OutboundLink>
             </p>
             <p className='control'>
-              <a
+              <OutboundLink
                 itemProp='url'
                 rel='noopener noreferrer'
                 target='_blank'
@@ -55,10 +56,10 @@ const WebIntents = ({ slug, tweet_id }) => {
                   <Twitter size='14' color='#1b95e0' />
                 </span>
                 <span>&nbsp;Follow</span>
-              </a>
+              </OutboundLink>
             </p>
             <p className='control'>
-              <a
+              <OutboundLink
                 itemProp='url'
                 rel='noopener noreferrer'
                 aria-label='Message'
@@ -75,7 +76,7 @@ const WebIntents = ({ slug, tweet_id }) => {
                   <Twitter size='14' color='#1b95e0' />
                 </span>
                 <span>&nbsp;Message</span>
-              </a>
+              </OutboundLink>
             </p>
           </div>
         </div>

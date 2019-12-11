@@ -3,6 +3,7 @@ import Content from '../Content'
 import PropTypes from 'prop-types'
 import ContactForm from '../ContactForm'
 import logo from '../../../static/img/logo.png'
+import { Link } from 'gatsby'
 
 const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -21,13 +22,13 @@ const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent
                 <div className='column'>
                   <h4>Realtime Contact Message</h4>
                   <div>
-                    <a aria-label='Privacy Link' href='https://publiuslogic.com/privacy'>
+                    <Link aria-label='Privacy Link' href='https://publiuslogic.com/privacy'>
                       <img
                         src={logo}
                         alt='PubliusLogic'
                         style={{ width: '230px', height: '230px' }}
                       />
-                    </a>
+                    </Link>
                     <div>
                       <div>Contacts are governed by our!</div>
                       <div className='is-centered'><a aria-label='Comment Policy' href='/privacy#Comment Policy'>Submitting Policy</a></div>
