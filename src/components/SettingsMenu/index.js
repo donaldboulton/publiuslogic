@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from './SettingsMenu.css' // eslint-disable-line
+import './SettingsMenu.css'
 
 export default class Menu extends Component {
   componentDidMount () {

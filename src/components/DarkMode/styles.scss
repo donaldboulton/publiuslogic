@@ -156,11 +156,13 @@ body.light-mode {
     box-shadow: 0 0 0 2px rgba(0,163,150,.2) !important;
   }
   input:focus {
+    color: #fff !important;
     outline: 0;
     border-radius: 3px;
     box-shadow: 0 0 0 2px rgba(0,163,150,.2) !important;
   }
   textarea:focus {
+    color: #fff !important;
     outline: 0;
     border-radius: 3px;
     box-shadow: 0 0 0 2px rgba(0,163,150,.2) !important;

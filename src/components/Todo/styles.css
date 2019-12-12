@@ -30,7 +30,7 @@
 }
 .todo-create-input:hover, .todo-create-input:active, .todo-create-input:focus {
   box-shadow: 0px 0px 0px 2px rgb(43, 190, 185);
-  box-shadow: 0px 0px 0px 2px #00ad9f;
+  box-shadow: 0px 0px 0px 2px #d64000;
 }
 
 .todo-item {
@@ -43,7 +43,7 @@
 .todo-list-title {
   font-size: 17px;
   font-weight: 500;
-  color: #5a5a5a;
+  color: #f5f5f5;
   flex-grow: 1;
   position: relative;
   z-index: 2;
@@ -157,7 +157,7 @@
   height: 100%;
   margin: auto;
   fill: none;
-  stroke: #27FDC7;
+  stroke: #d64000;
   stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -174,7 +174,7 @@
   transition-delay: 0.16s;
 }
 .todo__check {
-  stroke: #27FDC7;
+  stroke: #d64000;
   stroke-dasharray: 9.8995, 9.8995;
   stroke-dashoffset: 9.8995;
   transition-duration: 0.25s;
