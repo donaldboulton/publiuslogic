@@ -21,6 +21,8 @@ showToc: true
 
 Based on [Nelifty post](https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/?_ga=2.21698171.1777301599.1576092869-301685750.1573932436#wrapping-up)
 
+And some code functions and the Database schema mixed in from [Netlify FaunaDB ToDo](https://github.com/fauna/netlify-faunadb-todomvc) for Netlify Identity Login and to set up the database.
+
 ![FaunaDB](/img/fauna.png "FaunaDB")
 _[`FaunaDB` serverless functions](https://www.netlify.com/docs/functions/)_
 
