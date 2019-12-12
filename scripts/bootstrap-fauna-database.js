@@ -1,49 +1,118 @@
-/* bootstrap database in your FaunaDB account */
+require('dotenv').config()
+const readline = require('readline')
 const faunadb = require('faunadb')
 const chalk = require('chalk')
 const insideNetlify = insideNetlifyBuildContext()
 const q = faunadb.query
 
-console.log(chalk.cyan('Creating your FaunaDB Database...\n'))
-
-// 1. Check for required enviroment variables
 if (!process.env.FAUNADB_SERVER_SECRET) {
-  console.log(chalk.yellow('Required FAUNADB_SERVER_SECRET enviroment variable not found.'))
-  console.log(`Make sure you have created your Fauna databse with "netlify addons:create fauna"`)
-  console.log(`Then run "npm run bootstrap" to setup your database schema`)
-  if (insideNetlify) {
-    process.exit(1)
-  }
+  console.log('No FAUNADB_SERVER_SECRET found')
+  console.log('Please run `netlify addons:create fauna` and redeploy')
+  return false
 }
 
-// Has var. Do the thing
-if (process.env.FAUNADB_SERVER_SECRET) {
-  createFaunaDB(process.env.FAUNADB_SERVER_SECRET).then(() => {
-    console.log('Fauna Database schema has been created')
-    console.log('Claim your fauna database with "netlify addons:auth fauna"')
+console.log('server', process.env.FAUNADB_SERVER_SECRET)
+console.log('admin', process.env.FAUNADB_ADMIN_SECRET)
+
+console.log(chalk.cyan('Creating your FaunaDB Database...\n'))
+if (insideNetlify) {
+  // Run idempotent database creation
+  setupFaunaDB(process.env.FAUNADB_SERVER_SECRET).then(() => {
+    console.log('Database created')
+  })
+} else {
+  console.log()
+  console.log('You can create fauna DB keys here: https://dashboard.fauna.com/db/keys')
+  console.log()
+  ask(chalk.bold('Enter your faunaDB server key'), (err, answer) => {
+    if (err) {
+      console.log(err)
+    }
+    if (!answer) {
+      console.log('Please supply a faunaDB server key')
+      process.exit(1)
+    }
+    setupFaunaDB(answer).then(() => {
+      console.log('Database created')
+    })
   })
 }
 
 /* idempotent operation */
-function createFaunaDB(key) {
-  console.log('Create the fauna database schema!')
+function setupFaunaDB (key) {
+  console.log('Create the schema!')
   const client = new faunadb.Client({
-    secret: key
+    secret: key,
   })
 
   /* Based on your requirements, change the schema here */
-  return client.query(q.Create(q.Ref('classes'), { name: 'todos' }))
-    .then(() => {
-      return client.query(
-        q.Create(q.Ref('indexes'), {
+
+  return client.query(
+    q.CreateClass({
+      name: 'users',
+    }))
+    .then(() => client.query(
+      q.Do(
+        q.CreateClass({
+          name: 'todos',
+          permissions: {
+            create: q.Class('users'),
+          },
+        }),
+        q.CreateClass({
+          name: 'lists',
+          permissions: {
+            create: q.Class('users'),
+          },
+        }),
+      )))
+    .then(() => client.query(
+      q.Do(
+        q.CreateIndex({
+          name: 'users_by_id',
+          source: q.Class('users'),
+          terms: [{
+            field: ['data', 'id'],
+          }],
+          unique: true,
+        }),
+        q.CreateIndex({
+          // this index is optional but useful in development for browsing users
+          name: `all_users`,
+          source: q.Class('users'),
+        }),
+        q.CreateIndex({
           name: 'all_todos',
-          source: q.Ref('classes/todos')
-        }))
-    }).catch((e) => {
-      // Database already exists
-      if (e.requestResult.statusCode === 400 && e.message === 'instance not unique') {
-        console.log('Fauna already setup! Good to go')
-        console.log('Claim your fauna database with "netlify addons:auth fauna"')
+          source: q.Class('todos'),
+          permissions: {
+            read: q.Class('users'),
+          },
+        }),
+        q.CreateIndex({
+          name: 'all_lists',
+          source: q.Class('lists'),
+          permissions: {
+            read: q.Class('users'),
+          },
+        }),
+        q.CreateIndex({
+          name: 'todos_by_list',
+          source: q.Class('todos'),
+          terms: [{
+            field: ['data', 'list'],
+          }],
+          permissions: {
+            read: q.Class('users'),
+          },
+        }),
+      ),
+    ))
+    .then(console.log.bind(console))
+    .catch((e) => {
+      if (e.message === 'instance not unique') {
+        console.log('schema already created... skipping')
+      } else {
+        console.error(e)
         throw e
       }
     })
@@ -52,9 +121,21 @@ function createFaunaDB(key) {
 /* util methods */
 
 // Test if inside netlify build context
-function insideNetlifyBuildContext() {
+function insideNetlifyBuildContext () {
   if (process.env.DEPLOY_PRIME_URL) {
     return true
   }
   return false
+}
+
+// Readline util
+function ask (question, callback) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  })
+  rl.question(question + '\n', function (answer) {
+    rl.close()
+    callback(null, answer)
+  })
 }

@@ -20,6 +20,7 @@ import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
 import HitCounter from '../components/HitCounter'
+import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
@@ -68,24 +69,24 @@ const StyledTableMenu = styled.div`
     color: #b8b7ad;
     background: transparent;
   }
-  linktoc {
+  ul {
     overflow-y: scroll;
     scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
     scrollbar-width: 10px;
     overflow-x: hidden;
   }
-  linktoc::-webkit-scrollbar {
+  ul::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
-  linktoc::-webkit-scrollbar-thumb {
+  ul::-webkit-scrollbar-thumb {
     background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17));
     background: linear-gradient(to bottom,#201c29,#100e17);
     border-radius: 10px;
     -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
     box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
   }
-  linktoc::-webkit-scrollbar-track {
+  ul::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
   .bm-overlay {
@@ -152,6 +153,7 @@ const renderAst = new RehypeReact({
   components: {
     'interactive-counter': Counter,
     'interactive-hit-counter': HitCounter,
+    'interactive-todo': Todo,
   },
 }).Compiler
 

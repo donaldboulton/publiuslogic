@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import ContentEditable from '../ContentEditable'
-import AppHeader from '../AppHeader'
 import SettingsMenu from '../SettingsMenu'
 import SettingsIcon from '../SettingsIcon'
 import api from '../../utils/api'
 import sortByDate from '../../utils/sortByDate'
 import isLocalHost from '../../utils/isLocalHost'
-import './App.css'
+import './styles.css'
 
 export default class App extends Component {
   state = {
@@ -285,9 +284,6 @@ export default class App extends Component {
   render () {
     return (
       <div className='app'>
-
-        <AppHeader />
-
         <div className='todo-list'>
           <h2>
             Create todo
@@ -295,7 +291,7 @@ export default class App extends Component {
           </h2>
           <form className='todo-create-wrapper' onSubmit={this.saveTodo}>
             <input
-              className='todo-create-input'
+              className='todo-create-input input'
               placeholder='Add a todo item'
               name='name'
               ref={el => this.inputElement = el}
@@ -303,7 +299,7 @@ export default class App extends Component {
               style={{ marginRight: 20 }}
             />
             <div className='todo-actions'>
-              <button className='todo-create-button'>
+              <button className='todo-create-button button'>
                 Create todo
               </button>
               <SettingsIcon onClick={this.openModal} className='desktop-toggle' />
