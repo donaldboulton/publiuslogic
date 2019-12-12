@@ -17,8 +17,8 @@
   margin-bottom: 3em;
   padding: 1.5em 3em;
   padding-bottom: 3em;
-  background: #fff;
-  color: rgba(14,30,37,0.54);
+  background: #1d1d1d;
+  color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 1px 6px 0 rgba(14,30,37,0.12);
   position: relative;
@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 .settings-content h2 {
- color: #000;
+ color: #dedede;
 }
 .settings-section {
   margin-top: 20px;
