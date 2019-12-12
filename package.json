@@ -19,11 +19,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "build": "npm-run-all --parallel build:**",
     "build": "gatsby build",
-    "build:functions": "npm run zip",
-    "zip": "cd functions/identity-signup && npm install && zip -r identity-signup.zip *",
-    "postzip": "mkdir -p functions-build && mv functions/identity-signup/identity-signup.zip functions-build",
     "serve": "gatsby serve && netlify-lambda serve functions-build",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/",
