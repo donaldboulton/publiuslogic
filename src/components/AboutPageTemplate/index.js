@@ -8,6 +8,7 @@ import Image from './image'
 import DarkModeStatus from '../DarkMode/DarkModeStatus'
 import DarkModeCommands from '../DarkMode/DarkModeCommands'
 import Bio from '../Bio'
+import ToDo from '../Todo'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
 const StyledAboutTableMenu = styled.div` 
@@ -154,7 +155,7 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
         <div className='container content'>
           <div className='columns is-10 is-offset-1'>
             <div className='column'>
-              <div className='content'>
+              <div>
                 <Bio />
               </div>
               <div>
@@ -194,18 +195,23 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
                   />
                 </p>
                 <p>
-                View the source for this{' '}
+                View the source for this
                   <Link to='https://codesandbox.io/s/mzj64x80ny'>demo app</Link> or see the
-                useDarkMode{' '}
+                useDarkMode
                   <Link to='https://github.com/donavon/use-dark-mode'>
-                source code on Github
+                Source code on Github
                   </Link>
-                .{' '}
                 </p>
               </div>
             </div>
           </div>
         </div>
+      </section>
+      <section>
+      <div>
+      <h3>Leave a ToDo or changes or issues.</h3>
+        <ToDo />
+      </div>
       </section>
     </div>
   )
