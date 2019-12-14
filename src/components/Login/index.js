@@ -20,7 +20,7 @@ export const getUser = () =>
 const setUser = user =>
   window.localStorage.setItem('netlifyUser', JSON.stringify(user))
 
-export const handleLogin = callback => {
+export const doLogin = callback => {
   if (isLoggedIn()) {
     callback(getUser())
   } else {
@@ -38,7 +38,7 @@ export const isLoggedIn = () => {
   return !!user
 }
 
-export const logout = callback => {
+export const dologout = callback => {
   netlifyIdentity.logout()
   netlifyIdentity.on('logout', () => {
     setUser({})
@@ -105,11 +105,11 @@ class Login extends Component {
     this.props.onAuthChange(null)
   }
 
-  handleLogin () {
+  doLogin () {
     netlifyIdentity.open()
   }
 
-  handleLogout () {
+  doLogout () {
     // remove credentials and refresh model
     netlifyIdentity.logout()
     clearLogin()
@@ -118,12 +118,12 @@ class Login extends Component {
 
   render () {
     var actionForm = <span>
-      <button id='mySigninBtn' aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogin.bind(this)}>Login&nbsp;<SignInAlt size='1.1em' color='#f5f5f5' /></button>
+      <button id='mySigninBtn' aria-label='Sign In' className='button-transparent' type='button' onClick={this.doLogin.bind(this)}>Login&nbsp;<SignInAlt size='1.1em' color='#f5f5f5' /></button>
     </span>
     return (
       <div>
         {this.state.user
-          ? <button id='mySignOutBtn' aria-label='Sign Out' className='button-transparent' type='button' onClick={this.handleLogout.bind(this)}><SignOutAlt size='1.1em' color='#f5f5f5' />&nbsp;LogOut</button>
+          ? <button id='mySignOutBtn' aria-label='Sign Out' className='button-transparent' type='button' onClick={this.doLogout.bind(this)}><SignOutAlt size='1.1em' color='#f5f5f5' />&nbsp;LogOut</button>
           : actionForm}
       </div>
     )
