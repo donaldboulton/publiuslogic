@@ -3,15 +3,12 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Content from '../Content'
 import PropTypes from 'prop-types'
-import Menu3 from 'react-burger-menu/lib/menus/stack'
-import Image from './image'
-import DarkModeStatus from '../DarkMode/DarkModeStatus'
-import DarkModeCommands from '../DarkMode/DarkModeCommands'
+import Menu4 from 'react-burger-menu/lib/menus/stack'
 import Bio from '../Bio'
-import Carbon from '../../../static/img/rgAl-carbon.png'
+import ToDo from '../Todo'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
-const StyledAboutTableMenu = styled.div` 
+const StyledUsersTableMenu = styled.div` 
   .bm-item {
     text-align: left;
     background: transparent;
@@ -100,7 +97,7 @@ const TocIcon = styled(Table)`
   background: ${props => props.theme.black};
   color: ${props => props.theme.white};
 `
-const AboutTableOfContents = styled.div`
+const UsersTableOfContents = styled.div`
   ul {
     color: ${props => props.theme.white};
     textIndent: -1em hanging;
@@ -115,21 +112,21 @@ const AboutTableOfContents = styled.div`
   }
 `
 
-const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
+const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
   return (
     <>
-      <StyledAboutTableMenu>
-        <Menu3 right customBurgerIcon={<BookContent />}>
+      <StyledUsersTableMenu>
+        <Menu4 right customBurgerIcon={<BookContent />}>
           <Title>
             <TocIcon />
                 | Page Contents
           </Title>
-          <AboutTableOfContents>
+          <UsersTableOfContents>
             <ul className='linktoc'>
               <li>
                 <ul>
-                  <li><Link to='/about#Technical-notes-about-this-website'>Tech Notes</Link></li>
+                  <li><Link to='/users#ToDo'>ToDo</Link></li>
                   <li><Link to='/about#Styling-with-Bluma-and-styled-css-grid-'>Bluma & ccs-Grid</Link></li>
                   <ul>
                     <li><Link to='/about#Server-less'>Serverless</Link></li>
@@ -145,12 +142,9 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               </li>
               <li><Link to='/about/#This-Site-Uses-useDarkMode' aria-label='This Site Uses useDarkMode' className='link-icon'><svg aria-hidden='true' height='20' version='1.1' viewBox='0 0 16 16' width='20'><path fill='#d64000' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z' /></svg>This Site Uses useDarkMode</Link></li>
             </ul>
-          </AboutTableOfContents>
-        </Menu3>
-      </StyledAboutTableMenu>
-      <section className='hero'>
-        <Image />
-      </section>
+          </UsersTableOfContents>
+        </Menu4>
+      </StyledUsersTableMenu>
       <section className='section'>
         <div className='container content'>
           <div className='columns is-10 is-offset-1'>
@@ -162,46 +156,9 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
                 <PageContent className='content' content={content} />
               </div>
               <hr />
-              <div>
-                <p>
-                  <h2 name='#This-Site-Uses-useDarkMode'>This Site Uses useDarkMode</h2>
-                </p>
-                <p>
-                I have incorporated this into PubliusLogic and below is an example of its usage.
-                </p>
-                <p>
-                This is an example app that uses the <code>useDarkMode</code> custom hook.
-                It persists across sessions (i.e., uses <code>localStorage</code>) and
-                shares state across instances and even tabs and/or browser windows.
-                </p>
-                <p>
-                For example, here is a component that shares the custom hook{' '}
-                  <code>useDarkMode</code> with the toggle component above.
-                </p>
-                <p>
-                 It is reporting that the current mode is:{' '}
-                  <code>
-                    <DarkModeStatus />
-                  </code>
-                </p>
-                <p>
-                 And here's another: <DarkModeCommands />
-                </p>
-                <p>It couldn't be any easier!</p>
-                <p>
-                  <img
-                    alt='code'
-                    src={Carbon}
-                  />
-                </p>
-                <p>
-                View the source for this
-                  <Link to='https://codesandbox.io/s/mzj64x80ny'>demo app.</Link> Or see the
-                useDarkMode.
-                  <Link to='https://github.com/donavon/use-dark-mode'>
-                Source code on Github.
-                  </Link>
-                </p>
+              <div className='column is-10 is-offset-1'>
+                <h3>Leave a ToDo for changes or issues.</h3>
+                <ToDo />
               </div>
             </div>
           </div>
@@ -211,7 +168,7 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
   )
 }
 
-AboutPageTemplate.propTypes = {
+UsersPageTemplate.propTypes = {
   title: PropTypes.string,
   cover: PropTypes.image,
   canonical: PropTypes.string,
@@ -221,4 +178,4 @@ AboutPageTemplate.propTypes = {
   contentComponent: PropTypes.func,
 }
 
-export default AboutPageTemplate
+export default UsersPageTemplate

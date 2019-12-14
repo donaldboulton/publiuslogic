@@ -15,7 +15,7 @@ tags:
 |  Pages | Posts  | Admin CMS  |
 |------|:----------------:|---:|
 | [Home](https://publiuslogic.com/)  | [All Posts](/blog)  | [Admin](/admin/#/collections/pages)  |
-| [About](/about)  | [Gatsby Netlify noPlugins](/blog/gatsby-netlify-no-plugins/)  | [User Profile](/app/profile)  |
+| [About](/about)  | [Gatsby Netlify noPlugins](/blog/gatsby-netlify-no-plugins/)  | [User Administration](/users)  |
 | [Contact](/contact)  | [Gatsby LightGallery Cloudinary](/blog/gatsby-lightgallery-cloudinary/)  |   |
 | [Photos](/photos) | [Modali Hooks Modal](/blog/modali-hooks-modal/)  |   |
 | [Privacy](/privacy) | [Gatsby GitHub Comments Utterances](/blog/gatsby-github-comments-utterances/)  |   |

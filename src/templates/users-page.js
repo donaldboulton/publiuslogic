@@ -3,27 +3,30 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
-import AboutPageTemplate from '../components/AboutPageTemplate'
+import UsersPageTemplate from '../components/UsersPageTemplate'
 import Global from '../components/Global'
 import config from '../../_data/config'
+import PostCover from '../components/PostCover'
 
-const AboutPage = ({ data }) => {
+const UsersPage = ({ data }) => {
   const { markdownRemark: post } = data
-  const author = config.author
-  let logo = config.siteLogo
   const image = post.frontmatter.cover
+  let author = config.author
+  const postNode = data.markdownRemark
+  const coverHeight = '100%'
+  let logo = config.siteLogo
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/about',
+    url: 'https://publiuslogic.com/users',
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://publiuslogic.com/about',
+      '@id': 'https://publiuslogic.com/users',
     },
     description: config.siteDescription,
-    name: 'About | PubliusLogic',
+    name: 'Users | PubliusLogic',
     author: {
       '@type': 'Person',
       name: 'donaldboulton',
@@ -89,7 +92,14 @@ const AboutPage = ({ data }) => {
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
-      <AboutPageTemplate
+      <section className='hero'>
+        <PostCover
+          postNode={postNode}
+          coverHeight={coverHeight}
+          coverClassName='post-cover'
+        />
+      </section>
+      <UsersPageTemplate
         contentComponent={HTMLContent}
         content={post.html}
         cover={post.frontmatter.cover}
@@ -102,16 +112,17 @@ const AboutPage = ({ data }) => {
   )
 }
 
-AboutPage.propTypes = {
+UsersPage.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default AboutPage
+export default UsersPage
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const usersPageQuery = graphql`
+  query UsersPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
+      tableOfContents
       frontmatter {
         title   
         cover

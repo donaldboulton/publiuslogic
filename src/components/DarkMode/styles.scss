@@ -516,6 +516,10 @@ body.dark-mode .tag:not(body).is-primary {
   background-color: #d64000;
   color: #fff;
 }
+body.dark-mode table thead th {
+  border-width: 0 0 2px;
+  color: #dbdbdb !important;
+}
 .dark-mode-toggle {
   display: flex;
   grid-area: toggle;

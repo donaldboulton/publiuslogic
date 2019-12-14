@@ -23,9 +23,6 @@ Based on [Nelifty post](https://www.netlify.com/blog/2018/07/09/building-serverl
 
 And some code functions and the Database schema mixed in from [Netlify FaunaDB ToDo](https://github.com/fauna/netlify-faunadb-todomvc) for Netlify Identity Login and to set up the database.
 
-![FaunaDB](/img/fauna.png "FaunaDB")
-_[`FaunaDB` serverless functions](https://www.netlify.com/docs/functions/)_
-
 Serverless functions seem to be all the rage these days. But why?
 
 Devs are adopting the FAAS (Functions-as-a-Service) because of:
@@ -46,8 +43,9 @@ We’ve previously explored how functions work together with Identity on Netlify
 
 We will be walking through how you can use FaunaDB with Netlify Functions to build a CRUD (Create, Read, Update, Delete) API.
 
+![FaunaDB](/img/fauna.png "FaunaDB")
+_[`FaunaDB` serverless functions](https://www.netlify.com/docs/functions/)_
+
 ## Fauna Functions ToDo Example
 
-The below example is a component in a .md page without MDX.
-
-<interactive-todo></interactive-todo>
+The Todo Sample is now in the [Users section](/users).

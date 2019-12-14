@@ -20,7 +20,6 @@ import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
 import HitCounter from '../components/HitCounter'
-import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
@@ -153,7 +152,6 @@ const renderAst = new RehypeReact({
   components: {
     'interactive-counter': Counter,
     'interactive-hit-counter': HitCounter,
-    'interactive-todo': Todo,
   },
 }).Compiler
 
