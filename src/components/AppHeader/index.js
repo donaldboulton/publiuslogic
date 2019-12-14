@@ -1,7 +1,7 @@
 import React from 'react'
 import deployButton from '../../assets/img/deploy-to-netlify.svg'
 import logo from '../../assets/img/logo.svg'
-import github from '../../assets/github.svg'
+import github from '../../assets/img/github.svg'
 import styles from './AppHeader.css'; // eslint-disable-line
 
 const AppHeader = props => {
@@ -47,6 +47,6 @@ const AppHeader = props => {
       </div>
     </header>
   )
-};
+}
 
 export default AppHeader

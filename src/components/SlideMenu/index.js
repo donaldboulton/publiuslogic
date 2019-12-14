@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
-import NetlifyIdentityWidget from '../IdentityWidget'
+import Login from '../Login'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
 import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
 import { Globe } from 'styled-icons/boxicons-regular/'
@@ -77,7 +77,7 @@ export default props => {
             | Site Contents
         </Title>
         <div className='menu-item' id='login'>
-          <NetlifyIdentityWidget />
+          <Login />
         </div>
         <Link className='menu-item' to='/blog' itemProp='url'>
           <span itemProp='name'>Blog&nbsp;<Blog size='1em' /></span>

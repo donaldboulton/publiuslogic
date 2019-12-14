@@ -48,4 +48,8 @@ _[`FaunaDB` serverless functions](https://www.netlify.com/docs/functions/)_
 
 ## Fauna Functions ToDo Example
 
-The Todo Sample is now in the [Users section](/users).
+The Todo Sample is in the [Netlify Fauna ToDo](https://github.com/jchris/netlify-fauna-todo), GitHub Repo.
+
+See our users page for the [ToDo](/users) Functions Example
+
+Details and Code Sample's are being added ASAP

@@ -34,7 +34,7 @@ const languageTags = langExtColor
 
 export default createGlobalStyle`
   .gatsby-code-title {
-    background: ${props => props.theme.darkOrange};
+    background: ${props => props.theme.black};
     color: ${props => props.theme.white};
     padding: 0.2em 0.4em;
     width: max-content;

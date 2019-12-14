@@ -10,24 +10,24 @@ const client = new faunadb.Client({
 
 /* create a user in FaunaDB that can connect from the browser */
 function createUser (userData, password) {
-  return client.query(
-    q.Create(q.Class('users'), {
-      credentials: {
-        password: password,
-      },
-      data: {
-        id: userData.id,
-        user_metadata: userData.user_metadata,
-      },
-    }),
-  )
+  return client.query(q.Create(q.Class('users'), {
+    credentials: {
+      password: password,
+    },
+    data: {
+      id: userData.id,
+      user_metadata: userData.user_metadata,
+    },
+  }))
 }
 
 function obtainToken (user, password) {
-  return client.query(q.Login(q.Select('ref', user), { password }))
+  console.log('creating FaunaDB token for ' + user)
+  return client.query(
+    q.Login(q.Select('ref', user), { password }))
 }
 
-export function handler (event, context, callback) {
+function handler (event, context, callback) {
   var payload = JSON.parse(event.body)
   var userData = payload.user
 
@@ -37,20 +37,17 @@ export function handler (event, context, callback) {
   })
 
   createUser(userData, password)
-    .then(user => obtainToken(user, password))
-    .then(key =>
-      callback(null, {
-        statusCode: 200,
-        body: JSON.stringify({
-          app_metadata: {
-            faunadb_token: key.secret,
-            // we discard the credential, and can create a new one if we ever need a new token
-            // faunadb_credential : password
-          },
-        }),
-      }),
-    )
-    .catch(e => {
+    .then((user) => obtainToken(user, password))
+    .then((key) => callback(null, {
+      statusCode: 200,
+      body: JSON.stringify({
+        app_metadata: {
+          faunadb_token: key.secret,
+          // we discard the credential, and can create a new one if we ever need a new token
+          // faunadb_credential : password
+        } 
+}),
+    })).catch((e) => {
       console.error(e)
       callback(null, {
         statusCode: 500,
@@ -60,3 +57,4 @@ export function handler (event, context, callback) {
       })
     })
 }
+module.exports = { handler: handler }

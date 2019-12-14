@@ -1,9 +1,9 @@
-import React, { ConcurrentMode, StrictMode } from 'react';
-import ReactDOM from 'react-dom';
-import './styles.css';
-import './index.css';
-import App from './App';
-import AppHeader from './components/AppHeader';
+import React, { ConcurrentMode, StrictMode } from 'react'
+import ReactDOM from 'react-dom'
+import './styles.css'
+import './index.css'
+import App from './hooksTodo'
+import AppHeader from './components/AppHeader'
 
 ReactDOM.render(
   <ConcurrentMode>
@@ -13,4 +13,5 @@ ReactDOM.render(
     </StrictMode>
   </ConcurrentMode>,
   document.getElementById('root')
-);
+)
+

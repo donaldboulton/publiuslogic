@@ -5,7 +5,7 @@ import Content from '../Content'
 import PropTypes from 'prop-types'
 import Menu4 from 'react-burger-menu/lib/menus/stack'
 import Bio from '../Bio'
-import ToDo from '../Todo'
+import ToDo from '../Todo/functionsToDo'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
 const StyledUsersTableMenu = styled.div` 
@@ -126,12 +126,14 @@ const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
             <ul className='linktoc'>
               <li>
                 <ul>
+                  <li><Link to='/users#gatsby-ferverless-faunaDB'>Gatsby Serverless FaunaDB</Link></li>
+                  <li><Link to='/users#Functions'>Functions</Link></li>
                   <li><Link to='/users#ToDo'>ToDo</Link></li>
-                  <li><Link to='/about#Styling-with-Bluma-and-styled-css-grid-'>Bluma & ccs-Grid</Link></li>
+                  <li><Link to='/users#Functions'>Functions</Link></li>
                   <ul>
-                    <li><Link to='/about#Server-less'>Serverless</Link></li>
+                    <li><Link to='/users#netlifyIdentity'>netlifyIdentity</Link></li>
                   </ul>
-                  <li><Link to='/about#-gatsby-starter-publius'>Gatsby Starter Publius</Link></li>
+                  <li><Link to='/about#g'>Gatsby Starter Publius</Link></li>
                 </ul>
                 <li><Link to='/about#Authentication'>Authentication</Link></li>
                 <ul>
@@ -155,6 +157,7 @@ const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               <div>
                 <PageContent className='content' content={content} />
               </div>
+                <p>test</p>
               <hr />
               <div className='column is-10 is-offset-1'>
                 <h3>Leave a ToDo for changes or issues.</h3>
