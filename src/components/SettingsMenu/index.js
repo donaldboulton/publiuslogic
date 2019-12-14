@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import './SettingsMenu.css'
-
+import styles from './SettingsMenu.css' // eslint-disable-line
 export default class Menu extends Component {
   componentDidMount () {
     // attach event listeners
