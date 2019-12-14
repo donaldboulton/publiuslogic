@@ -38,7 +38,7 @@ export const isLoggedIn = () => {
   return !!user
 }
 
-export const dologout = callback => {
+export const doLogout = callback => {
   netlifyIdentity.logout()
   netlifyIdentity.on('logout', () => {
     setUser({})
