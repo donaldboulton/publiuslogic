@@ -181,6 +181,16 @@ body.light-mode {
     background: #00c2b2;
     color: #dbdbdb;
   }
+  .todo-item button {
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2))) !important;
+    background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
+    background-color: #00a396 !important;
+    color: #ffffff;
+  }
+  .todo-create-input {
+    appearance: none;
+    border: 1px solid rgba(0,163,150,.5) !important;
+  }
   .modali-close-button {
     background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2)));
     background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
@@ -416,7 +426,10 @@ body.dark-mode textarea:focus {
   border-radius: 3px;
   box-shadow: 0 0 0 2px rgba(218,27,0,.2) !important;
 }
-
+body.dark-mode .todo-create-input {
+  appearance: none;
+  border: 1px solid rgba(218,27,0,.2) !important;
+}
 body.dark-mode .navbar-dropdown {
   background-color: #1d1d1d !important;
   border-top: 2px solid #1d1d1d !important;
@@ -515,6 +528,13 @@ body.dark-mode strong {
 body.dark-mode .tag:not(body).is-primary {
   background-color: #d64000;
   color: #fff;
+}
+body.dark-mode .todo-item button {
+  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60));
+  background: linear-gradient(90deg,#d64000,#da1b60);
+  background-color: #d64000 !important;
+  border-color: transparent !important;
+  color: #dbdbdb;
 }
 body.dark-mode table thead th {
   border-width: 0 0 2px;

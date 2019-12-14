@@ -293,7 +293,7 @@ export default class App extends Component {
           </h2>
           <form className='todo-create-wrapper' onSubmit={this.saveTodo}>
             <input
-              className='todo-create-input input'
+              className='todo-create-input'
               placeholder='Add a todo item'
               name='name'
               ref={el => this.inputElement = el}
@@ -301,7 +301,7 @@ export default class App extends Component {
               style={{ marginRight: 20 }}
             />
             <div className='todo-actions'>
-              <button className='todo-create-button button'>
+              <button className='todo-create-button'>
                 Create todo
               </button>
               <SettingsIcon onClick={this.openModal} className='desktop-toggle' />
