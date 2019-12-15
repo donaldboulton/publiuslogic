@@ -5,7 +5,7 @@ import Content from '../Content'
 import PropTypes from 'prop-types'
 import Menu4 from 'react-burger-menu/lib/menus/stack'
 import Bio from '../Bio'
-import ToDo from '../ToDo/functionsToDo'
+import ToDo from '../ToDo'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
 const StyledUsersTableMenu = styled.div` 
