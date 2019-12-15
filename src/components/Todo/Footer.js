@@ -1,61 +1,59 @@
-import React, { Component } from 'react'
-import Utils, { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from './utils'
+import React from 'react'
+import { Link } from '@reach/router'
 import classNames from 'classnames'
 
-class TodoFooter extends Component {
-  render () {
-    var activeTodoWord = Utils.pluralize(this.props.count, 'item')
-    var clearButton = null
+function TodoFooter ({
+  count,
+  uri,
+  completedCount,
+  onClearCompleted,
+  nowShowing,
+}) {
+  var activeTodoWord = count > 1 ? 'items' : 'item'
+  var clearButton = null
 
-    if (this.props.completedCount > 0) {
-      clearButton = (
-        <button
-          className='clear-completed'
-          onClick={this.props.onClearCompleted}
-        >
-          Clear completed
-        </button>
-      )
-    }
-
-    var nowShowing = this.props.nowShowing
-    return (
-      <footer className='footer'>
-        <span className='todo-count'>
-          <strong>{this.props.count}</strong> {activeTodoWord} left
-        </span>
-        <ul className='filters'>
-          <li>
-            <a
-              href='#/'
-              className={classNames({ selected: nowShowing === ALL_TODOS })}
-            >
-               All
-            </a>
-          </li>
-          {' '}
-          <li>
-            <a
-              href='#/active'
-              className={classNames({ selected: nowShowing === ACTIVE_TODOS })}
-            >
-              Active
-            </a>
-          </li>
-          {' '}
-          <li>
-            <a
-              href='#/completed'
-              className={classNames({ selected: nowShowing === COMPLETED_TODOS })}
-            >
-              Completed
-            </a>
-          </li>
-        </ul>
-        {clearButton}
-      </footer>
+  if (completedCount > 0) {
+    clearButton = (
+      <button className='clear-completed' onClick={onClearCompleted}>
+        Clear completed
+      </button>
     )
   }
+
+  return (
+    <footer className='footer'>
+      <span className='todo-count'>
+        <strong>{count}</strong> {activeTodoWord} left
+      </span>
+      <ul className='filters'>
+        <li>
+          <Link
+            to={uri}
+            className={classNames({ selected: nowShowing === 'all' })}
+          >
+            All
+          </Link>
+        </li>{' '}
+        <li>
+          <Link
+            to={uri + '/active'}
+            className={classNames({ selected: nowShowing === 'active' })}
+          >
+            Active
+          </Link>
+        </li>{' '}
+        <li>
+          <Link
+            to={uri + '/completed'}
+            className={classNames({ selected: nowShowing === 'completed' })}
+          >
+            Completed
+          </Link>
+        </li>
+      </ul>
+      {clearButton}
+    </footer>
+  )
 }
 
 export default TodoFooter

@@ -3,7 +3,7 @@ import { Router, Link, navigate } from '@reach/router'
 import useFauna from '../../hooks/useFauna'
 import useNetlifyIdentity from '../../hooks/useNetlifyIdentity'
 import { FaunaCtx, UserCtx } from './contexts'
-import Footer from '../Footer'
+import Footer from './Footer'
 import Spinner from '../Spinner'
 import InputArea from './InputArea'
 import TodoItem from './hooksTodoItem'
@@ -67,6 +67,7 @@ function List (props) {
   useEffect(
     () =>
       client &&
+      // eslint-disable-next-line no-void
       void fetchList(listId)
         .then(setState)
         .catch(err => console.log({ err }) || setState({ err })),

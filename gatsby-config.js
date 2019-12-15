@@ -139,7 +139,7 @@ module.exports = {
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['interactive-counter', 'Reviews'] },
+            options: { components: ['interactive-counter', 'interactive-hit-counter', 'interactive-todo'] },
           },
           {
             resolve: 'gatsby-remark-normalize-paths',

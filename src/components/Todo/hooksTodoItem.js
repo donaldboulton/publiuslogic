@@ -5,7 +5,7 @@ import classNames from 'classnames'
 var ESCAPE_KEY = 27
 var ENTER_KEY = 13
 
-class HooksTodoItem extends Component {
+class TodoItem extends Component {
   state = { editText: this.props.todo.title };
   EditFieldRef = React.createRef();
   handleSubmit = event => {
@@ -97,4 +97,4 @@ class HooksTodoItem extends Component {
     )
   }
 }
-export default HooksTodoItem
+export default TodoItem

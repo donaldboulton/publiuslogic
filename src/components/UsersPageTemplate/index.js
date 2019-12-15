@@ -5,7 +5,7 @@ import Content from '../Content'
 import PropTypes from 'prop-types'
 import Menu4 from 'react-burger-menu/lib/menus/stack'
 import Bio from '../Bio'
-import ToDo from '../Todo/hooksToDo'
+import ToDo from '../ToDo/functionsToDo'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
 const StyledUsersTableMenu = styled.div` 
@@ -157,7 +157,7 @@ const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               <div>
                 <PageContent className='content' content={content} />
               </div>
-                <p>test</p>
+              <p>test</p>
               <hr />
               <div className='column is-10 is-offset-1'>
                 <h3>Leave a ToDo for changes or issues.</h3>

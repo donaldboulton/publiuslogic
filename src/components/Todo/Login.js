@@ -1,7 +1,7 @@
+import './login.css'
 import React, { Component } from 'react'
-import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
-import netlifyIdentity from '../IdentityWidget/netlify-identity'
 
+import netlifyIdentity from '../IdentityWidget/netlify-identity'
 export const isBrowser = () => typeof window !== 'undefined'
 export const initAuth = () => {
   if (isBrowser()) {
@@ -11,42 +11,6 @@ export const initAuth = () => {
   }
 }
 
-// Local Auth Storage or Netlify Identity & CMS
-export const getUser = () =>
-  isBrowser() && window.localStorage.getItem('netlifyUser')
-    ? JSON.parse(window.localStorage.getItem('netlifyUser'))
-    : {}
-
-const setUser = user =>
-  window.localStorage.setItem('netlifyUser', JSON.stringify(user))
-
-export const handleLogin = callback => {
-  if (isLoggedIn()) {
-    callback(getUser())
-  } else {
-    netlifyIdentity.open()
-    netlifyIdentity.on('login', user => {
-      setUser(user)
-      callback(user)
-    })
-  }
-}
-
-export const isLoggedIn = () => {
-  if (!isBrowser()) return false
-  const user = netlifyIdentity.currentUser()
-  return !!user
-}
-
-export const logout = callback => {
-  netlifyIdentity.logout()
-  netlifyIdentity.on('logout', () => {
-    setUser({})
-    callback()
-  })
-}
-
-// Local and Database Auth Storage for fauna Login state
 function saveLogin () {
   if (netlifyIdentity && netlifyIdentity.currentUser()) {
     const {
@@ -68,7 +32,6 @@ function clearLogin () {
 class Login extends Component {
   constructor (props) {
     super(props)
-    this.handleLogIn = this.handleLogIn.bind(this)
     this.state = {}
   }
 
@@ -106,11 +69,11 @@ class Login extends Component {
     this.props.onAuthChange(null)
   }
 
-  handleLogin () {
+  doLogin () {
     netlifyIdentity.open()
   }
 
-  handleLogout () {
+  doLogout () {
     // remove credentials and refresh model
     netlifyIdentity.logout()
     clearLogin()
@@ -119,12 +82,12 @@ class Login extends Component {
 
   render () {
     var actionForm = <span>
-      <button id='mySigninBtn' aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogin.bind(this)}><SignInAlt size='1.2em' color='#f5f5f5' /></button>
-    </span>
+      <a onClick={this.doLogin.bind(this)}>Login or Sign Up</a>
+                     </span>
     return (
-      <div>
+  <div className='Login'>
         {this.state.user
-          ? <button id='mySignOutBtn' aria-label='Sign Out' className='button-transparent' type='button' onClick={this.handleLogout.bind(this)}><SignOutAlt size='1.2em' color='#f5f5f5' /></button>
+          ? <a onClick={this.doLogout.bind(this)}>Logout</a>
           : actionForm}
       </div>
     )

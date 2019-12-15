@@ -61,6 +61,9 @@ body.light-mode {
   code {
     background: transparent !important;
   }    
+  .gatsby-code-title {
+    background: #00c2b2 !important;
+  }
   h1, .h1 {
     background: radial-gradient(
       circle farthest-corner at center center,
@@ -307,6 +310,10 @@ body.dark-mode {
 
 body.dark-mode .card {
   color: #cccccc !important;
+}
+.gatsby-code-title {
+  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important;
+  background: linear-gradient(90deg,#d64000,#8e0436) !important;
 }
 body.dark-mode .a {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436));

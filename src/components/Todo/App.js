@@ -1,237 +1,199 @@
-import React, { Component } from 'react'
-import { Router } from '@reach/router'
+import React, { useState, useEffect, useContext } from 'react'
+import { Router, Link, navigate } from '@reach/router'
+import useFauna from '../../hooks/useFauna'
+import useNetlifyIdentity from '../../hooks/useNetlifyIdentity'
+import { FaunaCtx, UserCtx } from 'contexts'
+import Footer from './Footer'
+import Spinner from '../Spinner'
+import InputArea from './InputArea'
+import TodoItem from './hooksTodoItem'
+import './login.css'
 
-import TodoFooter from './Footer'
-import TodoItem from './TodoItem'
-import Login from '../Login'
-// import ListChooser from './ListChooser';
-import { ALL_LISTS, ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from './utils'
+const NotFound = () => (
+  <div>
+    <h2>Not found</h2>
+    <p>Sorry, nothing here.</p>
+    <Link to='/'>Go back to the main page.</Link>
+  </div>
+)
 
-const ENTER_KEY = 13
-
-class App extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      nowShowing: ALL_LISTS,
-      editing: null,
-      newTodo: '',
-      faunadb_token: null,
-    }
-  }
-
-  componentDidMount () {
-    var setState = this.setState
-    var router = Router({
-      '/': setState.bind(this, { nowShowing: ALL_LISTS }),
-      '/list/:listId/': (listId) => {
-        this.props.model.getList(listId)
-        this.setState({ nowShowing: ALL_TODOS })
-      },
-      '/list/:listId/active': (listId) => {
-        this.props.model.getList(listId)
-        this.setState({ nowShowing: ACTIVE_TODOS })
-      },
-      '/list/:listId/completed': (listId) => {
-        this.props.model.getList(listId)
-        this.setState({ nowShowing: COMPLETED_TODOS })
-      },
-    })
-    router.init('/')
-  }
-
-  // componentWillReceiveProps() {
-  //   console.log(this, arguments)
-  // }
-  handleChange (event) {
-    this.setState({ newTodo: event.target.value })
-  }
-
-  handleNewTodoKeyDown (event) {
-    if (event.keyCode !== ENTER_KEY) {
-      return
-    }
-
-    event.preventDefault()
-
-    var val = this.state.newTodo.trim()
-
-    if (val) {
-      if (this.state.nowShowing === ALL_LISTS) {
-        this.props.model.addList(val)
-      } else {
-        this.props.model.addTodo(val, this.props.model.list())
-      }
-      this.setState({ newTodo: '' })
-    }
-  }
-
-  toggleAll (event) {
-    var checked = event.target.checked
-    this.props.model.toggleAll(checked, this.props.model.list())
-  }
-
-  toggle (todoToToggle) {
-    this.props.model.toggle(todoToToggle)
-  }
-
-  destroy (todo) {
-    this.props.model.destroy(todo)
-  }
-
-  edit (todo) {
-    this.setState({ editing: todo.ref })
-  }
-
-  save (todoToSave, text) {
-    this.props.model.save(todoToSave, text)
-    this.setState({ editing: null })
-  }
-
-  cancel () {
-    this.setState({ editing: null })
-  }
-
-  clearCompleted () {
-    this.props.model.clearCompleted(this.props.model.list())
-  }
-
-  onAuthChange (faunadb_token) {
-    console.log('app.js onAuthChange', faunadb_token)
-    this.setState({ faunadb_token })
-    this.props.model.onAuthChange(faunadb_token)
-  }
-
-  onError (error) {
-    this.setState({ error })
-  }
-
-  go (link) {
-    window.location.hash = link
-  }
-
-  render () {
-    console.log('model', this.props.model)
-    var footer, listNavigator
-    var main
-    var inputArea
-    if (this.state.nowShowing === ALL_LISTS) {
-      var lists = this.props.model.lists
-      main = (
-        <section className='main'>
-          <ul className='todo-list'>
-            {lists.map(
-              ({ data, ref }) => {
-                console.log('list', data, ref)
-                return <li key={ref.value.id}>
-                  <label onClick={this.go.bind(this, '/list/' + ref.value.id)}>
-                    {data.title}
-                  </label>
-                </li>
-              },
-
-            )}
-          </ul>
-        </section>
-      )
-      inputArea = <input
-        className='new-todo'
-        placeholder='Create a new list or choose from below.'
-        value={this.state.newTodo}
-        onKeyDown={this.handleNewTodoKeyDown.bind(this)}
-        onChange={this.handleChange.bind(this)}
-        autoFocus
-      />
-      listNavigator = <div className='listNav'>
-        <label>Choose a list.</label>
-      </div>
-    } else {
-      var todos = this.props.model.todos()
-
-      listNavigator = <div className='listNav'>
-        <label>{this.props.model.list() && this.props.model.list().data.title}</label>
-        <button onClick={this.go.bind(this, '/')}>back to all lists</button>
-      </div>
-
-      var shownTodos = todos.filter(function (todo) {
-        switch (this.state.nowShowing) {
-          case ACTIVE_TODOS:
-            return !todo.data.completed
-          case COMPLETED_TODOS:
-            return todo.data.completed
-          default:
-            return true
-        }
-      }, this)
-
-      var todoItems = shownTodos.map(function (todo) {
-        return (
-          <TodoItem
-            key={todo.ref.value.id}
-            todo={todo.data}
-            onToggle={this.toggle.bind(this, todo)}
-            onDestroy={this.destroy.bind(this, todo)}
-            onEdit={this.edit.bind(this, todo)}
-            editing={this.state.editing === todo.ref}
-            onSave={this.save.bind(this, todo)}
-            onCancel={this.cancel.bind(this)}
-          />
-        )
-      }, this)
-
-      var activeTodoCount = todos.reduce(function (accum, todo) {
-        return (todo.data && todo.data.completed) ? accum : accum + 1
-      }, 0)
-
-      var completedCount = todos.length - activeTodoCount
-
-      if (activeTodoCount || completedCount) {
-        footer =
-          <TodoFooter
-            count={activeTodoCount}
-            completedCount={completedCount}
-            nowShowing={this.state.nowShowing}
-            onClearCompleted={this.clearCompleted.bind(this)}
-          />
-      }
-
-      if (todos.length) {
-        main = (
-          <section className='main'>
-            <input
-              className='toggle-all'
-              type='checkbox'
-              onChange={this.toggleAll.bind(this)}
-              checked={activeTodoCount === 0}
-            />
-            <ul className='todo-list'>
-              {todoItems}
-            </ul>
-          </section>
-        )
-      }
-      inputArea = <input
-        className='new-todo'
-        placeholder='What needs to be done?'
-        value={this.state.newTodo}
-        onKeyDown={this.handleNewTodoKeyDown.bind(this)}
-        onChange={this.handleChange.bind(this)}
-        autoFocus
-      />
-    }
-    return (
-      <div>
-        <header className='header'>
-          <h1>todos</h1>
-          <Login model={this.props.model} onError={this.onError.bind(this)} onAuthChange={this.onAuthChange.bind(this)} />
-          {this.state.faunadb_token ? listNavigator : ''}
-          {this.state.faunadb_token ? inputArea : ''}
-        </header>
-        {main}
-        {footer}
-      </div>
-    )
-  }
+function Login () {
+  const { user, doLogin, doLogout } = useContext(UserCtx)
+  const style = { cursor: 'pointer' }
+  var actionForm = (
+    <span>
+      <button style={style} onClick={doLogin}>
+        Login or Sign Up
+      </button>
+    </span>
+  )
+  return (
+    <div className='Login'>
+      {user ? (
+        <button style={style} onClick={doLogout}>
+          Logout
+        </button>
+      ) : (
+        actionForm
+      )}
+    </div>
+  )
 }
 
-export default App
+function List (props) {
+  const {
+    fetchList,
+    isLoading,
+    client,
+    addTodo,
+    toggle,
+    destroy,
+    load,
+    clearCompleted,
+    save,
+  } = useContext(FaunaCtx)
+  const [state, setState] = useState(null)
+  const { listId, uri } = props
+  const pathFlag = props.path.split('/')[1] || 'all'
+
+  const shownTodos =
+    state &&
+    state.todos &&
+    {
+      all: state.todos,
+      active: state.todos.filter(todo => !todo.data.completed),
+      completed: state.todos.filter(todo => todo.data.completed),
+    }[pathFlag]
+  useEffect(
+    () =>
+      client &&
+      // eslint-disable-next-line no-void
+      void fetchList(listId)
+        .then(setState)
+        .catch(err => console.log({ err }) || setState({ err })),
+    [client, fetchList, listId],
+  )
+  const [editing, setEditing] = useState(null)
+  const edit = todo => () => setEditing(todo.ref)
+  const onClearCompleted = () =>
+    load(clearCompleted(state.list, listId).then(setState))
+  return (
+    <div>
+      {(isLoading || !state || !state.list) && <Spinner />}
+      <div className='listNav'>
+        <label>List: {state && state.list.data.title}</label>
+        <button onClick={() => navigate('/')}>back to all lists</button>
+      </div>
+      <ul className='todo-list'>
+        {state && state.err ? (
+          <div>{JSON.stringify(state.err, null, 2)} </div>
+        ) : (
+          shownTodos &&
+          shownTodos.map(todo => {
+            const handle = fn => () => load(fn(todo, listId).then(setState))
+            return (
+              <TodoItem
+                key={todo.ref.value.id}
+                todo={todo.data}
+                onToggle={handle(toggle)}
+                onDestroy={handle(destroy)}
+                onEdit={edit(todo)}
+                editing={editing === todo.ref}
+                onSave={val => handle(save(val))()}
+                onCancel={console.log}
+              />
+            )
+          })
+        )}
+      </ul>
+      <InputArea
+        onSubmit={title =>
+          load(addTodo(state.list, listId)(title).then(setState))}
+        placeholder='Add a new item to your list.'
+      />
+
+      {state && state.todos && (
+        <Footer
+          count={shownTodos.length}
+          completedCount={
+            state.todos.filter(todo => todo.data.completed).length
+          }
+          onClearCompleted={onClearCompleted}
+          nowShowing={pathFlag}
+          uri={uri
+            .split('/')
+            .slice(0, 3)
+            .join('/')}
+        />
+      )}
+    </div>
+  )
+}
+function AllLists () {
+  const { lists, isLoading, addList, load, getServerLists } = useContext(
+    FaunaCtx,
+  )
+  const onSubmit = title => load(addList(title))
+  return (
+    <div>
+      <div className='listNav'>
+        <label>Choose a list.</label>
+      </div>
+      <section className='main'>
+        {isLoading && <Spinner />}
+        <ul className='todo-list'>
+          {lists.map(({ data, ref }) => {
+            return (
+              <li key={ref.value.id}>
+                {/* <label onClick={() => alert('go')}>{data.title}</label> */}
+                <label>
+                  <Link to={`/list/${ref.value.id}`}>{data.title}</Link>
+                </label>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+      <InputArea
+        onSubmit={onSubmit}
+        placeholder='Create a new list or choose from above.'
+      />
+    </div>
+  )
+}
+
+const Wrapper = props => props.children
+
+export default function App (props) {
+  const fauna = useFauna()
+  const { load, onAuthChange, getServerLists } = fauna
+  const identity = useNetlifyIdentity(faunadb_token => {
+    onAuthChange(faunadb_token).then(_client => {
+      if (_client) load(getServerLists(_client))
+    })
+  })
+
+  return (
+    <FaunaCtx.Provider value={fauna}>
+      <UserCtx.Provider value={identity}>
+        <div>
+          <header className='header'>
+            <Login />
+            {identity.user && (
+              <Router>
+                <AllLists path='/' />
+                <Wrapper path='list'>
+                  <List path=':listId' />
+                  <List path=':listId/active' />
+                  <List path=':listId/completed' />
+                  <NotFound default />
+                </Wrapper>
+                <NotFound default />
+              </Router>
+            )}
+          </header>
+        </div>
+      </UserCtx.Provider>
+    </FaunaCtx.Provider>
+  )
+}

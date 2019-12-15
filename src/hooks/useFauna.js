@@ -1,24 +1,25 @@
 import React from 'react'
 
-import { useLoading, useProduceState } from '@swyx/hooks';
-const faunadb = require('faunadb');
-const q = faunadb.query;
+import { useLoading, useProduceState } from '@swyx/hooks'
 
-export default function useFauna() {
-  const [lists, setLists] = React.useState([]);
-  const [client, setClient] = useProduceState(null, getServerLists);
-  const [isLoading, load] = useLoading();
+const faunadb = require('faunadb')
+const q = faunadb.query
+
+export default function useFauna () {
+  const [lists, setLists] = React.useState([])
+  const [client, setClient] = useProduceState(null, getServerLists)
+  const [isLoading, load] = useLoading()
   const onAuthChange = async faunadb_token => {
-    if (!faunadb_token) return null;
+    if (!faunadb_token) return null
     const _client = new faunadb.Client({
-      secret: faunadb_token
-    });
-    setClient(_client);
-    return _client;
+      secret: faunadb_token,
+    })
+    setClient(_client)
+    return _client
   };
 
-  function getServerLists(_client = client) {
-    if (!_client) return null;
+  function getServerLists (_client = client) {
+    if (!_client) return null
 
     return _client
       .query(
@@ -26,86 +27,86 @@ export default function useFauna() {
           q.Paginate(
             q.Match(
               // todo use lists_by_owner
-              q.Ref('indexes/all_lists')
-            )
+              q.Ref('indexes/all_lists'),
+            ),
           ),
-          ref => q.Get(ref)
-        )
+          ref => q.Get(ref),
+        ),
       )
       .then(r => {
         if (r.data.length === 0) {
           // create the first list for the user
-          const me = q.Select('ref', q.Get(q.Ref('classes/users/self')));
+          const me = q.Select('ref', q.Get(q.Ref('classes/users/self')))
 
           return client
             .query(
               q.Create(q.Class('lists'), {
                 data: {
                   title: 'Default Todo List',
-                  owner: q.Select('ref', q.Get(q.Ref('classes/users/self')))
+                  owner: q.Select('ref', q.Get(q.Ref('classes/users/self'))),
                 },
                 permissions: {
                   read: me,
-                  write: me
-                }
-              })
+                  write: me,
+                },
+              }),
             )
-            .then(defaultList => setLists([defaultList]));
+            .then(defaultList => setLists([defaultList]))
         } else {
-          setLists(r.data);
+          setLists(r.data)
         }
-      });
+      })
   }
 
   const fetchList = async id => {
     if (client) {
-      const _list = await client.query(q.Get(q.Ref('classes/lists/' + id)));
+      const _list = await client.query(q.Get(q.Ref('classes/lists/' + id)))
       const resp = await client.query(
         q.Map(q.Paginate(q.Match(q.Index('todos_by_list'), _list.ref)), ref =>
-          q.Get(ref)
-        )
-      );
-      return { list: _list, todos: resp.data };
+          q.Get(ref),
+        ),
+      )
+      return { list: _list, todos: resp.data }
     }
-  };
+  }
 
   const addList = title => {
-    var newList = { title };
-    const me = q.Select('ref', q.Get(q.Ref('classes/users/self')));
-    newList.owner = me;
+    var newList = { title }
+    const me = q.Select('ref', q.Get(q.Ref('classes/users/self')))
+    newList.owner = me
     return client
       .query(
         q.Create(q.Class('lists'), {
           data: newList,
           permissions: {
             read: me,
-            write: me
-          }
-        })
+            write: me,
+          },
+        }),
       )
-      .then(() => getServerLists(client));
+      .then(() => getServerLists(client))
   };
 
   const addTodo = (list, id) => title => {
     var newTodo = {
       title: title,
       list: list.ref,
-      completed: false
-    };
+      completed: false,
+    }
 
-    const me = q.Select('ref', q.Get(q.Ref('classes/users/self')));
-    newTodo.user = me;
+    const me = q.Select('ref', q.Get(q.Ref('classes/users/self')))
+    newTodo.user = me
     return client
       .query(
         q.Create(q.Ref('classes/todos'), {
           data: newTodo,
           permissions: {
             read: me,
-            write: me
-          }
-        })
+            write: me,
+          },
+        }),
       )
-      .then(() => fetchList(id));
+      .then(() => fetchList(id))
   };
 
   // const toggleAll = (checked, list) => {
@@ -125,24 +126,24 @@ export default function useFauna() {
       .query(
         q.Update(todoToToggle.ref, {
           data: {
-            completed: !todoToToggle.data.completed
-          }
-        })
+            completed: !todoToToggle.data.completed,
+          },
+        }),
       )
-      .then(() => fetchList(id));
+      .then(() => fetchList(id))
   };
 
   const destroy = (todo, id) =>
-    client.query(q.Delete(todo.ref)).then(() => fetchList(id));
+    client.query(q.Delete(todo.ref)).then(() => fetchList(id))
 
   const save = text => (todoToSave, id) => {
     return client
       .query(
         q.Update(todoToSave.ref, {
-          data: { title: text }
-        })
+          data: { title: text },
+        }),
       )
-      .then(() => fetchList(id));
+      .then(() => fetchList(id))
   };
 
   const clearCompleted = (list, id) => {
@@ -152,12 +153,13 @@ export default function useFauna() {
           q.If(
             q.Select(['data', 'completed'], q.Get(ref)),
             q.Delete(q.Select('ref', q.Get(ref))),
-            true
-          )
-        )
+            true,
+          ),
+        ),
       )
-      .then(() => fetchList(id));
+      .then(() => fetchList(id))
   };
+
   return {
     lists,
     // list,
@@ -165,7 +167,7 @@ export default function useFauna() {
     addList,
     addTodo,
     // toggleAll,
-    getServerLists,
+    // getServerLists,
     load,
     toggle,
     destroy,
@@ -173,6 +175,6 @@ export default function useFauna() {
     clearCompleted,
     onAuthChange,
     isLoading,
-    client
-  };
+    client,
+  }
 }

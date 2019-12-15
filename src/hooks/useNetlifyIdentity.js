@@ -1,8 +1,18 @@
 import React from 'react'
+import fetch from 'node-fetch'
 
 // -------------- usage --------------
-import netlifyIdentity from '../../src/components/IdentityWidget'
 import { useLocalStorage } from '@swyx/hooks'
+import netlifyIdentity from '../../src/components/IdentityWidget/netlify-identity'
+
+export const isBrowser = () => typeof window !== 'undefined'
+export const initAuth = () => {
+  if (isBrowser()) {
+    window.netlifyIdentity = netlifyIdentity
+    // You must run this once before trying to interact with the widget
+    netlifyIdentity.init()
+  }
+}
 
 export default function useNetlifyIdentity (onAuthChange) {
   if (!onAuthChange) throw new Error('onAuthChange cannot be falsy')
@@ -31,7 +41,8 @@ export default function useNetlifyIdentity (onAuthChange) {
 
   // definition - `item` comes from  useNetlifyIdentity hook
   const genericAuthedFetch = method => (endpoint, obj = {}) => {
-    if (!item || !item.token || !item.token.access_token) { throw new Error('no user token found')}
+    if (!item || !item.token || !item.token.access_token)
+    {throw new Error('no user token found');}
     const defaultObj = {
       headers: {
         Accept: 'application/json',
@@ -43,7 +54,7 @@ export default function useNetlifyIdentity (onAuthChange) {
     return fetch(endpoint, finalObj).then(res =>
       finalObj.headers['Content-Type'] === 'application/json' ? res.json() : res,
     )
-  }
+  };
   const authedFetch = {
     get: genericAuthedFetch('GET'),
     post: genericAuthedFetch('POST'),

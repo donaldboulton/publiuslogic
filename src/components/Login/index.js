@@ -11,42 +11,6 @@ export const initAuth = () => {
   }
 }
 
-// Local Auth Storage or Netlify Identity & CMS
-export const getUser = () =>
-  isBrowser() && window.localStorage.getItem('netlifyUser')
-    ? JSON.parse(window.localStorage.getItem('netlifyUser'))
-    : {}
-
-const setUser = user =>
-  window.localStorage.setItem('netlifyUser', JSON.stringify(user))
-
-export const doLogin = callback => {
-  if (isLoggedIn()) {
-    callback(getUser())
-  } else {
-    netlifyIdentity.open()
-    netlifyIdentity.on('login', user => {
-      setUser(user)
-      callback(user)
-    })
-  }
-}
-
-export const isLoggedIn = () => {
-  if (!isBrowser()) return false
-  const user = netlifyIdentity.currentUser()
-  return !!user
-}
-
-export const doLogout = callback => {
-  netlifyIdentity.logout()
-  netlifyIdentity.on('logout', () => {
-    setUser({})
-    callback()
-  })
-}
-
-// Local and Database Auth Storage for fauna Login state
 function saveLogin () {
   if (netlifyIdentity && netlifyIdentity.currentUser()) {
     const {
@@ -118,12 +82,12 @@ class Login extends Component {
 
   render () {
     var actionForm = <span>
-      <button id='mySigninBtn' aria-label='Sign In' className='button-transparent' type='button' onClick={this.doLogin.bind(this)}>Login&nbsp;<SignInAlt size='1.1em' color='#f5f5f5' /></button>
-    </span>
+      <a onClick={this.doLogin.bind(this)}>Login&nbsp;<SignInAlt size='1.1em' color='#f5f5f5' /></a>
+                     </span>
     return (
       <div>
         {this.state.user
-          ? <button id='mySignOutBtn' aria-label='Sign Out' className='button-transparent' type='button' onClick={this.doLogout.bind(this)}><SignOutAlt size='1.1em' color='#f5f5f5' />&nbsp;LogOut</button>
+          ? <a onClick={this.doLogout.bind(this)}><SignOutAlt size='1.1em' color='#f5f5f5' />&nbsp;LogOut</a>
           : actionForm}
       </div>
     )
