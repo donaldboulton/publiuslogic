@@ -170,6 +170,12 @@ body.light-mode {
     border-radius: 3px;
     box-shadow: 0 0 0 2px rgba(0,163,150,.2) !important;
   }
+  .todo-create-input {
+    appearance: none;
+    border: 1px solid rgba(0,163,150,.5) !important;
+    background: -webkit-gradient(linear,left top,right top,from(#00a396),to(#00c2b2)) !important;
+    background: linear-gradient(90deg,#00a396,#00c2b2) !important;
+  }
   .tag:not(body).is-primary {
     background-color: #00a396;
     color: #343434;
@@ -184,15 +190,11 @@ body.light-mode {
     background: #00c2b2;
     color: #dbdbdb;
   }
-  .todo-item button {
+  .todo-create-button {
     background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2))) !important;
     background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
     background-color: #00a396 !important;
     color: #ffffff;
-  }
-  .todo-create-input {
-    appearance: none;
-    border: 1px solid rgba(0,163,150,.5) !important;
   }
   .modali-close-button {
     background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2)));
@@ -434,8 +436,13 @@ body.dark-mode textarea:focus {
   box-shadow: 0 0 0 2px rgba(218,27,0,.2) !important;
 }
 body.dark-mode .todo-create-input {
-  appearance: none;
-  border: 1px solid rgba(218,27,0,.2) !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
+  border-left: 3px solid #812102 !important;
+  border-right: 1px solid #434040 !important;
+  border-bottom: 1px solid #434040 !important;
+  border-top: 1px solid #434040 !important;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
 }
 body.dark-mode .navbar-dropdown {
   background-color: #1d1d1d !important;
@@ -536,7 +543,7 @@ body.dark-mode .tag:not(body).is-primary {
   background-color: #d64000;
   color: #fff;
 }
-body.dark-mode .todo-item button {
+body.dark-mode .todo-create-button {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60));
   background: linear-gradient(90deg,#d64000,#da1b60);
   background-color: #d64000 !important;
