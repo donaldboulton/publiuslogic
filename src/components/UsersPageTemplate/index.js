@@ -157,10 +157,9 @@ const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               <div>
                 <PageContent className='content' content={content} />
               </div>
-              <p>test</p>
               <hr />
               <div className='column is-10 is-offset-1'>
-                <h3>Leave a ToDo for changes or issues.</h3>
+                <h3>Leave a ToDo.</h3>
                 <ToDo />
               </div>
             </div>
