@@ -9,7 +9,7 @@ import styled from 'styled-components'
 import PrivacyPageTemplate from '../components/PrivacyPageTemplate'
 import Global from '../components/Global'
 import config from '../../_data/config'
-import Bio from '../Bio'
+import Bio from '../components/Bio'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
 const Styledh1 = styled.h1`
@@ -93,7 +93,6 @@ const StyledUsersTableMenu = styled.div`
     max-height: 78vh;
   }
 `
-
 const Title = styled.h2`
   margin: 0;
   padding-bottom: 0.5em;
