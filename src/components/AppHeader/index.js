@@ -1,8 +1,18 @@
 import React from 'react'
+import styled from 'styled-components'
 import deployButton from '../../assets/img/deploy-to-netlify.svg'
 import logo from '../../assets/img/logo.svg'
 import github from '../../assets/img/github.svg'
 import styles from './AppHeader.css'; // eslint-disable-line
+
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 2rem;
+  margin: 0px;
+  margin-top: 10px;
+`
 
 const AppHeader = props => {
   return (
@@ -12,7 +22,9 @@ const AppHeader = props => {
           <div className='app-left-nav'>
             <img src={logo} className='app-logo' alt='logo' />
             <div className='app-title-text'>
-              <h1 className='app-title'>Netlify + Fauna DB</h1>
+              <Styledh1>
+                Netlify + Fauna DB
+              </Styledh1>
               {/* <p className="app-intro">Using FaunaDB & Netlify functions</p> */}
             </div>
           </div>
@@ -21,7 +33,7 @@ const AppHeader = props => {
           <a
             target='_blank'
             rel='noopener noreferrer'
-            href='https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/netlify-identity-fauna-reddit-clone&stack=fauna'
+            href='https://app.netlify.com/start/deploy?repository=https://github.com/netlify/netlify-faunadb-example&stack=fauna'
           >
             <img
               src={deployButton}
@@ -33,7 +45,7 @@ const AppHeader = props => {
             <a
               target='_blank'
               rel='noopener noreferrer'
-              href='https://github.com/sw-yx/netlify-fauna-todo'
+              href='https://github.com/netlify/netlify-faunadb-example'
             >
               <img
                 className='github-icon'

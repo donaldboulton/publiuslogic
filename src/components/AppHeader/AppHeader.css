@@ -11,7 +11,7 @@
   flex-grow: 1;
 }
 .app-header {
-  background-color: #222;
+  background-color: #272822;
   height: 135px;
   padding: 20px;
   color: white;
@@ -47,14 +47,13 @@
 }
 .view-src a {
   text-decoration: none;
-  color: #fff;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .github-icon {
   width: 25px;
-  fill: white;
 }
 
 .todo-list li a {

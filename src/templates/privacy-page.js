@@ -6,6 +6,9 @@ import { HTMLContent } from '../components/Content'
 import PostCover from '../components/PostCover'
 import Menu5 from 'react-burger-menu/lib/menus/stack'
 import styled from 'styled-components'
+import GithubButtonsRepo from '../components/GithubButtonsRepo'
+import { Calendar } from 'styled-icons/octicons/Calendar'
+import { Timer } from 'styled-icons/material/Timer'
 import PrivacyPageTemplate from '../components/PrivacyPageTemplate'
 import Global from '../components/Global'
 import config from '../../_data/config'
@@ -123,6 +126,18 @@ const UsersTableOfContents = styled.div`
     color: ${props => props.theme.white};
   }
 `
+const Time = styled.span`
+  font-size: 0.9rem;
+  color: ${props => props.theme.white};
+`
+const Date = styled.span`
+  font-size: 0.9em;
+  color: ${props => props.theme.white};
+`
+const GithubButtons = styled.span`
+  right: 2em;
+  padding: 0.5em;
+`
 
 const PrivacyPage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -224,17 +239,19 @@ const PrivacyPage = ({ data }) => {
                   <ul>
                     <li><Link to='/privacy/#Cookies-in-EU-Law'>Cookies and EU Law</Link></li>
                     <li><Link to='/privacy/#Disabling-Cookies'>Disable Cookies</Link></li>
-                    <li><Link to='/privacy/#Google-Analytics'>Google Analytics</Link></li>
+                  </ul>
+                  <li><Link to='/privacy/#Google-Analytics'>Google Analytics</Link></li>
+                  <ul>
                     <li><Link to='/privacy/#Analytics-Cookie-Types'>Analytics Cookie Types</Link></li>
                     <li><Link to='/privacy/#Opt-out'>Opt Out</Link></li>
-                    <li><Link to='/privacy/#Hubspot-__hstc-Cookie'>Hubspot __hstc</Link></li>
+                  </ul>
+                  <li><Link to='/privacy/#Hubspot-__hstc-Cookie'>Hubspot __hstc</Link></li>
+                  <ul>
                     <li><Link to='/privacy/#Key-numbers-for-__hstc'>Key-numbers-for-__hstc</Link></li>
                   </ul>
+                  <li><Link to='/privacy/#Privacy-Google'>Privacy Google</Link></li>
                   <ul>
-                    <li><Link to='/privacy/#Privacy-Google'>Privacy Google</Link></li>
-                    <ul>
-                      <li><Link to='/privacy/#You-can-read-Google-Analytics-Privacy-Policy'>Anylitics Privacy</Link></li>
-                    </ul>
+                    <li><Link to='/privacy/#You-can-read-Google-Analytics-Privacy-Policy'>Anylitics Privacy</Link></li>
                   </ul>
                 </ul>
                 <li><Link to='/privacy/#Google-AdSense'>Google AdSense</Link></li>
@@ -247,7 +264,6 @@ const PrivacyPage = ({ data }) => {
             <li><Link to='/privacy/#Donation-Policy'>Donation Policy</Link></li>
             <li><Link to='/privacy/#Comment-Policy'>Comment Policy</Link></li>
             <li><Link to='/privacy/#Disclosure-Policy'>Discloser Policy</Link></li>
-            <li><Link to='/privacy/#License'>Comment Policy</Link></li>
           </UsersTableOfContents>
         </Menu5>
       </StyledUsersTableMenu>
@@ -264,14 +280,25 @@ const PrivacyPage = ({ data }) => {
             <Styledh1>
               {post.frontmatter.title}
             </Styledh1>
-            <p>Users Privacy & Terms of Site Usage.</p>
-            <p>
-            🔐 For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>
-            </p>
           </div>
-          <div>
+          <div className='column is-9 is-offset-1'>
             <Bio />
+            <div className='columns is-desktop is-vcentered'>
+              <div className='column is-7'>
+                <span className='subtitle is-size-5'>
+                  <Calendar size='0.9em' />&nbsp;
+                  <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
+                  <Timer size='0.9em' />&nbsp;
+                  <Time>{post.timeToRead}&nbsp;min read</Time>
+                </span>
+              </div>
+              <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
+            </div>
           </div>
+          <p>Users Privacy & Terms of Site Usage.</p>
+          <p>
+            🔐 For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>
+          </p>
         </div>
       </section>
       <PrivacyPageTemplate
@@ -297,7 +324,9 @@ export const privacyPageQuery = graphql`
   query PrivacyPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
+      timeToRead
       frontmatter {
+        date(formatString: "MMMM DD, YYYY")
         title
         cover
         meta_title

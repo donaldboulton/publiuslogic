@@ -262,6 +262,10 @@ body.light-mode {
   .card {
     color: #343434 !important;
   }
+  .github-icon {
+    width: 32px;
+    fill: black !important;
+  }
 }
 
 body.dark-mode {
@@ -553,6 +557,10 @@ body.dark-mode .todo-create-button {
 body.dark-mode table thead th {
   border-width: 0 0 2px;
   color: #dbdbdb !important;
+}
+body.dark-mode .github-icon {
+  width: 32px;
+  fill: white !important;
 }
 .dark-mode-toggle {
   display: flex;

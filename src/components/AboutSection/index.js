@@ -1,5 +1,5 @@
 import React from 'react'
-import github from '../../../static/img/GitHub-Mark-Light-64px.png'
+import github from '../../assets/img/github.svg'
 import gatsby from '../../../static/img/gatsby.svg'
 import logo from '../../../static/img/logo.png'
 import webpack from '../../../static/img/ApolloReact-320.png'
@@ -30,6 +30,7 @@ const AboutSection = () => {
                 <figure className='image is-32x32'>
                   <OutboundLink title='Github' to='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
                     <img
+                      className='github-icon'
                       src={github}
                       alt='GitHub'
                     />

@@ -1,5 +1,6 @@
 import React from 'react'
 import Content from '../Content'
+import ToDo from '../ToDo'
 import PropTypes from 'prop-types'
 
 const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
@@ -12,6 +13,19 @@ const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
             <div className='column'>
               <div>
                 <PageContent className='content' content={content} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className='section'>
+        <div className='container'>
+          <div className='columns is-10 is-offset-1'>
+            <div className='column'>
+              <hr />
+              <div className='column is-10 is-offset-1'>
+                <h3>Leave a ToDo.</h3>
+                <ToDo />
               </div>
             </div>
           </div>

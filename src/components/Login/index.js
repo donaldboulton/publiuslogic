@@ -87,7 +87,7 @@ class Login extends Component {
     return (
       <div>
         {this.state.user
-          ? <a onClick={this.doLogout.bind(this)}><SignOutAlt size='1.1em' color='#f5f5f5' />&nbsp;LogOut</a>
+          ? <a onClick={this.doLogout.bind(this)}><SignOutAlt size='1.1em' color='#f5f5f5' />&nbsp;Logout</a>
           : actionForm}
       </div>
     )

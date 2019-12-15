@@ -1,4 +1,4 @@
-/* Api methods to call /functions */
+import fetch from 'node-fetch'
 
 const create = (data) => {
   return fetch('/.netlify/functions/todos-create', {

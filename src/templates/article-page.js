@@ -146,7 +146,8 @@ const Date = styled.span`
   color: ${props => props.theme.white};
 `
 const GithubButtons = styled.span`
-  right: 2px;
+  right: 2em;
+  padding: 0.5em;
 `
 const renderAst = new RehypeReact({
   createElement: React.createElement,

@@ -1,6 +1,8 @@
 ---
 templateKey: users-page
-title: Users
+title: Users Admin
+slug: Users Admin
+date: 2019-11-10T20:20:43.942Z
 cover: /images/users.jpg
 meta_title: Users | Admin
 meta_description: >-
@@ -12,4 +14,4 @@ showToc: true
 
 ## Users ToDo
 
-This Page usage is to be Authenticated, users data is protected.
+Only the todo is here to show off the FaunaDB in Gatsby this will become an Authenticated users profile backend page.

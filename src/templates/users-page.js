@@ -13,7 +13,6 @@ import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Menu4 from 'react-burger-menu/lib/menus/stack'
 import Bio from '../components/Bio'
-import ToDo from '../components/ToDo'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
 const StyledUsersTableMenu = styled.div` 
@@ -283,13 +282,6 @@ const UsersPage = ({ data }) => {
           </div>
         </div>
       </section>
-      <section>
-        <hr />
-        <div className='column is-10 is-offset-1'>
-          <h3>Leave a ToDo.</h3>
-          <ToDo />
-        </div>
-      </section>
       <UsersPageTemplate
         contentComponent={HTMLContent}
         content={post.html}
@@ -313,8 +305,10 @@ export const usersPageQuery = graphql`
   query UsersPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
+      timeToRead
       tableOfContents
       frontmatter {
+        date(formatString: "MMMM DD, YYYY")
         title   
         cover
         meta_title
