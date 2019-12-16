@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
-import netlifyIdentity from '../IdentityWidget/netlify-identity'
+import netlifyIdentity from 'netlify-identity-widget'
 
 const logAuth = process.env.NODE_ENV === 'development' && false // set to true to turn on logging
 const clog = (...args) => logAuth && console.log(...args)
@@ -118,14 +118,14 @@ class Login extends Component {
   }
 
   doLogout () {
-    // remove credentials and refresh model
+    netlifyIdentity.close()
     netlifyIdentity.logout()
     clearLogin()
     this.setState({ user: null })
   }
 
   render () {
-    var actionForm = <span>
+    var actionForm = <span data-netlify-identity-button>
       <a onClick={this.doLogin.bind(this)}>Login&nbsp;<SignInAlt size='1.1em' color='#f5f5f5' /></a>
                      </span>
     return (

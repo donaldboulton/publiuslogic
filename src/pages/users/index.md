@@ -12,6 +12,6 @@ tags:
 showToc: true  
 ---
 
-## Users ToDo
+## 🐦 Users ToDo
 
 Only the todo is here to show off the FaunaDB in Gatsby this will become an Authenticated users profile backend page.

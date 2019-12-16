@@ -39,6 +39,7 @@
     "classnames": "^2.2.6",
     "cloudinary-react": "^1.2.1",
     "cors": "^2.8.5",
+    "create-react-class": "^15.6.3",
     "faunadb": "^2.10.0",
     "fs": "^0.0.1-security",
     "fs-extra": "^7.0.1",
