@@ -1,6 +1,6 @@
 import React from 'react'
 import Content from '../Content'
-import ToDo from '../ToDo'
+import Todo from '../Todo'
 import PropTypes from 'prop-types'
 
 const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
@@ -25,7 +25,7 @@ const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               <hr />
               <div className='column is-10 is-offset-1'>
                 <h3>Leave a ToDo.</h3>
-                <ToDo />
+                <Todo />
               </div>
             </div>
           </div>

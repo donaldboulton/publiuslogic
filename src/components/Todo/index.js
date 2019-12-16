@@ -8,7 +8,7 @@ import sortByDate from '../../utils/sortByDate'
 import isLocalHost from '../../utils/isLocalHost'
 import './styles.css'
 
-export default class ToDo extends Component {
+export default class Todo extends Component {
   state = {
     todos: [],
     showMenu: false,
