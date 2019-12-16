@@ -175,6 +175,7 @@ body.light-mode {
     border: 1px solid rgba(0,163,150,.5) !important;
     background: -webkit-gradient(linear,left top,right top,from(#00a396),to(#00c2b2)) !important;
     background: linear-gradient(90deg,#00a396,#00c2b2) !important;
+    color: black;
   }
   .tag:not(body).is-primary {
     background-color: #00a396;
@@ -447,6 +448,7 @@ body.dark-mode .todo-create-input {
   border-top: 1px solid #434040 !important;
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
+  color: #fff !important;
 }
 body.dark-mode .navbar-dropdown {
   background-color: #1d1d1d !important;

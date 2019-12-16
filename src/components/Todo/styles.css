@@ -148,7 +148,6 @@
   left: 0;
   opacity: 0;
 }
-
 .todo__icon {
   position: absolute;
   top: 0;
@@ -164,11 +163,9 @@
   stroke-linecap: round;
   z-index: 1;
 }
-
 .todo__state:checked ~ .todo-list-title {
   text-decoration: line-through;
 }
-
 .todo__box {
   stroke-dasharray: 56.1053, 56.1053;
   stroke-dashoffset: 0;
@@ -180,7 +177,6 @@
   stroke-dashoffset: 9.8995;
   transition-duration: 0.25s;
 }
-
 .todo__state:checked ~ .todo__icon .todo__box {
   stroke-dashoffset: 56.1053;
   transition-delay: 0s;
@@ -188,7 +184,6 @@
   stroke-dashoffset: 0;
   stroke: red;
 }
-
 .todo__state:checked ~ .todo__icon .todo__check {
   stroke-dashoffset: 0;
   transition-delay: 0s;

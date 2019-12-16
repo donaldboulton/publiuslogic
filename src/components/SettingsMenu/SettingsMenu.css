@@ -48,7 +48,7 @@
 .settings-option {
   padding: 3px 8px;
   margin: 5px;
-  border: 1px solid;
+  border: 1px solid #1d1d1d;
   font-size: 12px;
   cursor: pointer;
   &:hover, &.activeClass {
