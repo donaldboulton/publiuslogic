@@ -1,7 +1,7 @@
 [build]
   publish = "public"
   command = "gatsby build"
-  functions = "functions"
+  functions = "functions-build"
 [template.environment]
   FAUNADB_SERVER_SECRET = "fnADfbdAsuACFD760u0R8bg0x12IkMDDik6Eekuz"
 [[headers]]
