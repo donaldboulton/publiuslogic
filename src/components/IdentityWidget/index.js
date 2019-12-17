@@ -75,7 +75,7 @@ export default class netlifyIdentityWidget extends React.Component {
         {this.state.user
           ? <button aria-label='Sign Out' className='button-transparent' type='button' onClick={this.handleLogOut}>
                LogOut&nbsp;
-            <SignOutAlt size='1q3e45rem' color='#f5f5f5' />
+            <SignOutAlt size='1rem' color='#f5f5f5' />
           </button>
           : actionForm}
       </div>
