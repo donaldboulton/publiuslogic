@@ -17,9 +17,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## Taken From
-
-[janosh.io React Hooks Masonry](https://janosh.io/blog/react-hooks-masonry)
+## 🔥 From [janosh.io React Hooks Masonry](https://janosh.io/blog/react-hooks-masonry)
 
 Now that we have React Hooks, so many components can (and probably should [despite what Dan said at React Conf](https://youtu.be/dpw9EHDh2bM?t=3365)) be rewritten in a more succinct, readable and maintainable manner. A perfect candidate for this in my own code base was a `Masonry` component that used to rely on CSS grid with very narrow rows and managing the number of rows each child item spans based on its natural height to control their placement. With hooks, it was easy to significantly improve on this approach.
 

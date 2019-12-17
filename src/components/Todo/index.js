@@ -262,9 +262,9 @@ export default class Todo extends Component {
               onChange={this.handleTodoCheckbox}
               checked={data.completed}
             />
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 25' className='todo__icon'>
-              <use xlinkHref={`${boxIcon}`} className='todo__box' />
-              <use xlinkHref='#todo__check' className='todo__check' />
+            <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink="http://www.w3.org/1999/xlink" viewBox='0 0 200 25' className='todo__icon'>
+              <use href={`${boxIcon}`} className='todo__box' />
+              <use href='#todo__check' className='todo__check' />
             </svg>
             <div className='todo-list-title'>
               <ContentEditable

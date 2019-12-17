@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
-import netlifyIdentity from 'netlify-identity-widget'
+import netlifyIdentity from '../IdentityWidget/netlify-identity'
 
 const logAuth = process.env.NODE_ENV === 'development' && false // set to true to turn on logging
 const clog = (...args) => logAuth && console.log(...args)
 // helpful for debugging netlify identity
 
+if (typeof exports !== undefined) {
+  exports.netlifyIdentity = netlifyIdentity;
+}
 export const isBrowser = () => typeof window !== 'undefined'
 export const getCurrentUser = () => isBrowser && getUser()
 export const initAuth = () => {
@@ -15,6 +18,7 @@ export const initAuth = () => {
     netlifyIdentity.init()
   }
 }
+
 export const getUser = () =>
   isBrowser() && window.localStorage.getItem('netlifyUser')
     ? JSON.parse(window.localStorage.getItem('netlifyUser'))
@@ -80,7 +84,6 @@ class Login extends Component {
   }
 
   componentDidMount () {
-    netlifyIdentity.init()
     var existingUser = localStorage.getItem('faunaNetlifyUser')
     if (existingUser) {
       this.setState({ user: JSON.parse(existingUser) }, this.didLogin.bind(this, 'noSave'))
@@ -125,13 +128,13 @@ class Login extends Component {
   }
 
   render () {
-    var actionForm = <span data-netlify-identity-button>
+    var actionForm = <span>
       <a onClick={this.doLogin.bind(this)}>Login&nbsp;<SignInAlt size='1.1em' color='#f5f5f5' /></a>
                      </span>
     return (
-      <div>
+      <div data-netlify-identity-button>
         {this.state.user
-          ? <a onClick={this.doLogout.bind(this)}><SignOutAlt size='1.1em' color='#f5f5f5' />&nbsp;Logout</a>
+          ? <a onClick={this.doLogout.bind(this) && window.location.reload(false)}><SignOutAlt size='1.1em' color='#f5f5f5' />&nbsp;</a>
           : actionForm}
       </div>
     )

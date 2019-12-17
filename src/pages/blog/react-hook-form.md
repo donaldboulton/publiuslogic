@@ -17,7 +17,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## React Hook Forms
+## ↩️ React Hook Forms
 
 I chose this module to validate my forms, its lightweight and integrates with yup schemas. Plus a nice online form builder and right on point instructions.
 

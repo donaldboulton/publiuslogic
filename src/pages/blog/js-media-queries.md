@@ -15,9 +15,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## Taken From
-
-[janosh.io](https://janosh.io/blog/js-media-queries)
+## From 🏴󠁩󠁤󠁪󠁷󠁿 [janosh.io](https://janosh.io/blog/js-media-queries)
 
 > Note: This post assumes you're using React (16.8 or later).
 

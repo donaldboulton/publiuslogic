@@ -16,7 +16,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-### [Using Cloudinary React Library](https://www.npmjs.com/package/cloudinary-react/v/1.1.0)
+## 🖼️ [Using Cloudinary React Library](https://www.npmjs.com/package/cloudinary-react/v/1.1.0)
 
 Cloudinary is a cloud service that offers a solution to a web application's entire image management pipeline.
 

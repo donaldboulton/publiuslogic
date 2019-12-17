@@ -15,7 +15,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
  
-### Static + content management = ♥
+## 🔥 Static + content management = ❤️
 
 [Cms Site](https://www.netlifycms.org/)
 

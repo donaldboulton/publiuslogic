@@ -17,7 +17,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## Gatsby Serverless FaunaDB
+## 🖥️ Gatsby Serverless FaunaDB
 
 Based on [Nelifty post](https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/?_ga=2.21698171.1777301599.1576092869-301685750.1573932436#wrapping-up)
 

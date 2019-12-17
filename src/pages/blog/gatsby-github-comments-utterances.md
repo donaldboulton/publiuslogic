@@ -18,7 +18,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-# React withUtterances [Repo](https://github.com/khw1031/withUtterances)
+## 👽 React withUtterances [Repo](https://github.com/khw1031/withUtterances)
 
 ## Why use withUtterances as utterances
 

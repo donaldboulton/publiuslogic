@@ -17,6 +17,8 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
+## 🎵 Disqus Comments
+
 ## Taken From
 
 [janosh.io Gatsby React Disqus Comments](https://janosh.io/blog/disqus-comments)

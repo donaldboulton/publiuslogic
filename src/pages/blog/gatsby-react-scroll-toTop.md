@@ -18,7 +18,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## Gatsby React Scroll toTop or Bottom
+## 🔝 Gatsby React Scroll toTop or Bottom
 
 > Have you tried Scroll to the top of the page react module's, I have and all of them use the .window function to go to top.
 Which does not work in Gatsby without a work around.

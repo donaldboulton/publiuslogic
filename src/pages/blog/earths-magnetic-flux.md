@@ -17,12 +17,12 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## Common Sense on Planetary Issues
+## 🌎 Common Sense on Planetary Issues
 
 As a child of the 1960s I could not get enough information on Planetary issues.
 I had subscriptions to all info on science and anything mechanical, and I found the magnetic flux of our planet to be quite intriguing.
 
-## Earths Magnetic Flux
+## 🌐 Earths Magnetic Flux
 
 Over the years paying attention the the magnetic flux changes it became clear to me that these changes were do to mankind using up the riches of Mother Earth as in oil, iron gold and other minerals that were high in there magnetic attractions and introducing dielectric properties, thus decreasing the magnetic attraction to those areas in Mother earth.
 

@@ -13,7 +13,7 @@ cover: /images/privacy.jpg
 showToc: true
 ---
 
-### User data encrypted
+## ⚓ User data encrypted
 
 The privacy of my visitors is extremely important.
 
@@ -21,7 +21,7 @@ This Privacy Policy outlines the types of personal information that is received 
 
 First and foremost, I will never share your email address or any other personal information to anyone without your direct consent.
 
-## Log Files
+## 🏴󠁡󠁦󠁬󠁯󠁧󠁿 Log Files
 
 Like many other websites, this site uses log files to help learn about when, from where, and how often traffic flows to this site. The information in these log files include:
 
@@ -34,7 +34,7 @@ Like many other websites, this site uses log files to help learn about when, fro
 
 All of this information is not linked to anything that is personally identifiable.
 
-## Cookies & Beacons
+## 🍪 Cookies & Beacons
 
 When you visit this site "convenience" cookies are stored on your computer when you submit a comment to help you log in faster to [Twitter](https://twitter.com/donboulton) the next time you do a tweet.
 
@@ -62,7 +62,7 @@ If you would like to restrict the use of cookies you can control this in your In
 
 * [Disabling cookies in Apple Safari](https://docs.info.apple.com/article.html?artnum=324)
 
-## Google Analytics
+## 📈 Google Analytics
 
 The cookies in use to deliver Google Analytics service are described below.
 
@@ -116,7 +116,7 @@ In order to provide website visitors with more choice on how data is collected b
 ### [Opt Out Google tools](https://tools.google.com/dlpage/gaoptout?hl=None)
 For more information on the usage of cookies by Google Analytics please see the Google website. A link to the privacy advice for this product is provided below for your convenience.
 
-## Hubspot __hstc Cookie
+## 🥠 Hubspot __hstc Cookie
 
 About this cookie __hstc
 
@@ -136,13 +136,13 @@ It has been found as a Session cookie on 0 websites.
 
 Note: Many technologies or services use cookies that will be common to different websites and can be identified by name alone. However this is not always true. More specific information can sometimes be found with a website based search.
 
-## [Privacy Google](https://www.google.com/analytics/learn/privacy.html)
+## 🗠 [Privacy Google](https://www.google.com/analytics/learn/privacy.html)
 
 Google Analytics is a web analytics tool I use to help understand how visitors engage with this website. It reports website trends using cookies and web beacons without identifying individual visitors.
 
 ### You can read: [Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html)
 
-## Google AdSense
+## 💹 Google AdSense
 
 Google AdSense, a third party affiliate marketing network, uses cookies to help make sure I get a commission when you buy a product after clicking on a link or ad banner that takes you to the site of one of their merchants.
 
@@ -150,7 +150,7 @@ Google AdSense, a third party affiliate marketing network, uses cookies to help 
 
 [Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182)
 
-## MailChimp
+## 🐵 MailChimp
 
 If you choose to sign up for our Subscriptions email newsletter (we hope you will), we use MailChimp. You’re free to unsubscribe at any time. If you want us to delete your entire history on MaiChimp at any time, contact donboulton@gmail.com and we’ll do that.
 
@@ -162,11 +162,11 @@ We won’t sell or rent your data to anyone else.
 
 Feel free to read MailChimp’s [privacy policy](https://mailchimp.com/legal/privacy/) and [terms](https://mailchimp.com/legal/terms/)
 
-## Donation Policy
+## 🩸 Donation Policy
 
 All Donations thought our external pay sites and or through our PayPal buttons will not be refundable, as they are a donation to a free website designer, that has limited ability's to do money transfers back to you. Thank You for your donations to publiuslogic.com.
 
-## Comment Policy
+## 🩸 Comment Policy
 
 We want you to feel at home when you post a comment on publiuslogic.com. We want everyone to feel at home posting comments on publiuslogic.com. We don’t know what your home is like, but we know how we expect people to behave when they visit ours. That’s why we reserve the right to delete comments and ban users as needed to keep the comment threads here civil and substantive.
 
@@ -182,7 +182,7 @@ Give us useful, constructive criticism. Spot a typo or an error? Let us know and
 
 Demonstrate and share the intelligence, wisdom, and humor we know you possess.
 
-## Disclosure Policy
+## 🩸 Disclosure Policy
 
 I make money on this website through affiliate programs. If you click an affiliate link or ad banner and buy the product, you help support this website because I'll get a percentage of that sale.
 
@@ -197,7 +197,7 @@ What this means for you:
 
 Just like this website, my Disclosure Policy is a work in progress. As the revenue streams evolve, so will this page.
 
-## License
+## 🔰 License
 
 All original content (e.g. articles, blog posts, illustrations, artwork, and photographs) available on publiuslogic.com is released under a [Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License](https://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US) unless otherwise noted. Basically this means you are free to share, transmit, distribute, alter, transform, and build on my work just as long as you don't use it for commercial purposes without my prior written consent.
 

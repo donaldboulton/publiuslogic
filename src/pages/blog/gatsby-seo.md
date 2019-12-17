@@ -16,7 +16,7 @@ tweet_id: '1118651504674725889'
 showToc: true
 ---
 
-## JSON-LD Per Template
+## 📡 JSON-LD Per Template
 
 Gatsby SEO JSON-LD and meta tags, "per page", is the only logical option for SEO = microdata perfection in a WebPage or Article.
 
@@ -31,6 +31,7 @@ Below is a example of blog post page using Json-LD with react-helmet for the met
 ```jsx
 import React from 'react'
 import Helmet from 'react-helmet'
+import RehypeReact from 'rehype-react'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
@@ -42,6 +43,15 @@ import Comments from '../components/Comments'
 import Global from '../components/Global'
 import PostCover from '../components/PostCover'
 import config from '../../data/config'
+
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: {
+    'interactive-counter': Counter,
+    'interactive-hit-counter': HitCounter,
+    'interactive-todo': Todo,
+  },
+}).Compiler
 
 const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -198,9 +208,10 @@ export const pageQuery = graphql`
   query ArticleByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
-      html
-      excerpt(pruneLength: 500)
-      readingTime
+      htmlAst
+      timeToRead
+      tableOfContents
+      excerpt(pruneLength: 200)
       fields {
         slug
       }
