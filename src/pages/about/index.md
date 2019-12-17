@@ -33,10 +33,6 @@ This website is built as static HTML with Gatsby component-modular Docker Contai
 
 Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. React Notifications through my Slack Bots and Netlify Functions for my Mansbooks publiuslogic.com workspace.
 
-### Server-less
-
-No run time dependency or vulnerable server stack required Pre-built pages served over a CDN for fastest time to first byte Fast and cheap CDN scaling results in ultra-high availability worldwide Server-side processes abstracted into microservice APIs for reduced attack surface areas Modern Continuous Deployment (CD) Git workflows with instant rollbacks Headless CMS for complete separation from your app/site and with full version control Modern authentication methods such as OAuth 2 for ultimate security.
-
 ## 🚀 gatsby-starter-publius
 
 This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Microdata for SEO, Internet Positioning.
@@ -47,7 +43,11 @@ Feel free to reuse any part of this repo to create your own Gatsby site.
 
 A [Gatsby v2](https://www.gatsbyjs.org/) and [Netlify CMS](https://www.netlifycms.org) powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms).
 
-## Authentication
+### 🔥 Server-less
+
+No run time dependency or vulnerable server stack required Pre-built pages served over a CDN for fastest time to first byte Fast and cheap CDN scaling results in ultra-high availability worldwide Server-side processes abstracted into microservice APIs for reduced attack surface areas Modern Continuous Deployment (CD) Git workflows with instant rollbacks Headless CMS for complete separation from your app/site and with full version control Modern authentication methods such as OAuth 2 for ultimate security.
+
+## 🔐 Authentication
 
 ### Netlify Identity Widget
 
@@ -69,7 +69,7 @@ Learn more about this service from this
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
-## Netlify CMS
+## 🖥️ Netlify CMS
 
 [Static + content management = ♥](https://www.netlifycms.org/)
 
@@ -87,7 +87,7 @@ Content is stored in your Git repository along side your code for easier version
 Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backends to support different Git platform APIs.
 My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
 
-## Features
+## ✔️ Features
 
 * Complete Website Suite - Home Page, About Page, Pricing Page, Privacy, Contact Page and Blog
 * Netlify CMS for Content Management
@@ -102,3 +102,5 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 * Pagination
 * Contact Form (Netlify Forms)
 * Easy Configuration using `config.js` file
+
+## ☀️ Uses useDarkMode

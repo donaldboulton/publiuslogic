@@ -6,7 +6,6 @@ import SettingsIcon from '../SettingsIcon'
 import api from '../../utils/api'
 import sortByDate from '../../utils/sortByDate'
 import isLocalHost from '../../utils/isLocalHost'
-import './styles.css'
 
 export default class Todo extends Component {
   state = {
