@@ -27,13 +27,13 @@ showToc: true
 
 > [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-🍸 Just Having fun coding!
+## 🍸 Just Having fun!
 
-This website is built as static HTML with Gatsby component-modular Docker Container builds including a Node backend on Heroku, using React components and GraphQL, Built with Webpack.
+This website is built as static HTML with Gatsby component-modular Docker Container builds including a Node backend on FaunaDB, using React components and GraphQL, Built with Webpack.
 
-Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. React Notifications through my Slack Bots and Netlify Functions for my Mansbooks publiuslogic.com workspace.
+Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. React Notifications through my Slack Bots and Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
 
-## 🚀 gatsby-starter-publius
+## 🚀 Gatsby Starter Publius
 
 This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Microdata for SEO, Internet Positioning.
 
@@ -49,7 +49,7 @@ No run time dependency or vulnerable server stack required Pre-built pages serve
 
 ## 🔐 Authentication
 
-### Netlify Identity Widget
+### 🆔 Netlify Identity Widget
 
 A Custom Styled and Build for Publius, a component used to authenticate with Netlify's Identity service.
 [Live demo](https://identity.netlify.com)
@@ -57,7 +57,7 @@ A Custom Styled and Build for Publius, a component used to authenticate with Net
 For a lower level library to the underlying [GoTrue](https://github.com/netlify/gotrue) API, see
 [gotrue-js](https://github.com/netlify/gotrue-js).
 
-### What is Netlify Identity
+#### ⁉️ What is Netlify Identity
 
 Netlify’s Identity service is a plug-and-play microservice for handling site
 functionalities like signups, logins, password recovery, user metadata, and
@@ -71,7 +71,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## 🖥️ Netlify CMS
 
-[Static + content management = ♥](https://www.netlifycms.org/)
+[Static + content management = ❤️](https://www.netlifycms.org/)
 
 Netlify CMS is Always the latest Netlify CMS GitHub repo pull, with my custom Webpack hashed build, not the Gatsby plugin and netlify-cms node module way; which builds it into the frontend = slowing Gatsby way down; TEST it to see for yourself.
 
@@ -82,7 +82,7 @@ Get the speed, security, and scalability of a static site, while still providing
 An integrated part of your Git workflow
 Content is stored in your Git repository along side your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
 
-### An extensible CMS built on React
+### ❤️ An extensible CMS built on React
 
 Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backends to support different Git platform APIs.
 My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
@@ -104,3 +104,5 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 * Easy Configuration using `config.js` file
 
 ## ☀️ Uses useDarkMode
+
+I have incorporated this into PubliusLogic and below is an example of its usage.

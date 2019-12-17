@@ -44,13 +44,13 @@ Third-party advertisers may also place and read cookies on your browser and/or u
 
 If you wish to disable cookies, you may do so through your web browser options. Instructions for doing so can be found on the specific web browsers' websites.
 
-### Cookies in EU Law
+### ⚖️ Cookies in EU Law
 
 * [Is the EU's cookie law confusing you too?](https://www.123-reg.co.uk/blog/security-issues/is-the-eus-cookie-law-confusing-you-too/)
 * [New EU cookie law (e-Privacy Directive)](https://www.ico.gov.uk/for_organisations/privacy_and_electronic_communications/the_guide/cookies.aspx)
 * [Cookies – Doing nothing isn't the right answer](https://chriswharton.me/2012/05/cookies-doing-nothing-isnt-the-right-answer/)
 
-### Disabling Cookies
+### ❌ Disabling Cookies
 
 If you would like to restrict the use of cookies you can control this in your Internet browser. Links to advice on how to do this for the most popular Internet browsers are provided below for convenience and will be available for the Internet browser of your choice either online or via the software help (normally available via key F1).
 
@@ -78,7 +78,7 @@ Returning, New Session, Time, Custom Variable Data, Source
 
 * __utmz
 
-### Analytics Cookie Types
+### 🤚 Analytics Cookie Types
 
 * __utma
 
@@ -109,11 +109,11 @@ These cookies contain no personally identifiable information but they will use y
 
 Google stores the information collected by these cookies on servers in the United States. Google may transfer this information to third-parties where required to do so by law, or where such third-parties process the information on Google's behalf.
 
-### Opt-out
+### 😜 Opt-out
 
 In order to provide website visitors with more choice on how data is collected by Google Analytics, Google has developed the Google Analytics Opt-out Browser Add-on. The add-on communicates with the Google Analytics JavaScript (ga.js) to stop data being sent to Google Analytics. The Google Analytics Opt-out Browser Add-on does not affect usage of the website in any other way. A link to further information on the Google Analytics Opt-out Browser Add-on is provided below for your convenience.
 
-### [Opt Out Google tools](https://tools.google.com/dlpage/gaoptout?hl=None)
+### ⚒️ [Opt Out Google tools](https://tools.google.com/dlpage/gaoptout?hl=None)
 For more information on the usage of cookies by Google Analytics please see the Google website. A link to the privacy advice for this product is provided below for your convenience.
 
 ## 🥠 Hubspot __hstc Cookie
@@ -124,7 +124,7 @@ This cookie name is associated with websites built on the HubSpot platform. It i
 
 The main purpose of this cookie is: Performance
 
-### Key numbers for __hstc
+### 🗝️ Key numbers for __hstc
 
 Cookies with this name have been found on 316 websites, set by 269 host domains.
 
@@ -140,15 +140,21 @@ Note: Many technologies or services use cookies that will be common to different
 
 Google Analytics is a web analytics tool I use to help understand how visitors engage with this website. It reports website trends using cookies and web beacons without identifying individual visitors.
 
-### You can read: [Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html)
+### 🗸 You can read: [Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html)
 
 ## 💹 Google AdSense
 
 Google AdSense, a third party affiliate marketing network, uses cookies to help make sure I get a commission when you buy a product after clicking on a link or ad banner that takes you to the site of one of their merchants.
 
-### You can read:
+### 🗸 You can read
 
 [Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182)
+
+### 🦸 Create Your Own
+
+Google AdSense Privacy Policy creator
+
+[Privacy Policy Creator Google](https://www.termsfeed.com/blog/privacy-policy-google-adsense/)
 
 ## 🐵 MailChimp
 

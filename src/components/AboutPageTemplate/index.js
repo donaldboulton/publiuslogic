@@ -128,18 +128,21 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
           <AboutTableOfContents>
             <ul className='linktoc'>
               <li><Link to='/about#Technical-notes-about-this-website'>🎁 Tech Notes</Link></li>
-              <li><Link to='/about#Styling-with-Bluma-and-styled-css-grid-'>🍱 Bluma & ccs-Grid</Link></li>
-              <li><Link to='/about#-gatsby-starter-publius'>🚀 Gatsby Starter Publius</Link></li>
+              <li><Link to='/about#Just-having-fun'>🍸 Just Having Fun</Link></li>
+              <li><Link to='/about#Styling-with-Bluma-and-styled-css-grid-'>💅 Styled Components</Link></li>
+              <li><Link to='/about#Gatsby-Starter-Publius'>🚀 Gatsby Starter Publius</Link></li>
               <ul>
                 <li><Link to='/about#Server-less'>🔥 Serverless</Link></li>
               </ul>
               <li><Link to='/about#Authentication'>🔐 Authentication</Link></li>
               <ul>
-                <li><Link to='/about/#Netlify-Identity'>Netlify Identity</Link></li>
+                <li><Link to='/about/#Netlify-Identity'>🆔 Netlify Identity</Link></li>
+                <li><Link to='/about/#What-is-Netlify-Identity'>⁉️ What is Netlify Identity</Link></li>
+
               </ul>
               <li><Link to='/about#Netlify-CMS'>🖥️ Netlify Cms</Link></li>
               <ul>
-                <li><Link to='/about#An-extensible-CMS-built-on-React'>Netlify Cms Built with React</Link></li>
+                <li><Link to='/about#An-extensible-CMS-built-on-React'>❤️ Cms with React</Link></li>
               </ul>
               <li><Link to='/about#Features' aria-label='This Site Uses useDarkMode' className='link-icon'> ✔️ Features</Link></li>
               <li><Link to='/about#Uses-useDarkMode' aria-label='This Site Uses useDarkMode' className='link-icon'>☀️ Uses useDarkMode</Link></li>
@@ -162,9 +165,6 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               </div>
               <hr />
               <div>
-                <p>
-                I have incorporated this into PubliusLogic and below is an example of its usage.
-                </p>
                 <p>
                 This is an example app that uses the <code>useDarkMode</code> custom hook.
                 It persists across sessions (i.e., uses <code>localStorage</code>) and

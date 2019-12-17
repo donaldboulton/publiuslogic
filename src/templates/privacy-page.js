@@ -235,31 +235,35 @@ const PrivacyPage = ({ data }) => {
               <li><Link to='/privacy/#Log-Files'>🏴󠁡󠁦󠁬󠁯󠁧󠁿 Log Files</Link></li>
               <li><Link to='/privacy/#Cookies--Beacons'>🍪 Cookies and Beacons</Link></li>
               <ul>
-                <li><Link to='/privacy/#Cookies-in-EU-Law'>Cookies and EU Law</Link></li>
-                <li><Link to='/privacy/#Disabling-Cookies'>Disable Cookies</Link></li>
+                <li><Link to='/privacy/#Cookies-in-EU-Law'>⚖️ EU Law</Link></li>
+                <li><Link to='/privacy/#Disabling-Cookies'>❌ Disable Cookies</Link></li>
               </ul>
               <li><Link to='/privacy/#Google-Analytics'>📈 Google Analytics</Link></li>
               <ul>
-                <li><Link to='/privacy/#Analytics-Cookie-Types'>Analytics Cookie Types</Link></li>
-                <li><Link to='/privacy/#Opt-out'>Opt Out</Link></li>
+                <li><Link to='/privacy/#Analytics-Cookie-Types'>🤚 Cookie Types</Link></li>
+                <li><Link to='/privacy/#Opt-out'>😜 Opt Out</Link></li>
+                <ul>
+                  <li><Link to='/privacy#Opt-Out-Google-tools'>⚒️ Google Tools</Link></li>
+                </ul>
               </ul>
               <li><Link to='/privacy/#Hubspot-__hstc-Cookie'>🥠 Hubspot __hstc</Link></li>
               <ul>
-                <li><Link to='/privacy/#Key-numbers-for-__hstc'>Key-numbers-for-__hstc</Link></li>
+                <li><Link to='/privacy/#Key-numbers-for-__hstc'>🗝️ Keys-for-__hstc</Link></li>
               </ul>
               <li><Link to='/privacy/#Privacy-Google'>🗠 Privacy Google</Link></li>
               <ul>
-                <li><Link to='/privacy/#You-can-read-Google-Analytics-Privacy-Policy'>Anylitics Privacy</Link></li>
+                <li><Link to='/privacy/#You-can-read-Google-Analytics-Privacy-Policy'>🗸 Anylitics Privacy</Link></li>
               </ul>
               <li><Link to='/privacy/#Google-AdSense'>💹 Google AdSense</Link></li>
               <ul>
-                <li><Link to='/privacy/#You-can-read'>Adsense Privacy</Link></li>
+                <li><Link to='/privacy/#You-can-read'>🗸 AdSense Privacy</Link></li>
+                <li><Link to='/privacy/#Create-Your-Own'>🦸 Create Your Own</Link></li>
               </ul>
               <li><Link to='/privacy/#MailChimp'>🐵 MailChimp</Link></li>
               <li><Link to='/privacy/#Donation-Policy'>🩸 Donation Policy</Link></li>
               <li><Link to='/privacy/#Comment-Policy'>🩸 Comment Policy</Link></li>
               <li><Link to='/privacy/#Disclosure-Policy'>🩸 Discloser Policy</Link></li>
-              <li><Link to='/privacy#-License'>🔰 License</Link></li>
+              <li><Link to='/privacy#License'>🔰 License</Link></li>
             </ul>
           </UsersTableOfContents>
         </Menu5>
