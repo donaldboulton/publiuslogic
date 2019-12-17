@@ -117,6 +117,9 @@ const UsersTableOfContents = styled.div`
     color: ${props => props.theme.white};
     textIndent: -1em hanging;
   }
+  li {
+    margin-bottom: 1em;
+  }
   a {
     background: ${props => props.theme.black};
     color: ${props => props.theme.white};
@@ -243,7 +246,7 @@ const PrivacyPage = ({ data }) => {
                 <li><Link to='/privacy/#Analytics-Cookie-Types'>🤚 Cookie Types</Link></li>
                 <li><Link to='/privacy/#Opt-out'>😜 Opt Out</Link></li>
                 <ul>
-                  <li><Link to='/privacy#Opt-Out-Google-tools'>⚒️ Google Tools</Link></li>
+                  <li><Link to='/privacy/#Opt-Out-Google-tools'>⚒️ Google Tools</Link></li>
                 </ul>
               </ul>
               <li><Link to='/privacy/#Hubspot-__hstc-Cookie'>🥠 Hubspot __hstc</Link></li>
@@ -263,7 +266,7 @@ const PrivacyPage = ({ data }) => {
               <li><Link to='/privacy/#Donation-Policy'>🩸 Donation Policy</Link></li>
               <li><Link to='/privacy/#Comment-Policy'>🩸 Comment Policy</Link></li>
               <li><Link to='/privacy/#Disclosure-Policy'>🩸 Discloser Policy</Link></li>
-              <li><Link to='/privacy#License'>🔰 License</Link></li>
+              <li><Link to='/privacy/#License'>🔰 License</Link></li>
             </ul>
           </UsersTableOfContents>
         </Menu5>

@@ -1,7 +1,6 @@
 import React from 'react'
 import SlackIcon from '../../../static/img/1547804322-slack_icon_80x80_transparent.png'
 import lambda from '../../../static/img/lambda.png'
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 require('node-fetch')
 
@@ -25,7 +24,7 @@ const Slack = () => {
             <div className='column is-8'>
               <span><span><strong>Slack</strong></span>
                 <span>
-                  <OutboundLink
+                  <a
                     href='https://mansbooks.slack.com/messages/DDMGYN0QY/'
                     target='_blank'
                     rel='noopener noreferrer'
@@ -33,7 +32,7 @@ const Slack = () => {
                     className='a'
                   >
                     <small>&nbsp;@donboulton</small>
-                  </OutboundLink>
+                  </a>
                 </span>
               </span>
               <p className='subtitle is-5'>

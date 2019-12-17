@@ -105,6 +105,9 @@ const AboutTableOfContents = styled.div`
     color: ${props => props.theme.white};
     textIndent: -1em hanging;
   }
+  li {
+    margin-bottom: 1em;
+  }
   a {
     background: ${props => props.theme.black};
     color: ${props => props.theme.white};
@@ -127,25 +130,25 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
           </Title>
           <AboutTableOfContents>
             <ul className='linktoc'>
-              <li><Link to='/about#Technical-notes-about-this-website'>🎁 Tech Notes</Link></li>
-              <li><Link to='/about#Just-having-fun'>🍸 Just Having Fun</Link></li>
-              <li><Link to='/about#Styling-with-Bluma-and-styled-css-grid-'>💅 Styled Components</Link></li>
-              <li><Link to='/about#Gatsby-Starter-Publius'>🚀 Gatsby Starter Publius</Link></li>
+              <li><Link to='/about/#Technical-notes-about-this-website'>🎁 Tech Notes</Link></li>
+              <li><Link to='/about/#Just-having-fun'>🍸 Just Having Fun</Link></li>
+              <li><Link to='/about/#Styling-with-Bluma-and-styled-css-grid-'>💅 Styled Components</Link></li>
+              <li><Link to='/about/#Gatsby-Starter-Publius'>🚀 Gatsby Starter Publius</Link></li>
               <ul>
-                <li><Link to='/about#Server-less'>🔥 Serverless</Link></li>
+                <li><Link to='/about/#Server-less'>🔥 Serverless</Link></li>
               </ul>
-              <li><Link to='/about#Authentication'>🔐 Authentication</Link></li>
+              <li><Link to='/about/#Authentication'>🔐 Authentication</Link></li>
               <ul>
                 <li><Link to='/about/#Netlify-Identity'>🆔 Netlify Identity</Link></li>
                 <li><Link to='/about/#What-is-Netlify-Identity'>⁉️ What is Netlify Identity</Link></li>
 
               </ul>
-              <li><Link to='/about#Netlify-CMS'>🖥️ Netlify Cms</Link></li>
+              <li><Link to='/about/#Netlify-CMS'>🖥️ Netlify Cms</Link></li>
               <ul>
-                <li><Link to='/about#An-extensible-CMS-built-on-React'>❤️ Cms with React</Link></li>
+                <li><Link to='/about/#An-extensible-CMS-built-on-React'>❤️ Cms with React</Link></li>
               </ul>
-              <li><Link to='/about#Features' aria-label='This Site Uses useDarkMode' className='link-icon'> ✔️ Features</Link></li>
-              <li><Link to='/about#Uses-useDarkMode' aria-label='This Site Uses useDarkMode' className='link-icon'>☀️ Uses useDarkMode</Link></li>
+              <li><Link to='/about/#Features' aria-label='This Site Uses useDarkMode' className='link-icon'>✔️ Features</Link></li>
+              <li><Link to='/about/#Uses-useDarkMode' aria-label='This Site Uses useDarkMode' className='link-icon'>☀️ useDarkMode</Link></li>
             </ul>
           </AboutTableOfContents>
         </Menu3>
@@ -190,14 +193,14 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
                     src={Carbon}
                   />
                 </p>
-                <p>
+                <div className='column'>
                 View the source for this
-                  <Link to='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</Link> Or see the
+                  <Link className='a' to='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</Link> Or see
                 useDarkMode.
-                  <Link to='https://github.com/donavon/use-dark-mode'>
+                  <Link className='a' to='https://github.com/donavon/use-dark-mode'>
                 Source code on Github.
                   </Link>
-                </p>
+                </div>
               </div>
             </div>
           </div>

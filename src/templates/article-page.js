@@ -128,6 +128,9 @@ const TableOfContents = styled.div`
     color: ${props => props.theme.white};
     textIndent: -1em hanging;
   }
+  li {
+    margin-bottom: 1em;
+  }
   a {
     background: ${props => props.theme.black};
     color: ${props => props.theme.white};

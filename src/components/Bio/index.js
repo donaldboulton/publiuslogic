@@ -11,7 +11,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Twitter } from 'styled-icons/fa-brands'
 import Image from 'gatsby-image'
 import { rhythm } from '../../utils/typography'
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const Bio = (slug) => {
   const data = useStaticQuery(graphql`
@@ -60,7 +59,7 @@ const Bio = (slug) => {
       />
       <p>
         Written by <strong>{author}</strong>  who lives and works in OKC OK.&nbsp;
-        <OutboundLink
+        <a
           itemProp='url'
           rel='noopener noreferrer'
           target='_blank'
@@ -80,7 +79,7 @@ const Bio = (slug) => {
             <Twitter size='14' color='#1b95e0' />
           </span>
           <span>&nbsp;Follow</span>
-        </OutboundLink>
+        </a>
       </p>
     </div>
   )

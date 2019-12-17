@@ -7,7 +7,6 @@ import lambda from '../../../static/img/lambda.png'
 import netlify from '../../../static/img/logomark.svg'
 import config from '../../../_data/config'
 import { Link } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const AboutSection = () => {
   return (
@@ -28,13 +27,13 @@ const AboutSection = () => {
             <div className='media'>
               <div className='media-left parent'>
                 <figure className='image is-32x32'>
-                  <OutboundLink title='Github' to='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
+                  <a title='Github' to='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
                     <img
                       className='github-icon'
                       src={github}
                       alt='GitHub'
                     />
-                  </OutboundLink>
+                  </a>
                 </figure>
               </div>
               <div className='media-content'>
@@ -44,12 +43,12 @@ const AboutSection = () => {
             <div className='content'>
               GitHub Issues as Comments
               <br />
-              <div><OutboundLink className='a' rel='me noopener noreferrer' target='_blank' to='https://github.com/donaldboulton/publiuslogic'>&nbsp;GitHub Repo</OutboundLink></div>
-              <div><OutboundLink className='a' target='_blank' to='https://twitter.com/donboulton' rel='me noopener noreferrer'>&nbsp;Twitter @publiuslogic</OutboundLink></div>
+              <div><a className='a' rel='me noopener noreferrer' target='_blank' to='https://github.com/donaldboulton/publiuslogic'>&nbsp;GitHub Repo</a></div>
+              <div><a className='a' target='_blank' to='https://twitter.com/donboulton' rel='me noopener noreferrer'>&nbsp;Twitter @publiuslogic</a></div>
               <br />
               <span>
                 <p>
-                  {config.copyright} - <Link className='a' title='PubliusLogic Home' to='https://publiuslogic.com' rel='noopener noreferrer'>PubliusLogic</Link>
+                  {config.copyright} - <Link className='a' title='PubliusLogic Home' to='/' rel='noopener noreferrer'>PubliusLogic</Link>
                 </p>
               </span>
             </div>
@@ -60,12 +59,12 @@ const AboutSection = () => {
         <div className='card card2'>
           <div className='card-image'>
             <figure className='image is-4by3'>
-              <OutboundLink title='Gatsby' to='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
+              <a title='Gatsby' to='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
                 <img
                   src={gatsby}
                   alt='Gatsby'
                 />
-              </OutboundLink>
+              </a>
             </figure>
           </div>
           <div className='card-content'>
@@ -85,8 +84,8 @@ const AboutSection = () => {
             <div className='content'>
                 Gatsby is Smoking Fast & Easy
               <br />
-              <div><OutboundLink className='a' target='_blank' rel='noopener noreferrer' to='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</OutboundLink></div>
-              <div><OutboundLink className='a' target='_blank' rel='noopener noreferrer' to='https://bulma.io/'>CSS from @bulma.io</OutboundLink></div>
+              <div><a className='a' target='_blank' rel='noopener noreferrer' to='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
+              <div><a className='a' target='_blank' rel='noopener noreferrer' to='https://bulma.io/'>CSS from @bulma.io</a></div>
               <br />
               <span>Privacy<Link className='a' to='/privacy/#Comment-Policy'>&nbsp; - &nbsp;Terms & Conditions.</Link></span>
             </div>
@@ -97,12 +96,12 @@ const AboutSection = () => {
         <div className='card card3'>
           <div className='card-image'>
             <figure className='image is-4by3'>
-              <OutboundLink title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
+              <a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
                 <img
                   src={netlify}
                   alt='Netlify'
                 />
-              </OutboundLink>
+              </a>
             </figure>
           </div>
           <div className='card-content'>
@@ -122,10 +121,10 @@ const AboutSection = () => {
             <div className='content'>
               Netlify Continuous Deployment
               <br />
-              <div><OutboundLink className='a' title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</OutboundLink></div>
-              <div><OutboundLink className='a' target='_blank' rel='noopener noreferrer' href='https://www.netlify.com/features/'>SLL Security</OutboundLink></div>
+              <div><a className='a' title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
+              <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://www.netlify.com/features/'>SLL Security</a></div>
               <br />
-              <span>Netlify CMS<OutboundLink className='a' target='_blank' rel='noopener noreferrer' href='https://publiuslogic.com/admin/#/collections/pages'>&nbsp; - &nbsp;Administration</OutboundLink></span>
+              <span>Netlify CMS<a className='a' target='_blank' rel='noopener noreferrer' href='https://publiuslogic.com/admin/#/collections/pages'>&nbsp; - &nbsp;Administration</a></span>
             </div>
           </div>
         </div>
