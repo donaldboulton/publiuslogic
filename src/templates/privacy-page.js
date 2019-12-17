@@ -281,7 +281,7 @@ const PrivacyPage = ({ data }) => {
               {post.frontmatter.title}
             </Styledh1>
           </div>
-          <div className='column is-9 is-offset-1'>
+          <div className='column is-9'>
             <Bio />
             <div className='columns is-desktop is-vcentered'>
               <div className='column is-7'>
@@ -294,11 +294,15 @@ const PrivacyPage = ({ data }) => {
               </div>
               <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
             </div>
+            <div className='columns is-desktop is-vcentered'>
+              <div className='column is-6'>
+                Privacy & Terms.
+              </div>
+              <div classNmae='column'>
+                🔐 For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>          
+              </div>
+            </div>
           </div>
-          <p>Users Privacy & Terms of Site Usage.</p>
-          <p>
-            🔐 For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>
-          </p>
         </div>
       </section>
       <PrivacyPageTemplate
