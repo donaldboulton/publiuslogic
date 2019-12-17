@@ -295,7 +295,7 @@ const PrivacyPage = ({ data }) => {
               <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
             </div>
             <div className='columns is-desktop is-vcentered'>
-              <div className='column is-6'>
+              <div className='column is-2'>
                 Privacy & Terms.
               </div>
               <div classNmae='column'>
