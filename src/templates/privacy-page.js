@@ -70,7 +70,7 @@ const StyledUsersTableMenu = styled.div`
     background: transparent;
   }
   .linktoc {
-    overflow-y: auto;
+    overflow-y: scroll;
     scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
     scrollbar-width: 10px;
     overflow-x: hidden;
@@ -149,29 +149,7 @@ const PrivacyPage = ({ data }) => {
   const postNode = data.markdownRemark
   const coverHeight = '100%'
   const logo = config.siteLogo
-  const handleLinkClick = (e, target) => {
-    
-    // NODE-SAFE CODE
-    // Gatsby uses Node to generate our pages. 
-    // Node doesn't know what a window is. 
-    // Be sure to wrap any of your browser interactions
-    // in some sort of node-safe if statement like this:
-    
-    if (typeof window !== 'undefined') {
-      
-      // First, are we on the home page?
-      // If so, let's scroll to the desired block,
-      // which was passed in as an onClick method on our <Link />.
-      // If an event was also passed, we'll preventDefault()
-      
-      if (window.location.pathname === '/') {
-        if (e) e.preventDefault()
-        scrollToElement(target, {
-          offset: -95, // Offset a fixed header if you please
-          duration: 1000,
-        })
-      }
-    }
+
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
@@ -256,39 +234,39 @@ const PrivacyPage = ({ data }) => {
           </Title>
           <UsersTableOfContents>
             <ul className='linktoc'>
-              <li><Link onClick={e => handleLinkClick(e, '#User-data-encrypted')} to='/privacy/#User-data-encrypted'>⚓ User Data</Link></li>
-              <li><Link onClick={e => handleLinkClick(e, '#Log-files')} to='/privacy/#Log-Files'>🏴󠁡󠁦󠁬󠁯󠁧󠁿 Log Files</Link></li>
-              <li><Link onClick={e => handleLinkClick(e, '#Cookies--Beacons')} to='/privacy/#Cookies--Beacons'>🍪 Cookies and Beacons</Link></li>
+              <li><Link to='/privacy/#User-data-encrypted'>⚓ User Data</Link></li>
+              <li><Link to='/privacy/#Log-Files'>🏴󠁡󠁦󠁬󠁯󠁧󠁿 Log Files</Link></li>
+              <li><Link to='/privacy/#Cookies--Beacons'>🍪 Cookies and Beacons</Link></li>
               <ul>
-                <li><Link onClick={e => handleLinkClick(e, '#Cookies-in-EU-Law')} to='/privacy/#Cookies-in-EU-Law'>⚖️ EU Law</Link></li>
-                <li><Link onClick={e => handleLinkClick(e, '#Disabling-Cookies')} to='/privacy/#Disabling-Cookies'>❌ Disable Cookies</Link></li>
+                <li><Link to='/privacy/#Cookies-in-EU-Law'>⚖️ EU Law</Link></li>
+                <li><Link to='/privacy/#Disabling-Cookies'>❌ Disable Cookies</Link></li>
               </ul>
-              <li><Link onClick={e => handleLinkClick(e, '#Google-Analytics')} to='/privacy/#Google-Analytics'>📈 Google Analytics</Link></li>
+              <li><Link to='/privacy/#Google-Analytics'>📈 Google Analytics</Link></li>
               <ul>
-                <li><Link onClick={e => handleLinkClick(e, '#Analytics-Cookie-Types')} to='/privacy/#Analytics-Cookie-Types'>🤚 Cookie Types</Link></li>
-                <li><Link onClick={e => handleLinkClick(e, '#Opt-Out')} to='/privacy/#Opt-out'>😜 Opt Out</Link></li>
+                <li><Link to='/privacy/#Analytics-Cookie-Types'>🤚 Cookie Types</Link></li>
+                <li><Link to='/privacy/#Opt-out'>😜 Opt Out</Link></li>
                 <ul>
-                  <li><Link onClick={e => handleLinkClick(e, '#Opt-Out-Google-tools')} to='/privacy/#Opt-Out-Google-tools'>⚒️ Google Tools</Link></li>
+                  <li><Link to='/privacy/#Opt-Out-Google-tools'>⚒️ Google Tools</Link></li>
                 </ul>
               </ul>
-              <li><Link onClick={e => handleLinkClick(e, '#Analytics-Cookie-Types')} to='/privacy/#Hubspot-__hstc-Cookie'>🥠 Hubspot __hstc</Link></li>
+              <li><Link to='/privacy/#Hubspot-__hstc-Cookie'>🥠 Hubspot __hstc</Link></li>
               <ul>
-                <li><Link onClick={e => handleLinkClick(e, '#Key-numbers-for-__hstc')} to='/privacy/#Key-numbers-for-__hstc'>🗝️ Keys-for-__hstc</Link></li>
+                <li><Link to='/privacy/#Key-numbers-for-__hstc'>🗝️ Keys-for-__hstc</Link></li>
               </ul>
-              <li><Link onClick={e => handleLinkClick(e, '#Privacy-Google')} to='/privacy/#Privacy-Google'>🗠 Privacy Google</Link></li>
+              <li><Link to='/privacy/#Privacy-Google'>🗠 Privacy Google</Link></li>
               <ul>
-                <li><Link onClick={e => handleLinkClick(e, '#Read-Analytics-Policy')} to='/privacy/#Read-Analytics-Policy'>🗸 Anylitics Privacy</Link></li>
+                <li><Link to='/privacy/#You-can-read-Google-Analytics-Privacy-Policy'>🗸 Anylitics Privacy</Link></li>
               </ul>
-              <li><Link onClick={e => handleLinkClick(e, '#Google-AdSense')} to='/privacy/#Google-AdSense'>💹 Google AdSense</Link></li>
+              <li><Link to='/privacy/#Google-AdSense'>💹 Google AdSense</Link></li>
               <ul>
-                <li><Link onClick={e => handleLinkClick(e, '#Read-AdSense-Policy')} to='/privacy/#Read-AdSense-Policy'>🗸 AdSense Privacy</Link></li>
-                <li><Link onClick={e => handleLinkClick(e, '#Create-You-Own')} to='/privacy/#Create-Your-Own'>🦸 Create Your Own</Link></li>
+                <li><Link to='/privacy/#You-can-read'>🗸 AdSense Privacy</Link></li>
+                <li><Link to='/privacy/#Create-Your-Own'>🦸 Create Your Own</Link></li>
               </ul>
-              <li><Link onClick={e => handleLinkClick(e, '#MailChimp')} to='/privacy/#MailChimp'>🐵 MailChimp</Link></li>
-              <li><Link onClick={e => handleLinkClick(e, '#Donation-Policy')} to='/privacy/#Donation-Policy'>🩸 Donation Policy</Link></li>
-              <li><Link onClick={e => handleLinkClick(e, '#Comment-Policy')} to='/privacy/#Comment-Policy'>🩸 Comment Policy</Link></li>
-              <li><Link onClick={e => handleLinkClick(e, '#Discloser-Policy')} to='/privacy/#Disclosure-Policy'>🩸 Discloser Policy</Link></li>
-              <li><Link onClick={e => handleLinkClick(e, '#License')} to='/privacy/#License'>🔰 License</Link></li>
+              <li><Link to='/privacy/#MailChimp'>🐵 MailChimp</Link></li>
+              <li><Link to='/privacy/#Donation-Policy'>🩸 Donation Policy</Link></li>
+              <li><Link to='/privacy/#Comment-Policy'>🩸 Comment Policy</Link></li>
+              <li><Link to='/privacy/#Disclosure-Policy'>🩸 Discloser Policy</Link></li>
+              <li><Link to='/privacy/#License'>🔰 License</Link></li>
             </ul>
           </UsersTableOfContents>
         </Menu5>
@@ -325,7 +303,7 @@ const PrivacyPage = ({ data }) => {
                  🔐 Privacy & Terms.
               </div>
               <div classNmae='column'>
-                For Refinements see <Link className='a' onClick={e => handleLinkClick(e, '#Disabling-Cookies')} to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' onClick={e => handleLinkClick(e, '#Privacy-Google')} to='/privacy/#Privacy-Google'>Google Privacy</Link>          
+                For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>          
               </div>
             </div>
           </div>
