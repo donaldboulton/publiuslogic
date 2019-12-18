@@ -18,7 +18,7 @@ showToc: true
 
 ## mediaQuery with Styled mediaQuery
 
-I think its super easy to use a custom mediaQuery with [Styled Media Query's](https://www.npmjs.com/package/styled-media-query), and uses `window.matchMedia` browser support.
+💅💍 I think its super easy to use a custom mediaQuery with [Styled Media Query's](https://www.npmjs.com/package/styled-media-query), and uses `window.matchMedia` browser support.
 
 Install the modules.
 

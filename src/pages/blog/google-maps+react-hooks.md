@@ -17,9 +17,11 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## ♨️ From [janosh.io Google Maps + React Hooks ](https://janosh.io/blog/google-maps+react-hooks)
+## From janosh.io Google Maps + React Hooks
 
-Had to share this one since it is so nice and simple. If you are looking for a drop-in, zero-dependency Google Maps React component, look no further. Here it is:
+[janosh.io Google Maps + React Hooks](https://janosh.io/blog/google-maps+react-hooks)
+
+♨️ Had to share this one since it is so nice and simple. If you are looking for a drop-in, zero-dependency Google Maps React component, look no further. Here it is:
 
 ```jsx:title=src/components/Maps
 import React, { useEffect, useRef } from 'react'

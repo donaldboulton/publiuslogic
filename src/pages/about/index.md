@@ -21,29 +21,29 @@ showToc: true
 
 ## Styling
 
-Styled Components 💅 with Styled Media Query 💅💍
+Styled Components 💅 with Styled Media Query 💍
 
 > Beautiful media queries better than CSS @media for styled-components with ability to specify custom breakpoints.
 
 Gallery Grids with `styled-css-grid 🍱` [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
 
-> A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.
+> A tiny (~2kb) [CSS grid] layout for React, utilizing [styled-components] 💅.
 
-JavaScrpt with Js Standard
+JavaScript Standard
 
 > [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 ## Just Having Fun
 
-🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds including a Node backend on FaunaDB, using React components and GraphQL, Built with WebPack.
+🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds  using React components and GraphQL, Built with WebPack. Including a user data backend on FaunaDB.
 
-Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. React Notifications through my Slack Bots and Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
+Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
 
 ## Gatsby Starter Publius
 
-🚀 This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Microdata for SEO, Internet Positioning.
+🚀 This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Json-Ld per template for SEO, Internet Positioning.
 
-The site is built with Gatsby, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for stateful components such as Image Gallery's, Modal's and ToTop. Prism for syntax highlighting, Disqus for blog post comments and Lunr for custom search.
+The site is built with Gatsby, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for statefull components such as Image Gallery's, Modal's and ToTop. Prism for syntax highlighting, GitHub issues using withUtterances as blog post comments and utilizing Lunr for custom search.
 
 Feel free to reuse any part of this repo to create your own Gatsby site.
 
@@ -62,6 +62,8 @@ A [Gatsby v2](https://www.gatsbyjs.org/) 🗸 and [Netlify CMS](https://www.netl
 
 For a lower level library to the underlying [GoTrue](https://github.com/netlify/gotrue) 🗸 API, see
 [gotrue-js](https://github.com/netlify/gotrue-js) 🗸
+
+> Utilizing Netlify Identity in Gatsby to make public and private pages easily.
 
 #### What is Netlify Identity
 

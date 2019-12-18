@@ -18,9 +18,9 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## 🦞 modali
+## Modali
 
-You can read about how this is built at [>_Upmostly](https://upmostly.com/tutorials/modal-components-react-custom-hooks/#comments)
+🦞 You can read about how this is built at [>_Upmostly](https://upmostly.com/tutorials/modal-components-react-custom-hooks/#comments)
 
 My Modali Modal can be seen further down in the page in Subscribe section email me icon on the Right.
 Which brings up the modal with a Netlify Posted, React Hooks email form using hooks for validation. Posting to Netlify - lambda functions to slack for instant notifications and a email to me.

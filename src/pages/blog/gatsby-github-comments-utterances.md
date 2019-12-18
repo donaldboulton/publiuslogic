@@ -18,14 +18,14 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## 👽 React withUtterances [Repo](https://github.com/khw1031/withUtterances)
+## React withUtterances [Repo](https://github.com/khw1031/withUtterances)
 
 ## Why use withUtterances as utterances
 
-[Taken From: bhnywl.com](https://www.bhnywl.com/how-to-add-comments-to-a-blog-built-with-a-static-site-generator/)
+👽 [Taken From: bhnywl.com](https://www.bhnywl.com/how-to-add-comments-to-a-blog-built-with-a-static-site-generator/)
 
 > Lets say all your users are developers and already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
-Unlike Staticman GitHub Issues are truly dynamic so new comments will show without having to wait for your site to rebuild and deploy
+Unlike Staticman that I am using for my Reviews, GitHub Issues are truly dynamic so new comments will show without having to wait for your site to rebuild and deploy
 You get access to all the features of GitHub Issues out of the box (notifications, moderation, reactions, etc.)
 Developers care about the appearance of their GitHub accounts, which is likely to result in better (or at least civil) discussion.
 It’s free and open source!
@@ -34,13 +34,15 @@ It’s free and open source!
 
 <blockquote class="twitter-tweet is-centered"><p lang="en" dir="ltr">Gatsby GitHub Comments Utterances <a href="https://t.co/QPVt3vrtU5">Twitter Link: https://t.co/QPVt3vrtU5</a><br>Using GitHub issues for site comments and issues on your site realtime.</p>&mdash; Don W. Boulton (@donboulton) <a href="https://twitter.com/donboulton/status/1118651504674725888?ref_src=twsrc%5Etfw">April 17, 2019</a></blockquote>
 
-### React ❤️ [Utterances](https://github.com/utterance/utterances)
+### React withUtterances
 
-**WithUtterances** is a React Higher-Order-Component for Super LightWeight Comments Widget named [Utterances](https://github.com/utterance/utterances).
+**Utterances** [Utterances](https://github.com/utterance/utterances)
+
+❤️ **WithUtterances** is a React Higher-Order-Component for Super LightWeight Comments Widget named [Utterances](https://github.com/utterance/utterances).
 
 ### No need Duplicated DOM Bindings for each react component
 
-#### Just Wrap It!
+#### Just Wrap It
 
 1. `import withUtterances from 'with-utterances'`
 2. Wrap your react component

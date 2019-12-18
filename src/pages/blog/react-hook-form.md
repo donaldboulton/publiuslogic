@@ -17,9 +17,9 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## ↩️ React Hook Forms
+## React Hook Forms
 
-I chose this module to validate my forms, its lightweight and integrates with yup schemas. Plus a nice online form builder and right on point instructions.
+↩️ I chose this module to validate my forms, its lightweight and integrates with yup schemas. Plus a nice online form builder and right on point instructions.
 
 You can see this form validation in action on my contact page and on my email form in a modali window, the button for the popup email form is in the email section at the lower part of every PubliusLogic page.
 

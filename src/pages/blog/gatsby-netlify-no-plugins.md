@@ -19,9 +19,9 @@ tweet_id: "1148277966230695936"
 showToc: true
 ---
 
-## 🔌 Gatsby
+## Gatsby
 
-I started using Gatsby from Jekyll in March and I was already using netlify and Netlify Identity and Netlify CMS for my personal website so I picked [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)  for my first Gatsby Project, and it was slower than some of the other starters I messed around with.
+🔌 I started using Gatsby from Jekyll in March and I was already using netlify and Netlify Identity and Netlify CMS for my personal website so I picked [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)  for my first Gatsby Project, and it was slower than some of the other starters I messed around with.
 
 ### Adding Netlify Identify Widget
 

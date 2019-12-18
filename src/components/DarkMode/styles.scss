@@ -108,7 +108,7 @@ body.light-mode {
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     font-weight: 600;
-    line-height: 1.125;
+    line-height: 1.3;
   }
   strong {
     background: -webkit-gradient(linear,left top,right top,from(#00a396),to(#00c2b2));
@@ -476,7 +476,7 @@ body.dark-mode .content h2, .content h3, .content h4, .content h5, .content h6 {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   font-weight: 600;
-  line-height: 1.125;
+  line-height: 1.3;
 }
 body.dark-mode .content blockquote {
   background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;

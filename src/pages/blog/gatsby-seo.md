@@ -16,9 +16,9 @@ tweet_id: '1118651504674725889'
 showToc: true
 ---
 
-## 📡 JSON-LD Per Template
+## JSON-LD Per Template
 
-Gatsby SEO JSON-LD and meta tags, "per page", is the only logical option for SEO = microdata perfection in a WebPage or Article.
+📡 Gatsby SEO JSON-LD and meta tags, "per page", is the only logical option for SEO = microdata perfection in a WebPage or Article.
 
 The main issue with Json-LD for microdata is you need frontmatter data from pages and posts like the page title, url, description, created time edited time, author, publisher, ratings, reviews etc.
 
