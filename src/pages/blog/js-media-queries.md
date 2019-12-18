@@ -3,6 +3,7 @@ templateKey: article-page
 title: JavaScript media queries
 slug: JavaScript media queries
 date: 2019-04-18T20:20:43.942Z
+updated: 2019-12-18T20:20:43.942Z
 category: 'tech'
 cover: '/images/js-media-quries.jpg'
 tags:
@@ -15,7 +16,55 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
+## mediaQuery with Styled mediaQuery
+
+I think its super easy to use a custom mediaQuery with [Styled Media Query's](https://www.npmjs.com/package/styled-media-query), and uses `window.matchMedia` browser support.
+
+Install the modules.
+
+```sh
+npm i styled-media-query
+```
+
+## Breakpoints Based on a lot of Research.
+
+```js:title=Custom-Media-Query
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobileL: '720px',
+  mobile: '320px',
+})
+```
+
+## Component Usage
+
+I use the custom mediaQuery's for all my image breakpoints titles and will work it in Globally
+
+```js:title=Usage-in-image-component
+const StyledBackgroundSection = styled(BackgroundSection)`
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  ${customMedia.lessThan('desktop')} {
+    background-size: cover;
+      &:after, &:before {
+      background-size: contain;
+    }
+  }
+`
+```
+
 ## From 🏴󠁩󠁤󠁪󠁷󠁿 [janosh.io](https://janosh.io/blog/js-media-queries)
+
+A point of view from janosh.io on how to determine mediaQuery's using [`window.matchMedia` browser support](https://caniuse.com/#search=matchMedia)
 
 > Note: This post assumes you're using React (16.8 or later).
 

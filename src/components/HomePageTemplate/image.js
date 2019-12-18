@@ -14,7 +14,7 @@ const customMedia = generateMedia({
   mobile: '320px',
 })
 
-const BackgroundSection = ({ className, title, backdrop }) => (
+const BackgroundSection = () => (
   <StaticQuery
     query={graphql`
       query {

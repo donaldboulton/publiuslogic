@@ -113,7 +113,9 @@ Google stores the information collected by these cookies on servers in the Unite
 
  😜 In order to provide website visitors with more choice on how data is collected by Google Analytics, Google has developed the Google Analytics Opt-out Browser Add-on. The add-on communicates with the Google Analytics JavaScript (ga.js) to stop data being sent to Google Analytics. The Google Analytics Opt-out Browser Add-on does not affect usage of the website in any other way. A link to further information on the Google Analytics Opt-out Browser Add-on is provided below for your convenience.
 
-### [Opt Out Google tools](https://tools.google.com/dlpage/gaoptout?hl=None)
+### Opt Out Google tools
+
+Link to [Opt Out Google tools](https://tools.google.com/dlpage/gaoptout?hl=None) 🗸
 
 ⚒️ For more information on the usage of cookies by Google Analytics please see the Google website. A link to the privacy advice for this product is provided below for your convenience.
 
@@ -137,17 +139,21 @@ It has been found as a Session cookie on 0 websites.
 
 Note: Many technologies or services use cookies that will be common to different websites and can be identified by name alone. However this is not always true. More specific information can sometimes be found with a website based search.
 
-## [Privacy Google](https://www.google.com/analytics/learn/privacy.html)
+## Privacy Google
+
+Link to [Privacy Google](https://www.google.com/analytics/learn/privacy.html) 🗸
 
 🗠 Google Analytics is a web analytics tool I use to help understand how visitors engage with this website. It reports website trends using cookies and web beacons without identifying individual visitors.
 
-### You can read: [Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html) 🗸
+### Read Analytics Policy
+
+[Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html) 🗸
 
 ## Google AdSense
 
 💹  Google AdSense, a third party affiliate marketing network, uses cookies to help make sure I get a commission when you buy a product after clicking on a link or ad banner that takes you to the site of one of their merchants.
 
-### You can read
+### Read AdSense Policy
 
 [Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182) 🗸
 
@@ -155,7 +161,7 @@ Note: Many technologies or services use cookies that will be common to different
 
 🦸 Google AdSense Privacy Policy creator
 
-[Privacy Policy Creator Google](https://www.termsfeed.com/blog/privacy-policy-google-adsense/)
+[Privacy Policy Creator Google](https://www.termsfeed.com/blog/privacy-policy-google-adsense/) 🗸
 
 ## MailChimp
 
@@ -193,7 +199,7 @@ Demonstrate and share the intelligence, wisdom, and humor we know you possess.
 
 🩸 I make money on this website through affiliate programs. If you click an affiliate link or ad banner and buy the product, you help support this website because I'll get a percentage of that sale.
 
-Donald Boulton and this [publiuslogic.com](https://publiuslogic.com) Website is a Affiliate for Google AdSense.
+Donald Boulton and this [publiuslogic.com](https://publiuslogic.com) 🗸 Website is a Affiliate for Google AdSense.
 
 What this means for you:
 
@@ -206,7 +212,7 @@ Just like this website, my Disclosure Policy is a work in progress. As the reven
 
 ## License
 
-🔰 All original content (e.g. articles, blog posts, illustrations, artwork, and photographs) available on publiuslogic.com is released under a [Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License](https://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US) unless otherwise noted. Basically this means you are free to share, transmit, distribute, alter, transform, and build on my work just as long as you don't use it for commercial purposes without my prior written consent.
+🔰 All original content (e.g. articles, blog posts, illustrations, artwork, and photographs) available on publiuslogic.com is released under a [Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License](https://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US) 🗸 unless otherwise noted. Basically this means you are free to share, transmit, distribute, alter, transform, and build on my work just as long as you don't use it for commercial purposes without my prior written consent.
 
 ## Attribution
 

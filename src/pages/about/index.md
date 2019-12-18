@@ -19,17 +19,23 @@ showToc: true
 [![Known Vulnerabilities](https://snyk.io/test/github/donaldboulton/publiuslogic/badge.svg)](https://snyk.io/test/github/donaldboulton/publiuslogic/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d2be12-eb4a-4da2-a471-aea92e199948/deploy-status)](https://app.netlify.com/sites/publiuslogic/deploys)
 
-## Styling with Bluma and `styled-css-grid 🍱`
+## Styling
 
-[![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
+Styled Components 💅 with Styled Media Query 💅💍
+
+> Beautiful media queries better than CSS @media for styled-components with ability to specify custom breakpoints.
+
+Gallery Grids with `styled-css-grid 🍱` [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
 
 > A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.
 
+JavaScrpt with Js Standard
+
 > [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-## Just Having fun!
+## Just Having Fun
 
-🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds including a Node backend on FaunaDB, using React components and GraphQL, Built with Webpack.
+🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds including a Node backend on FaunaDB, using React components and GraphQL, Built with WebPack.
 
 Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. React Notifications through my Slack Bots and Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
 
@@ -41,7 +47,7 @@ The site is built with Gatsby, Bulma and styled-components. It's fully responsiv
 
 Feel free to reuse any part of this repo to create your own Gatsby site.
 
-A [Gatsby v2](https://www.gatsbyjs.org/) and [Netlify CMS](https://www.netlifycms.org) powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms).
+A [Gatsby v2](https://www.gatsbyjs.org/) 🗸 and [Netlify CMS](https://www.netlifycms.org) 🗸 powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms) 🗸
 
 ### Server-less
 
@@ -49,15 +55,13 @@ A [Gatsby v2](https://www.gatsbyjs.org/) and [Netlify CMS](https://www.netlifycm
 
 ## Authentication
 
-🔐
-
 ### Netlify Identity Widget
 
-🆔 A Custom Styled and Build for Publius, a component used to authenticate with Netlify's Identity service.
-[Live demo](https://identity.netlify.com)
+🔐 A Custom Styled and Build for Publius, a component used to authenticate with Netlify's Identity service.
+🆔 [Live demo](https://identity.netlify.com) 🗸
 
-For a lower level library to the underlying [GoTrue](https://github.com/netlify/gotrue) API, see
-[gotrue-js](https://github.com/netlify/gotrue-js).
+For a lower level library to the underlying [GoTrue](https://github.com/netlify/gotrue) 🗸 API, see
+[gotrue-js](https://github.com/netlify/gotrue-js) 🗸
 
 #### What is Netlify Identity
 
@@ -67,13 +71,13 @@ roles. You can use it from single page apps instead of rolling your own, and
 integrate with any service that understands JSON Web Tokens (JWTs).
 
 Learn more about this service from this
-[blog post](https://www.netlify.com/blog/2017/09/07/introducing-built-in-identity-service-to-streamline-user-management/).
+[blog post](https://www.netlify.com/blog/2017/09/07/introducing-built-in-identity-service-to-streamline-user-management/) 🗸
 
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
+It follows the [JAMstack architecture](https://jamstack.org) 🗸 by using Git as a single source of truth, and [Netlify](https://www.netlify.com) 🗸 for continuous deployment, and CDN distribution.
 
 ## Netlify CMS
 
-[Static + content management = ❤️](https://www.netlifycms.org/)
+[Static + content management = ❤️](https://www.netlifycms.org/) 🗸
 
 🖥️ Netlify CMS is Always the latest Netlify CMS GitHub repo pull, with my custom Webpack hashed build, not the Gatsby plugin and netlify-cms node module way; which builds it into the frontend = slowing Gatsby way down; TEST it to see for yourself.
 
@@ -91,22 +95,24 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 
 ## Features
 
-> ✔️
+> ✔️ Complete Website Suite - Pages = Home, Blog, About, Privacy, Sitemap and Contact
 
-* Complete Website Suite - Home Page, About Page, Pricing Page, Privacy, Contact Page and Blog
 * Netlify CMS for Content Management
-* SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc)
-* Bulma and Sass Support for styling
+* FaunaDB for Authentication - Users Backend and Admin
+* SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc.)
+* Netlify Identity for Authentication
+* Styled Components, Styled Media Query & Bulma for styling
 * Progressive Web App & Offline Support
-* Tags and RSS Feed for Blog
+* Tags, Categories and a RSS Feed for Blog
+* Time to Read and a Table Of Contents
 * Comments with GitHub Issues
 * Follow, Mention, Star and Fork GitHub buttons
 * Share Support
 * Elastic-Lunr Search
 * Pagination
-* Contact Form (Netlify Forms)
+* Contact Form (Lambda Netlify Forms)
 * Easy Configuration using `config.js` file
 
 ## Uses useDarkMode
 
-☀️🌜 I have incorporated this into PubliusLogic and below is an example of its usage.
+> ☀️🌜 Below is an example of its usage.

@@ -61,7 +61,7 @@ const StyledUsersTableMenu = styled.div`
     background: transparent;
   }
   .linktoc {
-    overflow-y: scroll;
+    overflow-y: auto;
     scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
     scrollbar-width: 10px;
     overflow-x: hidden;

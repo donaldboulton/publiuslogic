@@ -12,17 +12,18 @@ tags:
 
 ### All Pages and Posts
 
-|  Pages | Posts  | Admin CMS  |
-|------|:----------------:|---:|
+|  Pages  | Posts  |  Users & CMS  |
+|------|:--------------:|-----:|
 | [Home](https://publiuslogic.com/)  | [All Posts](/blog)  | [Admin](/admin/#/collections/pages)  |
-| [About](/about)  | [Gatsby Netlify noPlugins](/blog/gatsby-netlify-no-plugins/)  | [User Administration](/users)  |
-| [Contact](/contact)  | [Gatsby LightGallery Cloudinary](/blog/gatsby-lightgallery-cloudinary/)  |   |
-| [Photos](/photos) | [Modali Hooks Modal](/blog/modali-hooks-modal/)  |   |
-| [Privacy](/privacy) | [Gatsby GitHub Comments Utterances](/blog/gatsby-github-comments-utterances/)  |   |
-| [Site Map](/sitemap)  | [Gatsby React toTop](/blog/gatsby-react-scroll-toTop/)  |   |
-| [Site Tags](/blog/tags/)  | [React Hooks Modal](/blog/react-hooks-modal/)  |  |
-| [Site Categories](/categories/) | [js Media Queries](/blog/js-media-queries/)  |   |
-|   | [React Hooks Masonry](/blog/react-hooks-masonry/)  |   |
-|   | [React Hooks Modal](/blog/react-hooks-modal)  |   |
+| [About](/about)  | [Gatsby Netlify noPlugins](/blog/gatsby-netlify-no-plugins)  | [User Administration](/users)  |
+| [Contact](/contact)  | [Gatsby LightGallery Cloudinary](/blog/gatsby-lightgallery-cloudinary)  |   |
+| [Photos](/photos) | [Gatsby Crud Netlify FaunaDB](/blog/gatsby-crud-netlify-fauna)  |   |
+| [Privacy](/privacy) | [Gatsby GitHub Comments Utterances](/blog/gatsby-github-comments-utterances)  |   |
+| [Site Map](/sitemap)  | [Gatsby React toTop](/blog/gatsby-react-scroll-toTop)  |   |
+| [Site Tags](/blog/tags/)  | [Modali Hooks Modal](/blog/modali-hooks-modal)  |  |
+| [Site Categories](/categories/) | [js Media Queries](/blog/js-media-queries)  |   |
+|   | [React Hooks Masonry](/blog/react-hooks-masonry)  |   |
+|   | [Earths Magnetic Flux](/blog/earths-magnetic-flux/)  |   |
 |   | [Netlify CMS](/blog/netlify-cms)  |   |
 |   | [Gatsby React Disqus Comments](/blog/gatsby-react-disqus-comments)  |   |
+|   | [React Hooks Modal](/blog/react-hooks-modal)  |   |

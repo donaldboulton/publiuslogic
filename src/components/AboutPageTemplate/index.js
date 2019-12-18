@@ -131,8 +131,8 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
           <AboutTableOfContents>
             <ul className='linktoc'>
               <li><Link to='/about/#Technical-notes-about-this-website'>🎁 Tech Notes</Link></li>
-              <li><Link to='/about/#Just-having-fun'>🍸 Just Having Fun</Link></li>
-              <li><Link to='/about/#Styling-with-Bluma-and-styled-css-grid-'>💅 Styled Components</Link></li>
+              <li><Link to='/about/#Just-having-Fun'>🍸 Just Having Fun</Link></li>
+              <li><Link to='/about/#Styling'>💅 Styled Components</Link></li>
               <li><Link to='/about/#Gatsby-Starter-Publius'>🚀 Gatsby Starter Publius</Link></li>
               <ul>
                 <li><Link to='/about/#Server-less'>🔥 Serverless</Link></li>
@@ -147,8 +147,8 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               <ul>
                 <li><Link to='/about/#An-extensible-CMS-built-on-React'>❤️ Cms with React</Link></li>
               </ul>
-              <li><Link to='/about/#Features' aria-label='This Site Uses useDarkMode' className='link-icon'>✔️ Features</Link></li>
-              <li><Link to='/about/#Uses-useDarkMode' aria-label='This Site Uses useDarkMode' className='link-icon'>☀️ useDarkMode</Link></li>
+              <li><Link to='/about/#Features' className='link-icon'>✔️ Features</Link></li>
+              <li><Link to='/about/#Uses-useDarkMode' className='link-icon'>☀️ useDarkMode</Link></li>
             </ul>
           </AboutTableOfContents>
         </Menu3>
@@ -194,9 +194,9 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
                   />
                 </p>
                 <div className='column'>
-                View the source for this
-                  <Link className='a' to='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</Link> Or see
-                useDarkMode.
+                View the source for this&nbsp;
+                  <Link className='a' to='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</Link> &nbsp;Or see
+                useDarkMode.&nbsp;
                   <Link className='a' to='https://github.com/donavon/use-dark-mode'>
                 Source code on Github.
                   </Link>
