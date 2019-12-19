@@ -144,9 +144,8 @@
 }
 .todo__state {
   position: absolute;
-  top: 0;
+  top: 15pz;
   left: 0;
-  opacity: 0;
 }
 .todo__icon {
   position: absolute;

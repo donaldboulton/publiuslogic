@@ -30,7 +30,7 @@ const config = {
   userAvatar: 'https://donboulton.com/img/donald-boulton.jpg', // User avatar to display in the author segment.
   userDescription: 'Donald Boulton a Frontend Developer since Windows 3.1',
   recaptchaKey: '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
-  copyright: 'Copyright © 2019.', // Copyright string for the footer of the website and RSS feed.
+  copyright: '© 2019.', // Copyright string for the footer of the website and RSS feed.
   copyrightYear: '2019', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#171717', // Used for setting manifest and progress theme colors.
   backgroundColor: '#363636', // Used for setting manifest background color.

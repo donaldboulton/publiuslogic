@@ -21,7 +21,7 @@ showToc: true
 
 ## Gatsby
 
-🔌 I started using Gatsby from Jekyll in March and I was already using netlify and Netlify Identity and Netlify CMS for my personal website so I picked [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)  for my first Gatsby Project, and it was slower than some of the other starters I messed around with.
+🔌 I started using Gatsby from Jekyll in March and I was already using netlify and Netlify Identity and Netlify CMS for my personal website so I picked 🔗 [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)  for my first Gatsby Project, and it was slower than some of the other starters I messed around with.
 
 ### Adding Netlify Identify Widget
 
@@ -233,4 +233,4 @@ Here is an example of not using MDX Plugins, but only using remark-rehype with H
 
 <interactive-counter></interactive-counter>
 
-My repo holds all the code for the discussion above at [DWB publislogic repo](https://github.com/donaldboulton/publiuslogic)
+My repo holds all the code for the discussion above at 🔗 [DWB publislogic repo](https://github.com/donaldboulton/publiuslogic)

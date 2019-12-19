@@ -21,24 +21,24 @@ showToc: true
 
 ## Taken From
 
-🎵 [janosh.io Gatsby React Disqus Comments](https://janosh.io/blog/disqus-comments)
+🎵 🔗 [janosh.io Gatsby React Disqus Comments](https://janosh.io/blog/disqus-comments)
 
 
-If you're running a Gatsby blog (or any React-powered blog for that matter) and you'd like to add comment functionality, rest assured, it's very easy. I just went through that process and the only thing that took time was deciding which service to use. There are quite a few to choose from. The ones I considered were all mentioned in a [2017 Gatsby Spectrum chat](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUxNjM2MjE1NTY1MA==):
+If you're running a Gatsby blog (or any React-powered blog for that matter) and you'd like to add comment functionality, rest assured, it's very easy. I just went through that process and the only thing that took time was deciding which service to use. There are quite a few to choose from. The ones I considered were all mentioned in a 🔗 [2017 Gatsby Spectrum chat](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUxNjM2MjE1NTY1MA==):
 
-- [Disqus](https://disqus.com) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUxMTIzMDE0NjY2MQ==)]
-- [Staticman](https://staticman.net) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUzNDkxODUxMDk4OA==)]
-- [Facebook comments](https://www.npmjs.com/package/react-facebook) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTU0MTEwNTQyNDI1MA==)]
-- [JustComments](https://just-comments.com) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTU0MTQ0MzcxMTgxMQ==)]
-- [TalkYard](https://www.talkyard.io) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUxNjMzMzM5MTU5NA==)]
-- [Gitalk](https://gitalk.github.io) [[mention](https://github.com/gatsbyjs/gatsby/issues/12209#issuecomment-471165136)]
+- 🔗 [Disqus](https://disqus.com) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUxMTIzMDE0NjY2MQ==)]
+- 🔗 [Staticman](https://staticman.net) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUzNDkxODUxMDk4OA==)]
+- 🔗 [Facebook comments](https://www.npmjs.com/package/react-facebook) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTU0MTEwNTQyNDI1MA==)]
+- 🔗 [JustComments](https://just-comments.com) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTU0MTQ0MzcxMTgxMQ==)]
+- 🔗 [TalkYard](https://www.talkyard.io) [[mention](https://spectrum.chat/gatsby-js/general/whats-the-best-way-to-make-commenting-system~0c7e3f0f-8737-4948-9c52-0d20dfe37a05?m=MTUxNjMzMzM5MTU5NA==)]
+- 🔗 [Gitalk](https://gitalk.github.io) [[mention](https://github.com/gatsbyjs/gatsby/issues/12209#issuecomment-471165136)]
 
 I ended up going with Disqus for the following reasons.
 
-- It [seems to be by far the most widely used service](https://www.datanyze.com/market-share/comment-systems/disqus-market-share).
-- It is low maintenance, meaning [moderating your comments and maintaining your forum](https://help.disqus.com/moderation/moderating-101) is easy.
-- It provides official [React support](https://github.com/disqus/disqus-react).
-- It offers a [generous free tier](https://disqus.com/pricing).
+- It 🔗 [seems to be by far the most widely used service](https://www.datanyze.com/market-share/comment-systems/disqus-market-share).
+- It is low maintenance, meaning 🔗 [moderating your comments and maintaining your forum](https://help.disqus.com/moderation/moderating-101) is easy.
+- It provides official🔗 [React support](https://github.com/disqus/disqus-react).
+- It offers a 🔗 [generous free tier](https://disqus.com/pricing)
 - It’s easy to comment: Disqus has a large existing user base and the onboarding experience for new users is fast since you can register with your Google, Facebook or Twitter account. You can also easily share your review about the post through those channels.
 - Its commenting interface has a distinct but unobtrusive look that many users will instantly recognize and trust.
 - All Disqus components are lazy-loaded, meaning they won't negatively impact the load times of your posts.
@@ -56,7 +56,7 @@ Of course, in return you have the disadvantage of increased manual setup includi
 
 Here are the steps for adding Disqus comments to your own blog:
 
-1. [Sign-up to Disqus](https://disqus.com/profile/signup). During the process you'll have to choose shortname for your site. This is how Disqus will identify comments coming from your site. Copy that for later.
+1. 🔗 [Sign-up to Disqus](https://disqus.com/profile/signup). During the process you'll have to choose shortname for your site. This is how Disqus will identify comments coming from your site. Copy that for later.
 
 2. Install the Disqus React package
 
@@ -90,7 +90,7 @@ GATSBY_GOOGLE_MAPS_API_KEY=insertValue
 GATSBY_DISQUS_NAME=insertValue
 ```
 
-files so that people forking your repo will know that they need to supply this value to get comments to work. (You need to prefix the environment variable with GATSBY in order to [make it available to client side code](https://www.gatsbyjs.org/docs/environment-variables/#client-side-javascript).)
+files so that people forking your repo will know that they need to supply this value to get comments to work. (You need to prefix the environment variable with GATSBY in order to 🔗 [make it available to client side code](https://www.gatsbyjs.org/docs/environment-variables/#client-side-javascript).)
 
 or
 
@@ -193,6 +193,6 @@ where the config object now comes from the utility function
   disqusConfig()
 ```
 
-You can customize what string the Comment Count component displays depending on how many comments a post has by going to your Disqus admin settings [as described here](https://help.disqus.com/installation/customizing-comment-count-link-text). For instance you might want to change the text '0 comments' to something more inspiring like 'Start a discussion!'. :wink:
+You can customize what string the Comment Count component displays depending on how many comments a post has by going to your Disqus admin settings 🔗 [as described here](https://help.disqus.com/installation/customizing-comment-count-link-text). For instance you might want to change the text '0 comments' to something more inspiring like 'Start a discussion!'. :wink:
 
 ![Disqus community admin settings](/img/disqus-community-admin-settings.png)

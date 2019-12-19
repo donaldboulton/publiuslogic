@@ -36,7 +36,7 @@ All of this information is not linked to anything that is personally identifiabl
 
 ## Cookies & Beacons
 
-🍪 When you visit this site "convenience" cookies are stored on your computer when you submit a comment to help you log in faster to [Twitter](https://twitter.com/donboulton) the next time you do a tweet.
+🍪 When you visit this site "convenience" cookies are stored on your computer when you submit a comment to help you log in faster to 🔗 [Twitter](https://twitter.com/donboulton) the next time you do a tweet.
 
 `video: https://www.youtube.com/embed/yoE9-tNvhRs`
 
@@ -46,21 +46,21 @@ If you wish to disable cookies, you may do so through your web browser options. 
 
 ### Cookies in EU Law
 
-⚖️ * [Is the EU's cookie law confusing you too?](https://www.123-reg.co.uk/blog/security-issues/is-the-eus-cookie-law-confusing-you-too/)
-* [New EU cookie law (e-Privacy Directive)](https://www.ico.gov.uk/for_organisations/privacy_and_electronic_communications/the_guide/cookies.aspx)
-* [Cookies – Doing nothing isn't the right answer](https://chriswharton.me/2012/05/cookies-doing-nothing-isnt-the-right-answer/)
+⚖️ 🔗 [Is the EU's cookie law confusing you too?](https://www.123-reg.co.uk/blog/security-issues/is-the-eus-cookie-law-confusing-you-too/)
+🔗 [New EU cookie law (e-Privacy Directive)](https://www.ico.gov.uk/for_organisations/privacy_and_electronic_communications/the_guide/cookies.aspx)
+🔗  [Cookies – Doing nothing isn't the right answer](https://chriswharton.me/2012/05/cookies-doing-nothing-isnt-the-right-answer/)
 
 ### Disabling Cookies
 
 ❌ If you would like to restrict the use of cookies you can control this in your Internet browser. Links to advice on how to do this for the most popular Internet browsers are provided below for convenience and will be available for the Internet browser of your choice either online or via the software help (normally available via key F1).
 
-* [Disabling cookies in Internet Explorer](https://windows.microsoft.com/en-GB/windows7/Block-enable-or-allow-cookies)
+🔗 * [Disabling cookies in Internet Explorer](https://windows.microsoft.com/en-GB/windows7/Block-enable-or-allow-cookies)
 
-* [Disabling cookies in Google Chrome](https://support.google.com/chrome/bin/answer.py?hl=en-GB&amp;answer=95647&amp;p=cpn_cookies)
+🔗 * [Disabling cookies in Google Chrome](https://support.google.com/chrome/bin/answer.py?hl=en-GB&amp;answer=95647&amp;p=cpn_cookies)
 
-* [Disabling cookies in Mozilla Firefox](https://support.mozilla.org/en-US/kb/Blocking-cookies)
+🔗 * [Disabling cookies in Mozilla Firefox](https://support.mozilla.org/en-US/kb/Blocking-cookies)
 
-* [Disabling cookies in Apple Safari](https://docs.info.apple.com/article.html?artnum=324)
+🔗 * [Disabling cookies in Apple Safari](https://docs.info.apple.com/article.html?artnum=324)
 
 ## Google Analytics
 
@@ -97,7 +97,7 @@ Returning, New Session, Time, Custom Variable Data, Source
 🤚 This Cookie waits 30 minutes, and then it expires. You see, __utmc has no way of knowing when a user closes their browser or leaves a website, so it waits 30 minutes for another pageview to happen, and if it doesn’t, it expires.
 And is used to store information, such as what time your current visit occurred, whether you have been to the site before, and what site referred you to the web page.
 
-From Stackoverflow: [What does __utma mean?](https://stackoverflow.com/questions/1823406/what-does-utma-mean)
+From Stackoverflow: 🔗 [What does __utma mean?](https://stackoverflow.com/questions/1823406/what-does-utma-mean)
 
 * __utmv
 
@@ -115,7 +115,7 @@ Google stores the information collected by these cookies on servers in the Unite
 
 ### Opt Out Google tools
 
-Link to [Opt Out Google tools](https://tools.google.com/dlpage/gaoptout?hl=None) 🗸
+Link to 🔗 [Opt Out Google tools](https://tools.google.com/dlpage/gaoptout?hl=None)
 
 ⚒️ For more information on the usage of cookies by Google Analytics please see the Google website. A link to the privacy advice for this product is provided below for your convenience.
 
@@ -141,13 +141,13 @@ Note: Many technologies or services use cookies that will be common to different
 
 ## Privacy Google
 
-Link to [Privacy Google](https://www.google.com/analytics/learn/privacy.html) 🗸
+🔗 [Privacy Google](https://www.google.com/analytics/learn/privacy.html)
 
 🗠 Google Analytics is a web analytics tool I use to help understand how visitors engage with this website. It reports website trends using cookies and web beacons without identifying individual visitors.
 
 ### Read Analytics Policy
 
-[Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html) 🗸
+🔗 [Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html)
 
 ## Google AdSense
 
@@ -155,13 +155,13 @@ Link to [Privacy Google](https://www.google.com/analytics/learn/privacy.html) �
 
 ### Read AdSense Policy
 
-[Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182) 🗸
+🔗 [Google AdSense Privacy Policy](https://support.google.com/adsense/bin/answer.py?hl=en&answer=48182)
 
 ### Create Your Own
 
 🦸 Google AdSense Privacy Policy creator
 
-[Privacy Policy Creator Google](https://www.termsfeed.com/blog/privacy-policy-google-adsense/) 🗸
+🔗 [Privacy Policy Creator Google](https://www.termsfeed.com/blog/privacy-policy-google-adsense/)
 
 ## MailChimp
 
@@ -173,7 +173,7 @@ New articles we think you will be interested in reading.
 Products that we think you will be interested in learning about.
 We won’t sell or rent your data to anyone else.
 
-Feel free to read MailChimp’s [privacy policy](https://mailchimp.com/legal/privacy/) and [terms](https://mailchimp.com/legal/terms/) 🗸
+Feel free to read MailChimp’s 🔗 [privacy policy](https://mailchimp.com/legal/privacy/) and [terms](https://mailchimp.com/legal/terms/)
 
 ## Donation Policy
 

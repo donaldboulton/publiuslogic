@@ -19,12 +19,12 @@ showToc: true
 
 🔥 Static + content management = ❤️
 
-[CMS Site](https://www.netlifycms.org/)
+🔗 [CMS Site](https://www.netlifycms.org/)
 
 Netlify CMS is Always the latest GitHub repo pull, with my custom WebPack hashed build.
 My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
 
-> The below is old content see my new post on [Gatsby Netlify No Plugins](https://publiuslogic.com/blog/gatsby-netlify-no-plugins/) for CMS and Identity Widget custom builds and no Gatsby Plugins.
+> The below is old content see my new post on 🔗 [Gatsby Netlify No Plugins](https://publiuslogic.com/blog/gatsby-netlify-no-plugins/) for CMS and Identity Widget custom builds and no Gatsby Plugins.
 
 ## CMS index.html File exclusive build
 

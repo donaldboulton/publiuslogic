@@ -41,7 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
               tags
               templateKey
               date(formatString: "MMMM DD, YYYY")
-            }
+            }           
           }
         }
       }
@@ -73,6 +73,8 @@ exports.createPages = ({ actions, graphql }) => {
     })
     postsAndPages.forEach(edge => {
       const id = edge.node.id
+      const next = edge.node.next
+      const previous = edge.node.previous
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -83,6 +85,8 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
+          next,
+          previous,
         },
       })
     })

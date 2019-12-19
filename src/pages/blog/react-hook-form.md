@@ -23,11 +23,11 @@ showToc: true
 
 You can see this form validation in action on my contact page and on my email form in a modali window, the button for the popup email form is in the email section at the lower part of every PubliusLogic page.
 
-[简体中文](https://github.com/bluebill1049/react-hook-form/blob/master/docs/README.zh-CN.md")
+🔗 [简体中文](https://github.com/bluebill1049/react-hook-form/blob/master/docs/README.zh-CN.md")
 
 ![](https://raw.githubusercontent.com/bluebill1049/react-hook-form/master/website/logo.png)
 
-[React Hooks Form Builder](href="https://react-hook-form.now.sh/")
+🔗 [React Hooks Form Builder](href="https://react-hook-form.now.sh/")
 
 > React hook form validation without the hassle
 
@@ -42,7 +42,7 @@ You can see this form validation in action on my contact page and on my email fo
 - Built with React Hooks with performance and developer experience in mind
 - Follows HTML standard for validation
 - Tiny size without other any dependency
-- Build forms quickly with the [form builder](https://react-hook-form.now.sh/builder)
+- Build forms quickly with the 🔗 [form builder](https://react-hook-form.now.sh/builder)
 
 ## Install
 
@@ -127,10 +127,11 @@ function App() {
 }
 ```
 
-## Contributors 
+## Contributors
+
 Thanks goes to these wonderful people:
 
-    [AyumiKai]https://github.com/AyumiKai)
-    [garthmcrae](https://github.com/garthmcrae)
-    [erikras]https://github.com/erikras)
+  🔗 [AyumiKai]https://github.com/AyumiKai)
+  🔗 [garthmcrae](https://github.com/garthmcrae)
+  🔗 [erikras]https://github.com/erikras)
 

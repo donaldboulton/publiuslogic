@@ -19,9 +19,9 @@ showToc: true
 
 ## From janosh.io React Hooks Masonry Post
 
-Link: [janosh.io React Hooks Masonry](https://janosh.io/blog/react-hooks-masonry)
+🔗 [janosh.io React Hooks Masonry](https://janosh.io/blog/react-hooks-masonry)
 
-🔥 Now that we have React Hooks, so many components can (and probably should [despite what Dan said at React Conf](https://youtu.be/dpw9EHDh2bM?t=3365)) be rewritten in a more succinct, readable and maintainable manner. A perfect candidate for this in my own code base was a `Masonry` component that used to rely on CSS grid with very narrow rows and managing the number of rows each child item spans based on its natural height to control their placement. With hooks, it was easy to significantly improve on this approach.
+🔥 Now that we have React Hooks, so many components can (and probably should 🔗 [despite what Dan said at React Conf](https://youtu.be/dpw9EHDh2bM?t=3365)) be rewritten in a more succinct, readable and maintainable manner. A perfect candidate for this in my own code base was a `Masonry` component that used to rely on CSS grid with very narrow rows and managing the number of rows each child item spans based on its natural height to control their placement. With hooks, it was easy to significantly improve on this approach.
 
 For those unfamiliar with “masonry” on the web, the goal is to create a layout like this.
 
@@ -112,7 +112,7 @@ export const Col = styled.div`
 
 ## Examples
 
-Using `Masonry` is as simple as wrapping it around an array of child elements. For example, here's how you'd use it to display a [list of image thumbnails](https://janosh.io/nature) in a masonry layout.
+Using `Masonry` is as simple as wrapping it around an array of child elements. For example, here's how you'd use it to display a 🔗 [list of image thumbnails](https://janosh.io/nature) in a masonry layout.
 
 ```jsx{3,11,24}
 import React, { useState, Fragment } from 'react'

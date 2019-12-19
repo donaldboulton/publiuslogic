@@ -19,7 +19,7 @@ showToc: true
 
 ## From janosh.io Google Maps + React Hooks
 
-[janosh.io Google Maps + React Hooks](https://janosh.io/blog/google-maps+react-hooks)
+🔗 [janosh.io Google Maps + React Hooks](https://janosh.io/blog/google-maps+react-hooks)
 
 ♨️ Had to share this one since it is so nice and simple. If you are looking for a drop-in, zero-dependency Google Maps React component, look no further. Here it is:
 
@@ -60,7 +60,7 @@ Map.defaultProps = {
 }
 ```
 
-To use it, simply grab a free Google Maps API key from [Google cloud console](https://console.cloud.google.com) ([here is a guide for that](https://developers.google.com/maps/documentation/javascript/get-api-key)) and either add it to your .env file or paste it in directly for GOOGLE_MAPS_API_KEY.
+To use it, simply grab a free Google Maps API key from 🔗 [Google cloud console](https://console.cloud.google.com) ([here is a guide for that](https://developers.google.com/maps/documentation/javascript/get-api-key)) and either add it to your .env file or paste it in directly for GOOGLE_MAPS_API_KEY.
 
 Then simply drop in the above Map component wherever you would like to display a Google map.
 
@@ -131,7 +131,7 @@ export default () => (
 )
 ```
 
-In fact, you may want to make this part of the `Map` vomponent by default, i.e.
+In fact, you may want to make this part of the `Map` component by default, i.e.
 
 ```diff{36}:title=src/components/Maps
 - export default function Map({ options, onMount, className }) {

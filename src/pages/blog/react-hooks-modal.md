@@ -19,13 +19,13 @@ showToc: true
 
 ## React Hooks Modal
 
-Link: [janosh.io](https://janosh.io/blog/)
+🔗 [janosh.io](https://janosh.io/blog/)
 
 > 🔥 Ready to start coding. But what to do first? One thing that seemed a good fit for hooks are modals. I'd implemented them once or twice before and in both cases came away with the feeling that a class component with all its boilerplate is overkill considering the tiny bit of state management required for modal functionality. As expected, using hooks I was able to boil it down quite considerably. This is what I ended up with.
 
 What to do on a cold and wet January weekend? Why not check out the new [React alpha (16.8)](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-q1-2019-the-one-with-hooks). **The one with Hooks** as it's come to be called.
 
-All it took was a little skimming through [the docs](https://reactjs.org/docs/hooks-intro.html), followed by updating `react` and `react-dom`.
+All it took was a little skimming through 🔗 [the docs](https://reactjs.org/docs/hooks-intro.html), followed by updating `react` and `react-dom`.
 
 ```sh
 yarn add react react-dom
@@ -93,7 +93,7 @@ export const Close = styled(Cross).attrs({ size: `2em` })`
 
 As you can see, the styles are longer than the component itself. That's where I spent most of my time too. Figuring out how to use React hooks took mere minutes. Props to the React team (pun intended) for the excellent onboarding experience!
 
-Anyways, regarding usage, notice that the modal component doesn't actually handle it's own state. That's done by the parent component. As an example here's a [list of photos](https://janosh.io/nature) that when clicked enter a higher-resolution modal view.
+Anyways, regarding usage, notice that the modal component doesn't actually handle it's own state. That's done by the parent component. As an example here's a 🔗 [list of photos](https://janosh.io/nature) that when clicked enter a higher-resolution modal view.
 
 ```jsx{1,9,15,19}
 import React, { useState, Fragment } from 'react'
@@ -179,7 +179,7 @@ Admittedly this component is bloated further by using Redux but even without it,
 
 ## Semantic HTML
 
-One thing I should mention for future readers who want to use this `Modal` component: Once Chrome's new [`<dialog>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) gets better [browser support](https://caniuse.com/#feat=dialog), it would improve semantics to use it for the modal container, i.e.
+One thing I should mention for future readers who want to use this `Modal` component: Once Chrome's new 🔗[`<dialog>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) gets better [browser support](https://caniuse.com/#feat=dialog), it would improve semantics to use it for the modal container, i.e.
 
 ```js
 - export const ModalContainer = styled.div`
@@ -312,4 +312,4 @@ export const Prev = styled(NavigateBefore).attrs({ size: `2em` })`
 `
 ```
 
-For the full and most up to date implementation of this component, check out [this site's Github repo](https://github.com/janosh/janosh.io/tree/master/src/components/Modal).
+For the full and most up to date implementation of this component, check out 🔗 [this site's Github repo](https://github.com/janosh/janosh.io/tree/master/src/components/Modal).

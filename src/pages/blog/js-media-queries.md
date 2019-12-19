@@ -18,7 +18,7 @@ showToc: true
 
 ## mediaQuery with Styled mediaQuery
 
-💅💍 I think its super easy to use a custom mediaQuery with [Styled Media Query's](https://www.npmjs.com/package/styled-media-query), and uses `window.matchMedia` browser support.
+💅💍 I think its super easy to use a custom mediaQuery with 🔗 [Styled Media Query's](https://www.npmjs.com/package/styled-media-query), and uses `window.matchMedia` browser support.
 
 Install the modules.
 
@@ -62,9 +62,11 @@ const StyledBackgroundSection = styled(BackgroundSection)`
 `
 ```
 
-## From 🏴󠁩󠁤󠁪󠁷󠁿 [janosh.io](https://janosh.io/blog/js-media-queries)
+## Taken From
 
-A point of view from janosh.io on how to determine mediaQuery's using [`window.matchMedia` browser support](https://caniuse.com/#search=matchMedia)
+🏴󠁩󠁤󠁪󠁷󠁿 🔗 [janosh.io](https://janosh.io/blog/js-media-queries)
+
+A point of view from janosh.io on how to determine mediaQuery's using 🔗 [`window.matchMedia` browser support](https://caniuse.com/#search=matchMedia)
 
 > Note: This post assumes you're using React (16.8 or later).
 
@@ -120,7 +122,7 @@ export default styled.div`
 `
 ```
 
-However, even this close to JavaScript, CSS media queries alone sometimes don't cut it. The cool thing is [`window.matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) makes it very easy to use your CSS media query directly in JavaScript without any 3rd party dependencies! And it even has great browser support.
+However, even this close to JavaScript, CSS media queries alone sometimes don't cut it. The cool thing is 🔗 [`window.matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) makes it very easy to use your CSS media query directly in JavaScript without any 3rd party dependencies! And it even has great browser support.
 
 ![window.matchMedia browser support](/img/matchMedia-browser-support.jpg "matchMedia browser support")
 _[`window.matchMedia` browser support](https://caniuse.com/#search=matchMedia)_
@@ -280,4 +282,4 @@ export default props => (
 )
 ```
 
-For a more elaborate example involving a media query with multiple break points, check out the [`useMedia` post on usehooks.com](https://usehooks.com/useMedia).
+For a more elaborate example involving a media query with multiple break points, check out the 🔗 [`useMedia` post on usehooks.com](https://usehooks.com/useMedia).

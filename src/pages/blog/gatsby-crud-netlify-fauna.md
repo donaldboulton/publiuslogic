@@ -19,9 +19,9 @@ showToc: true
 
 ## Gatsby Serverless FaunaDB
 
-🖥️ Based on [Nelifty post](https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/?_ga=2.21698171.1777301599.1576092869-301685750.1573932436#wrapping-up)
+🖥️ Based on 🔗 [Nelifty post](https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/?_ga=2.21698171.1777301599.1576092869-301685750.1573932436#wrapping-up)
 
-And some code functions and the Database schema mixed in from [Netlify FaunaDB ToDo](https://github.com/fauna/netlify-faunadb-todomvc) for Netlify Identity Login and to set up the database.
+And some code functions and the Database schema mixed in from 🔗 🔗 [Netlify FaunaDB ToDo](https://github.com/fauna/netlify-faunadb-todomvc) for Netlify Identity Login and to set up the database.
 
 Serverless functions seem to be all the rage these days. But why?
 
@@ -48,7 +48,7 @@ _[`FaunaDB` serverless functions](https://www.netlify.com/docs/functions/)_
 
 ## Fauna Functions ToDo Example
 
-This Functions Todo Sample is in the [Netlify Fauna ToDo](https://github.com/jchris/netlify-fauna-todo), GitHub Repo.
+This Functions Todo Sample is in the 🔗 [Netlify Fauna ToDo](https://github.com/jchris/netlify-fauna-todo), GitHub Repo.
 
 See the component in this markdown page at the bottom. Or our users page for the [ToDo](/users) Functions Example
 
@@ -166,7 +166,7 @@ export default Login
 
 ## The FaunaDB sign up functions code
 
-The Login code and Identity functions were taken from the [Netlify FaunaDb todomvc Repo](https://github.com/fauna/netlify-faunadb-todomvc) application includes an `identity-signup.js` function which is triggered upon email confirmation to create the FaunaDB user. 
+The Login code and Identity functions were taken from the 🔗 [Netlify FaunaDb todomvc Repo](https://github.com/fauna/netlify-faunadb-todomvc) application includes an `identity-signup.js` function which is triggered upon email confirmation to create the FaunaDB user. 
 
 So click that confirmation link and start using your app. Any changes you push to your master branch will be automatically deployed, thanks Netlify!
 

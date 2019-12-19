@@ -12,7 +12,9 @@ showToc: true
 
 ## Technical notes about this website
 
-🎁 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/donaldboulton/publiuslogic/master/LICENSE.txt)
+🎁 Code Coverage
+
+[![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/donaldboulton/publiuslogic/master/LICENSE.txt)
 [![Tip Me via PayPal](https://img.shields.io/badge/PayPal-tip%20me-green.svg?logo=paypal)](https://www.paypal.me/donaldboulton)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/?t=fa5cdbee-00bf-4ca8-be8f-f150a6f643e1)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
@@ -35,7 +37,7 @@ JavaScript Standard
 
 ## Just Having Fun
 
-🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds  using React components and GraphQL, Built with WebPack. Including a user data backend on FaunaDB.
+🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds  using React components and GraphQL, Built with WebPack. Including a user data backend I am just now working on using FaunaDB.
 
 Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
 
@@ -47,7 +49,7 @@ The site is built with Gatsby, Bulma and styled-components. It's fully responsiv
 
 Feel free to reuse any part of this repo to create your own Gatsby site.
 
-A [Gatsby v2](https://www.gatsbyjs.org/) 🗸 and [Netlify CMS](https://www.netlifycms.org) 🗸 powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms) 🗸
+A 🔗 [Gatsby v2](https://www.gatsbyjs.org/) and 🔗 [Netlify CMS](https://www.netlifycms.org) 🗸 powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms) 🗸
 
 ### Server-less
 
@@ -58,10 +60,10 @@ A [Gatsby v2](https://www.gatsbyjs.org/) 🗸 and [Netlify CMS](https://www.netl
 ### Netlify Identity Widget
 
 🔐 A Custom Styled and Build for Publius, a component used to authenticate with Netlify's Identity service.
-🆔 [Live demo](https://identity.netlify.com) 🗸
+🆔 🔗 [Live demo](https://identity.netlify.com)
 
-For a lower level library to the underlying [GoTrue](https://github.com/netlify/gotrue) 🗸 API, see
-[gotrue-js](https://github.com/netlify/gotrue-js) 🗸
+For a lower level library to the underlying 🔗 [GoTrue](https://github.com/netlify/gotrue) 🗸 API, see
+🔗 [gotrue-js](https://github.com/netlify/gotrue-js)
 
 > Utilizing Netlify Identity in Gatsby to make public and private pages easily.
 
@@ -73,13 +75,13 @@ roles. You can use it from single page apps instead of rolling your own, and
 integrate with any service that understands JSON Web Tokens (JWTs).
 
 Learn more about this service from this
-[blog post](https://www.netlify.com/blog/2017/09/07/introducing-built-in-identity-service-to-streamline-user-management/) 🗸
+🔗 [blog post](https://www.netlify.com/blog/2017/09/07/introducing-built-in-identity-service-to-streamline-user-management/) 🗸
 
-It follows the [JAMstack architecture](https://jamstack.org) 🗸 by using Git as a single source of truth, and [Netlify](https://www.netlify.com) 🗸 for continuous deployment, and CDN distribution.
+It follows the 🔗 [JAMstack architecture](https://jamstack.org) 🗸 by using Git as a single source of truth, and 🔗 [Netlify](https://www.netlify.com) 🗸 for continuous deployment, and CDN distribution.
 
 ## Netlify CMS
 
-[Static + content management = ❤️](https://www.netlifycms.org/) 🗸
+🔗 [Static + content management = ❤️](https://www.netlifycms.org/)
 
 🖥️ Netlify CMS is Always the latest Netlify CMS GitHub repo pull, with my custom Webpack hashed build, not the Gatsby plugin and netlify-cms node module way; which builds it into the frontend = slowing Gatsby way down; TEST it to see for yourself.
 

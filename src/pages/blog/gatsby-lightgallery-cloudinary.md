@@ -18,7 +18,7 @@ showToc: true
 
 ## Using Cloudinary React Library
 
-[Cloudinary React Library](https://www.npmjs.com/package/cloudinary-react/v/1.1.0)
+🔗 [Cloudinary React Library](https://www.npmjs.com/package/cloudinary-react/v/1.1.0)
 
 🖼️ Cloudinary is a cloud service that offers a solution to a web application's entire image management pipeline.
 
@@ -28,7 +28,7 @@ Cloudinary offers comprehensive APIs and administration capabilities and is easy
 
 Cloudinary provides URL and HTTP based APIs that can be easily integrated with any Web development framework.
 
-I have used [LightGalley](http://sachinchoolur.github.io/lightGallery/) in my ASP.NET, Core-2, Jekyll, React and now in my Gatsby site for Image Galleries and iframes to display any kind of html content.
+I have used 🔗 [LightGalley](http://sachinchoolur.github.io/lightGallery/) in my ASP.NET, Core-2, Jekyll, React and now in my Gatsby site for Image Galleries and iframes to display any kind of html content.
 
 This demo is using Styled Components and mediaQuery in a Styled CSS Grid for the image Cells.
 

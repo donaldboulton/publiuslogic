@@ -297,10 +297,10 @@ const PrivacyPage = ({ data }) => {
               <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
             </div>
             <div className='columns is-desktop is-vcentered'>
-              <div className='column is-3'>
+              <div className='column is-4'>
                  🔐 Privacy & Terms.
               </div>
-              <div classNmae='column'>
+              <div className='column is-pulled-right'>
                 For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>          
               </div>
             </div>
