@@ -23,7 +23,6 @@ import HitCounter from '../components/HitCounter'
 import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
-import PrevNext from '../components/PrevNext'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
 const StyledTableMenu = styled.div` 
@@ -164,10 +163,9 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, location, pageContext }) => {
+const ArticlePage = ({ data, location }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  const { next, prev } = pageContext
   const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
@@ -337,7 +335,6 @@ const ArticlePage = ({ data, location, pageContext }) => {
               />
               <hr />
               <Comments />
-              <PrevNext />
             </div>
           </div>
         </div>
@@ -357,41 +354,34 @@ export default ArticlePage
 export const pageQuery = graphql`
   query ArticleByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      id      
+      htmlAst
+      timeToRead
+      tableOfContents
+      excerpt(pruneLength: 300)                          
+      fields {
+        slug
+      }      
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        title
+        tweet_id
+        category
+        meta_title
+        meta_description
+        tags
+        cover
+      }
+    }
+    allRatingsJson(
+      filter: { postPath: { eq: $id } }
       sort: { fields: [date], order: ASC }
-      limit: 1000
     ) {
+      totalCount
       edges {
         node {
-          id      
-          htmlAst
-          timeToRead
-          tableOfContents
-          excerpt(pruneLength: 300)                          
-          fields {
-            slug
-          }      
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tweet_id
-            category
-            meta_title
-            meta_description
-            tags
-            cover
-          }
-        }
-        allRatingsJson(
-          filter: { postPath: { eq: $id } }
-          sort: { fields: [date], order: ASC }
-        ) {
-          totalCount
-          edges {
-            node {
-              id
-              rating
-            }
-          }
+          id
+          rating
         }
       }
     }

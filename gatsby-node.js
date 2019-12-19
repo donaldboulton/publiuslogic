@@ -23,11 +23,23 @@ exports.createPages = ({ actions, graphql }) => {
     {
       allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
+          previous {
+            frontmatter {
+              cover
+              title
+            }
+          }
+          next {
+            frontmatter {
+              title
+              cover
+            }
+          }
           node {
             headings {
               depth
               value
-            }
+            }            
             timeToRead                  
             excerpt(pruneLength: 300)
             id
