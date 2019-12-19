@@ -16,12 +16,13 @@ const Styledh1 = styled.h1`
   z-index: 22;
 `
 const ButtonSecondary = styled(Link)`
-  font-size: 1.5em;
+  border: thin ${props => props.theme.black};
 `
 const ButtonDisabled = styled.div`
   background: transparent;
   padding: calc(.5em - 1px) .75em;
-  font-size: 1em;
+  border: thin ${props => props.theme.black};
+  font-size: 0.9em;
 `
 const Pagination = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ const Pagination = styled.div`
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <ButtonSecondary className='button' to={`/blog/${props.url}`}>
+      <ButtonSecondary className='button is-small' to={`/blog/${props.url}`}>
         {`${props.text}`}
       </ButtonSecondary>
     )
@@ -153,14 +154,14 @@ export default class BlogPage extends Component {
           <PostCard posts={group} />
           <section className='section'>
             <Pagination>
-              {!first && <PaginationLink test={first} url={previousUrl} text='← Prev&nbsp;' />}
+              {!first && <PaginationLink test={first} url={previousUrl} text='← Prev' />}
               {
                 pageNumbers.map(number => {
                   const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
                   return <PaginationLink test={isActive} url={`/${number === 1 ? '' : number}`} text={number} />
                 })
               }
-              {!last && <PaginationLink test={last} url={nextUrl} text='&nbsp;Next →' />}
+              {!last && <PaginationLink test={last} url={nextUrl} text='Next →' />}
             </Pagination>
           </section>
         </section>
