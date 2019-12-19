@@ -132,7 +132,106 @@ Content is stored in your Git repository along side your code for easier version
 
 ### An extensible CMS built on React
 
-Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backends to support different Git platform APIs.
+Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add a backend to support different Git platform APIs.
 My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
+
+## The Configuration file
+
+```yaml:title=/static/admin/config.yml
+backend:
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
+  repo: donaldboulton/publiuslogic
+  branch: master
+  identity_url: "https://publiuslogic.com/.netlify/identity"
+  gateway_url: "https://publiuslogic.com/.netlify/git"
+  site_domain:  "https://publiuslogic.com/"
+  squash_merges: true
+
+display_url: https://publiuslogic.com
+logo_url: https://publiuslogic.com/img/apple-touch-icon-180x180.png
+
+publish_mode: editorial_workflow
+media_library:
+ name: uploadcare
+ config:
+   publicKey: <'YOUR KEY'>
+media_folder: static/img
+public_folder: img
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Heading, name: heading, widget: string}
+          - {label: Description, name: description, widget: string}
+          - {label: Offerings, name: offerings, widget: object, fields: [{label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
+          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
+          - {label: "Meta Title", name: "meta_title", widget: "string"}
+          - {label: "Meta Description", name: "meta_description", widget: "text"}
+      - file: "src/pages/about/index.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: "Meta Title", name: "meta_title", widget: "string"}
+          - {label: "Meta Description", name: "meta_description", widget: "text"}
+      - file: "src/pages/pricing/index.md"
+        label: "Pricing Page"
+        name: "pricing"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "pricing-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Image, name: image, widget: image}
+          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+          - {label: "Meta Title", name: "meta_title", widget: "string"}
+          - {label: "Meta Description", name: "meta_description", widget: "text"}
+      - file: "src/pages/contact/index.md"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Subtitle, name: subtitle, widget: string}
+          - {label: Contacts, name: contacts, widget: list, fields: [{label: Email, name: email, widget: string}, {label: Description, name: description, widget: string}]}
+          - {label: "Meta Title", name: "meta_title", widget: "string"}
+          - {label: "Meta Description", name: "meta_description", widget: "text"}
+      - file: "src/pages/privacy/index.md"
+        label: "Privacy Page"
+        name: "privacy"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "privacy-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Subtitle, name: subtitle, widget: string}
+          - {label: "Meta Title", name: "meta_title", widget: "string"}
+          - {label: "Meta Description", name: "meta_description", widget: "text"}  
+  - name: "blog"
+    label: "Blog"
+    folder: "src/pages/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article-page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Cover", name: "cover", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Meta Title", name: "meta_title", widget: "string"}
+      - {label: "Meta Description", name: "meta_description", widget: "text"}
+      - {label: "Tweet Id", name: "tweet_id", widget: "text"}
+
+```
 
 `oembed: https://www.youtube.com/embed/2Xc9gXyf2G4`
