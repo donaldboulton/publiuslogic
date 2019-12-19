@@ -356,7 +356,7 @@ export const pageQuery = graphql`
       htmlAst
       timeToRead
       tableOfContents
-      excerpt(pruneLength: 200)                          
+      excerpt(pruneLength: 300)                          
       fields {
         slug
       }      

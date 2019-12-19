@@ -21,7 +21,7 @@ Offerings.propTypes = {
     PropTypes.shape({
       image: PropTypes.string,
       text: PropTypes.string,
-    })
+    }),
   ),
 }
 

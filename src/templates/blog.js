@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
 import config from '../../_data/config'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -13,32 +14,46 @@ const Styledh1 = styled.h1`
   text-align: center;
   text-transform: uppercase;
   z-index: 22;
-}
+`
+const ButtonSecondary = styled(Link)`
+  font-size: 1.5em;
+`
+const ButtonDisabled = styled.div`
+  background: transparent;
+  padding: calc(.5em - 1px) .75em;
+  font-size: 1em;
+`
+const Pagination = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
 `
 
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <Link to={`/blog/${props.url}`} className='button'>
-        {props.text}
-      </Link>
+      <ButtonSecondary className='button' to={`/blog/${props.url}`}>
+        {`${props.text}`}
+      </ButtonSecondary>
     )
   } else {
     return (
-      <span disabled className='button'>
+      <ButtonDisabled disabled>
         {props.text}
-      </span>
+      </ButtonDisabled>
     )
   }
 }
 
 export default class BlogPage extends Component {
   render () {
-    const { pageContext } = this.props
-    const { group, index, first, last } = pageContext
+    const { location, pageContext } = this.props
+    const { group, index, pageCount, first, last } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
     const logo = config.siteLogo
+
+    const pageNumbers = new Array(pageCount).fill(undefined).map((_, index) => index + 1)
 
     const blogSchemaOrgJSONLD = {
       '@context': 'http://schema.org',
@@ -137,15 +152,52 @@ export default class BlogPage extends Component {
         <section className='section'>
           <PostCard posts={group} />
           <section className='section'>
-            <div className='is-pulled-left'>
-              <PaginationLink className='arrow-left' test={first} url={previousUrl} text='Previous Page' />
-            </div>
-            <div className='is-pulled-right'>
-              <PaginationLink className='arrow-right' test={last} url={nextUrl} text='Next Page' />
-            </div>
+            <Pagination>
+              {!first && <PaginationLink test={first} url={previousUrl} text='← Prev&nbsp;' />}
+              {
+                pageNumbers.map(number => {
+                  const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
+                  return <PaginationLink test={isActive} url={`/${number === 1 ? '' : number}`} text={number} />
+                })
+              }
+              {!last && <PaginationLink test={last} url={nextUrl} text='&nbsp;Next →' />}
+            </Pagination>
           </section>
         </section>
       </Global>
     )
   }
 }
+
+BlogPage.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+  }),
+}
+
+export const pageQuery = graphql`
+  query BlogQuery {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] },
+      filter: { frontmatter: { templateKey: { eq: "article-page" } }}
+    ) {
+      edges {
+        node {
+          excerpt(pruneLength: 300)
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            meta_description
+            templateKey
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
+  }
+`

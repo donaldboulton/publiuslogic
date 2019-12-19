@@ -218,7 +218,7 @@ class ContactForm extends React.Component {
           name='submit'
           type='submit'
           aria-label='Submit Message'
-          className='g-recaptcha button'
+          className='g-recaptcha button-form'
           data-sitekey='6Lf0NasUAAAAAAY1WJlMelYekqb_cwziQ4LiNnuk'
           data-callback='onSubmit'
           value={this.state.submitting ? 'Sending...' : 'Send'}

@@ -21,9 +21,7 @@ const Styledh1 = styled.h1`
   text-align: center;
   text-transform: uppercase;
   z-index: 22;
-}
 `
-
 const StyledUsersTableMenu = styled.div` 
   .bm-item {
     text-align: left;

@@ -29,7 +29,7 @@ exports.createPages = ({ actions, graphql }) => {
               value
             }
             timeToRead                  
-            excerpt(pruneLength: 200)
+            excerpt(pruneLength: 300)
             id
             fields {
               slug              

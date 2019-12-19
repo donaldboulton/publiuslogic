@@ -15,7 +15,6 @@ const Styledh1 = styled.h1`
   text-align: center;
   text-transform: uppercase;
   z-index: 22;
-}
 `
 
 const PhotosPage = ({ data }) => {
