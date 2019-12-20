@@ -195,11 +195,11 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
                 </p>
                 <div className='column'>
                 View the source for this&nbsp;
-                  <Link className='a' to='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</Link> &nbsp;Or see
+                  <a className='a' href='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</a> &nbsp;Or see
                 useDarkMode.&nbsp;
-                  <Link className='a' to='https://github.com/donavon/use-dark-mode'>
+                  <a className='a' href='https://github.com/donavon/use-dark-mode'>
                 Source code on Github.
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
