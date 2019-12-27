@@ -15,6 +15,7 @@ export default class SearchBox extends Component {
     return (
       <span className={`navbar-item ${this.state.isActive ? 'is-active' : ''}`} itemProp='potentialAction' itemScope='itemScope' itemType='https://schema.org/SearchAction'>
         <meta itemProp='target' content='https://query.publiuslogic.com/search?q={search_term_string}' />
+        Search&nbsp;
         <input
           className='luna__input js-luna__input'
           type='search'
@@ -26,7 +27,7 @@ export default class SearchBox extends Component {
           onChange={this.search}
           itemProp='query-input'
           name='search_term_string'
-        />Search
+        />
         <div className='navbar-dropdown'>
           {this.state.results.map(page => (
             <Link aria-label='Results Links' itemProp='url' className='navbar-item' key={page.id} to={page.slug}>{page.title}</Link>

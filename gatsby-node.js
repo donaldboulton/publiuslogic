@@ -36,6 +36,7 @@ exports.createPages = ({ actions, graphql }) => {
             tableOfContents 
             frontmatter {
               title
+              path
               cover
               category
               tags

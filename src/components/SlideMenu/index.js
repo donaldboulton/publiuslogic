@@ -78,10 +78,10 @@ export default props => {
             | Site Contents
         </Title>
         <div className='menu-item' id='search'>
-          <Search />
+          <span itemProp='name'><Search /></span>
         </div>
         <div className='menu-item' id='login'>
-          <Login />
+          <span itemProp='name'><Login /></span>
         </div>
         <Link className='menu-item' to='/blog' itemProp='url'>
           <span itemProp='name'>Blog&nbsp;<Blog size='1em' /></span>
