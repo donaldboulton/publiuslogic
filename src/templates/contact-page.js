@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import PostCover from '../components/PostCover'
 import styled from 'styled-components'
 import ContactPageTemplate from '../components/ContactPageTemplate'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 import config from '../../_data/config'
 
 const Styledh1 = styled.h1`
@@ -69,7 +69,7 @@ const ContactPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -127,7 +127,7 @@ const ContactPage = ({ data }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
-    </Global>
+    </Layout>
   )
 }
 

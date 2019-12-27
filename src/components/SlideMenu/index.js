@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 import Login from '../IdentityWidget'
+import Search from '../Search'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
 import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
 import { Globe } from 'styled-icons/boxicons-regular/'
@@ -76,6 +77,9 @@ export default props => {
           <MenuIcon />
             | Site Contents
         </Title>
+        <div className='menu-item' id='search'>
+          <Search />
+        </div>
         <div className='menu-item' id='login'>
           <Login />
         </div>
@@ -94,13 +98,13 @@ export default props => {
         <Link className='menu-item' to='/sitemap' itemProp='url'>
           <span itemProp='name'>Sitemap&nbsp;<Sitemap size='1em' /></span>
         </Link>
-        <h4 className='h4'>Gatsby Posts</h4>
+        <h4 className='h4'>Featured Posts</h4>
         <div className='navbar-divider' />
         <Link className='menu-item' to='/blog/gatsby-netlify-no-plugins' itemProp='url'>
           <span itemProp='name'>Netlify No Plugins&nbsp;<FileAlt size='1em' /></span>
         </Link>
-        <Link className='menu-item' to='/blog/gatsby-lightgallery-cloudinary' itemProp='url'>
-          <span itemProp='name'>LightGallery Cloudinary&nbsp;<FileAlt size='1em' /></span>
+        <Link className='menu-item' to='/blog/gatsby-crud-netlify-fauna' itemProp='url'>
+          <span itemProp='name'>Gatsby Netlify FaunaDB&nbsp;<FileAlt size='1em' /></span>
         </Link>
         <h4 className='h4'>Common Sense Posts</h4>
         <div className='navbar-divider' />

@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Reviews from './ReviewsComponent'
-class reviewsWrapper extends Component {
+class reviewsWrapper extends React.Component {
   render () {
     const { rating, postPath, ratingValue, date, ratingCount, rich = false, allRatingsJson: ratings = [] } = this.props
     return (

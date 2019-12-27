@@ -1,6 +1,7 @@
 ---
 templateKey: pricing-page
 title: Pricing
+date: 2019-11-01T20:20:43.942Z
 cover: /images/privacy.jpg
 meta_title: Pricing | Gatsby Starter Business
 meta_description: >-

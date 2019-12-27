@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import HomePageTemplate from '../components/HomePageTemplate'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 import config from '../../_data/config'
 
 const HomePage = ({ data }) => {
@@ -55,7 +55,7 @@ const HomePage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={frontmatter.title}>
+    <Layout pageTitle={frontmatter.title}>
       <Helmet>
         <title>{frontmatter.meta_title}</title>
         <meta name='description' content={frontmatter.meta_description} />
@@ -97,7 +97,7 @@ const HomePage = ({ data }) => {
         offerings={frontmatter.offerings}
         testimonials={frontmatter.testimonials}
       />
-    </Global>
+    </Layout>
   )
 }
 

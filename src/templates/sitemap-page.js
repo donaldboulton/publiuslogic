@@ -5,7 +5,7 @@ import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import styled from 'styled-components'
 import SiteMapPageTemplate from '../components/SiteMapPageTemplate'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 
@@ -68,7 +68,7 @@ const SiteMapPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -128,7 +128,7 @@ const SiteMapPage = ({ data }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
-    </Global>
+    </Layout>
   )
 }
 

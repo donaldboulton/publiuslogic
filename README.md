@@ -92,20 +92,21 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 * Netlify CMS for Content Management
 * FaunaDB for Authentication - Users Backend and Admin
 * SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc.)
+* All Twitter Widgets, Meta and SEO
 * Netlify Identity for Authentication
 * Styled Components, Styled Media Query & Bulma for styling
 * Progressive Web App & Offline Support
 * Tags, Categories and a RSS Feed for Blog
 * Time to Read and a Table Of Contents
-* Comments with GitHub Issues
+* Comments with React withUtterances as GitHub Issues
 * Follow, Mention, Star and Fork GitHub buttons
 * Share Support
 * Elastic-Lunr Search
-* Pagination
+* Pagination for Blog and Posts Previous Next
 * Contact Form (Lambda Netlify Forms)
 * Easy Configuration using `config.js` file
 
-## Uses useDarkMode
+## useDarkMode
 
 > ☀️🌜 Below is an example of its usage.
 

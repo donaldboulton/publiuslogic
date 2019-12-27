@@ -1,6 +1,7 @@
 ---
 templateKey: article-page
 title: Earths Magnetic Flux
+path: /earths-magnetic-flux
 slug: Earths Magnetic Flux
 date: 2019-09-02T20:20:43.942Z
 category: 'Logic'

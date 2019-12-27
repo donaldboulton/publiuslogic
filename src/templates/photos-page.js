@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import PhotosPageTemplate from '../components/PhotosPageTemplate'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 
@@ -72,7 +72,7 @@ const PhotosPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -130,7 +130,7 @@ const PhotosPage = ({ data }) => {
         description={post.frontmatter.meta_description}
         tags={post.frontmatter.tags}
       />
-    </Global>
+    </Layout>
   )
 }
 

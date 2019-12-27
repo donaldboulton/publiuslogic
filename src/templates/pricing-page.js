@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import PricingPageTemplate from '../components/PricingPageTemplate'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 import config from '../../_data/config'
 
 const PricingPage = ({ data }) => {
@@ -48,7 +48,7 @@ const PricingPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={frontmatter.title}>
+    <Layout pageTitle={frontmatter.title}>
       <Helmet>
         <title>{frontmatter.meta_title}</title>
         <meta name='description' content={frontmatter.meta_description} />
@@ -88,7 +88,7 @@ const PricingPage = ({ data }) => {
         description={frontmatter.meta_description}
         pricing={frontmatter.pricing}
       />
-    </Global>
+    </Layout>
   )
 }
 

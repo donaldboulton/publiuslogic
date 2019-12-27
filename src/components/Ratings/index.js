@@ -24,7 +24,7 @@ const submitRating = (rating) => {
   }
 
   const XHR = new XMLHttpRequest()
-  let urlEncodedData = ''
+  const urlEncodedData = ''
   const urlEncodedDataPairs = []
   let name
 

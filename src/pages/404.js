@@ -1,9 +1,9 @@
 import React from 'react'
 import notfound from './404.jpg'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 
 const NotFoundPage = () => (
-  <Global>
+  <Layout>
     <section className='hero'>
       <div>
         <img
@@ -34,7 +34,7 @@ const NotFoundPage = () => (
         </div>
       </div>
     </section>
-  </Global>
+  </Layout>
 )
 
 export default NotFoundPage

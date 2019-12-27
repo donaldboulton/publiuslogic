@@ -3,7 +3,7 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
-import Global from '../../components/Global'
+import Layout from '../../components/Layout'
 import Image from '../../components/SiteMapPageTemplate/image'
 
 const Styledh1 = styled.h1`
@@ -17,7 +17,7 @@ const Styledh1 = styled.h1`
 const TagsPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
-  <Global pageTitle={title}>
+  <Layout pageTitle={title}>
     <Helmet title={`Tags | ${title}`} />
     <section className='hero is-medium'>
       <Image />
@@ -58,7 +58,7 @@ const TagsPage = ({
         </div>
       </div>
     </section>
-  </Global>
+  </Layout>
 )
 
 export default TagsPage

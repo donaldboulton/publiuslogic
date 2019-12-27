@@ -1,6 +1,7 @@
 ---
 templateKey: article-page
 title: Modali Hooks Modal
+path: /modali-hooks-modal
 slug: Modali Hooks Modal
 date: 2019-04-20T20:20:43.942Z
 category: 'tech'

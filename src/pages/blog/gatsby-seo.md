@@ -1,7 +1,8 @@
 ---
 templateKey: article-page
 title: Gatsby SEO
-slug: gatsby seo
+path: /gatsby-seo
+slug: Gatsby SEO
 date: 2019-07-30T20:14:43.942Z
 category: 'tech'
 cover: '/images/json-ld.jpg'

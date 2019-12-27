@@ -1,6 +1,7 @@
 ---
 templateKey: about-page
 title: About Us
+date: 2019-11-09T20:20:43.942Z
 cover: ./about.jpg
 meta_title: About Us | Gatsby Starter Publius
 meta_description: >-
@@ -49,7 +50,7 @@ The site is built with Gatsby, Bulma and styled-components. It's fully responsiv
 
 Feel free to reuse any part of this repo to create your own Gatsby site.
 
-A 🔗 [Gatsby v2](https://www.gatsbyjs.org/) and 🔗 [Netlify CMS](https://www.netlifycms.org) 🗸 powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms) 🗸
+A 🔗 [Gatsby v2](https://www.gatsbyjs.org/) and 🔗 [Netlify CMS](https://www.netlifycms.org) powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms)
 
 ### Server-less
 
@@ -62,7 +63,7 @@ A 🔗 [Gatsby v2](https://www.gatsbyjs.org/) and 🔗 [Netlify CMS](https://www
 🔐 A Custom Styled and Build for Publius, a component used to authenticate with Netlify's Identity service.
 🆔 🔗 [Live demo](https://identity.netlify.com)
 
-For a lower level library to the underlying 🔗 [GoTrue](https://github.com/netlify/gotrue) 🗸 API, see
+For a lower level library to the underlying 🔗 [GoTrue](https://github.com/netlify/gotrue) API, see
 🔗 [gotrue-js](https://github.com/netlify/gotrue-js)
 
 > Utilizing Netlify Identity in Gatsby to make public and private pages easily.
@@ -75,9 +76,9 @@ roles. You can use it from single page apps instead of rolling your own, and
 integrate with any service that understands JSON Web Tokens (JWTs).
 
 Learn more about this service from this
-🔗 [blog post](https://www.netlify.com/blog/2017/09/07/introducing-built-in-identity-service-to-streamline-user-management/) 🗸
+🔗 [blog post](https://www.netlify.com/blog/2017/09/07/introducing-built-in-identity-service-to-streamline-user-management/)
 
-It follows the 🔗 [JAMstack architecture](https://jamstack.org) 🗸 by using Git as a single source of truth, and 🔗 [Netlify](https://www.netlify.com) 🗸 for continuous deployment, and CDN distribution.
+It follows the 🔗 [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and 🔗 [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
 ## Netlify CMS
 
@@ -94,7 +95,7 @@ Content is stored in your Git repository along side your code for easier version
 
 ### An extensible CMS built on React
 
-❤️ Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backends to support different Git platform APIs.
+❤️ Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backend's to support different Git platform APIs.
 My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
 
 ## Features
@@ -117,6 +118,6 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 * Contact Form (Lambda Netlify Forms)
 * Easy Configuration using `config.js` file
 
-## Uses useDarkMode
+## useDarkMode
 
 > ☀️🌜 Below is an example of its usage.

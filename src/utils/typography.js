@@ -1,5 +1,6 @@
 import Typography from 'typography'
 import oceanBeachTheme from 'typography-theme-ocean-beach'
+oceanBeachTheme.baseFontSize = '18px'
 
 oceanBeachTheme.overrideThemeStyles = () => {
   return {

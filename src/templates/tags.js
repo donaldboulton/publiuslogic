@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 import Image from '../components/SiteMapPageTemplate/image'
 
 const Styledh1 = styled.h1`
@@ -31,7 +31,7 @@ class TagRoute extends Component {
     } tagged with “${tag}”`
 
     return (
-      <Global pageTitle={title}>
+      <Layout pageTitle={title}>
         <section className='hero is-medium'>
           <Image />
           <div className='hero-body'>
@@ -65,7 +65,7 @@ class TagRoute extends Component {
             </div>
           </div>
         </section>
-      </Global>
+      </Layout>
     )
   }
 }

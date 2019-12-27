@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import UsersPageTemplate from '../components/UsersPageTemplate'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
@@ -190,7 +190,7 @@ const UsersPage = ({ data }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -291,7 +291,7 @@ const UsersPage = ({ data }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
-    </Global>
+    </Layout>
   )
 }
 

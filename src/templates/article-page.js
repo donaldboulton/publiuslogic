@@ -3,6 +3,7 @@ import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
 import styled from 'styled-components'
+import ReactStars from 'react-stars'
 import Menu2 from 'react-burger-menu/lib/menus/stack'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import { Calendar } from 'styled-icons/octicons/Calendar'
@@ -10,12 +11,12 @@ import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
@@ -23,8 +24,12 @@ import HitCounter from '../components/HitCounter'
 import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
+import WebIntents from '../components/WebIntents'
 import { BookContent, Table } from 'styled-icons/boxicons-regular/'
 
+const Rating = styled.div`
+  font-size: 0.9em;
+`
 const StyledTableMenu = styled.div` 
   .bm-item {
     text-align: left;
@@ -97,7 +102,6 @@ const StyledTableMenu = styled.div`
     max-height: 78vh;
   }
 `
-
 const Styledh1 = styled.h1`
   display: inline-block;
   padding-top: 2em;
@@ -153,6 +157,85 @@ const GithubButtons = styled.span`
   right: 2em;
   padding: 0.5em;
 `
+const Meta = styled.span`
+  font-size: 0.9em;
+  color: ${props => props.theme.white};
+`
+const Pagination = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+`
+const ButtonSecondary = styled(Link)`
+  border: thin ${props => props.theme.black};
+`
+const ButtonDisabled = styled.div`
+  background: transparent;
+  padding: calc(.5em - 1px) .75em;
+  border: thin ${props => props.theme.black};
+  font-size: 0.9em;
+`
+const PaginationLink = props => {
+  if (!props.test) {
+    return (
+      <ButtonSecondary className='a' to={`/blog/${props.url}`}>
+        {`${props.text}`}
+      </ButtonSecondary>
+    )
+  } else {
+    return (
+      <ButtonDisabled disabled>
+        {props.text}
+      </ButtonDisabled>
+    )
+  }
+}
+const submitRating = (rating, path) => {
+  const data = {
+    'fields[rating]': rating,
+    'fields[postPath]': path,
+    'options[reCaptcha][siteKey]': '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
+  }
+
+  // eslint-disable-next-line no-undef
+  const XHR = new XMLHttpRequest()
+  let urlEncodedData = ''
+  const urlEncodedDataPairs = []
+  let name
+
+  // Turn the data object into an array of URL-encoded key/value pairs.
+  for (name in data) {
+    urlEncodedDataPairs.push(
+      encodeURIComponent(name) + '=' + encodeURIComponent(data[name]),
+    )
+  }
+
+  // Combine the pairs into a single string and replace all %-encoded spaces to
+  // the '+' character; matches the behaviour of browser form submissions.
+  urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+')
+
+  // Define what happens on successful data submission
+  XHR.addEventListener('load', function (event) {
+    alert('Thanks for rating us! Your rating will appear soon. Stay tuned..')
+  })
+
+  // Define what happens in case of error
+  XHR.addEventListener('error', function (event) {
+    alert('Sorry, something went wrong. Please file an issue in github!')
+  })
+
+  // Set up our request
+  XHR.open(
+    'POST',
+    'https://api.staticman.net/v3/entry/github/donaldboulton/publiuslogic/master/ratings',
+  )
+
+  // Add the required HTTP header for form data requests
+  XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+
+  // Finally, send our data.
+  XHR.send(urlEncodedData)
+}
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
@@ -163,9 +246,14 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, location }) => {
+const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext }) => {
   const { markdownRemark: post } = data
+  const path = data.path || ''
   const postNode = data.markdownRemark
+  const { index, first, last, pageCount } = pageContext
+  const postSlugPath = globalHistory.location.pathname
+  const previousUrl = index - 1 === 1 ? '/' : (index - 1).toString()
+  const nextUrl = (index + 1).toString()
   const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
@@ -180,6 +268,16 @@ const ArticlePage = ({ data, location }) => {
   const pageTags = post.frontmatter.tags
   const url = post.frontmatter.slug
   const logo = config.siteLogo
+  const ratingValue =
+  ratings && ratings.edges
+    ? ratings.edges.reduce(
+      (accumulator, rating) => accumulator + parseInt(rating.node.rating),
+      0,
+    ) / ratings.totalCount
+    : 0
+  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
+
+  const pageNumbers = new Array(pageCount).fill(undefined).map((_, index) => index + 1)
 
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -197,7 +295,7 @@ const ArticlePage = ({ data, location }) => {
     url: url,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': postPath,
+      '@id': postSlugPath,
     },
     alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
     name: title,
@@ -234,7 +332,7 @@ const ArticlePage = ({ data, location }) => {
   }
 
   return (
-    <Global pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={post.frontmatter.title}>
       <Helmet>
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -295,6 +393,14 @@ const ArticlePage = ({ data, location }) => {
             {post.frontmatter.title}
           </Styledh1>
         </div>
+        <Meta
+          data={{
+            ...post.frontmatter,
+            description: post.frontmatter.meta_description,
+            rating: { ratingValue, ratingCount: ratingCount },
+          }}
+          rich
+        />
         <div className='column is-9 is-offset-1'>
           <Bio />
           <div className='columns is-desktop is-vcentered'>
@@ -334,12 +440,64 @@ const ArticlePage = ({ data, location }) => {
                 excerpt={post.frontmatter.meta_description}
               />
               <hr />
+              <div className='container content'>
+                <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
+                  <div className='column is-7'>
+                    <input type='hidden' name='form-name' value='ratings' />
+                    <input name='fields[postPath]' type='hidden' value={post.frontmatter.path} />
+                    <input name='title' type='hidden' value={post.frontmatter.title} />
+                    {/* TODO calculate score in gatsby-node */}
+                    {ratings ? (
+                      <Rating>
+                        Rating:{' '}
+                        {ratings && ratings.edges
+                          ? ratings.edges.reduce(
+                            (accumulator, rating) =>
+                              accumulator + parseInt(rating.node.rating),
+                            0,
+                          ) / ratings.totalCount
+                          : null}{' '}
+                          - {ratings.totalCount} Reviews
+                          Rating: {ratingValue !== 0 ? ratingValue : null} -{' '}
+                        {ratings.totalCount} Reviews
+                      </Rating>
+                    ) : null}
+                    <ReactStars
+                      onChange={rating => {
+                        submitRating(rating, data.frontmatter.path)
+                      }}
+                      half={false}
+                      size={24}
+                      color2='#ffe600'
+                    />
+                  </div>
+                  <div className='column is-pulled-right'>
+                    <WebIntents />
+                  </div>
+                </div>
+              </div>
               <Comments />
+              <section className='section'>
+                <Pagination>
+                  <div className='previousLink'>
+                    {!first && <PaginationLink test={first} url={previousUrl} text='← Prev' />}
+                  </div>
+                  {
+                    pageNumbers.map(number => {
+                      const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
+                      return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
+                    })
+                  }
+                  <div className='nextLink'>
+                    {!last && <PaginationLink test={last} url={nextUrl} text='Next →' />}
+                  </div>
+                </Pagination>
+              </section>
             </div>
           </div>
         </div>
       </section>
-    </Global>
+    </Layout>
   )
 }
 

@@ -1,6 +1,7 @@
 ---
 templateKey: article-page
 title: JavaScript media queries
+path: /js-media-queries
 slug: JavaScript media queries
 date: 2019-04-18T20:20:43.942Z
 updated: 2019-12-18T20:20:43.942Z

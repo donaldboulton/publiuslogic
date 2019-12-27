@@ -11,7 +11,6 @@ const remark = new Remark().data(`settings`, {
   commonmark: true,
   footnotes: true,
   pedantic: true,
-  gfm: true,
 })
 
 const R = require('ramda')
@@ -23,29 +22,18 @@ exports.createPages = ({ actions, graphql }) => {
     {
       allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
-          previous {
-            frontmatter {
-              cover
-              title
-            }
-          }
-          next {
-            frontmatter {
-              title
-              cover
-            }
-          }
           node {
-            headings {
-              depth
-              value
-            }            
-            timeToRead                  
-            excerpt(pruneLength: 300)
+            excerpt(pruneLength: 400)
             id
             fields {
               slug              
             }
+            headings {
+              depth
+              value
+            }            
+            timeToRead  
+            tableOfContents 
             frontmatter {
               title
               cover
@@ -53,7 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
               tags
               templateKey
               date(formatString: "MMMM DD, YYYY")
-            }           
+            }
           }
         }
       }
@@ -78,6 +66,14 @@ exports.createPages = ({ actions, graphql }) => {
     createPaginatedPages({
       edges: posts,
       createPage: createPage,
+      pageTemplate: 'src/templates/article-page.js',
+      pageLength: 6, // This is optional and defaults to 10 if not used
+      pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
+      context: {}, // This is optional and defaults to an empty object if not used
+    })
+    createPaginatedPages({
+      edges: posts,
+      createPage: createPage,
       pageTemplate: 'src/templates/blog.js',
       pageLength: 6, // This is optional and defaults to 10 if not used
       pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
@@ -86,7 +82,7 @@ exports.createPages = ({ actions, graphql }) => {
     postsAndPages.forEach(edge => {
       const id = edge.node.id
       const next = edge.node.next
-      const previous = edge.node.previous
+      const prev = edge.node.previous
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -97,14 +93,12 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          slug: edge.node.fields.slug,
-          previous: previous,
-          next: next,
+          next,
+          prev,
         },
       })
     })
 
-    // Category pages:
     let category = []
     // Iterate through each post, putting all found category into `categories`
     postsAndPages.forEach(edge => {
@@ -112,7 +106,7 @@ exports.createPages = ({ actions, graphql }) => {
         category = category.concat(edge.node.frontmatter.category)
       }
     })
-    // Eliminate duplicate categories
+    // Eliminate duplicate tags
     category = _.uniq(category)
 
     // Make category pages
@@ -153,6 +147,19 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/app/)) {
+    page.matchPath = '/app/*'
+
+    // Update the page.
+    createPage(page)
+  }
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
@@ -164,6 +171,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+
   // For comment nodes (which are stored in JSON) parse the `message` field from
   // markdown into HTML, and add it to the node as a field called `messageHtml`.
   // Then we can use that field to render the comments.

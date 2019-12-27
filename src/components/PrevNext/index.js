@@ -1,34 +1,37 @@
-import React from 'react'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { Img, PreviousNext, Thumbnail } from './styles'
 
-const PrevNext = ({ pageContext }) => {
-  const { previous, next } = pageContext
-  return (
-    <>
-      <PreviousNext>
-        {previous && (
-          <Link to={previous.node.fields.slug} rel='previous' css='margin-right: 1em;'>
-            <h3 css='text-align: left;'>← Previous {previous.node.frontmatter.title}</h3>
-            <Thumbnail>
-              {previous.node.frontmatter.cover && <Img {...(previous.node.frontmatter.cover.sharp || previous.node.frontmatter.cover)} />}
-              <h4>{previous.node.frontmatter.title}</h4>
-            </Thumbnail>
-          </Link>
-        )}
-        {next && (
-          <Link to={next.node.fields.slug} rel='next' css='margin-left: auto;'>
-            <h3 css='text-align: right;'>Next {next.node.frontmatter.title} →</h3>
-            <Thumbnail>
-              {next.node.frontmatter.cover && <Img {...(next.node.frontmatter.cover.sharp || next.node.frontmatter.cover)} />}
-              <h4>{next.node.frontmatter.title}</h4>
-            </Thumbnail>
-          </Link>
-        )}
-      </PreviousNext>
-    </>
-  )
-}
+const PrevNext = ({ prev, next, label, slugPrefix = `` }) => (
+  <PreviousNext>
+    {prev && (
+      <Link to={slugPrefix + prev.post.slug} rel='prev' css='margin-right: 1em;'>
+        <h3 css='text-align: left;'>← Previous {label}</h3>
+        <Thumbnail>
+          {prev.cover && (
+            <Img {...prev.cover.sharp || prev.cover} />
+          )}
+          <h4>{prev.title}</h4>
+        </Thumbnail>
+      </Link>
+    )}
+    {next && (
+      <Link to={slugPrefix + next.post.slug} rel='next' css='margin-left: auto;'>
+        <h3 css='text-align: right;'>Next {label} →</h3>
+        <Thumbnail>
+          {next.cover && (
+            <Img {...next.cover.sharp || next.cover} />
+          )}
+          <h4>{next.title}</h4>
+        </Thumbnail>
+      </Link>
+    )}
+  </PreviousNext>
+)
 
 export default PrevNext
 
+PrevNext.propTypes = {
+  label: PropTypes.string.isRequired,
+}

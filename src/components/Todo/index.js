@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ContentEditable from '../ContentEditable'
 import AppHeader from '../AppHeader'
 import SettingsMenu from '../SettingsMenu'
@@ -7,7 +7,7 @@ import api from '../../utils/api'
 import sortByDate from '../../utils/sortByDate'
 import isLocalHost from '../../utils/isLocalHost'
 
-export default class Todo extends Component {
+class ToDo extends React.Component {
   state = {
     todos: [],
     showMenu: false,
@@ -332,3 +332,5 @@ function getTodoId (todo) {
   }
   return todo.ref['@ref'].id
 }
+
+export default ToDo

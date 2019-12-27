@@ -85,6 +85,27 @@ module.exports = {
         purgeOnly: ['/sass/styles.sass'],
       },
     },
+    {
+      resolve: `gatsby-plugin-postcss`, // Implements PostCSS
+      options: {
+        postCssPlugins: [
+          require('postcss-import')(), // Add support for sass-like '@import'
+          require('postcss-extend')(), // Add support for sass-like '@extend'
+          require('postcss-nesting')(), // Add support for sass-like nesting of rules
+          require('postcss-pxtorem')({
+            mediaQuery: true, // Ignore media queries
+            minPixelValue: 0, // Minimal pixel value that will be processed
+            propList: [], // List of CSS properties that can be changed from px to rem; empty array means that all CSS properties can change from px to rem
+            replace: true, // Replace pixels with rems
+            rootValue: 20, // Root font-size
+            selectorBlackList: ['html'], // Ignore pixels used for html
+            unitPrecision: 4, // Round rem units to 4 digits
+          }),
+          require(`postcss-preset-env`)({ stage: '3' }),
+          require('cssnano')(), // Minify CSS
+        ],
+      },
+    },
     'gatsby-plugin-robots-txt',
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
@@ -131,7 +152,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         tableOfContents: {
-          heading: null,
+          heading: 1,
           maxDepth: 6,
         },
         plugins: [
@@ -346,6 +367,7 @@ module.exports = {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page
       },
     },
+    `gatsby-plugin-lodash`,
     {
       resolve: `gatsby-plugin-offline`,
       options: {

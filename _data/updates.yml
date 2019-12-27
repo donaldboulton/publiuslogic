@@ -1,0 +1,216 @@
+updates:
+  - date: '2019-12-19'
+    description: 'Fix select and relation widgets not showing dropdown'
+    version: 2.10.1
+  - date: '2019-12-18'
+    description: 'Open Authoring, content bundles, code editor, and lots of bugfixes'
+    version: 2.10.0
+  - date: '2019-07-24'
+    description: 'Fix collection view search'
+    version: 2.9.7
+  - date: '2019-07-11'
+    description: 'Fix default values in list widgets'
+    version: 2.9.6
+  - date: '2019-06-28'
+    description: 'Fix entry loading for GitLab'
+    version: 2.9.5
+  - date: '2019-06-26'
+    description: 'Reference nested fields in relation widget, validate simple lists, bugfixes'
+    version: 2.9.4
+  - date: '2019-06-18'
+    description: 'Fix new entries error for non-GitHub backends'
+    version: 2.9.3
+  - date: '2019-06-14'
+    description: 'Match any char with shortcode/editor component patterns, bugfixes'
+    version: 2.9.2
+  - date: '2019-04-10'
+    description: 'Entry card customization, Bitbucket implicit auth, fix image previews, other bugfixes'
+    version: 2.9.1
+  - date: '2019-03-29'
+    description: 'Add netlify-cms-app package with external deps, fix breaking preview templates'
+    version: 2.9.0
+  - date: '2019-03-22'
+    description: 'Add es module builds, fix large media binary output'
+    version: 2.8.0
+  - date: '2019-03-21'
+    description: 'Standalone UMD builds with externalized dependencies for all extension packages'
+    version: 2.7.0
+  - date: '2019-03-11'
+    description: 'Fix Cloudinary multiselect, preview pane and config fixes, other improvements'
+    version: 2.6.1
+  - date: '2019-03-07'
+    description: 'Add entry recovery after error, fix large media GitHub URL output, other fixes'
+    version: 2.6.0
+  - date: '2019-02-28'
+    description: 'Fix previews of GitHub images'
+    version: 2.5.1
+  - date: '2019-02-26'
+    description: 'Netlify Large Media support, multi-select relation widget, and more'
+    version: 2.5.0
+  - date: '2019-02-12'
+    description: 'Fix empty number widget values, accept explicit fields in slug template'
+    version: 2.4.2
+  - date: 2019-02-09T00:08:11.159Z
+    description: Bugfixes
+    version: 2.4.1
+  - date: 2019-02-08T22:27:39.913Z
+    description: 'Deploy preview links, map widget, and nested field validation'
+    version: 2.4.0
+    url: 'https://www.netlifycms.org/blog/2019/02/netlify-cms-2-4-0'
+  - date: '2019-01-10'
+    description: Fix missing entry labels for file collections
+    version: 2.3.3
+  - date: '2018-12-26'
+    description: 'Bugfixes, list widget variable types in beta'
+    version: 2.3.2
+  - date: '2018-12-11'
+    description: Bugfixes
+    version: 2.3.1
+  - date: '2018-12-04'
+    description: 'Cloudinary support, multi-select in select widget'
+    version: 2.3.0
+  - date: '2018-11-29'
+    description: 'Date display formatting, lots of bugfixes'
+    version: 2.2.1
+  - date: '2018-11-12'
+    description: 'Custom identifier fields, custom logo on auth page, bugfixes'
+    version: 2.2.0
+  - date: 2018-10-09T13:57:04.203Z
+    description: Bugfixes
+    version: 2.1.3
+  - date: 2018-09-17T16:49:32.506Z
+    description: Fix editorial workflow for Git Gateway
+    version: 2.1.2
+  - date: 2018-09-06T16:48:08.594Z
+    description: Provide empty cms.css file to ease 2.x migration
+    version: 2.1.1
+  - date: 2018-09-06T18:48:13.703Z
+    description: "External media library support \U0001F389\U0001F389"
+    version: 2.1.0
+  - date: '2018-08-27'
+    description: Fix sortable list bugs in the editor
+    version: 2.0.11
+  - date: '2018-08-24'
+    description: 'Editor hints, GitLab images and Markdown editor fixes, plus other bugs'
+    version: 2.0.10
+  - date: '2018-08-07'
+    description: 'Backend, workflow, and relation widget fixes/improvements'
+    version: 2.0.9
+  - date: '2018-08-01'
+    description: Fix workflow publishing
+    version: 2.0.8
+  - date: '2018-08-01'
+    description: 'Fix uploads in backends, fix workflow, other bugfixes'
+    version: 2.0.7
+  - date: '2018-07-28'
+    description: Fix backends
+    version: 2.0.6
+  - date: '2018-07-27'
+    description: 'Fix Git Gateway, other bugfixes'
+    version: 2.0.5
+  - date: '2018-07-26'
+    description: Bitbucket support!
+    version: 2.0.0
+  - date: '2018-07-21'
+    description: Fix multipart extension support for GitLab
+    version: 1.9.4
+  - date: '2018-07-03'
+    description: Fix numbers in TOML output.
+    version: 1.9.3
+  - date: '2018-06-15'
+    description: Fix test-repo crash.
+    version: 1.9.2
+  - date: '2018-06-14'
+    description: Fix GitLab Implicit OAuth
+    version: 1.9.1
+  - date: '2018-06-12'
+    description: "GitLab support is here!!! \U0001F389\U0001F389\U0001F389"
+    version: 1.9.0
+  - date: '2018-05-25'
+    description: Fix markdown widget styling.
+    version: 1.8.4
+  - date: '2018-05-25'
+    description: Dependency updates.
+    version: 1.8.3
+  - date: '2018-05-24'
+    description: Fix failure to save/publish.
+    version: 1.8.2
+  - date: '2018-05-23'
+    description: >-
+      Allow upload of files larger than 1MB to GitHub, prevent unintentional
+      file overwrites.
+    version: 1.8.1
+  - date: '2018-05-16'
+    description: >-
+      Customizable relation widget display fields, squash merges for editorial
+      workflow, perf improvements.
+    version: 1.8.0
+  - date: '2018-04-24'
+    description: 'Allow custom auth endpoint, bug fixes.'
+    version: 1.7.0
+  - date: '2018-04-19'
+    description: ' Markdown toolbar customization, manual date widget entry, bug fixes.'
+    version: 1.6.0
+  - date: '2018-04-11'
+    description: 'New time based slug placeholders, set config.yml URL with &lt;link&gt;.'
+    version: 1.5.0
+  - date: '2018-03-29'
+    description: 'More control over filenames, lots of bugfixes, and new beta features!'
+    version: 1.4.0
+  - date: '2018-03-06'
+    description: Fixes styling issues
+    version: 1.3.5
+  - date: '2018-03-06'
+    description: Fixes editorial workflow entry failure.
+    version: 1.3.4
+  - date: '2018-03-06'
+    description: Fixes load failure
+    version: 1.3.3
+  - date: '2018-03-06'
+    description: >-
+      Fixes date widget default format, collection load failure when entry
+      fails.
+    version: 1.3.2
+  - date: '2018-03-03'
+    description: Fixes editorial workflow failure for unknown collections.
+    version: 1.3.1
+  - date: '2018-02-27'
+    description: >-
+      Multi-part extensions, e.g. "en.md", a11y improvements in the editor, and
+      bugfixes.
+    version: 1.3.0
+  - date: '2018-02-21'
+    description: Fixes ES5 transpiling.
+    version: 1.2.2
+  - date: '2018-02-21'
+    description: >-
+      Allows label_singular config for collections and lists and distinct
+      frontmatter delimiters.
+    version: 1.2.1
+  - date: '2018-02-13'
+    description: >-
+      Adds support for multiple frontmatter formats and custom delimiters, UI
+      improvements.
+    version: '1.2'
+  - date: '2018-01-25'
+    description: You can now register external backends and we improved metadata handling.
+    version: '1.1'
+  - date: '2018-01-23'
+    description: >-
+      Fixes various UI bugs and adds expand / collapse functionality to the
+      object widget.
+    version: 1.0.4
+  - date: '2018-12-19'
+    description: Small bug fix release.
+    version: 1.0.3
+  - date: '2018-12-07'
+    description: Small bug fix release.
+    version: 1.0.2
+  - date: '2018-12-07'
+    description: Small bug fix release.
+    version: 1.0.1
+  - date: '2018-12-07'
+    description: >-
+      The first major release of Netlify CMS with an all-new UI, revamped
+      documentation and much more.
+    version: 1.0.0

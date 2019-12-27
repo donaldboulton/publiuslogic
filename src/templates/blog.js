@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Image from '../components/SiteMapPageTemplate/image'
 import PostCard from '../components/PostCard'
-import Global from '../components/Global'
+import Layout from '../components/Layout'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -33,7 +33,7 @@ const Pagination = styled.div`
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <ButtonSecondary className='button is-small' to={`/blog/${props.url}`}>
+      <ButtonSecondary className='a' to={`/blog/${props.url}`}>
         {`${props.text}`}
       </ButtonSecondary>
     )
@@ -100,7 +100,7 @@ export default class BlogPage extends Component {
     }
 
     return (
-      <Global pageTitle={config.siteTitleAlt}>
+      <Layout pageTitle={config.siteTitleAlt}>
         <Helmet>
           <title>Blog | Publius Logic</title>
           <meta name='description' content='Blog | Publius Logic' />
@@ -158,14 +158,14 @@ export default class BlogPage extends Component {
               {
                 pageNumbers.map(number => {
                   const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
-                  return <PaginationLink test={isActive} url={`/${number === 1 ? '' : number}`} text={number} />
+                  return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
                 })
               }
               {!last && <PaginationLink test={last} url={nextUrl} text='Next →' />}
             </Pagination>
           </section>
         </section>
-      </Global>
+      </Layout>
     )
   }
 }
@@ -193,6 +193,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            path
             meta_description
             templateKey
             date(formatString: "MMMM DD, YYYY")

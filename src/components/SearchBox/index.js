@@ -26,7 +26,7 @@ export default class SearchBox extends Component {
           onChange={this.search}
           itemProp='query-input'
           name='search_term_string'
-        />
+        />Search
         <div className='navbar-dropdown'>
           {this.state.results.map(page => (
             <Link aria-label='Results Links' itemProp='url' className='navbar-item' key={page.id} to={page.slug}>{page.title}</Link>

@@ -1,6 +1,7 @@
 ---
 templateKey: article-page
 title: Gatsby LightGallery Cloudinary
+path: /gatsby-lightgallery-cloudinary
 slug: Gatsby LightGallery Cloudinary
 date: 2019-09-17T20:14:43.942Z
 category: 'tech'

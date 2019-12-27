@@ -1,15 +1,8 @@
-const scrollToElement = require('scroll-to-element')
+import React from 'react'
+// eslint-disable-next-line import/no-absolute-path
+import GlobalContextProvider from './src/components/Context/GlobalContextProvider'
 
-exports.onRouteUpdate = ({ location }) => {
-  checkHash(location)
-}
+export const wrapRootElement = ({ element }) => (
+  <GlobalContextProvider>{element}</GlobalContextProvider>
+)
 
-const checkHash = location => {
-  const { hash } = location
-  if (hash) {
-    scrollToElement(hash, {
-      offset: -95,
-      duration: 1000,
-    })
-  }
-}

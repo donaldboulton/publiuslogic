@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import styles from './SettingsMenu.css' // eslint-disable-line
-export default class Menu extends Component {
+import React from 'react'
+class SettingsMenu extends React.Component {
   componentDidMount () {
     // attach event listeners
     document.body.addEventListener('keydown', this.handleEscKey)
@@ -65,3 +64,5 @@ export default class Menu extends Component {
     )
   }
 }
+
+export default SettingsMenu

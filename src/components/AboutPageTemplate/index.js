@@ -148,7 +148,7 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
                 <li><Link to='/about/#An-extensible-CMS-built-on-React'>❤️ Cms with React</Link></li>
               </ul>
               <li><Link to='/about/#Features' className='link-icon'>✔️ Features</Link></li>
-              <li><Link to='/about/#Uses-useDarkMode' className='link-icon'>☀️ useDarkMode</Link></li>
+              <li><Link to='/about/#useDarkMode' className='link-icon'>☀️ useDarkMode</Link></li>
             </ul>
           </AboutTableOfContents>
         </Menu3>

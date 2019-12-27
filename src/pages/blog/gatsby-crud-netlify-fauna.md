@@ -1,6 +1,7 @@
 ---
 templateKey: article-page
 title: Gatsby CRUD Netlify Fauna
+path: /gatsby-crud-netlify-fauna
 slug: Gatsby CRUD Netlify Fauna
 date: 2019-11-10T20:20:43.942Z
 category: 'tech'
@@ -12,7 +13,7 @@ tags:
   - Fauna
   - Functions
 meta_title: Gatsby CRUD Netlify Fauna
-meta_description: Gatsby CRUD Netlify Fauna
+meta_description: Gatsby CRUD Netlify FaunaDB
 tweet_id: '1118651504674725888'
 showToc: true
 ---
@@ -21,7 +22,7 @@ showToc: true
 
 🖥️ Based on 🔗 [Nelifty post](https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/?_ga=2.21698171.1777301599.1576092869-301685750.1573932436#wrapping-up)
 
-And some code functions and the Database schema mixed in from 🔗 🔗 [Netlify FaunaDB ToDo](https://github.com/fauna/netlify-faunadb-todomvc) for Netlify Identity Login and to set up the database.
+And some code functions and the Database schema mixed in from 🔗 [Netlify FaunaDB ToDo](https://github.com/fauna/netlify-faunadb-todomvc) for Netlify Identity Login and to set up the database.
 
 Serverless functions seem to be all the rage these days. But why?
 
@@ -244,7 +245,6 @@ function handler (event, context, callback) {
     })
 }
 module.exports = { handler: handler }
-
 ```
 
 The Below ToDo is build with Netlify Functions

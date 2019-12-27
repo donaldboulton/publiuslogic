@@ -1,7 +1,5 @@
 import React from 'react'
 import Editable from './Editable'
-import './ContentEditable.css'
-
 export default class ContentEditable extends React.Component {
   constructor (props) {
     super(props)

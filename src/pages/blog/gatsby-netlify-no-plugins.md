@@ -1,6 +1,7 @@
 ---
 templateKey: article-page
 title: Gatsby Netlify No Plugins
+path: /gatsby-netlify-no-plugins
 slug: Gatsby Netlify No Plugins
 date: 2019-07-06T17:29:36.776Z
 cover: "/images/hero-no-plugins.jpg"
