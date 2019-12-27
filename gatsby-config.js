@@ -152,7 +152,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         tableOfContents: {
-          heading: 1,
+          heading: null,
           maxDepth: 6,
         },
         plugins: [

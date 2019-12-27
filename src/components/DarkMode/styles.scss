@@ -514,9 +514,12 @@ body.dark-mode .message {
 }
 body.dark-mode input.luna__input:focus {
   background: url(/img/blank.png) 15px 50%/1.1em 1.5em no-repeat !important;
-  border-left: 3px solid #812102 !important;
   color: #dbdbdb !important;
-  background-color: transparent !important;
+  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
+  border-left: 3px solid #812102 !important;
+  border-right: 1px solid #434040 !important;
+  border-bottom: 1px solid #434040 !important;
+  border-top: 1px solid #434040 !important;
 }
 input.luna__input {
   color: #dbdbdb !important;

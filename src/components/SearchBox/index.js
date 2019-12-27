@@ -14,7 +14,6 @@ export default class SearchBox extends Component {
   render () {
     return (
       <span className={`navbar-item ${this.state.isActive ? 'is-active' : ''}`} itemProp='potentialAction' itemScope='itemScope' itemType='https://schema.org/SearchAction'>
-        <meta itemProp='target' content='https://query.publiuslogic.com/search?q={search_term_string}' />
         Search&nbsp;
         <input
           className='luna__input js-luna__input'
