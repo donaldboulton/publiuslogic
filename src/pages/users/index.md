@@ -16,7 +16,7 @@ showToc: true
 
 🐦 This page is under development!
 
-![Under Construction](/img/under-construction.png "Under Construction")
+![Under Construction](/img/under-construction.jpg "Under Construction")
 _[`under-construction` CMS admin](/admin/#/collections/pages)_
 
 Only the todo is here to show off the FaunaDB in Gatsby this will become an Authenticated users profile backend page.

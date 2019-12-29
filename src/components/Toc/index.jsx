@@ -1,8 +1,9 @@
 import { throttle } from 'lodash'
+import { StaticQuery, graphql } from 'gatsby'
 import React, { useEffect, useRef, useState } from 'react'
 import { useEventListener } from '../../hooks/useEventListener'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
-import { Title, TocDiv, TocIcon, TocLink, Toggle } from './styles'
+import { TocDiv, TocLink } from './styles'
 
 const accumulateOffsetTop = (el, totalOffset = 0) => {
   while (el) {
@@ -13,7 +14,7 @@ const accumulateOffsetTop = (el, totalOffset = 0) => {
 }
 
 export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
-  const { throttleTime = 200, tocTitle = `Contents` } = rest
+  const { throttleTime = 200 } = rest
   const [headings, setHeadings] = useState({
     titles: [],
     nodes: [],
@@ -47,42 +48,50 @@ export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
     // content increases offsets as user scrolls down.
     const offsets = nodes.map(el => accumulateOffsetTop(el))
     const activeIndex = offsets.findIndex(
-      offset => offset > window.scrollY + 0.8 * window.innerHeight
+      offset => offset > window.scrollY + 0.8 * window.innerHeight,
     )
     setActive(activeIndex === -1 ? titles.length - 1 : activeIndex - 1)
   }, throttleTime)
   useEventListener(`scroll`, scrollHandler)
 
   return (
-    <>
-      <Toggle opener open={open} onClick={() => setOpen(true)} size='1.6em' />
-      <TocDiv ref={ref} open={open}>
-        <Title>
-          <TocIcon />
-          {tocTitle}
-          <Toggle closer onClick={() => setOpen(false)} />
-        </Title>
-        <nav>
-          {headings.titles.map(({ title, depth }, index) => (
-            <TocLink
-              key={title}
-              active={active === index}
-              depth={depth - headings.minDepth}
-              onClick={event => {
-                event.preventDefault()
-                setOpen(false)
-                headings.nodes[index].scrollIntoView({
-                  behavior: `smooth`,
-                  block: `center`,
-                })
-              }}
-            >
-              {title}
-            </TocLink>
-          ))}
-        </nav>
-      </TocDiv>
-    </>
+    <StaticQuery
+      query={graphql`
+      query tableOfContentsQuery {
+        allMarkdownRemark {
+          nodes {
+            headings {
+              depth
+              value
+            }
+          }
+        }
+      }
+    `}
+      render={data => (
+        <TocDiv ref={ref} open={open}>
+          <nav>
+            {data.headings.titles.map(({ title, depth }, index) => (
+              <TocLink
+                key={title}
+                active={active === index}
+                depth={depth - headings.minDepth}
+                onClick={event => {
+                  event.preventDefault()
+                  setOpen(false)
+                  headings.nodes[index].scrollIntoView({
+                    behavior: `smooth`,
+                    block: `center`,
+                  })
+                }}
+              >
+                {title}
+              </TocLink>
+            ))}
+          </nav>
+        </TocDiv>
+      )}
+    />
   )
 }
 

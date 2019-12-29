@@ -145,7 +145,6 @@ module.exports = {
         path: `${__dirname}/_data/ratings/`,
       },
     },
-    'gatsby-transformer-yaml',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

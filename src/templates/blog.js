@@ -193,7 +193,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            path
             meta_description
             templateKey
             date(formatString: "MMMM DD, YYYY")

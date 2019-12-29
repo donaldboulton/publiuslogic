@@ -1,11 +1,11 @@
 ---
 templateKey: article-page
 title: Gatsby CRUD Netlify Fauna
-path: /gatsby-crud-netlify-fauna
-slug: Gatsby CRUD Netlify Fauna
+slug: /gatsby-crud-netlify-fauna
 date: 2019-11-10T20:20:43.942Z
 category: 'tech'
 cover: '/images/gatsby-netlify-fauna.jpg'
+featured: true
 tags:
   - Gatsby
   - Serverless

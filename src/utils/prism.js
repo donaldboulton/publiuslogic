@@ -71,7 +71,7 @@ export default createGlobalStyle`
 
   code[class*='language-'],
   pre[class*='language-'] {
-    color: ${props => props.theme.lightGray};
+    color: ${props => props.theme.white};
     font-family: Consolas, Menlo, Monaco, source-code-pro, 'Courier New', monospace;
     white-space: pre;
     word-spacing: normal;

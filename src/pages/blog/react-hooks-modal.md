@@ -1,8 +1,7 @@
 ---
 templateKey: article-page
 title: React Hooks Modal
-path: /react-hooks-modal
-slug: React Hooks Modal
+slug: /react-hooks-modal
 date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: '/images/react-hooks-modal.jpg'

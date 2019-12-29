@@ -1,8 +1,7 @@
 ---
 templateKey: article-page
 title: Gatsby SEO
-path: /gatsby-seo
-slug: Gatsby SEO
+slug: /gatsby-seo
 date: 2019-07-30T20:14:43.942Z
 category: 'tech'
 cover: '/images/json-ld.jpg'
@@ -183,7 +182,7 @@ const ArticlePage = ({ data }) => {
               />
               <Share
                 title={post.frontmatter.title}
-                slug={post.fields.slug}
+                slug={post.frontmatter.slug}
                 excerpt={post.frontmatter.meta_description}
               />
               <hr />

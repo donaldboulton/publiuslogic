@@ -11,12 +11,13 @@ const ListItemLink = styled(Link)`
   display: inline-block;
   padding: 0.2rem 0;
   width: 100%;
-  color: ${p => p.theme.colors.text};
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
   text-decoration: none;
-  transition: color ${p => p.theme.transition};
+  transition: color ${props => props.theme.transition};
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.primary};
+    color: ${props => props.theme.white};
   }
 `
 

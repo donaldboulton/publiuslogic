@@ -1,6 +1,7 @@
 ---
 templateKey: 'home-page'
 title: PubliusLogic
+slug: /
 date: 2019-02-18T20:20:43.942Z
 meta_title: Home | publiuslogic.com
 meta_description: >-
@@ -9,6 +10,7 @@ meta_description: >-
   of Notes and Letters from our Founding Fathers.
 heading: To Publish Logic - Common Sense
 cover: ./sunset-kitzeberg-fjord.jpg
+category: 'tech'
 tags:
   - Home Page
   - PubliusLogic

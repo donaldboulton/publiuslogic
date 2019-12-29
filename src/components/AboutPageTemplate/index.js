@@ -139,7 +139,7 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               </ul>
               <li><Link to='/about/#Authentication'>🔐 Authentication</Link></li>
               <ul>
-                <li><Link to='/about/#Netlify-Identity'>🆔 Netlify Identity</Link></li>
+                <li><Link to='/about/#Netlify-Identity-Widget'>🆔 Netlify Identity</Link></li>
                 <li><Link to='/about/#What-is-Netlify-Identity'>⁉️ What is Netlify Identity</Link></li>
 
               </ul>
@@ -147,8 +147,11 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
               <ul>
                 <li><Link to='/about/#An-extensible-CMS-built-on-React'>❤️ Cms with React</Link></li>
               </ul>
-              <li><Link to='/about/#Features' className='link-icon'>✔️ Features</Link></li>
-              <li><Link to='/about/#useDarkMode' className='link-icon'>☀️ useDarkMode</Link></li>
+              <li><Link to='/about/#Features'>✔️ Features</Link></li>
+              <ul>
+                <li><Link to='/about/#Context-Provider-Wrapper'>🍬 Context Wrapper</Link></li>
+                <li><Link to='/about/#useDarkMode'>☀️ useDarkMode</Link></li>
+              </ul>
             </ul>
           </AboutTableOfContents>
         </Menu3>

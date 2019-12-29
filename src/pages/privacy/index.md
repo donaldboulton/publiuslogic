@@ -1,11 +1,13 @@
 ---
 templateKey: privacy-page
-title: Privacy and Terms
+title: Privacy Terms
+slug: /privacy-terms
 date: 2019-11-10T20:20:43.942Z
 meta_title: Privacy | PubliusLogic
 meta_description: >-
   The privacy of my visitors is extremely important.
   This Privacy Policy outlines the types of personal information that is received and collected and how it is used. Terms as stated herein are legally binding.
+category: 'tech'
 tags:
   - Privacy
   - PubliusLogic
