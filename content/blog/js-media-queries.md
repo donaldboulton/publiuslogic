@@ -1,11 +1,13 @@
 ---
 templateKey: article-page
 title: JavaScript media queries
-slug: /js-media-queries
+path: /js-media-queries
 date: 2019-04-18T20:20:43.942Z
 updated: 2019-12-18T20:20:43.942Z
 category: 'tech'
 cover: '/images/js-media-quries.jpg'
+featured: false
+related: true
 tags:
   - mediaQueries
   - WebDev

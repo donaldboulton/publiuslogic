@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import deployButton from '../../assets/img/deploy-to-netlify.svg'
-import logo from '../../assets/img/logo.svg'
-import github from '../../assets/img/github.svg'
+import deployButton from '../../../content/assets/img/deploy-to-netlify.svg'
+import logo from '../../../content/assets/img/logo.svg'
+import github from '../../../content/assets/img/github.svg'
 import './AppHeader.css'
 
 const Styledh1 = styled.h1`

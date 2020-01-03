@@ -1,7 +1,7 @@
 ---
 templateKey: 'contact-page'
 title: Contact Us
-slug: /contact-us
+path: /contact-us
 date: 2019-11-07T20:20:43.942Z
 cover: /images/contact.jpg
 subtitle: We'd Love To Help You, Feel Free To Drop A Mail

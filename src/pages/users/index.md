@@ -1,7 +1,7 @@
 ---
 templateKey: users-page
 title: Users Admin
-slug: Users Admin
+path: /users
 date: 2019-11-10T20:20:43.942Z
 cover: /images/users.jpg
 meta_title: Users | Admin

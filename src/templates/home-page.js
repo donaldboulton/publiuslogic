@@ -1,21 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { globalHistory } from '@reach/router'
 import { graphql } from 'gatsby'
 import HomePageTemplate from '../components/HomePageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 
-const HomePage = ({ data }) => {
+const HomePage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark
+  const pageSlugPath = globalHistory.location.pathName
   const image = frontmatter.cover
   const author = config.author
-  let logo = config.siteLogo
+  const logo = config.siteLogo
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com',
+    url: pageSlugPath,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -55,13 +57,13 @@ const HomePage = ({ data }) => {
   }
 
   return (
-    <Layout pageTitle={frontmatter.title}>
+    <Layout pageTitle={frontmatter.title} location={location}>
       <Helmet>
         <title>{frontmatter.meta_title}</title>
         <meta name='description' content={frontmatter.meta_description} />
         <meta name='keywords' content={frontmatter.tags} />
         <meta name='image' content={frontmatter.cover} />
-        <meta name='url' content={frontmatter.canonical} />
+        <meta name='url' content={frontmatter.path} />
         <meta name='author' content={author} />
         <meta property='og:type' content='article' />
         <meta property='og:title' content={frontmatter.title} />
@@ -83,7 +85,7 @@ const HomePage = ({ data }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={frontmatter.canonical} />
+        <link rel='canonical' href={frontmatter.path} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
@@ -112,13 +114,15 @@ HomePage.propTypes = {
 export default HomePage
 
 export const pageQuery = graphql`
-  query IndexPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query IndexPage($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      id
       excerpt(pruneLength: 300)
       frontmatter {        
         title
         cover
         tags
+        path
         meta_title
         meta_description
         heading

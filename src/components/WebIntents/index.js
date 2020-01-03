@@ -4,9 +4,9 @@ import { ThemeProvider } from 'styled-components'
 import { Twitter } from 'styled-icons/fa-brands'
 import theme from './buttons.css'
 
-const WebIntents = ({ slug, tweet_id }) => {
+const WebIntents = ({ path, tweet_id }) => {
   const title = config.userTwitter
-  const url = config.siteUrl + slug
+  const url = config.siteUrl + path
 
   return (
     <ThemeProvider theme={theme}>

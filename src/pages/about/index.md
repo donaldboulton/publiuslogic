@@ -1,7 +1,7 @@
 ---
 templateKey: about-page
 title: About Us
-slug: /about-us
+path: /about-us
 date: 2019-11-09T20:20:43.942Z
 cover: ./about.jpg
 meta_title: About Us | Gatsby Starter Publius

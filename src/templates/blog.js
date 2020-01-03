@@ -100,7 +100,7 @@ export default class BlogPage extends Component {
     }
 
     return (
-      <Layout pageTitle={config.siteTitleAlt}>
+      <Layout pageTitle={config.siteTitleAlt} location={location}>
         <Helmet>
           <title>Blog | Publius Logic</title>
           <meta name='description' content='Blog | Publius Logic' />
@@ -186,13 +186,12 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 300)
           id
-          fields {
-            slug
-          }
+          html
+          excerpt(pruneLength: 300)   
           frontmatter {
             title
+            path
             meta_description
             templateKey
             date(formatString: "MMMM DD, YYYY")

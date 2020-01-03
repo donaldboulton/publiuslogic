@@ -6,26 +6,54 @@ class PrevNext extends React.Component {
   render () {
     const { previous, next, label, slugPrefix = `` } = this.props
     return (
-      <StaticQuery
-        query={graphql`
+      <>
+        {this.props.allMarkdownRemark.edges && (
+          <PreviousNext>
+            {previous && (
+              <Link to={slugPrefix + previous.frontmatter.path} rel='prev' css='margin-right: 1em;'>
+                <h3 css='text-align: left;'>← Previous {label}</h3>
+                <Thumbnail>
+                  {previous.frontmatter.cover && (
+                    <Img {...previous.frontmatter.cover.sharp || previous.frontmatter.cover} />
+                  )}
+                  <h4>{previous.frontmatter.title}</h4>
+                </Thumbnail>
+              </Link>
+            )}
+            {next && (
+              <Link to={slugPrefix + next.frontmatter.path} rel='next' css='margin-left: auto;'>
+                <h3 css='text-align: right;'>Next {label} →</h3>
+                <Thumbnail>
+                  {next.cover && (
+                    <Img {...next.frontmatter.cover.sharp || next.frontmatter.cover} />
+                  )}
+                  <h4>{next.frontmatter.title}</h4>
+                </Thumbnail>
+              </Link>
+            )}
+          </PreviousNext>
+        )}
+      </>
+    )
+  }
+}
+export default () => (
+  <StaticQuery
+    query={graphql`
       {
         allMarkdownRemark {
           edges {
             next {
-              fields {
-                slug
-              }
               frontmatter {
                 title
+                path
                 cover
               }
             }
             previous {
-              fields {
-                slug
-              }
               frontmatter {
                 title
+                path
                 cover
               }
             }
@@ -33,39 +61,12 @@ class PrevNext extends React.Component {
         }
       }
     `}
-        render={data => (
-          <PreviousNext>
-            {previous && (
-              <Link to={slugPrefix + data.previous.fields.slug} rel='prev' css='margin-right: 1em;'>
-                <h3 css='text-align: left;'>← Previous {label}</h3>
-                <Thumbnail>
-                  {data.previous.frontmatter.cover && (
-                    <Img {...previous.data.frontmatter.cover.sharp || previous.data.frontmatter.cover} />
-                  )}
-                  <h4>{data.previous.frontmatter.title}</h4>
-                </Thumbnail>
-              </Link>
-            )}
-            {data.next && (
-              <Link to={slugPrefix + data.next.fields.slug} rel='next' css='margin-left: auto;'>
-                <h3 css='text-align: right;'>Next {label} →</h3>
-                <Thumbnail>
-                  {next.cover && (
-                    <Img {...next.data.frontmatter.cover.sharp || next.data.frontmatter.cover} />
-                  )}
-                  <h4>{next.data.frontmatter.title}</h4>
-                </Thumbnail>
-              </Link>
-            )}
-          </PreviousNext>
-        )}
-      />
-    )
-  }
-}
-
+    render={data => (
+      <PrevNext next={data.next} prev={data.previous} />
+    )}
+  />
+)
 PrevNext.propTypes = {
   label: PropTypes.string.isRequired,
 }
 
-export default PrevNext

@@ -1,1 +1,1 @@
-export { default } from "./RelatedPosts";
+export { default } from './RelatedPosts'

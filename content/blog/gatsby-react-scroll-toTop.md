@@ -1,10 +1,12 @@
 ---
 templateKey: article-page
 title: Gatsby React Scroll toTop
-slug: /gatsby-react-scroll-toTop
+path: /gatsby-react-scroll-toTop
 date: 2019-04-22T20:20:43.942Z
 category: 'tech'
 cover: '/images/top.jpg'
+featured: false
+related: true
 tags:
   - Gatsby
   - toTop

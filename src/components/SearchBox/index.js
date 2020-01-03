@@ -29,7 +29,7 @@ export default class SearchBox extends Component {
         />
         <div className='navbar-dropdown'>
           {this.state.results.map(page => (
-            <Link aria-label='Results Links' itemProp='url' className='navbar-item' key={page.id} to={page.slug}>{page.title}</Link>
+            <Link aria-label='Results Links' itemProp='url' className='navbar-item' key={page.id} to={page.path}>{page.title}</Link>
           ))}
         </div>
       </span>

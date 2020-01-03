@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { HTMLContent } from '../components/Content'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import PhotosPageTemplate from '../components/PhotosPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
-import PostCover from '../components/PostCover'
+import Image from '../components/PhotosPageTemplate/cover'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -17,22 +18,21 @@ const Styledh1 = styled.h1`
   z-index: 22;
 `
 
-const PhotosPage = ({ data }) => {
-  const { markdownRemark: post, readingTime } = data
-  const image = post.frontmatter.cover
-  const postNode = data.markdownRemark
-  const postImage = post.frontmatter.cover
-  const imageWidth = postImage.width
-  const imageHeight = postImage.height
-  const coverHeight = '100%'
-
-  let logo = config.siteLogo
-  let pageTags = post.frontmatter.tags
+const PhotosPage = ({ data, path, location, timeToRead }) => {
+  const { markdownRemark: page } = data
+  const rootUrl = 'https://publiuslogic.com'
+  const url = rootUrl + `/${path}`
+  const image = page.frontmatter.cover
+  const mage = page.frontmatter.cover
+  const imageWidth = mage.width
+  const imageHeight = mage.height
+  const logo = config.siteLogo
+  const pageTags = page.frontmatter.tags
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/photos',
+    url: url,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -72,34 +72,34 @@ const PhotosPage = ({ data }) => {
   }
 
   return (
-    <Layout pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={page.frontmatter.title} location={location}>
       <Helmet>
-        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
-        <meta name='description' content={post.frontmatter.meta_description} />
+        <title>{`${page.frontmatter.title} | ${config.siteTitle}`}</title>
+        <meta name='description' content={page.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
-        <meta name='url' content={post.frontmatter.slug} />
+        <meta name='url' content={page.frontmatter.path} />
         <meta property='og:type' content='article' />
-        <meta property='og:readingTime' content={readingTime} />
-        <meta property='og:title' content={post.frontmatter.title} />
-        <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={post.frontmatter.cover} />
-        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
+        <meta property='og:readingTime' content={timeToRead} />
+        <meta property='og:title' content={page.frontmatter.title} />
+        <meta property='og:description' content={page.frontmatter.meta_description} />
+        <meta property='og:image' content={page.frontmatter.cover} />
+        <meta property='og:image:alt' content={page.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:url' content={post.frontmatter.slug} />
-        <meta name='rel' content={post.frontmatter.slug} />
-        <meta name='key' content={post.frontmatter.slug} />
+        <meta property='og:url' content={page.frontmatter.path} />
+        <meta name='rel' content={page.frontmatter.path} />
+        <meta name='key' content={page.frontmatter.path} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post.frontmatter.title} />
-        <meta name='twitter:image' content={post.frontmatter.cover} />
-        <meta name='twitter:description' content={post.frontmatter.meta_description} />
+        <meta name='twitter:title' content={page.frontmatter.title} />
+        <meta name='twitter:image' content={page.frontmatter.cover} />
+        <meta name='twitter:description' content={page.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.slug} />
+        <link rel='canonical' href={url} />
         <link rel='image_src' href={`${config.siteUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
@@ -107,45 +107,49 @@ const PhotosPage = ({ data }) => {
         <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css' />
       </Helmet>
       <section className='hero'>
-        <PostCover
-          postNode={postNode}
-          coverHeight={coverHeight}
-          coverClassName='post-cover'
-        />
+        <Image />
       </section>
       <section>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
-            {post.frontmatter.title}
+            {page.frontmatter.title}
           </Styledh1>
           <p>🐱 My Cats</p>
         </div>
       </section>
       <PhotosPageTemplate
-        title={post.frontmatter.title}
-        cover={post.frontmatter.cover}
-        subtitle={post.frontmatter.subtitle}
-        content={post.html}
-        meta_title={post.frontmatter.meta_title}
-        description={post.frontmatter.meta_description}
-        tags={post.frontmatter.tags}
+        contentComponent={HTMLContent}
+        content={page.html}
+        title={page.frontmatter.title}
+        cover={page.frontmatter.cover}
+        subtitle={page.frontmatter.subtitle}
+        meta_title={page.frontmatter.meta_title}
+        description={page.frontmatter.meta_description}
+        tags={page.frontmatter.tags}
       />
     </Layout>
   )
 }
 
 PhotosPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+  }),
 }
 
 export default PhotosPage
 
-export const photosPageQuery = graphql`
-  query PhotosPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+export const pageQuery = graphql`
+  query PhotosPage($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      id
+      html
       frontmatter {
         title
         cover
+        path
         meta_title
         meta_description
         tags

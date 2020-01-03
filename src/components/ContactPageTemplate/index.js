@@ -5,7 +5,7 @@ import ContactForm from '../ContactForm'
 import logo from '../../../static/img/logo.png'
 import { Link } from 'gatsby'
 
-const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent }) => {
+const ContactPageTemplate = ({ title, cover, path, subtitle, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -47,6 +47,7 @@ const ContactPageTemplate = ({ title, cover, subtitle, content, contentComponent
 ContactPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   cover: PropTypes.image,
+  path: PropTypes.string,
   subtitle: PropTypes.string,
   content: PropTypes.string,
   contentComponent: PropTypes.func,

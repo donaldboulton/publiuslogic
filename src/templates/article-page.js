@@ -1,7 +1,6 @@
 import React from 'react'
 import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
-import { globalHistory } from '@reach/router'
 import styled from 'styled-components'
 import Menu2 from 'react-burger-menu/lib/menus/stack'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
@@ -9,8 +8,8 @@ import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { Link, to, graphql } from 'gatsby'
+import { globalHistory } from '@reach/router'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
@@ -24,129 +23,57 @@ import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
-import Reviews from '../components/Ratings'
-import PrevNext from '../components/PrevNext'
-import Toc from '../components/Toc'
-import { BookContent, Table } from 'styled-icons/boxicons-regular/'
+import ReactStars from 'react-stars'
+import { Img, Thumbnail } from '../components/PrevNext/styles'
+import { BookContent } from 'styled-icons/boxicons-regular/'
+import { Rating, StyledTableMenu, TableOfContents, Styledh1, Title, TocIcon, Time, Date, GithubButtons, Pagination, Meta } from '../components/styles/ArticleStyles'
 
-const Rating = styled.div`
-  font-size: 0.9em;
-`
-const StyledTableMenu = styled.div` 
-  .bm-item {
-    text-align: left;
-    background: transparent;
-    display: inline-block;
-    text-decoration: none;
-    margin-bottom: 2vh;
-    background: ${props => props.theme.black};
-    color: ${props => props.theme.white};
-    transition: color 0.2s;
+const submitRating = (rating, path) => {
+  const data = {
+    'fields[rating]': rating,
+    'fields[postPath]': path,
+    'options[reCaptcha][siteKey]': '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
   }
-  .bm-item:hover {
-    background: ${props => props.theme.black};
-    color: ${props => props.theme.white};
+
+  // eslint-disable-next-line no-undef
+  const XHR = new XMLHttpRequest()
+  let urlEncodedData = ''
+  const urlEncodedDataPairs = []
+  let name
+
+  // Turn the data object into an array of URL-encoded key/value pairs.
+  for (name in data) {
+    urlEncodedDataPairs.push(
+      encodeURIComponent(name) + '=' + encodeURIComponent(data[name]),
+    )
   }
-  .bm-burger-button {
-    position: fixed;
-    width: 30px;
-    height: 26px;
-    right: 1.4vw;
-    top: 2.2vh;
-  }
-  .bm-burger-bars {
-    background: ${props => props.theme.lightBg};  
-  }
-  .bm-cross-button {
-    height: 30px;
-    width: 15px;
-    left: 8px !important;
-  }
-  .bm-cross {
-    background: #bdc3c7;
-  }
-  .bm-menu {
-    background: rgba(0, 0, 0, 0.59);
-    padding: 2.5em 1.5em 0;
-    font-size: 1em;
-  }
-  .bm-morph-shape {
-    fill: #373a47;
-  }
-  .bm-item-list {
-    color: #b8b7ad;
-    background: transparent;
-  }
-  #linktoc {
-    overflow-y: auto;
-    scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
-    scrollbar-width: 10px;
-    overflow-x: hidden;
-  }
-  #linktoc::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  #linktoc::-webkit-scrollbar-thumb {
-    background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17));
-    background: linear-gradient(to bottom,#201c29,#100e17);
-    border-radius: 10px;
-    -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
-    box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
-  }
-  #linktoc::-webkit-scrollbar-track {
-    background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
-  }
-  .bm-overlay {
-    background: rgba(0, 0, 0, 0.59);
-  }
-  ul {
-    max-height: 78vh;
-  }
-`
-const Styledh1 = styled.h1`
-  display: inline-block;
-  padding-top: 2em;
-  font-size: 32px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  z-index: 22;
-  background-position: 50% 50%;
-  text-align: center;
-`
-const Title = styled.h2`
-  margin: 0;
-  padding-bottom: 0.5em;
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  grid-template-columns: auto auto 1fr;
-  color: ${props => props.theme.black};
-  border-bottom: 1px solid ${props => props.theme.black};
-`
-const TocIcon = styled(Table)`
-  width: 1em;
-  margin-right: 0.2em;
-  background: ${props => props.theme.black};
-  color: ${props => props.theme.white};
-`
-const Time = styled.span`
-  font-size: 0.9rem;
-  color: ${props => props.theme.white};
-`
-const Date = styled.span`
-  font-size: 0.9em;
-  color: ${props => props.theme.white};
-`
-const GithubButtons = styled.span`
-  right: 2em;
-  padding: 0.5em;
-`
-const Pagination = styled.div`
-  display: flex;
-  flex-flow: row;
-  justify-content: space-around;
-`
+
+  // Combine the pairs into a single string and replace all %-encoded spaces to
+  // the '+' character; matches the behaviour of browser form submissions.
+  urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+')
+
+  // Define what happens on successful data submission
+  XHR.addEventListener('load', function (event) {
+    alert('Thanks for rating us! Your rating will appear soon. Stay tuned..')
+  })
+
+  // Define what happens in case of error
+  XHR.addEventListener('error', function (event) {
+    alert('Sorry, something went wrong. Please file an issue in github!')
+  })
+
+  // Set up our request
+  XHR.open(
+    'POST',
+    'https://api.staticman.net/v3/entry/github/donaldboulton/publiuslogic/master/ratings',
+  )
+
+  // Add the required HTTP header for form data requests
+  XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+
+  // Finally, send our data.
+  XHR.send(urlEncodedData)
+}
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -155,31 +82,74 @@ const renderAst = new RehypeReact({
     'interactive-hit-counter': HitCounter,
     'interactive-todo': Todo,
     'interactive-colorbox': ColorBox,
+    a: Link,
+    href: to,
   },
 }).Compiler
 
-const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext }) => {
-  const { markdownRemark: post } = data
-  const postNode = data.markdownRemark
-  const postSlugPath = globalHistory.location.pathname
-  const readingTime = data.readingTime
-  const buildTime = post.frontmatter.date
-  const postImage = post.frontmatter.cover
+export default function ArticlePage (props) {
+  const {
+    location,
+    markdownRemark,
+    tableOfContents,
+    label,
+    path,
+    previous,
+    next,
+    allRatingsJson: ratings = [],
+    pageContext,
+  } = props.data
+
+  const { frontmatter, htmlAst, timeToRead } = markdownRemark
+  const rootUrl = 'https://publiuslogic.com'
+  const pathName = globalHistory.location.pathname
+  const buildTime = frontmatter.date
+  const postImage = frontmatter.cover
+  const postNode = frontmatter.cover
   const imageWidth = postImage.width
   const imageHeight = postImage.height
-  const body = post.html
-  const title = post.frontmatter.title
+  const body = frontmatter.meta_description
+  const title = frontmatter.title
   const coverHeight = '100%'
-  const postPath = globalHistory.location.pathname
-  const alternativeHeadline = post.frontmatter.meta_title
-  const pageDescription = post.frontmatter.meta_description
-  const pageTags = post.frontmatter.tags
-  const url = post.frontmatter.slug
+  const alternativeHeadline = frontmatter.meta_title
+  const pageDescription = frontmatter.meta_description
+  const pageTags = frontmatter.tags
+  const url = rootUrl + `/${path}`
   const logo = config.siteLogo
+  const ratingValue =
+  ratings && ratings.edges
+    ? ratings.edges.reduce(
+      (accumulator, rating) => accumulator + parseInt(rating.node.rating),
+      0,
+    ) / ratings.totalCount
+    : 0
+  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
 
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
-    '@type': 'Article',
+    '@type': 'LocalBusiness',
+    '@id': rootUrl + `/${path}`,
+    name: 'Publius Logic',
+    image: {
+      '@type': 'ImageObject',
+      url: postImage,
+    },
+    sameAs: rootUrl + `/${path}`,
+    priceRange: '$0.1',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '720 S. Rockwell',
+      addressLocality: 'OKC Ok',
+      addressRegion: 'OK',
+      postalCode: '73128',
+      addressCountry: 'US',
+    },
+    telephone: '+19033361494',
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 35.4584,
+      longitude: 97.6343,
+    },
     publisher: {
       '@type': 'Organization',
       name: 'donaldboulton',
@@ -190,13 +160,13 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
         height: '450px',
       },
     },
-    url: url,
+    url: pathName,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': postSlugPath,
+      '@id': rootUrl + `/${path}`,
     },
     alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
-    name: title,
+    pageName: title,
     author: {
       '@type': 'Person',
       name: 'donboulton',
@@ -217,48 +187,69 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
     headline: title,
     keywords: pageTags,
     inLanguage: 'en_US',
-    image: {
-      '@type': 'ImageObject',
-      url: postImage,
-    },
     articleBody: body,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '4.5',
-      ratingCount: '36',
+      ratingValue: ratingValue,
+      bestRating: '5',
+      worstRating: '1',
+      ratingCount: ratingCount,
+    },
+    review: {
+      '@type': 'Review',
+      url: 'https://publiuslogic.com/blog/netlify-cms',
+      author: {
+        '@type': 'Person',
+        name: 'Lisa Kennedy',
+        sameAs: 'https://plus.google.com/114108465800532712602',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Denver Post',
+        sameAs: 'http://www.denver.com',
+      },
+      datePublished: '2019-03-13T20:00',
+      description: 'Cms From Hell.',
+      inLanguage: 'en',
+      reviewRating: {
+        '@type': 'Rating',
+        worstRating: '1',
+        bestRating: '5',
+        ratingValue: ratingValue,
+      },
     },
   }
 
   return (
-    <Layout pageTitle={post.frontmatter.title} location={location.pathname}>
+    <Layout pageTitle={frontmatter.title} location={location}>
       <Helmet>
-        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
-        <meta name='description' content={post.frontmatter.meta_description} />
+        <title>{`${frontmatter.title} | ${config.siteTitle}`}</title>
+        <meta name='description' content={frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
-        <meta name='url' content={post.frontmatter.slug} />
+        <meta name='url' content={url} />
         <meta property='og:type' content='article' />
-        <meta property='og:readingTime' content={readingTime} />
-        <meta property='og:title' content={post.frontmatter.title} />
-        <meta property='og:description' content={post.frontmatter.meta_description} />
+        <meta property='og:readingTime' content={timeToRead} />
+        <meta property='og:title' content={frontmatter.title} />
+        <meta property='og:description' content={frontmatter.meta_description} />
         <meta property='og:image' content={logo} />
-        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
+        <meta property='og:image:alt' content={frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:url' content={post.frontmatter.slug} />
-        <meta name='rel' content={post.frontmatter.slug} />
-        <meta name='key' content={postPath} />
+        <meta property='og:url' content={frontmatter.path} />
+        <meta name='rel' content={url} />
+        <meta name='key' content={url} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post.frontmatter.title} />
+        <meta name='twitter:title' content={frontmatter.title} />
         <meta name='twitter:image' content={logo} />
-        <meta name='twitter:description' content={post.frontmatter.meta_description} />
+        <meta name='twitter:description' content={frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.slug} />
-        <link rel='image_src' href={`${config.siteUrl}${logo}`} />
+        <link rel='canonical' href={`${rootUrl}${path}`} />
+        <link rel='image_src' href={`${rootUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
         <script type='application/ld+json'>
@@ -272,11 +263,15 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
               <TocIcon />
                 | Page Contents
             </Title>
-            <Toc />
+            <TableOfContents
+              style={{ textIndent: '-1em hanging' }}
+              id='linktoc'
+              dangerouslySetInnerHTML={{ __html: tableOfContents }}
+            />
           </Menu2>
         </StyledTableMenu>
         <PostCover
-          postNode={postNode}
+          cover={postNode}
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
@@ -284,8 +279,16 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
       <section className='section'>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
-            {post.frontmatter.title}
+            {frontmatter.title}
           </Styledh1>
+          <Meta
+            data={{
+              ...frontmatter,
+              description: frontmatter.meta_description,
+              rating: { ratingValue, ratingCount: ratingCount },
+            }}
+            rich
+          />
         </div>
         <div className='column is-9 is-offset-1'>
           <Bio />
@@ -293,9 +296,9 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
             <div className='column is-7'>
               <span className='subtitle is-size-5'>
                 <Calendar size='0.9em' />&nbsp;
-                <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
+                <Date><small>{frontmatter.date}</small>&nbsp;</Date>&nbsp;
                 <Timer size='0.9em' />&nbsp;
-                <Time>{post.timeToRead}&nbsp;min read</Time>
+                <Time>{timeToRead}&nbsp;min read</Time>
               </span>
             </div>
             <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
@@ -306,39 +309,55 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <div>{renderAst(post.htmlAst)}</div>
+              <div>{renderAst(htmlAst)}</div>
               <ArticleTemplate
-                content={post.html}
+                content={htmlAst}
                 contentComponent={HTMLContent}
-                cover={post.frontmatter.cover}
-                readingTime={readingTime}
-                category={post.frontmatter.category}
-                date={post.frontmatter.date}
-                tweet_id={post.frontmatter.tweet_id}
-                meta_title={post.frontmatter.meta_title}
-                description={post.frontmatter.meta_description}
-                tags={post.frontmatter.tags}
-                title={post.frontmatter.title}
+                cover={frontmatter.cover}
+                timeToRead={timeToRead}
+                category={frontmatter.category}
+                date={frontmatter.date}
+                tweet_id={frontmatter.tweet_id}
+                meta_title={frontmatter.meta_title}
+                description={frontmatter.meta_description}
+                tags={frontmatter.tags}
+                title={frontmatter.title}
               />
               <Share
-                title={post.frontmatter.title}
-                slug={post.fields.slug}
-                excerpt={post.frontmatter.meta_description}
+                title={frontmatter.title}
+                path={frontmatter.path}
+                excerpt={frontmatter.meta_description}
               />
               <hr />
               <div className='container content'>
                 <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
                   <div className='column is-7'>
                     <input type='hidden' name='form-name' value='ratings' />
-                    <input name='fields[postPath]' type='hidden' value={post.frontmatter.path} />
-                    <input name='title' type='hidden' value={post.frontmatter.title} />
-                    <Reviews
-                      fileEdges={data.allFile.edges}
-                      postPath={postPath}
-                      ratings={data.rating}
-                      ratingValue={data.ratingValue}
-                      ratingCount={data.ratingCount}
-                      date={data.date}
+                    <input name='fields[postPath]' type='hidden' value={frontmatter.path} />
+                    <input name='title' type='hidden' value={frontmatter.title} />
+                    {/* TODO calculate score in gatsby-node */}
+                    {ratings ? (
+                      <Rating>
+                        Rating:{' '}
+                        {ratings && ratings.edges
+                          ? ratings.edges.reduce(
+                            (accumulator, rating) =>
+                              accumulator + parseInt(rating.node.rating),
+                            0,
+                          ) / ratings.totalCount
+                          : null}{' '}
+                          - {ratings.totalCount} Reviews
+                          Rating: {ratingValue !== 0 ? ratingValue : null} -{' '}
+                        {ratings.totalCount} Reviews
+                      </Rating>
+                    ) : null}
+                    <ReactStars
+                      onChange={rating => {
+                        submitRating(rating, frontmatter.path)
+                      }}
+                      half={false}
+                      size={24}
+                      color2='#ffe600'
                     />
                   </div>
                   <div className='column is-pulled-right'>
@@ -349,7 +368,28 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
               <Comments />
               <section className='section'>
                 <Pagination>
-                  <PrevNext />
+                  {previous && (
+                    <Link to={rootUrl + pageContext.previous} rel='prev' css='margin-right: 1em;'>
+                      <h3 css='text-align: left;'>← Previous {label}</h3>
+                      <Thumbnail>
+                        {previous.frontmatter.cover && (
+                          <Img {...pageContext.previous.frontmatter.cover.sharp || pageContext.previous.frontmatter.cover} />
+                        )}
+                        <h4>{pageContext.previous.frontmatter.title}</h4>
+                      </Thumbnail>
+                    </Link>
+                  )}
+                  {next && (
+                    <Link to={rootUrl + pageContext.next} rel='next' css='margin-left: auto;'>
+                      <h3 css='text-align: right;'>Next {label} →</h3>
+                      <Thumbnail>
+                        {next.cover && (
+                          <Img {...pageContext.next.frontmatter.cover.sharp || pageContext.next.frontmatter.cover} />
+                        )}
+                        <h4>{pageContext.next.frontmatter.title}</h4>
+                      </Thumbnail>
+                    </Link>
+                  )}
                 </Pagination>
               </section>
             </div>
@@ -360,28 +400,18 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
   )
 }
 
-ArticlePage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
-
-export default ArticlePage
-
 export const pageQuery = graphql`
-  query ArticleByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id      
+  query ArticlePageByPath($path: String!, $tags: [String]) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {   
+      id
       htmlAst
       timeToRead
       tableOfContents
-      excerpt(pruneLength: 300)                          
-      fields {
-        slug
-      }      
+      excerpt(pruneLength: 300)                                  
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        path
         tweet_id
         category
         meta_title
@@ -390,23 +420,32 @@ export const pageQuery = graphql`
         cover
       }
     }
-    allMarkdownRemark {
-      nodes {
-        headings {
-          depth
-          value
+    relatedPosts: allMarkdownRemark(
+      filter: { frontmatter: { tags: { in: $tags }, path: { ne: $path } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            path
+            tags
+          }
         }
       }
     }
     allRatingsJson(
-      filter: { postPath: { eq: $id } }
+      filter: { postPath: { eq: $path } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount
       edges {
         node {
           id
-          rating
+          rating        
+          fields {
+            messageHtml
+          }
         }
       }
     }

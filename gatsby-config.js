@@ -68,6 +68,55 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/assets/img`,
+        name: 'uploads',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/images`,
+        name: `images`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img`,
+        name: 'icons',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: 'blog',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: 'assets',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'ratings',
+        path: `${__dirname}/_data/ratings`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-use-dark-mode`,
       options: {
         classNameDark: `dark-mode`,
@@ -110,41 +159,6 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
     `gatsby-transformer-json`,
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/assets/img`,
-        name: 'uploads',
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/static/images`,
-        name: `images`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/static/img`,
-        name: 'icons',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'ratings',
-        path: `${__dirname}/_data/ratings/`,
-      },
-    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -308,8 +322,8 @@ module.exports = {
                   category: edge.node.frontmatter.category,
                   description: edge.node.excerpt,
                   author: rssMetadata.author,
-                  url: rssMetadata.site_url + edge.node.fields.slug,
-                  guid: rssMetadata.site_url + edge.node.fields.slug,
+                  url: rssMetadata.site_url + edge.node.frontmatter.path,
+                  guid: rssMetadata.site_url + edge.node.frontmatter.path,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
                 }))
             },
@@ -329,6 +343,7 @@ module.exports = {
                               title
                               templateKey
                               cover
+                              path
                               date(formatString: "MMMM DD, YYYY")
                               category
                               tags
@@ -355,7 +370,7 @@ module.exports = {
           MarkdownRemark: {
             title: node => node.frontmatter.title,
             tags: node => node.frontmatter.tags,
-            slug: node => node.fields.slug,
+            slug: node => node.frontmatter.path,
           },
         },
       },

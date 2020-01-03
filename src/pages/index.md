@@ -1,7 +1,7 @@
 ---
 templateKey: 'home-page'
 title: PubliusLogic
-slug: /
+path: '/'
 date: 2019-02-18T20:20:43.942Z
 meta_title: Home | publiuslogic.com
 meta_description: >-

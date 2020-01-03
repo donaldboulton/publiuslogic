@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
-import PostCover from '../components/PostCover'
+import Image from '../components/PrivacyPageTemplate/image'
 import Menu5 from 'react-burger-menu/lib/menus/stack'
 import styled from 'styled-components'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
@@ -140,12 +140,10 @@ const GithubButtons = styled.span`
   padding: 0.5em;
 `
 
-const PrivacyPage = ({ data }) => {
-  const { markdownRemark: post } = data
-  const image = post.frontmatter.cover
+const PrivacyPage = ({ data, location, timeToRead }) => {
+  const { markdownRemark: page } = data
+  const image = page.frontmatter.cover
   const author = config.author
-  const postNode = data.markdownRemark
-  const coverHeight = '100%'
   const logo = config.siteLogo
 
   const schemaOrgWebPage = {
@@ -191,35 +189,35 @@ const PrivacyPage = ({ data }) => {
   }
 
   return (
-    <Layout pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={page.frontmatter.title} location={location}>
       <Helmet>
-        <title>{post.frontmatter.meta_title}</title>
-        <meta name='description' content={post.frontmatter.meta_description} />
-        <meta name='keywords' content={post.frontmatter.tags} />
-        <meta name='image' content={post.frontmatter.cover} />
-        <meta name='url' content={post.frontmatter.slug} />
+        <title>{page.frontmatter.meta_title}</title>
+        <meta name='description' content={page.frontmatter.meta_description} />
+        <meta name='keywords' content={page.frontmatter.tags} />
+        <meta name='image' content={page.frontmatter.cover} />
+        <meta name='url' content={page.frontmatter.path} />
         <meta name='author' content={author} />
         <meta property='og:type' content='webpage' />
-        <meta property='og:title' content={post.frontmatter.title} />
-        <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={post.frontmatter.cover} />
-        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
+        <meta property='og:title' content={page.frontmatter.title} />
+        <meta property='og:description' content={page.frontmatter.meta_description} />
+        <meta property='og:image' content={page.frontmatter.cover} />
+        <meta property='og:image:alt' content={page.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={post.frontmatter.slug} />
-        <meta name='rel' content={post.frontmatter.slug} />
-        <meta name='key' content={post.frontmatter.slug} />
+        <meta property='og:url' content={page.frontmatter.path} />
+        <meta name='rel' content={page.frontmatter.path} />
+        <meta name='key' content={page.frontmatter.path} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post.frontmatter.title} />
-        <meta name='twitter:image' content={post.frontmatter.cover} />
-        <meta name='twitter:description' content={post.frontmatter.meta_description} />
+        <meta name='twitter:title' content={page.frontmatter.title} />
+        <meta name='twitter:image' content={page.frontmatter.cover} />
+        <meta name='twitter:description' content={page.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.slug} />
+        <link rel='canonical' href={page.frontmatter.path} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
@@ -270,17 +268,13 @@ const PrivacyPage = ({ data }) => {
         </Menu5>
       </StyledUsersTableMenu>
       <section className='hero'>
-        <PostCover
-          postNode={postNode}
-          coverHeight={coverHeight}
-          coverClassName='post-cover'
-        />
+        <Image />
       </section>
       <section>
         <div className='column is-10 is-offset-1'>
           <div>
             <Styledh1>
-              {post.frontmatter.title}
+              {page.frontmatter.title}
             </Styledh1>
           </div>
           <div className='column is-9'>
@@ -289,9 +283,9 @@ const PrivacyPage = ({ data }) => {
               <div className='column is-7'>
                 <span className='subtitle is-size-5'>
                   <Calendar size='0.9em' />&nbsp;
-                  <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
+                  <Date><small>{page.frontmatter.date}</small>&nbsp;</Date>&nbsp;
                   <Timer size='0.9em' />&nbsp;
-                  <Time>{post.timeToRead}&nbsp;min read</Time>
+                  <Time>{timeToRead}&nbsp;min read</Time>
                 </span>
               </div>
               <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
@@ -309,32 +303,38 @@ const PrivacyPage = ({ data }) => {
       </section>
       <PrivacyPageTemplate
         contentComponent={HTMLContent}
-        content={post.html}
-        cover={post.frontmatter.cover}
-        meta_title={post.frontmatter.meta_title}
-        description={post.frontmatter.meta_description}
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        content={page.html}
+        cover={page.frontmatter.cover}
+        meta_title={page.frontmatter.meta_title}
+        description={page.frontmatter.meta_description}
+        tags={page.frontmatter.tags}
+        title={page.frontmatter.title}
       />
     </Layout>
   )
 }
 
 PrivacyPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+  }),
 }
 
 export default PrivacyPage
 
-export const privacyPageQuery = graphql`
-  query PrivacyPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+export const pageQuery = graphql`
+  query PrivacyPage($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      id
       html
       timeToRead
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         cover
+        path
         meta_title
         meta_description
         tags

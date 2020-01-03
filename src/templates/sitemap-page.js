@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
+import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import SiteMapPageTemplate from '../components/SiteMapPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
-import PostCover from '../components/PostCover'
+import Image from '../components/SiteMapPageTemplate/image'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -17,18 +17,18 @@ const Styledh1 = styled.h1`
   z-index: 22;
 `
 
-const SiteMapPage = ({ data }) => {
-  const { markdownRemark: post } = data
-  const image = post.frontmatter.cover
-  let author = config.author
-  const postNode = data.markdownRemark
-  const coverHeight = '100%'
-  let logo = config.siteLogo
+const SiteMapPage = ({ data, location }) => {
+  const { markdownRemark: page } = data
+  const rootUrl = 'https://publiuslogic.com'
+  const url = rootUrl + `/${path}`
+  const image = page.frontmatter.cover
+  const author = config.author
+  const logo = config.siteLogo
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/sitemap',
+    url: url,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -68,50 +68,46 @@ const SiteMapPage = ({ data }) => {
   }
 
   return (
-    <Layout pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={page.frontmatter.title} location={location}>
       <Helmet>
-        <title>{post.frontmatter.meta_title}</title>
-        <meta name='description' content={post.frontmatter.meta_description} />
-        <meta name='keywords' content={post.frontmatter.tags} />
-        <meta name='image' content={post.frontmatter.cover} />
-        <meta name='url' content={post.frontmatter.slug} />
+        <title>{page.frontmatter.meta_title}</title>
+        <meta name='description' content={page.frontmatter.meta_description} />
+        <meta name='keywords' content={page.frontmatter.tags} />
+        <meta name='image' content={page.frontmatter.cover} />
+        <meta name='url' content={page.frontmatter.path} />
         <meta name='author' content={author} />
         <meta property='og:type' content='webpage' />
-        <meta property='og:title' content={post.frontmatter.title} />
-        <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={post.frontmatter.cover} />
-        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
+        <meta property='og:title' content={page.frontmatter.title} />
+        <meta property='og:description' content={page.frontmatter.meta_description} />
+        <meta property='og:image' content={page.frontmatter.cover} />
+        <meta property='og:image:alt' content={page.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={post.frontmatter.slug} />
-        <meta name='rel' content={post.frontmatter.slug} />
-        <meta name='key' content={post.frontmatter.slug} />
+        <meta property='og:url' content={page.frontmatter.path} />
+        <meta name='rel' content={page.frontmatter.path} />
+        <meta name='key' content={page.frontmatter.path} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post.frontmatter.title} />
-        <meta name='twitter:image' content={post.frontmatter.cover} />
-        <meta name='twitter:description' content={post.frontmatter.meta_description} />
+        <meta name='twitter:title' content={page.frontmatter.title} />
+        <meta name='twitter:image' content={page.frontmatter.cover} />
+        <meta name='twitter:description' content={page.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.slug} />
+        <link rel='canonical' href={url} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
       <section className='hero'>
-        <PostCover
-          postNode={postNode}
-          coverHeight={coverHeight}
-          coverClassName='post-cover'
-        />
+        <Image />
       </section>
       <section>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
-            {post.frontmatter.title}
+            {page.frontmatter.title}
           </Styledh1>
           <p>🗺️ Listing all Pages and Posts.</p>
           <p>
@@ -121,33 +117,37 @@ const SiteMapPage = ({ data }) => {
       </section>
       <SiteMapPageTemplate
         contentComponent={HTMLContent}
-        content={post.html}
-        cover={post.frontmatter.cover}
-        meta_title={post.frontmatter.meta_title}
-        description={post.frontmatter.meta_description}
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        content={page.html}
+        cover={page.frontmatter.cover}
+        meta_title={page.frontmatter.meta_title}
+        description={page.frontmatter.meta_description}
+        title={page.frontmatter.title}
       />
     </Layout>
   )
 }
 
 SiteMapPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+  }),
 }
 
 export default SiteMapPage
 
-export const sitemapPageQuery = graphql`
-  query SiteMapPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+export const pageQuery = graphql`
+  query SiteMapPage($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      id
       html
       frontmatter {
         title
         cover
+        path
         meta_title
         meta_description
-        tags
       }
     }
   }

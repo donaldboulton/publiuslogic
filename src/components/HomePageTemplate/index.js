@@ -1,5 +1,6 @@
 import React from 'react'
 import Offerings from '../Offerings'
+import { Link } from 'gatsby'
 import Testimonials from '../Testimonials'
 import StyledBackgroundSection from './image'
 import PropTypes from 'prop-types'
@@ -7,6 +8,7 @@ import PropTypes from 'prop-types'
 const HomePageTemplate = ({
   title,
   cover,
+  path,
   heading,
   description,
   offerings,
@@ -59,13 +61,13 @@ const HomePageTemplate = ({
                     </div>
                     <div className='is-parent column is-6'>
                       <article className='is-child'>
-                        <a href='/blog/gatsby-github-comments-utterances/'>
+                        <Link href='/blog/gatsby-github-comments-utterances'>
                           <figure className='image is-2by1'>
                             <img src='../../../images/utterances.jpg' alt='Gatsby GitHub Comments Utterances' />
                           </figure>
-                        </a>
+                        </Link>
                         <p>
-                          <a className='is-size-4' href='/blog/gatsby-github-comments-utterances/'>Gatsby Comments Utterances</a>
+                          <Link className='is-size-4' href='/blog/gatsby-github-comments-utterances'>Gatsby Comments Utterances</Link>
                         </p>
                         <p>
                           <span className='subtitle is-size-5'>
@@ -78,19 +80,19 @@ const HomePageTemplate = ({
                         </p>
                         <br />
                         <p>
-                          <a className='button is-small' href='/blog/gatsby-github-comments-utterances/'>Keep Reading →</a>
+                          <Link className='button is-small' href='/blog/gatsby-github-comments-utterances'>Keep Reading →</Link>
                         </p>
                       </article>
                     </div>
                     <div className='is-parent column is-6'>
                       <article className='is-child'>
-                        <a href='/blog/modali-hooks-modal/'>
+                        <Link href='/blog/modali-hooks-modal/'>
                           <figure className='image is-2by1'>
                             <img src='../../../images/modali-logo.jpg' alt='Modali Hooks Modals' />
                           </figure>
-                        </a>
+                        </Link>
                         <p>
-                          <a className='is-size-4' href='/blog/modali-hooks-modal/'>Modali Hooks Modal</a>
+                          <Link className='is-size-4' href='/blog/modali-hooks-modal'>Modali Hooks Modal</Link>
                         </p>
                         <p>
                           <span className='subtitle is-size-5'>
@@ -102,7 +104,7 @@ const HomePageTemplate = ({
                         </p>
                         <br />
                         <p>
-                          <a className='button is-small' href='/blog/modali-hooks-modal/'>Keep Reading →</a>
+                          <Link className='button is-small' href='/blog/modali-hooks-modal'>Keep Reading →</Link>
                         </p>
                       </article>
                     </div>
@@ -123,6 +125,7 @@ HomePageTemplate.propTypes = {
   title: PropTypes.string,
   cover: PropTypes.image,
   meta_title: PropTypes.string,
+  path: PropTypes.string,
   meta_description: PropTypes.string,
   heading: PropTypes.string,
   description: PropTypes.string,
@@ -130,7 +133,6 @@ HomePageTemplate.propTypes = {
     blurbs: PropTypes.array,
   }),
   testimonials: PropTypes.array,
-
 }
 
 export default HomePageTemplate

@@ -118,7 +118,7 @@ const AboutTableOfContents = styled.div`
   }
 `
 
-const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
+const AboutPageTemplate = ({ title, cover, path, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
   return (
     <>
@@ -216,7 +216,7 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
 AboutPageTemplate.propTypes = {
   title: PropTypes.string,
   cover: PropTypes.image,
-  canonical: PropTypes.string,
+  path: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
   content: PropTypes.string,

@@ -1,10 +1,12 @@
 ---
 templateKey: article-page
 title: Gatsby LightGallery Cloudinary
-slug: /gatsby-lightgallery-cloudinary
+path: /gatsby-lightgallery-cloudinary
 date: 2019-09-17T20:14:43.942Z
 category: 'tech'
 cover: '/images/cloudinary.jpg'
+featured: false
+related: true
 tags:
   - Gatsby
   - Cloudinary

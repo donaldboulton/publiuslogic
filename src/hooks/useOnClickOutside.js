@@ -5,8 +5,7 @@ export const useOnClickOutside = (ref, handler, events) => {
   useEffect(() => {
     const detectClickOutside = event =>
       !ref.current.contains(event.target) && handler()
-    for (const event of events)
-      document.addEventListener(event, detectClickOutside)
+    for (const event of events) document.addEventListener(event, detectClickOutside)
     return () => {
       for (const event of events)
         document.removeEventListener(event, detectClickOutside)

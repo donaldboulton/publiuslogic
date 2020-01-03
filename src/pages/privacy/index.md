@@ -1,7 +1,7 @@
 ---
 templateKey: privacy-page
 title: Privacy Terms
-slug: /privacy-terms
+path: /privacy-terms
 date: 2019-11-10T20:20:43.942Z
 meta_title: Privacy | PubliusLogic
 meta_description: >-

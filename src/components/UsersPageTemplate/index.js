@@ -3,7 +3,7 @@ import Content from '../Content'
 import Todo from '../Todo'
 import PropTypes from 'prop-types'
 
-const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
+const UsersPageTemplate = ({ title, cover, path, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
   return (
     <>
@@ -38,7 +38,7 @@ const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
 UsersPageTemplate.propTypes = {
   title: PropTypes.string,
   cover: PropTypes.image,
-  canonical: PropTypes.string,
+  path: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
   content: PropTypes.string,

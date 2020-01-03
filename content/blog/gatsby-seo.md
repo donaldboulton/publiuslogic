@@ -1,10 +1,12 @@
 ---
 templateKey: article-page
 title: Gatsby SEO
-slug: /gatsby-seo
+path: /gatsby-seo
 date: 2019-07-30T20:14:43.942Z
 category: 'tech'
 cover: '/images/json-ld.jpg'
+featured: false
+related: true
 tags:
   - Gatsby
   - Json-LD
@@ -68,7 +70,7 @@ const ArticlePage = ({ data }) => {
   let alternativeHeadline = post.frontmatter.meta_title
   let pageDescription = post.frontmatter.meta_description
   let pageTags = post.frontmatter.tags
-  let url = post.frontmatter.slug
+  let url = post.frontmatter.path
   let logo = config.siteLogo
 
   const articleSchemaOrgJSONLD = {
@@ -127,7 +129,7 @@ const ArticlePage = ({ data }) => {
         <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
-        <meta name='url' content={post.frontmatter.slug} />
+        <meta name='url' content={post.frontmatter.path} />
         <meta property='og:type' content='article' />
         <meta property='og:readingTime' content={readingTime} />
         <meta property='og:title' content={post.frontmatter.title} />
@@ -136,9 +138,9 @@ const ArticlePage = ({ data }) => {
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:url' content={post.frontmatter.slug} />
-        <meta name='rel' content={post.frontmatter.slug} />
-        <meta name='key' content={post.frontmatter.slug} />
+        <meta property='og:url' content={post.frontmatter.path} />
+        <meta name='rel' content={post.frontmatter.path} />
+        <meta name='key' content={post.frontmatter.path} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
@@ -149,7 +151,7 @@ const ArticlePage = ({ data }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.slug} />
+        <link rel='canonical' href={post.frontmatter.path} />
         <link rel='image_src' href={`${config.siteUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
@@ -182,7 +184,7 @@ const ArticlePage = ({ data }) => {
               />
               <Share
                 title={post.frontmatter.title}
-                slug={post.frontmatter.slug}
+                path={post.frontmatter.path}
                 excerpt={post.frontmatter.meta_description}
               />
               <hr />
@@ -213,7 +215,7 @@ export const pageQuery = graphql`
       tableOfContents
       excerpt(pruneLength: 200)
       fields {
-        slug
+        path
       }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

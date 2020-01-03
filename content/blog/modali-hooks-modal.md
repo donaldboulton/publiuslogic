@@ -1,10 +1,12 @@
 ---
 templateKey: article-page
 title: Modali Hooks Modal
-slug: /modali-hooks-modal
+path: /modali-hooks-modal
 date: 2019-04-20T20:20:43.942Z
 category: 'tech'
 cover: '/images/modali-logo.jpg'
+featured: false
+related: true
 tags:
   - React
   - Hooks

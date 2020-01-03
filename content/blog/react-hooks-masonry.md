@@ -1,10 +1,12 @@
 ---
 templateKey: article-page
 title: React Hooks Masonry
-slug: /react-hooks-masonry
+path: /react-hooks-masonry
 date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: '/images/masonry.jpg'
+featured: false
+related: true
 tags:
   - React
   - Masonry

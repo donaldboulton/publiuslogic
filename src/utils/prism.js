@@ -28,7 +28,7 @@ const languageTags = langExtColor
       `.gatsby-highlight[data-language='${lang}']::before {
         content: '${tag}';
         background: ${color};
-      }`
+      }`,
   )
   .join(`\n`)
 

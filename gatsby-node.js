@@ -36,6 +36,7 @@ exports.createPages = ({ actions, graphql }) => {
             tableOfContents 
             frontmatter {
               title
+              path
               cover
               category
               tags
@@ -71,7 +72,6 @@ exports.createPages = ({ actions, graphql }) => {
       pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
       context: {}, // This is optional and defaults to an empty object if not used
     })
-
     createPaginatedPages({
       edges: posts,
       createPage: createPage,
@@ -82,10 +82,10 @@ exports.createPages = ({ actions, graphql }) => {
     })
     postsAndPages.forEach((edge, index, arr) => {
       const id = edge.node.id
-      const prev = arr[index - 1]
+      const previous = arr[index - 1]
       const next = arr[index + 1]
       createPage({
-        path: edge.node.fields.slug,
+        path: edge.node.frontmatter.path,
         tags: edge.node.frontmatter.tags,
         category: edge.node.frontmatter.category,
         component: path.resolve(
@@ -94,8 +94,9 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          next: next,
-          prev: prev,
+          slug: edge.node.frontmatter.path,
+          previous,
+          next,
         },
       })
     })
@@ -206,19 +207,4 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: R.prop('sourceInstanceName', parent),
     })
   }
-}
-
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-  // We'll make the newNode object here for clarity
-  const newNode = {
-    title: 'Test Node!',
-    description: 'This is a test node with static data',
-    id: createNodeId('TestNode-testid'), // required by Gatsby
-    internal: {
-      type: 'TestNode', // required by Gatsby
-      contentDigest: createContentDigest('testnode'), // required by Gatsby, must be unique
-    },
-  }
-  // This is where we actually create the data node, by passing in the newNode object.
-  actions.createNode(newNode)
 }
