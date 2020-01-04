@@ -9,6 +9,9 @@ import config from '../../_data/config'
 
 const PricingPage = ({ data, location }) => {
   const { markdownRemark: page } = data
+  const rootUrl = 'https://publiuslogic.com'
+  const path = page.frontmatter.path
+  const url = rootUrl + `/${path}`
   const image = page.frontmatter.cover
   const author = config.author
 
@@ -55,7 +58,7 @@ const PricingPage = ({ data, location }) => {
         <meta name='description' content={page.frontmatter.meta_description} />
         <meta name='keywords' content={page.frontmatter.tags} />
         <meta name='image' content={page.frontmatter.cover} />
-        <meta name='url' content={page.frontmatter.canonical} />
+        <meta name='url' content={url} />
         <meta name='author' content={author} />
         <meta property='og:type' content='webpage' />
         <meta property='og:title' content={page.frontmatter.title} />
@@ -64,9 +67,9 @@ const PricingPage = ({ data, location }) => {
         <meta property='og:image:alt' content={page.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={page.frontmatter.canonical} />
-        <meta name='rel' content={page.frontmatter.canonical} />
-        <meta name='key' content={page.frontmatter.canonical} />
+        <meta property='og:url' content={url} />
+        <meta name='rel' content={url} />
+        <meta name='key' content={url} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={page.frontmatter.title} />
@@ -77,7 +80,7 @@ const PricingPage = ({ data, location }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={page.frontmatter.canonical} />
+        <link rel='canonical' href={url} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>

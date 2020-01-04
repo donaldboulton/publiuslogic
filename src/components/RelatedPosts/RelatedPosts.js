@@ -1,7 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Styledh1 from '../styles/ArticleStyles'
+import styled from 'styled-components'
 
+const Styledh1 = styled.h1`
+  display: inline-block;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+}
+`
 const RelatedPosts = props => {
   const { posts } = props
   if (posts.length === 0) return

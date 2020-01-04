@@ -67,23 +67,16 @@ exports.createPages = ({ actions, graphql }) => {
     createPaginatedPages({
       edges: posts,
       createPage: createPage,
-      pageTemplate: 'src/templates/article-page.js',
-      pageLength: 6, // This is optional and defaults to 10 if not used
-      pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
-      context: {}, // This is optional and defaults to an empty object if not used
-    })
-    createPaginatedPages({
-      edges: posts,
-      createPage: createPage,
       pageTemplate: 'src/templates/blog.js',
       pageLength: 6, // This is optional and defaults to 10 if not used
       pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
       context: {}, // This is optional and defaults to an empty object if not used
     })
+
     postsAndPages.forEach((edge, index, arr) => {
       const id = edge.node.id
-      const previous = arr[index - 1]
-      const next = arr[index + 1]
+      const previousUrl = arr[index - 1]
+      const nextUrl = arr[index + 1]
       createPage({
         path: edge.node.frontmatter.path,
         tags: edge.node.frontmatter.tags,
@@ -94,9 +87,8 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          slug: edge.node.frontmatter.path,
-          previous,
-          next,
+          previous: previousUrl,
+          next: nextUrl,
         },
       })
     })
@@ -147,19 +139,6 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
   })
-}
-
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions
-
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/app/)) {
-    page.matchPath = '/app/*'
-
-    // Update the page.
-    createPage(page)
-  }
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

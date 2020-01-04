@@ -3,21 +3,13 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { HTMLContent } from '../components/Content'
 import { graphql, Link } from 'gatsby'
-import styled from 'styled-components'
 import SiteMapPageTemplate from '../components/SiteMapPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 import Image from '../components/SiteMapPageTemplate/image'
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 32px;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 22;
-`
-
-const SiteMapPage = ({ data, location }) => {
+const SiteMapPage = ({ data, location, path }) => {
   const { markdownRemark: page } = data
   const rootUrl = 'https://publiuslogic.com'
   const url = rootUrl + `/${path}`

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { HTMLContent } from '../components/Content'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import UsersPageTemplate from '../components/UsersPageTemplate'
 import Layout from '../components/Layout'
@@ -12,29 +11,16 @@ import { Timer } from 'styled-icons/material/Timer'
 import config from '../../_data/config'
 import Image from '../components/UsersPageTemplate/image'
 import Bio from '../components/Bio'
+import { Time, Date, GithubButtons } from '../components/styles/ArticleStyles'
+import styled from 'styled-components'
 
 const Styledh1 = styled.h1`
   display: inline-block;
-  padding-top: 2em;
   font-size: 32px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  z-index: 22;
-  background-position: 50% 50%;
   text-align: center;
+  text-transform: uppercase;
+}
 `
-const Time = styled.span`
-  font-size: 0.9rem;
-  color: ${props => props.theme.white};
-`
-const Date = styled.span`
-  font-size: 0.9em;
-  color: ${props => props.theme.white};
-`
-const GithubButtons = styled.span`
-  right: 2px;
-`
-
 const UsersPage = ({ data, location, timeToRead }) => {
   const { markdownRemark: page } = data
   const image = page.frontmatter.cover

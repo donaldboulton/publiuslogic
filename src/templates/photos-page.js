@@ -3,29 +3,26 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { HTMLContent } from '../components/Content'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import PhotosPageTemplate from '../components/PhotosPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 import Image from '../components/PhotosPageTemplate/cover'
+import styled from 'styled-components'
 
 const Styledh1 = styled.h1`
   display: inline-block;
   font-size: 32px;
-  font-family: 'Roboto', sans-serif;
   text-align: center;
   text-transform: uppercase;
-  z-index: 22;
+}
 `
 
-const PhotosPage = ({ data, path, location, timeToRead }) => {
+const PhotosPage = ({ data, location, timeToRead }) => {
   const { markdownRemark: page } = data
   const rootUrl = 'https://publiuslogic.com'
+  const path = page.frontmatter.path
   const url = rootUrl + `/${path}`
   const image = page.frontmatter.cover
-  const mage = page.frontmatter.cover
-  const imageWidth = mage.width
-  const imageHeight = mage.height
   const logo = config.siteLogo
   const pageTags = page.frontmatter.tags
 
@@ -84,8 +81,6 @@ const PhotosPage = ({ data, path, location, timeToRead }) => {
         <meta property='og:description' content={page.frontmatter.meta_description} />
         <meta property='og:image' content={page.frontmatter.cover} />
         <meta property='og:image:alt' content={page.frontmatter.meta_title} />
-        <meta property='og:image:width' content={imageWidth} />
-        <meta property='og:image:height' content={imageHeight} />
         <meta property='og:url' content={page.frontmatter.path} />
         <meta name='rel' content={page.frontmatter.path} />
         <meta name='key' content={page.frontmatter.path} />
@@ -118,14 +113,16 @@ const PhotosPage = ({ data, path, location, timeToRead }) => {
         </div>
       </section>
       <PhotosPageTemplate
-        contentComponent={HTMLContent}
         content={page.html}
-        title={page.frontmatter.title}
+        contentComponent={HTMLContent}
         cover={page.frontmatter.cover}
-        subtitle={page.frontmatter.subtitle}
+        category={page.frontmatter.category}
+        date={page.frontmatter.date}
+        tweet_id={page.frontmatter.tweet_id}
         meta_title={page.frontmatter.meta_title}
         description={page.frontmatter.meta_description}
         tags={page.frontmatter.tags}
+        title={page.frontmatter.title}
       />
     </Layout>
   )

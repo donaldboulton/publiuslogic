@@ -1,36 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { globalHistory } from '@reach/router'
 import { HTMLContent } from '../components/Content'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import ContactPageTemplate from '../components/ContactPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 import Image from '../components/ContactPageTemplate/image'
+import styled from 'styled-components'
 
 const Styledh1 = styled.h1`
   display: inline-block;
   font-size: 32px;
-  font-family: 'Roboto', sans-serif;
   text-align: center;
   text-transform: uppercase;
-  z-index: 22;
+}
 `
 
 const ContactPage = ({ data, location }) => {
   const { markdownRemark: page } = data
-  const pageSlugPath = globalHistory.location.pathName
   const image = page.frontmatter.cover
   const author = config.author
   const logo = config.siteLogo
-  const url = page.frontmatter.path
+  const rootUrl = 'https://publiuslogic.com'
+  const path = page.frontmatter.path
+  const url = rootUrl + `/${path}`
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: pageSlugPath,
+    url: url,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -76,7 +75,7 @@ const ContactPage = ({ data, location }) => {
         <meta name='description' content={page.frontmatter.meta_description} />
         <meta name='keywords' content={page.frontmatter.tags} />
         <meta name='image' content={page.frontmatter.cover} />
-        <meta name='url' content={page.frontmatter.path} />
+        <meta name='url' content={url} />
         <meta name='author' content={author} />
         <meta property='og:type' content='webpage' />
         <meta property='og:title' content={page.frontmatter.title} />
@@ -98,7 +97,7 @@ const ContactPage = ({ data, location }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={pageSlugPath} />
+        <link rel='canonical' href={url} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>

@@ -1,15 +1,16 @@
 import React from 'react'
 import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
+import ReactStars from 'react-stars'
+import { globalHistory } from '@reach/router'
 import Menu2 from 'react-burger-menu/lib/menus/stack'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
-import { Link, to, graphql } from 'gatsby'
-import { globalHistory } from '@reach/router'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
@@ -23,8 +24,6 @@ import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
-import ReactStars from 'react-stars'
-import { Img, Thumbnail } from '../components/PrevNext/styles'
 import { BookContent } from 'styled-icons/boxicons-regular/'
 import { Rating, StyledTableMenu, TableOfContents, Styledh1, Title, TocIcon, Time, Date, GithubButtons, Pagination, Meta } from '../components/styles/ArticleStyles'
 
@@ -74,7 +73,6 @@ const submitRating = (rating, path) => {
   // Finally, send our data.
   XHR.send(urlEncodedData)
 }
-
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
@@ -83,38 +81,30 @@ const renderAst = new RehypeReact({
     'interactive-todo': Todo,
     'interactive-colorbox': ColorBox,
     a: Link,
-    href: to,
   },
 }).Compiler
 
-export default function ArticlePage (props) {
-  const {
-    location,
-    markdownRemark,
-    tableOfContents,
-    label,
-    path,
-    previous,
-    next,
-    allRatingsJson: ratings = [],
-    pageContext,
-  } = props.data
-
-  const { frontmatter, htmlAst, timeToRead } = markdownRemark
+const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext }) => {
+  const { markdownRemark: post } = data
+  const path = data.path || ''
   const rootUrl = 'https://publiuslogic.com'
-  const pathName = globalHistory.location.pathname
-  const buildTime = frontmatter.date
-  const postImage = frontmatter.cover
-  const postNode = frontmatter.cover
+  const url = rootUrl + `/${path}`
+  const postNode = data.markdownRemark
+  const { index } = pageContext
+  const previousUrl = index - 1 === 1 ? '/' : (index - 1).toString()
+  const nextUrl = (index + 1).toString()
+  const readingTime = data.readingTime
+  const buildTime = post.frontmatter.date
+  const postImage = post.frontmatter.cover
   const imageWidth = postImage.width
   const imageHeight = postImage.height
-  const body = frontmatter.meta_description
-  const title = frontmatter.title
+  const body = post.html
+  const title = post.frontmatter.title
   const coverHeight = '100%'
-  const alternativeHeadline = frontmatter.meta_title
-  const pageDescription = frontmatter.meta_description
-  const pageTags = frontmatter.tags
-  const url = rootUrl + `/${path}`
+  const postPath = globalHistory.location.pathname
+  const alternativeHeadline = post.frontmatter.meta_title
+  const pageDescription = post.frontmatter.meta_description
+  const pageTags = post.frontmatter.tags
   const logo = config.siteLogo
   const ratingValue =
   ratings && ratings.edges
@@ -128,13 +118,13 @@ export default function ArticlePage (props) {
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
     '@type': 'LocalBusiness',
-    '@id': rootUrl + `/${path}`,
+    '@id': url,
     name: 'Publius Logic',
     image: {
       '@type': 'ImageObject',
       url: postImage,
     },
-    sameAs: rootUrl + `/${path}`,
+    sameAs: url,
     priceRange: '$0.1',
     address: {
       '@type': 'PostalAddress',
@@ -160,10 +150,10 @@ export default function ArticlePage (props) {
         height: '450px',
       },
     },
-    url: pathName,
+    url: postPath,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': rootUrl + `/${path}`,
+      '@id': url,
     },
     alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
     pageName: title,
@@ -221,35 +211,35 @@ export default function ArticlePage (props) {
   }
 
   return (
-    <Layout pageTitle={frontmatter.title} location={location}>
+    <Layout pageTitle={post.frontmatter.title} location={location}>
       <Helmet>
-        <title>{`${frontmatter.title} | ${config.siteTitle}`}</title>
-        <meta name='description' content={frontmatter.meta_description} />
+        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
+        <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={url} />
         <meta property='og:type' content='article' />
-        <meta property='og:readingTime' content={timeToRead} />
-        <meta property='og:title' content={frontmatter.title} />
-        <meta property='og:description' content={frontmatter.meta_description} />
+        <meta property='og:readingTime' content={readingTime} />
+        <meta property='og:title' content={post.frontmatter.title} />
+        <meta property='og:description' content={post.frontmatter.meta_description} />
         <meta property='og:image' content={logo} />
-        <meta property='og:image:alt' content={frontmatter.meta_title} />
+        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
-        <meta property='og:url' content={frontmatter.path} />
+        <meta property='og:url' content={url} />
         <meta name='rel' content={url} />
         <meta name='key' content={url} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={frontmatter.title} />
+        <meta name='twitter:title' content={post.frontmatter.title} />
         <meta name='twitter:image' content={logo} />
-        <meta name='twitter:description' content={frontmatter.meta_description} />
+        <meta name='twitter:description' content={post.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={`${rootUrl}${path}`} />
-        <link rel='image_src' href={`${rootUrl}${logo}`} />
+        <link rel='canonical' href={url} />
+        <link rel='image_src' href={`${config.siteUrl}${logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
         <script type='application/ld+json'>
@@ -266,12 +256,13 @@ export default function ArticlePage (props) {
             <TableOfContents
               style={{ textIndent: '-1em hanging' }}
               id='linktoc'
-              dangerouslySetInnerHTML={{ __html: tableOfContents }}
-            />
+            >
+              <div>{renderAst(post.tableOfContents.htmlAst)}</div>
+            </TableOfContents>
           </Menu2>
         </StyledTableMenu>
         <PostCover
-          cover={postNode}
+          postNode={postNode}
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
@@ -279,26 +270,26 @@ export default function ArticlePage (props) {
       <section className='section'>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
-            {frontmatter.title}
+            {post.frontmatter.title}
           </Styledh1>
-          <Meta
-            data={{
-              ...frontmatter,
-              description: frontmatter.meta_description,
-              rating: { ratingValue, ratingCount: ratingCount },
-            }}
-            rich
-          />
         </div>
+        <Meta
+          data={{
+            ...post.frontmatter,
+            description: post.frontmatter.meta_description,
+            rating: { ratingValue, ratingCount: ratingCount },
+          }}
+          rich
+        />
         <div className='column is-9 is-offset-1'>
           <Bio />
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-7'>
               <span className='subtitle is-size-5'>
                 <Calendar size='0.9em' />&nbsp;
-                <Date><small>{frontmatter.date}</small>&nbsp;</Date>&nbsp;
+                <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
                 <Timer size='0.9em' />&nbsp;
-                <Time>{timeToRead}&nbsp;min read</Time>
+                <Time>{post.timeToRead}&nbsp;min read</Time>
               </span>
             </div>
             <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
@@ -309,32 +300,33 @@ export default function ArticlePage (props) {
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <div>{renderAst(htmlAst)}</div>
+              <div>{renderAst(post.htmlAst)}</div>
               <ArticleTemplate
-                content={htmlAst}
+                content={post.html}
                 contentComponent={HTMLContent}
-                cover={frontmatter.cover}
-                timeToRead={timeToRead}
-                category={frontmatter.category}
-                date={frontmatter.date}
-                tweet_id={frontmatter.tweet_id}
-                meta_title={frontmatter.meta_title}
-                description={frontmatter.meta_description}
-                tags={frontmatter.tags}
-                title={frontmatter.title}
+                cover={post.frontmatter.cover}
+                path={post.frontmatter.path}
+                readingTime={readingTime}
+                category={post.frontmatter.category}
+                date={post.frontmatter.date}
+                tweet_id={post.frontmatter.tweet_id}
+                meta_title={post.frontmatter.meta_title}
+                description={post.frontmatter.meta_description}
+                tags={post.frontmatter.tags}
+                title={post.frontmatter.title}
               />
               <Share
-                title={frontmatter.title}
-                path={frontmatter.path}
-                excerpt={frontmatter.meta_description}
+                title={post.frontmatter.title}
+                slug={post.fields.slug}
+                excerpt={post.frontmatter.meta_description}
               />
               <hr />
               <div className='container content'>
                 <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
                   <div className='column is-7'>
                     <input type='hidden' name='form-name' value='ratings' />
-                    <input name='fields[postPath]' type='hidden' value={frontmatter.path} />
-                    <input name='title' type='hidden' value={frontmatter.title} />
+                    <input name='fields[postPath]' type='hidden' value={post.frontmatter.path} />
+                    <input name='title' type='hidden' value={post.frontmatter.title} />
                     {/* TODO calculate score in gatsby-node */}
                     {ratings ? (
                       <Rating>
@@ -353,7 +345,7 @@ export default function ArticlePage (props) {
                     ) : null}
                     <ReactStars
                       onChange={rating => {
-                        submitRating(rating, frontmatter.path)
+                        submitRating(rating, data.frontmatter.path)
                       }}
                       half={false}
                       size={24}
@@ -366,28 +358,16 @@ export default function ArticlePage (props) {
                 </div>
               </div>
               <Comments />
-              <section className='section'>
+              <section>
                 <Pagination>
-                  {previous && (
-                    <Link to={rootUrl + pageContext.previous} rel='prev' css='margin-right: 1em;'>
-                      <h3 css='text-align: left;'>← Previous {label}</h3>
-                      <Thumbnail>
-                        {previous.frontmatter.cover && (
-                          <Img {...pageContext.previous.frontmatter.cover.sharp || pageContext.previous.frontmatter.cover} />
-                        )}
-                        <h4>{pageContext.previous.frontmatter.title}</h4>
-                      </Thumbnail>
+                  {previousUrl && (
+                    <Link to={rootUrl + pageContext.previousUrl} rel='prev' css='margin-right: 1em;'>
+                      <h3 css='text-align: left;'>← Previous</h3>
                     </Link>
                   )}
-                  {next && (
-                    <Link to={rootUrl + pageContext.next} rel='next' css='margin-left: auto;'>
-                      <h3 css='text-align: right;'>Next {label} →</h3>
-                      <Thumbnail>
-                        {next.cover && (
-                          <Img {...pageContext.next.frontmatter.cover.sharp || pageContext.next.frontmatter.cover} />
-                        )}
-                        <h4>{pageContext.next.frontmatter.title}</h4>
-                      </Thumbnail>
+                  {nextUrl && (
+                    <Link to={rootUrl + pageContext.nextUrl} rel='next' css='margin-left: auto;'>
+                      <h3 css='text-align: right;'>Next →</h3>
                     </Link>
                   )}
                 </Pagination>
@@ -400,14 +380,25 @@ export default function ArticlePage (props) {
   )
 }
 
+ArticlePage.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }),
+}
+
+export default ArticlePage
+
 export const pageQuery = graphql`
-  query ArticlePageByPath($path: String!, $tags: [String]) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {   
-      id
+  query ArticleByID($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id      
       htmlAst
       timeToRead
       tableOfContents
-      excerpt(pruneLength: 300)                                  
+      excerpt(pruneLength: 300)                          
+      fields {
+        slug
+      }      
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
@@ -420,32 +411,15 @@ export const pageQuery = graphql`
         cover
       }
     }
-    relatedPosts: allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: $tags }, path: { ne: $path } } }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            path
-            tags
-          }
-        }
-      }
-    }
     allRatingsJson(
-      filter: { postPath: { eq: $path } }
+      filter: { postPath: { eq: $id } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount
       edges {
         node {
           id
-          rating        
-          fields {
-            messageHtml
-          }
+          rating
         }
       }
     }

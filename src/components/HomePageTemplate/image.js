@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import styled from 'styled-components'
 import Img from 'gatsby-image'
 import HeroText from '../Hero/HeroText'
 import { generateMedia } from 'styled-media-query'
+import styled from 'styled-components'
 
 const BackgroundSection = () => (
   <StaticQuery

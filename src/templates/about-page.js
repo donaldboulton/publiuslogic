@@ -9,6 +9,9 @@ import config from '../../_data/config'
 
 const AboutPage = ({ data, location, timeToRead }) => {
   const { markdownRemark: page } = data
+  const rootUrl = 'https://publiuslogic.com'
+  const path = page.frontmatter.path
+  const url = rootUrl + `/${path}`
   const author = config.author
   const logo = config.siteLogo
   const image = page.frontmatter.cover
@@ -16,7 +19,7 @@ const AboutPage = ({ data, location, timeToRead }) => {
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/about',
+    url: url,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -62,7 +65,7 @@ const AboutPage = ({ data, location, timeToRead }) => {
         <meta name='description' content={page.frontmatter.meta_description} />
         <meta name='keywords' content={page.frontmatter.tags} />
         <meta name='image' content={page.frontmatter.cover} />
-        <meta name='url' content={page.frontmatter.path} />
+        <meta name='url' content={url} />
         <meta name='author' content={author} />
         <meta property='og:type' content='article' />
         <meta property='og:title' content={page.frontmatter.title} />
@@ -71,7 +74,7 @@ const AboutPage = ({ data, location, timeToRead }) => {
         <meta property='og:image:alt' content={page.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={page.frontmatter.path} />
+        <meta property='og:url' content={url} />
         <meta name='rel' content={page.frontmatter.path} />
         <meta name='key' content={page.frontmatter.path} />
         <meta name='twitter:author' content='donboulton' />
@@ -84,7 +87,7 @@ const AboutPage = ({ data, location, timeToRead }) => {
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={page.frontmatter.path} />
+        <link rel='canonical' href={url} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
