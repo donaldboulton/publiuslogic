@@ -1,6 +1,7 @@
 ---
 templateKey: article-page
 title: React Hooks Masonry
+slug: React Hooks Masonry
 path: /react-hooks-masonry
 date: 2019-03-25T20:20:43.942Z
 category: 'tech'

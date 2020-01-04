@@ -69,7 +69,7 @@ const ContactPage = ({ data, location }) => {
   }
 
   return (
-    <Layout pageTitle={page.frontmatter.title} location={location}>
+    <Layout pageTitle={page.frontmatter.title} location={location} crumbLabel='Contact'>
       <Helmet>
         <title>{page.frontmatter.meta_title}</title>
         <meta name='description' content={page.frontmatter.meta_description} />

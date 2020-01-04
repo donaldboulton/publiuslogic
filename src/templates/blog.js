@@ -100,7 +100,7 @@ export default class BlogPage extends Component {
     }
 
     return (
-      <Layout pageTitle={config.siteTitleAlt} location={location}>
+      <Layout pageTitle={config.siteTitleAlt} location={location} crumbLabel='Blog'>
         <Helmet>
           <title>Blog | Publius Logic</title>
           <meta name='description' content='Blog | Publius Logic' />

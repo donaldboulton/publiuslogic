@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { HTMLContent } from '../components/Content'
 import { graphql, Link } from 'gatsby'
+import { globalHistory } from '@reach/router'
 import SiteMapPageTemplate from '../components/SiteMapPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
@@ -16,11 +17,12 @@ const SiteMapPage = ({ data, location, path }) => {
   const image = page.frontmatter.cover
   const author = config.author
   const logo = config.siteLogo
+  const pageSlugPath = globalHistory.location.pathName
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: url,
+    url: pageSlugPath,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -60,7 +62,7 @@ const SiteMapPage = ({ data, location, path }) => {
   }
 
   return (
-    <Layout pageTitle={page.frontmatter.title} location={location}>
+    <Layout pageTitle={page.frontmatter.title} location={location} crumbLabel='Site Map'>
       <Helmet>
         <title>{page.frontmatter.meta_title}</title>
         <meta name='description' content={page.frontmatter.meta_description} />

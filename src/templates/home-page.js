@@ -57,7 +57,7 @@ const HomePage = ({ data, location }) => {
   }
 
   return (
-    <Layout pageTitle={frontmatter.title} location={location}>
+    <Layout pageTitle={frontmatter.title} location={location} crumbLabel='Home'>
       <Helmet>
         <title>{frontmatter.meta_title}</title>
         <meta name='description' content={frontmatter.meta_description} />

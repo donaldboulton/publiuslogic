@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { HTMLContent } from '../components/Content'
 import { graphql } from 'gatsby'
+import { globalHistory } from '@reach/router'
 import PhotosPageTemplate from '../components/PhotosPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
@@ -25,11 +26,12 @@ const PhotosPage = ({ data, location, timeToRead }) => {
   const image = page.frontmatter.cover
   const logo = config.siteLogo
   const pageTags = page.frontmatter.tags
+  const pageSlugPath = globalHistory.location.pathName
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: url,
+    url: pageSlugPath,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -69,7 +71,7 @@ const PhotosPage = ({ data, location, timeToRead }) => {
   }
 
   return (
-    <Layout pageTitle={page.frontmatter.title} location={location}>
+    <Layout pageTitle={page.frontmatter.title} location={location} crumbLabel='Photos'>
       <Helmet>
         <title>{`${page.frontmatter.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={page.frontmatter.meta_description} />

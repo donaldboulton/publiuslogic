@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { HTMLContent } from '../components/Content'
 import { graphql } from 'gatsby'
+import { globalHistory } from '@reach/router'
 import UsersPageTemplate from '../components/UsersPageTemplate'
 import Layout from '../components/Layout'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
@@ -26,11 +27,12 @@ const UsersPage = ({ data, location, timeToRead }) => {
   const image = page.frontmatter.cover
   const author = config.author
   const logo = config.siteLogo
+  const pageSlugPath = globalHistory.location.pathName
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/users',
+    url: pageSlugPath,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -70,7 +72,7 @@ const UsersPage = ({ data, location, timeToRead }) => {
   }
 
   return (
-    <Layout pageTitle={page.frontmatter.title} location={location}>
+    <Layout pageTitle={page.frontmatter.title} location={location} crumbLabel='Users'>
       <Helmet>
         <title>{page.frontmatter.meta_title}</title>
         <meta name='description' content={page.frontmatter.meta_description} />

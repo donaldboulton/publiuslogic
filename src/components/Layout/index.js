@@ -13,7 +13,7 @@ import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   return (
     <>
       <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />

@@ -1,6 +1,7 @@
 ---
 templateKey: article-page
 title: Gatsby SEO
+slug: Gatsby SEO
 path: /gatsby-seo
 date: 2019-07-30T20:14:43.942Z
 category: 'tech'

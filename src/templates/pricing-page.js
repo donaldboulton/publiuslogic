@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { HTMLContent } from '../components/Content'
 import { graphql } from 'gatsby'
+import { globalHistory } from '@reach/router'
 import PricingPageTemplate from '../components/PricingPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
@@ -14,11 +15,12 @@ const PricingPage = ({ data, location }) => {
   const url = rootUrl + `/${path}`
   const image = page.frontmatter.cover
   const author = config.author
+  const pageSlugPath = globalHistory.location.pathName
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/pricing',
+    url: pageSlugPath,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -52,7 +54,7 @@ const PricingPage = ({ data, location }) => {
   }
 
   return (
-    <Layout pageTitle={page.frontmatter.title} location={location}>
+    <Layout pageTitle={page.frontmatter.title} location={location} crumbLabel='Pricing'>
       <Helmet>
         <title>{page.frontmatter.meta_title}</title>
         <meta name='description' content={page.frontmatter.meta_description} />

@@ -39,7 +39,6 @@ body.light-mode {
   .navbar-brand {
     background: transparent !important;
   }
-
   .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
     color : #1d1d1d;
   }
@@ -51,6 +50,9 @@ body.light-mode {
   .navbar-item {
     background: transparent !important;
     color: whitesmoke !important
+  }
+  .breadcrumb__title {
+    color: #434343 !important;
   }
   .bm-menu {
     background: rgba(0, 0, 0, 0.59);
@@ -132,7 +134,7 @@ body.light-mode {
     font-weight: 700;
     padding-bottom: .15rem;
   }
-  .link-read-more, .read-more {
+  .link-read-more, .read-more, .breadcrumb__link {
     background: -webkit-gradient(linear,left top,right top,from(#00a396),to(#00c2b2));
     background: linear-gradient(90deg,#00a396,#00c2b2);
     background-clip: border-box;
@@ -328,6 +330,9 @@ body.dark-mode {
   code {
     background: transparent !important;
   }
+  .breadcrumb__title {
+    color: #dbdbdb !important;
+  }
   .dark-mode-toggle > button {
     color: #999;
     &:last-child {
@@ -343,7 +348,7 @@ body.dark-mode .card {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important;
   background: linear-gradient(90deg,#d64000,#8e0436) !important;
 }
-body.dark-mode .a {
+body.dark-mode .a, .breadcrumb__link {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436));
   background: linear-gradient(90deg,#d64000,#8e0436);
   background-clip: text;
@@ -353,6 +358,10 @@ body.dark-mode .a {
   box-decoration-break: clone;
   font-weight: 700;
   padding-bottom: .15rem;
+}
+body.dark-mode .breadcrumb__link__active {
+  background: -webkit-gradient(linear,right top,left top,from(#8e0436),to(#50011e));
+  background: linear-gradient(90deg,#8e0436,#50011e);
 }
 body.dark-mode .is-primary {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important;

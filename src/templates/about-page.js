@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { HTMLContent } from '../components/Content'
+import { globalHistory } from '@reach/router'
 import { graphql } from 'gatsby'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
@@ -12,6 +13,7 @@ const AboutPage = ({ data, location, timeToRead }) => {
   const rootUrl = 'https://publiuslogic.com'
   const path = page.frontmatter.path
   const url = rootUrl + `/${path}`
+  const pageSlugPath = globalHistory.location.pathName
   const author = config.author
   const logo = config.siteLogo
   const image = page.frontmatter.cover
@@ -19,7 +21,7 @@ const AboutPage = ({ data, location, timeToRead }) => {
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: url,
+    url: pageSlugPath,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -59,7 +61,7 @@ const AboutPage = ({ data, location, timeToRead }) => {
   }
 
   return (
-    <Layout pageTitle={page.frontmatter.title} location={location}>
+    <Layout pageTitle={page.frontmatter.title} location={location} crumbLabel='About Us'>
       <Helmet>
         <title>{page.frontmatter.meta_title}</title>
         <meta name='description' content={page.frontmatter.meta_description} />
