@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Image from '../components/SiteMapPageTemplate/image'
-import styled from 'styled-components'
 
 const Styledh1 = styled.h1`
   display: inline-block;
@@ -12,13 +12,12 @@ const Styledh1 = styled.h1`
   text-transform: uppercase;
 }
 `
-
-class CategoryRoute extends React.Component {
+class CategoryRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges
     const postLinks = posts.map(post => (
-      <li key={post.node.frontmatter.path}>
-        <Link to={post.node.frontmatter.path}>
+      <li key={post.node.fields.slug}>
+        <Link to={post.node.fields.slug}>
           <h2 aria-label='Page Title' className='is-size-2'>{post.node.frontmatter.title}</h2>
         </Link>
       </li>
@@ -87,9 +86,11 @@ export const categoryPageQuery = graphql`
       totalCount
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             title
-            path
           }
         }
       }

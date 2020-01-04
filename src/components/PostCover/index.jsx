@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import PostCover from './PostCoverComponent'
 class queryWrapper extends Component {
   render () {
-    const { cover, coverHeight, coverClassName } = this.props
+    const { postNode, coverHeight, coverClassName } = this.props
     return (
       <StaticQuery
         query={graphql`
@@ -43,7 +43,7 @@ class queryWrapper extends Component {
         render={data => (
           <PostCover
             fileEdges={data.allFile.edges}
-            cover={cover}
+            postNode={postNode}
             coverHeight={coverHeight}
             coverClassName={coverClassName}
           />

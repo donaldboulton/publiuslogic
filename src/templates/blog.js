@@ -100,7 +100,7 @@ export default class BlogPage extends Component {
     }
 
     return (
-      <Layout pageTitle={config.siteTitleAlt} location={location} crumbLabel='Blog'>
+      <Layout pageTitle={config.siteTitleAlt}>
         <Helmet>
           <title>Blog | Publius Logic</title>
           <meta name='description' content='Blog | Publius Logic' />
@@ -186,9 +186,11 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          excerpt(pruneLength: 300)
           id
-          html
-          excerpt(pruneLength: 300)   
+          fields {
+            slug
+          }
           frontmatter {
             title
             path

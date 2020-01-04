@@ -6,7 +6,6 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background: #171717b3;
 }
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
@@ -34,10 +33,10 @@ body.light-mode {
     background: transparent !important;
   }
   .navbar {
-    background: radial-gradient(circle at top left,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
+    background: #00a396 !important;
   }
   .navbar-brand {
-    background: transparent !important;
+    background: #00a396 !important;
   }
   .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
     color : #1d1d1d;
@@ -50,9 +49,6 @@ body.light-mode {
   .navbar-item {
     background: transparent !important;
     color: whitesmoke !important
-  }
-  .breadcrumb__title {
-    color: #434343 !important;
   }
   .bm-menu {
     background: rgba(0, 0, 0, 0.59);
@@ -134,7 +130,7 @@ body.light-mode {
     font-weight: 700;
     padding-bottom: .15rem;
   }
-  .link-read-more, .read-more, .breadcrumb__link {
+  .link-read-more, .read-more {
     background: -webkit-gradient(linear,left top,right top,from(#00a396),to(#00c2b2));
     background: linear-gradient(90deg,#00a396,#00c2b2);
     background-clip: border-box;
@@ -171,7 +167,7 @@ body.light-mode {
     border-top: 1px solid #028f83 !important;
     border-bottom: 1px solid #028f83 !important;
     border-radius: 3px;
-    background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
+    background: #f5f5f5 !important;
     box-shadow: 0 0 0 2px rgba(0,163,150,.2) !important;
   }
   input:focus {
@@ -302,11 +298,10 @@ body.dark-mode {
     background: transparent !important;
   }
   .navbar {
-    box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
-    background: radial-gradient(circle at top left,#171717,rgba(0,0,0,0)) !important;
+    background: #1d1d1d !important;
   }
   .navbar-brand {
-    background: transparent !important;
+    background: #1d1d1d !important;
   }
   .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
     color: #dbdbdb !important;
@@ -330,9 +325,6 @@ body.dark-mode {
   code {
     background: transparent !important;
   }
-  .breadcrumb__title {
-    color: #dbdbdb !important;
-  }
   .dark-mode-toggle > button {
     color: #999;
     &:last-child {
@@ -348,7 +340,7 @@ body.dark-mode .card {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important;
   background: linear-gradient(90deg,#d64000,#8e0436) !important;
 }
-body.dark-mode .a, .breadcrumb__link {
+body.dark-mode .a {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436));
   background: linear-gradient(90deg,#d64000,#8e0436);
   background-clip: text;
@@ -358,10 +350,6 @@ body.dark-mode .a, .breadcrumb__link {
   box-decoration-break: clone;
   font-weight: 700;
   padding-bottom: .15rem;
-}
-body.dark-mode .breadcrumb__link__active {
-  background: -webkit-gradient(linear,right top,left top,from(#8e0436),to(#50011e));
-  background: linear-gradient(90deg,#8e0436,#50011e);
 }
 body.dark-mode .is-primary {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436)) !important;
@@ -393,6 +381,12 @@ body.dark-mode .box {
   background-color: #1d1d1d !important;
   color: #cccccc !important;
   border: 1px solid #434040 !important;
+}
+body.dark-mode .navbar-menu {
+  background: transparent !important;
+}
+body.dark-mode .navbar-brand {
+  background: transparent !important;
 }
 body.dark-mode .subtitle {
   color: #cccccc !important;
@@ -527,13 +521,8 @@ body.dark-mode input.luna__input:focus {
   border-bottom: 1px solid #434040 !important;
   border-top: 1px solid #434040 !important;
 }
-body.dark-mode .navbar-item {
-  align-items: center;
-  display: flex;
-  color: #fff;
-}
-body.dark-mode .menu-item {
-  color: #ffffff;
+input.luna__input {
+  color: #dbdbdb !important;
 }
 body.dark-mode .modali-body {
   background-color: #1d1d1d !important;

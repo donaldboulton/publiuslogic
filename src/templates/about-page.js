@@ -1,27 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { HTMLContent } from '../components/Content'
-import { globalHistory } from '@reach/router'
 import { graphql } from 'gatsby'
+import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 
-const AboutPage = ({ data, location, timeToRead }) => {
-  const { markdownRemark: page } = data
-  const rootUrl = 'https://publiuslogic.com'
-  const path = page.frontmatter.path
-  const url = rootUrl + `/${path}`
-  const pageSlugPath = globalHistory.location.pathName
+const AboutPage = ({ data }) => {
+  const { markdownRemark: post } = data
   const author = config.author
-  const logo = config.siteLogo
-  const image = page.frontmatter.cover
+  let logo = config.siteLogo
+  const image = post.frontmatter.cover
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: pageSlugPath,
+    url: 'https://publiuslogic.com/about',
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -61,71 +56,65 @@ const AboutPage = ({ data, location, timeToRead }) => {
   }
 
   return (
-    <Layout pageTitle={page.frontmatter.title} location={location} crumbLabel='About Us'>
+    <Layout pageTitle={post.frontmatter.title}>
       <Helmet>
-        <title>{page.frontmatter.meta_title}</title>
-        <meta name='description' content={page.frontmatter.meta_description} />
-        <meta name='keywords' content={page.frontmatter.tags} />
-        <meta name='image' content={page.frontmatter.cover} />
-        <meta name='url' content={url} />
+        <title>{post.frontmatter.meta_title}</title>
+        <meta name='description' content={post.frontmatter.meta_description} />
+        <meta name='keywords' content={post.frontmatter.tags} />
+        <meta name='image' content={post.frontmatter.cover} />
+        <meta name='url' content={post.frontmatter.slug} />
         <meta name='author' content={author} />
         <meta property='og:type' content='article' />
-        <meta property='og:title' content={page.frontmatter.title} />
-        <meta property='og:description' content={page.frontmatter.meta_description} />
-        <meta property='og:image' content={page.frontmatter.cover} />
-        <meta property='og:image:alt' content={page.frontmatter.meta_title} />
+        <meta property='og:title' content={post.frontmatter.title} />
+        <meta property='og:description' content={post.frontmatter.meta_description} />
+        <meta property='og:image' content={post.frontmatter.cover} />
+        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={url} />
-        <meta name='rel' content={page.frontmatter.path} />
-        <meta name='key' content={page.frontmatter.path} />
+        <meta property='og:url' content={post.frontmatter.slug} />
+        <meta name='rel' content={post.frontmatter.slug} />
+        <meta name='key' content={post.frontmatter.slug} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={page.frontmatter.title} />
-        <meta name='twitter:image' content={page.frontmatter.cover} />
-        <meta name='twitter:description' content={page.frontmatter.meta_description} />
+        <meta name='twitter:title' content={post.frontmatter.title} />
+        <meta name='twitter:image' content={post.frontmatter.cover} />
+        <meta name='twitter:description' content={post.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={url} />
+        <link rel='canonical' href={post.frontmatter.slug} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
       <AboutPageTemplate
         contentComponent={HTMLContent}
-        content={page.html}
-        cover={page.frontmatter.cover}
-        meta_title={page.frontmatter.meta_title}
-        description={page.frontmatter.meta_description}
-        tags={page.frontmatter.tags}
-        title={page.frontmatter.title}
+        content={post.html}
+        cover={post.frontmatter.cover}
+        meta_title={post.frontmatter.meta_title}
+        description={post.frontmatter.meta_description}
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
       />
     </Layout>
   )
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
+  data: PropTypes.object.isRequired,
 }
 
 export default AboutPage
 
-export const pageQuery = graphql`
-  query AboutPage($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      id
-      html  
+export const aboutPageQuery = graphql`
+  query AboutPage($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         title   
         cover
-        path
         meta_title
         meta_description
         tags

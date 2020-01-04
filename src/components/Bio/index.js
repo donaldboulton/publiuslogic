@@ -12,7 +12,7 @@ import { Twitter } from 'styled-icons/fa-brands'
 import Image from 'gatsby-image'
 import { rhythm } from '../../utils/typography'
 
-const Bio = (path) => {
+const Bio = (slug) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/donald-boulton.jpg/" }) {
@@ -35,7 +35,7 @@ const Bio = (path) => {
 
   const { author } = data.site.siteMetadata
   const title = config.userTwitter
-  const url = config.siteUrl + path
+  const url = config.siteUrl + slug
   return (
     <div
       className='column is-6'

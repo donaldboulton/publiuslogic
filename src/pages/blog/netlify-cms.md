@@ -1,13 +1,11 @@
 ---
 templateKey: article-page
 title: Netlify CMS
-slug: Netlify CMS
 path: /netlify-cms
+slug: Netlify CMS
 date: 2019-03-22T03:36:27.484Z
 cover: '/images/netlify-cms.jpg'
 category: 'tech'
-featured: false
-related: true
 tags:
   - Netlify CMS
   - Identity Widget
@@ -221,11 +219,11 @@ collections:
     label: "Blog"
     folder: "src/pages/blog"
     create: true
-    path: "{{path}}"
+    slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article-page"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover", name: "cover", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}

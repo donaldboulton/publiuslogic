@@ -1,13 +1,11 @@
 ---
 templateKey: article-page
 title: Google Maps + React Hooks
-slug: Google Maps + React Hooks
 path: /google-maps+react-hooks
+slug: Google Maps + React Hooks
 date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: '/images/maps.jpg'
-featured: false
-related: true
 tags:
   - React
   - Hooks

@@ -2,7 +2,7 @@ import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
 
-const PrivacyPageTemplate = ({ title, cover, path, meta_description, meta_title, content, contentComponent }) => {
+const PrivacyPageTemplate = ({ title, cover, canonical, meta_description, meta_title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -23,7 +23,7 @@ const PrivacyPageTemplate = ({ title, cover, path, meta_description, meta_title,
 PrivacyPageTemplate.propTypes = {
   title: PropTypes.string,
   cover: PropTypes.image,
-  path: PropTypes.string,
+  canonical: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
   content: PropTypes.string,

@@ -28,7 +28,7 @@ const languageTags = langExtColor
       `.gatsby-highlight[data-language='${lang}']::before {
         content: '${tag}';
         background: ${color};
-      }`,
+      }`
   )
   .join(`\n`)
 
@@ -71,7 +71,7 @@ export default createGlobalStyle`
 
   code[class*='language-'],
   pre[class*='language-'] {
-    color: ${props => props.theme.white};
+    color: ${props => props.theme.lightGray};
     font-family: Consolas, Menlo, Monaco, source-code-pro, 'Courier New', monospace;
     white-space: pre;
     word-spacing: normal;

@@ -3,6 +3,7 @@ import {
   FacebookShareButton,
   TwitterShareButton,
   TumblrShareButton,
+
   PinterestShareButton,
   RedditShareButton,
   FacebookShareCount,
@@ -19,9 +20,9 @@ import './styles.sass'
 
 class Share extends Component {
   render () {
-    const { title, path, excerpt, mobile } = this.props
+    const { title, slug, excerpt, mobile } = this.props
     const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-    const url = config.siteUrl + realPrefix + path
+    const url = config.siteUrl + realPrefix + slug
 
     const iconSize = mobile ? 36 : 48
     const filter = count => (count > 0 ? count : '')

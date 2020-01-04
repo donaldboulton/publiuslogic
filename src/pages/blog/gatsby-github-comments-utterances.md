@@ -1,13 +1,11 @@
 ---
 templateKey: article-page
 title: Gatsby GitHub Comments Utterances
-slug: Gatsby GitHub Comments Utterances
 path: /gatsby-gitHub-comments-utterances
+slug: Gatsby GitHub Comments Utterances
 date: 2019-04-16T20:20:43.942Z
 category: 'tech'
 cover: '/images/utterances.jpg'
-featured: false
-related: true
 tags:
   - Gatsby
   - GitHub

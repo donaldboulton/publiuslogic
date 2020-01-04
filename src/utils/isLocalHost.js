@@ -1,5 +1,5 @@
 
-export default function isLocalHost () {
+export default function isLocalHost() {
   const isLocalhostName = window.location.hostname === 'localhost';
   const isLocalhostIPv6 = window.location.hostname === '[::1]';
   const isLocalhostIPv4 = window.location.hostname.match(

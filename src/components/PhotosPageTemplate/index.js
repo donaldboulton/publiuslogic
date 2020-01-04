@@ -4,7 +4,7 @@ import Cloudinary from '../Cloudinary'
 import UploadWidget from '../Cloudinary/UploadWidget'
 import PropTypes from 'prop-types'
 
-const PhotosPageTemplate = ({ cover, title, tags, content, contentComponent }) => {
+const PhotosPageTemplate = ({ data, canonical, cover, title, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -37,12 +37,11 @@ const PhotosPageTemplate = ({ cover, title, tags, content, contentComponent }) =
 PhotosPageTemplate.propTypes = {
   title: PropTypes.string,
   cover: PropTypes.image,
-  path: PropTypes.string,
+  canonical: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
-
 
 export default PhotosPageTemplate

@@ -18,13 +18,13 @@ const PostCard = ({ posts, category, date, timeToRead, inTitle = false }) => {
               >
                 <article className='is-child box'>
                   <p>
-                    <Link to={post.frontmatter.path}>
+                    <Link to={post.fields.slug}>
                       <figure className='image is-2by1'>
                         <img src={post.frontmatter.cover} alt={post.frontmatter.title} />
                       </figure>
                     </Link>
                     <p>
-                      <Link aria-label='Post Link' className='is-size-4' to={post.frontmatter.path}>
+                      <Link aria-label='Post Link' className='is-size-4' to={post.fields.slug}>
                         {post.frontmatter.title}
                       </Link>
                     </p>
@@ -41,7 +41,7 @@ const PostCard = ({ posts, category, date, timeToRead, inTitle = false }) => {
                     {post.excerpt}
                     <br />
                     <br />
-                    <Link aria-label='Keep Reading' className='button is-small' to={post.frontmatter.path}>
+                    <Link aria-label='Keep Reading' className='button is-small' to={post.fields.slug}>
                       Keep Reading →
                     </Link>
                   </p>

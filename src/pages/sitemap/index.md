@@ -2,12 +2,11 @@
 templateKey: sitemap-page
 title: Site Map
 date: 2019-11-11T20:20:43.942Z
-path: /sitemap
+slug: sitemap
 cover: /images/sitemap.jpg
 meta_title: Sitemap of PubliusLogic Pages
 meta_description: >-
   Sitemap of PubliusLogic Pages.
-category: 'tech'
 tags:
   - Sitemap
 ---

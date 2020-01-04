@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import path from 'path'
-class PostCover extends React.Component {
+
+class PostCover extends Component {
   render () {
     const { fileEdges, postNode, coverHeight, coverClassName } = this.props
     const post = postNode.frontmatter ? postNode.frontmatter : postNode

@@ -4,11 +4,15 @@ import styled from 'styled-components'
 
 const Styledh1 = styled.h1`
   display: inline-block;
+  padding-top: 2em;
   font-size: 32px;
-  text-align: center;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
-}
+  z-index: 22;
+  background-position: 50% 50%;
+  text-align: center;
 `
+
 const RelatedPosts = props => {
   const { posts } = props
   if (posts.length === 0) return

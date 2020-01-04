@@ -26,7 +26,7 @@ export const Cover = styled(Img).attrs(
   object-fit: cover;
 `
 
-export const inTitle = css`
+const inTitle = css`
   width: max-content;
   justify-content: left;
   max-width: 80vw;

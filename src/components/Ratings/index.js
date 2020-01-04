@@ -1,6 +1,8 @@
 import React from 'react'
 import config from '../../../_data/config'
+import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
+import theme from './buttons.css'
 import Content from './Content'
 import { globalHistory } from '@reach/router'
 
@@ -14,7 +16,7 @@ import { globalHistory } from '@reach/router'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = ({ rating }) => {
+const submitRating = (rating) => {
   const path = globalHistory.location.pathname
   const data = {
     'fields[rating]': rating,
@@ -59,43 +61,31 @@ const submitRating = ({ rating }) => {
   XHR.send(urlEncodedData)
 }
 
-const RatingForm = ({ data }) => {
+const RatingForm = ({ location }) => {
   const title = config.siteTitle
-  const path = data.path
+  const path = globalHistory.location.pathname
 
   return (
-    <>
-      <Content>
-        <input type='hidden' name='form-name' value='ratings' />
-        <input name='fields[postPath]' type='hidden' value={path} />
-        <input name='title' type='hidden' value={title} />
-        <strong>Is this a useful post? Please give us a rating!</strong>
-        <div className='reviews'>
-          <ReactStars
-            onChange={rating => {
-              submitRating(rating, path)
-            }}
-            half={false}
-            size={24}
-            color2='#ffe600'
-          />
-        </div>
-        <label htmlFor='message'>Add A Review</label>
-        <div className='field'>
-          <div className='control'>
-            <input
-              className='input input-control'
-              type='text'
-              placeholder='Message'
-              aria-label='Message'
-              aria-required='true'
-              name='message'
-              id='message'
+    <ThemeProvider theme={theme}>
+      <>
+        <Content>
+          <input type='hidden' name='form-name' value='ratings' />
+          <input name='fields[postPath]' type='hidden' value={path} />
+          <input name='title' type='hidden' value={title} />
+          <strong>Is this a useful post? Please give us a rating!</strong>
+          <div className='reviews'>
+            <ReactStars
+              onChange={rating => {
+                submitRating(rating, path)
+              }}
+              half={false}
+              size={24}
+              color2='#ffe600'
             />
           </div>
-        </div>
-      </Content>
-    </>
+        </Content>
+      </>
+    </ThemeProvider>
   )
 }
 

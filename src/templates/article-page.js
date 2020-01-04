@@ -226,12 +226,12 @@ const renderAst = new RehypeReact({
 const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext }) => {
   const { markdownRemark: post } = data
   const path = data.path || ''
-  const rootUrl = 'https://publiuslogic.com'
-  const url = rootUrl + `/${path}`
   const postNode = data.markdownRemark
   const { index } = pageContext
+  const postSlugPath = globalHistory.location.pathname
   const previousUrl = index - 1 === 1 ? '/' : (index - 1).toString()
   const nextUrl = (index + 1).toString()
+  const rootUrl = config.siteUrl
   const readingTime = data.readingTime
   const buildTime = post.frontmatter.date
   const postImage = post.frontmatter.cover
@@ -244,6 +244,7 @@ const ArticlePage = ({ data, location, allRatingsJson: ratings = [], pageContext
   const alternativeHeadline = post.frontmatter.meta_title
   const pageDescription = post.frontmatter.meta_description
   const pageTags = post.frontmatter.tags
+  const url = post.frontmatter.slug
   const logo = config.siteLogo
   const ratingValue =
   ratings && ratings.edges
@@ -496,7 +497,6 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        path
         tweet_id
         category
         meta_title

@@ -1,9 +1,18 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
+import styled from 'styled-components'
 import Img from 'gatsby-image'
 import HeroText from '../Hero/HeroText'
 import { generateMedia } from 'styled-media-query'
-import styled from 'styled-components'
+
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobileL: '720px',
+  mobile: '320px',
+})
 
 const BackgroundSection = () => (
   <StaticQuery
@@ -41,15 +50,6 @@ const BackgroundSection = () => (
   />
 )
 
-const customMedia = generateMedia({
-  desktopL: '2560px',
-  desktop: '1960px',
-  laptop: '1024px',
-  tablet: '768px',
-  mobileL: '720px',
-  mobile: '320px',
-})
-
 const StyledSymetryWrapper = styled.div`
   width: 100vw;
   height: 400px;
@@ -77,7 +77,8 @@ const StyledBackgroundSection = styled(BackgroundSection)`
     }
   }
 `
-const StyledTitle = styled.div`
+
+export const StyledTitle = styled.div`
   text-align: center;
   font-size: 1.5em;
   margin: 1em;

@@ -1,7 +1,7 @@
 ---
 templateKey: users-page
 title: Users Admin
-path: /users
+slug: Users Admin
 date: 2019-11-10T20:20:43.942Z
 cover: /images/users.jpg
 meta_title: Users | Admin
@@ -16,7 +16,7 @@ showToc: true
 
 🐦 This page is under development!
 
-![Under Construction](/img/under-construction.jpg "Under Construction")
+![Under Construction](/img/under-construction.png "Under Construction")
 _[`under-construction` CMS admin](/admin/#/collections/pages)_
 
 Only the todo is here to show off the FaunaDB in Gatsby this will become an Authenticated users profile backend page.

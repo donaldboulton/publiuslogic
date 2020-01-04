@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../content/assets/sass/styles.sass'
+import '../../assets/sass/styles.sass'
 import PropTypes from 'prop-types'
 import Header from '../Header'
 import Footer from '../Footer'
@@ -13,7 +13,7 @@ import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, tableOfContents, location }) => {
   return (
     <>
       <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />
@@ -41,6 +41,8 @@ const Layout = ({ children, location }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  tableOfContents: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 }
 
 export default Layout
