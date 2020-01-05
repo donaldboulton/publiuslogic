@@ -3,19 +3,10 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import PostCover from '../components/PostCover'
-import styled from 'styled-components'
 import ContactPageTemplate from '../components/ContactPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
-
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 32px;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 22;
-`
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
 const ContactPage = ({ data }) => {
   const { markdownRemark: post } = data

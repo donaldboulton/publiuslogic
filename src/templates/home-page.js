@@ -10,7 +10,7 @@ const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   const image = frontmatter.cover
   const author = config.author
-  let logo = config.siteLogo
+  const logo = config.siteLogo
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',

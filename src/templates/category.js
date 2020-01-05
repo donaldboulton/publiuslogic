@@ -1,17 +1,10 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Image from '../components/SiteMapPageTemplate/image'
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 32px;
-  text-align: center;
-  text-transform: uppercase;
-}
-`
 class CategoryRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges

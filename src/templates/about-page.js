@@ -10,7 +10,7 @@ import config from '../../_data/config'
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
   const author = config.author
-  let logo = config.siteLogo
+  const logo = config.siteLogo
   const image = post.frontmatter.cover
 
   const schemaOrgWebPage = {

@@ -7,15 +7,7 @@ import PhotosPageTemplate from '../components/PhotosPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
-
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 32px;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 22;
-`
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
 const PhotosPage = ({ data }) => {
   const { markdownRemark: post, readingTime } = data

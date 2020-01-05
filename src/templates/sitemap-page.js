@@ -3,27 +3,19 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
-import styled from 'styled-components'
 import SiteMapPageTemplate from '../components/SiteMapPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 import PostCover from '../components/PostCover'
-
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 32px;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 22;
-`
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
 const SiteMapPage = ({ data }) => {
   const { markdownRemark: post } = data
   const image = post.frontmatter.cover
-  let author = config.author
+  const author = config.author
   const postNode = data.markdownRemark
   const coverHeight = '100%'
-  let logo = config.siteLogo
+  const logo = config.siteLogo
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',

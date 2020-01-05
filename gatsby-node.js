@@ -80,10 +80,11 @@ exports.createPages = ({ actions, graphql }) => {
       pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
       context: {}, // This is optional and defaults to an empty object if not used
     })
-    postsAndPages.forEach(edge => {
+
+    postsAndPages.forEach((edge, index, arr) => {
       const id = edge.node.id
-      const next = edge.node.next
-      const prev = edge.node.previous
+      const previous = arr[index - 1]
+      const next = arr[index + 1]
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -95,7 +96,7 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           id,
           next,
-          prev,
+          previous,
         },
       })
     })

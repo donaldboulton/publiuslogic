@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Image from '../components/ContactPageTemplate/image'
-
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 32px;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-`
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
 class TagRoute extends Component {
   render () {
