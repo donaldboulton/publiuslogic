@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
-import Image from '../../components/SiteMapPageTemplate/image'
+import Image from './image'
 
 const Styledh1 = styled.h1`
   display: inline-block;

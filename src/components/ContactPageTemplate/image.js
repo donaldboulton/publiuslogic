@@ -16,11 +16,11 @@ import Img from 'gatsby-image'
 const Image = () => (
   <StaticQuery
     query={graphql`
-      query ContactQuery {
+      query ContactCoverQuery {
         placeholderImage: file(relativePath: { eq: "contact.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1400) {
-              ...GatsbyImageSharpFluid
+            fluid(quality: 90, maxWidth: 1400) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

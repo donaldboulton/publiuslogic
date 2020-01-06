@@ -1,11 +1,13 @@
 ---
 templateKey: about-page
 title: About Us
+path: /about-us
 date: 2019-11-09T20:20:43.942Z
 cover: ./about.jpg
 meta_title: About Us | Gatsby Starter Publius
 meta_description: >-
   This website is built as static HTML with Gatsby component-modular builds including a Simple Node Express Heroku Server. Hasura GraphQL backend, with React components and Built with Webpack in a Docker Container.
+category: 'tech'
 tags:
   - About
 showToc: true  
@@ -28,7 +30,7 @@ Styled Components 💅 with Styled Media Query 💍
 
 > Beautiful media queries better than CSS @media for styled-components with ability to specify custom breakpoints.
 
-Gallery Grids with `styled-css-grid 🍱` [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
+Gallery Grids with `styled-css-grid` 🍱 [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
 
 > A tiny (~2kb) [CSS grid] layout for React, utilizing [styled-components] 💅.
 
@@ -40,7 +42,7 @@ JavaScript Standard
 
 🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds  using React components and GraphQL, Built with WebPack. Including a user data backend I am just now working on using FaunaDB.
 
-Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify’s CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
+Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
 
 ## Gatsby Starter Publius
 
@@ -100,6 +102,8 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 
 ## Features
 
+PubliusLogic is a complex Gatsby Site and not for React programing beginners.
+
 > ✔️ Complete Website Suite - Pages = Home, Blog, About, Privacy, Sitemap and Contact
 
 * Netlify CMS for Content Management
@@ -118,6 +122,19 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 * Contact Form (Lambda Netlify Forms)
 * Easy Configuration using `config.js` file
 
+## Context Provider Wrapper
+
+PubliusLogic has a `GlobalContextProvider` wrapper for its light and dark Theme, Users{CTX} and FaunaDB{CTX}
+
 ## useDarkMode
+
+A custom [React Hook](https://reactjs.org/docs/hooks-overview.html) to help you implement a "dark mode" component for your application.
+The user setting persists to `localStorage`.
+
+❤️ it? ⭐️ it on [GitHub](https://github.com/donavon/use-dark-mode/stargazers)
+or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20the%20useDarkMode%20custom%20React%20Hook%20that%20simplifies%20adding%20a%20persistent%20dark%20mode%20setting%20to%20your%20app.&url=https%3A%2F%2Fgithub.com%2Fdonavon%2Fuse-dark-mode&via=donavon&hashtags=reactjs,hooks,darkmode)
+about it.
+
+PubliusLogic is using [use-dark-mode](https://github.com/donavon/use-dark-mode) and its suggested install instructions with [gatsby-plugin-dark-mode | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-plugin-dark-mode/), plugin for Gatsby integration injecting noflash.js.
 
 > ☀️🌜 Below is an example of its usage.

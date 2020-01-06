@@ -21,7 +21,7 @@ tags:
 | [Photos](/photos) | [Gatsby Crud Netlify FaunaDB](/blog/gatsby-crud-netlify-fauna)  |   |
 | [Privacy](/privacy) | [Gatsby GitHub Comments Utterances](/blog/gatsby-github-comments-utterances)  |   |
 | [Site Map](/sitemap)  | [Gatsby React toTop](/blog/gatsby-react-scroll-toTop)  |   |
-| [Site Tags](/blog/tags/)  | [Modali Hooks Modal](/blog/modali-hooks-modal)  |  |
+| [Site Tags](/tags/)  | [Modali Hooks Modal](/blog/modali-hooks-modal)  |  |
 | [Site Categories](/categories/) | [js Media Queries](/blog/js-media-queries)  |   |
 |   | [React Hooks Masonry](/blog/react-hooks-masonry)  |   |
 |   | [Earths Magnetic Flux](/blog/earths-magnetic-flux/)  |   |

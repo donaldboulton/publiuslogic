@@ -1,17 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
-
-const Styledh1 = styled.h1`
-  display: inline-block;
-  padding-top: 2em;
-  font-size: 32px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  z-index: 22;
-  background-position: 50% 50%;
-  text-align: center;
-`
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
 const RelatedPosts = props => {
   const { posts } = props

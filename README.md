@@ -106,9 +106,20 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 * Contact Form (Lambda Netlify Forms)
 * Easy Configuration using `config.js` file
 
+## Context Provider Wrapper
+
+PubliusLogic has a `GlobalContextProvider` wrapper for its light and dark Theme, Users{CTX} and FaunaDB{CTX}
+
 ## useDarkMode
 
-> ☀️🌜 Below is an example of its usage.
+A custom [React Hook](https://reactjs.org/docs/hooks-overview.html) to help you implement a "dark mode" component for your application.
+The user setting persists to `localStorage`.
+
+❤️ it? ⭐️ it on [GitHub](https://github.com/donavon/use-dark-mode/stargazers)
+or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20the%20useDarkMode%20custom%20React%20Hook%20that%20simplifies%20adding%20a%20persistent%20dark%20mode%20setting%20to%20your%20app.&url=https%3A%2F%2Fgithub.com%2Fdonavon%2Fuse-dark-mode&via=donavon&hashtags=reactjs,hooks,darkmode)
+about it.
+
+PubliusLogic is using [use-dark-mode](https://github.com/donavon/use-dark-mode) and its suggested install instructions with [gatsby-plugin-dark-mode | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-plugin-dark-mode/), plugin for Gatsby integration injecting noflash.js.
 
 ## Demo
 

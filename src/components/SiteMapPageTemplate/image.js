@@ -19,8 +19,8 @@ const Image = () => (
       query SiteMapQuery {
         placeholderImage: file(relativePath: { eq: "sitemap.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1400) {
-              ...GatsbyImageSharpFluid
+            fluid(quality: 90, maxWidth: 1400) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

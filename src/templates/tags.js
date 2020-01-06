@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Image from '../components/ContactPageTemplate/image'
+import Image from '../pages/tags/image'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 
 class TagRoute extends Component {

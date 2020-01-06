@@ -18,12 +18,14 @@ const R = require('ramda')
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
+  const postPage = path.resolve('src/templates/article-page.js')
+
   return graphql(`
     {
       allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {
-            excerpt(pruneLength: 400)
+            excerpt(pruneLength: 200)
             id
             fields {
               slug              
@@ -53,25 +55,9 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const postsAndPages = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges
+    const pages = result.data.allMarkdownRemark.edges
 
-    // Post pages:
-    let posts = []
-    // Iterate through each post/page, putting all found posts (where templateKey = article-page) into `posts`
-    postsAndPages.forEach(edge => {
-      if (_.isMatch(edge.node.frontmatter, { templateKey: 'article-page' })) {
-        posts = posts.concat(edge)
-      }
-    })
-
-    createPaginatedPages({
-      edges: posts,
-      createPage: createPage,
-      pageTemplate: 'src/templates/article-page.js',
-      pageLength: 6, // This is optional and defaults to 10 if not used
-      pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
-      context: {}, // This is optional and defaults to an empty object if not used
-    })
     createPaginatedPages({
       edges: posts,
       createPage: createPage,
@@ -81,29 +67,42 @@ exports.createPages = ({ actions, graphql }) => {
       context: {}, // This is optional and defaults to an empty object if not used
     })
 
-    postsAndPages.forEach((edge, index, arr) => {
+    posts.forEach((edge, index) => {
       const id = edge.node.id
-      const previous = arr[index - 1]
-      const next = arr[index + 1]
+      const next = index === 0 ? null : posts[index - 1]
+      const prev = index === posts.length - 1 ? null : posts[index + 1]
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
         category: edge.node.frontmatter.category,
+        component: postPage,
+        // additional data can be passed via context
+        context: {
+          id,
+          slug: edge.node.fields.slug,
+          next,
+          prev,
+        },
+      })
+    })
+
+    pages.forEach(edge => {
+      const id = edge.node.id
+      createPage({
+        path: edge.node.fields.slug,
         component: path.resolve(
           `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
         context: {
           id,
-          next,
-          previous,
         },
       })
     })
 
     let category = []
     // Iterate through each post, putting all found category into `categories`
-    postsAndPages.forEach(edge => {
+    posts.forEach(edge => {
       if (_.get(edge, `node.frontmatter.category`)) {
         category = category.concat(edge.node.frontmatter.category)
       }
@@ -126,7 +125,7 @@ exports.createPages = ({ actions, graphql }) => {
     // Tag pages:
     let tags = []
     // Iterate through each post, putting all found tags into `tags`
-    postsAndPages.forEach(edge => {
+    posts.forEach(edge => {
       if (_.get(edge, `node.frontmatter.tags`)) {
         tags = tags.concat(edge.node.frontmatter.tags)
       }
@@ -147,19 +146,6 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
   })
-}
-
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions
-
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/app/)) {
-    page.matchPath = '/app/*'
-
-    // Update the page.
-    createPage(page)
-  }
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

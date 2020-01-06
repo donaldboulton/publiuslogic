@@ -114,7 +114,7 @@ export default HomePage
 export const pageQuery = graphql`
   query IndexPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      excerpt(pruneLength: 300)
+      excerpt(pruneLength: 200)
       frontmatter {        
         title
         cover

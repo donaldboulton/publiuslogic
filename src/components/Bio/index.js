@@ -41,7 +41,7 @@ const Bio = (slug) => {
       className='column is-6'
       style={{
         display: `flex`,
-        marginBottom: rhythm(1.5),
+        marginBottom: rhythm(1),
       }}
     >
       <Image

@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby'
 import config from '../../_data/config'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import Image from '../components/SiteMapPageTemplate/image'
+import Image from '../components/PostCard/image'
 import PostCard from '../components/PostCard'
 import Layout from '../components/Layout'
 
@@ -16,30 +16,23 @@ const Styledh1 = styled.h1`
   z-index: 22;
 `
 const ButtonSecondary = styled(Link)`
-  border: thin ${props => props.theme.black};
+  border: thin ${props => props.theme.white};
 `
 const ButtonDisabled = styled.div`
   background: transparent;
-  padding: calc(.5em - 1px) .75em;
-  border: thin ${props => props.theme.black};
-  font-size: 0.9em;
-`
-const Pagination = styled.div`
-  display: flex;
-  flex-flow: row;
-  justify-content: space-around;
+  border: thin ${props => props.theme.white};
 `
 
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <ButtonSecondary className='a' to={`/blog/${props.url}`}>
+      <ButtonSecondary className='button' to={`/blog/${props.url}`}>
         {`${props.text}`}
       </ButtonSecondary>
     )
   } else {
     return (
-      <ButtonDisabled disabled>
+      <ButtonDisabled disabled className='button'>
         {props.text}
       </ButtonDisabled>
     )
@@ -142,28 +135,46 @@ export default class BlogPage extends Component {
         <section className='section'>
           <div className='column is-10 is-offset-1'>
             <Styledh1>
-              Blog | PubliusLogic
+                  Blog | PubliusLogic
             </Styledh1>
             <p>✨ Listing all Posts.</p>
             <p>
-                For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
+              For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
             </p>
           </div>
         </section>
         <section className='section'>
-          <PostCard posts={group} />
-          <section className='section'>
-            <Pagination>
-              {!first && <PaginationLink test={first} url={previousUrl} text='← Prev' />}
-              {
-                pageNumbers.map(number => {
-                  const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
-                  return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
-                })
-              }
-              {!last && <PaginationLink test={last} url={nextUrl} text='Next →' />}
-            </Pagination>
-          </section>
+          <div className='container content'>
+            <div className='columns'>
+              <div className='column is-10 is-offset-1'>
+                <PostCard posts={group} />
+                <div className='container content'>
+                  <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
+                    <div className='column is-7 is-offset-1'>
+                      <div className='field has-addons'>
+                        <span className='control'>
+                          {
+                            pageNumbers.map(number => {
+                              const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
+                              return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
+                            })
+                          }
+                        </span>
+                      </div>
+                    </div>
+                    <div className='column is-pulled-right'>
+                      <div className='field has-addons'>
+                        <span className='control'>
+                          {!first && <PaginationLink test={first} url={previousUrl} text='Previous' />}
+                          {!last && <PaginationLink test={last} url={nextUrl} text='Next' />}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </Layout>
     )
@@ -186,7 +197,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 300)
+          excerpt(pruneLength: 200)
           id
           fields {
             slug

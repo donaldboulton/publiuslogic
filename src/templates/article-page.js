@@ -24,8 +24,9 @@ import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
+import Toc from '../components/Toc'
 import { BookContent } from 'styled-icons/boxicons-regular/'
-import { Rating, StyledTableMenu, TableOfContents, Styledh1, Title, TocIcon, Time, Date, GithubButtons, Pagination, Meta } from '../components/styles/ArticleStyles'
+import { Rating, StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, GithubButtons, Pagination, Prev, Next, Meta } from '../components/styles/ArticleStyles'
 
 const submitRating = (rating, path) => {
   const data = {
@@ -83,24 +84,20 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
-  const { markdownRemark: post } = data
-  const path = data.path || ''
-  const postNode = data.markdownRemark
-  const { index, next = (index + 1).toString(), previous = index - 1 === 1 ? '/' : (index - 1).toString() } = pageContext
+const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead, htmlAst }, allRatingsJson: ratings = [] }) => {
+  const post = postNode.frontmatter
   const postSlugPath = globalHistory.location.pathname
-  const readingTime = data.readingTime
-  const buildTime = post.frontmatter.date
-  const postImage = post.frontmatter.cover
+  const buildTime = post.date
+  const postImage = post.cover
+  const { slug, prev, next } = pageContext
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
-  const title = post.frontmatter.title
+  const title = post.title
   const coverHeight = '100%'
-  const postPath = globalHistory.location.pathname
-  const alternativeHeadline = post.frontmatter.meta_title
-  const pageDescription = post.frontmatter.meta_description
-  const pageTags = post.frontmatter.tags
+  const alternativeHeadline = post.meta_title
+  const pageDescription = post.meta_description
+  const pageTags = post.tags
   const logo = config.siteLogo
   const ratingValue =
   ratings && ratings.edges
@@ -164,28 +161,28 @@ const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
   }
 
   return (
-    <Layout pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={post.title}>
       <Helmet>
-        <title>{`${post.frontmatter.title} | ${config.siteTitle}`}</title>
-        <meta name='description' content={post.frontmatter.meta_description} />
+        <title>{`${post.title} | ${config.siteTitle}`}</title>
+        <meta name='description' content={post.meta_description} />
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={postSlugPath} />
         <meta property='og:type' content='article' />
-        <meta property='og:readingTime' content={readingTime} />
-        <meta property='og:title' content={post.frontmatter.title} />
-        <meta property='og:description' content={post.frontmatter.meta_description} />
+        <meta property='og:readingTime' content={postNode.timeToRead} />
+        <meta property='og:title' content={post.title} />
+        <meta property='og:description' content={post.meta_description} />
         <meta property='og:image' content={logo} />
-        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
+        <meta property='og:image:alt' content={post.meta_title} />
         <meta property='og:image:width' content={imageWidth} />
         <meta property='og:image:height' content={imageHeight} />
         <meta property='og:url' content={postSlugPath} />
-        <meta name='rel' content={postSlugPath} />
-        <meta name='key' content={postPath} />
+        <meta name='rel' content={post.path} />
+        <meta name='key' content={postSlugPath} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post.frontmatter.title} />
+        <meta name='twitter:title' content={post.title} />
         <meta name='twitter:image' content={logo} />
-        <meta name='twitter:description' content={post.frontmatter.meta_description} />
+        <meta name='twitter:description' content={post.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
@@ -206,11 +203,7 @@ const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
               <TocIcon />
                 | Page Contents
             </Title>
-            <TableOfContents
-              style={{ textIndent: '-1em hanging' }}
-              id='linktoc'
-              dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
-            />
+            <Toc />
           </Menu2>
         </StyledTableMenu>
         <PostCover
@@ -222,13 +215,13 @@ const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
       <section className='section'>
         <div className='column is-10 is-offset-1'>
           <Styledh1>
-            {post.frontmatter.title}
+            {post.title}
           </Styledh1>
         </div>
         <Meta
           data={{
-            ...post.frontmatter,
-            description: post.frontmatter.meta_description,
+            ...post,
+            description: post.meta_description,
             rating: { ratingValue, ratingCount: ratingCount },
           }}
           rich
@@ -239,7 +232,7 @@ const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
             <div className='column is-7'>
               <span className='subtitle is-size-5'>
                 <Calendar size='0.9em' />&nbsp;
-                <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
+                <Date><small>{post.date}</small>&nbsp;</Date>&nbsp;
                 <Timer size='0.9em' />&nbsp;
                 <Time>{post.timeToRead}&nbsp;min read</Time>
               </span>
@@ -252,32 +245,32 @@ const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <div>{renderAst(post.htmlAst)}</div>
+              <div>{renderAst(postNode.htmlAst)}</div>
               <ArticleTemplate
-                content={post.html}
+                content={postNode.html}
                 contentComponent={HTMLContent}
-                cover={post.frontmatter.cover}
-                readingTime={readingTime}
-                category={post.frontmatter.category}
-                date={post.frontmatter.date}
-                tweet_id={post.frontmatter.tweet_id}
-                meta_title={post.frontmatter.meta_title}
-                description={post.frontmatter.meta_description}
-                tags={post.frontmatter.tags}
-                title={post.frontmatter.title}
+                cover={post.cover}
+                readingTime={postNode.timeToRead}
+                category={post.category}
+                date={post.date}
+                tweet_id={post.tweet_id}
+                meta_title={post.meta_title}
+                description={post.meta_description}
+                tags={post.tags}
+                title={post.title}
               />
               <Share
-                title={post.frontmatter.title}
-                slug={post.fields.slug}
-                excerpt={post.frontmatter.meta_description}
+                title={post.title}
+                slug={post.path}
+                excerpt={post.meta_description}
               />
               <hr />
               <div className='container content'>
                 <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
                   <div className='column is-7'>
                     <input type='hidden' name='form-name' value='ratings' />
-                    <input name='fields[postPath]' type='hidden' value={post.frontmatter.path} />
-                    <input name='title' type='hidden' value={post.frontmatter.title} />
+                    <input name='fields[postPath]' type='hidden' value={post.path} />
+                    <input name='title' type='hidden' value={post.title} />
                     {/* TODO calculate score in gatsby-node */}
                     {ratings ? (
                       <Rating>
@@ -296,7 +289,7 @@ const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
                     ) : null}
                     <ReactStars
                       onChange={rating => {
-                        submitRating(rating, data.frontmatter.path)
+                        submitRating(rating, post.path)
                       }}
                       half={false}
                       size={24}
@@ -311,15 +304,18 @@ const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
               <Comments />
               <section className='section'>
                 <Pagination>
-                  {previous && (
-                    <Link to={pageContext.previous} rel='prev' css='margin-right: 1em;'>
-                      <h3 css='text-align: left;'>← Previous</h3>
-                    </Link>
+                  {prev && (
+                    <Prev key={pageContext.post.node.fields.slug}>
+                      <span>Previous</span>
+                      <Link to={pageContext.prev.post.node.fields.slug}>{prev.post.frontmatter.title}</Link>
+                    </Prev>
                   )}
+
                   {next && (
-                    <Link to={pageContext.next} rel='next' css='margin-left: auto;'>
-                      <h3 css='text-align: right;'>Next →</h3>
-                    </Link>
+                    <Next key={pageContext.post.node.fields.slug}>
+                      <span>Next</span>
+                      <Link to={pageContext.next.post.node.fields.slug}>{next.post.frontmatter.title}</Link>
+                    </Next>
                   )}
                 </Pagination>
               </section>
@@ -332,8 +328,20 @@ const ArticlePage = ({ data, allRatingsJson: ratings = [], pageContext }) => {
 }
 
 ArticlePage.propTypes = {
+  pageContext: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    next: PropTypes.object,
+    prev: PropTypes.object,
+  }),
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
+  }),
+}
+
+ArticlePage.defaultProps = {
+  pageContext: PropTypes.shape({
+    next: null,
+    prev: null,
   }),
 }
 
@@ -346,7 +354,7 @@ export const pageQuery = graphql`
       htmlAst
       timeToRead
       tableOfContents
-      excerpt(pruneLength: 300)                          
+      excerpt(pruneLength: 200)                          
       fields {
         slug
       }      
@@ -354,6 +362,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         tweet_id
+        path
         category
         meta_title
         meta_description

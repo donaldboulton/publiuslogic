@@ -1,17 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import deployButton from '../../assets/img/deploy-to-netlify.svg'
 import logo from '../../assets/img/logo.svg'
 import github from '../../assets/img/github.svg'
-
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 32px;
-  font-family: 'Roboto', sans-serif;
-  line-height: 2rem;
-  margin: 0px;
-  margin-top: 10px;
-`
+import { Styledh1 } from '../styles/ArticleStyles'
+import './AppHeader.css'
 
 const AppHeader = props => {
   return (
