@@ -51,8 +51,8 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
       </section>
       <section className='section'>
         <div className='container content'>
-          <div className='columns is-10 is-offset-1'>
-            <div className='column'>
+          <div className='columns'>
+            <div className='column is-10 is-offset-1'>
               <div>
                 <Bio />
               </div>

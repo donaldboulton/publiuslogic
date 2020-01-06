@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
 import ReactStars from 'react-stars'
 import Menu2 from 'react-burger-menu/lib/menus/stack'
-import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
@@ -26,7 +25,7 @@ import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
 import Toc from '../components/Toc'
 import { BookContent } from 'styled-icons/boxicons-regular/'
-import { Rating, StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, GithubButtons, Pagination, Prev, Next, Meta } from '../components/styles/ArticleStyles'
+import { Rating, StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, Pagination, Meta } from '../components/styles/ArticleStyles'
 
 const submitRating = (rating, path) => {
   const data = {
@@ -89,7 +88,7 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
   const postSlugPath = globalHistory.location.pathname
   const buildTime = post.date
   const postImage = post.cover
-  const { slug, prev, next } = pageContext
+  const { slug, previous, next } = pageContext
   const imageWidth = postImage.width
   const imageHeight = postImage.height
   const body = post.html
@@ -237,7 +236,6 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
                 <Time>{post.timeToRead}&nbsp;min read</Time>
               </span>
             </div>
-            <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
           </div>
         </div>
       </section>
@@ -302,22 +300,22 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
                 </div>
               </div>
               <Comments />
+              <hr />
               <section className='section'>
-                <Pagination>
-                  {prev && (
-                    <Prev key={pageContext.post.node.fields.slug}>
-                      <span>Previous</span>
-                      <Link to={pageContext.prev.post.node.fields.slug}>{prev.post.frontmatter.title}</Link>
-                    </Prev>
-                  )}
-
-                  {next && (
-                    <Next key={pageContext.post.node.fields.slug}>
-                      <span>Next</span>
-                      <Link to={pageContext.next.post.node.fields.slug}>{next.post.frontmatter.title}</Link>
-                    </Next>
-                  )}
-                </Pagination>
+                <div className='container content'>
+                  <div className='columns'>
+                    <div className='column is-10 is-offset-1'>
+                      <Pagination>
+                        {previous && (
+                          <Link to={previous.post.node.fields.slug}><span>Previous</span>{previous.post.frontmatter.title}</Link>
+                        )}
+                        {next && (
+                          <Link to={next.post.node.fields.slug}>{next.post.frontmatter.title}<span>Next</span></Link>
+                        )}
+                      </Pagination>
+                    </div>
+                  </div>
+                </div>
               </section>
             </div>
           </div>
@@ -328,20 +326,8 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
 }
 
 ArticlePage.propTypes = {
-  pageContext: PropTypes.shape({
-    slug: PropTypes.string.isRequired,
-    next: PropTypes.object,
-    prev: PropTypes.object,
-  }),
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
-  }),
-}
-
-ArticlePage.defaultProps = {
-  pageContext: PropTypes.shape({
-    next: null,
-    prev: null,
   }),
 }
 

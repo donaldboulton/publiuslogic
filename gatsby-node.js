@@ -67,21 +67,21 @@ exports.createPages = ({ actions, graphql }) => {
       context: {}, // This is optional and defaults to an empty object if not used
     })
 
-    posts.forEach((edge, index) => {
-      const id = edge.node.id
-      const next = index === 0 ? null : posts[index - 1]
-      const prev = index === posts.length - 1 ? null : posts[index + 1]
+    posts.forEach((post, index, arr) => {
+      const id = post.node.id
+      const previous = arr[index - 1]
+      const next = arr[index + 1]
       createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
-        category: edge.node.frontmatter.category,
+        path: post.node.fields.slug,
+        tags: post.node.frontmatter.tags,
+        category: post.node.frontmatter.category,
         component: postPage,
         // additional data can be passed via context
         context: {
           id,
-          slug: edge.node.fields.slug,
+          slug: post.node.fields.slug,
           next,
-          prev,
+          previous,
         },
       })
     })
@@ -102,9 +102,9 @@ exports.createPages = ({ actions, graphql }) => {
 
     let category = []
     // Iterate through each post, putting all found category into `categories`
-    posts.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.category`)) {
-        category = category.concat(edge.node.frontmatter.category)
+    posts.forEach(post => {
+      if (_.get(post, `node.frontmatter.category`)) {
+        category = category.concat(post.node.frontmatter.category)
       }
     })
     // Eliminate duplicate tags
@@ -125,9 +125,9 @@ exports.createPages = ({ actions, graphql }) => {
     // Tag pages:
     let tags = []
     // Iterate through each post, putting all found tags into `tags`
-    posts.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
+    posts.forEach(post => {
+      if (_.get(post, `node.frontmatter.tags`)) {
+        tags = tags.concat(post.node.frontmatter.tags)
       }
     })
     // Eliminate duplicate tags
