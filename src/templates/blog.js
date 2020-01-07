@@ -207,7 +207,7 @@ export const pageQuery = graphql`
             path
             meta_description
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMM D, YYYY")
           }
         }
       }

@@ -2,7 +2,6 @@ import React from 'react'
 import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { globalHistory } from '@reach/router'
-import ReactStars from 'react-stars'
 import Menu2 from 'react-burger-menu/lib/menus/stack'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
@@ -24,55 +23,11 @@ import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
 import Toc from '../components/Toc'
+import Ratings from '../components/Ratings'
 import { BookContent } from 'styled-icons/boxicons-regular/'
-import { Rating, StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, Pagination, Meta } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, Styledh1, Title, TocIcon, Time, Date } from '../components/styles/ArticleStyles'
+import { rhythm } from '../utils/typography'
 
-const submitRating = (rating, path) => {
-  const data = {
-    'fields[rating]': rating,
-    'fields[postPath]': path,
-    'options[reCaptcha][siteKey]': '6Le3cZMUAAAAAEAXmN6cDoJGVUVZ0RzuJlLAj6a-',
-  }
-
-  // eslint-disable-next-line no-undef
-  const XHR = new XMLHttpRequest()
-  let urlEncodedData = ''
-  const urlEncodedDataPairs = []
-  let name
-
-  // Turn the data object into an array of URL-encoded key/value pairs.
-  for (name in data) {
-    urlEncodedDataPairs.push(
-      encodeURIComponent(name) + '=' + encodeURIComponent(data[name]),
-    )
-  }
-
-  // Combine the pairs into a single string and replace all %-encoded spaces to
-  // the '+' character; matches the behaviour of browser form submissions.
-  urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+')
-
-  // Define what happens on successful data submission
-  XHR.addEventListener('load', function (event) {
-    alert('Thanks for rating us! Your rating will appear soon. Stay tuned..')
-  })
-
-  // Define what happens in case of error
-  XHR.addEventListener('error', function (event) {
-    alert('Sorry, something went wrong. Please file an issue in github!')
-  })
-
-  // Set up our request
-  XHR.open(
-    'POST',
-    'https://api.staticman.net/v3/entry/github/donaldboulton/publiuslogic/master/ratings',
-  )
-
-  // Add the required HTTP header for form data requests
-  XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-
-  // Finally, send our data.
-  XHR.send(urlEncodedData)
-}
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
@@ -82,30 +37,21 @@ const renderAst = new RehypeReact({
     'interactive-colorbox': ColorBox,
   },
 }).Compiler
-
-const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead, htmlAst }, allRatingsJson: ratings = [] }) => {
-  const post = postNode.frontmatter
+const ArticlePage = ({ data, timeToRead, postNode, htmlAst, allRatingsJson: ratings = [] }) => {
+  const post = this.props.data.markdownRemark
+  const { previous, next } = this.props.pageContext
+  const { frontmatter, body } = postNode
+  const { title, slug, cover, showToc } = frontmatter
   const postSlugPath = globalHistory.location.pathname
   const buildTime = post.date
   const postImage = post.cover
-  const { slug, previous, next } = pageContext
   const imageWidth = postImage.width
   const imageHeight = postImage.height
-  const body = post.html
-  const title = post.title
   const coverHeight = '100%'
-  const alternativeHeadline = post.meta_title
-  const pageDescription = post.meta_description
-  const pageTags = post.tags
+  const alternativeHeadline = post.frontmatter.meta_title
+  const pageDescription = postNode.meta_description
+  const pageTags = postNode.tags
   const logo = config.siteLogo
-  const ratingValue =
-  ratings && ratings.edges
-    ? ratings.edges.reduce(
-      (accumulator, rating) => accumulator + parseInt(rating.node.rating),
-      0,
-    ) / ratings.totalCount
-    : 0
-  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
 
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -160,14 +106,14 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
   }
 
   return (
-    <Layout pageTitle={post.title}>
+    <Layout pageTitle={post.title} location={this.props.location}>
       <Helmet>
         <title>{`${post.title} | ${config.siteTitle}`}</title>
         <meta name='description' content={post.meta_description} />
         <meta name='keywords' content={pageTags} />
         <meta name='url' content={postSlugPath} />
         <meta property='og:type' content='article' />
-        <meta property='og:readingTime' content={postNode.timeToRead} />
+        <meta property='og:readingTime' content={timeToRead} />
         <meta property='og:title' content={post.title} />
         <meta property='og:description' content={post.meta_description} />
         <meta property='og:image' content={logo} />
@@ -202,7 +148,7 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
               <TocIcon />
                 | Page Contents
             </Title>
-            <Toc />
+            {showToc && <Toc />}
           </Menu2>
         </StyledTableMenu>
         <PostCover
@@ -217,23 +163,15 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
             {post.title}
           </Styledh1>
         </div>
-        <Meta
-          data={{
-            ...post,
-            description: post.meta_description,
-            rating: { ratingValue, ratingCount: ratingCount },
-          }}
-          rich
-        />
         <div className='column is-9 is-offset-1'>
           <Bio />
-          <div className='columns is-desktop is-vcentered'>
+          <div className='columns is-desktop is-offset-1 is-vcentered'>
             <div className='column is-7'>
               <span className='subtitle is-size-5'>
                 <Calendar size='0.9em' />&nbsp;
                 <Date><small>{post.date}</small>&nbsp;</Date>&nbsp;
                 <Timer size='0.9em' />&nbsp;
-                <Time>{post.timeToRead}&nbsp;min read</Time>
+                <Time>{timeToRead}&nbsp;min read</Time>
               </span>
             </div>
           </div>
@@ -243,12 +181,12 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <div>{renderAst(postNode.htmlAst)}</div>
+              <div>{renderAst(post.htmlAst)}</div>
               <ArticleTemplate
-                content={postNode.html}
+                content={post.html}
                 contentComponent={HTMLContent}
                 cover={post.cover}
-                readingTime={postNode.timeToRead}
+                readingTime={timeToRead}
                 category={post.category}
                 date={post.date}
                 tweet_id={post.tweet_id}
@@ -266,33 +204,7 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
               <div className='container content'>
                 <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
                   <div className='column is-7'>
-                    <input type='hidden' name='form-name' value='ratings' />
-                    <input name='fields[postPath]' type='hidden' value={post.path} />
-                    <input name='title' type='hidden' value={post.title} />
-                    {/* TODO calculate score in gatsby-node */}
-                    {ratings ? (
-                      <Rating>
-                        Rating:{' '}
-                        {ratings && ratings.edges
-                          ? ratings.edges.reduce(
-                            (accumulator, rating) =>
-                              accumulator + parseInt(rating.node.rating),
-                            0,
-                          ) / ratings.totalCount
-                          : null}{' '}
-                          - {ratings.totalCount} Reviews
-                          Rating: {ratingValue !== 0 ? ratingValue : null} -{' '}
-                        {ratings.totalCount} Reviews
-                      </Rating>
-                    ) : null}
-                    <ReactStars
-                      onChange={rating => {
-                        submitRating(rating, post.path)
-                      }}
-                      half={false}
-                      size={24}
-                      color2='#ffe600'
-                    />
+                    <Ratings />
                   </div>
                   <div className='column is-pulled-right'>
                     <WebIntents />
@@ -300,19 +212,39 @@ const ArticlePage = ({ pageContext, data: { markdownRemark: postNode, timeToRead
                 </div>
               </div>
               <Comments />
-              <hr />
+              <hr
+                style={{
+                  marginBottom: rhythm(1),
+                }}
+              />
               <section className='section'>
                 <div className='container content'>
                   <div className='columns'>
                     <div className='column is-10 is-offset-1'>
-                      <Pagination>
-                        {previous && (
-                          <Link to={previous.post.node.fields.slug}><span>Previous</span>{previous.post.frontmatter.title}</Link>
-                        )}
-                        {next && (
-                          <Link to={next.post.node.fields.slug}>{next.post.frontmatter.title}<span>Next</span></Link>
-                        )}
-                      </Pagination>
+                      <ul
+                        style={{
+                          display: `flex`,
+                          flexWrap: `wrap`,
+                          justifyContent: `space-between`,
+                          listStyle: `none`,
+                          padding: 0,
+                        }}
+                      >
+                        <li>
+                          {previous && (
+                            <Link to={previous.fields.slug} rel='prev'>
+                              ← {previous.frontmatter.title}
+                            </Link>
+                          )}
+                        </li>
+                        <li>
+                          {next && (
+                            <Link to={next.fields.slug} rel='next'>
+                              {next.frontmatter.title} →
+                            </Link>
+                          )}
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -334,30 +266,28 @@ ArticlePage.propTypes = {
 export default ArticlePage
 
 export const pageQuery = graphql`
-  query ArticleByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+   query ArticleBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id      
       htmlAst
       timeToRead
       tableOfContents
-      excerpt(pruneLength: 200)                          
-      fields {
-        slug
-      }      
+      excerpt(pruneLength: 200)                                
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         tweet_id
         path
         category
+        related
         meta_title
         meta_description
-        tags
+        tags        
         cover
       }
     }
     allRatingsJson(
-      filter: { postPath: { eq: $id } }
+      filter: { postPath: { eq: $slug } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount
@@ -370,3 +300,4 @@ export const pageQuery = graphql`
     }
   }
 `
+

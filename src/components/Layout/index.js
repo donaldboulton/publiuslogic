@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../assets/sass/styles.sass'
+import '../../../content/assets/sass/styles.sass'
 import PropTypes from 'prop-types'
 import Header from '../Header'
 import Footer from '../Footer'

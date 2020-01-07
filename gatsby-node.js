@@ -18,7 +18,7 @@ const R = require('ramda')
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const postPage = path.resolve('src/templates/article-page.js')
+  const postTemplate = path.resolve('src/templates/article-page.js')
 
   return graphql(`
     {
@@ -35,15 +35,11 @@ exports.createPages = ({ actions, graphql }) => {
               value
             }            
             timeToRead  
-            tableOfContents 
             frontmatter {
               title
-              path
+              slug
               cover
-              category
-              tags
               templateKey
-              date(formatString: "MMMM DD, YYYY")
             }
           }
         }
@@ -58,30 +54,18 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges
     const pages = result.data.allMarkdownRemark.edges
 
-    createPaginatedPages({
-      edges: posts,
-      createPage: createPage,
-      pageTemplate: 'src/templates/blog.js',
-      pageLength: 6, // This is optional and defaults to 10 if not used
-      pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
-      context: {}, // This is optional and defaults to an empty object if not used
-    })
-
-    posts.forEach((post, index, arr) => {
+    posts.forEach((post, index) => {
+      const previous = index === posts.length - 1 ? null : posts[index + 1].node
+      const next = index === 0 ? null : posts[index - 1].node
       const id = post.node.id
-      const previous = arr[index - 1]
-      const next = arr[index + 1]
       createPage({
         path: post.node.fields.slug,
-        tags: post.node.frontmatter.tags,
-        category: post.node.frontmatter.category,
-        component: postPage,
-        // additional data can be passed via context
+        component: postTemplate,
         context: {
           id,
           slug: post.node.fields.slug,
-          next,
           previous,
+          next,
         },
       })
     })
@@ -98,6 +82,15 @@ exports.createPages = ({ actions, graphql }) => {
           id,
         },
       })
+    })
+
+    createPaginatedPages({
+      edges: posts,
+      createPage: createPage,
+      pageTemplate: 'src/templates/blog.js',
+      pageLength: 6, // This is optional and defaults to 10 if not used
+      pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
+      context: {}, // This is optional and defaults to an empty object if not used
     })
 
     let category = []

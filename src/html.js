@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import 'babel-polyfill'
-import favicon from './assets/img/favicon.ico'
+import favicon from '../../content/assets/img/favicon.ico'
 require('typeface-kaushan-script')
 require('typeface-roboto-slab')
 require('typeface-roboto')
 
-export default class HTML extends Component {
+export default class HTML extends React.Component {
   render () {
     return (
       <html lang='en' className='has-navbar-fixed-top' itemScope='itemScope' itemType='https://schema.org/WebSite'>

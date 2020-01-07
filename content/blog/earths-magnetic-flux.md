@@ -1,11 +1,13 @@
 ---
 templateKey: article-page
 title: Earths Magnetic Flux
-path: /earths-magnetic-flux
 slug: Earths Magnetic Flux
+path: /earths-magnetic-flux
 date: 2019-09-02T20:20:43.942Z
 category: 'Logic'
 cover: '/images/earths-magnetic-flux.jpg'
+featured: false
+related: true
 tags:
   - Magnetic Flux
   - Logic

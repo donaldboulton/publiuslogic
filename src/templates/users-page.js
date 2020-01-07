@@ -184,7 +184,7 @@ export const usersPageQuery = graphql`
       timeToRead
       tableOfContents
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMM D, YYYY")
         title   
         cover
         meta_title

@@ -82,7 +82,7 @@ module.exports = {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         develop: true,
-        purgeOnly: ['/sass/styles.sass'],
+        purgeOnly: ['/content/assets/sass/styles.sass'],
       },
     },
     {
@@ -136,6 +136,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: 'blog',
       },
     },
     {

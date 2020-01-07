@@ -8,7 +8,7 @@ class reviewsWrapper extends React.Component {
       <StaticQuery
         query={graphql`
           {
-            allRatingsJson(filter: {postPath: {eq: "id"}}, sort: {fields: date, order: ASC}) {
+            allRatingsJson(filter: {postPath: {eq: "slug"}}, sort: {fields: date, order: ASC}) {
               totalCount
               edges {
                 node {

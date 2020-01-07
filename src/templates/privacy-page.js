@@ -207,7 +207,7 @@ export const privacyPageQuery = graphql`
       html
       timeToRead
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMM D, YYYY")
         title
         cover
         meta_title

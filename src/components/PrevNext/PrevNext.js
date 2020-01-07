@@ -1,64 +1,37 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Img, PreviousNext, Thumbnail } from './styles'
 
-const Wrapper = styled.div`
-  display: flex;
-  margin: 6rem auto 0 auto;
-  a {
-    color: ${props => props.theme.white};
-    display: flex;
-    align-items: center;
-  }
-  justify-items: center;
-`
-
-const Prev = styled.div`
-  span {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: ${props => props.theme.white};
-  }
-`
-
-const Next = styled.div`
-  margin-left: auto;
-  text-align: right;
-  span {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: ${props => props.theme.white};
-  }
-`
-
-const PrevNext = ({ post, next, prev, slug }) => (
-  <Wrapper>
+const PrevNext = ({ prev, next, label, slugPrefix = `` }) => (
+  <PreviousNext>
     {prev && (
-      <Prev>
-        <span>'❤️' Previous</span>
-        <Link to={prev.fields.slug}>{prev.frontmatter.title}</Link>
-      </Prev>
+      <Link to={slugPrefix + prev.slug} rel='prev' css='margin-right: 1em;'>
+        <h3 css='text-align: left;'>← Previous {label}</h3>
+        <Thumbnail>
+          {prev.cover && (
+            <Img {...prev.cover.sharp || prev.cover} />
+          )}
+          <h4>{prev.title}</h4>
+        </Thumbnail>
+      </Link>
     )}
-
     {next && (
-      <Next>
-        <span>Next 💕</span>
-        <Link to={next.fields.slug}>{next.frontmatter.title}</Link>
-      </Next>
+      <Link to={slugPrefix + next.slug} rel='next' css='margin-left: auto;'>
+        <h3 css='text-align: right;'>Next {label} →</h3>
+        <Thumbnail>
+          {next.cover && (
+            <Img {...next.cover.sharp || next.cover} />
+          )}
+          <h4>{next.title}</h4>
+        </Thumbnail>
+      </Link>
     )}
-  </Wrapper>
+  </PreviousNext>
 )
 
 export default PrevNext
 
 PrevNext.propTypes = {
-  slug: PropTypes.string.isRequired,
-  next: PropTypes.object,
-  prev: PropTypes.object,
-}
-
-PrevNext.defaultProps = {
-  next: null,
-  prev: null,
+  label: PropTypes.string.isRequired,
 }

@@ -1,0 +1,111 @@
+$btn-dimension: 80px;
+$primary-color: rgba(189,195,199 ,1);
+$secondary-color: rgba(39,174,96 ,1);
+@mixin debug {
+  outline: 1px solid red;
+}
+
+/*========================
+    BASIC styles
+  =======================*/
+* {
+  box-sizing: border-box
+}
+
+/*========================
+    BUTTON styles
+  =======================*/
+.clap {
+  position: relative;
+  outline: 1px solid transparent;
+  border-radius: 50%;
+  border: 1px solid $primary-color;
+  width: $btn-dimension;
+  height: $btn-dimension; 
+  background: none;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50%;
+    //border: 1px solid $primary-color;
+    width: $btn-dimension - 1px;
+    height: $btn-dimension - 1px;
+  }
+  &:hover {
+   cursor: pointer;
+   border: 1px solid $secondary-color;
+   transition: border-color 0.3s ease-in;
+    &:after {
+      animation: shockwave 1s ease-in infinite;
+    } 
+  }
+  svg {
+    width: 40px;
+    fill: none;
+    stroke: $secondary-color;
+    stroke-width: 2px;
+    &.checked {
+      fill: $secondary-color;
+      stroke: #fff;
+      stroke-width: 1px;
+    }
+  }
+  .clap--count {
+    position: absolute;
+    top: -$btn-dimension/1.6;
+    left: $btn-dimension/4;
+    font-size: 0.8rem;
+    color: white;
+    background: $secondary-color;
+    border-radius: 50%;
+    height: $btn-dimension/2;
+    width: $btn-dimension/2;
+    line-height: $btn-dimension/2;
+  }
+  .clap--count-total {
+    position: absolute;
+    font-size: 0.8rem;
+    width: $btn-dimension;
+    text-align: center;
+    left: 0;
+    top: -$btn-dimension/3.5;
+    color: $primary-color; 
+  }
+}
+
+
+
+/*====================
+        Message
+======================*/
+#message {
+  position: absolute;
+  bottom: 20px;
+  color: $secondary-color;
+  line-height: 1.52rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  a {
+    color: $primary-color
+  }
+}
+
+
+
+@keyframes shockwave {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 2px $secondary-color;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: 0 0 50px darken($secondary-color, 20%), inset 0 0 10px $secondary-color;
+  }
+}
+

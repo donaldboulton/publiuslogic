@@ -1,11 +1,13 @@
 ---
 templateKey: article-page
 title: React Hook Form
-path: /react-hook-form
 slug: React Hook Form
+path: /react-hook-form
 date: 2019-04-23T20:20:43.942Z
 category: 'tech'
 cover: '/images/react-hook-form.jpg'
+featured: false
+related: true
 tags:
   - Gatsby
   - Forms
