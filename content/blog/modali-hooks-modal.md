@@ -9,12 +9,8 @@ cover: '/images/modali-logo.jpg'
 featured: false
 related: true
 tags:
-  - React
   - Hooks
   - Modali
-  - Modal
-  - WebDev
-  - Tutorial
 meta_title: Modali Hooks Modal
 meta_description: Modali Hooks Modal
 tweet_id: '1118651504674725888'

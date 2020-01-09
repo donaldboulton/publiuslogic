@@ -9,11 +9,8 @@ cover: '/images/react-hooks-modal.jpg'
 featured: false
 related: true
 tags:
-  - React
   - Hooks
   - Modal
-  - WebDev
-  - Tutorial
 meta_title: React Hooks Modal
 meta_description: React Hooks Modal  
 tweet_id: '1118651504674725888'

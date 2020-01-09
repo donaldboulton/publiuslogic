@@ -1,20 +1,16 @@
 ---
 templateKey: article-page
-title: Gatsby React Scroll toTop
-slug: Gatsby React Scroll toTop
-path: /gatsby-react-scroll-toTop
+title: Scroll toTop
+slug: Scroll toTop
+path: /scroll-toTop
 date: 2019-04-22T20:20:43.942Z
 category: 'tech'
 cover: '/images/top.jpg'
 featured: false
 related: true
 tags:
-  - Gatsby
   - toTop
-  - React
   - Scroll
-  - WebDev
-  - Tutorial
 meta_title: Scroll toTop or Bottom
 meta_description: Gatsby React Scroll toTop. Built with React Hooks, Styled Components and Love
 tweet_id: '1118651504674725888'

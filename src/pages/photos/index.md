@@ -1,8 +1,8 @@
 ---
 templateKey: photos-page
 title: Photos
-date: 2019-11-08T20:20:43.942Z
 slug: Photos
+date: 2019-11-08T20:20:43.942Z
 cover: /images/tiger.jpg
 meta_title: Cat Photos
 meta_description: >-

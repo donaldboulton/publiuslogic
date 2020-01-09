@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import config from '../../_data/config'
+import config from '../../../_data/config'
 
 const Meta = props => {
   const { data } = props
@@ -22,15 +22,15 @@ const Meta = props => {
   // schema.org via JSON-LD
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'TechArticle',
     '@id': rootUrl + `/${path}`,
     name: 'Publius Logic',
+    proficiencyLevel: 'Expert',
     image: {
       '@type': 'ImageObject',
       url: postImage,
     },
     sameAs: rootUrl + `/${path}`,
-    priceRange: '$0.1',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '720 S. Rockwell',
@@ -85,10 +85,10 @@ const Meta = props => {
     articleBody: body,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: data.rating.ratingValue,
+      ratingValue: '4.5',
       bestRating: '5',
       worstRating: '1',
-      ratingCount: data.rating.ratingCount,
+      ratingCount: '1',
     },
     review: {
       '@type': 'Review',
@@ -110,7 +110,7 @@ const Meta = props => {
         '@type': 'Rating',
         worstRating: '1',
         bestRating: '5',
-        ratingValue: data.rating.ratingValue,
+        ratingValue: '4.5',
       },
     },
   }

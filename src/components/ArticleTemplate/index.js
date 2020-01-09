@@ -1,8 +1,6 @@
 import React from 'react'
 import Content from '../Content'
 import ScrollDown from '../ScrollDown'
-import { kebabCase } from 'lodash'
-import { Link } from 'gatsby'
 import Prism from '../../utils/prism'
 
 require('prismjs')
@@ -20,16 +18,7 @@ require('prismjs/components/prism-graphql')
 
 const ArticleTemplate = ({
   content,
-  markdownRemark,
-  cover,
-  imageWidth,
   contentComponent,
-  category,
-  meta_title,
-  meta_description,
-  date,
-  tags,
-  title,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -42,28 +31,6 @@ const ArticleTemplate = ({
       />
       <Prism />
       <PostContent content={content} />
-      <hr />
-      <div className='container content'>
-        <div className='columns is-desktop is-vcentered'>
-          <div className='column is-10' style={{ marginTop: `2rem` }}>
-            <h4>Tags</h4>
-            <ul className='taglist'>
-              {(tags && tags.length)
-                ? tags.map(tag => (
-                  <li key={tag + `tag`}>
-                    <Link className='button is-small' to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                  </li>
-                ))
-                : null
-              }
-            </ul>
-          </div>
-          <div className='column'>
-            <h4>Category</h4>
-            <Link className='button is-small' to='/categories/'>{category}</Link>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

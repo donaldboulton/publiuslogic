@@ -9,11 +9,8 @@ category: 'tech'
 featured: true
 related: true
 tags:
-  - Gatsby 
   - Netlify CMS
-  - Identity Widget
-  - WebDev
-  - Tutorial
+  - Identity
 meta_title: Keep it clean = No Plugins
 meta_description: >-
   Gatsby Netlify No Plugins; Netlify CMS and Netlify Identity with my own styling

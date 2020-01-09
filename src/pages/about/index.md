@@ -1,6 +1,7 @@
 ---
 templateKey: about-page
 title: About Us
+slug: About Us
 path: /about-us
 date: 2019-11-09T20:20:43.942Z
 cover: ./about.jpg

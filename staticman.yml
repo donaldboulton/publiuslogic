@@ -1,5 +1,5 @@
 ratings:
-  allowedFields: ["rating", "postPath"]
+  allowedFields: ["rating", "postPath", "message"]
   branch: "master"
   commitMessage: "Rating PubliusLogic"
   filename: "rating{@timestamp}"

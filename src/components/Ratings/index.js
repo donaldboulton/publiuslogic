@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
 import theme from './buttons.css'
 import Content from './Content'
-import { globalHistory } from '@reach/router'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -16,11 +15,12 @@ import { globalHistory } from '@reach/router'
   https://github.com/netlify/code-examples/blob/master/forms/html-invisible-recaptcha.html
 */
 
-const submitRating = (rating) => {
-  const path = globalHistory.location.pathname
+const submitRating = ({ post, rating, message }) => {
+  const path = post.fields.slug
   const data = {
     'fields[rating]': rating,
-    'fields[postPath]': path,
+    'fields[path]': path,
+    'fields[message]': message,
   }
 
   const XHR = new XMLHttpRequest()
@@ -61,16 +61,15 @@ const submitRating = (rating) => {
   XHR.send(urlEncodedData)
 }
 
-const RatingForm = ({ location }) => {
+const RatingForm = ({ path }) => {
   const title = config.siteTitle
-  const path = globalHistory.location.pathname
 
   return (
     <ThemeProvider theme={theme}>
       <>
         <Content>
           <input type='hidden' name='form-name' value='ratings' />
-          <input name='fields[postPath]' type='hidden' value={path} />
+          <input name='fields[path]' type='hidden' value={path} />
           <input name='title' type='hidden' value={title} />
           <strong>Is this a useful post? Please give us a rating!</strong>
           <div className='reviews'>
@@ -82,6 +81,20 @@ const RatingForm = ({ location }) => {
               size={24}
               color2='#ffe600'
             />
+          </div>
+          <label htmlFor='message' className='hidden'>Message</label>
+          <div className='field'>
+            <div className='control'>
+              <input
+                className='input input-control'
+                type='text'
+                aria-label='Message'
+                aria-required='false'
+                placeholder='Message'
+                name='message'
+                id='message'
+              />
+            </div>
           </div>
         </Content>
       </>

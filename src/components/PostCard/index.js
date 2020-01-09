@@ -33,8 +33,8 @@ const PostCard = ({ posts, category, date, timeToRead, inTitle = false }) => {
                         <span className='subtitle is-size-5'>
                           <Calendar size='1em' /><small>&nbsp;{post.frontmatter.date}</small>&nbsp;
                           <Timer size='1em' />&nbsp;
-                          <small key={post.timeToRead}>{post.timeToRead}&nbsp;min read</small>&nbsp;
-                          <Category><FileSymlinkFile size='1em' />&nbsp;<small>Category:</small>&nbsp;<Link aria-label='Categories' to='/categories/'><small>{post.frontmatter.category}</small></Link></Category>
+                          <small key={post.timeToRead}>{post.timeToRead}&nbsp;min</small>&nbsp;
+                          <Category><FileSymlinkFile size='1em' />&nbsp;<small>List:</small>&nbsp;<Link aria-label='Categories' to='/categories/'><small>{post.frontmatter.category}</small></Link></Category>
                         </span>
                       </div>
                     </Meta>

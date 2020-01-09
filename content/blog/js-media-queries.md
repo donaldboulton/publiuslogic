@@ -1,8 +1,8 @@
 ---
 templateKey: article-page
-title: JavaScript media queries
-slug: JS media queries
-path: /js-media-queries
+title: JS mediaQueries
+slug: JS mediaQueries
+path: /js-mediaquerys
 date: 2019-04-18T20:20:43.942Z
 updated: 2019-12-18T20:20:43.942Z
 category: 'tech'
@@ -11,8 +11,6 @@ featured: false
 related: true
 tags:
   - mediaQueries
-  - WebDev
-  - Tutorial
 meta_title: JS media queries & Styled Components
 meta_description: And how to hook into them
 tweet_id: '1118651504674725888'

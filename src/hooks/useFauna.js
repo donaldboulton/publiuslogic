@@ -85,7 +85,7 @@ export default function useFauna () {
         }),
       )
       .then(() => getServerLists(client))
-  };
+  }
 
   const addTodo = (list, id) => title => {
     var newTodo = {
@@ -107,7 +107,7 @@ export default function useFauna () {
         }),
       )
       .then(() => fetchList(id))
-  };
+  }
 
   // const toggleAll = (checked, list) => {
   //   return client.query(
@@ -131,7 +131,7 @@ export default function useFauna () {
         }),
       )
       .then(() => fetchList(id))
-  };
+  }
 
   const destroy = (todo, id) =>
     client.query(q.Delete(todo.ref)).then(() => fetchList(id))
@@ -144,7 +144,7 @@ export default function useFauna () {
         }),
       )
       .then(() => fetchList(id))
-  };
+  }
 
   const clearCompleted = (list, id) => {
     return client
@@ -158,7 +158,7 @@ export default function useFauna () {
         ),
       )
       .then(() => fetchList(id))
-  };
+  }
 
   return {
     lists,

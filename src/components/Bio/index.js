@@ -5,6 +5,7 @@ import GithubButtonsRepo from '../GithubButtonsRepo'
 import { GithubButtons } from '../styles/ArticleStyles'
 import { Twitter } from 'styled-icons/fa-brands'
 import Image from 'gatsby-image'
+import github from '../../../static/img/github.svg'
 import { rhythm } from '../../utils/typography'
 
 const Bio = (slug) => {
@@ -16,7 +17,7 @@ const Bio = (slug) => {
             ...GatsbyImageSharpFixed
           }
         }
-      }
+      }      
       site {
         siteMetadata {
           author
@@ -34,7 +35,7 @@ const Bio = (slug) => {
   return (
     <div className='columns'>
       <div
-        className='column is-6'
+        className='column is-10'
         style={{
           display: `flex`,
           marginBottom: rhythm(1),
@@ -75,11 +76,22 @@ const Bio = (slug) => {
               <Twitter size='14' color='#1b95e0' />
             </span>
             <span>&nbsp;Follow</span>
-          </a>
+          </a>&nbsp;<GithubButtons><GithubButtonsRepo /></GithubButtons>
         </p>
       </div>
       <div className='column is-pulled-right'>
-        <GithubButtons><GithubButtonsRepo /></GithubButtons>
+        <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
+          <img
+            style={{
+              marginBottom: 0,
+              width: 50,
+              minWidth: 50,
+              borderRadius: `50%`,
+            }}
+            src={github}
+            alt='GitHub'
+          />
+        </a>
       </div>
     </div>
   )

@@ -9,11 +9,8 @@ cover: '/images/react-hook-form.jpg'
 featured: false
 related: true
 tags:
-  - Gatsby
   - Forms
   - Hooks
-  - React
-  - Validation
 meta_title: React Hook Form Builder
 meta_description: React Hook Form Builder
 tweet_id: '1118651504674725888'

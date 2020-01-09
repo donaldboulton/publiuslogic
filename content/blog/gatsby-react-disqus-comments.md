@@ -1,19 +1,15 @@
 ---
 templateKey: article-page
-title: Gatsby React Disqus Comments
-slug: Gatsby React Disqus Comments
-path: /gatsby-react-disqus-comments
+title: Disqus Comments
+slug: Disqus Comments
+path: /disqus-comments
 date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: '/images/gatsby-disqus.jpg'
 featured: false
 related: true
 tags:
-  - Gatsby 
-  - React
-  - React Hooks
   - Disqus Comments
-  - Tutorial
 meta_title: Disqus Comments for the weak
 meta_description: Gatsby React Disqus Comments
 tweet_id: '1118651504674725888'

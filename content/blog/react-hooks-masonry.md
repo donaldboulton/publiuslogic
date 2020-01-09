@@ -9,11 +9,8 @@ cover: '/images/masonry.jpg'
 featured: false
 related: true
 tags:
-  - React
   - Masonry
   - Hooks
-  - WebDev
-  - Tutorial
 meta_title: React Hooks Masonry
 meta_description: React Hooks Masonry
 tweet_id: '1118651504674725888'

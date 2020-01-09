@@ -71,7 +71,7 @@ class ContactForm extends Component {
                 <input
                   className='input input-control'
                   type='email'
-                  aria-label='Search Input'
+                  aria-label='Email'
                   aria-required='true'
                   placeholder='Email'
                   name='email'

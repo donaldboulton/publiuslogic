@@ -10,8 +10,6 @@ featured: false
 related: true
 tags:
   - Magnetic Flux
-  - Logic
-  - Theoretical Physics
   - Oil
   - Earth
 meta_title: Earths Magnetic Flux
