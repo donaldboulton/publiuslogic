@@ -85,10 +85,10 @@ const Meta = props => {
     articleBody: body,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '4.5',
+      ratingValue: data.rating.ratingValue,
       bestRating: '5',
       worstRating: '1',
-      ratingCount: '1',
+      ratingCount: data.rating.ratingCount,
     },
     review: {
       '@type': 'Review',
@@ -110,7 +110,7 @@ const Meta = props => {
         '@type': 'Rating',
         worstRating: '1',
         bestRating: '5',
-        ratingValue: '4.5',
+        ratingValue: data.rating.ratingValue,
       },
     },
   }

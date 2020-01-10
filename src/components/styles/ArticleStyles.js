@@ -10,6 +10,11 @@ const customMedia = generateMedia({
   mobileL: '720px',
   mobile: '320px',
 })
+
+export const Reviews = styled.div`
+  font-size: 1rem;
+  color: silver;
+`
 export const Styledh1 = styled.h1`
   display: inline-block;
   font-size: 32px;

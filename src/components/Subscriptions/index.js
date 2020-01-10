@@ -71,7 +71,7 @@ export default class Subscribe extends React.Component {
     render () {
       return (
         <div className='column is-10 is-offset-1'>
-          <article className='message'>
+          <article className='message newsletter'>
             <div className='message-body'>
               <div className='columns is-desktop'>
                 <div className='media column is-1'>

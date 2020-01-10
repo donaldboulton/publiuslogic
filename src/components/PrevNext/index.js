@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, Link, graphql } from 'gatsby'
 
 const PrevNext = () => {
-  const data = useStaticQuery(graphql`
+  const { data } = useStaticQuery(graphql`
       query PrevNextQuery {
         allMarkdownRemark {
           edges {
@@ -27,7 +27,6 @@ const PrevNext = () => {
           }
         }
       }
-    }
   `)
 
   const { next, previous } = data.allMarkdownRemark

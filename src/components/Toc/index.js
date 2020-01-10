@@ -2,9 +2,9 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { TocTitle, TocLink, TocDiv } from '../styles/ArticleStyles'
 
-const TableOfContents = () => {
-  const data = useStaticQuery(graphql`
-    query TableOfContentsQuery {
+const Toc = () => {
+  const { data } = useStaticQuery(graphql`
+    query Toc {
       allMarkdownRemark {
         nodes {
           headings(depth: h6) {
@@ -16,18 +16,16 @@ const TableOfContents = () => {
     }
   `)
 
-  const { depth, value } = data.headings
-
   return (
     <>
       <TocDiv>
         <nav>
           <TocLink
-            key={depth}
+            key={data.headings.value}
             to={data.headings.value}
           >
             <TocTitle>
-              {value}
+              {data.headings.value}
             </TocTitle>
           </TocLink>
         </nav>
@@ -36,5 +34,4 @@ const TableOfContents = () => {
   )
 }
 
-export default TableOfContents
-
+export default Toc

@@ -1,8 +1,6 @@
 import React from 'react'
 import config from '../../../_data/config'
-import { ThemeProvider } from 'styled-components'
 import ReactStars from 'react-stars'
-import theme from './buttons.css'
 import Content from './Content'
 
 /*
@@ -65,14 +63,14 @@ const RatingForm = ({ path }) => {
   const title = config.siteTitle
 
   return (
-    <ThemeProvider theme={theme}>
-      <>
-        <Content>
+    <>
+      <Content>
+        <form name='ratings'>
           <input type='hidden' name='form-name' value='ratings' />
           <input name='fields[path]' type='hidden' value={path} />
           <input name='title' type='hidden' value={title} />
           <strong>Is this a useful post? Please give us a rating!</strong>
-          <div className='reviews'>
+          <div>
             <ReactStars
               onChange={rating => {
                 submitRating(rating, path)
@@ -82,23 +80,29 @@ const RatingForm = ({ path }) => {
               color2='#ffe600'
             />
           </div>
-          <label htmlFor='message' className='hidden'>Message</label>
+          <label htmlFor='message'>Review</label>
           <div className='field'>
-            <div className='control'>
+            <div
+              className='control'
+              style={{
+                width: 300,
+                padding: 0,
+              }}
+            >
               <input
                 className='input input-control'
                 type='text'
                 aria-label='Message'
                 aria-required='false'
-                placeholder='Message'
+                placeholder='Leave a Review'
                 name='message'
                 id='message'
               />
             </div>
           </div>
-        </Content>
-      </>
-    </ThemeProvider>
+        </form>
+      </Content>
+    </>
   )
 }
 

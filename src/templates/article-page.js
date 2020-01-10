@@ -20,13 +20,11 @@ import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
-import TableOfContents from '../components/Toc'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
-import Reviews from '../components/Ratings/ReviewsComponent'
-import PrevNext from '../components/PrevNext/PrevNext'
+
 import { BookContent } from 'styled-icons/boxicons-regular/'
-import { StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, Category, Tag } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, Category, Tag, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
@@ -39,19 +37,22 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data }) => {
+const ArticlePage = ({ data, next, previous, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
 
+  const ratingValue =
+    ratings && ratings.edges
+      ? ratings.edges.reduce(
+        (accumulator, rating) => accumulator + parseInt(rating.node.rating),
+        0,
+      ) / ratings.totalCount
+      : 0
+  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
+
   return (
     <Layout pageTitle={post.title}>
-      <Meta
-        data={{
-          ...post,
-          description: post.meta_description,
-        }}
-      />
       <section className='hero'>
         <StyledTableMenu>
           <Menu2 right customBurgerIcon={<BookContent />}>
@@ -59,7 +60,7 @@ const ArticlePage = ({ data }) => {
               <TocIcon />
                 | Page Contents
             </Title>
-            <TableOfContents />
+            <a href='/'>Home</a>
           </Menu2>
         </StyledTableMenu>
         <PostCover
@@ -68,7 +69,14 @@ const ArticlePage = ({ data }) => {
           coverClassName='post-cover'
         />
       </section>
-      <section className='section'>
+      <Meta
+        data={{
+          ...post,
+          description: post.meta_description,
+          rating: { ratingValue, ratingCount: ratingCount },
+        }}
+      />
+      <section>
         <div className='column is-10 is-offset-1'>
           <section className='section'>
             <Styledh1>
@@ -118,8 +126,15 @@ const ArticlePage = ({ data }) => {
               <hr />
               <div className='container content'>
                 <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
-                  <Reviews />
                   <div className='column is-7'>
+                    <div>
+                      {ratings ? (
+                        <Reviews>
+                        Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} - {' '}
+                          {ratings.totalCount} Reviews
+                        </Reviews>
+                      ) : null}
+                    </div>
                     <Rating />
                   </div>
                   <div className='column is-pulled-right'>
@@ -136,7 +151,34 @@ const ArticlePage = ({ data }) => {
               <section className='section'>
                 <div className='container content'>
                   <div className='column is-10 is-offset-1'>
-                    <PrevNext />
+                    <>
+                      <div className='column is-10 is-offset-1'>
+                        <ul
+                          style={{
+                            display: `flex`,
+                            flexWrap: `wrap`,
+                            justifyContent: `space-between`,
+                            listStyle: `none`,
+                            padding: 0,
+                          }}
+                        >
+                          <li>
+                            {previous && (
+                              <Link className='a' to={previous.frontmatter.slug} rel='prev'>
+                                ← {previous.frontmatter.title}
+                              </Link>
+                            )}
+                          </li>
+                          <li>
+                            {next && (
+                              <Link className='a' to={next.frontmatter.slug} rel='next'>
+                                {next.frontmatter.title} →
+                              </Link>
+                            )}
+                          </li>
+                        </ul>
+                      </div>
+                    </>
                   </div>
                 </div>
               </section>
@@ -177,6 +219,42 @@ export const pageQuery = graphql`
         meta_description
         tags
         cover
+      }
+    }
+    allRatingsJson(
+      filter: { postPath: { ne: "postPath" } }
+      sort: { fields: [date], order: ASC }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          rating
+          postPath
+          message
+        }
+      }
+    }
+    allMarkdownRemark {
+      edges {
+        next {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            cover
+          }
+        }
+        previous {
+          fields {
+            slug
+          }
+          frontmatter {
+            cover
+            title
+          }
+        }
       }
     }
   }

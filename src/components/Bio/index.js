@@ -5,8 +5,9 @@ import GithubButtonsRepo from '../GithubButtonsRepo'
 import { GithubButtons } from '../styles/ArticleStyles'
 import { Twitter } from 'styled-icons/fa-brands'
 import Image from 'gatsby-image'
-import github from '../../../static/img/github.svg'
+import github from '../../../static/img/octo-arm.svg'
 import { rhythm } from '../../utils/typography'
+import './octoarm.scss'
 
 const Bio = (slug) => {
   const data = useStaticQuery(graphql`
@@ -38,7 +39,6 @@ const Bio = (slug) => {
         className='column is-10'
         style={{
           display: `flex`,
-          marginBottom: rhythm(1),
         }}
       >
         <Image
