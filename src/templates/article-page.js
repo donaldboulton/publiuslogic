@@ -24,7 +24,7 @@ import TableOfContents from '../components/Toc'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import Reviews from '../components/Ratings/ReviewsComponent'
-import PrevNext from '../components/PrevNext'
+import PrevNext from '../components/PrevNext/PrevNext'
 import { BookContent } from 'styled-icons/boxicons-regular/'
 import { StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, Category, Tag } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
@@ -70,9 +70,11 @@ const ArticlePage = ({ data }) => {
       </section>
       <section className='section'>
         <div className='column is-10 is-offset-1'>
-          <Styledh1>
-            {post.frontmatter.title}
-          </Styledh1>
+          <section className='section'>
+            <Styledh1>
+              {post.frontmatter.title}
+            </Styledh1>
+          </section>
           <Bio />
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-offset-1'>

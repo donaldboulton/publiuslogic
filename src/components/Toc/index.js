@@ -24,7 +24,7 @@ const TableOfContents = () => {
         <nav>
           <TocLink
             key={depth}
-            to={value}
+            to={data.headings.value}
           >
             <TocTitle>
               {value}
