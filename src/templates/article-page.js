@@ -164,15 +164,15 @@ const ArticlePage = ({ data, next, previous, allRatingsJson: ratings = [] }) => 
                         >
                           <li>
                             {previous && (
-                              <Link className='a' to={previous.frontmatter.slug} rel='prev'>
-                                ← {previous.frontmatter.title}
+                              <Link className='a' to={data.allMarkdownRemark.previous.frontmatter.slug} rel='prev'>
+                                ← {data.allMarkdownRemark.previous.frontmatter.title}
                               </Link>
                             )}
                           </li>
                           <li>
                             {next && (
-                              <Link className='a' to={next.frontmatter.slug} rel='next'>
-                                {next.frontmatter.title} →
+                              <Link className='a' to={data.allMarkdownRemark.next.frontmatter.slug} rel='next'>
+                                {data.allMarkdownRemark.next.frontmatter.title} →
                               </Link>
                             )}
                           </li>

@@ -18,11 +18,11 @@ showToc: true
 
 ## Gatsby Serverless FaunaDB
 
-🖥️ Based on 🔗 [Nelifty post](https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/?_ga=2.21698171.1777301599.1576092869-301685750.1573932436#wrapping-up)
+🖥️ Based on 🔗 [Netlify post](https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/?_ga=2.21698171.1777301599.1576092869-301685750.1573932436#wrapping-up)
 
 And some code functions and the Database schema mixed in from 🔗 [Netlify FaunaDB ToDo](https://github.com/fauna/netlify-faunadb-todomvc) for Netlify Identity Login and to set up the database.
 
-Serverless functions seem to be all the rage these days. But why?
+Server less functions seem to be all the rage these days. But why?
 
 Devs are adopting the FAAS (Functions-as-a-Service) because of:
 
