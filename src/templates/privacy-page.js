@@ -202,14 +202,15 @@ PrivacyPage.propTypes = {
 export default PrivacyPage
 
 export const privacyPageQuery = graphql`
-  query PrivacyPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query PrivacyPage($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
       frontmatter {
         date(formatString: "MMM D, YYYY")
         title
         cover
+        slug
         meta_title
         meta_description
         tags

@@ -1,16 +1,16 @@
 ---
 templateKey: article-page
 title: Gatsby LightGallery Cloudinary
-slug: Gatsby LightGallery Cloudinary
 path: /gatsby-lightgallery-cloudinary
+slug: Gatsby LightGallery Cloudinary
 date: 2019-09-17T20:14:43.942Z
 category: 'tech'
 cover: '/images/cloudinary.jpg'
-featured: false
-related: true
 tags:
+  - Gatsby
   - Cloudinary
   - LightGallery 
+  - WebDev
 meta_title: LightGallery is the Coolest
 meta_description: Gatsby Image Gallery using cloudinary-react and react-lightgallery npm modules, styled with styled components and styled-css-grid.
 tweet_id: '1118651504674725888'

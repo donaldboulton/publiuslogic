@@ -178,8 +178,8 @@ UsersPage.propTypes = {
 export default UsersPage
 
 export const usersPageQuery = graphql`
-  query UsersPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query UsersPage($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
       tableOfContents
@@ -187,6 +187,7 @@ export const usersPageQuery = graphql`
         date(formatString: "MMM D, YYYY")
         title   
         cover
+        slug
         meta_title
         meta_description
         tags

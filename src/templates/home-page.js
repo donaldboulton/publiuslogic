@@ -112,8 +112,8 @@ HomePage.propTypes = {
 export default HomePage
 
 export const pageQuery = graphql`
-  query IndexPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query IndexPage($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       excerpt(pruneLength: 200)
       frontmatter {        
         title

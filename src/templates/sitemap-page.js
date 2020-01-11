@@ -131,12 +131,13 @@ SiteMapPage.propTypes = {
 export default SiteMapPage
 
 export const sitemapPageQuery = graphql`
-  query SiteMapPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query SiteMapPage($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
         cover
+        slug
         meta_title
         meta_description
         tags

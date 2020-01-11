@@ -40,6 +40,7 @@ exports.createPages = ({ actions, graphql }) => {
               title
               cover
               tags
+              slug
               category
               templateKey
               date(formatString: "MMM D, YYYY")
@@ -60,13 +61,11 @@ exports.createPages = ({ actions, graphql }) => {
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
-      const id = post.node.id
       createPage({
         path: post.node.fields.slug,
         component: postTemplate,
         pathPrefix: '/blog',
         context: {
-          id,
           slug: post.node.fields.slug,
           previous,
           next,
@@ -75,7 +74,6 @@ exports.createPages = ({ actions, graphql }) => {
     })
 
     pages.forEach(edge => {
-      const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -83,7 +81,7 @@ exports.createPages = ({ actions, graphql }) => {
         ),
         // additional data can be passed via context
         context: {
-          id,
+          slug: edge.node.fields.slug,
         },
       })
     })
@@ -151,8 +149,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
-      node,
       name: `slug`,
+      node,
       value,
     })
   }

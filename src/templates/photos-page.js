@@ -132,11 +132,12 @@ PhotosPage.propTypes = {
 export default PhotosPage
 
 export const photosPageQuery = graphql`
-  query PhotosPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query PhotosPage($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
         cover
+        slug
         meta_title
         meta_description
         tags

@@ -129,8 +129,8 @@ ContactPage.propTypes = {
 export default ContactPage
 
 export const contactPageQuery = graphql`
-  query ContactPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query ContactPage($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
         cover

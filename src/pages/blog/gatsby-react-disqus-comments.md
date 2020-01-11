@@ -1,15 +1,17 @@
 ---
 templateKey: article-page
-title: Disqus Comments
-slug: Disqus Comments
-path: /disqus-comments
+title: Gatsby React Disqus Comments
+path: /gatsby-react-disqus-comments
+slug: Gatsby React Disqus Comments
 date: 2019-03-25T20:20:43.942Z
 category: 'tech'
 cover: '/images/gatsby-disqus.jpg'
-featured: false
-related: true
 tags:
+  - Gatsby 
+  - React
+  - React Hooks
   - Disqus Comments
+  - Tutorial
 meta_title: Disqus Comments for the weak
 meta_description: Gatsby React Disqus Comments
 tweet_id: '1118651504674725888'
@@ -125,7 +127,7 @@ Then define your Disqus configuration object if you are not using .env or Data/c
 ```js
   const disqusShortname = 'yourShortName'
   const disqusConfig = {
-    identifier: path,
+    identifier: slug,
     title: title,
   }
 ```
@@ -163,7 +165,7 @@ adding
   import { Meta, TagList, Calendar, Timer, Comments } from './styles'
   import config from '../../data/config'
 
-  const PostMeta = ({ title, path, date, readingTime, tags }) => (
+  const PostMeta = ({ title, slug, date, readingTime, tags }) => (
     <Meta>
       <span>
         <Calendar size='1.2em' />
@@ -175,8 +177,8 @@ adding
       </span>
       <span>
         <Comments size='1.2em' />
-        <Link to={`/blog` + path + `#disqus_thread`}>
-          <CommentCount {...disqusConfig({ path, title })} />
+        <Link to={`/blog` + slug + `#disqus_thread`}>
+          <CommentCount {...disqusConfig({ slug, title })} />
         </Link>
       </span>
       <TagList tags={tags} />

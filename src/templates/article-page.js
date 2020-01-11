@@ -200,21 +200,19 @@ ArticlePage.propTypes = {
 export default ArticlePage
 
 export const pageQuery = graphql`
-  query ArticleByID($slug: String!) {
-    markdownRemark(slug: { eq: $slug }) {
+  query ArticleBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id      
       htmlAst
       timeToRead
       tableOfContents
-      excerpt(pruneLength: 200, truncate: true)                          
-      fields {
-        slug
-      }      
+      excerpt(pruneLength: 200, truncate: true)                                
       frontmatter {
         date(formatString: "MMM D, YYYY")
         title
         tweet_id
         path
+        slug
         category
         meta_title
         meta_description
