@@ -23,6 +23,7 @@ import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import { BookContent } from 'styled-icons/boxicons-regular/'
+import Toc from '../components/Toc'
 import { StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, Category, Tag, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
@@ -57,9 +58,10 @@ const ArticlePage = ({ data, next, previous, allRatingsJson: ratings = [] }) => 
           <Menu2 right customBurgerIcon={<BookContent />}>
             <Title>
               <TocIcon />
-                | Page Contents
+                | Table Of Contents
             </Title>
             <a href='/'>Home</a>
+            <Toc />
           </Menu2>
         </StyledTableMenu>
         <PostCover
@@ -198,13 +200,13 @@ ArticlePage.propTypes = {
 export default ArticlePage
 
 export const pageQuery = graphql`
-  query ArticleByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query ArticleByID($slug: String!) {
+    markdownRemark(slug: { eq: $slug }) {
       id      
       htmlAst
       timeToRead
       tableOfContents
-      excerpt(pruneLength: 200)                          
+      excerpt(pruneLength: 200, truncate: true)                          
       fields {
         slug
       }      
@@ -221,7 +223,7 @@ export const pageQuery = graphql`
       }
     }
     allRatingsJson(
-      filter: { postPath: { ne: "postPath" } }
+      filter: { postPath: { eq: $slug } }
       sort: { fields: [date], order: ASC }
     ) {
       totalCount

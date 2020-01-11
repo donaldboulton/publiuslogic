@@ -14,6 +14,7 @@ module.exports = {
     siteDescription: 'PubliusLogic is built and written by Donald Boulton, I write about God, Logic gov and tech on my blogs',
     author: 'Donald Boulton',
     siteUrl: 'https://publiuslogic.com',
+    pathPrefix: '/blog',
     keywords: 'Publiuslogic, Gatsby, React',
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
@@ -160,7 +161,7 @@ module.exports = {
       options: {
         tableOfContents: {
           heading: null,
-          maxDepth: 6,
+          maxDepth: 4,
         },
         plugins: [
           `gatsby-remark-copy-linked-files`,
