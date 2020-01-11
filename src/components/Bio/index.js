@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import { GithubButtons } from '../styles/ArticleStyles'
 import { Twitter } from 'styled-icons/fa-brands'
-import { github } from '../../../static/img/github.svg'
+import github from '../../../static/img/github.svg'
 import Image from 'gatsby-image'
 import { rhythm } from '../../utils/typography'
 
