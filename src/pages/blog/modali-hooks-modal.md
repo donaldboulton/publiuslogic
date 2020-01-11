@@ -7,12 +7,8 @@ date: 2019-04-20T20:20:43.942Z
 category: 'tech'
 cover: '/images/modali-logo.jpg'
 tags:
-  - React
-  - Hooks
   - Modali
   - Modal
-  - WebDev
-  - Tutorial
 meta_title: Modali Hooks Modal
 meta_description: Modali Hooks Modal
 tweet_id: '1118651504674725888'

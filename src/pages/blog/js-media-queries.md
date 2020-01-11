@@ -9,8 +9,6 @@ category: 'tech'
 cover: '/images/js-media-quries.jpg'
 tags:
   - mediaQueries
-  - WebDev
-  - Tutorial
 meta_title: JS media queries & Styled Components
 meta_description: And how to hook into them
 tweet_id: '1118651504674725888'

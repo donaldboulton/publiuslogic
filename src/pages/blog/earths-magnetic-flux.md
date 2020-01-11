@@ -8,10 +8,7 @@ category: 'Logic'
 cover: '/images/earths-magnetic-flux.jpg'
 tags:
   - Magnetic Flux
-  - Logic
-  - Theoretical Physics
   - Oil
-  - Earth
 meta_title: Earths Magnetic Flux
 meta_description: Earths Magnetic Flux and Common Sense on Planetary Issues
 tweet_id: '1118651504674725888'

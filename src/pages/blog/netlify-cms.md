@@ -8,8 +8,7 @@ cover: '/images/netlify-cms.jpg'
 category: 'tech'
 tags:
   - Netlify CMS
-  - Identity Widget
-  - WebDev
+  - Identity
 meta_title: Netlify CMS
 meta_description: Netlify CMS backend for editing data and site pages
 tweet_id: '1118651504674725888'

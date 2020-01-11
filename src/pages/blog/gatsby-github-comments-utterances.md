@@ -7,12 +7,8 @@ date: 2019-04-16T20:20:43.942Z
 category: 'tech'
 cover: '/images/utterances.jpg'
 tags:
-  - Gatsby
-  - GitHub
   - Utterances 
   - Comments
-  - WebDev
-  - Tutorial
 meta_title: Comments as GitHub Issues
 meta_description: Gatsby GitHub Comments Utterances uses withUtterances React npm module. Built with React Hooks and Love
 tweet_id: '1118651504674725888'

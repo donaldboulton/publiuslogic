@@ -7,10 +7,8 @@ date: 2019-04-23T20:20:43.942Z
 category: 'tech'
 cover: '/images/react-hook-form.jpg'
 tags:
-  - Gatsby
   - Forms
   - Hooks
-  - React
   - Validation
 meta_title: React Hook Form Builder
 meta_description: React Hook Form Builder
