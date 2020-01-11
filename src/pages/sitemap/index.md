@@ -16,15 +16,15 @@ tags:
 |  Pages  | Posts  |  Users & CMS  |
 |------|:--------------:|-----:|
 | [Home](https://publiuslogic.com/)  | [All Posts](/blog)  | [Admin](/admin/#/collections/pages)  |
-| [About](/about)  | [Gatsby Netlify noPlugins](/blog/gatsby-netlify-no-plugins)  | [User Administration](/users)  |
-| [Contact](/contact)  | [Gatsby LightGallery Cloudinary](/blog/gatsby-lightgallery-cloudinary)  |   |
-| [Photos](/photos) | [Gatsby Crud Netlify FaunaDB](/blog/gatsby-crud-netlify-fauna)  |   |
-| [Privacy](/privacy) | [Gatsby GitHub Comments Utterances](/blog/gatsby-github-comments-utterances)  |   |
-| [Site Map](/sitemap)  | [Gatsby React toTop](/blog/gatsby-react-scroll-toTop)  |   |
-| [Site Tags](/tags/)  | [Modali Hooks Modal](/blog/modali-hooks-modal)  |  |
-| [Site Categories](/categories/) | [js Media Queries](/blog/js-media-queries)  |   |
-|   | [React Hooks Masonry](/blog/react-hooks-masonry)  |   |
-|   | [Earths Magnetic Flux](/blog/earths-magnetic-flux/)  |   |
-|   | [Netlify CMS](/blog/netlify-cms)  |   |
-|   | [Gatsby React Disqus Comments](/blog/gatsby-react-disqus-comments)  |   |
-|   | [React Hooks Modal](/blog/react-hooks-modal)  |   |
+| [About](/about)  | [Gatsby Netlify noPlugins](/gatsby-netlify-no-plugins)  | [User Administration](/users)  |
+| [Contact](/contact)  | [Gatsby LightGallery Cloudinary](/gatsby-lightgallery-cloudinary)  |   |
+| [Photos](/photos) | [Gatsby Crud Netlify FaunaDB](/gatsby-crud-netlify-fauna)  |   |
+| [Privacy](/privacy) | [Gatsby GitHub Comments Utterances](/gatsby-github-comments-utterances)  |   |
+| [Site Map](/sitemap)  | [Gatsby React toTop](/gatsby-react-scroll-toTop)  |   |
+| [Site Tags](/tags/)  | [Modali Hooks Modal](/modali-hooks-modal)  |  |
+| [Site Categories](/categories/) | [js Media Queries](/js-media-queries)  |   |
+|   | [React Hooks Masonry](/react-hooks-masonry)  |   |
+|   | [Earths Magnetic Flux](/earths-magnetic-flux/)  |   |
+|   | [Netlify CMS](/netlify-cms)  |   |
+|   | [Gatsby React Disqus Comments](/gatsby-react-disqus-comments)  |   |
+|   | [React Hooks Modal](/react-hooks-modal)  |   |

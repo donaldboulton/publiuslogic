@@ -100,15 +100,15 @@ export default props => {
         </Link>
         <h4 className='h4'>Featured Posts</h4>
         <div className='navbar-divider' />
-        <Link className='menu-item' to='/blog/gatsby-netlify-no-plugins' itemProp='url'>
+        <Link className='menu-item' to='/gatsby-netlify-no-plugins' itemProp='url'>
           <span itemProp='name'>Netlify No Plugins&nbsp;<FileAlt size='1em' /></span>
         </Link>
-        <Link className='menu-item' to='/blog/gatsby-crud-netlify-fauna' itemProp='url'>
+        <Link className='menu-item' to='/gatsby-crud-netlify-fauna' itemProp='url'>
           <span itemProp='name'>Gatsby Netlify FaunaDB&nbsp;<FileAlt size='1em' /></span>
         </Link>
         <h4 className='h4'>Common Sense Posts</h4>
         <div className='navbar-divider' />
-        <Link className='menu-item' to='/blog/earths-magnetic-flux' itemProp='url'>
+        <Link className='menu-item' to='/earths-magnetic-flux' itemProp='url'>
           <span itemProp='name'>Magnetic Flux&nbsp;<FileAlt size='1em' /></span>
         </Link>
       </Menu>
