@@ -1,37 +1,47 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import { TocTitle, TocLink, TocDiv } from '../styles/ArticleStyles'
 
-const Toc = () => {
-  const { data } = useStaticQuery(graphql`
-    query Toc {
-      allMarkdownRemark {
-        nodes {
-          headings(depth: h6) {
-            depth
-            value
+const Toc = ({ data, value, title }) => (
+  <TocDiv>
+    <nav>
+      <TocLink
+        key={data.headings.value}
+        to={data.headings.title}
+      >
+        <TocTitle>
+          {data.headings.title}
+        </TocTitle>
+      </TocLink>
+    </nav>
+  </TocDiv>
+)
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query  {
+        allMarkdownRemark {
+          nodes {
+            headings(depth: h6) {
+              depth
+              value
+            }
           }
         }
       }
-    }
-  `)
+    `}
+    render={data => <Toc data={data} {...props} />}
+  />
+)
 
-  return (
-    <>
-      <TocDiv>
-        <nav>
-          <TocLink
-            key={data.headings.value}
-            to={data.headings.value}
-          >
-            <TocTitle>
-              {data.headings.value}
-            </TocTitle>
-          </TocLink>
-        </nav>
-      </TocDiv>
-    </>
-  )
+Toc.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      headings: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
 }
-
-export default Toc

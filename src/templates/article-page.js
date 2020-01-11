@@ -22,7 +22,6 @@ import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
-
 import { BookContent } from 'styled-icons/boxicons-regular/'
 import { StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, Category, Tag, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'

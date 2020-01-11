@@ -64,6 +64,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: post.node.fields.slug,
         component: postTemplate,
+        pathPrefix: '/blog',
         context: {
           id,
           slug: post.node.fields.slug,
@@ -91,7 +92,7 @@ exports.createPages = ({ actions, graphql }) => {
       edges: posts,
       createPage: createPage,
       pageTemplate: 'src/templates/blog.js',
-      pageLength: 8, // This is optional and defaults to 10 if not used
+      pageLength: 7, // This is optional and defaults to 10 if not used
       pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
       context: {}, // This is optional and defaults to an empty object if not used
     })
