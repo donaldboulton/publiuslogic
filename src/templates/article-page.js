@@ -1,8 +1,8 @@
 import React from 'react'
 import RehypeReact from 'rehype-react'
+import { kebabCase } from 'lodash'
 import Menu2 from 'react-burger-menu/lib/menus/stack'
 import { Calendar, FileSymlinkFile } from 'styled-icons/octicons/'
-import { Tags } from 'styled-icons/fa-solid/'
 import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
@@ -23,8 +23,9 @@ import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import Toc from '../components/Toc'
-import { BookContent } from 'styled-icons/boxicons-regular/'
-import { StyledTableMenu, Styledh1, Title, TocIcon, MetaPage, Category, TagList, Reviews } from '../components/styles/ArticleStyles'
+import { Tags } from 'styled-icons/fa-solid/Tags'
+import PrevNext from '../components/PrevNext'
+import { StyledTableMenu, Styledh1, Title, TableOfContents, PostTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
@@ -37,7 +38,7 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
+const ArticlePage = ({ data, pageContext, location, data: { allMarkdownRemark: { group }, allRatingsJson: ratings = [] } }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const { slug, prev, next } = pageContext
@@ -52,18 +53,31 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
   const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
 
   return (
-    <Layout pageTitle={post.title}>
+    <Layout pageTitle={post.title} path={location.pathname}>
+      <StyledTableMenu>
+        <Menu2 right customBurgerIcon={<Tags />}>
+          <Title>
+            <PostTocIcon />
+                | Site Tags
+          </Title>
+          <TableOfContents>
+            <ul className='linktoc taglist field is-grouped'>
+              {group.map(tag => (
+                <li className='control' key={tag.fieldValue}>
+                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                    <div className='tags has-addons is-large'>
+                      <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
+                      <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </TableOfContents>
+        </Menu2>
+      </StyledTableMenu>
+      <Toc />
       <section className='hero'>
-        <StyledTableMenu>
-          <Menu2 right customBurgerIcon={<BookContent />}>
-            <Title>
-              <TocIcon />
-                | Table Of Contents
-            </Title>
-            <a href='/'>Home</a>
-            <Toc />
-          </Menu2>
-        </StyledTableMenu>
         <PostCover
           postNode={postNode}
           coverHeight={coverHeight}
@@ -115,7 +129,7 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <div>{renderAst(postNode.htmlAst)}</div>
+              <main>{renderAst(postNode.htmlAst)}</main>
               <ArticleTemplate
                 content={postNode.html}
                 contentComponent={HTMLContent}
@@ -162,32 +176,11 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
               <section className='section'>
                 <div className='container content'>
                   <div className='column is-10 is-offset-1'>
-                    <ul
-                      style={{
-                        display: `flex`,
-                        flexWrap: `wrap`,
-                        justifyContent: `space-between`,
-                        listStyle: `none`,
-                        padding: 0,
-                      }}
-                    >
-                      <li>
-                        {prev && (
-                          <div>
-                            <h3 css='text-align: left;'>← Previous</h3>
-                            <Link to={pageContext.prev.fields.slug}>{prev.frontmatter.title}</Link>
-                          </div>
-                        )}
-                      </li>
-                      <li>
-                        {next && (
-                          <div>
-                            <h3 css='text-align: right;'>Next →</h3>
-                            <Link to={pageContext.next.fields.slug}>{next.frontmatter.title}</Link>
-                          </div>
-                        )}
-                      </li>
-                    </ul>
+                    <PrevNext
+                      prev={prev && prev.frontmatter.slug}
+                      next={next && next.frontmatter.slug}
+                      label='post'
+                    />
                   </div>
                 </div>
               </section>
@@ -251,26 +244,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark {
-      edges {
-        next {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            cover
-          }
-        }
-        previous {
-          fields {
-            slug
-          }
-          frontmatter {
-            cover
-            title
-          }
-        }
+    allMarkdownRemark(limit: 1000) {
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
       }
     }
   }

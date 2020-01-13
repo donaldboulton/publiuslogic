@@ -1,49 +1,37 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Img, PreviousNext, Thumbnail } from './styles'
 
-const PrevNext = ({ next, prev }) => (
-  <div className='column is-10 is-offset-1'>
-    <span>
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-        }}
-      >
-        <li>
-          {prev && (
-            <div>
-              <h3 css='text-align: left;'>← Previous</h3>
-              <Link to={prev.fields.slug}>{prev.frontmatter.title}</Link>
-            </div>
+const PrevNext = ({ prev, next, label, slugPrefix = `` }) => (
+  <PreviousNext>
+    {prev && (
+      <Link to={slugPrefix + prev.slug} rel='prev' css='margin-right: 1em;'>
+        <h3 css='text-align: left;'>← Previous {label}</h3>
+        <Thumbnail>
+          {prev.cover.img && (
+            <Img {...prev.cover.img.sharp || prev.cover.img} />
           )}
-        </li>
-        <li>
-          {next && (
-            <div>
-              <h3 css='text-align: right;'>Next →</h3>
-              <Link to={next.fields.slug}>{next.frontmatter.title}</Link>
-            </div>
+          <h4>{prev.title}</h4>
+        </Thumbnail>
+      </Link>
+    )}
+    {next && (
+      <Link to={slugPrefix + next.slug} rel='next' css='margin-left: auto;'>
+        <h3 css='text-align: right;'>Next {label} →</h3>
+        <Thumbnail>
+          {next.cover.img && (
+            <Img {...next.cover.img.sharp || next.cover.img} />
           )}
-        </li>
-      </ul>
-    </span>
-  </div>
-
+          <h4>{next.title}</h4>
+        </Thumbnail>
+      </Link>
+    )}
+  </PreviousNext>
 )
 
 export default PrevNext
 
 PrevNext.propTypes = {
-  next: PropTypes.object,
-  prev: PropTypes.object,
-}
-
-PrevNext.defaultProps = {
-  next: null,
-  prev: null,
+  label: PropTypes.string.isRequired,
 }

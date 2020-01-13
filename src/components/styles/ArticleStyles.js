@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Tag } from 'styled-icons/fa-solid/Tag'
 import { Tags } from 'styled-icons/fa-solid/Tags'
 import { Table } from 'styled-icons/boxicons-regular/'
@@ -31,13 +31,17 @@ export const Rating = styled.div`
 `
 export const StyledTableMenu = styled.div` 
   .bm-item {
-    text-align: left;
-    background: transparent;
-    display: inline-block;
-    text-decoration: none;
-    margin-bottom: 2vh;
-    background: ${props => props.theme.black};
+    display: flex;
+    flex-wrap: wrap;
     color: ${props => props.theme.links};
+    margin: 0.5em 0;
+    > * {
+      display: flex;
+      align-items: center;
+    }
+    > :not(:last-child) {
+      margin-right: 1em;
+    }
     transition: color 0.2s;
   }
   .bm-item:hover {
@@ -141,6 +145,12 @@ export const Title = styled.h2`
   border-bottom: 1px solid ${props => props.theme.black};
 `
 export const TocIcon = styled(Table)`
+  width: 1em;
+  margin-right: 0.2em;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
+`
+export const PostTocIcon = styled(Tags)`
   width: 1em;
   margin-right: 0.2em;
   background: ${props => props.theme.black};

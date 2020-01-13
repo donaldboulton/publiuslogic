@@ -15,7 +15,6 @@ const StyledBurgerMenu = styled.div`
     display: inline-block;
     text-decoration: none;
     margin-bottom: 2vh;
-    color: ${props => props.theme.links};
     transition: color 0.2s;
   }
   .bm-item:hover {

@@ -36,3 +36,4 @@ const ArticleTemplate = ({
 }
 
 export default ArticleTemplate
+

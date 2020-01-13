@@ -2,7 +2,7 @@
 templateKey: article-page
 title: Gatsby SEO
 path: /gatsby-seo
-slug: Gatsby SEO
+slug: /gatsby-seo
 date: 2019-07-30T20:14:43.942Z
 category: 'tech'
 cover: '/images/json-ld.jpg'

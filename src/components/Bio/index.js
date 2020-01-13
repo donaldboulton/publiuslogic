@@ -8,7 +8,7 @@ import github from '../../../static/img/github.svg'
 import Image from 'gatsby-image'
 import { rhythm } from '../../utils/typography'
 
-const Bio = (slug) => {
+const Bio = ({ slug }) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/donald-boulton.jpg/" }) {
@@ -21,6 +21,7 @@ const Bio = (slug) => {
       site {
         siteMetadata {
           author
+          siteUrl
           social {
             twitter
           }
@@ -28,12 +29,10 @@ const Bio = (slug) => {
       }
     }
   `)
-
   const { author } = data.site.siteMetadata
   const title = config.userTwitter
-  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-  const url = config.siteUrl + realPrefix + slug
-  const githubEditme = config.githubEditme + realPrefix + slug
+  const url = config.siteUrl + slug
+  const githubEditme = config.githubEditme + slug
   return (
     <div className='columns'>
       <div
