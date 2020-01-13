@@ -35,7 +35,6 @@ exports.createPages = ({ actions, graphql }) => {
               value
             }            
             timeToRead  
-            tableOfContents
             frontmatter {
               title
               cover
@@ -58,16 +57,16 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges
     const pages = result.data.allMarkdownRemark.edges
 
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    posts.forEach((edge, index) => {
       const next = index === 0 ? null : posts[index - 1].node
+      const prev = index === posts.length - 1 ? null : posts[index + 1].node
+
       createPage({
-        path: post.node.fields.slug,
+        path: edge.node.fields.slug,
         component: postTemplate,
-        pathPrefix: '/blog',
         context: {
-          slug: post.node.fields.slug,
-          previous,
+          slug: edge.node.fields.slug,
+          prev,
           next,
         },
       })
@@ -90,7 +89,7 @@ exports.createPages = ({ actions, graphql }) => {
       edges: posts,
       createPage: createPage,
       pageTemplate: 'src/templates/blog.js',
-      pageLength: 7, // This is optional and defaults to 10 if not used
+      pageLength: 6, // This is optional and defaults to 10 if not used
       pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
       context: {}, // This is optional and defaults to an empty object if not used
     })

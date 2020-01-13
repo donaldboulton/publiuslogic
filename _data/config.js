@@ -7,6 +7,7 @@ const config = {
   siteCover: '/img/sunset-kitzeberg-fjord.jpg', // Logo used for SEO and manifest.
   siteHomeCover: 'https://publiuslogic.com/static/sunset-kitzeberg-fjord.jpg', // Logo used for SEO and manifest.
   siteUrl: 'https://publiuslogic.com', // Domain of your website without pathPrefix.
+  githubEditme: 'https://github.com/donaldboulton/publiuslogic/blob/master/src/pages/blog',
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: 'PubliusLogic to publish common sense.', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.

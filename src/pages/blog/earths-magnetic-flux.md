@@ -6,7 +6,9 @@ slug: Earths Magnetic Flux
 date: 2019-09-02T20:20:43.942Z
 category: 'Logic'
 cover: '/images/earths-magnetic-flux.jpg'
+featured: true
 tags:
+  - Earth
   - Magnetic Flux
   - Oil
 meta_title: Earths Magnetic Flux

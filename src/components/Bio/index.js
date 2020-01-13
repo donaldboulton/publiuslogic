@@ -31,7 +31,9 @@ const Bio = (slug) => {
 
   const { author } = data.site.siteMetadata
   const title = config.userTwitter
-  const url = config.siteUrl + slug
+  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+  const url = config.siteUrl + realPrefix + slug
+  const githubEditme = config.githubEditme + realPrefix + slug
   return (
     <div className='columns'>
       <div
@@ -79,7 +81,7 @@ const Bio = (slug) => {
         </p>
       </div>
       <div className='column is-pulled-right'>
-        <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' role='button' rel='noopener noreferrer'>
+        <a title='Github' className='github-corner' href={githubEditme} target='_blank' role='button' rel='noopener noreferrer'>
           <img
             style={{
               height: 45,

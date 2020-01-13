@@ -22,9 +22,9 @@ import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
-import { BookContent } from 'styled-icons/boxicons-regular/'
 import Toc from '../components/Toc'
-import { StyledTableMenu, Styledh1, Title, TocIcon, Time, Date, Category, Tag, Reviews } from '../components/styles/ArticleStyles'
+import { BookContent } from 'styled-icons/boxicons-regular/'
+import { StyledTableMenu, Styledh1, Title, TocIcon, MetaPage, Category, TagList, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
@@ -37,11 +37,11 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, next, previous, allRatingsJson: ratings = [] }) => {
+const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
+  const { slug, prev, next } = pageContext
   const coverHeight = '100%'
-
   const ratingValue =
     ratings && ratings.edges
       ? ratings.edges.reduce(
@@ -87,16 +87,26 @@ const ArticlePage = ({ data, next, previous, allRatingsJson: ratings = [] }) => 
           <Bio />
           <div className='columns is-desktop is-vcentered'>
             <div className='column is-offset-1'>
-              <span className='subtitle is-size-5'>
-                <Calendar size='0.9em' />&nbsp;
-                <Date><small>{post.frontmatter.date}</small></Date>&nbsp;
-                <Timer size='0.9em' />&nbsp;
-                <Time><small>{post.timeToRead}</small>&nbsp;min read</Time>&nbsp;
-                <Tags size='0.9em' />&nbsp;
-                <Tag><small>{post.frontmatter.tags}</small></Tag>&nbsp;
-                <FileSymlinkFile size='0.9em' />&nbsp;
-                <Category><Link aria-label='Categories' to='/categories/'><small>{post.frontmatter.category}</small></Link></Category>
-              </span>
+              <MetaPage>
+                <span>
+                  <Calendar size='1.2em' />
+                &ensp;
+                  {post.frontmatter.date}
+                </span>
+                <span>
+                  <Timer size='1.2em' />
+                &ensp;
+                  {post.timeToRead} min read
+                </span>
+                <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
+                <span>
+                  <FileSymlinkFile size='1.2em' />
+                  &ensp;
+                  Category:
+                  &ensp;
+                  <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
+                </span>
+              </MetaPage>
             </div>
           </div>
         </div>
@@ -152,34 +162,32 @@ const ArticlePage = ({ data, next, previous, allRatingsJson: ratings = [] }) => 
               <section className='section'>
                 <div className='container content'>
                   <div className='column is-10 is-offset-1'>
-                    <>
-                      <div className='column is-10 is-offset-1'>
-                        <ul
-                          style={{
-                            display: `flex`,
-                            flexWrap: `wrap`,
-                            justifyContent: `space-between`,
-                            listStyle: `none`,
-                            padding: 0,
-                          }}
-                        >
-                          <li>
-                            {previous && (
-                              <Link className='a' to={post.previous.frontmatter.slug} rel='prev'>
-                                ← {data.allMarkdownRemark.previous.frontmatter.title}
-                              </Link>
-                            )}
-                          </li>
-                          <li>
-                            {next && (
-                              <Link className='a' to={post.next.frontmatter.slug} rel='next'>
-                                {data.allMarkdownRemark.next.frontmatter.title} →
-                              </Link>
-                            )}
-                          </li>
-                        </ul>
-                      </div>
-                    </>
+                    <ul
+                      style={{
+                        display: `flex`,
+                        flexWrap: `wrap`,
+                        justifyContent: `space-between`,
+                        listStyle: `none`,
+                        padding: 0,
+                      }}
+                    >
+                      <li>
+                        {prev && (
+                          <div>
+                            <h3 css='text-align: left;'>← Previous</h3>
+                            <Link to={pageContext.prev.fields.slug}>{prev.frontmatter.title}</Link>
+                          </div>
+                        )}
+                      </li>
+                      <li>
+                        {next && (
+                          <div>
+                            <h3 css='text-align: right;'>Next →</h3>
+                            <Link to={pageContext.next.fields.slug}>{next.frontmatter.title}</Link>
+                          </div>
+                        )}
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </section>
@@ -195,6 +203,18 @@ ArticlePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
+  pageContext: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    next: PropTypes.object,
+    prev: PropTypes.object,
+  }),
+}
+
+ArticlePage.defaultProps = {
+  pageContext: PropTypes.shape({
+    next: null,
+    prev: null,
+  }),
 }
 
 export default ArticlePage
@@ -205,7 +225,6 @@ export const pageQuery = graphql`
       id      
       htmlAst
       timeToRead
-      tableOfContents
       excerpt(pruneLength: 200, truncate: true)                                
       frontmatter {
         date(formatString: "MMM D, YYYY")
@@ -220,17 +239,15 @@ export const pageQuery = graphql`
         cover
       }
     }
-    allRatingsJson(
-      filter: { postPath: { eq: $slug } }
-      sort: { fields: [date], order: ASC }
-    ) {
+    allRatingsJson(filter: {postPath: {ne: "slug"}}, sort: {fields: [date], order: ASC}) {
       totalCount
       edges {
         node {
-          id
           rating
-          postPath
-          message
+          date
+          fields {
+            messageHtml
+          }
         }
       }
     }

@@ -1,68 +1,49 @@
 import React from 'react'
-import { useStaticQuery, Link, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
-const PrevNext = (slug) => {
-  const data = useStaticQuery(graphql`
-      query PrevNextQuery {
-        allMarkdownRemark {
-          edges {
-            next {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                cover
-              }
-            }
-            previous {
-              fields {
-                slug
-              }
-              frontmatter {
-                cover
-                title
-              }
-            }
-          }
-        }
-      }
-  `)
+const PrevNext = ({ next, prev }) => (
+  <div className='column is-10 is-offset-1'>
+    <span>
+      <ul
+        style={{
+          display: `flex`,
+          flexWrap: `wrap`,
+          justifyContent: `space-between`,
+          listStyle: `none`,
+          padding: 0,
+        }}
+      >
+        <li>
+          {prev && (
+            <div>
+              <h3 css='text-align: left;'>← Previous</h3>
+              <Link to={prev.fields.slug}>{prev.frontmatter.title}</Link>
+            </div>
+          )}
+        </li>
+        <li>
+          {next && (
+            <div>
+              <h3 css='text-align: right;'>Next →</h3>
+              <Link to={next.fields.slug}>{next.frontmatter.title}</Link>
+            </div>
+          )}
+        </li>
+      </ul>
+    </span>
+  </div>
 
-  const { next } = data.allMarkdownRemark.edges
-  const { previous } = data.allMarkdownRemark.edges
-
-  return (
-    <>
-      <div className='column is-10 is-offset-1'>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link className='a' to={previous.frontmatter.slug} rel='prev'>
-               ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link className='a' to={next.frontmatter.slug} rel='next'>
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </div>
-    </>
-  )
-}
+)
 
 export default PrevNext
 
+PrevNext.propTypes = {
+  next: PropTypes.object,
+  prev: PropTypes.object,
+}
+
+PrevNext.defaultProps = {
+  next: null,
+  prev: null,
+}

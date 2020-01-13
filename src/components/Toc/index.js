@@ -5,20 +5,18 @@ import { TocTitle, TocDiv } from '../styles/ArticleStyles'
 const Toc = () => (
   <StaticQuery
     query={graphql`
-      query  {
+      {
         allMarkdownRemark {
-          edges {
-            node {
-              html
-              tableOfContents(
-                pathToSlugField: "frontmatter.path"
-                heading: "only show toc from this heading onwards"
-                maxDepth: 2
-              )
-              frontmatter {
-                path
-                title
-              }
+          nodes {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }             
+            headings {
+              depth
+              value
             }
           }
         }
@@ -28,10 +26,10 @@ const Toc = () => (
       <TocDiv>
         <nav>
           <Link
-            to={data.heading}
+            to={data.headings}
           >
             <TocTitle>
-              {data.heading}
+              {data.headings}
             </TocTitle>
           </Link>
         </nav>

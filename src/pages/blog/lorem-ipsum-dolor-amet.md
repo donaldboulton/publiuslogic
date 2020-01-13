@@ -2,10 +2,10 @@
 templateKey: article-page
 title: Lorem Ipsum Dolor Amet
 path: /lorem-ipsum-dolor-amet
-slug: lorem-ipsum-dolor-amet
+slug: Lorem Ipsum Dolor Amet
 date: 2018-03-29T03:55:49.370Z
 cover: '/images/products-full-width.jpg'
-category: 'test'
+category: 'Amet'
 meta_title: Lorem Ipsum Dolor Amet
 meta_description: >-
   Lorem ipsum dolor amet vice pok pok microdosing, authentic listicle enamel pin taxidermy roof party skateboard waistcoat intelligentsia schlitz raclette small batch. Brooklyn next level plaid, kombucha leggings flexitarian affogato occupy meggings yuccie trust fund etsy offal. Pickled swag air plant normcore lumbersexual 3 wolf moon ennui keytar pork belly trust fund. Dreamcatcher hoodie blog tacos viral echo park pour-over.

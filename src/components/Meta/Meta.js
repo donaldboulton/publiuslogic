@@ -31,15 +31,6 @@ const Meta = props => {
       url: postImage,
     },
     sameAs: rootUrl + `/${path}`,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '720 S. Rockwell',
-      addressLocality: 'OKC Ok',
-      addressRegion: 'OK',
-      postalCode: '73128',
-      addressCountry: 'US',
-    },
-    telephone: '+19033361494',
     geo: {
       '@type': 'GeoCoordinates',
       latitude: 35.4584,
@@ -47,13 +38,22 @@ const Meta = props => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'donaldboulton',
+      name: 'PubliusLogic',
       logo: {
         '@type': 'ImageObject',
         url: logo,
         width: '450px',
         height: '450px',
       },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '720 S. Rockwell',
+        addressLocality: 'OKC Ok',
+        addressRegion: 'OK',
+        postalCode: '73128',
+        addressCountry: 'US',
+      },
+      telephone: '+19033361494',
     },
     url: url,
     mainEntityOfPage: {
@@ -85,10 +85,10 @@ const Meta = props => {
     articleBody: body,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: data.rating.ratingValue,
+      ratingValue: props.data.rating.ratingValue,
       bestRating: '5',
       worstRating: '1',
-      ratingCount: data.rating.ratingCount,
+      ratingCount: props.data.rating.ratingCount,
     },
     review: {
       '@type': 'Review',
@@ -110,7 +110,7 @@ const Meta = props => {
         '@type': 'Rating',
         worstRating: '1',
         bestRating: '5',
-        ratingValue: data.rating.ratingValue,
+        ratingValue: props.data.rating.ratingValue,
       },
     },
   }

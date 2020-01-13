@@ -59,6 +59,7 @@ export const lightTheme = {
 
   links: theme.blue,
   hoveredLinks: theme.lightBlue,
+  activeLinks: theme.darkestBlue,
 
   shadowColor: theme.lighterGray,
   borderColor: theme.lighterGray,
@@ -81,6 +82,7 @@ export const darkTheme = {
 
   links: theme.darkOrange,
   hoveredLinks: theme.burntOrange,
+  activeLinks: theme.lightOrange,
 
   shadowColor: `black`,
   borderColor: `black`,

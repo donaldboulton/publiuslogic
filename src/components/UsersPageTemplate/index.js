@@ -9,8 +9,8 @@ const UsersPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
     <>
       <section className='section'>
         <div className='container content'>
-          <div className='columns is-10 is-offset-1'>
-            <div className='column'>
+          <div className='columns'>
+            <div className='column is-10 is-offset-1'>
               <div>
                 <PageContent className='content' content={content} />
               </div>
