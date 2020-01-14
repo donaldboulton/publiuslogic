@@ -101,7 +101,7 @@ const TableOfContents = styled.div`
      color: ${props => props.theme.activeLinks};
   }
 `
-const Title = styled.h2`
+const MenuTitle = styled.h2`
   margin: 0;
   padding-bottom: 0.5em;
   display: grid;
@@ -122,10 +122,10 @@ export default props => {
   return (
     <StyledBurgerMenu>
       <Menu left {...props}>
-        <Title>
+        <MenuTitle>
           <MenuIcon />
             | Site Contents
-        </Title>
+        </MenuTitle>
         <TableOfContents>
           <ul className='linktoc'>
             <li className='menu-item' id='search'>

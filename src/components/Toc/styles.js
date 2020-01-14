@@ -104,7 +104,7 @@ const closedCss = css`
   border-radius: 50%;
 `
 
-export const TocToggle = styled(Cross).attrs(props => ({
+export const Toggle = styled(Cross).attrs(props => ({
   as: props.opener && BookContent,
   size: props.size || `1.6em`,
 }))`

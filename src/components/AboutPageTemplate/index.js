@@ -9,7 +9,7 @@ import DarkModeCommands from '../DarkMode/DarkModeCommands'
 import Bio from '../Bio'
 import Carbon from '../../../static/img/rgAl-carbon.png'
 import { BookContent } from 'styled-icons/boxicons-regular/'
-import { StyledTableMenu, TableOfContents, Title, ArticleTocIcon } from '../styles/ArticleStyles'
+import { StyledTableMenu, TableOfContents, PageTitle, PageTocIcon } from '../styles/ArticleStyles'
 
 const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_description, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -17,10 +17,10 @@ const AboutPageTemplate = ({ title, cover, canonical, meta_title, meta_descripti
     <>
       <StyledTableMenu>
         <Menu3 right customBurgerIcon={<BookContent />}>
-          <Title>
-            <ArticleTocIcon />
+          <PageTitle>
+            <PageTocIcon />
                 | Page Contents
-          </Title>
+          </PageTitle>
           <TableOfContents>
             <ul className='linktoc'>
               <li><Link to='/about/#Technical-notes-about-this-website'>🎁 Tech Notes</Link></li>

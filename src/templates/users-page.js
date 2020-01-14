@@ -13,7 +13,7 @@ import PostCover from '../components/PostCover'
 import Menu6 from 'react-burger-menu/lib/menus/stack'
 import Bio from '../components/Bio'
 import { Tags } from 'styled-icons/fa-solid/Tags'
-import { StyledTableMenu, TableOfContents, Styledh1, Title, ArticleTocIcon, MetaPage, TagList } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, TableOfContents, Styledh1, PageTitle, ArticleTocIcon, MetaPage, TagList } from '../components/styles/ArticleStyles'
 
 const UsersPage = ({ data, location, data: { allMarkdownRemark: { group } } }) => {
   const { markdownRemark: post } = data
@@ -101,10 +101,10 @@ const UsersPage = ({ data, location, data: { allMarkdownRemark: { group } } }) =
       </Helmet>
       <StyledTableMenu>
         <Menu6 right customBurgerIcon={<Tags />}>
-          <Title>
+          <PageTitle>
             <ArticleTocIcon />
                 | Site Tags
-          </Title>
+          </PageTitle>
           <TableOfContents>
             <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
               {group.map(tag => (
@@ -179,7 +179,7 @@ UsersPage.propTypes = {
 
 export default UsersPage
 
-export const pageQuery = graphql`
+export const usersPageQuery = graphql`
   query UsersBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id      

@@ -26,6 +26,8 @@ export const StyledTableMenu = styled.div`
     display: inline-block;
     text-decoration: none;
     margin-bottom: 2vh;
+    background: ${props => props.theme.black};
+    color: ${props => props.theme.links};
     transition: color 0.2s;
   }
   .bm-item:hover {
@@ -38,7 +40,7 @@ export const StyledTableMenu = styled.div`
     position: fixed;
     width: 30px;
     height: 26px;
-    right: 4.4vw;
+    right: 1.4vw;
     top: 2.2vh;
   }
   .bm-burger-bars {
@@ -118,7 +120,7 @@ export const HomeStyledh1 = styled.h1`
   background-position: 50% 50%;
   text-align: center;
 `
-export const Title = styled.h2`
+export const PageTitle = styled.h2`
   margin: 0;
   padding-bottom: 0.5em;
   display: grid;
@@ -128,13 +130,13 @@ export const Title = styled.h2`
   color: ${props => props.theme.white};
   border-bottom: 1px solid ${props => props.theme.black};
 `
-export const ArticleTocIcon = styled(Table)`
+export const PageTocIcon = styled(Table)`
   width: 1em;
   margin-right: 0.2em;
   background: ${props => props.theme.black};
   color: ${props => props.theme.white};
 `
-export const PostTocIcon = styled(Tags)`
+export const ArticleTocIcon = styled(Tags)`
   width: 1em;
   margin-right: 0.2em;
   background: ${props => props.theme.black};
@@ -161,6 +163,28 @@ export const Meta = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+`
+export const ButtonDisabled = styled.div`
+  background: transparent;
+  padding: calc(.5em - 1px) .75em;
+  border: thin ${props => props.theme.black};
+  font-size: 0.9em;
+`
+export const Prev = styled.div`
+  span {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: ${props => props.theme.white};
+  }
+`
+export const Next = styled.div`
+  margin-left: auto;
+  text-align: right;
+  span {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: ${props => props.theme.white};
+  }
 `
 export const Category = styled.span`
   font-size: 0.9em;

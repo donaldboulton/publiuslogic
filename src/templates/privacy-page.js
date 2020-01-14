@@ -13,7 +13,7 @@ import Layout from '../components/Layout'
 import config from '../../_data/config'
 import Bio from '../components/Bio'
 import { BookContent } from 'styled-icons/boxicons-regular/'
-import { StyledTableMenu, TableOfContents, Styledh1, Title, ArticleTocIcon, Time, Date, GithubButtons } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, TableOfContents, Styledh1, PageTitle, PageTocIcon, Time, Date, GithubButtons } from '../components/styles/ArticleStyles'
 
 const PrivacyPage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -101,10 +101,10 @@ const PrivacyPage = ({ data }) => {
       </Helmet>
       <StyledTableMenu>
         <Menu5 right customBurgerIcon={<BookContent />}>
-          <Title>
-            <ArticleTocIcon />
+          <PageTitle>
+            <PageTocIcon />
                 | 🔐 Page Contents
-          </Title>
+          </PageTitle>
           <TableOfContents>
             <ul className='linktoc'>
               <li><Link to='/privacy/#User-data-encrypted'>⚓ User Data</Link></li>

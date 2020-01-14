@@ -83,7 +83,7 @@ export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
 
   return (
     <>
-      <Toggle opener open={open} onClick={() => setOpen(true)} size="1.6em" />
+      <Toggle opener open={open} onClick={() => setOpen(true)} size='1.6em' />
       <TocDiv ref={ref} open={open}>
         <Title>
           <TocIcon />
