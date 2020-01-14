@@ -7,8 +7,10 @@ date: 2019-07-06T17:29:36.776Z
 cover: "/images/hero-no-plugins.jpg"
 category: 'tech'
 tags:
-  - Netlify CMS
-  - Identity Widget
+  - Netlify 
+  - CMS
+  - Identity 
+  - Widget
 meta_title: Keep it clean = No Plugins
 meta_description: >-
   Gatsby Netlify No Plugins; Netlify CMS and Netlify Identity with my own styling

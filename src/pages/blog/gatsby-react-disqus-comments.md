@@ -8,7 +8,7 @@ category: 'tech'
 cover: '/images/gatsby-disqus.jpg'
 tags:
   - Hooks
-  - Disqus Comments
+  - Disqus
 meta_title: Disqus Comments for the weak
 meta_description: Gatsby React Disqus Comments
 tweet_id: '1118651504674725888'

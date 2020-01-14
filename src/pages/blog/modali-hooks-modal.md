@@ -9,6 +9,7 @@ cover: '/images/modali-logo.jpg'
 tags:
   - Modali
   - Modal
+  - Hooks
 meta_title: Modali Hooks Modal
 meta_description: Modali Hooks Modal
 tweet_id: '1118651504674725888'

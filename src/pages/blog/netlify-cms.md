@@ -7,7 +7,8 @@ date: 2019-03-22T03:36:27.484Z
 cover: '/images/netlify-cms.jpg'
 category: 'tech'
 tags:
-  - Netlify CMS
+  - Netlify
+  - CMS
   - Identity
 meta_title: Netlify CMS
 meta_description: Netlify CMS backend for editing data and site pages

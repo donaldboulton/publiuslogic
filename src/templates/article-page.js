@@ -1,7 +1,7 @@
 import React from 'react'
 import RehypeReact from 'rehype-react'
 import { kebabCase } from 'lodash'
-import Menu2 from 'react-burger-menu/lib/menus/stack'
+import { Menu4 } from 'react-burger-menu/lib/menus/stack'
 import { Calendar, FileSymlinkFile } from 'styled-icons/octicons/'
 import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
@@ -24,8 +24,7 @@ import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import Toc from '../components/Toc'
 import { Tags } from 'styled-icons/fa-solid/Tags'
-import PrevNext from '../components/PrevNext'
-import { StyledTableMenu, Styledh1, Title, TableOfContents, PostTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, Styledh1, Title, TableOfContents, MetaPage, TagList, ArticleTocIcon, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
@@ -38,10 +37,20 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, pageContext, location, data: { allMarkdownRemark: { group }, allRatingsJson: ratings = [] } }) => {
+const NavLink = props => {
+  if (!props.test) {
+    return <Link to={props.url}>{props.text}</Link>
+  } else {
+    return <span>{props.text}</span>
+  }
+}
+
+const ArticlePage = ({ data, location, pageContext, allRatingsJson: ratings = [], data: { allMarkdownRemark: { group } } }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  const { slug, prev, next } = pageContext
+  const { group, index, first, last, pageCount } = pageContext
+  const previousUrl = index - 1 == 1 ? '/' : (index - 1).toString()
+  const nextUrl = (index + 1).toString()
   const coverHeight = '100%'
   const ratingValue =
     ratings && ratings.edges
@@ -55,15 +64,15 @@ const ArticlePage = ({ data, pageContext, location, data: { allMarkdownRemark: {
   return (
     <Layout pageTitle={post.title} path={location.pathname}>
       <StyledTableMenu>
-        <Menu2 right customBurgerIcon={<Tags />}>
+        <Menu4 right customBurgerIcon={<Tags />}>
           <Title>
-            <PostTocIcon />
+            <ArticleTocIcon />
                 | Site Tags
           </Title>
           <TableOfContents>
-            <ul className='linktoc taglist field is-grouped'>
+            <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
               {group.map(tag => (
-                <li className='control' key={tag.fieldValue}>
+                <li className='control menu-item' key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
                     <div className='tags has-addons is-large'>
                       <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
@@ -74,9 +83,8 @@ const ArticlePage = ({ data, pageContext, location, data: { allMarkdownRemark: {
               ))}
             </ul>
           </TableOfContents>
-        </Menu2>
+        </Menu4>
       </StyledTableMenu>
-      <Toc />
       <section className='hero'>
         <PostCover
           postNode={postNode}
@@ -129,6 +137,7 @@ const ArticlePage = ({ data, pageContext, location, data: { allMarkdownRemark: {
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
+            <Toc />
               <main>{renderAst(postNode.htmlAst)}</main>
               <ArticleTemplate
                 content={postNode.html}
@@ -176,11 +185,23 @@ const ArticlePage = ({ data, pageContext, location, data: { allMarkdownRemark: {
               <section className='section'>
                 <div className='container content'>
                   <div className='column is-10 is-offset-1'>
-                    <PrevNext
-                      prev={prev && prev.frontmatter.slug}
-                      next={next && next.frontmatter.slug}
-                      label='post'
-                    />
+                    <h4>{pageCount} Pages</h4>
+
+                    {group.map(({ node }) => (
+                      <div key={node.id} className='blogListing'>
+                        <div className='date'>{node.frontmatter.date}</div>
+                        <Link className='blogUrl' to={node.fields.slug}>
+                          {node.frontmatter.title}
+                        </Link>
+                        <div>{node.excerpt}</div>
+                      </div>
+                    ))}
+                    <div className='previousLink'>
+                      <NavLink test={first} url={previousUrl} text='Go to Previous Page' />
+                    </div>
+                    <div className='nextLink'>
+                      <NavLink test={last} url={nextUrl} text='Go to Next Page' />
+                    </div>
                   </div>
                 </div>
               </section>
@@ -206,7 +227,7 @@ ArticlePage.propTypes = {
 ArticlePage.defaultProps = {
   pageContext: PropTypes.shape({
     next: null,
-    prev: null,
+    previous: null,
   }),
 }
 

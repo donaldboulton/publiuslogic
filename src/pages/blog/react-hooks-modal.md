@@ -17,7 +17,7 @@ showToc: true
 
 ## React Hooks Modal
 
-🔗 [janosh.io](https://janosh.io/blog/)
+Taken from 🔗 [janosh.io](https://janosh.io/blog/)
 
 > 🔥 Ready to start coding. But what to do first? One thing that seemed a good fit for hooks are modals. I'd implemented them once or twice before and in both cases came away with the feeling that a class component with all its boilerplate is overkill considering the tiny bit of state management required for modal functionality. As expected, using hooks I was able to boil it down quite considerably. This is what I ended up with.
 
