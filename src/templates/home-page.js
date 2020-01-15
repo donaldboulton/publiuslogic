@@ -1,12 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import HomePageTemplate from '../components/HomePageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
+import Menu7 from 'react-burger-menu/lib/menus/stack'
+import { kebabCase } from 'lodash'
+import { Tags } from 'styled-icons/fa-solid/Tags'
+import { StyledTableMenu, PageTitle, TableOfContents, ArticleTocIcon } from '../components/styles/ArticleStyles'
 
-const HomePage = ({ data }) => {
+const HomePage = ({ data, data: { allMarkdownRemark: { group } } }) => {
   const { frontmatter } = data.markdownRemark
   const image = frontmatter.cover
   const author = config.author
@@ -88,6 +92,28 @@ const HomePage = ({ data }) => {
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
+      <StyledTableMenu>
+        <Menu7 right customBurgerIcon={<Tags />}>
+          <PageTitle>
+            <ArticleTocIcon />
+                | Site Tags
+          </PageTitle>
+          <TableOfContents>
+            <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
+              {group.map(tag => (
+                <li className='control menu-item' key={tag.fieldValue}>
+                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                    <div className='tags has-addons is-large'>
+                      <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
+                      <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </TableOfContents>
+        </Menu7>
+      </StyledTableMenu>
       <HomePageTemplate
         title={frontmatter.title}
         cover={frontmatter.cover}
@@ -114,8 +140,11 @@ export default HomePage
 export const pageQuery = graphql`
   query IndexPage($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 200)
-      frontmatter {        
+      id      
+      html
+      excerpt(pruneLength: 200, truncate: true)                                
+      frontmatter {
+        date(formatString: "MMM D, YYYY")
         title
         cover
         tags
@@ -133,6 +162,44 @@ export const pageQuery = graphql`
           author
           quote
         }
+      }
+    }
+    allRatingsJson(filter: {postPath: {ne: "slug"}}, sort: {fields: [date], order: ASC}) {
+      totalCount
+      edges {
+        node {
+          rating
+          date
+          fields {
+            messageHtml
+          }
+        }
+      }
+    }
+    allMarkdownRemark {
+      edges {
+        next {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            cover
+          }
+        }
+        previous {
+          fields {
+            slug
+          }
+          frontmatter {
+            cover
+            title
+          }
+        }
+      }
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
       }
     }
   }

@@ -81,11 +81,10 @@ const RatingForm = ({ path }) => {
             />
           </div>
           <label htmlFor='message'>Review</label>
-          <div className='field'>
+          <div className='field has-addons'>
             <div
               className='control'
               style={{
-                width: 300,
                 padding: 0,
               }}
             >
@@ -99,6 +98,7 @@ const RatingForm = ({ path }) => {
                 id='message'
               />
             </div>
+            <div className='control'><button className='button' type='submit' aria-label='Submit Review'>Submit</button></div>
           </div>
         </form>
       </Content>

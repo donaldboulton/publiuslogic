@@ -4,24 +4,28 @@ import { Close as Cross } from 'styled-icons/material/Close'
 import mediaQuery from '../../utils/mediaQuery'
 
 const openTocDiv = css`
-  background: ${props => props.theme.darkBg};
+  background: ${props => props.theme.black};
   color: ${props => props.theme.white};
   padding: 0.7em 1.2em;
   border-radius: 0.5em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   border: 1px solid ${props => props.theme.borderColor};
 `
+export const TocWrapper = styled.div`
+    position: -webkit-sticky;
+    position: sticky;
+`
 
 export const TocDiv = styled.div`
   height: max-content;
   max-height: 80vh;
-  background: ${props => props.theme.darkBg};
   border-radius: 4px;
-  border: thin solid ${props => props.theme.darkBg};
+  border: thin solid ${props => props.theme.background};
   z-index: 3;
   line-height: 2em;
   right: 1em;
   margin: 2em;
+  min-width: 22em;
   overscroll-behavior: none;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -49,6 +53,8 @@ export const TocDiv = styled.div`
   ${mediaQuery.maxLaptop} {
     position: fixed;
     bottom: 2em;
+    background: black;
+    color: white;
     left: 1em;
     ${props => !props.open && `height: 0;`};
     ${props => props.open && openTocDiv};
@@ -72,6 +78,8 @@ export const TocTitle = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
 `
 
 export const TocLink = styled.a`
@@ -86,6 +94,7 @@ export const TocLink = styled.a`
 export const TocIcon = styled(BookContent)`
   width: 1em;
   margin-right: 0.2em;
+  background: ${props => props.theme.black};
   color: ${props => props.theme.white};
 `
 
@@ -97,8 +106,8 @@ const openedCss = css`
   }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  background: ${props => props.theme.darkBg};
-  color: ${props => props.theme.white};
+  background: black;
+  color: white;
   border: 2px solid ${props => props.theme.borderColor};
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
@@ -108,6 +117,8 @@ const closedCss = css`
   margin-left: 1em;
   border: 1px solid ${props => props.theme.borderColor};
   border-radius: 50%;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
 `
 
 export const TocToggle = styled(Cross).attrs(props => ({
@@ -116,7 +127,7 @@ export const TocToggle = styled(Cross).attrs(props => ({
 }))`
   z-index: 2;
   transition: 0.3s;
-  background: rgba(0,0,0,.3);
+  background: ${props => props.theme.black};
   color: ${props => props.theme.white};
   justify-self: end;
   :hover {

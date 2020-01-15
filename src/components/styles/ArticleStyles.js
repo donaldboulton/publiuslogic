@@ -170,22 +170,6 @@ export const ButtonDisabled = styled.div`
   border: thin ${props => props.theme.black};
   font-size: 0.9em;
 `
-export const Prev = styled.div`
-  span {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: ${props => props.theme.white};
-  }
-`
-export const Next = styled.div`
-  margin-left: auto;
-  text-align: right;
-  span {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: ${props => props.theme.white};
-  }
-`
 export const Category = styled.span`
   font-size: 0.9em;
   color: ${props => props.theme.white};

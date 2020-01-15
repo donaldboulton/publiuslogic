@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useEventListener } from '../../hooks/useEventListener'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
-import { TocTitle, TocDiv, TocIcon, TocLink, TocToggle } from './styles'
+import { TocTitle, TocDiv, TocIcon, TocLink, TocToggle, TocWrapper } from './styles'
 
 const accumulateOffsetTop = (el, totalOffset = 0) => {
   while (el) {
@@ -48,7 +48,7 @@ export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
     // content increases offsets as user scrolls down.
     const offsets = nodes.map(el => accumulateOffsetTop(el))
     const activeIndex = offsets.findIndex(
-      offset => offset > window.scrollY + 0.8 * window.innerHeight
+      offset => offset > window.scrollY + 0.8 * window.innerHeight,
     )
     setActive(activeIndex === -1 ? titles.length - 1 : activeIndex - 1)
   }, throttleTime)
@@ -57,32 +57,35 @@ export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
   return (
     <>
       <TocToggle opener open={open} onClick={() => setOpen(true)} />
-      <TocDiv ref={ref} open={open}>
-        <TocTitle>
-          <TocIcon />
-          {tocTitle}
-          <TocToggle onClick={() => setOpen(false)} />
-        </TocTitle>
-        <nav>
-          {headings.titles.map(({ title, depth }, index) => (
-            <TocLink
-              key={title}
-              active={active === index}
-              depth={depth - headings.minDepth}
-              onClick={event => {
-                event.preventDefault()
-                setOpen(false)
-                headings.nodes[index].scrollIntoView({
-                  behavior: `smooth`,
-                  block: `center`,
-                })
-              }}
-            >
-              {title}
-            </TocLink>
-          ))}
-        </nav>
-      </TocDiv>
+      <TocWrapper>
+        <TocDiv ref={ref} open={open}>
+          <TocTitle>
+            <TocIcon className='a' />
+            {tocTitle}
+            <TocToggle onClick={() => setOpen(false)} />
+          </TocTitle>
+          <nav>
+            {headings.titles.map(({ title, depth }, index) => (
+              <TocLink
+                key={title}
+                className='a'
+                active={active === index}
+                depth={depth - headings.minDepth}
+                onClick={event => {
+                  event.preventDefault()
+                  setOpen(false)
+                  headings.nodes[index].scrollIntoView({
+                    behavior: `smooth`,
+                    block: `center`,
+                  })
+                }}
+              >
+                {title}
+              </TocLink>
+            ))}
+          </nav>
+        </TocDiv>
+      </TocWrapper>
     </>
   )
 }

@@ -24,7 +24,7 @@ import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import Toc from '../components/Toc'
 import { Tags } from 'styled-icons/fa-solid/Tags'
-import { StyledTableMenu, Styledh1, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, Styledh1, Pagination, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
@@ -40,7 +40,18 @@ const renderAst = new RehypeReact({
 const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  const { slug, prev, next } = pageContext
+  const next = pageContext.next
+    ? {
+      url: `/blog/${pageContext.next.post.fields.slug}`,
+      title: pageContext.next.post.frontmatter.title,
+    }
+    : null
+  const prev = pageContext.prev
+    ? {
+      url: `/blog/${pageContext.prev.post.fields.slug}`,
+      title: pageContext.prev.post.frontmatter.title,
+    }
+    : null
   const coverHeight = '100%'
   const ratingValue =
     ratings && ratings.edges
@@ -173,40 +184,26 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                     <section>
                       <div className='columns'>
                         <div className='column is-10 is-offset-1'>
-                          <ul
-                            style={{
-                              display: `flex`,
-                              flexWrap: `wrap`,
-                              justifyContent: `space-between`,
-                              listStyle: `none`,
-                              padding: 0,
-                            }}
-                          >
-                            <li>
-                              {prev && (
-                                <div>
-                                  <h3 css='text-align: left;'>← Previous</h3>
-                                  <Link to={post.prev.fields.slug}>{post.prev.frontmatter.title}</Link>
-                                </div>
-                              )}
-                            </li>
-                            <li>
-                              {next && (
-                                <div>
-                                  <h3 css='text-align: right;'>Next →</h3>
-                                  <Link to={post.next.fields.slug}>{post.next.frontmatter.title}</Link>
-                                </div>
-                              )}
-                            </li>
-                          </ul>
+                          <Pagination>
+                            {prev && (
+                              <Link to={prev.url}>
+                                <span>Previous</span>
+                                <h3>{prev.title}</h3>
+                              </Link>
+                            )}
+                            {next && (
+                              <Link to={next.url}>
+                                <span>Next</span>
+                                <h3>{next.title}</h3>
+                              </Link>
+                            )}
+                          </Pagination>
                         </div>
                       </div>
                     </section>
                   </div>
                   <div className='column'>
-                    <div className='sticky'>
-                      <Toc />
-                    </div>
+                    <Toc />
                   </div>
                 </div>
               </div>
@@ -221,18 +218,6 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
 ArticlePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
-  }),
-  pageContext: PropTypes.shape({
-    slug: PropTypes.string.isRequired,
-    next: PropTypes.object,
-    prev: PropTypes.object,
-  }),
-}
-
-ArticlePage.defaultProps = {
-  pageContext: PropTypes.shape({
-    next: null,
-    prev: null,
   }),
 }
 

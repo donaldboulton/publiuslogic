@@ -90,14 +90,14 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 > ✔️ Complete Website Suite - Pages = Home, Blog, About, Privacy, Sitemap and Contact
 
 * Netlify CMS for Content Management
+* Netlify Identity for Authentication
 * FaunaDB for Authentication - Users Backend and Admin
 * SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc.)
 * All Twitter Widgets, Meta and SEO
-* Netlify Identity for Authentication
-* Styled Components, Styled Media Query & Bulma for styling
-* Progressive Web App & Offline Support
+* Styled Components, screen mediaMatch mediaQuerys & Bulma for styling
+* Table Of Contents, on or off through frontmatter
 * Tags, Categories and a RSS Feed for Blog
-* Time to Read and a Table Of Contents
+* Time to Read tags categories and published time meta
 * Comments with React withUtterances as GitHub Issues
 * Follow, Mention, Star and Fork GitHub buttons
 * Share Support
@@ -110,7 +110,7 @@ My Netlify CMS backend will build and add Pages, Posts, My layout components wit
 
 PubliusLogic has a `GlobalContextProvider` wrapper for its light and dark Theme, Users{CTX} and FaunaDB{CTX}
 
-## useDarkMode
+### useDarkMode
 
 A custom [React Hook](https://reactjs.org/docs/hooks-overview.html) to help you implement a "dark mode" component for your application.
 The user setting persists to `localStorage`.
@@ -121,7 +121,7 @@ about it.
 
 PubliusLogic is using [use-dark-mode](https://github.com/donavon/use-dark-mode) and its suggested install instructions with [gatsby-plugin-dark-mode | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-plugin-dark-mode/), plugin for Gatsby integration injecting noflash.js.
 
-## Demo
+#### Demo
 
 [Gatsby Starter Publius](https://publiuslogic.com)
 

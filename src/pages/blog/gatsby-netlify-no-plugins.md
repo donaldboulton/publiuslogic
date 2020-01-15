@@ -23,13 +23,13 @@ showToc: true
 
 🔌 I started using Gatsby from Jekyll in March and I was already using netlify and Netlify Identity and Netlify CMS for my personal website so I picked 🔗 [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)  for my first Gatsby Project, and it was slower than some of the other starters I messed around with.
 
-### Adding Netlify Identify Widget
+### Identify Widget
 
 Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and  Netlify Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins.
 
 I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from HotJar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject preload them in my Gatsby Netlify configuration for the gatsby-plugin-netlify in gatsby-config.
 
-### Gatsby Config
+## Gatsby Config
 
 ```js
 {
@@ -68,7 +68,7 @@ I Forked both Netlify CMS and Identity customized them and added the necessary C
 
 For Netlify Identity on the front end I added a folder to my Components as NetlifyIdentity and used the custom build script and its .map file for the Identify Widget service.
 
-### Netlify CMS building this post
+### Building this post
 
 ![Netlify CMS building this post](/img/Cms+Gatsby+Netlify+NoPlugins.jpg)
 
@@ -86,7 +86,7 @@ import NetlifyIdentityWidget from '../IdentityWidget'
 
 Moving the CMS folder that came with the Gatsby Netlify Starter, with the, "cms.js and preview templates", to the /static/admin/cms folder.
 
-### Code for the index.html
+## Code for the index.html
 
 [Repo Link](https://github.com/donaldboulton/publiuslogic/blob/master/static/admin/index.html)
 
