@@ -93,7 +93,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
         <div className='columns'>
           <div className='column is-10 is-offset-1'>
             <div className='columns'>
-              <div className='column is-12 is-offset-1'>
+              <div className='column is-10 is-offset-1'>
                 <section className='section'>
                   <Styledh1>
                     {post.frontmatter.title}
@@ -174,8 +174,8 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                         marginBottom: rhythm(1),
                       }}
                     />
-                    <section className='section'>
-                      <div className='container content'>
+                    <section>
+                      <div className='columns'>
                         <div className='column is-10 is-offset-1'>
                           <ul
                             style={{
@@ -190,7 +190,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                               {prev && (
                                 <div>
                                   <h3 css='text-align: left;'>← Previous</h3>
-                                  <Link to={pageContext.prev.fields.slug}>{prev.frontmatter.title}</Link>
+                                  <Link to={post.prev.fields.slug}>{post.prev.frontmatter.title}</Link>
                                 </div>
                               )}
                             </li>
@@ -198,7 +198,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                               {next && (
                                 <div>
                                   <h3 css='text-align: right;'>Next →</h3>
-                                  <Link to={pageContext.next.fields.slug}>{next.frontmatter.title}</Link>
+                                  <Link to={post.next.fields.slug}>{post.next.frontmatter.title}</Link>
                                 </div>
                               )}
                             </li>

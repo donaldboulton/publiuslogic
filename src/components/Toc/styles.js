@@ -4,8 +4,8 @@ import { Close as Cross } from 'styled-icons/material/Close'
 import mediaQuery from '../../utils/mediaQuery'
 
 const openTocDiv = css`
-  background: ${props => props.theme.background};
-  color: ${props => props.theme.textColor};
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
   padding: 0.7em 1.2em;
   border-radius: 0.5em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
@@ -71,12 +71,12 @@ export const Title = styled.h2`
 `
 
 export const TocLink = styled.a`
-  color: ${({ theme, active }) => (active ? theme.linkColor : theme.textColor)};
+  color: ${({ theme, active }) => (active ? theme.activeLinks : theme.activeLinks)};
   font-weight: ${props => props.active && `bold`};
   display: block;
   margin-left: ${props => props.depth + `em`};
   border-top: ${props =>
-    props.depth === 0 && `1px solid ` + props.theme.lighterGray};
+    props.depth === 0 && `1px solid ` + props.theme.white};
 `
 
 export const TocIcon = styled(BookContent)`
@@ -92,7 +92,8 @@ const openedCss = css`
   }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
   border: 2px solid ${props => props.theme.borderColor};
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
@@ -110,6 +111,8 @@ export const Toggle = styled(Cross).attrs(props => ({
 }))`
   z-index: 2;
   transition: 0.3s;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
   justify-self: end;
   :hover {
     transform: scale(1.1);

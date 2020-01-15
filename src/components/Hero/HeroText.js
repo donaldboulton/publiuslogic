@@ -1,15 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Typist from 'react-typist'
-import { generateMedia } from 'styled-media-query'
-
-const customMedia = generateMedia({
-  desktopL: '2560px',
-  desktop: '1960px',
-  laptop: '1024px',
-  tablet: '768px',
-  mobile: '320px',
-})
+import mediaQuery from '../../utils/mediaQuery'
 
 const StyledTypist = styled(Typist)`
   color: #fff;
@@ -21,7 +13,7 @@ const StyledTypist = styled(Typist)`
   font-weight: 100;
   text-transform: uppercase;
   font-family: 'Roboto';
-  ${customMedia.lessThan('desktop')} {
+  ${mediaQuery.minDesktop} {
     background-size: 80vw;
       &:after, &:before {
       background-size: contain;

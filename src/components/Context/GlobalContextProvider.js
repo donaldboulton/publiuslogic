@@ -7,7 +7,7 @@ const initialState = {
   collapsed: {},
 }
 
-function reducer(state, action) {
+function reducer (state, action) {
   switch (action.type) {
     case 'TOGGLE_NAV_COLLAPSED':
       return {

@@ -2,15 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { generateMedia } from 'styled-media-query'
-
-const customMedia = generateMedia({
-  desktopL: '2560px',
-  desktop: '1960px',
-  laptop: '1024px',
-  tablet: '768px',
-  mobile: '320px',
-})
+import mediaQuery from '../../utils/mediaQuery'
 
 const ImagesSection = ({ className, title, Img, photo, photos }) => (
   <StaticQuery
@@ -58,7 +50,7 @@ const StyledImage = styled(Img)`
 const StyledImagesSection = styled(ImagesSection)`
   position: relative;
   text-align: center;
-  ${customMedia.lessThan('desktop')} {
+  ${mediaQuery.minDesktop} {
     background-size: 200px;
       &:after, &:before {
       background-size: contain;

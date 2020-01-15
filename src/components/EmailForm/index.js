@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { navigate } from 'gatsby-link'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 const encode = (data) => {
@@ -8,7 +7,7 @@ const encode = (data) => {
     .join('&')
 }
 
-class ContactForm extends Component {
+class EmailForm extends React.Component {
   constructor (props) {
     super(props)
     this.state = { isValidated: false }
@@ -28,11 +27,8 @@ class ContactForm extends Component {
       body: encode({
         'form-name': form.getAttribute('name'),
         ...this.state,
-      }),
+      });
     })
-      .then(() => navigate(form.getAttribute('action')))
-      // eslint-disable-next-line
-      .catch(error => alert(error))
   }
 
   render () {
@@ -105,8 +101,8 @@ class ContactForm extends Component {
   }
 };
 
-ContactForm.propTypes = {
+EmailForm.propTypes = {
   title: PropTypes.string,
 }
 
-export default ContactForm
+export default EmailForm

@@ -3,16 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import HeroText from '../Hero/HeroText'
-import { generateMedia } from 'styled-media-query'
-
-const customMedia = generateMedia({
-  desktopL: '2560px',
-  desktop: '1960px',
-  laptop: '1024px',
-  tablet: '768px',
-  mobileL: '720px',
-  mobile: '320px',
-})
+import mediaQuery from '../../utils/mediaQuery'
 
 const BackgroundSection = () => (
   <StaticQuery
@@ -70,14 +61,13 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  ${customMedia.lessThan('desktop')} {
+  ${mediaQuery.desktop} {
     background-size: cover;
       &:after, &:before {
       background-size: contain;
     }
   }
 `
-
 export const StyledTitle = styled.div`
   text-align: center;
   font-size: 1.5em;

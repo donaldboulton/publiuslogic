@@ -7,6 +7,10 @@ oceanBeachTheme.overrideThemeStyles = () => {
     'a.gatsby-resp-image-link': {
       boxShadow: `none`,
     },
+    minFontSize: 0.9,
+    maxFontSize: 1.1,
+    minLineHeight: 1.5,
+    maxLineHeight: 1.8,
   }
 }
 
