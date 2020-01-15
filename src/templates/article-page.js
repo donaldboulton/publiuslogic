@@ -93,43 +93,39 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
         <div className='columns'>
           <div className='column is-10 is-offset-1'>
             <div className='columns'>
-              <div className='column is-10 is-offset-1'>
+              <div className='column is-11 is-offset-1'>
                 <section className='section'>
                   <Styledh1>
                     {post.frontmatter.title}
                   </Styledh1>
                 </section>
                 <Bio />
-                <div className='columns is-desktop is-vcentered'>
-                  <div className='column is-offset-1'>
-                    <MetaPage>
-                      <span>
-                        <Calendar size='1.2em' />
-                        &ensp;
-                        {post.frontmatter.date}
-                      </span>
-                      <span>
-                        <Timer size='1.2em' />
-                        &ensp;
-                        {post.timeToRead} min read
-                      </span>
-                      <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
-                      <span>
-                        <FileSymlinkFile size='1.2em' />
-                         &ensp;
-                            Category:
-                          &ensp;
-                        <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
-                      </span>
-                    </MetaPage>
-                  </div>
-                </div>
+                <MetaPage>
+                  <span>
+                    <Calendar size='1.2em' />
+                    &ensp;
+                    {post.frontmatter.date}
+                  </span>
+                  <span>
+                    <Timer size='1.2em' />
+                     &ensp;
+                    {post.timeToRead} min read
+                  </span>
+                  <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
+                  <span>
+                    <FileSymlinkFile size='1.2em' />
+                      &ensp;
+                        Category:
+                      &ensp;
+                    <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
+                  </span>
+                </MetaPage>
               </div>
             </div>
-            <section className='section'>
+            <section>
               <div className='container content'>
                 <div className='columns'>
-                  <div className='column is-10 is-offset-1'>
+                  <div className='column is-9 is-offset-1'>
                     <main>{renderAst(postNode.htmlAst)}</main>
                     <ArticleTemplate
                       content={postNode.html}
@@ -163,7 +159,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                           </div>
                           <Rating />
                         </div>
-                        <div className='column is-pulled-right'>
+                        <div className='column'>
                           <WebIntents />
                         </div>
                       </div>
@@ -208,7 +204,9 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                     </section>
                   </div>
                   <div className='column'>
-                    <Toc />
+                    <div className='sticky'>
+                      <Toc />
+                    </div>
                   </div>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import { Close as Cross } from 'styled-icons/material/Close'
 import mediaQuery from '../../utils/mediaQuery'
 
 const openTocDiv = css`
-  background: ${props => props.theme.black};
+  background: ${props => props.theme.darkBg};
   color: ${props => props.theme.white};
   padding: 0.7em 1.2em;
   border-radius: 0.5em;
@@ -15,10 +15,13 @@ const openTocDiv = css`
 export const TocDiv = styled.div`
   height: max-content;
   max-height: 80vh;
+  background: ${props => props.theme.darkBg};
+  border-radius: 4px;
+  border: thin solid ${props => props.theme.darkBg};
   z-index: 3;
   line-height: 2em;
   right: 1em;
-  max-width: 20em;
+  margin: 2em;
   overscroll-behavior: none;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -45,7 +48,7 @@ export const TocDiv = styled.div`
   }
   ${mediaQuery.maxLaptop} {
     position: fixed;
-    bottom: 1em;
+    bottom: 2em;
     left: 1em;
     ${props => !props.open && `height: 0;`};
     ${props => props.open && openTocDiv};
@@ -56,12 +59,13 @@ export const TocDiv = styled.div`
   ${mediaQuery.minLaptop} {
     font-size: 0.85em;
     grid-column: 4 / -1;
+    position: -webkit-sticky;
     position: sticky;
     top: 2em;
   }
 `
 
-export const Title = styled.h2`
+export const TocTitle = styled.h2`
   margin: 0;
   padding-bottom: 0.5em;
   display: grid;
@@ -82,6 +86,7 @@ export const TocLink = styled.a`
 export const TocIcon = styled(BookContent)`
   width: 1em;
   margin-right: 0.2em;
+  color: ${props => props.theme.white};
 `
 
 const openedCss = css`
@@ -92,7 +97,7 @@ const openedCss = css`
   }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  background: ${props => props.theme.black};
+  background: ${props => props.theme.darkBg};
   color: ${props => props.theme.white};
   border: 2px solid ${props => props.theme.borderColor};
   border-radius: 0 50% 50% 0;
@@ -105,13 +110,13 @@ const closedCss = css`
   border-radius: 50%;
 `
 
-export const Toggle = styled(Cross).attrs(props => ({
+export const TocToggle = styled(Cross).attrs(props => ({
   as: props.opener && BookContent,
   size: props.size || `1.6em`,
 }))`
   z-index: 2;
   transition: 0.3s;
-  background: ${props => props.theme.black};
+  background: rgba(0,0,0,.3);
   color: ${props => props.theme.white};
   justify-self: end;
   :hover {
