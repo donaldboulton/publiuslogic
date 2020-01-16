@@ -1,5 +1,5 @@
 ---
-templateKey: users-page
+templateKey: privacy-page
 title: Users Admin
 slug: Users Admin
 date: 2019-11-10T20:20:43.942Z
@@ -20,3 +20,5 @@ showToc: true
 _[`under-construction` CMS admin](/admin/#/collections/pages)_
 
 Only the todo is here to show off the FaunaDB in Gatsby this will become a Netlify oAuth with Authenticated users FaunaDB for a profile backend page.
+
+<interactive-todo></interactive-todo>
