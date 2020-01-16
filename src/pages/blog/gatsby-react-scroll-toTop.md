@@ -15,7 +15,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## Gatsby React Scroll toTop or Bottom
+## Scroll toTop or Bottom
 
 > 🔝 Have you tried Scroll to the top of the page react module's, I have and all of them use the .window function to go to top.
 Which does not work in Gatsby without a work around.
@@ -52,7 +52,7 @@ const scroll = ({ mode, to }) =>
   }
 ```
 
-### The Component using a styled icon styledArrow
+### styled icon styledArrow
 
 ```jsx{1-2,5}:title=src/components/Scroll
 import React, { useState, useEffect } from 'react'
@@ -110,7 +110,7 @@ export default Scroll
 
 ```
 
-### The styles.js Code
+### styles.js Code
 
 ```jsx:title=src/components/Scroll/styles
 import styled from 'styled-components'
@@ -139,7 +139,7 @@ export const Arrow = styled(Down).attrs(({ direction, size }) => ({
 `
 ```
 
-### Add Scroll to Layout
+### Add Scroll
 
 ```jsx:title=src/components/Scroll
   <Scroll
@@ -205,7 +205,7 @@ const ScrollDown = ({
 export default ScrollDown
 ```
 
-#### Scroll Down styles.js
+#### Scroll styles.js
 
 ```jsx:title=src/components/ScrollDown/styles
 export const Arrow = styled(Up).attrs(({ direction, size }) => ({
@@ -230,7 +230,7 @@ export const Arrow = styled(Up).attrs(({ direction, size }) => ({
 `
 ```
 
-### Added Down to ArticleTemplate
+### Post Template
 
 Only my post's are long enough to need scroll down
 

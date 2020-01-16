@@ -25,6 +25,8 @@ Serverless functions seem to be all the rage these days. But why?
 
 Devs are adopting the FAAS (Functions-as-a-Service) because of:
 
+### Pay per execution
+
 Pay-per-execution pricing: You only pay for the how long your function code runs, not for idle server time.
 Scalability: Load balancing, security patches, logging, etc. are all handled by the FAAS provider. That leaves more time for companies to focus on their app instead of the underlying infrastructure.
 Most importantly, perhaps, is that server-less functions give frontend developers superpowers.
@@ -44,19 +46,23 @@ We will be walking through how you can use FaunaDB with Netlify Functions to bui
 ![FaunaDB](/img/fauna.jpg "FaunaDB")
 _[`FaunaDB` serverless functions](https://www.netlify.com/docs/functions/)_
 
-## Fauna Functions ToDo Example
+## Functions ToDo Example
 
 This Functions Todo Sample is in the 🔗 [Netlify Fauna ToDo](https://github.com/jchris/netlify-fauna-todo), GitHub Repo.
 
-See the component in this markdown page at the bottom. Or our users page for the [ToDo](/users) Functions Example
+The Fauna post on the 🔗 [FaunaDB ToDo}(https://fauna.com/blog/building-a-serverless-jamstack-app-with-faunadb-cloud-part-1)
 
-## FaunaDB with Netlify Authentication
+`video: https://youtu.be/7OB_IjTTcwg`
+
+See the component in this markdown page at the bottom. Or our users page for the 🔗 [ToDo](/users) Functions Example
+
+## Netlify Authentication
 
 I pieced together a Login Component that uses Netlify Identity to use my users data in FaunaDb for Authentication of my users backend.
 
 I have two backends Nelify CMS for editing .yaml and .json data in my _data folder including editing any page or post on this Site, and FaunaDB for everything else.
 
-### The Login Component Code
+### Login Component Code
 
  I use the below component in my Burger Menu for Logging In & Out for My Site through Netlify and FaunaDB
 
@@ -162,7 +168,7 @@ class Login extends Component {
 export default Login
 ```
 
-## The FaunaDB sign up functions code
+## SignUp functions code
 
 The Login code and Identity functions were taken from the 🔗 [Netlify FaunaDb todomvc Repo](https://github.com/fauna/netlify-faunadb-todomvc) application includes an `identity-signup.js` function which is triggered upon email confirmation to create the FaunaDB user. 
 
@@ -243,6 +249,8 @@ function handler (event, context, callback) {
 }
 module.exports = { handler: handler }
 ```
+
+### ToDo
 
 The Below ToDo is build with Netlify Functions
 

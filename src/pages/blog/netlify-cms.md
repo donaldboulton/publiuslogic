@@ -27,7 +27,7 @@ My custom dark build of the Netlify Identity Widget is used on the Gatsby fronte
 
 > The below is old content see my new post on 🔗 [Gatsby Netlify No Plugins](https://publiuslogic.com/blog/gatsby-netlify-no-plugins/) for CMS and Identity Widget custom builds and no Gatsby Plugins.
 
-## CMS index.html File exclusive build
+## File exclusive build
 
 ```html
 <!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
@@ -116,7 +116,7 @@ My custom dark build of the Netlify Identity Widget is used on the Gatsby fronte
 </html>
 ```
 
-### Index.js file for templates and cms-bundled.js
+### Index.js cms-bundled.js
 
 ```jsx
 import CMS from '../../src/components/cms/cms'
@@ -131,7 +131,7 @@ Get the speed, security, and scalability of a static site, while still providing
 An integrated part of your Git workflow
 Content is stored in your Git repository along side your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
 
-### An extensible CMS built on React
+### An extensible CMS
 
 Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add a backend to support different Git platform APIs.
 My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
@@ -235,4 +235,4 @@ collections:
 
 ```
 
-`oembed: https://www.youtube.com/embed/2Xc9gXyf2G4`
+`video: https://www.youtube.com/embed/2Xc9gXyf2G4`

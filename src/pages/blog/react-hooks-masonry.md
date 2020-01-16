@@ -15,7 +15,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## From janosh.io React Hooks Masonry Post
+## React Hooks Masonry
 
 🔗 [janosh.io React Hooks Masonry](https://janosh.io/blog/react-hooks-masonry)
 

@@ -86,7 +86,7 @@ import NetlifyIdentityWidget from '../IdentityWidget'
 
 Moving the CMS folder that came with the Gatsby Netlify Starter, with the, "cms.js and preview templates", to the /static/admin/cms folder.
 
-## Code for the index.html
+## Code index.html
 
 [Repo Link](https://github.com/donaldboulton/publiuslogic/blob/master/static/admin/index.html)
 

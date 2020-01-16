@@ -116,7 +116,7 @@ const ArticlePage = ({ data }) => {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: 4.5,
-      ratingCount: 132,
+      ratingCount: data.ratingCount,
     },
   }
 

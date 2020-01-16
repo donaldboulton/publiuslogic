@@ -15,7 +15,7 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## Using Cloudinary React Library
+## Cloudinary React Library
 
 🔗 [Cloudinary React Library](https://www.npmjs.com/package/cloudinary-react/v/1.1.0)
 
@@ -43,7 +43,7 @@ import 'lg-autoplay'
 import 'lg-autoplay.js'
 ```
 
-### The Component for the Gallery
+### Gallery Component
 
 ```jsx:title=src/components/Cloudinary/index.js
 /* eslint-disable indent */
@@ -156,7 +156,7 @@ export default Gallery
 
 ```
 
-### The Upload Widget
+### Upload Widget
 
 The upload widget uses Cloudinary CND or the scripts, not a node module.
 
@@ -230,7 +230,7 @@ export default UploadWidget
 
 ```
 
-## The mediaQuery
+## Screen mediaQuery
 
 > This use's matchMedia for screen according to window size
 

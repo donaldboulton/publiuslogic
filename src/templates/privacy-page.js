@@ -5,15 +5,15 @@ import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import PostCover from '../components/PostCover'
 import Menu5 from 'react-burger-menu/lib/menus/stack'
-import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import { Calendar } from 'styled-icons/octicons/Calendar'
 import { Timer } from 'styled-icons/material/Timer'
 import PrivacyPageTemplate from '../components/PrivacyPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 import Bio from '../components/Bio'
+import { FileSymlinkFile } from 'styled-icons/octicons/'
 import { BookContent } from 'styled-icons/boxicons-regular/'
-import { StyledTableMenu, TableOfContents, Styledh1, PageTitle, PageTocIcon, Time, Date, GithubButtons } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, TableOfContents, Styledh1, PageTitle, PageTocIcon, TagList, MetaPage } from '../components/styles/ArticleStyles'
 
 const PrivacyPage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -151,46 +151,63 @@ const PrivacyPage = ({ data }) => {
           coverClassName='post-cover'
         />
       </section>
-      <section>
-        <div className='column is-10 is-offset-1'>
-          <div>
-            <Styledh1>
-              {post.frontmatter.title}
-            </Styledh1>
-          </div>
-          <div className='column is-9'>
-            <Bio />
-            <div className='columns is-desktop is-vcentered'>
-              <div className='column is-7'>
-                <span className='subtitle is-size-5'>
-                  <Calendar size='0.9em' />&nbsp;
-                  <Date><small>{post.frontmatter.date}</small>&nbsp;</Date>&nbsp;
-                  <Timer size='0.9em' />&nbsp;
-                  <Time>{post.timeToRead}&nbsp;min read</Time>
+      <section className='section'>
+        <div className='columns'>
+          <div className='column is-10 is-offset-1'>
+            <section>
+              <Styledh1>
+                {post.frontmatter.title}
+              </Styledh1>
+            </section>
+            <div className='column is-9'>
+              <Bio />
+              <MetaPage>
+                <span>
+                  <Calendar size='1.2em' />
+                    &ensp;
+                  {post.frontmatter.date}
                 </span>
-              </div>
-              <GithubButtons><GithubButtonsRepo className='is-pulled-right' /></GithubButtons>
-            </div>
-            <div className='columns is-desktop is-vcentered'>
-              <div className='column is-4'>
+                <span>
+                  <Timer size='1.2em' />
+                     &ensp;
+                  {post.timeToRead} min read
+                </span>
+                <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
+                <span>
+                  <FileSymlinkFile size='1.2em' />
+                      &ensp;
+                        Category:
+                      &ensp;
+                  <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
+                </span>
+              </MetaPage>
+              <div className='columns is-desktop is-vcentered'>
+                <div className='column is-4'>
                  🔐 Privacy & Terms.
-              </div>
-              <div className='column is-pulled-right'>
-                For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>          
+                </div>
+                <div className='column is-pulled-right'>
+                For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div className='container content'>
+          <div className='columns'>
+            <div className='column is-9 is-offset-1'>
+              <PrivacyPageTemplate
+                contentComponent={HTMLContent}
+                content={post.html}
+                cover={post.frontmatter.cover}
+                meta_title={post.frontmatter.meta_title}
+                description={post.frontmatter.meta_description}
+                tags={post.frontmatter.tags}
+                title={post.frontmatter.title}
+              />
+            </div>
+          </div>
+        </div>
       </section>
-      <PrivacyPageTemplate
-        contentComponent={HTMLContent}
-        content={post.html}
-        cover={post.frontmatter.cover}
-        meta_title={post.frontmatter.meta_title}
-        description={post.frontmatter.meta_description}
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
-      />
     </Layout>
   )
 }

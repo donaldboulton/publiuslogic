@@ -1,14 +1,13 @@
 import React from 'react'
-import config from '../../../_data/config'
 import { useStaticQuery, graphql } from 'gatsby'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import { GithubButtons } from '../styles/ArticleStyles'
 import { Twitter } from 'styled-icons/fa-brands'
-import github from '../../../static/img/github.svg'
+import octocat from '../../../static/img/octocat.png'
 import Image from 'gatsby-image'
 import { rhythm } from '../../utils/typography'
 
-const Bio = ({ slug }) => {
+const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/donald-boulton.jpg/" }) {
@@ -22,17 +21,24 @@ const Bio = ({ slug }) => {
         siteMetadata {
           author
           siteUrl
+          githubEditme
           social {
             twitter
           }
         }
       }
+      markdownRemark {
+        frontmatter {
+          path
+        }
+      }
     }
   `)
   const { author } = data.site.siteMetadata
-  const title = config.userTwitter
-  const url = config.siteUrl + slug
-  const githubEditme = config.githubEditme + slug
+  const { twitter } = data.site.siteMetadata
+  const { path } = data.markdownRemark.frontmatter
+  const { url } = data.site.siteMetadata
+  const { githubEditme } = data.site.siteMetadata.githubEditme + path
   return (
     <div className='columns'>
       <div
@@ -63,7 +69,7 @@ const Bio = ({ slug }) => {
             data-screen-name='donboulton'
             data-screen-data-show-count='true'
             data-show-count='true'
-            title={title}
+            title={twitter}
             key={url}
             url={url}
             className='twitter-follow-button'
@@ -79,14 +85,14 @@ const Bio = ({ slug }) => {
           </a>&nbsp;<GithubButtons><GithubButtonsRepo /></GithubButtons>
         </p>
       </div>
-      <div className='column is-pulled-right'>
+      <div className='column'>
         <a title='Github' className='github-corner' href={githubEditme} target='_blank' role='button' rel='noopener noreferrer'>
           <img
             style={{
-              height: 45,
-              width: 45,
+              height: 55,
+              width: 64,
             }}
-            src={github}
+            src={octocat}
             alt='PubliusLogic Repo'
           />
         </a>

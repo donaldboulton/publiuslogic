@@ -82,7 +82,7 @@ export default App
 
 ```
 
-### Title, Message, and Buttons
+### Title, Message, Buttons
 
 Modali provides everything you need to build beautiful modals in minutes. Use the title, message and buttons props to customize your modal as quick as a flash! ⚡️
 

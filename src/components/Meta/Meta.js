@@ -31,11 +31,6 @@ const Meta = props => {
       url: postImage,
     },
     sameAs: rootUrl + `/${path}`,
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 35.4584,
-      longitude: 97.6343,
-    },
     publisher: {
       '@type': 'Organization',
       name: 'PubliusLogic',
@@ -54,6 +49,11 @@ const Meta = props => {
         addressCountry: 'US',
       },
       telephone: '+19033361494',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 35.4584,
+        longitude: 97.6343,
+      },
     },
     url: url,
     mainEntityOfPage: {
@@ -85,10 +85,10 @@ const Meta = props => {
     articleBody: body,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: props.data.rating.ratingValue,
+      ratingValue: '4.5',
       bestRating: '5',
       worstRating: '1',
-      ratingCount: props.data.rating.ratingCount,
+      ratingCount: '6',
     },
     review: {
       '@type': 'Review',
@@ -110,7 +110,7 @@ const Meta = props => {
         '@type': 'Rating',
         worstRating: '1',
         bestRating: '5',
-        ratingValue: props.data.rating.ratingValue,
+        ratingValue: '4.5',
       },
     },
   }

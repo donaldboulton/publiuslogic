@@ -14,12 +14,13 @@ import Menu6 from 'react-burger-menu/lib/menus/stack'
 import Bio from '../components/Bio'
 import { Tags } from 'styled-icons/fa-solid/Tags'
 import { StyledTableMenu, TableOfContents, Styledh1, PageTitle, ArticleTocIcon, MetaPage, TagList } from '../components/styles/ArticleStyles'
+import { UserConsumer } from '../components/Context/UserContext'
 
 const UsersPage = ({ data, location, data: { allMarkdownRemark: { group } } }) => {
   const { markdownRemark: post } = data
+  const postNode = data.markdownRemark
   const image = post.frontmatter.cover
   const author = config.author
-  const postNode = data.markdownRemark
   const coverHeight = '100%'
   const logo = config.siteLogo
 
@@ -66,7 +67,7 @@ const UsersPage = ({ data, location, data: { allMarkdownRemark: { group } } }) =
   }
 
   return (
-    <Layout pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={post.frontmatter.title} location={location}>
       <Helmet>
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
@@ -136,6 +137,11 @@ const UsersPage = ({ data, location, data: { allMarkdownRemark: { group } } }) =
         </div>
         <div className='column is-9 is-offset-1'>
           <Bio />
+          <UserConsumer>
+            {props => {
+              return <div>{props.name}</div>
+            }}
+          </UserConsumer>
           <div className='column is-offset-1'>
             <MetaPage>
               <span>
@@ -174,7 +180,9 @@ const UsersPage = ({ data, location, data: { allMarkdownRemark: { group } } }) =
 }
 
 UsersPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }),
 }
 
 export default UsersPage
