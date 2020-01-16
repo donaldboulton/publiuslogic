@@ -12,7 +12,7 @@ import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
-import { UserProvider } from '../COntext/UserContext'
+import { UserProvider } from '../Context/UserContext'
 
 function Layout ({ children, tableOfContents, location }) {
   const user = { name: 'donaldboulton', loggedIn: true }

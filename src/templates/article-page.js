@@ -26,6 +26,7 @@ import Toc from '../components/Toc'
 import { Tags } from 'styled-icons/fa-solid/Tags'
 import { StyledTableMenu, Styledh1, Pagination, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
+import { UserConsumer } from '../components/Context/UserContext'
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -184,6 +185,11 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                     <section>
                       <div className='columns'>
                         <div className='column is-10 is-offset-1'>
+                          <UserConsumer>
+                            {props => {
+                              return <div>{props.name}</div>
+                            }}
+                          </UserConsumer>
                           <Pagination>
                             {prev && (
                               <Link to={prev.url}>
