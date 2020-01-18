@@ -27,7 +27,29 @@ showToc: true
 
 Gatsby configurations and plugin "gatsby-plugin-netlify-identity-widget", slowed my Gatsby site down even more, Netlify CMS and  Netlify Identity Widget both are processed and build with Gatsby, which is not needed like a lot of Gatsby Plugins.
 
-I stripped Netlify CMS and Netlify identity and related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from HotJar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject preload them in my Gatsby Netlify configuration for the gatsby-plugin-netlify in gatsby-config.
+I stripped Netlify CMS and Netlify identity out of gatsby-config.js plugins and any related plugins out of my package.json and any config references to them and now my Gatsby site is super fast like its supposed to be, even with cookie consent, Google adds, including analytics tracking from HotJar, CookieConsent and Google. = all external scripts with out any Gatsby plugins I inject preload them in my Gatsby Netlify configuration for the gatsby-plugin-netlify in gatsby-config.
+
+## Identity Webpack Config
+
+If you are going to use the identity widget npm package then tell Gatsby not to build it, as you should do with any stand alone precompiled js, "like Netlify CMS". Add them as an array.
+
+```jsx
+// FIX in gatsby-node.js netlify-identity-widget server rendering ... @2018/12/12
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /netlify-identity-widget/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}// end of onCreateWebpackConfig
+```
 
 ## Gatsby Config
 

@@ -15,6 +15,22 @@ const remark = new Remark().data(`settings`, {
 
 const R = require('ramda')
 
+// FIX netlify-identity-widget server rendering ... @2018/12/12
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /netlify-identity-widget/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}// end of onCreateWebpackConfig
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -137,6 +153,19 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
   })
+}
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/app/)) {
+    page.matchPath = '/app/*'
+
+    // Update the page.
+    createPage(page)
+  }
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

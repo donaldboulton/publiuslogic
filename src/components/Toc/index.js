@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useEventListener } from '../../hooks/useEventListener'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
-import { TocTitle, TocDiv, TocIcon, TocLink, TocToggle, TocWrapper } from './styles'
+import { TocTitle, TocDiv, TocIcon, TocLink, TocToggle } from './styles'
 
 const accumulateOffsetTop = (el, totalOffset = 0) => {
   while (el) {
@@ -57,35 +57,33 @@ export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
   return (
     <>
       <TocToggle opener open={open} onClick={() => setOpen(true)} />
-      <TocWrapper>
-        <TocDiv ref={ref} open={open}>
-          <TocTitle>
-            <TocIcon className='a' />
-            {tocTitle}
-            <TocToggle onClick={() => setOpen(false)} />
-          </TocTitle>
-          <nav>
-            {headings.titles.map(({ title, depth }, index) => (
-              <TocLink
-                key={title}
-                className='a'
-                active={active === index}
-                depth={depth - headings.minDepth}
-                onClick={event => {
-                  event.preventDefault()
-                  setOpen(false)
-                  headings.nodes[index].scrollIntoView({
-                    behavior: `smooth`,
-                    block: `center`,
-                  })
-                }}
-              >
-                {title}
-              </TocLink>
-            ))}
-          </nav>
-        </TocDiv>
-      </TocWrapper>
+      <TocDiv ref={ref} open={open}>
+        <TocTitle>
+          <TocIcon className='a' />
+          {tocTitle}
+          <TocToggle onClick={() => setOpen(false)} />
+        </TocTitle>
+        <nav className='nav'>
+          {headings.titles.map(({ title, depth }, index) => (
+            <TocLink
+              key={title}
+              className='a'
+              active={active === index}
+              depth={depth - headings.minDepth}
+              onClick={event => {
+                event.preventDefault()
+                setOpen(false)
+                headings.nodes[index].scrollIntoView({
+                  behavior: `smooth`,
+                  block: `center`,
+                })
+              }}
+            >
+              {title}
+            </TocLink>
+          ))}
+        </nav>
+      </TocDiv>
     </>
   )
 }

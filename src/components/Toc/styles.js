@@ -11,10 +11,6 @@ const openTocDiv = css`
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   border: 1px solid ${props => props.theme.borderColor};
 `
-export const TocWrapper = styled.div`
-    position: -webkit-sticky;
-    position: sticky;
-`
 
 export const TocDiv = styled.div`
   height: max-content;
@@ -29,25 +25,25 @@ export const TocDiv = styled.div`
   overscroll-behavior: none;
   overflow-x: hidden;
   overflow-y: hidden;
-  nav {
+  .nav {
     max-height: 78vh;
     overflow-y: auto;
     scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
     scrollbar-width: 10px;
     overflow-x: hidden;
   }
-  nav::-webkit-scrollbar {
+  .nav::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
-  nav::-webkit-scrollbar-thumb {
+  .nav::-webkit-scrollbar-thumb {
     background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17));
     background: linear-gradient(to bottom,#201c29,#100e17);
     border-radius: 10px;
     -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
     box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
   }
-  nav::-webkit-scrollbar-track {
+  .nav::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
   ${mediaQuery.maxLaptop} {

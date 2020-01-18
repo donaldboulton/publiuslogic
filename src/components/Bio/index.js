@@ -37,8 +37,8 @@ const Bio = () => {
   const { author } = data.site.siteMetadata
   const { twitter } = data.site.siteMetadata
   const { path } = data.markdownRemark.frontmatter
-  const { url } = data.site.siteMetadata
-  const { githubEditme } = data.site.siteMetadata.githubEditme + path
+  const { siteUrl } = data.site.siteMetadata
+  const { githubEditme } = data.site.siteMetadata + path
   return (
     <div className='columns'>
       <div
@@ -61,7 +61,8 @@ const Bio = () => {
           }}
         />
         <p>
-        Written by <strong>{author}</strong>  who lives and works in OKC OK.&nbsp;
+        Written by <strong>{author}</strong>
+          <GithubButtons><GithubButtonsRepo /></GithubButtons>
           <a
             itemProp='url'
             rel='noopener noreferrer'
@@ -70,8 +71,8 @@ const Bio = () => {
             data-screen-data-show-count='true'
             data-show-count='true'
             title={twitter}
-            key={url}
-            url={url}
+            key={siteUrl}
+            url={siteUrl}
             className='twitter-follow-button'
             aria-label='Follow'
             data-related='donboulton'
@@ -82,10 +83,8 @@ const Bio = () => {
               <Twitter size='14' color='#1b95e0' />
             </span>
             <span>&nbsp;Follow</span>
-          </a>&nbsp;<GithubButtons><GithubButtonsRepo /></GithubButtons>
+          </a>
         </p>
-      </div>
-      <div className='column'>
         <a title='Github' className='github-corner' href={githubEditme} target='_blank' role='button' rel='noopener noreferrer'>
           <img
             style={{

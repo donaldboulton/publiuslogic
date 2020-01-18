@@ -1,37 +1,67 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
+/**
+ * pagination component for posts
+ *
+ * @2018/12/19
+ */
+
 import React from 'react'
-import { Img, PreviousNext, Thumbnail } from './styles'
+import { Link } from 'gatsby'
 
-const PrevNext = ({ prev, next, label, slugPrefix = `` }) => (
-  <PreviousNext>
-    {prev && (
-      <Link to={slugPrefix + prev.slug} rel='prev' css='margin-right: 1em;'>
-        <h3 css='text-align: left;'>← Previous {label}</h3>
-        <Thumbnail>
-          {prev.cover && (
-            <Img {...prev.cover.sharp || prev.cover} />
-          )}
-          <h4>{prev.title}</h4>
-        </Thumbnail>
-      </Link>
-    )}
-    {next && (
-      <Link to={slugPrefix + next.slug} rel='next' css='margin-left: auto;'>
-        <h3 css='text-align: right;'>Next {label} →</h3>
-        <Thumbnail>
-          {next.cover && (
-            <Img {...next.cover.sharp || next.cover} />
-          )}
-          <h4>{next.title}</h4>
-        </Thumbnail>
-      </Link>
-    )}
-  </PreviousNext>
-)
-
-export default PrevNext
-
-PrevNext.propTypes = {
-  label: PropTypes.string.isRequired,
+const ulstyle = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  listStyle: 'none',
 }
+
+const lkstyle = (i, currentPage) => {
+  return {
+    padding: 10,
+    textDecoration: 'none',
+    color: i + 1 === currentPage ? '#ffffff' : '#D64000',
+    background: i + 1 === currentPage ? '#D64000' : '',
+  }
+}
+
+const Pagination = ({ currentPage, numPages }) => {
+  const isFirst = currentPage === 1
+  const prevPage = currentPage - 1 === 1 ? '/' : (currentPage - 1).toString()
+  const isLast = currentPage === numPages
+  const nextPage = (currentPage + 1).toString()
+
+  return (
+    <ul style={ulstyle}>
+      {
+        !isFirst &&
+          <Link to={prevPage} rel='prev' className='has-text-primary'>← Previous Page</Link>
+      }
+      {
+        Array.from({ length: numPages }, (_, i) => (
+          <li
+            key={`pagination-number${i + 1}`}
+            style={{
+              margin: 0,
+            }}
+          >
+            <Link
+              to={`/${i === 0 ? '' : i + 1}`}
+              style={lkstyle(i, currentPage)}
+            >
+              {i + 1}
+            </Link>
+          </li>
+        ))
+      }
+      {
+        !isLast &&
+          <Link to={nextPage} rel='next' className='has-text-primary'>Next Page →</Link>
+      }
+    </ul>
+  )
+}
+
+// TODO, add propTypes
+// Pagination.propTypes = {}
+
+export default Pagination

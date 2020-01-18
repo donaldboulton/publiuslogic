@@ -14,7 +14,7 @@ import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
 import { UserProvider } from '../Context/UserContext'
 
-function Layout ({ children, tableOfContents, location }) {
+function Layout ({ children, location }) {
   const user = { name: 'donaldboulton', loggedIn: true }
   return (
     <>
@@ -45,7 +45,6 @@ function Layout ({ children, tableOfContents, location }) {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  tableOfContents: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 }
 

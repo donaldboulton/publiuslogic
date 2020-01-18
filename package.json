@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
+    "@reach/router": "^1.2.1",
     "axios": "^0.19.0",
     "babel-plugin-prismjs": "^1.1.1",
     "babel-plugin-styled-components": "^1.10.6",
@@ -87,6 +88,7 @@
     "lodash": "^4.17.11",
     "lodash-webpack-plugin": "^0.11.5",
     "modali": "^1.2.0",
+    "netlify-identity-widget": "^1.5.6",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.0",
     "octicons": "^8.5.0",
@@ -125,6 +127,7 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "uploadcare-widget": "^3.7.7",
     "use-dark-mode": "^2.3.1",
+    "uuid": "^3.4.0",
     "with-utterances": "^1.5.0"
   },
   "devDependencies": {
