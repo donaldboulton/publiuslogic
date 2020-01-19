@@ -1,7 +1,7 @@
 import React from 'react'
 import { navigate } from '@reach/router'
 
-import Layout from '../components/Layout'
+import BasePage from '../base/BasePage'
 import Spinner from '../components/Spinner'
 
 import { getUser, logoutNI } from '../services/auth'
@@ -56,7 +56,7 @@ class Profile extends React.Component {
 
     return (
 
-      <Layout ref={this.basepage}>
+      <BasePage ref={this.basepage}>
         <section className='section'>
           <div className='container'>
             <div className='content'>
@@ -74,7 +74,7 @@ class Profile extends React.Component {
             </div>
           </div>
         </section>
-      </Layout>
+      </BasePage>
     )
   }
 }

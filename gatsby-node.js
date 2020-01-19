@@ -35,6 +35,7 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   const postTemplate = path.resolve('src/templates/article-page.js')
+  const backsTemplate = path.resolve('src/templates/users-page.js')
 
   return graphql(`
     {

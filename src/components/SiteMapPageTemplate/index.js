@@ -25,7 +25,6 @@ const SiteMapPageTemplate = ({ title, cover, canonical, meta_title, meta_descrip
 SiteMapPageTemplate.propTypes = {
   title: PropTypes.string,
   cover: PropTypes.image,
-  canonical: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
   content: PropTypes.string,
