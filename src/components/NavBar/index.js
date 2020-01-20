@@ -19,7 +19,7 @@ const Navbar = class extends React.Component {
           <Link className='navbar-item' to='/app/profile'>
             {user
               ? (<span className='username-navbar'>Welcome {user.user_metadata.username}</span>)
-              : (<span className='icon'><img className='user-icon' src={avatar} alt='User' /></span>)}
+              : (<span className='username-navbar'><img className='user-icon' src={avatar} alt='User' /></span>)}
           </Link>
         </div>
       </nav>

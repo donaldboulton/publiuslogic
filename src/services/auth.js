@@ -12,6 +12,7 @@ export const isLoggedIn = () => {
   }
   return false
 }
+
 // 2. log in
 export const loginNI = callback => {
   netlifyIdentity.open()
@@ -42,7 +43,7 @@ export const getPathname = () => GlobalObj.pathname
 export const isBrowser = () => typeof window !== 'undefined'
 
 export const setUser = user => {
-  window.localStorage.setItem('gatsbyUser', JSON.stringify(user))
+  window.localStorage.setItem('faunaNetlifyUser', JSON.stringify(user))
   return true
 }
 

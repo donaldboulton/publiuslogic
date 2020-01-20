@@ -1,16 +1,17 @@
-import React, { createContext } from 'react'
+import React from 'react'
 
 const user = {
   user_metadata:{},
 }
 
-const UserContext = createContext({
+const UserContext = React.createContext({
   user: user,
   username: '',
   updateUsername: () => {},
-});
+})
 
 export const FaunaCtx = React.createContext()
+export const UserCtx = React.createContext()
 
 export class UserProvider extends React.Component {
   updateUsername = newUsername => {

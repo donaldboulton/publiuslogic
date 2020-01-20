@@ -10,11 +10,19 @@ import BasePage from '../base/BasePage'
 
 import { isLoggedIn, loginNI } from '../services/auth'
 import { Styledh1 } from '../components/styles/ArticleStyles'
-
+import netlifyIdentity from '../components/IdentityWidget/netlify-identity'
+export const isBrowser = () => typeof window !== 'undefined'
+export const initAuth = () => {
+  if (isBrowser()) {
+    window.netlifyIdentity = netlifyIdentity
+    // You must run this once before trying to interact with the widget
+    netlifyIdentity.init()
+  }
+}
 export default class LoginPage extends React.Component {
   constructor (props) {
     super(props)
-
+    this.handleLogIn = this.handleLogIn.bind(this)
     this.state = {
       loading: false,
       logged: false,
@@ -23,7 +31,12 @@ export default class LoginPage extends React.Component {
     this.basepage = React.createRef()
   };
 
+  handleLogIn () {
+    netlifyIdentity.open()
+  }
+
   componentDidMount () {
+    netlifyIdentity.init()
     this.setState({ logged: isLoggedIn() })
   }
 
@@ -64,7 +77,7 @@ export default class LoginPage extends React.Component {
                    Login First
                 </Styledh1>
               </div>
-              <button className='button' type='button' onClick={this.login.bind(this)}>Login</button>
+              <button className='button' type='button' onClick={this.handleLogIn}>Login</button>
                </>)}
         </div>
       </section>
