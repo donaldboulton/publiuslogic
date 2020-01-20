@@ -1,6 +1,13 @@
 import React from 'react'
 import { UserConsumer } from '../Context/UserContext'
+import styled from 'styled-components'
 
+const Name = styled.input`
+  padding:10px;
+  margin:0 0 20px;
+  border-radius: 6px;
+  width:100%;
+`
 export default function UserSettings () {
   return (
     <UserConsumer>
@@ -8,7 +15,8 @@ export default function UserSettings () {
         <div>
           <h2>Settings</h2>
           <label htmlFor='username'>Username: </label>
-          <input
+          <Name
+            className='input'
             id='username'
             type='text'
             onChange={event => {

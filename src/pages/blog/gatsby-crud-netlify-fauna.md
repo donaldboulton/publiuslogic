@@ -134,7 +134,7 @@ This base wrapper for my backend uses my default Global layout component from sr
 import React from 'react'
 
 import netlifyIdentity from '../components/IdentityWidget/netlify-identity'
-import UserContext from '../components/context/UserContext'
+import UserProvider from '../components/context/UserContext'
 
 import Layout from '../components/Layout'
 import { setPathname } from '../services/auth'
@@ -165,15 +165,14 @@ export default class BasePage extends React.Component {
     if (location) setPathname(location.pathname)
 
     return (
-      <UserContext.Provider value={this.state}>
+      <UserProvider value={this.state}>
         <Layout>
           {this.props.children}
         </Layout>
-      </UserContext.Provider>
+      </UserProvider>
     )
   }
 }
-
 ```
 
 ### Services Backend Auth
@@ -240,7 +239,6 @@ export const handleLogin = ({ username, password }) => {
 
   return false
 }
-
 ```
 
 ### Example User Profile page
@@ -255,7 +253,7 @@ import BasePage from '../base/BasePage'
 import Spinner from '../components/Spinner'
 import UserMessage from '../components/UserMessage'
 import SettingsForm from '../components/SettingsForm'
-import { UserProvider } from '../components/Context/UserContext'
+import { UserProvider, UserConsumer } from '../components/Context/UserContext'
 
 import { getUser, logoutNI } from '../services/auth'
 
@@ -299,10 +297,12 @@ class Profile extends React.Component {
                 <UserMessage />
                 <SettingsForm />
               </UserProvider>
-              <ul>
-                <li>Name: {user.user_metadata && user.user_metadata.full_name}</li>
-                <li>E-mail: {user.email}</li>
-              </ul>
+              <UserConsumer >
+                <ul>
+                  <li>Name: {user.user_metadata && user.user_metadata.username}</li>
+                  <li>E-mail: {user.email}</li>
+                </ul>
+              </UserConsumer>
             </div>
             <div className='content'>
               <button className='button' onClick={this.logout.bind(this)}>Logout</button>
@@ -369,7 +369,7 @@ export default function UserSettings () {
 ```jsx{3-5,7-14}:title=FaunaDB-Login
 import React from 'react'
 import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
-// My Custom build of Netlify Identity Widget
+
 import netlifyIdentity from '../IdentityWidget/netlify-identity'
 export const isBrowser = () => typeof window !== 'undefined'
 export const initAuth = () => {
@@ -453,14 +453,14 @@ class Login extends React.Component {
   render () {
     var actionForm = <span>
       <button aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogIn}>
-      LogIn&nbsp;
+      Login&nbsp;
       <SignInAlt size='0.9em' color='#f5f5f5' />
       </button>
     </span>
     return (
       <div className='Login'>
         {this.state.user
-          ? <a onClick={this.doLogout.bind(this)}>L
+          ? <a onClick={this.doLogout.bind(this)}>
           Logout&nbsp;
           <SignOutAlt size='0.9rem' color='#f5f5f5' />
             </a>
@@ -479,7 +479,7 @@ The Login code and Identity functions were taken from the 🔗 [Netlify FaunaDb 
 
 So click that confirmation link and start using your app. Any changes you push to your master branch will be automatically deployed, thanks Netlify!
 
-All functions should ben in there own folder with a package.json file and all the required node modules including a gitignore.txt file.
+All functions should ben in there own folder with a package.json file and all the required node modules including a gitignore file.
 
 Then make sure to add a entry in your netlify build Environment variables for Your FAUNADB_SERVER_SECRET.
 

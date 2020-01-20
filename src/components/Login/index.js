@@ -84,14 +84,14 @@ class Login extends React.Component {
   render () {
     var actionForm = <span>
       <button aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogIn}>
-      LogIn&nbsp;
+      Login&nbsp;
       <SignInAlt size='0.9em' color='#f5f5f5' />
       </button>
     </span>
     return (
       <div className='Login'>
         {this.state.user
-          ? <a onClick={this.doLogout.bind(this)}>L
+          ? <a onClick={this.doLogout.bind(this)}>
           Logout&nbsp;
           <SignOutAlt size='0.9rem' color='#f5f5f5' />
             </a>
