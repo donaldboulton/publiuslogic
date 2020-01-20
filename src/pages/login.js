@@ -9,6 +9,7 @@ import { navigate } from '@reach/router'
 import BasePage from '../base/BasePage'
 
 import { isLoggedIn, loginNI } from '../services/auth'
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
 export default class LoginPage extends React.Component {
   constructor (props) {
@@ -46,44 +47,27 @@ export default class LoginPage extends React.Component {
     // @2018/12/20
     if (this.state.logged) navigate('/app/profile')
 
-    const button = {
-      display: 'block',
-      marginBottom: 10,
-      height: '2.25em',
-      color: '#FFF',
-      borderRadius: 4,
-      borderColor: 'transparent',
-      width: 80,
-      fontSize: '1em',
-    }
-
-    const oBtn = {
-      ...button,
-      backgroundColor: '#3273dc',
-    }
-
-    // const bBtn = {
-    //   ...button,
-    //   backgroundColor: '#FC461E',
-    // }
-
     return (<BasePage ref={this.basepage}>
       <section className='section'>
         <div className='container'>
           {this.state.logged
             ? (<>
               <div className='content'>
-                <h1 className='has-text-weight-bold is-size-2'>Welcome Dear</h1>
+                <Styledh1>
+                    Welcome:
+                </Styledh1>
               </div>
-            </>)
+               </>)
             : (<>
               <div className='content'>
-                <h1 className='has-text-weight-bold is-size-2'>Login First</h1>
+                <Styledh1>
+                   Login First
+                </Styledh1>
               </div>
-              <button style={oBtn} onClick={this.login.bind(this)}>Login</button>
-            </>)}
+              <button className='button' type='button' onClick={this.login.bind(this)}>Login</button>
+               </>)}
         </div>
       </section>
-    </BasePage>)
+            </BasePage>)
   }
 }

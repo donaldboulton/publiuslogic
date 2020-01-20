@@ -26,7 +26,7 @@ I had subscriptions to all info on science and anything mechanical, and I found 
 
 🌐 Over the years paying attention the the magnetic flux changes it became clear to me that these changes were do to mankind using up the riches of Mother Earth as in oil, iron gold and other minerals that were high in there magnetic attractions and introducing dielectric properties, thus decreasing the magnetic attraction to those areas in Mother earth.
 
-Thus changing the magnetic flux density points around the earth. Basically the Mother used these Magnetic flux points to balance her self and control its spinning rates.
+Therefore changing the magnetic flux density points around the earth. Basically the Mother used these Magnetic flux points to balance her self and control her spinning rates.
 
 ![earths magnetic movement](/img/magnetic-motion.jpg "earths magnetic movement")
 _[`magnetic-motion` magnetic field](https://www.nature.com/articles/d41586-019-00007-1)_

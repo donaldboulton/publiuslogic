@@ -48,7 +48,7 @@ const AboutSection = () => {
               <br />
               <span>
                 <p>
-                  {config.copyright} - <Link className='a' title='PubliusLogic Home' href='/' rel='noopener noreferrer'>PubliusLogic.com</Link>
+                  {config.copyright} - <Link className='a' title='PubliusLogic Home' href='/' rel='noopener noreferrer'>PubliusLogic</Link>
                 </p>
               </span>
             </div>
@@ -87,7 +87,7 @@ const AboutSection = () => {
               <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://www.gatsbyjs.org/'>Framework Gatsby -v2.1</a></div>
               <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://bulma.io/'>CSS from @bulma.io</a></div>
               <br />
-              <span>Privacy<Link className='a' to='/privacy/#Comment-Policy'>&nbsp; - &nbsp;Terms & Conditions.</Link></span>
+              <span>Privacy<Link className='a' to='/privacy/#Comment-Policy'>&nbsp; - &nbsp;Terms</Link></span>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@ const AboutSection = () => {
               <div><a className='a' title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>Netlify Home Page</a></div>
               <div><a className='a' target='_blank' rel='noopener noreferrer' href='https://www.netlify.com/features/'>SLL Security</a></div>
               <br />
-              <span>Netlify CMS<Link className='a' to='/admin/#/collections/pages'>&nbsp; - &nbsp;Administration</Link></span>
+              <span>Netlify CMS<Link className='a' to='/admin/#/collections/pages'>&nbsp; - &nbsp;Admin</Link></span>
             </div>
           </div>
         </div>

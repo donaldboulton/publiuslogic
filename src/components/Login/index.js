@@ -1,65 +1,102 @@
 import React from 'react'
-import { navigate } from 'gatsby'
+import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
 
-import { handleLogin, isLoggedIn } from '../../services/auth'
+import netlifyIdentity from '../IdentityWidget/netlify-identity'
+export const isBrowser = () => typeof window !== 'undefined'
+export const initAuth = () => {
+  if (isBrowser()) {
+    window.netlifyIdentity = netlifyIdentity
+    // You must run this once before trying to interact with the widget
+    netlifyIdentity.init()
+  }
+}
+
+function saveLogin () {
+  if (netlifyIdentity && netlifyIdentity.currentUser()) {
+    const {
+      app_metadata, created_at, confirmed_at, email, id, user_metadata,
+    } = netlifyIdentity.currentUser()
+
+    window.localStorage.setItem(
+      'faunaNetlifyUser',
+      JSON.stringify({ app_metadata, created_at, confirmed_at, email, id, user_metadata }),
+    )
+    return { app_metadata, created_at, confirmed_at, email, id, user_metadata }
+  }
+}
+
+function clearLogin () {
+  window.localStorage.removeItem('faunaNetlifyUser')
+}
 
 class Login extends React.Component {
-  state = {
-    username: ``,
-    password: ``,
+  constructor (props) {
+    super(props)
+    this.handleLogIn = this.handleLogIn.bind(this)
+    this.state = {}
   }
 
-  handleUpdate = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
+  handleLogIn () {
+    netlifyIdentity.open()
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
+  componentDidMount () {
+    netlifyIdentity.init()
+    var existingUser = window.localStorage.getItem('faunaNetlifyUser')
+    if (existingUser) {
+      this.setState({ user: JSON.parse(existingUser) }, this.didLogin.bind(this, 'noSave'))
+    } else {
+      existingUser = saveLogin() // does calling user pop a thing? should we set state?
+      if (existingUser) {
+        this.setState({ user: existingUser }, this.didLogin.bind(this, 'noSave'))
+      }
+    }
+    netlifyIdentity.on('login', (user) => this.setState({ user }, this.didLogin.bind(this)))
+    netlifyIdentity.on('logout', (user) => this.setState({ user: null }, this.didLogout.bind(this)))
+  }
 
-    handleLogin(this.state) ? this.props.onSuccess() : this.props.onFailure()
+  didLogin (noSave) {
+    console.log('didLogin', noSave)
+    if (!noSave) { saveLogin() }
+    const faunadb_token = this.state.user &&
+      this.state.user.app_metadata &&
+      this.state.user.app_metadata.faunadb_token
+    if (faunadb_token) {
+      this.props.onAuthChange(faunadb_token)
+    } else {
+      console.error('Expected user to have a faunadb_token, check logs for the identity-signup.js function.')
+      console.log(this.state.user)
+    }
+  }
+
+  didLogout () {
+    clearLogin()
+    this.props.onAuthChange(null)
+  }
+
+  doLogout () {
+    // remove credentials and refresh model
+    netlifyIdentity.logout()
+    clearLogin()
+    this.setState({ user: null })
   }
 
   render () {
-    if (isLoggedIn()) {
-      navigate(`/app/profile`)
-    }
-
+    var actionForm = <span>
+      <button aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogIn}>
+      LogIn&nbsp;
+      <SignInAlt size='0.9em' color='#f5f5f5' />
+      </button>
+    </span>
     return (
-      <form
-        method='post'
-        onSubmit={event => {
-          this.handleSubmit(event)
-        }}
-      >
-        <div className='field'>
-          <label className='label' htmlFor='username'>User Name</label>
-          <div className='control'>
-            <input
-              className='input' type='text' name='username' id='username' required
-              value={this.state.username}
-              onChange={this.handleUpdate}
-            />
-          </div>
-        </div>
-
-        <div className='field'>
-          <label className='label' htmlFor='password'>Password</label>
-          <div className='control'>
-            <input
-              className='input' type='password' name='password' id='password' required
-              value={this.state.password}
-              onChange={this.handleUpdate}
-            />
-          </div>
-        </div>
-
-        <div className='field'>
-          <button className='button is-link' type='submit'>Submit</button>
-        </div>
-
-      </form>
+      <div className='Login'>
+        {this.state.user
+          ? <a onClick={this.doLogout.bind(this)}>L
+          Logout&nbsp;
+          <SignOutAlt size='0.9rem' color='#f5f5f5' />
+            </a>
+          : actionForm}
+      </div>
     )
   }
 }

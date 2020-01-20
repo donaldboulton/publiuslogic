@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
-import Login from '../IdentityWidget'
+import Login from '../Login'
 import Search from '../Search'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
 import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
@@ -75,7 +75,7 @@ const StyledBurgerMenu = styled.div`
     box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
   }
   .bm-item-list::-webkit-scrollbar-track {
-    background:
+    background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
   ul {
     max-height: 78vh;
@@ -164,13 +164,23 @@ export default props => {
             </li>
             <div className='navbar-divider' />
             <li>
+              <Link className='menu-item' to='/blog/gatsby-crud-netlify-fauna' itemProp='url'>
+                <span itemProp='name'>Gatsby Netlify FaunaDB&nbsp;<FileAlt size='1em' /></span>
+              </Link>
+            </li>
+            <li>
               <Link className='menu-item' to='/blog/gatsby-netlify-no-plugins' itemProp='url'>
                 <span itemProp='name'>Netlify No Plugins&nbsp;<FileAlt size='1em' /></span>
               </Link>
             </li>
             <li>
-              <Link className='menu-item' to='/blog/gatsby-crud-netlify-fauna' itemProp='url'>
-                <span itemProp='name'>Gatsby Netlify FaunaDB&nbsp;<FileAlt size='1em' /></span>
+              <Link className='menu-item' to='/blog/js-media-queries' itemProp='url'>
+                <span itemProp='name'>JS mediaQueries&nbsp;<FileAlt size='1em' /></span>
+              </Link>
+            </li>
+            <li>
+              <Link className='menu-item' to='/blog/react-hooks-masonry' itemProp='url'>
+                <span itemProp='name'>React Hooks Masonry&nbsp;<FileAlt size='1em' /></span>
               </Link>
             </li>
             <li>

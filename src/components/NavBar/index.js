@@ -2,16 +2,31 @@ import React from 'react'
 import { Link } from 'gatsby'
 import DarkModeToggle from '../DarkMode/DarkModeToggle'
 import logo from '../../../static/img/apple-touch-icon-64x64.png'
+import avatar from '../../../static/img/avatar.png'
+import UserContext from '../context/UserContext'
 
-const NavBar = () => (
-  <nav className='navbar is-fixed-top' aria-label='main navigation' itemScope='itemScope' itemType='https://schema.org/SiteNavigationElement'>
-    <div className='navbar-brand'>
-      <Link to='/' itemProp='url' rel='no-follow' className='navbar-item'>
-        <img itemProp='image' src={logo} alt='Publiuslogic' />
-      </Link>
-      <DarkModeToggle />
-    </div>
-  </nav>
-)
+const Navbar = class extends React.Component {
+  render () {
+    const { user } = this.context
 
-export default NavBar
+    return (
+      <nav className='navbar is-fixed-top' aria-label='main navigation' itemScope='itemScope' itemType='https://schema.org/SiteNavigationElement'>
+        <div className='navbar-brand'>
+          <Link to='/' itemProp='url' rel='no-follow' className='navbar-item'>
+            <img itemProp='image' src={logo} alt='Publiuslogic' />
+          </Link>
+          <DarkModeToggle />
+          <Link className='navbar-item' to='/app/profile'>
+            {user
+              ? (<span className='username-navbar'>Welcome {user.user_metadata.username}</span>)
+              : (<span className='user-icon'><img src={avatar} alt='User' /></span>)}
+          </Link>
+        </div>
+      </nav>
+    )
+  }
+}
+
+Navbar.contextType = UserContext
+
+export default Navbar

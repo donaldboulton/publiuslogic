@@ -1,8 +1,10 @@
 import React from 'react'
 import { navigate } from '@reach/router'
-
 import BasePage from '../base/BasePage'
 import Spinner from '../components/Spinner'
+import UserMessage from '../components/UserMessage'
+import SettingsForm from '../components/SettingsForm'
+import { UserProvider } from '../components/Context/UserContext'
 
 import { getUser, logoutNI } from '../services/auth'
 
@@ -33,29 +35,8 @@ class Profile extends React.Component {
   render () {
     const user = getUser()
     // console.log(user)
-    const button = {
-      display: 'block',
-      marginBottom: 10,
-      height: '2.25em',
-      color: '#FFF',
-      borderRadius: 4,
-      borderColor: 'transparent',
-      width: 80,
-      fontSize: '1em',
-    }
-
-    const oBtn = {
-      ...button,
-      backgroundColor: '#3273dc',
-    }
-
-    // const bBtn = {
-    //   ...button,
-    //   backgroundColor: '#FC461E',
-    // }
 
     return (
-
       <BasePage ref={this.basepage}>
         <section className='section'>
           <div className='container'>
@@ -63,13 +44,17 @@ class Profile extends React.Component {
               <h1 className='has-text-weight-bold is-size-3'>Your profile</h1>
             </div>
             <div className='content'>
+              <UserProvider>
+                <UserMessage />
+                <SettingsForm />
+              </UserProvider>
               <ul>
                 <li>Name: {user.user_metadata && user.user_metadata.full_name}</li>
                 <li>E-mail: {user.email}</li>
               </ul>
             </div>
             <div className='content'>
-              <button style={oBtn} onClick={this.logout.bind(this)}>Logout</button>
+              <button className='button' onClick={this.logout.bind(this)}>Logout</button>
               {this.state.loading ? <Spinner /> : false}
             </div>
           </div>
