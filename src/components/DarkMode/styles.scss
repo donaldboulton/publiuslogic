@@ -126,6 +126,12 @@ body.light-mode {
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+  } 
+  .sticky-style {
+    height: 90vh;
+    position: sticky;
+    position: webkit-sticky;
+    top: 3.2rem;
   }
   .a {
     background: -webkit-gradient(linear,left top,right top,from(#00a396),to(#00c2b2));
@@ -589,6 +595,12 @@ body.dark-mode strong {
   -webkit-text-fill-color: transparent;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+body.dark-mode .sticky-style {
+  height: 90vh;
+  position: sticky;
+  position: webkit-sticky;
+  top: 3.2rem;
 }
 body.dark-mode .tag:not(body).is-primary {
   background-color: #d64000;

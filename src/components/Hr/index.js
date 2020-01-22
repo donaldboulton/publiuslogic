@@ -4,9 +4,7 @@ const Hr = () => {
   return (
     <div className='columns is-vcentered'>
       <div className='column is-10 is-offset-1'>
-        <div className='content'>
-          <hr className='thick is-10 is-offset-1' />
-        </div>
+        <hr className='thick is-10 is-offset-1' />
       </div>
     </div>
   )
