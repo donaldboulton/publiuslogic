@@ -41,7 +41,6 @@ class Login extends React.Component {
   }
 
   componentDidMount () {
-    netlifyIdentity.init()
     var existingUser = window.localStorage.getItem('faunaNetlifyUser')
     if (existingUser) {
       this.setState({ user: JSON.parse(existingUser) }, this.didLogin.bind(this, 'noSave'))
@@ -78,6 +77,7 @@ class Login extends React.Component {
     // remove credentials and refresh model
     netlifyIdentity.logout()
     clearLogin()
+    netlifyIdentity.close()
     this.setState({ user: null })
   }
 
@@ -91,7 +91,7 @@ class Login extends React.Component {
     return (
       <div className='Login'>
         {this.state.user
-          ? <a onClick={this.doLogout.bind(this)}>
+          ? <a className='identity-logout' onClick={this.doLogout.bind(this)}>
           Logout&nbsp;
           <SignOutAlt size='0.9rem' color='#f5f5f5' />
             </a>

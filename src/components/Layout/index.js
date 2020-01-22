@@ -33,7 +33,7 @@ function Layout ({ children, location }) {
             <Hr />
             <Scroll
               showBelow={1500}
-              css='position: fixed; right: 1em; bottom: 1em;'
+              css='position: fixed; right: 1em; bottom: 2.5em;'
             />
             <Footer />
           </UserProvider>

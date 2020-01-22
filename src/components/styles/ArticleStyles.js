@@ -40,8 +40,8 @@ export const StyledTableMenu = styled.div`
     position: fixed;
     width: 30px;
     height: 26px;
-    right: 1.4vw;
-    top: 2.2vh;
+    right: 4.5vw;
+    top: 2vh;
   }
   .bm-burger-bars {
     background: ${props => props.theme.lightBg};  
@@ -116,6 +116,7 @@ export const HomeStyledh1 = styled.h1`
   font-size: 32px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
+  line-height: 2rem;
   z-index: 22;
   background-position: 50% 50%;
   text-align: center;
@@ -137,7 +138,7 @@ export const PageTocIcon = styled(Table)`
   color: ${props => props.theme.white};
 `
 export const ArticleTocIcon = styled(Tags)`
-  width: 1em;
+  width: 0.9em;
   margin-right: 0.2em;
   background: ${props => props.theme.black};
   color: ${props => props.theme.white};

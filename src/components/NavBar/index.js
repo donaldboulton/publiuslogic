@@ -16,11 +16,15 @@ const Navbar = class extends React.Component {
             <img itemProp='image' src={logo} alt='Publiuslogic' />
           </Link>
           <DarkModeToggle />
-          <Link className='navbar-item' to='/app/profile'>
-            {user
-              ? (<span className='username-navbar'>Welcome {user.user_metadata.username}</span>)
-              : (<span className='username-navbar'><img className='user-icon' src={avatar} alt='User' /></span>)}
-          </Link>
+        </div>
+        <div className='navbar-menu'>
+          <div className='navbar-end'>
+            <Link className='navbar-item' to='/app/profile'>
+              {user
+                ? (<span className='username-navbar'>Welcome {user.user_metadata.username}</span>)
+                : (<span className='username-navbar'><img className='user-icon' src={avatar} alt='User' /></span>)}
+            </Link>
+          </div>
         </div>
       </nav>
     )

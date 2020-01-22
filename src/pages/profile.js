@@ -49,7 +49,7 @@ class Profile extends React.Component {
                 <SettingsForm />
               </UserProvider>
               <ul>
-                <li>Name: {user.user_metadata && user.user_metadata.full_name}</li>
+                <li>Name: {user.user_metadata && user.user_metadata.name}</li>
                 <li>E-mail: {user.email}</li>
               </ul>
             </div>

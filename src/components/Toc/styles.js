@@ -14,14 +14,16 @@ const openTocDiv = css`
 
 export const TocDiv = styled.div`
   height: max-content;
+  position: -webkit-sticky;
+  position: sticky;
   max-height: 80vh;
   border-radius: 4px;
   border: thin solid ${props => props.theme.background};
   z-index: 3;
   line-height: 2em;
-  right: 1em;
-  margin: 2em;
-  min-width: 22em;
+  left: 0.5em;
+  margin: 0.9em;
+  max-width: 25em;
   overscroll-behavior: none;
   overflow-x: hidden;
   overflow-y: hidden;

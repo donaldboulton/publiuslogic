@@ -14,7 +14,7 @@ const accumulateOffsetTop = (el, totalOffset = 0) => {
 }
 
 export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
-  const { throttleTime = 200, tocTitle = `Contents` } = rest
+  const { throttleTime = 200, tocTitle = `Page Contents` } = rest
   const [headings, setHeadings] = useState({
     titles: [],
     nodes: [],

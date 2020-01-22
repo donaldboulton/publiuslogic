@@ -23,6 +23,7 @@ import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import Toc from '../components/Toc'
+import Adds from '../components/GoogleAdds'
 import { Tags } from 'styled-icons/fa-solid/Tags'
 import { StyledTableMenu, Styledh1, Pagination, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
@@ -100,11 +101,16 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
           coverClassName='post-cover'
         />
       </section>
-      <section className='section'>
+      <section>
         <div className='columns'>
-          <div className='column is-10 is-offset-1'>
+          <div className='column is-2 is-fullheight'>
+            <aside>
+              <Toc />
+            </aside>
+          </div>
+          <div className='column is-10'>
             <div className='columns'>
-              <div className='column is-11 is-offset-1'>
+              <div className='column is-10'>
                 <section className='section'>
                   <Styledh1>
                     {post.frontmatter.title}
@@ -133,81 +139,79 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                 </MetaPage>
               </div>
             </div>
-            <section>
-              <div className='container content'>
-                <div className='columns'>
-                  <div className='column is-9 is-offset-1'>
-                    <main>{renderAst(postNode.htmlAst)}</main>
-                    <ArticleTemplate
-                      content={postNode.html}
-                      contentComponent={HTMLContent}
-                      cover={post.cover}
-                      readingTime={postNode.timeToRead}
-                      category={post.category}
-                      date={post.date}
-                      tweet_id={post.tweet_id}
-                      meta_title={post.meta_title}
-                      description={post.meta_description}
-                      tags={post.tags}
-                      title={post.title}
-                    />
-                    <Share
-                      title={post.title}
-                      slug={post.path}
-                      excerpt={post.meta_description}
-                    />
-                    <hr />
-                    <div className='container content'>
-                      <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
-                        <div className='column is-7'>
-                          <div>
-                            {ratings ? (
-                              <Reviews>
+            <div className='container content'>
+              <div className='columns'>
+                <div className='column is-10'>
+                  <main>{renderAst(postNode.htmlAst)}</main>
+                  <ArticleTemplate
+                    content={postNode.html}
+                    contentComponent={HTMLContent}
+                    cover={post.cover}
+                    readingTime={postNode.timeToRead}
+                    category={post.category}
+                    date={post.date}
+                    tweet_id={post.tweet_id}
+                    meta_title={post.meta_title}
+                    description={post.meta_description}
+                    tags={post.tags}
+                    title={post.title}
+                  />
+                  <Share
+                    title={post.title}
+                    slug={post.path}
+                    excerpt={post.meta_description}
+                  />
+                  <hr />
+                  <div className='container content'>
+                    <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
+                      <div className='column is-7'>
+                        <div>
+                          {ratings ? (
+                            <Reviews>
                         Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} - {' '}
-                                {ratings.totalCount} Reviews
-                              </Reviews>
-                            ) : null}
-                          </div>
-                          <Rating />
+                              {ratings.totalCount} Reviews
+                            </Reviews>
+                          ) : null}
                         </div>
-                        <div className='column'>
-                          <WebIntents />
-                        </div>
+                        <Rating />
+                      </div>
+                      <div className='column'>
+                        <WebIntents />
                       </div>
                     </div>
-                    <Comments />
-                    <hr
-                      style={{
-                        marginBottom: rhythm(1),
-                      }}
-                    />
-                    <section>
-                      <div className='columns'>
-                        <div className='column is-10 is-offset-1'>
-                          <Pagination>
-                            {prev && (
-                              <Link to={prev.url}>
-                                <span>Previous</span>
-                                <h3>{prev.title}</h3>
-                              </Link>
-                            )}
-                            {next && (
-                              <Link to={next.url}>
-                                <span>Next</span>
-                                <h3>{next.title}</h3>
-                              </Link>
-                            )}
-                          </Pagination>
-                        </div>
+                  </div>
+                  <Comments />
+                  <hr
+                    style={{
+                      marginBottom: rhythm(1),
+                    }}
+                  />
+                  <section>
+                    <div className='columns'>
+                      <div className='column is-10 is-offset-1'>
+                        <Pagination>
+                          {prev && (
+                            <Link to={prev.url}>
+                              <span>Previous</span>
+                              <h3>{prev.title}</h3>
+                            </Link>
+                          )}
+                          {next && (
+                            <Link to={next.url}>
+                              <span>Next</span>
+                              <h3>{next.title}</h3>
+                            </Link>
+                          )}
+                        </Pagination>
                       </div>
-                    </section>
-                  </div>
-                  <div className='column'>
-                    <Toc />
-                  </div>
+                    </div>
+                  </section>
+                </div>
+                <div className='column'>
+                  <Adds />
                 </div>
               </div>
-            </section>
+            </div>
           </div>
         </div>
       </section>
