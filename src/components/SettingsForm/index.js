@@ -3,10 +3,10 @@ import { UserConsumer } from '../Context/UserContext'
 import styled from 'styled-components'
 
 const Name = styled.input`
-  padding:10px;
-  margin:0 0 20px;
+  padding: 10px;
+  margin: 0 0 20px;
   border-radius: 6px;
-  width:100%;
+  width: 200px;
 `
 export default function UserSettings () {
   return (

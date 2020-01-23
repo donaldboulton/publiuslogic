@@ -1,12 +1,11 @@
 import React from 'react'
 import { navigate } from '@reach/router'
 import BasePage from '../base/BasePage'
-import Spinner from '../components/Spinner'
 import UserMessage from '../components/UserMessage'
 import SettingsForm from '../components/SettingsForm'
 import { UserProvider } from '../components/Context/UserContext'
 
-import { getUser, logoutNI } from '../services/auth'
+import { getUser } from '../services/auth'
 
 class Profile extends React.Component {
   constructor (props) {
@@ -17,16 +16,6 @@ class Profile extends React.Component {
     }
     this.basepage = React.createRef()
   };
-
-  logout () {
-    console.log('logout....')
-    this.setState({ loading: true })
-    logoutNI(() => {
-      this.setState({ loading: false })
-      this.basepage.current.updateUser(null)
-      this.goHome()
-    })
-  }
 
   goHome () {
     setTimeout(() => navigate('/', { replace: true }), 200)
@@ -52,10 +41,6 @@ class Profile extends React.Component {
                 <li>Name: {user.user_metadata && user.user_metadata.name}</li>
                 <li>E-mail: {user.email}</li>
               </ul>
-            </div>
-            <div className='content'>
-              <button className='button' onClick={this.logout.bind(this)}>Logout</button>
-              {this.state.loading ? <Spinner /> : false}
             </div>
           </div>
         </section>

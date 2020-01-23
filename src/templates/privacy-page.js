@@ -185,7 +185,7 @@ const PrivacyPage = ({ data }) => {
                 <div className='column is-4'>
                  🔐 Privacy & Terms.
                 </div>
-                <div className='column is-pulled-right'>
+                <div className='column'>
                 For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>
                 </div>
               </div>
@@ -194,7 +194,7 @@ const PrivacyPage = ({ data }) => {
         </div>
         <div className='container content'>
           <div className='columns'>
-            <div className='column is-9 is-offset-1'>
+            <div className='column'>
               <PrivacyPageTemplate
                 contentComponent={HTMLContent}
                 content={post.html}

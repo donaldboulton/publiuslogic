@@ -14,12 +14,13 @@ export const initAuth = () => {
   }
 }
 export const getUser = () =>
-  isBrowser() && window.localStorage.getItem('netlifyUser')
-    ? JSON.parse(window.localStorage.getItem('netlifyUser'))
+  isBrowser() && window.localStorage.getItem('faunaNetlifyUser')
+    ? JSON.parse(window.localStorage.getItem('faunaNetlifyUser'))
     : {}
 
 const setUser = user =>
-  window.localStorage.setItem('netlifyUser', JSON.stringify(user))
+  window.localStorage.setItem('faunaNetlifyUser', JSON.stringify(user))
+
 
 export const handleLogin = callback => {
   clog('isLoggedIn check', isLoggedIn())

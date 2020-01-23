@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { useLoading, useProduceState } from '@swyx/hooks'
-
 const faunadb = require('faunadb')
 const q = faunadb.query
 
@@ -16,7 +15,7 @@ export default function useFauna () {
     })
     setClient(_client)
     return _client
-  };
+  }
 
   function getServerLists (_client = client) {
     if (!_client) return null
@@ -159,7 +158,6 @@ export default function useFauna () {
       )
       .then(() => fetchList(id))
   }
-
   return {
     lists,
     // list,
@@ -167,7 +165,7 @@ export default function useFauna () {
     addList,
     addTodo,
     // toggleAll,
-    // getServerLists,
+    getServerLists,
     load,
     toggle,
     destroy,

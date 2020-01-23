@@ -1,4 +1,4 @@
-import netlifyIdentity from 'netlify-identity-widget'
+import netlifyIdentity from '../../src/components/IdentityWidget'
 // for temporarily cache in client
 // @2018/12/21
 const GlobalObj = {}
@@ -53,6 +53,7 @@ export const handleLogin = ({ username, password }) => {
       username: `donaldboulton`,
       name: `Donald Boulton`,
       email: `donaldboulton@gmail.com`,
+      role: `admin`,
     })
   }
 

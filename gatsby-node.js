@@ -75,13 +75,15 @@ exports.createPages = ({ actions, graphql }) => {
     const pages = result.data.allMarkdownRemark.edges
 
     posts.forEach((edge, index) => {
+      const previous = (index === posts.length - 1) ? null : posts[index + 1].node
+      const next = (index === 0) ? null : posts[index - 1].node;
       createPage({
         path: edge.node.fields.slug,
         component: postTemplate,
         context: {
           slug: edge.node.fields.slug,
-          prev: index === 0 ? null : posts[index - 1].node,
-          next: index === posts.length - 1 ? null : posts[index + 1].node,
+          previous,
+          next,
         },
       })
     })
@@ -90,7 +92,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`,
         ),
         // additional data can be passed via context
         context: {

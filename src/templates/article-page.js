@@ -23,9 +23,8 @@ import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import Toc from '../components/Toc'
-import Adds from '../components/GoogleAdds'
 import { Tags } from 'styled-icons/fa-solid/Tags'
-import { StyledTableMenu, Styledh1, Pagination, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, Styledh1, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
@@ -38,21 +37,41 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
+const PrevNext = ({ previous, next }) => {
+  return (
+    <ul
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        listStyle: 'none',
+        paddingLeft: '1em',
+        paddingRight: '1em',
+      }}
+    >
+      {previous && (
+        <li style={{ marginBottom: 10 }}>
+          <Link to={previous.fields.slug} rel='prev'>
+            ← {previous.frontmatter.title}
+          </Link>
+        </li>
+      )}
+
+      {next && (
+        <li style={{ marginBottom: 10 }}>
+          <Link to={next.fields.slug} rel='next'>
+            {next.frontmatter.title} →
+          </Link>
+        </li>
+      )}
+    </ul>
+  )
+}
+
 const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  const next = pageContext.next
-    ? {
-      url: `/blog/${pageContext.next.post.fields.slug}`,
-      title: pageContext.next.post.frontmatter.title,
-    }
-    : null
-  const prev = pageContext.prev
-    ? {
-      url: `/blog/${pageContext.prev.post.fields.slug}`,
-      title: pageContext.prev.post.frontmatter.title,
-    }
-    : null
+  const { previous, next } = pageContext
   const coverHeight = '100%'
   const ratingValue =
     ratings && ratings.edges
@@ -101,16 +120,11 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
           coverClassName='post-cover'
         />
       </section>
-      <section>
+      <section className='section'>
         <div className='columns'>
-          <div className='column is-2 is-fullheight'>
-            <aside>
-              <Toc />
-            </aside>
-          </div>
-          <div className='column is-10'>
+          <div className='column is-10 is-offset-1'>
             <div className='columns'>
-              <div className='column is-10'>
+              <div className='column is-11 is-offset-1'>
                 <section className='section'>
                   <Styledh1>
                     {post.frontmatter.title}
@@ -139,79 +153,70 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                 </MetaPage>
               </div>
             </div>
-            <div className='container content'>
-              <div className='columns'>
-                <div className='column is-10'>
-                  <main>{renderAst(postNode.htmlAst)}</main>
-                  <ArticleTemplate
-                    content={postNode.html}
-                    contentComponent={HTMLContent}
-                    cover={post.cover}
-                    readingTime={postNode.timeToRead}
-                    category={post.category}
-                    date={post.date}
-                    tweet_id={post.tweet_id}
-                    meta_title={post.meta_title}
-                    description={post.meta_description}
-                    tags={post.tags}
-                    title={post.title}
-                  />
-                  <Share
-                    title={post.title}
-                    slug={post.path}
-                    excerpt={post.meta_description}
-                  />
-                  <hr />
-                  <div className='container content'>
-                    <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
-                      <div className='column is-7'>
-                        <div>
-                          {ratings ? (
-                            <Reviews>
+            <section>
+              <div className='container content'>
+                <div className='columns'>
+                  <div className='column is-9 is-offset-1'>
+                    <main>{renderAst(postNode.htmlAst)}</main>
+                    <ArticleTemplate
+                      content={postNode.html}
+                      contentComponent={HTMLContent}
+                      cover={post.cover}
+                      readingTime={postNode.timeToRead}
+                      category={post.category}
+                      date={post.date}
+                      tweet_id={post.tweet_id}
+                      meta_title={post.meta_title}
+                      description={post.meta_description}
+                      tags={post.tags}
+                      title={post.title}
+                    />
+                    <Share
+                      title={post.title}
+                      slug={post.path}
+                      excerpt={post.meta_description}
+                    />
+                    <hr />
+                    <div className='container content'>
+                      <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
+                        <div className='column is-7'>
+                          <div>
+                            {ratings ? (
+                              <Reviews>
                         Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} - {' '}
-                              {ratings.totalCount} Reviews
-                            </Reviews>
-                          ) : null}
+                                {ratings.totalCount} Reviews
+                              </Reviews>
+                            ) : null}
+                          </div>
+                          <Rating />
                         </div>
-                        <Rating />
+                        <div className='column'>
+                          <WebIntents />
+                        </div>
                       </div>
-                      <div className='column'>
-                        <WebIntents />
+                    </div>
+                    <Comments />
+                    <hr
+                      style={{
+                        marginBottom: rhythm(1),
+                      }}
+                    />
+                    <section>
+                      <div className='columns'>
+                        <div className='column is-10 is-offset-1'>
+                          <PrevNext previous={previous} next={next} />
+                        </div>
                       </div>
+                    </section>
+                  </div>
+                  <div className='column'>
+                    <div className='is-sticky sticky-style'>
+                      <Toc />
                     </div>
                   </div>
-                  <Comments />
-                  <hr
-                    style={{
-                      marginBottom: rhythm(1),
-                    }}
-                  />
-                  <section>
-                    <div className='columns'>
-                      <div className='column is-10 is-offset-1'>
-                        <Pagination>
-                          {prev && (
-                            <Link to={prev.url}>
-                              <span>Previous</span>
-                              <h3>{prev.title}</h3>
-                            </Link>
-                          )}
-                          {next && (
-                            <Link to={next.url}>
-                              <span>Next</span>
-                              <h3>{next.title}</h3>
-                            </Link>
-                          )}
-                        </Pagination>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div className='column'>
-                  <Adds />
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </section>

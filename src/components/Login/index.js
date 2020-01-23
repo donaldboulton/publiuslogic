@@ -2,6 +2,7 @@ import React from 'react'
 import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
 
 import netlifyIdentity from '../IdentityWidget/netlify-identity'
+
 export const isBrowser = () => typeof window !== 'undefined'
 export const initAuth = () => {
   if (isBrowser()) {
@@ -59,7 +60,7 @@ class Login extends React.Component {
     if (!noSave) { saveLogin() }
     const faunadb_token = this.state.user &&
       this.state.user.app_metadata &&
-      this.state.user.app_metadata.faunadb_token
+      this.state.user.app_metadata.faunadb_token;
     if (faunadb_token) {
       this.props.onAuthChange(faunadb_token)
     } else {
@@ -85,15 +86,15 @@ class Login extends React.Component {
     var actionForm = <span>
       <button aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogIn}>
       Login&nbsp;
-      <SignInAlt size='0.9em' color='#f5f5f5' />
+        <SignInAlt size='0.9em' color='#f5f5f5' />
       </button>
     </span>
     return (
       <div className='Login'>
         {this.state.user
-          ? <a className='identity-logout' onClick={this.doLogout.bind(this)}>
+          ? <a className='identity-logout' href='#netlify-modal'>
           Logout&nbsp;
-          <SignOutAlt size='0.9rem' color='#f5f5f5' />
+            <SignOutAlt size='0.9rem' color='#f5f5f5' />
             </a>
           : actionForm}
       </div>

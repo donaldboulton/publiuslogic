@@ -1,9 +1,7 @@
 import React from 'react'
 
-export const FaunaCtx = React.createContext()
-
 const user = {
-  user_metadata:{},
+  user_metadata: {},
 }
 
 const UserContext = React.createContext({
@@ -11,7 +9,6 @@ const UserContext = React.createContext({
   username: '',
   updateUsername: () => {},
 })
-
 export class UserProvider extends React.Component {
   updateUsername = newUsername => {
     this.setState({ username: newUsername })

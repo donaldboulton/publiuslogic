@@ -13,6 +13,7 @@ meta_title: Gatsby CRUD Netlify Fauna
 meta_description: Gatsby CRUD Netlify FaunaDB
 tweet_id: '1118651504674725888'
 showToc: true
+related: true
 ---
 
 ## Gatsby Serverless FaunaDB

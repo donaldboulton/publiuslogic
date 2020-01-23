@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import DarkModeToggle from '../DarkMode/DarkModeToggle'
 import logo from '../../../static/img/apple-touch-icon-64x64.png'
 import avatar from '../../../static/img/avatar.png'
-import { UserConsumer } from '../Context/UserContext'
+import UserContext from '../Context/UserContext'
 
 const Navbar = class extends React.Component {
   render () {
@@ -31,6 +31,6 @@ const Navbar = class extends React.Component {
   }
 }
 
-Navbar.contextType = UserConsumer
+Navbar.contextType = UserContext
 
 export default Navbar
