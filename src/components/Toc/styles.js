@@ -14,7 +14,7 @@ const openTocDiv = css`
 
 export const TocDiv = styled.div`
   height: max-content;
-  max-height: 80vh;
+  max-height: 85vh;
   border-radius: 4px;
   border: thin solid ${props => props.theme.background};
   z-index: 3;
@@ -25,25 +25,28 @@ export const TocDiv = styled.div`
   overscroll-behavior: none;
   overflow-x: hidden;
   overflow-y: hidden;
-  .nav {
-    max-height: 78vh;
+  nav {
+    max-height: 80vh;
+    overflow-x: hidden;
+  }
+  .linktoc {
     overflow-y: auto;
     scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
     scrollbar-width: 10px;
     overflow-x: hidden;
   }
-  .nav::-webkit-scrollbar {
+  .linktoc::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
-  .nav::-webkit-scrollbar-thumb {
+  .linktoc::-webkit-scrollbar-thumb {
     background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17));
     background: linear-gradient(to bottom,#201c29,#100e17);
     border-radius: 10px;
     -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
     box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
   }
-  .nav::-webkit-scrollbar-track {
+  .linktoc::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
   ${mediaQuery.maxLaptop} {
@@ -67,7 +70,7 @@ export const TocDiv = styled.div`
   }
 `
 
-export const TocTitle = styled.h2`
+export const TocTitle = styled.h3`
   margin: 0;
   padding-bottom: 0.5em;
   display: grid;

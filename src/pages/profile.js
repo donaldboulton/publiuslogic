@@ -4,6 +4,7 @@ import BasePage from '../base/BasePage'
 import UserMessage from '../components/UserMessage'
 import SettingsForm from '../components/SettingsForm'
 import { UserProvider } from '../components/Context/UserContext'
+import { Styledh1 } from '../components/styles/ArticleStyles'
 
 import { getUser } from '../services/auth'
 
@@ -29,18 +30,22 @@ class Profile extends React.Component {
       <BasePage ref={this.basepage}>
         <section className='section'>
           <div className='container'>
-            <div className='content'>
-              <h1 className='has-text-weight-bold is-size-3'>Your profile</h1>
-            </div>
-            <div className='content'>
-              <UserProvider>
-                <UserMessage />
-                <SettingsForm />
-              </UserProvider>
-              <ul>
-                <li>Name: {user.user_metadata && user.user_metadata.name}</li>
-                <li>E-mail: {user.email}</li>
-              </ul>
+            <div className='columns'>
+              <div className='column is-10 is-offset-1'>
+                <Styledh1>
+                  Your profile
+                </Styledh1>
+                <div className='content'>
+                  <UserProvider>
+                    <UserMessage />
+                    <SettingsForm />
+                  </UserProvider>
+                  <ul>
+                    <li>Name: {user.user_metadata && user.user_metadata.name}</li>
+                    <li>E-mail: {user.email}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>

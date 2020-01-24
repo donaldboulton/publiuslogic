@@ -21,7 +21,6 @@ export const getUser = () =>
 const setUser = user =>
   window.localStorage.setItem('faunaNetlifyUser', JSON.stringify(user))
 
-
 export const handleLogin = callback => {
   clog('isLoggedIn check', isLoggedIn())
   if (isLoggedIn()) {

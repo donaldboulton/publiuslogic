@@ -1,19 +1,34 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 
 export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
-export const FaunaCtx = React.createContext()
-export const UserCtx = React.createContext()
 
-const user = {
-  faunaNetlifyUser: {},
+const initialState = {
+  collapsed: {},
+}
+
+function reducer (state, action) {
+  switch (action.type) {
+    case 'TOGGLE_NAV_COLLAPSED':
+      return {
+        ...state,
+        collapsed: {
+          ...state.collapsed,
+          [action.url]: !state.collapsed[action.url]
+        }
+      };
+    default:
+      return {
+        ...state
+      }
+  }
 }
 
 const GlobalContextProvider = ({ children }) => {
-  const UserContext = React.createContext({ faunaNetlifyUser: user })
+  const [state, dispatch] = useReducer(reducer, initialState)
   return (
-    <GlobalStateContext.Provider value={UserContext}>
-      <GlobalDispatchContext.Provider value={user}>{children}</GlobalDispatchContext.Provider>
+    <GlobalStateContext.Provider value={state}>
+      <GlobalDispatchContext.Provider value={dispatch}>{children}</GlobalDispatchContext.Provider>
     </GlobalStateContext.Provider>
   )
 }

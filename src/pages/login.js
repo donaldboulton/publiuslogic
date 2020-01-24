@@ -89,10 +89,7 @@ export default class LoginPage extends React.Component {
   }
 
   doLogout () {
-    // remove credentials and refresh model
-    netlifyIdentity.logout()
-    clearLogin()
-    netlifyIdentity.close()
+    netlifyIdentity.open()
     this.setState({ user: null })
   }
 
@@ -119,22 +116,26 @@ export default class LoginPage extends React.Component {
     return (<BasePage ref={this.basepage}>
       <section className='section'>
         <div className='container'>
-          {this.state.logged
-            ? (<>
-              <div className='content'>
-                <Styledh1>
-                    Welcome:
-                </Styledh1>
-              </div>
-               </>)
-            : (<>
-              <div className='content'>
-                <Styledh1>
-                   Login First
-                </Styledh1>
-              </div>
-              <button className='button' type='button' onClick={this.handleLogIn}>Login</button>
-               </>)}
+          <div className='columns'>
+            <div className='column is-10 is-offset-1'>
+              {this.state.logged
+                ? (<>
+                  <div className='content'>
+                    <Styledh1>
+                      Welcome:
+                    </Styledh1>
+                  </div>
+                   </>)
+                : (<>
+                  <div className='content'>
+                    <Styledh1>
+                      Login First
+                    </Styledh1>
+                  </div>
+                  <button className='button has-tooltip-primary has-tooltip-multiline' data-tooltip='On Login in you agree to our user terms' type='button' onClick={this.handleLogIn}>Login</button>
+                </>)}
+            </div>
+          </div>
         </div>
       </section>
             </BasePage>)
