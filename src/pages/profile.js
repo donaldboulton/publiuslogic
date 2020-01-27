@@ -1,33 +1,20 @@
 import React from 'react'
-import { navigate } from '@reach/router'
-import BasePage from '../base/BasePage'
+import Layout from '../components/Layout'
 import UserMessage from '../components/UserMessage'
 import SettingsForm from '../components/SettingsForm'
 import { UserProvider } from '../components/Context/UserContext'
 import { Styledh1 } from '../components/styles/ArticleStyles'
+import { useIdentityContext } from 'react-netlify-identity-widget'
 
-import { getUser } from '../services/auth'
+const Profile = (location) => {
 
-class Profile extends React.Component {
-  constructor (props) {
-    super(props)
+  const { user, identity } = useIdentityContext()
+  const name =
+  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
 
-    this.state = {
-      loading: false,
-    }
-    this.basepage = React.createRef()
-  };
-
-  goHome () {
-    setTimeout(() => navigate('/', { replace: true }), 200)
-  }
-
-  render () {
-    const user = getUser()
-    // console.log(user)
-
-    return (
-      <BasePage ref={this.basepage}>
+  return (
+    <>
+      <Layout location={location}>
         <section className='section'>
           <div className='container'>
             <div className='columns'>
@@ -41,17 +28,16 @@ class Profile extends React.Component {
                     <SettingsForm />
                   </UserProvider>
                   <ul>
-                    <li>Name: {user.user_metadata && user.user_metadata.name}</li>
-                    <li>E-mail: {user.email}</li>
+                    <li>Name: {name.user_metadata && name.user_metadata.full_name}</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </BasePage>
-    )
-  }
+      </Layout>
+    </>
+  )
 }
 
 export default Profile

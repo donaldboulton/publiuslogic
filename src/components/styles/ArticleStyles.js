@@ -152,8 +152,9 @@ export const Date = styled.span`
   color: ${props => props.theme.white};
 `
 export const GithubButtons = styled.span`
-  right: 2em;
-  padding: 0.5em;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
 `
 export const Pagination = styled.div`
   display: flex;

@@ -1,25 +1,23 @@
-/**
- * router controller for path:
- * 
- * /app/profile
- * /app/login
- * 
- * @2018/12/20
- */
-
-
 import React from 'react'
 import { Router } from '@reach/router'
-
-import PrivateRoute from '../components/PrivateRoute/privateRoute'
 import Profile from './profile'
+import Dashboard from './dashboard'
+import PrivateRoute from '../components/PrivateRoute/privateRoute'
 import Login from './login'
 
-const App = () => (
-  <Router>
-    <PrivateRoute path='/app/profile' component={Profile} />
-    <Login path='/app/login' />
-  </Router>
-)
+const App = () => {
+  return (
+    <Router>
+      <PrivateRoute path='/app/profile' component={Profile} />
+      <PublicRoute path='/app'>
+        <PrivateRoute path='/' component={Dashboard} />
+        <Login path='/login' />
+      </PublicRoute>
+    </Router>
+  )
+}
+function PublicRoute (props) {
+  return <div>{props.children}</div>
+}
 
 export default App

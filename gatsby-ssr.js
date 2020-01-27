@@ -1,8 +1,9 @@
-const React = require('react')
-// eslint-disable-next-line import/no-absolute-path
-const GlobalContextProvider = require('./src/components/Context/GlobalContextProvider').default
+import React from 'react'
+import { IdentityContextProvider } from 'react-netlify-identity-widget'
+import './static/scss/styles.css'
 
 export const wrapRootElement = ({ element }) => (
-  <GlobalContextProvider>{element}</GlobalContextProvider>
+  <IdentityContextProvider url='https://publiuslogic.com/.netlify.com/'>
+    {element}
+  </IdentityContextProvider>
 )
-

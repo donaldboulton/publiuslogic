@@ -1,15 +1,21 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import { isLoggedIn } from '../../services/auth'
+import { useIdentityContext } from 'react-netlify-identity-widget'
 
-const PrivateRoute = ({ component: Component, location, ...rest }) => {
-  if (!isLoggedIn() && location.pathname !== `/app/login`) {
-    // If the user is not logged in, redirect to the login page.
-    navigate(`/login`)
-    return null
-  }
+function PrivateRoute (props) {
+  const { isLoggedIn } = useIdentityContext()
+  const { component: Component, location, ...rest } = props
 
-  return <Component {...rest} />
+  React.useEffect(
+    () => {
+      if (!isLoggedIn && location.pathname !== `/app/login`) {
+        // If the user is not logged in, redirect to the login page.
+        navigate(`/app/login`)
+      }
+    },
+    [isLoggedIn, location],
+  )
+  return isLoggedIn ? <Component {...rest} /> : null
 }
 
 export default PrivateRoute

@@ -107,10 +107,16 @@ PubliusLogic is a complex Gatsby Site and not for React programing beginners.
 
 > ✔️ Complete Website Suite - Pages = Home, Blog, About, Privacy, Sitemap and Contact
 
+- 🚋Serverless Functions
+- 🔏Authentication (with Netlify Identity)
+- 🔐Authenticated Serverless Functions
+- 😻External Provider login with GitHub, Bitbucket, Google, etc.
+- 🏠Protected Routes
+- 👋🏼Dynamic Clientside Pages in Gatsby (enabling all the above)
+- 🕵🏼‍♂️Hide API Secrets from being exposed to Frontend
 * Netlify CMS for Content Management
-* FaunaDB for Authentication - Users Backend and Admin
+* Users Backend and Admin
 * SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc.)
-* Netlify Identity for Authentication
 * Styled Components, Styled Media Query & Bulma for styling
 * Progressive Web App & Offline Support
 * Tags, Categories and a RSS Feed for Blog

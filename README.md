@@ -9,6 +9,14 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/donaldboulton/publiuslogic/badge.svg)](https://snyk.io/test/github/donaldboulton/publiuslogic/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d2be12-eb4a-4da2-a471-aea92e199948/deploy-status)](https://app.netlify.com/sites/publiuslogic/deploys)
 
+- 🚋Serverless Functions
+- 🔏Authentication (with Netlify Identity)
+- 🔐Authenticated Serverless Functions
+- 😻External Provider login with GitHub, Bitbucket, Google, etc.
+- 🏠Protected Routes
+- 👋🏼Dynamic Clientside Pages in Gatsby (enabling all the above)
+- 🕵🏼‍♂️Hide API Secrets from being exposed to Frontend
+
 ## Styling
 
 Styled Components 💅 with Styled Media Query 💍
