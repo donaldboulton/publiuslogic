@@ -4,7 +4,7 @@ import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
 import { useIdentityContext } from 'react-netlify-identity-widget'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import fetch from 'node-fetch'
 
 function Dashboard () {
