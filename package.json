@@ -23,7 +23,6 @@
     "serve": "gatsby serve && netlify-lambda serve functions",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/",
-    "format": "prettier --write \"src/**/*.js\"",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
     "test": "remark . --quiet --frail && node test.js"
@@ -142,7 +141,6 @@
     "core-js": "^3.6.4"
   },
   "devDependencies": {
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "@babel/core": "^7.8.3",
     "babel-eslint": "^10.0.3",
     "babel-preset-gatsby": "^0.2.27",
