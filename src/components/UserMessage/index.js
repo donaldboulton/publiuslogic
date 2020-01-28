@@ -1,10 +1,14 @@
 import React from 'react'
 import { UserConsumer } from '../Context/UserContext'
 
-export default function UserMessage () {
+function UserMessage () {
+  const { user, identity } = useIdentityContext()
+  const name =
+  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
+  
   return (
     <UserConsumer>
-      {({ username }) => <h1>Welcome {username}!</h1>}
+      {({ name }) => <h1>Welcome {name}!</h1>}
     </UserConsumer>
   );
 }

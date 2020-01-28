@@ -1,41 +1,41 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
+
 import {
   IdentityModal,
   useIdentityContext,
 } from 'react-netlify-identity-widget'
-import '../../static/scss/styles.css'
+import 'react-netlify-identity-widget/styles.css' // delete if you want to bring your own CSS
 
 function Login () {
   const identity = useIdentityContext()
   const [dialog, setDialog] = React.useState(false)
-
   return (
     <>
       <Layout>
         <section className='section'>
           <div className='container'>
             <div className='columns'>
-              <div
-                className='column is-10 is-offset-1'
-                style={{
-                  marginBottom: rhythm(1),
-                }}
-              >
+              <div className='column is-10 is-offset-1'>
+                <div className='content' />
                 <Styledh1>
-                  LogIn or SignUp
+                 LogIn or SignUp
                 </Styledh1>
-                <br
+                <div
+                  style={{
+                    marginBottom: rhythm(1),
+                  }}
+                >
+                  <button className='button' onClick={() => setDialog(true)}>Log in</button>
+                </div>
+                <hr
                   style={{
                     marginBottom: rhythm(1),
                   }}
                 />
-                <div className='content'>
-                  <button className='button' onClick={() => setDialog(true)}>log in</button>
-                </div>
               </div>
             </div>
           </div>

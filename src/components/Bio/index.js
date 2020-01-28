@@ -38,7 +38,7 @@ const Bio = () => {
   const { twitter } = data.site.siteMetadata
   const { path } = data.markdownRemark.frontmatter
   const { siteUrl } = data.site.siteMetadata
-  const { githubEditme } = data.site.siteMetadata + path
+  const { githubEditme } = data.site.siteMetadata + siteUrl + path
   return (
     <div className='columns'>
       <div
@@ -47,19 +47,25 @@ const Bio = () => {
           display: `flex`,
         }}
       >
-        <Image
-          fixed={data.avatar.childImageSharp.fixed}
-          alt={author}
-          style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            minWidth: 50,
-            borderRadius: `100%`,
-          }}
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
+        <span className='author-avatar'>
+          <Image
+            fixed={data.avatar.childImageSharp.fixed}
+            alt={author}
+            style={{
+              marginRight: rhythm(1 / 2),
+              marginBottom: 0,
+              minWidth: 50,
+              borderRadius: `100%`,
+            }}
+            imgStyle={{
+              borderRadius: `50%`,
+            }}
+          />
+          <svg className='half-circle' width='70px' height='70px'>
+            <use xlinkHref='#half-circle' />
+            <svg id='half-circle' viewBox='0 0 106 57'><path d='M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4' /></svg>
+          </svg>
+        </span>
         <p>
         Written by <strong>{author}</strong>
           <GithubButtons><GithubButtonsRepo /></GithubButtons>
@@ -85,7 +91,7 @@ const Bio = () => {
             <span>&nbsp;Follow</span>
           </a>
         </p>
-        <a title='Github' className='github-corner' href={githubEditme} target='_blank' role='button' rel='noopener noreferrer'>
+        <a title='Github' className='github-corner' href='https://publiuslogic.com + {path}' target='_blank' role='button' rel='noopener noreferrer'>
           <img
             style={{
               height: 55,

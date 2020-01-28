@@ -19,13 +19,11 @@
 
 ## Styling
 
-Styled Components 💅 with Styled Media Query 💍
+Styled Components 💅 with custom React Hooks screen mediaQuery's 💍
 
 > Beautiful media queries better than CSS @media for styled-components with ability to specify custom breakpoints.
 
-Gallery Grids with `styled-css-grid 🍱` [![Travis](https://img.shields.io/travis/azz/styled-css-grid.svg?style=flat-square)](https://travis-ci.org/azz/styled-css-grid)
-
-> A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.
+Gallery Grids with `custom-screen mediaQuerys 🍱` [Masonry Post](/blog/react-hooks-masonary) 💅.
 
 JavaScript Standard
 

@@ -23,6 +23,7 @@
     "serve": "gatsby serve && netlify-lambda serve functions",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/",
+    "format": "prettier --write \"src/**/*.js\"",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
     "test": "remark . --quiet --frail && node test.js"
@@ -44,7 +45,7 @@
     "faunadb": "^2.11.1",
     "fs": "^0.0.1-security",
     "fs-extra": "^7.0.1",
-    "gatsby": "^2.18.25",
+    "gatsby": "^2.19.07",
     "gatsby-image": "^2.2.39",
     "gatsby-paginate": "^1.1.1",
     "gatsby-plugin-catch-links": "^2.1.21",
@@ -66,7 +67,7 @@
     "gatsby-plugin-sass": "^2.1.27",
     "gatsby-plugin-sharp": "^2.3.13",
     "gatsby-plugin-sitemap": "^2.2.26",
-    "gatsby-plugin-styled-components": "^3.1.17",
+    "gatsby-plugin-styled-components": "^3.1.18",
     "gatsby-plugin-twitter": "^2.1.14",
     "gatsby-plugin-typography": "^2.3.21",
     "gatsby-plugin-use-dark-mode": "^1.1.2",
@@ -103,6 +104,7 @@
     "ramda": "^0.26.1",
     "react": "^16.12.0",
     "react-adsense": "^0.1.0",
+    "react-avatar": "^3.4.6",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.12.0",
     "react-dropzone": "^10.2.0",
@@ -120,7 +122,7 @@
     "rehype-react": "^4.0.1",
     "remark-rehype": "^5.0.0",
     "sharp": "^0.24.0",
-    "snyk": "^1.258.1",
+    "snyk": "^1.283.0",
     "styled-components": "^5.0.0",
     "styled-css-grid": "^1.2.1",
     "styled-icons": "^9.2.0",
@@ -136,7 +138,11 @@
     "uuid": "^3.4.0",
     "with-utterances": "^1.5.0"
   },
+  "resolutions": {
+    "core-js": "^3.6.4"
+  },
   "devDependencies": {
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "@babel/core": "^7.8.3",
     "babel-eslint": "^10.0.3",
     "babel-preset-gatsby": "^0.2.27",

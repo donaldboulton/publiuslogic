@@ -2,6 +2,9 @@
   publish = "public"
   command = "gatsby build"
   functions = "functions"
+[build.environment]
+  YARN_VERSION = "1.21.1"
+  YARN_FLAGS = "--no-ignore-optional"
 [template.environment]
   FAUNADB_SERVER_SECRET = "fnADfbdAsuACFD760u0R8bg0x12IkMDDik6Eekuz"
 [[headers]]
@@ -20,7 +23,3 @@
 for = "/static/*"
 [headers.values]
     Cache-Control = "public, max-age=31536000"
-[[redirects]]
-  from = "/app/*"
-  to = "/app.html"
-  status = 200    

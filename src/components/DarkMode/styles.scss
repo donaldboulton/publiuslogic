@@ -32,6 +32,25 @@ body {
   width: 1.5rem;
   top: 0.9px !important;
 }
+.author-avatar .half-circle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 46px;
+  fill: none;
+  stroke: url(#orange-to-pink);
+  stroke-width: 8;
+  stroke-linecap: round;
+  pointer-events: none;
+  }
+  *, :after, :before {
+    box-sizing: border-box;
+  }
+  .avatar svg {
+    width: 100%;
+    height: 100%;
+}
 body.light-mode {
   background-image: url(/img/bg10W-min.png);
   background-repeat: repeat;

@@ -3,6 +3,7 @@ import { Link, navigate } from 'gatsby'
 import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
 import { useIdentityContext } from 'react-netlify-identity-widget'
 import { Styledh1 } from '../components/styles/ArticleStyles'
+import { rhythm } from '../utils/typography'
 import Layout from '../components/layout'
 import fetch from 'node-fetch'
 
@@ -53,7 +54,12 @@ function Dashboard () {
                 <Styledh1>
                  Dashboard
                 </Styledh1>
-                <div className='content'>
+                <div
+                  className='content'
+                  style={{
+                    marginBottom: rhythm(1),
+                  }}
+                >
                   <span>{message}</span>
                   {isLoggedIn ? (
                     <a
@@ -77,6 +83,11 @@ function Dashboard () {
                   {err && <pre>{JSON.stringify(err, null, 2)}</pre>}
                   <pre>{JSON.stringify(data, null, 2)}</pre>
                 </div>
+                <hr
+                  style={{
+                    marginBottom: rhythm(1),
+                  }}
+                />
               </div>
             </div>
           </div>

@@ -40,8 +40,8 @@ export const StyledTableMenu = styled.div`
     position: fixed;
     width: 30px;
     height: 26px;
-    right: 4.5vw;
-    top: 2vh;
+    right: 8vw;
+    top: 2.2vh;
   }
   .bm-burger-bars {
     background: ${props => props.theme.lightBg};  
