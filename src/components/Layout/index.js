@@ -1,4 +1,5 @@
 import React from 'react'
+import { navigate } from 'gatsby'
 import '../../../content/assets/sass/styles.sass'
 import PropTypes from 'prop-types'
 import Header from '../Header'
@@ -12,33 +13,30 @@ import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
-import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget'
+import IdentityModal, { useIdentityContext } from 'react-netlify-identity-widget'
 import '../../../static/scss/styles.css'
 
 function Layout ({ children, location }) {
-  const url = 'https://publiuslogic.com/.netlify/identity'
   return (
     <>
       <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />
       <div id='page-wrap'>
         <ThemeProvider theme={theme} location={location}>
-          <IdentityContextProvider url={url}>
-            <Header />
-            <>
-              {children}
-            </>
-            <AuthStatusView />
-            <Subscriptions />
-            <Slack />
-            <HotJar />
-            <Adds />
-            <Hr />
-            <Scroll
-              showBelow={1500}
-              css='position: fixed; right: 1em; bottom: 2.5em;'
-            />
-            <Footer />
-          </IdentityContextProvider>
+          <Header />
+          <>
+            {children}
+          </>
+          <AuthStatusView className='hidden' hidden />
+          <Subscriptions />
+          <Slack />
+          <HotJar />
+          <Adds />
+          <Hr />
+          <Scroll
+            showBelow={1500}
+            css='position: fixed; right: 1em; bottom: 2.5em;'
+          />
+          <Footer />
         </ThemeProvider>
       </div>
     </>
@@ -89,9 +87,8 @@ function AuthStatusView () {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={(user) => console.log('hello ', user.user_metadata)}
-        onSignup={(user) => console.log('welcome ', user.user_metadata)}
-        onLogout={() => console.log('bye ', name)}
+        onLogin={user => navigate('/app/profile')}
+        onSignup={user => navigate('/app/profile')}
       />
     </div>
   )

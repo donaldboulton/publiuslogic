@@ -30,15 +30,16 @@ const Profile = () => {
                 >
                   {isLoggedIn ? (
                     <>
-                      <h1> hello {name}!</h1>
-                      {avatar_url && <img alt='user name' src={avatar_url} style={{ height: 100, borderRadius: '50%' }} />}
+                      {avatar_url && <img alt='user name' src={avatar_url} className='user-icon' />}
+                      <h3>&nbsp; Hello {name}!</h3>
+                      <br />
                       <button className='button' onClick={() => setDialog(true)}>
                         LOG OUT
                       </button>
                     </>
                   ) : (
                     <>
-                      <h1> hello! try logging in! </h1>
+                      <h3> Hello! try logging in! </h3>
                       <button className='button' onClick={() => setDialog(true)}>
                          LOG IN
                       </button>
@@ -55,13 +56,6 @@ const Profile = () => {
           </div>
         </section>
       </Layout>
-      <IdentityModal
-        showDialog={dialog}
-        onCloseDialog={() => setDialog(false)}
-        onLogin={(user) => console.log('hello ', user.user_metadata)}
-        onSignup={(user) => console.log('welcome ', user.user_metadata)}
-        onLogout={() => console.log('bye ', name)}
-      />
     </>
   )
 }

@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <PrivateRoute path='/app/profile' component={Profile} />
       <PublicRoute path='/app'>
-        <PrivateRoute path='/' component={Dashboard} />
+        <PrivateRoute path='/app/dashboard' component={Dashboard} />
         <Login path='/login' />
       </PublicRoute>
     </Router>

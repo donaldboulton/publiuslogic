@@ -40,7 +40,7 @@ export const StyledTableMenu = styled.div`
     position: fixed;
     width: 30px;
     height: 26px;
-    right: 8vw;
+    right: 5vw;
     top: 2.2vh;
   }
   .bm-burger-bars {
