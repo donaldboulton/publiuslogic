@@ -8,11 +8,15 @@ import {
   IdentityModal,
   useIdentityContext,
 } from 'react-netlify-identity-widget'
-import 'react-netlify-identity-widget/styles.css' // delete if you want to bring your own CSS
 
 function Login () {
   const identity = useIdentityContext()
   const [dialog, setDialog] = React.useState(false)
+  const name =
+  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
+  const avatar_url = identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.avatar_url
+  console.log(JSON.stringify(identity))
+  const isLoggedIn = identity && identity.isLoggedIn
   return (
     <>
       <Layout>
@@ -29,8 +33,27 @@ function Login () {
                     marginBottom: rhythm(1),
                   }}
                 >
-                  <div>
-                    <button className='button' onClick={() => setDialog(true)}>Log in</button>
+                  <div
+                    style={{
+                      marginBottom: rhythm(1),
+                    }}
+                  >
+                    {isLoggedIn ? (
+                      <>
+                        <h1> hello {name}!</h1>
+                        {avatar_url && <img alt='user name' src={avatar_url} style={{ height: 100, borderRadius: '50%' }} />}
+                        <button className='button' onClick={() => setDialog(true)}>
+                          LOG OUT
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <h1> hello! try logging in! </h1>
+                        <button className='button' onClick={() => setDialog(true)}>
+                          LOG IN
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
                 <hr

@@ -78,7 +78,7 @@ body.light-mode {
   }
   .navbar-item {
     background: transparent !important;
-    color: whitesmoke !important
+    color: whitesmoke !important;
   }
   .bm-menu {
     background: rgba(0, 0, 0, 0.59);
@@ -286,7 +286,7 @@ body.light-mode {
     border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0,0,0,.125) !important;
     max-width: 100%;
-    width: 100% ;
+    width: 100%;
   }
   .input-control  {
     border: 1px solid rgba(0,194,178,.2) !important;
@@ -479,7 +479,7 @@ body.dark-mode .navbar-brand {
   background: transparent !important;
 }
 body.dark-mode .navbar-link:not(.is-arrowless):after {
-  border-color: #d64000 !important
+  border-color: #d64000 !important;
 }
 body.dark-mode .subtitle {
   color: #cccccc !important;

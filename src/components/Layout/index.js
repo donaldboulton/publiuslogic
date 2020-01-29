@@ -12,20 +12,22 @@ import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
-import { UserProvider } from '../Context/UserContext'
+import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget'
+import '../../../static/scss/styles.css'
 
 function Layout ({ children, location }) {
-  const user = { name: 'donaldboulton', loggedIn: true }
+  const url = 'https://publiuslogic.com/.netlify/identity'
   return (
     <>
       <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />
       <div id='page-wrap'>
         <ThemeProvider theme={theme} location={location}>
-          <UserProvider value={user}>
+          <IdentityContextProvider url={url}>
             <Header />
             <>
               {children}
             </>
+            <AuthStatusView />
             <Subscriptions />
             <Slack />
             <HotJar />
@@ -36,7 +38,7 @@ function Layout ({ children, location }) {
               css='position: fixed; right: 1em; bottom: 2.5em;'
             />
             <Footer />
-          </UserProvider>
+          </IdentityContextProvider>
         </ThemeProvider>
       </div>
     </>
@@ -49,3 +51,48 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+function AuthStatusView () {
+  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false)
+  const name =
+    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || 'NoName'
+  const avatar_url = identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.avatar_url
+  console.log(JSON.stringify(identity))
+  const isLoggedIn = identity && identity.isLoggedIn
+  return (
+    <div>
+      <section className='section'>
+        <div className='container'>
+          <div className='columns'>
+            <div className='column is-3 is-offset-1'>
+              {isLoggedIn ? (
+                <>
+                  <h1> hello {name}!</h1>
+                  {avatar_url && <img alt='user name' src={avatar_url} style={{ height: 100, borderRadius: '50%' }} />}
+                  <button className='button' onClick={() => setDialog(true)}>
+                        LOG OUT
+                  </button>
+                </>
+              ) : (
+                <>
+                  <h1> hello! try logging in! </h1>
+                  <button className='button' onClick={() => setDialog(true)}>
+                       LOG IN
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+      <IdentityModal
+        showDialog={dialog}
+        onCloseDialog={() => setDialog(false)}
+        onLogin={(user) => console.log('hello ', user.user_metadata)}
+        onSignup={(user) => console.log('welcome ', user.user_metadata)}
+        onLogout={() => console.log('bye ', name)}
+      />
+    </div>
+  )
+}
