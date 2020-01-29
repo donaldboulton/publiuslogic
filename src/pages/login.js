@@ -29,7 +29,9 @@ function Login () {
                     marginBottom: rhythm(1),
                   }}
                 >
-                  <button className='button' onClick={() => setDialog(true)}>Log in</button>
+                  <div>
+                    <button className='button' onClick={() => setDialog(true)}>Log in</button>
+                  </div>
                 </div>
                 <hr
                   style={{

@@ -32,6 +32,9 @@ body {
   width: 1.5rem;
   top: 0.9px !important;
 }
+.navbar-link:not(.is-arrowless):after {
+  border-color: #fff;
+}
 .author-avatar .half-circle {
   position: absolute;
   bottom: 0;
@@ -66,11 +69,11 @@ body.light-mode {
     background: #00a396 !important;
   }
   .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
-    color : #1d1d1d;
+    color : #028f83;
   }
   .navbar-dropdown {
     background-color: #00a396 !important;
-    border-top: 2px solid #00a396 !important;
+    border-top: transparent !important;
     color: whitesmoke !important;
   }
   .navbar-item {
@@ -475,6 +478,9 @@ body.dark-mode .navbar-menu {
 body.dark-mode .navbar-brand {
   background: transparent !important;
 }
+body.dark-mode .navbar-link:not(.is-arrowless):after {
+  border-color: #d64000 !important
+}
 body.dark-mode .subtitle {
   color: #cccccc !important;
 }
@@ -561,7 +567,7 @@ body.dark-mode .todo-create-input {
 }
 body.dark-mode .navbar-dropdown {
   background-color: #1d1d1d !important;
-  border-top: 2px solid #1d1d1d !important;
+  border-top: transparent !important;
   color: #f5f5f5 !important;
 }
 body.dark-mode .content h2, .content h3, .content h4, .content h5, .content h6 {
