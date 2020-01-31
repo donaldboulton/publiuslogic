@@ -9,6 +9,8 @@ const Profile = () => {
   const [dialog, setDialog] = React.useState(false)
   const name =
   (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
+  const email =
+  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.email) || 'NoEmail'
   const avatar_url = identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.avatar_url
   console.log(JSON.stringify(identity))
   const isLoggedIn = identity && identity.isLoggedIn
@@ -32,6 +34,8 @@ const Profile = () => {
                     <>
                       {avatar_url && <img alt='user name' src={avatar_url} className='user-icon' />}
                       <h3>&nbsp; Hello {name}!</h3>
+                      <br />
+                      <h4>Email: {email}</h4>
                       <br />
                       <button className='button' onClick={() => setDialog(true)}>
                         LOG OUT

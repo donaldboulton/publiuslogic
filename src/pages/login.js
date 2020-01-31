@@ -5,9 +5,6 @@ import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 import {
   useIdentityContext,
-  Settings,
-} from 'react-netlify-identity'
-import {
   IdentityModal,
 } from 'react-netlify-identity-widget'
 
@@ -38,15 +35,14 @@ function Login () {
                 >
                   {isLoggedIn ? (
                     <>
-                      <h1> hello {name}!</h1>
-                      {avatar_url && <img alt='user name' src={avatar_url} style={{ height: 100, borderRadius: '50%' }} />}
+                      {avatar_url && <img alt='user name' src={avatar_url} className='user-icon' />}<h3> hello {name}!</h3>
                       <button className='button' onClick={() => setDialog(true)}>
                           LOG OUT
                       </button>
                     </>
                   ) : (
                     <>
-                      <h1> hello! try logging in! </h1>
+                      <h1> Hello! try logging in! </h1>
                       <button className='button' onClick={() => setDialog(true)}>
                           LOG IN
                       </button>

@@ -4,7 +4,6 @@ import DarkModeToggle from '../DarkMode/DarkModeToggle'
 import logo from '../../../static/img/apple-touch-icon-64x64.png'
 import avatarIcon from '../../../static/img/avatar.png'
 import { useIdentityContext } from 'react-netlify-identity-widget'
-import '../../../static/scss/styles.css'
 
 export default () => {
   const { identity } = useIdentityContext()
@@ -25,14 +24,13 @@ export default () => {
           <Link className='navbar-item' to='/app/profile'>
             {` `}
             {isLoggedIn ? (
-              <div className='navbar-item'>
-                {avatar_url && <img className='user-icon' alt='user name' src={avatar_url} />}
-                <div className='navbar-dropdown'>
-                  <span className='navbar-item'>{name}</span>
-                </div>
-              </div>
+              <>
+                <div className='navbar-item'>{avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}</div>
+              </>
             ) : (
-              <div className='navbar-item'><img className='user-icon' src={avatarIcon} alt='User' /></div>
+              <>
+                <div className='navbar-item'><img className='user-icon' src={avatarIcon} alt='User' /></div>
+              </>
             )}
           </Link>
         </div>
