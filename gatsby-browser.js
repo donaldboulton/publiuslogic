@@ -1,5 +1,5 @@
 import React from 'react'
-import { IdentityContextProvider } from 'react-netlify-identity-widget'
+import { IdentityContextProvider } from './src/components/IdentityWidget/netlify-identity'
 import './static/scss/styles.css'
 
 export const wrapRootElement = ({ element }) => (
