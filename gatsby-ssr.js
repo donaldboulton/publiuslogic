@@ -1,9 +1,9 @@
 import React from 'react'
-import { IdentityContextProvider } from './src/components/IdentityWidget/netlify-identity'
+import { IdentityContextProvider } from 'react-netlify-identity-widget'
 import './static/scss/styles.css'
 
 export const wrapRootElement = ({ element }) => (
-  <IdentityContextProvider url='https://publiuslogic.com/.netlify/identity'>
+  <IdentityContextProvider url='https://publiuslogic.com'>
     {element}
   </IdentityContextProvider>
 )

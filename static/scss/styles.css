@@ -328,43 +328,43 @@
 }
 
 .providerGoogle {
-  background-color: #4285f4;
-  border-color: #366dc7;
+  background-color: #4285f4 !important;
+  border-color: #366dc7 !important;
 }
 
 .providerGoogle:hover,
 .providerGoogle:focus {
-  background-color: #366dc7;
+  background-color: #366dc7 !important;
 }
 
 .providerGitHub {
-  background-color: #333;
-  border-color: #000;
+  background-color: #333 !important;
+  border-color: #000 !important;
 }
 
 .providerGitHub:hover,
 .providerGitHub:focus {
-  background-color: #000;
+  background-color: #000 !important;
 }
 
 .providerGitLab {
-  background-color: #e24329;
-  border-color: #b03320;
+  background-color: #e24329 !important;
+  border-color: #b03320 !important;
 }
 
 .providerGitLab:hover,
 .providerGitLab:focus {
-  background-color: #b03320;
+  background-color: #b03320 !important;
 }
 
 .providerBitbucket {
-  background-color: #205081;
-  border-color: #14314f;
+  background-color: #205081 !important;
+  border-color: #14314f !important;
 }
 
 .providerBitbucket:hover,
 .providerBitbucket:focus {
-  background-color: #14314f;
+  background-color: #14314f !important;
 }
 
 .providerGoogle:before {

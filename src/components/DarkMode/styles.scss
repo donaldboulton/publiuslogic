@@ -330,9 +330,9 @@ body.light-mode {
     outline: none;
   }  
   .RNIW_btn {
-    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2))) !important;
-    background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
-    background-color: #00a396 !important;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2)));
+    background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2));
+    background-color: #00a396;
     color: #ffffff;
   }
   .RNIW_btnClose {
@@ -707,8 +707,8 @@ body.dark-mode [data-reach-dialog-content] {
 body.dark-mode .RNIW_btn {
   background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60));
   background: linear-gradient(90deg,#d64000,#da1b60);
-  background-color: #d64000 !important;
-  border-color: transparent !important;
+  background-color: #d64000;
+  border-color: transparent;
   color: #dbdbdb;
 }
 body.dark-mode .RNIW_btnClose {
