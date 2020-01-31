@@ -111,7 +111,7 @@
     "react-netlify-identity-widget": "^0.2.5",
     "react-retro-hit-counter": "^1.0.1",
     "react-router-dom": "^5.1.2",
-    "react-share": "^2.4.0",
+    "react-share": "^4.0.1",
     "react-slack-feedback": "^2.1.0",
     "react-stars": "^2.2.5",
     "react-typist": "^2.0.5",
