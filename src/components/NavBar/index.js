@@ -25,13 +25,14 @@ export default () => {
           <Link className='navbar-item' to='/app/profile'>
             {` `}
             {isLoggedIn ? (
-              <div>
-                <span className='navbar-item'>
-                  {avatar_url && <img className='user-icon' alt='user name' src={avatar_url} />{name}}
-                </span>
+              <div className='navbar-item'>
+                {avatar_url && <img className='user-icon' alt='user name' src={avatar_url} />}
+                <div className='navbar-dropdown'>
+                  <span className='navbar-item'>{name}</span>
+                </div>
               </div>
             ) : (
-              <span className='navbar-item'><img className='user-icon' src={avatarIcon} alt='User' /></span>
+              <div className='navbar-item'><img className='user-icon' src={avatarIcon} alt='User' /></div>
             )}
           </Link>
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
-import { IdentityModal, useIdentityContext } from 'react-netlify-identity-widget'
+import IdentityModal, { useIdentityContext } from 'react-netlify-identity-widget'
 
 const Profile = () => {
   const identity = useIdentityContext()
@@ -56,6 +56,13 @@ const Profile = () => {
           </div>
         </section>
       </Layout>
+      <IdentityModal
+        showDialog={dialog}
+        onCloseDialog={() => setDialog(false)}
+        onLogin={(user) => console.log('hello ', user.user_metadata)}
+        onSignup={(user) => console.log('welcome ', user.user_metadata)}
+        onLogout={() => console.log('bye ', name)}
+      />
     </>
   )
 }

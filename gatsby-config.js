@@ -377,12 +377,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify-identity`,
-      options: {
-        url: `https://publiuslogic.com/.netlify/identity`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {

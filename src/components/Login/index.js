@@ -75,7 +75,10 @@ class Login extends React.Component {
   }
 
   doLogout () {
-    netlifyIdentity.open()
+    // remove credentials and refresh model
+    netlifyIdentity.logout()
+    clearLogin()
+    netlifyIdentity.close()
     this.setState({ user: null })
   }
 
@@ -89,7 +92,7 @@ class Login extends React.Component {
     return (
       <div className='Login'>
         {this.state.user
-          ? <a className='identity-logout' onClick={this.doLogout.bind(this)}>
+          ? <a className='identity-logout' href='#netlify-modal'>
           Logout&nbsp;
             <SignOutAlt size='0.9rem' color='#f5f5f5' />
             </a>

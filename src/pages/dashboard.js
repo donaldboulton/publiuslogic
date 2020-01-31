@@ -1,12 +1,12 @@
 import React from 'react'
-import { useIdentityContext } from 'react-netlify-identity-widget'
+import IdentityModal, { useIdentityContext } from 'react-netlify-identity-widget'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 import Layout from '../components/Layout'
 
 function Dashboard () {
   const identity = useIdentityContext()
-  const [setDialog] = React.useState(false)
+  const [dialog, setDialog] = React.useState(false)
   const name =
   (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
   const avatar_url = identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.avatar_url
@@ -55,6 +55,13 @@ function Dashboard () {
           </div>
         </section>
       </Layout>
+      <IdentityModal
+        showDialog={dialog}
+        onCloseDialog={() => setDialog(false)}
+        onLogin={(user) => console.log('hello ', user.user_metadata)}
+        onSignup={(user) => console.log('welcome ', user.user_metadata)}
+        onLogout={() => console.log('bye ', name)}
+      />
     </>
   )
 }
