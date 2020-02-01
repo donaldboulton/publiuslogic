@@ -1,6 +1,6 @@
 import React from 'react'
 import avatarIcon from '../../../static/img/avatar.png'
-import { navigate } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 
 import {
   IdentityModal,
@@ -20,9 +20,16 @@ function Login () {
       <div className='navbar-end'>
         {isLoggedIn ? (
           <>
-            <button className='identity-logout navbar-item button-transparent' onClick={() => setDialog(true)}>
-              {avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}
-            </button>
+            <div className='navbar-item has-dropdown is-hoverable'>
+              <button className='identity-logout navbar-item button-transparent' onClick={() => setDialog(true)}>
+                {avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}
+              </button>
+              <div className='navbar-dropdown'>
+                <h3>Welcome</h3>
+                <div>{name}</div>
+                <Link to='/app/profile'>Your Profile</Link>
+              </div>
+            </div>
           </>
         ) : (
           <>
