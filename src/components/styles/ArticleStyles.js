@@ -63,7 +63,6 @@ export const StyledTableMenu = styled.div`
     fill: #373a47;
   }
   .bm-item-list {
-    color: #b8b7ad;
     background: transparent;
   }
   .linktoc {
@@ -128,19 +127,16 @@ export const PageTitle = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  color: ${props => props.theme.white};
-  border-bottom: 1px solid ${props => props.theme.black};
+  border-bottom: 1px solid ${props => props.theme.white};
 `
 export const PageTocIcon = styled(Table)`
   width: 1em;
   margin-right: 0.2em;
-  background: ${props => props.theme.black};
   color: ${props => props.theme.white};
 `
 export const ArticleTocIcon = styled(Tags)`
   width: 0.9em;
   margin-right: 0.2em;
-  background: ${props => props.theme.black};
   color: ${props => props.theme.white};
 `
 export const Time = styled.span`

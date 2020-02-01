@@ -137,6 +137,8 @@
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+  background: #1d1d1d;
+  color: #ffffff;
 }
 
 .RNIW_btn:hover,
@@ -330,41 +332,49 @@
 .providerGoogle {
   background-color: #4285f4 !important;
   border-color: #366dc7 !important;
+  color: #e9ebeb;
 }
 
 .providerGoogle:hover,
 .providerGoogle:focus {
   background-color: #366dc7 !important;
+  color: #e9ebeb;
 }
 
 .providerGitHub {
   background-color: #333 !important;
   border-color: #000 !important;
+  color: #e9ebeb;
 }
 
 .providerGitHub:hover,
 .providerGitHub:focus {
   background-color: #000 !important;
+  color: #e9ebeb;
 }
 
 .providerGitLab {
   background-color: #e24329 !important;
   border-color: #b03320 !important;
+  color: #e9ebeb;
 }
 
 .providerGitLab:hover,
 .providerGitLab:focus {
   background-color: #b03320 !important;
+  color: #e9ebeb;
 }
 
 .providerBitbucket {
   background-color: #205081 !important;
   border-color: #14314f !important;
+  color: #e9ebeb;
 }
 
 .providerBitbucket:hover,
 .providerBitbucket:focus {
   background-color: #14314f !important;
+  color: #e9ebeb;
 }
 
 .providerGoogle:before {

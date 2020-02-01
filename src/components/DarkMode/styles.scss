@@ -85,6 +85,9 @@ body.light-mode {
     padding: 2.5em 1.5em 0;
     font-size: 1em;
   }
+  .bm-item-list {
+    color: #00c2b2;
+  }
   .box {
     background-color: #f5f5f5 !important;
   }
@@ -329,12 +332,6 @@ body.light-mode {
     padding: 2rem;
     outline: none;
   }  
-  .RNIW_btn {
-    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2)));
-    background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2));
-    background-color: #00a396;
-    color: #ffffff;
-  }
   .RNIW_btnClose {
     background: #00a396;
     color: #dbdbdb;
@@ -345,7 +342,7 @@ body.light-mode {
   }
   .RNIW_btnHeader {
     background: rgba(0,163,150,.2);
-    color: #fff;
+    color: #000;
     border-bottom: 2px solid rgba(0,163,150,.2);
   }
   .RNIW_btnHeader:focus,
@@ -358,7 +355,7 @@ body.light-mode {
     background-color: #00a396;
   }
   .RNIW_btnLink {
-    color: #343434;
+    color: #dedede;
     border-bottom: 2px solid rgb(14, 30, 37);
   }
   .RNIW_formControl {
@@ -411,6 +408,9 @@ body.dark-mode {
     background: rgba(0, 0, 0, 0.3);
     padding: 2.5em 1.5em 0;
     font-size: 1em;
+  }
+  .bm-item-list {
+    color: -webkit-gradient(linear,left top,right top,from(#d64000),to(#8e0436));
   }
   code {
     background: transparent !important;
@@ -703,13 +703,6 @@ body.dark-mode .github-icon {
 body.dark-mode [data-reach-dialog-content] {
   background: #171717;
   color: #fff;
-}
-body.dark-mode .RNIW_btn {
-  background: -webkit-gradient(linear,left top,right top,from(#d64000),to(#da1b60));
-  background: linear-gradient(90deg,#d64000,#da1b60);
-  background-color: #d64000;
-  border-color: transparent;
-  color: #dbdbdb;
 }
 body.dark-mode .RNIW_btnClose {
   background: #d64000;

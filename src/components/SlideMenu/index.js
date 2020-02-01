@@ -44,7 +44,6 @@ const StyledBurgerMenu = styled.div`
     fill: #373a47;
   }
   .bm-item-list {
-    color: ${props => props.theme.links};
     background: transparent;
   }
   .linktoc {
@@ -108,13 +107,11 @@ const MenuTitle = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  color: ${props => props.theme.white};
-  border-bottom: 1px solid ${props => props.theme.black};
+  border-bottom: 1px solid ${props => props.theme.white};
 `
 const MenuIcon = styled(Globe)`
   width: 1em;
   margin-right: 0.2em;
-  background: ${props => props.theme.black};
   color: ${props => props.theme.white};
 `
 
