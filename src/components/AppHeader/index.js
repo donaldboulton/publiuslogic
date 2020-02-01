@@ -1,7 +1,7 @@
 import React from 'react'
-import deployButton from '../../assets/img/deploy-to-netlify.svg'
-import logo from '../../assets/img/logo.svg'
-import github from '../../assets/img/github.svg'
+import deployButton from '../../../content/assets/img/deploy-to-netlify.svg'
+import logo from '../../../content/assets/img/logo.svg'
+import github from '../../../content/assets/img/github.svg'
 import { Styledh1 } from '../styles/ArticleStyles'
 import './AppHeader.css'
 

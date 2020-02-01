@@ -31,6 +31,7 @@ body {
   height: 1.8rem;
   width: 1.8rem;
   top: 0.9px !important;
+  border-radius: 50%;
 }
 .navbar-link:not(.is-arrowless):after {
   border-color: #fff;
@@ -308,9 +309,9 @@ body.light-mode {
   .navbar-divider {
     border: 0;
     height: 2px;
-    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2)));
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,163,150,.5)),to(rgba(0,194,178,.2))) !important;
     background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
-    text-align: center;
+    text-align: center !important;
     border-radius: 2px;
     max-width: 100%;
   }

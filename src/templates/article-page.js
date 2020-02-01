@@ -180,14 +180,14 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                     <div className='container content'>
                       <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
                         <div className='column is-7'>
-                          <div>
-                            {ratings ? (
+                          {data.allRatingsJson.edges.map(ratings => (
+                            <div key={ratings.node.slug} className='list-item'>
                               <Reviews>
                         Rating: {ratingValue !== 0 ? ratingValue.toFixed(1) : null} - {' '}
                                 {ratings.totalCount} Reviews
                               </Reviews>
-                            ) : null}
-                          </div>
+                            </div>
+                          ))}
                           <Rating />
                         </div>
                         <div className='column'>

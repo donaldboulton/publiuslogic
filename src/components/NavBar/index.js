@@ -13,7 +13,7 @@ export default () => {
         </Link>
         <DarkModeToggle />
       </div>
-      <div className='navbar-menu'>
+      <div className='navbar-menu is-active'>
         <Login />
       </div>
     </nav>
