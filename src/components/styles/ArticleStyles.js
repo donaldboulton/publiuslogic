@@ -127,7 +127,8 @@ export const PageTitle = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  border-bottom: 1px solid ${props => props.theme.white};
+  color: #ffffff !important;
+  border-bottom: 1px solid #fff !important;
 `
 export const PageTocIcon = styled(Table)`
   width: 1em;

@@ -328,7 +328,8 @@ body.light-mode {
   [data-reach-dialog-content] {
     /* width: 90vw; */ /* disabled for mobile */
     margin: 10vh auto;
-    background: #fff;
+    background-image: url(/img/bg10W-min.png);
+    background-repeat: repeat;
     color: #171717;
     padding: 2rem;
     outline: none;
@@ -702,7 +703,8 @@ body.dark-mode .github-icon {
   fill: white !important;
 }
 body.dark-mode [data-reach-dialog-content] {
-  background: #171717;
+  background-image: url(/img/bg10-min.png);
+  background-repeat: repeat;
   color: #fff;
 }
 body.dark-mode .RNIW_btnClose {
@@ -716,13 +718,13 @@ body.dark-mode .RNIW_btnClose:hover, .RNIW_btnClose:focus {
 body.dark-mode .RNIW_btnHeader {
   background: #1d1d1d;
   color: #a3a9ac;
-  border-bottom: 2px solid #e9ebeb;
 }
 body.dark-mode .RNIW_btnHeader:focus,
 [aria-selected="true"].RNIW_btnHeader {
   background: #2d3b41;
   color: #e9ebeb;
   border-color: rgb(14, 30, 37);
+  border-bottom: 2px solid #e9ebeb;
 }
 
 body.dark-mode .RNIW_btnHeader:not(:only-child):hover {
