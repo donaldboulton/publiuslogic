@@ -27,7 +27,7 @@ const ArticleTemplate = ({
       <ScrollDown
         direction='down' to={25}
         showAbove={-1500}
-        css='position: fixed; right: 1em; top: 4.7em;'
+        css='position: fixed; right: 1em; top: 2.7em;'
       />
       <Prism />
       <PostContent content={content} />

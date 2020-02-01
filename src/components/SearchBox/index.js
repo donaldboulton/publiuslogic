@@ -14,7 +14,6 @@ export default class SearchBox extends Component {
   render () {
     return (
       <span className={`navbar-item ${this.state.isActive ? 'is-active' : ''}`} itemProp='potentialAction' itemScope='itemScope' itemType='https://schema.org/SearchAction'>
-        Search&nbsp;
         <input
           className='luna__input js-luna__input'
           type='search'
