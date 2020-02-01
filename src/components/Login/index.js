@@ -25,9 +25,10 @@ function Login () {
                 {avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}
               </button>
               <div className='navbar-dropdown'>
-                <h3>Welcome</h3>
-                <div>{name}</div>
-                <Link to='/app/profile'>Your Profile</Link>
+                <h3 className='navbar-item'>Welcome</h3>
+                <div className='navbar-item'>{name}</div>
+                <hr className='navbar-divider' />
+                <Link className='navbar-item' to='/app/profile'>Your Profile</Link>
               </div>
             </div>
           </>
