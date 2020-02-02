@@ -24,7 +24,7 @@ function Login () {
               <button className='identity-logout navbar-item button-transparent' onClick={() => setDialog(true)}>
                 {avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}
               </button>
-              <div className='navbar-dropdown'>
+              <div id='nav-dropdown' className='navbar-dropdown'>
                 <h3 className='navbar-item'>Welcome!</h3>
                 <div className='navbar-item'>😀 {name}</div>
                 <hr className='navbar-divider' />

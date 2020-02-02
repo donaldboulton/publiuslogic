@@ -273,7 +273,7 @@ body.light-mode {
   }
   input.luna__input:focus {
     background: url(/img/blankw.png) 15px 50%/1.1em 1.5em no-repeat !important;
-    background-color: #f5f5f5 !important;
+    background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
     border-left: 3px solid #028f83 !important;
     border-right: 1px solid #00c2b2 !important;
     border-top: 1px solid #00c2b2 !important;

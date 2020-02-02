@@ -1,11 +1,14 @@
 import React from 'react'
-
+import fetch from 'node-fetch'
 // -------------- usage --------------
-import netlifyIdentity from 'netlify-identity-widget'
+import {
+  useIdentityContext,
+} from 'react-netlify-identity-widget'
 import { useLocalStorage } from '@swyx/hooks'
 
-netlifyIdentity.init()
-export default function useNetlifyIdentity (onAuthChange) {
+export default function useIdentity (onAuthChange) {
+  const identity = useIdentityContext()
+
   if (!onAuthChange) throw new Error('onAuthChange cannot be falsy')
   const itemChangeCallback = _user => {
     if (_user) {
@@ -26,11 +29,11 @@ export default function useNetlifyIdentity (onAuthChange) {
     itemChangeCallback,
   )
   React.useEffect(() => {
-    netlifyIdentity.on('login', setItem)
-    netlifyIdentity.on('logout', removeItem)
+    identity.on('login', setItem)
+    identity.on('logout', removeItem)
   }, [removeItem, setItem])
 
-  // definition - `item` comes from  useNetlifyIdentity hook
+  // definition - `item` comes from  useIdentity hook
   const genericAuthedFetch = method => (endpoint, obj = {}) => {
     if (!item || !item.token || !item.token.access_token) { throw new Error('no user token found') }
     const defaultObj = {
@@ -53,8 +56,8 @@ export default function useNetlifyIdentity (onAuthChange) {
   }
   return {
     user: item,
-    doLogout: () => netlifyIdentity.logout(),
-    doLogin: () => netlifyIdentity.open(),
+    doLogout: () => identity.logout(),
+    doLogin: () => identity.open(),
     authedFetch,
   }
 }
