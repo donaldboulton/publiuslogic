@@ -80,7 +80,7 @@
     "gatsby-remark-prismjs": "^3.3.30",
     "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-remark-responsive-iframe": "2.2.31",
-    "gatsby-source-filesystem": "^2.1.42",
+    "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-json": "^2.2.25",
     "gatsby-transformer-remark": "^2.6.48",
     "gatsby-transformer-sharp": "^2.3.13",
