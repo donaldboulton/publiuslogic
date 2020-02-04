@@ -2,6 +2,7 @@ import React from 'react'
 import avatarIcon from '../../../static/img/avatar.png'
 import { Link } from 'gatsby'
 import { navigate } from '@reach/router'
+import UserAvatar from 'react-user-avatar'
 import {
   IdentityModal,
   useIdentityContext,
@@ -22,7 +23,7 @@ function Login () {
           <>
             <div className='navbar-item has-dropdown is-hoverable'>
               <button className='identity-logout navbar-item button-transparent' onClick={() => setDialog(true)}>
-                {avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}
+                {avatar_url && <UserAvatar className='user-icon' name={name} src={avatar_url} />}
               </button>
               <div id='nav-dropdown' className='navbar-dropdown'>
                 <h3 className='navbar-item'>Welcome!</h3>

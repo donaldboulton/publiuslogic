@@ -30,7 +30,7 @@ const StyledBurgerMenu = styled.div`
     top: 2.3vh;
   }
   .bm-burger-bars {
-    background: ${props => props.theme.white};
+    background: ${props => props.theme.textColor};
   }
   .bm-cross-button {
     height: 30px;
@@ -106,12 +106,12 @@ const MenuTitle = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  border-bottom: 1px solid ${props => props.theme.white};
+  border-bottom: 1px solid ${props => props.theme.borderColor};
 `
 const MenuIcon = styled(Globe)`
   width: 1em;
   margin-right: 0.2em;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.textColor};
 `
 
 export default props => {
@@ -120,7 +120,7 @@ export default props => {
       <Menu left {...props}>
         <MenuTitle>
           <MenuIcon />
-            | Site Contents
+          | Site Contents
         </MenuTitle>
         <TableOfContents>
           <ul className='linktoc'>

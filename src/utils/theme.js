@@ -53,8 +53,8 @@ export const measures = {
 export const theme = { ...colors, ...measures }
 
 export const lightTheme = {
-  background: `lightBG`,
-  textColor: `black`,
+  background: theme.lightBg,
+  textColor: theme.darkestGray,
   quoteBg: theme.lightestGray,
 
   links: theme.blue,
@@ -84,8 +84,8 @@ export const darkTheme = {
   hoveredLinks: theme.burntOrange,
   activeLinks: theme.lightOrange,
 
-  shadowColor: `black`,
-  borderColor: `black`,
+  shadowColor: theme.darkestGray,
+  borderColor: theme.darkestGray,
 
   headerBg: theme.darkestBlue,
   footerBg: theme.darkestGray,
