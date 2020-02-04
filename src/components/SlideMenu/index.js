@@ -30,7 +30,7 @@ const StyledBurgerMenu = styled.div`
     top: 2.3vh;
   }
   .bm-burger-bars {
-    background: ${props => props.theme.lightBg};
+    background: ${props => props.theme.white};
   }
   .bm-cross-button {
     height: 30px;

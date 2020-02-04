@@ -224,7 +224,7 @@ class ContactForm extends React.Component {
           value={this.state.submitting ? 'Sending...' : 'Send'}
           disabled={this.state.submitting}
         >
-        Submit
+          Submit
         </Submit>
         <ModalOverlay onClick={this.handleCloseModal} visible={this.state.showModal} />
         <Modal visible={this.state.showModal}>

@@ -14,7 +14,7 @@ const ContactPage = ({ data }) => {
   const author = config.author
   const postNode = data.markdownRemark
   const coverHeight = '100%'
-  let logo = config.siteLogo
+  const logo = config.siteLogo
   const url = post.frontmatter.slug
 
   const schemaOrgWebPage = {
@@ -106,7 +106,7 @@ const ContactPage = ({ data }) => {
             {post.frontmatter.title}
           </Styledh1>
           <p>
-          🔥 Social Contacts see <a className='a' rel='noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic/issues'>GitHub Issues</a> or <a className='a' rel='noopener noreferrer' target='_blank' href='https://twitter.com/messages/compose?recipient_id=105217183'>Twitter Message</a>
+            🔥 Social Contacts see <a className='a' rel='noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic/issues'>GitHub Issues</a> or <a className='a' rel='noopener noreferrer' target='_blank' href='https://twitter.com/messages/compose?recipient_id=105217183'>Twitter Message</a>
           </p>
         </div>
       </section>
