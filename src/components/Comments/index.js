@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import CommentForm from './comments'
 import GitHubIssues from '../GithubIssues'
 import logo from '../../../static/img/logo.png'
@@ -19,15 +20,19 @@ const Comments = () => {
             <div className='column'>
               <h4>Messaging</h4>
               <div>
-                <a href='https://publiuslogic.com/privacy'>
+                <Link href='/privacy/#Comment-Policy'>
                   <img
                     src={logo}
                     alt='PubliusLogic'
                     style={{ width: '130px', height: '130px' }}
                   />
-                </a>
+                </Link>
                 <div>
-                  <div className='is-centered'><a href='/privacy#Comment Policy/'>Submitting Policy</a></div>
+                  <div className='is-centered'>
+                    <Link href='/privacy#Comment Policy/'>
+                      Submitting Policy
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

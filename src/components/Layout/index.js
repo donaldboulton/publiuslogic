@@ -12,31 +12,27 @@ import Scroll from '../Scroll'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
-import { UserProvider } from '../Context/UserContext'
 
 function Layout ({ children, location }) {
-  const user = { name: 'donaldboulton', loggedIn: true }
   return (
     <>
       <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />
       <div id='page-wrap'>
         <ThemeProvider theme={theme} location={location}>
-          <UserProvider value={user}>
-            <Header />
-            <>
-              {children}
-            </>
-            <Subscriptions />
-            <Slack />
-            <HotJar />
-            <Adds />
-            <Hr />
-            <Scroll
-              showBelow={1500}
-              css='position: fixed; right: 1em; bottom: 1.5em;'
-            />
-            <Footer />
-          </UserProvider>
+          <Header />
+          <>
+            {children}
+          </>
+          <Subscriptions />
+          <Slack />
+          <HotJar />
+          <Adds />
+          <Hr />
+          <Scroll
+            showBelow={1500}
+            css='position: fixed; right: 1em; bottom: 1.5em;'
+          />
+          <Footer />
         </ThemeProvider>
       </div>
     </>

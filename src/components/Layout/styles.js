@@ -83,4 +83,32 @@ export const GlobalStyle = createGlobalStyle`
   blockquote {
     margin: 0;
   }
+  .item-a {
+    grid-area: header;
+  }
+  .item-b {
+    grid-area: post-cover;
+  }
+  .item-c {
+    grid-area: main;
+    justify-items: center;
+  }
+  .item-d {
+    grid-area: sidebar;
+    justify-items: end;
+    align-content: start;
+  }
+  .item-e {
+    grid-area: footer;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw 25vw;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header header header header"
+      "post-cover post-cover post-cover post-cover"
+      ". main main sidebar"
+      "footer footer footer footer";
+  }
 `

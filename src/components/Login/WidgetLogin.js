@@ -1,48 +1,46 @@
 import React from 'react'
-import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
-
-import netlifyIdentity from '../IdentityWidget/netlify-identity'
-
-export const isBrowser = () => typeof window !== 'undefined'
-export const initAuth = () => {
-  if (isBrowser()) {
-    window.netlifyIdentity = netlifyIdentity
-    // You must run this once before trying to interact with the widget
-    netlifyIdentity.init()
-  }
-}
+import useLocalStorage from '../../src/hooks'
+import identity from 'react-netlify-identity'
+import {
+  useIdentityContext,
+} from 'react-netlify-identity-widget'
 
 function saveLogin () {
-  if (netlifyIdentity && netlifyIdentity.currentUser()) {
+  if (!process.env.FAUNADB_SERVER_SECRET) {
+    console.log('No FAUNADB_SERVER_SECRET found')
+    console.log('Please run `netlify addons:create fauna` and redeploy')
+    return false
+  }
+
+  console.log('server', process.env.FAUNADB_SERVER_SECRET)
+  console.log('admin', process.env.FAUNADB_ADMIN_SECRET)
+
+  if (identity && identity.currentUser()) {
     const {
       app_metadata, created_at, confirmed_at, email, id, user_metadata,
-    } = netlifyIdentity.currentUser()
+    } = identity.currentUser()
 
-    window.localStorage.setItem(
+    useLocalStorage.setItem(
       'faunaNetlifyUser',
       JSON.stringify({ app_metadata, created_at, confirmed_at, email, id, user_metadata }),
-    )
+    );
     return { app_metadata, created_at, confirmed_at, email, id, user_metadata }
   }
 }
 
 function clearLogin () {
-  window.localStorage.removeItem('faunaNetlifyUser')
+  useLocalStorage.removeItem('faunaNetlifyUser')
 }
 
 class Login extends React.Component {
   constructor (props) {
     super(props)
-    this.handleLogIn = this.handleLogIn.bind(this)
     this.state = {}
   }
 
-  handleLogIn () {
-    netlifyIdentity.open()
-  }
-
   componentDidMount () {
-    var existingUser = window.localStorage.getItem('faunaNetlifyUser')
+    const identity = useIdentityContext()
+    var existingUser = useLocalStorage.getItem('faunaNetlifyUser')
     if (existingUser) {
       this.setState({ user: JSON.parse(existingUser) }, this.didLogin.bind(this, 'noSave'))
     } else {
@@ -51,16 +49,18 @@ class Login extends React.Component {
         this.setState({ user: existingUser }, this.didLogin.bind(this, 'noSave'))
       }
     }
-    netlifyIdentity.on('login', (user) => this.setState({ user }, this.didLogin.bind(this)))
-    netlifyIdentity.on('logout', (user) => this.setState({ user: null }, this.didLogout.bind(this)))
+    identity.on('login', (user) => this.setState({ user }, this.didLogin.bind(this)))
+    identity.on('logout', (user) => this.setState({ user: null }, this.didLogout.bind(this)))
   }
 
   didLogin (noSave) {
     console.log('didLogin', noSave)
-    if (!noSave) { saveLogin() }
+    if (!noSave) {
+      saveLogin()
+    }
     const faunadb_token = this.state.user &&
       this.state.user.app_metadata &&
-      this.state.user.app_metadata.faunadb_token;
+      this.state.user.app_metadata.faunadb_token
     if (faunadb_token) {
       this.props.onAuthChange(faunadb_token)
     } else {
@@ -74,28 +74,25 @@ class Login extends React.Component {
     this.props.onAuthChange(null)
   }
 
+  doLogin () {
+    identity.open()
+  }
+
   doLogout () {
     // remove credentials and refresh model
-    netlifyIdentity.logout()
+    identity.logout()
     clearLogin()
-    netlifyIdentity.close()
     this.setState({ user: null })
   }
 
   render () {
     var actionForm = <span>
-      <button aria-label='Sign In' className='button-transparent' type='button' onClick={this.handleLogIn}>
-      Login&nbsp;
-        <SignInAlt size='0.9em' color='#f5f5f5' />
-      </button>
-    </span>
+      <a onClick={this.doLogin.bind(this)}>Login or Sign Up</a>
+                     </span>
     return (
       <div className='Login'>
         {this.state.user
-          ? <a className='identity-logout' href='#netlify-modal'>
-          Logout&nbsp;
-            <SignOutAlt size='0.9rem' color='#f5f5f5' />
-            </a>
+          ? <a onClick={this.doLogout.bind(this)}>Logout</a>
           : actionForm}
       </div>
     )

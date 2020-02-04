@@ -1,7 +1,7 @@
 import React from 'react'
 import avatarIcon from '../../../static/img/avatar.png'
-import { Link, navigate } from 'gatsby'
-
+import { Link } from 'gatsby'
+import { navigate } from '@reach/router'
 import {
   IdentityModal,
   useIdentityContext,
@@ -27,8 +27,11 @@ function Login () {
               <div id='nav-dropdown' className='navbar-dropdown'>
                 <h3 className='navbar-item'>Welcome!</h3>
                 <div className='navbar-item'>😀 {name}</div>
+                <Link className='navbar-item' to='/app/profile'>✨ User Settings</Link>
                 <hr className='navbar-divider' />
-                <Link className='navbar-item' to='/app/profile'>✨ Your Profile</Link>
+                <a className='identity-login navbar-item a' onClick={() => setDialog(true)}>
+                  Logout
+                </a>
               </div>
             </div>
           </>

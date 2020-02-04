@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
+import UserAvatar from 'react-user-avatar'
 import IdentityModal, { useIdentityContext } from 'react-netlify-identity-widget'
 
 const Profile = () => {
@@ -22,7 +23,7 @@ const Profile = () => {
             <div className='columns'>
               <div className='column is-10 is-offset-1'>
                 <Styledh1>
-                 Profile
+                  Profile
                 </Styledh1>
                 <div className='content' />
                 <div
@@ -32,8 +33,10 @@ const Profile = () => {
                 >
                   {isLoggedIn ? (
                     <>
-                      {avatar_url && <img alt='user name' src={avatar_url} className='user-icon' />}
-                      <h3>&nbsp; Hello {name}!</h3>
+                      <span>GitHub Avatar{avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}</span>
+                      <span>&nbsp;Global Avatar <UserAvatar className='user-icon' name={name} src={avatar_url} />
+                        <h3>&nbsp; Hello {name}!</h3>
+                      </span>
                       <br />
                       <h4>Email: {email}</h4>
                       <br />
@@ -45,7 +48,7 @@ const Profile = () => {
                     <>
                       <h3> Hello! try logging in! </h3>
                       <button className='button' onClick={() => setDialog(true)}>
-                         LOG IN
+                        LOG IN
                       </button>
                     </>
                   )}
