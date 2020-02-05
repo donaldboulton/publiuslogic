@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
-import Login from '../IdentityWidget/index'
 import Search from '../Search'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
 import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
@@ -121,15 +120,12 @@ export default props => {
       <Menu left {...props}>
         <MenuTitle>
           <MenuIcon />
-            | Site Contents
+          | Site Contents
         </MenuTitle>
         <TableOfContents>
           <ul className='linktoc'>
             <li className='menu-item' id='search'>
               <Search />
-            </li>
-            <li className='menu-item' id='login'>
-              <span itemProp='name'><Login /></span>
             </li>
             <li>
               <Link className='menu-item' to='/blog' itemProp='url'>
