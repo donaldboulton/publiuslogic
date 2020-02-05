@@ -30,7 +30,7 @@ function Login () {
                 <div className='navbar-item'>😀 {name}</div>
                 <Link className='navbar-item' to='/app/profile'>✨ User Settings</Link>
                 <hr className='navbar-divider' />
-                <a className='identity-login navbar-item a' onClick={() => setDialog(true)}>
+                <a className='identity-login navbar-item' onClick={() => setDialog(true)}>
                   Logout
                 </a>
               </div>

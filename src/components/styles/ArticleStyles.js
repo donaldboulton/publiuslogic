@@ -26,7 +26,7 @@ export const StyledTableMenu = styled.div`
     display: inline-block;
     text-decoration: none;
     margin-bottom: 2vh;
-    background: ${props => props.theme.background};
+    background: ${props => props.theme.black};
     color: ${props => props.theme.links};
     transition: color 0.2s;
   }
@@ -44,7 +44,7 @@ export const StyledTableMenu = styled.div`
     top: 2.2vh;
   }
   .bm-burger-bars {
-    background: ${props => props.theme.textColor};  
+    background: ${props => props.theme.lightBg};  
   }
   .bm-cross-button {
     height: 30px;
@@ -133,20 +133,20 @@ export const PageTitle = styled.h2`
 export const PageTocIcon = styled(Table)`
   width: 1em;
   margin-right: 0.2em;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
 `
 export const ArticleTocIcon = styled(Tags)`
   width: 0.9em;
   margin-right: 0.2em;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
 `
 export const Time = styled.span`
   font-size: 0.9rem;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
 `
 export const Date = styled.span`
   font-size: 0.9em;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
 `
 export const GithubButtons = styled.span`
   display: flex;
@@ -166,12 +166,12 @@ export const Meta = styled.div`
 export const ButtonDisabled = styled.div`
   background: transparent;
   padding: calc(.5em - 1px) .75em;
-  border: thin ${props => props.theme.borderColor};
+  border: thin ${props => props.theme.black};
   font-size: 0.9em;
 `
 export const Category = styled.span`
   font-size: 0.9em;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
 `
 export const MetaPage = styled.div`
   display: flex;

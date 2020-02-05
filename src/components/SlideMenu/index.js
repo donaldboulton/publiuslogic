@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
+import Login from '../IdentityWidget/index'
 import Search from '../Search'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
 import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
@@ -30,7 +31,7 @@ const StyledBurgerMenu = styled.div`
     top: 2.3vh;
   }
   .bm-burger-bars {
-    background: ${props => props.theme.textColor};
+    background: ${props => props.theme.lightBg};
   }
   .bm-cross-button {
     height: 30px;
@@ -106,12 +107,12 @@ const MenuTitle = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  border-bottom: 1px solid ${props => props.theme.borderColor};
+  border-bottom: 1px solid ${props => props.theme.white};
 `
 const MenuIcon = styled(Globe)`
   width: 1em;
   margin-right: 0.2em;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
 `
 
 export default props => {
@@ -120,12 +121,15 @@ export default props => {
       <Menu left {...props}>
         <MenuTitle>
           <MenuIcon />
-          | Site Contents
+            | Site Contents
         </MenuTitle>
         <TableOfContents>
           <ul className='linktoc'>
             <li className='menu-item' id='search'>
               <Search />
+            </li>
+            <li className='menu-item' id='login'>
+              <span itemProp='name'><Login /></span>
             </li>
             <li>
               <Link className='menu-item' to='/blog' itemProp='url'>
