@@ -16,7 +16,6 @@ export const TocDiv = styled.div`
   height: max-content;
   max-height: 85vh;
   border-radius: 4px;
-  border: thin solid ${props => props.theme.background};
   z-index: 3;
   line-height: 2em;
   right: 1em;
@@ -77,7 +76,6 @@ export const TocTitle = styled.h3`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  background: ${props => props.theme.black};
   color: ${props => props.theme.white};
 `
 
@@ -93,7 +91,6 @@ export const TocLink = styled.a`
 export const TocIcon = styled(BookContent)`
   width: 1em;
   margin-right: 0.2em;
-  background: ${props => props.theme.black};
   color: ${props => props.theme.white};
 `
 

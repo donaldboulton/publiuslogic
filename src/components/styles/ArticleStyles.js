@@ -25,16 +25,10 @@ export const StyledTableMenu = styled.div`
     background: transparent;
     display: inline-block;
     text-decoration: none;
+    color: white;
     margin-bottom: 2vh;
-    background: ${props => props.theme.black};
-    color: ${props => props.theme.links};
     transition: color 0.2s;
-  }
-  .bm-item:hover {
-    color: ${props => props.theme.hoveredLinks};
-  }
-  .bm-item:active {
-    color: ${props => props.theme.activeLinks};
+    outline: none;
   }
   .bm-burger-button {
     position: fixed;
@@ -95,18 +89,10 @@ export const StyledTableMenu = styled.div`
 export const TableOfContents = styled.div`
   ul {
     textIndent: -1em hanging;
+    outline: none !important;
   }
   li {
     margin-bottom: 1em;
-  }
-  a {
-    color: ${props => props.theme.links};
-  }
-  a:hover {
-     color: ${props => props.theme.hoveredLinks};
-  }
-  a:active {
-     color: ${props => props.theme.activeLinks};
   }
 `
 export const HomeStyledh1 = styled.h1`
@@ -127,8 +113,9 @@ export const PageTitle = styled.h2`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  color: #ffffff !important;
-  border-bottom: 1px solid #fff !important;
+  color: #ffffff;
+  border-bottom: 1px solid #fff;
+  outline: none;
 `
 export const PageTocIcon = styled(Table)`
   width: 1em;

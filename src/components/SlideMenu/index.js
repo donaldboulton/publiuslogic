@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 import Search from '../Search'
+import Login from '../IdentityWidget'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
 import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
 import { Globe } from 'styled-icons/boxicons-regular/'
@@ -15,12 +16,6 @@ const StyledBurgerMenu = styled.div`
     text-decoration: none;
     margin-bottom: 2vh;
     transition: color 0.2s;
-  }
-  .bm-item:hover {
-    color: ${props => props.theme.hoveredLinks};
-  }
-  .bm-item:active {
-    color: ${props => props.theme.activeLinks};
   }
   .bm-burger-button {
     position: fixed;
@@ -77,6 +72,7 @@ const StyledBurgerMenu = styled.div`
   }
   ul {
     max-height: 78vh;
+    outline: none !important;
   }
   .bm-overlay {
     background: rgba(0, 0, 0, 0.59);
@@ -85,18 +81,10 @@ const StyledBurgerMenu = styled.div`
 const TableOfContents = styled.div`
   ul {
     textIndent: -1em hanging;
+    outline: none !important;
   }
   li {
     margin-bottom: 1em;
-  }
-  a {
-    color: ${props => props.theme.links};
-  }
-  a:hover {
-     color: ${props => props.theme.hoveredLinks};
-  }
-  a:active {
-     color: ${props => props.theme.activeLinks};
   }
 `
 const MenuTitle = styled.h2`
@@ -107,11 +95,12 @@ const MenuTitle = styled.h2`
   align-items: center;
   grid-template-columns: auto auto 1fr;
   border-bottom: 1px solid ${props => props.theme.white};
+  color: white;
 `
 const MenuIcon = styled(Globe)`
   width: 1em;
   margin-right: 0.2em;
-  color: ${props => props.theme.white};
+  color: white;
 `
 
 export default props => {
@@ -127,63 +116,66 @@ export default props => {
             <li className='menu-item' id='search'>
               <Search />
             </li>
+            <li className='menu-item a' id='login'>
+              <Login />
+            </li>
             <li>
-              <Link className='menu-item' to='/blog' itemProp='url'>
+              <Link className='menu-item a' to='/blog' itemProp='url'>
                 <span itemProp='name'>Blog&nbsp;<Blog size='1em' /></span>
               </Link>
             </li>
             <li>
-              <Link className='menu-item' to='/about' itemProp='url'>
+              <Link className='menu-item a' to='/about' itemProp='url'>
                 <span itemProp='name'>About&nbsp;<AddressCard size='1em' /></span>
               </Link>
             </li>
             <li>
-              <Link className='menu-item' to='/contact' itemProp='url'>
+              <Link className='menu-item a' to='/contact' itemProp='url'>
                 <span itemProp='name'>Contact&nbsp;<PeopleCarry size='1em' /></span>
               </Link>
             </li>
             <li>
-              <Link className='menu-item' to='/photos' itemProp='url'>
+              <Link className='menu-item a' to='/photos' itemProp='url'>
                 <span itemProp='name'>Gallery&nbsp;<Images size='1em' /></span>
               </Link>
             </li>
             <li>
-              <Link className='menu-item' to='/sitemap' itemProp='url'>
+              <Link className='menu-item a' to='/sitemap' itemProp='url'>
                 <span itemProp='name'>Sitemap&nbsp;<Sitemap size='1em' /></span>
               </Link>
             </li>
             <li>
-              <h4 className='h4'>Featured Posts</h4>
+              <h4 className='center menu-item'>Featured Posts</h4>
             </li>
             <div className='navbar-divider' />
             <li>
-              <Link className='menu-item' to='/blog/gatsby-crud-netlify-fauna' itemProp='url'>
+              <Link className='menu-item a' to='/blog/gatsby-crud-netlify-fauna' itemProp='url'>
                 <span itemProp='name'>Gatsby Netlify FaunaDB&nbsp;<FileAlt size='1em' /></span>
               </Link>
             </li>
             <li>
-              <Link className='menu-item' to='/blog/gatsby-netlify-no-plugins' itemProp='url'>
+              <Link className='menu-item a' to='/blog/gatsby-netlify-no-plugins' itemProp='url'>
                 <span itemProp='name'>Netlify No Plugins&nbsp;<FileAlt size='1em' /></span>
               </Link>
             </li>
             <li>
-              <Link className='menu-item' to='/blog/js-media-queries' itemProp='url'>
+              <Link className='menu-item a' to='/blog/js-media-queries' itemProp='url'>
                 <span itemProp='name'>JS mediaQueries&nbsp;<FileAlt size='1em' /></span>
               </Link>
             </li>
             <li>
-              <Link className='menu-item' to='/blog/react-hooks-masonry' itemProp='url'>
+              <Link className='menu-item a' to='/blog/react-hooks-masonry' itemProp='url'>
                 <span itemProp='name'>React Hooks Masonry&nbsp;<FileAlt size='1em' /></span>
               </Link>
             </li>
             <li>
-              <h4 className='h4'>Common Sense Posts</h4>
+              <h4 className='center menu-item'>Common Sense Posts</h4>
             </li>
             <li>
               <div className='navbar-divider' />
             </li>
             <li>
-              <Link className='menu-item' to='/blog/earths-magnetic-flux' itemProp='url'>
+              <Link className='menu-item a' to='/blog/earths-magnetic-flux' itemProp='url'>
                 <span itemProp='name'>Magnetic Flux&nbsp;<FileAlt size='1em' /></span>
               </Link>
             </li>

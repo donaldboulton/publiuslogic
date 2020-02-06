@@ -1,6 +1,7 @@
 import React from 'react'
 import avatarIcon from '../../../static/img/avatar.png'
 import { Link } from 'gatsby'
+import { SignOutAlt } from 'styled-icons/fa-solid'
 import { navigate } from '@reach/router'
 import UserAvatar from 'react-user-avatar'
 import {
@@ -31,7 +32,7 @@ function Login () {
                 <Link className='navbar-item' to='/app/profile'>✨ User Settings</Link>
                 <hr className='navbar-divider' />
                 <a className='identity-login navbar-item' onClick={() => setDialog(true)}>
-                  Logout
+                  Logout&nbsp;<SignOutAlt size='1rem' color='#f5f5f5' />
                 </a>
               </div>
             </div>
