@@ -110,7 +110,7 @@
     "react-helmet": "^5.2.1",
     "react-lightgallery": "^0.6.3",
     "react-netlify-identity": "^0.2.2",
-    "react-netlify-identity-widget": "^0.2.5",
+    "react-netlify-identity-widget": "^0.2.7",
     "react-retro-hit-counter": "^1.0.1",
     "react-router-dom": "^5.1.2",
     "react-share": "^4.0.1",
