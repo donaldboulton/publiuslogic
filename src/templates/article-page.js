@@ -24,7 +24,7 @@ import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import Toc from '../components/Toc'
 import { Tags } from 'styled-icons/fa-solid/Tags'
-import { StyledTableMenu, Styledh1, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList, Reviews } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, Styledh1, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
@@ -96,7 +96,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
           <Menu4 right customBurgerIcon={<Tags />}>
             <PageTitle>
               <ArticleTocIcon />
-                | Site Tags
+              | Site Tags
             </PageTitle>
             <TableOfContents>
               <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
@@ -146,7 +146,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
                   <span>
                     <FileSymlinkFile size='1.2em' />
                       &ensp;
-                        Category:
+                    Category:
                       &ensp;
                     <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
                   </span>
