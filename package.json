@@ -80,7 +80,7 @@
     "gatsby-remark-normalize-paths": "^1.0.0",
     "gatsby-remark-prismjs": "^3.3.31",
     "gatsby-remark-relative-images": "^0.2.3",
-    "gatsby-remark-responsive-iframe": "2.2.31",
+    "gatsby-remark-responsive-iframe": "2.2.32",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-remark": "^2.6.48",
