@@ -4,7 +4,7 @@ title: Gatsby React Scroll toTop
 path: /gatsby-react-scroll-toTop
 slug: /gatsby-react-scroll-toTop
 date: 2019-04-22T20:20:43.942Z
-category: 'tech'
+category: 'React'
 cover: '/images/top.jpg'
 tags:
   - toTop

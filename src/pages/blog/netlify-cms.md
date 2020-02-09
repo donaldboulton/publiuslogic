@@ -5,7 +5,7 @@ path: /netlify-cms
 slug: /netlify-cms
 date: 2019-03-22T03:36:27.484Z
 cover: '/images/netlify-cms.jpg'
-category: 'tech'
+category: 'Gatsby'
 tags:
   - Netlify
   - CMS

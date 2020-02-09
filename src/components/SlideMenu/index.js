@@ -120,7 +120,7 @@ export default props => {
               <Login />
             </li>
             <li>
-              <Link className='menu-item a' to='/blog' itemProp='url'>
+              <Link className='menu-item a' to='/blog/2' itemProp='url'>
                 <span itemProp='name'>Blog&nbsp;<Blog size='1em' /></span>
               </Link>
             </li>

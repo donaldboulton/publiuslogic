@@ -5,7 +5,7 @@ path: /js-media-queries
 slug: /js-media-queries
 date: 2019-04-18T20:20:43.942Z
 updated: 2019-12-18T20:20:43.942Z
-category: 'tech'
+category: 'React'
 cover: '/images/js-media-quries.jpg'
 tags:
   - mediaQueries

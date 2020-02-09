@@ -4,7 +4,7 @@ title: Gatsby GitHub Comments Utterances
 path: /gatsby-gitHub-comments-utterances
 slug: /gatsby-gitHub-comments-utterances
 date: 2019-04-16T20:20:43.942Z
-category: 'tech'
+category: 'React'
 cover: '/images/utterances.jpg'
 tags:
   - Utterances 

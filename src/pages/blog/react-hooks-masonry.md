@@ -4,7 +4,7 @@ title: React Hooks Masonry
 path: /react-hooks-masonry
 slug: /react-hooks-masonry
 date: 2019-03-25T20:20:43.942Z
-category: 'tech'
+category: 'React'
 cover: '/images/masonry.jpg'
 tags:
   - Masonry

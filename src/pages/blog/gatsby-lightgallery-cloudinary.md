@@ -4,7 +4,7 @@ title: Gatsby LightGallery Cloudinary
 path: /gatsby-lightgallery-cloudinary
 slug: /gatsby-lightgallery-cloudinary
 date: 2019-09-17T20:14:43.942Z
-category: 'tech'
+category: 'React'
 cover: '/images/cloudinary.jpg'
 tags:
   - Cloudinary

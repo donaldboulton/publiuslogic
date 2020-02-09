@@ -1,4 +1,4 @@
-let readJson = async (url, defaultValue = {}) => {
+const readJson = async (url, defaultValue = {}) => {
   let response = await fetch(url)
 
   try {
@@ -8,7 +8,7 @@ let readJson = async (url, defaultValue = {}) => {
   }
 }
 
-let getJsonUrl = data => {
+const getJsonUrl = data => {
   // TODO: Clean up this mess
   return (
     data &&

@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 // -------------- usage --------------
 import {
   useIdentityContext,
-} from 'react-netlify-identity-widget'
+} from 'react-netlify-identity'
 import { useLocalStorage } from '@swyx/hooks'
 
 export default function useIdentity (onAuthChange) {
@@ -48,6 +48,7 @@ export default function useIdentity (onAuthChange) {
       finalObj.headers['Content-Type'] === 'application/json' ? res.json() : res,
     )
   }
+
   const authedFetch = {
     get: genericAuthedFetch('GET'),
     post: genericAuthedFetch('POST'),

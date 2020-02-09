@@ -29,7 +29,7 @@ function Login () {
               <div id='nav-dropdown' className='navbar-dropdown'>
                 <h3 className='navbar-item'>Welcome!</h3>
                 <div className='navbar-item'>😀 {name}</div>
-                <Link className='navbar-item' to='/app/profile'>✨ User Settings</Link>
+                <Link className='navbar-item' to='/app/dashboard'>✨ User Settings</Link>
                 <hr className='navbar-divider' />
                 <a className='identity-login navbar-item' onClick={() => setDialog(true)}>
                   Logout&nbsp;<SignOutAlt size='1rem' color='#f5f5f5' />

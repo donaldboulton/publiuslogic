@@ -4,7 +4,7 @@ title: Google Maps + React Hooks
 path: /google-maps-react-hooks
 slug: /google-maps-react-hooks
 date: 2019-03-25T20:20:43.942Z
-category: 'tech'
+category: 'React'
 cover: '/images/maps.jpg'
 tags:
   - Hooks

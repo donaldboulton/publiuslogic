@@ -4,7 +4,7 @@ title: Gatsby CRUD Netlify Fauna
 path: /gatsby-crud-netlify-fauna
 slug: /gatsby-crud-netlify-fauna
 date: 2019-11-10T20:20:43.942Z
-category: 'tech'
+category: 'Gatsby'
 cover: '/images/gatsby-netlify-fauna.jpg'
 tags:
   - Netlify

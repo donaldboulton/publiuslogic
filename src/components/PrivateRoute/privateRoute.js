@@ -1,6 +1,6 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import { useIdentityContext } from 'react-netlify-identity-widget'
+import { useIdentityContext } from 'react-netlify-identity'
 
 function PrivateRoute (props) {
   const { isLoggedIn } = useIdentityContext()

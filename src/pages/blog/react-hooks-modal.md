@@ -4,7 +4,7 @@ title: React Hooks Modal
 path: /react-hooks-modal
 slug: /react-hooks-modal
 date: 2019-03-25T20:20:43.942Z
-category: 'tech'
+category: 'React'
 cover: '/images/react-hooks-modal.jpg'
 tags:
   - Hooks

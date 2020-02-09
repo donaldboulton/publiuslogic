@@ -4,7 +4,7 @@ title: Gatsby SEO
 path: /gatsby-seo
 slug: /gatsby-seo
 date: 2019-07-30T20:14:43.942Z
-category: 'tech'
+category: 'Gatsby'
 cover: '/images/json-ld.jpg'
 tags:
   - Gatsby
