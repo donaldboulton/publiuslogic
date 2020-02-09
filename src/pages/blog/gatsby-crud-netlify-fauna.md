@@ -59,6 +59,15 @@ See the component in this markdown page at the bottom. Or our users page for the
 
 ## Netlify Authentication
 
+THIS SECTION IS CHANGING- - - -Stay tuned almost finished with Hooked up CRUD Auth.
+
+> I discovered react-netlify-identity and its identity-widget and some functions and hooks to use FaunaDb a my user provider and react-netlify-identity for identity
+
+<details><summary>Old Code</summary>
+<p>
+
+## Functional Old Code
+
 I pieced together a Login Component that uses Netlify Identity to use my users data in FaunaDb for Authentication of my users backend.
 
 I have two backends Nelify CMS for editing .yaml and .json data in my _data folder including editing any page or post on this Site, and FaunaDB for everything else.
@@ -555,6 +564,9 @@ function handler (event, context, callback) {
 }
 module.exports = { handler: handler }
 ```
+
+</p>
+</details>
 
 ### ToDo
 

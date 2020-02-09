@@ -5,6 +5,7 @@ import {
   useIdentityContext,
 } from 'react-netlify-identity'
 import { useLocalStorage } from '@swyx/hooks'
+export const FaunaCtx = React.createContext()
 
 export default function useIdentity (onAuthChange) {
   const identity = useIdentityContext()

@@ -9,6 +9,7 @@ import isLocalHost from '../utils/isLocalHost'
 import '../../static/scss/Spinner.css'
 import IdentityModal from 'react-netlify-identity-widget'
 const IdentityContext = React.createContext()
+export const FaunaCtx = React.createContext()
 
 function PrivateRoute (props) {
   const identity = React.useContext(IdentityContext)
@@ -101,9 +102,33 @@ function Logout () {
   const { logoutUser } = React.useContext(IdentityContext)
   return <button className='button' onClick={logoutUser}>Log Out</button>
 }
-function PublicRoute (props) {
-  return <div>{props.children}</div>
+
+function Home () {
+  return (
+    <div>
+      <h3>Welcome to the Home page!</h3>
+      <p>
+        this is a <b>Public Page</b>, not behind an authentication wall
+      </p>
+      <div style={{ backgroundColor: '#EEE', padding: '1rem' }}>
+        <div>
+          <a
+            href='https://app.netlify.com/start/deploy?repository=https://github.com/netlify/create-react-app-lambda/tree/reachRouterAndGoTrueDemo&stack=cms'
+          >
+            <img src='https://www.netlify.com/img/deploy/button.svg' alt='Deploy to Netlify' />
+          </a>
+        </div>
+        This demo is{' '}
+        <a href='https://github.com/netlify/create-react-app-lambda/tree/reachRouterAndGoTrueDemo'>Open Source.</a>{' '}
+      </div>
+    </div>
+  )
 }
+
+function About () {
+  return <div>About</div>
+}
+
 function Dashboard () {
   const props = React.useContext(IdentityContext)
   const url = React.useState('https://publiuslogic.com')
@@ -213,10 +238,10 @@ function App () {
           </div>
           <Nav />
           <Router>
+            <Home path='/' />
+            <About path='/about' />
+            <Login path='/login' />
             <PrivateRoute as={Dashboard} path='/dashboard' />
-            <PublicRoute path='/app'>
-              <Login path='./login' />
-            </PublicRoute>
           </Router>
         </div>
       </IdentityContext.Provider>
