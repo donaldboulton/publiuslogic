@@ -1,7 +1,6 @@
 import React from 'react'
 import avatarIcon from '../../../static/img/avatar.png'
 import { Link } from 'gatsby'
-import { SignOutAlt } from 'styled-icons/fa-solid'
 import { navigate } from '@reach/router'
 import UserAvatar from 'react-user-avatar'
 import {
@@ -29,19 +28,24 @@ function Login () {
               <div id='nav-dropdown' className='navbar-dropdown'>
                 <h3 className='navbar-item'>Welcome!</h3>
                 <div className='navbar-item'>😀 {name}</div>
-                <Link className='navbar-item' to='/app/dashboard'>✨ User Settings</Link>
+                <Link className='navbar-item' to='/app/profile'>✨ User Settings</Link>
                 <hr className='navbar-divider' />
-                <a className='identity-login navbar-item' onClick={() => setDialog(true)}>
-                  Logout&nbsp;<SignOutAlt size='1rem' color='#f5f5f5' />
+                <a className='identity-login navbar-item a' onClick={() => setDialog(true)}>
+                  Logout
                 </a>
               </div>
             </div>
           </>
         ) : (
           <>
-            <button className='identity-login navbar-item button-transparent' onClick={() => setDialog(true)}>
-              <img className='user-icon' src={avatarIcon} alt='User' />
-            </button>
+            <div className='navbar-item has-dropdown is-hoverable'>
+              <button className='identity-login navbar-item button-transparent' onClick={() => setDialog(true)}>
+                <img className='user-icon' src={avatarIcon} alt='User' />
+              </button>
+              <div id='nav-dropdown' className='navbar-dropdown'>
+                <Link className='navbar-item' to='/login'>💕 New User Signup</Link>
+              </div>
+            </div>
           </>
         )}
       </div>

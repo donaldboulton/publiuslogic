@@ -61,9 +61,131 @@ See the component in this markdown page at the bottom. Or our users page for the
 
 THIS SECTION IS CHANGING- - - -Stay tuned almost finished with Hooked up CRUD Auth.
 
-> I discovered react-netlify-identity and its identity-widget and some functions and hooks to use FaunaDb a my user provider and react-netlify-identity for identity
+> I discovered react-netlify-identity and its react-netlify-identity-widget and some functions and hooks to use FaunaDb as my user provider with react-netlify-identity for identity. and the widget for pop-up - modal login.
 
-<details><summary>Old Code</summary>
+### React-Identity-Widget login
+
+The below code uses Bluma SCSS for Navbar positioning, styling. A user avatar_url with fallback to React-User-Avatar for letter Avatar if user does not have a profile avatar image.
+
+```jsx
+import React from 'react'
+import avatarIcon from '../../../static/img/avatar.png'
+import { Link } from 'gatsby'
+import { SignOutAlt } from 'styled-icons/fa-solid'
+import { navigate } from '@reach/router'
+import UserAvatar from 'react-user-avatar'
+import {
+  IdentityModal,
+  useIdentityContext,
+} from 'react-netlify-identity-widget'
+
+function Login () {
+  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false)
+  console.log(JSON.stringify(identity))
+  const name =
+  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
+  const avatar_url = identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.avatar_url
+  const isLoggedIn = identity && identity.isLoggedIn
+  return (
+    <>
+      <div className='navbar-end'>
+        {isLoggedIn ? (
+          <>
+            <div className='navbar-item has-dropdown is-hoverable'>
+              <button className='identity-logout navbar-item button-transparent' onClick={() => setDialog(true)}>
+                {avatar_url && <UserAvatar className='user-icon' name={name} src={avatar_url} />}
+              </button>
+              <div id='nav-dropdown' className='navbar-dropdown'>
+                <h3 className='navbar-item'>Welcome!</h3>
+                <div className='navbar-item'>😀 {name}</div>
+                <Link className='navbar-item' to='/app/dashboard'>✨ User Settings</Link>
+                <hr className='navbar-divider' />
+                <a className='identity-login navbar-item' onClick={() => setDialog(true)}>
+                  Logout&nbsp;<SignOutAlt size='1rem' color='#f5f5f5' />
+                </a>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className='navbar-item has-dropdown is-hoverable'>
+              <button className='identity-login navbar-item button-transparent' onClick={() => setDialog(true)}>
+                <img className='user-icon' src={avatarIcon} alt='User' />
+              </button>
+              <div id='nav-dropdown' className='navbar-dropdown'>
+                <Link className='navbar-item a' to='/signup'>💕 New User Signup</Link>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+      <IdentityModal
+        showDialog={dialog}
+        onCloseDialog={() => setDialog(false)}
+        onLogin={user => navigate('/app/profile')}
+        onSignup={user => navigate('/app/profile')}
+      />
+    </>
+  )
+}
+
+export default Login
+
+```
+
+## Building Functions CRUD Identity AuthFetch
+
+The below is VS Code PS Terminal output
+
+```sh
+[============================]   536.246 s 981/981 100% Generating image thumbnails
+[                            ]   0.987 s 0/76 0% Building static HTML for pages
+...
+{"user":null,"authedFetch":{}}
+{
+  identity: {
+    user: undefined,
+    setUser: [Function],
+    isConfirmedUser: false,
+    isLoggedIn: false,
+    signupUser: [Function],
+    loginUser: [Function],
+    logoutUser: [Function],
+    requestPasswordRecovery: [Function],
+    recoverAccount: [Function],
+    updateUser: [Function],
+    getFreshJWT: [Function],
+    authedFetch: {
+      get: [Function],
+      post: [Function],
+      put: [Function],
+      delete: [Function]
+    },
+    _goTrueInstance: GoTrue { setCookie: true, api: [API] },
+    _url: 'https://publiuslogic.com',
+    loginProvider: [Function],
+    acceptInviteExternalUrl: [Function],
+    settings: { autoconfirm: false, disable_signup: false, external: [Object] },
+    param: {
+      token: undefined,
+      type: undefined,
+      error: undefined,
+      status: undefined
+    },
+    verifyToken: [Function]
+  },
+  url: 'https://publiuslogic.com'
+}
+{"user":null,"authedFetch":{}}
+{"user":null,"authedFetch":{}}
+undefined
+{"user":null,"authedFetch":{}}
+```
+
+## Old Netlify-Identity-Widget Code
+
+<details><summary>Old Netlify-Identity-Widget Code</summary>
 <p>
 
 ## Functional Old Code
@@ -483,6 +605,9 @@ class Login extends React.Component {
 export default Login
 ```
 
+</p>
+</details>
+
 ## SignUp functions code
 
 The Login code and Identity functions were taken from the 🔗 [Netlify FaunaDb todomvc Repo](https://github.com/fauna/netlify-faunadb-todomvc) application includes an `identity-signup.js` function which is triggered upon email confirmation to create the FaunaDB user. 
@@ -564,9 +689,6 @@ function handler (event, context, callback) {
 }
 module.exports = { handler: handler }
 ```
-
-</p>
-</details>
 
 ### ToDo
 

@@ -4,7 +4,6 @@ import addToMailchimp from 'gatsby-plugin-mailchimp'
 import EmailIcon from '../../../static/img/enewsletter_icon.png'
 import { Mailchimp } from 'styled-icons/fa-brands/'
 import Email from '../Email'
-
 export default class Subscribe extends React.Component {
   constructor () {
     super()
@@ -60,7 +59,7 @@ export default class Subscribe extends React.Component {
             status: `sending`,
             msg: null,
           },
-        )
+        );
         // setState callback (subscribe email to MC)
         this._postEmailToMailchimp(this.state.email, {
           pathname: document.location.pathname,
@@ -149,7 +148,7 @@ export default class Subscribe extends React.Component {
                 <div className='column'>
                   <p className='subtitle is-5'>
                     <Link aria-label='MailChimp Privacy' to='/privacy/#MailChimp' itemProp='url' rel='no-follow' className='a is-small'>
-                     MailChimp Privacy & Terms
+                      MailChimp Privacy & Terms
                     </Link>
                   </p>
                 </div>

@@ -1,15 +1,3 @@
-.overlaySpinner {
-  position: absolute;
-  display: inline-block;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 100%;
-  right: 0;
-  left: 0;
-  top: 0;
-  padding-top: 200px;
-}
-/* http://tobiasahlin.com/spinkit/ */
-
 .sk-folding-cube {
   margin: 20px auto;
   width: 40px;
