@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 import Search from '../Search'
-import Login from '../IdentityWidget'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
 import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
 import { Globe } from 'styled-icons/boxicons-regular/'
@@ -115,9 +114,6 @@ export default props => {
           <ul className='linktoc'>
             <li className='menu-item' id='search'>
               <Search />
-            </li>
-            <li className='menu-item a' id='login'>
-              <Login />
             </li>
             <li>
               <Link className='menu-item a' to='/blog/2' itemProp='url'>

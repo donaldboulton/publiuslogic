@@ -4,7 +4,7 @@ title: About Us
 slug: About Us
 path: /about-us
 date: 2019-11-09T20:20:43.942Z
-cover: ./about.jpg
+cover: '/images/about.jpg'
 meta_title: About Us | Gatsby Starter Publius
 meta_description: >-
   This website is built as static HTML with Gatsby component-modular builds including a Simple Node Express Heroku Server. Hasura GraphQL backend, with React components and Built with Webpack in a Docker Container.

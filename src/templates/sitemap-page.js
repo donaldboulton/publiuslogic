@@ -107,7 +107,7 @@ const SiteMapPage = ({ data }) => {
           </Styledh1>
           <p>🗺️ Listing all Pages and Posts.</p>
           <p>
-          ✨ For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
+            ✨ For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
           </p>
         </div>
       </section>

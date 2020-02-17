@@ -103,7 +103,7 @@ const PrivacyPage = ({ data }) => {
         <Menu5 right customBurgerIcon={<BookContent />}>
           <PageTitle>
             <PageTocIcon />
-                | 🔐 Page Contents
+            | 🔐 Page Contents
           </PageTitle>
           <TableOfContents>
             <ul className='linktoc'>
@@ -175,18 +175,18 @@ const PrivacyPage = ({ data }) => {
                 <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
                 <span>
                   <FileSymlinkFile size='1.2em' />
-                      &ensp;
-                        Category:
-                      &ensp;
+                  &ensp;
+                  Category:
+                  &ensp;
                   <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
                 </span>
               </MetaPage>
               <div className='columns is-desktop is-vcentered'>
                 <div className='column is-4'>
-                 🔐 Privacy & Terms.
+                  🔐 Privacy & Terms.
                 </div>
                 <div className='column'>
-                For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>
+                  For Refinements see <Link className='a' to='/privacy/#Disabling-Cookies'>Cookies</Link> or <Link className='a' to='/privacy/#Privacy-Google'>Google Privacy</Link>
                 </div>
               </div>
             </div>

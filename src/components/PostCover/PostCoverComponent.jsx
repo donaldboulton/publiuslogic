@@ -1,7 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import path from 'path'
-
 class PostCover extends React.Component {
   render () {
     const { fileEdges, postNode, coverHeight, coverClassName } = this.props

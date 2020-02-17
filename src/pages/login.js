@@ -1,5 +1,4 @@
 import React from 'react'
-import { navigate } from '@reach/router'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import { Styledh1 } from '../components/styles/ArticleStyles'
@@ -64,8 +63,9 @@ function Login () {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={user => navigate('/app/profile')}
-        onSignup={user => navigate('/app/profile')}
+        onLogin={(user) => console.log('hello ', user.user_metadata)}
+        onSignup={(user) => console.log('welcome ', user.user_metadata)}
+        onLogout={() => console.log('bye ', name)}
       />
     </>
   )

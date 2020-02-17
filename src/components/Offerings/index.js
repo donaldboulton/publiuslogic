@@ -25,4 +25,5 @@ Offerings.propTypes = {
   ),
 }
 
+
 export default Offerings

@@ -1,0 +1,47 @@
+- title: Gatsby
+  url: https://www.gatsbyjs.org
+  logo: ../../static/logos/gatsby.svg
+
+- title: GraphQL
+  url: https://graphql.org
+  logo: ../../static/logos/graphql.svg
+
+- title: HTML
+  url: https://developer.mozilla.org/en-US/docs/Web/HTML
+  logo: ../../static/logos/html.svg
+
+- title: JavaScript
+  url: https://developer.mozilla.org/bm/docs/Web/JavaScript
+  logo: ../../static/logos/js.svg
+
+- title: FaunaDB
+  url: https://https://fauna.com/
+  logo: ../../static/logos/fauna.png
+
+- title: Node.js
+  url: https://nodejs.org/en
+  logo: ../../static/logos/nodejs.svg
+
+- title: React
+  url: https://reactjs.org
+  logo: ../../static/logos/react.svg
+
+- title: react-spring
+  url: https://react-spring.surge.sh
+  logo: ../../static/logos/react-spring.svg
+
+- title: Redux
+  url: https://redux.js.org
+  logo: ../../static/logos/redux.svg
+
+- title: socket.io
+  url: https://socket.io
+  logo: ../../static/logos/socketio.svg
+
+- title: Styled-C
+  url: https://www.styled-components.com
+  logo: ../../static/logos/styled-components.svg
+
+- title: Webpack
+  url: https://webpack.js.org
+  logo: ../../static/logos/webpack.svg

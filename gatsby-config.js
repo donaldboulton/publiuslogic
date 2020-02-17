@@ -35,7 +35,7 @@ module.exports = {
       feed_url: config.siteUrl + config.siteRss,
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${config.siteUrl}/icons/icon-512x512.png`,
+      image_url: `${config.siteUrl}/logos/icon-512x512.png`,
       author: config.userName,
       copyright: config.copyright,
       twitterCreator: `@donboulton`,
@@ -129,6 +129,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/static/logos`,
+        name: 'logos',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/static/img`,
         name: 'icons',
       },
@@ -147,6 +154,13 @@ module.exports = {
         path: `${__dirname}/_data/ratings`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'tech',
+        path: `${__dirname}/_data/tech`,
+      },
+    },
     'gatsby-transformer-yaml',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -162,7 +176,7 @@ module.exports = {
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['interactive-counter', 'interactive-hit-counter', 'interactive-todo', 'interactive-colorbox'] },
+            options: { components: ['interactive-counter', 'interactive-hit-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-carousel'] },
           },
           {
             resolve: 'gatsby-remark-normalize-paths',
@@ -257,12 +271,12 @@ module.exports = {
         display: 'standalone',
         icons: [
           {
-            src: `/icons/icon-192x192.png`,
+            src: `/logos/icon-192x192.png`,
             sizes: `192x192`,
             type: `image/png`,
           },
           {
-            src: `/icons/icon-512x512.png`,
+            src: `/logos/icon-512x512.png`,
             sizes: `512x512`,
             type: `image/png`,
           },

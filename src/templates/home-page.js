@@ -96,7 +96,7 @@ const HomePage = ({ data, data: { allMarkdownRemark: { group } } }) => {
         <Menu7 right customBurgerIcon={<Tags />}>
           <PageTitle>
             <ArticleTocIcon />
-                | Site Tags
+            | Site Tags
           </PageTitle>
           <TableOfContents>
             <ul className='linktoc taglist field is-grouped is-grouped-multiline'>

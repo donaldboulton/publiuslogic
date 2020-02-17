@@ -252,8 +252,6 @@ Here is an example of not using MDX Plugins, but only using remark-rehype with H
 
 ### Counter
 
-<interactive-hit-counter></interactive-hit-counter>
-
 <interactive-counter></interactive-counter>
 
 My repo holds all the code for the discussion above at 🔗 [DWB publislogic repo](https://github.com/donaldboulton/publiuslogic)

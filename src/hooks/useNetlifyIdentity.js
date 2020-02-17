@@ -7,7 +7,6 @@ import {
 import { useLocalStorage } from '@swyx/hooks'
 // eslint-disable-next-line no-unused-vars
 const faunadb = require('faunadb')
-export const FaunaCtx = React.createContext()
 
 export default function useIdentity (onAuthChange) {
   const identity = useIdentityContext()

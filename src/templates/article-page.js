@@ -12,6 +12,7 @@ import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
+import Carousel from '../components/Carousel'
 import Layout from '../components/Layout'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
@@ -34,6 +35,7 @@ const renderAst = new RehypeReact({
     'interactive-hit-counter': HitCounter,
     'interactive-todo': Todo,
     'interactive-colorbox': ColorBox,
+    'interactive-carousel': Carousel,
   },
 }).Compiler
 
