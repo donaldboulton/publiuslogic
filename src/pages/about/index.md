@@ -36,7 +36,6 @@ JavaScript Standard
 
 > [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-
 ## Just Having Fun
 
 🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds  using React components and GraphQL, Built with WebPack. Including a user data backend I am just now working on using FaunaDB.
