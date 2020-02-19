@@ -16,7 +16,7 @@ showToc: true
 related: true
 ---
 
-## Gatsby Serverless FaunaDB
+## Gatsby FaunaDB
 
 🖥️ Based on 🔗 [Nelifty post](https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/?_ga=2.21698171.1777301599.1576092869-301685750.1573932436#wrapping-up)
 
@@ -47,7 +47,7 @@ We will be walking through how you can use FaunaDB with Netlify Functions to bui
 ![FaunaDB](/img/fauna.jpg "FaunaDB")
 _[`FaunaDB` serverless functions](https://www.netlify.com/docs/functions/)_
 
-## Functions ToDo Example
+## Functions ToDo
 
 This Functions Todo Sample is in the 🔗 [Netlify Fauna ToDo](https://github.com/jchris/netlify-fauna-todo), GitHub Repo.
 
@@ -57,13 +57,13 @@ The Fauna post on the 🔗 [FaunaDB ToDo}(https://fauna.com/blog/building-a-serv
 
 See the component in this markdown page at the bottom. Or our users page for the 🔗 [ToDo](/users) Functions Example
 
-## Netlify Authentication
+## Netlify Auth
 
 THIS SECTION IS CHANGING- - - -Stay tuned almost finished with Hooked up CRUD Auth.
 
 > I discovered react-netlify-identity and its react-netlify-identity-widget and some functions and hooks to use FaunaDb as my user provider with react-netlify-identity for identity. and the widget for pop-up - modal login.
 
-### React-Identity-Widget login
+### React-Identity-Widget
 
 The below code uses Bluma SCSS for Navbar positioning, styling. A user avatar_url with fallback to React-User-Avatar for letter Avatar if user does not have a profile avatar image.
 
@@ -134,7 +134,9 @@ export default Login
 
 ```
 
-## Building Functions CRUD Identity AuthFetch
+## Building Functions
+
+CRUD Identity AuthFetch
 
 The below is VS Code PS Terminal output
 
@@ -183,7 +185,7 @@ undefined
 {"user":null,"authedFetch":{}}
 ```
 
-## Old Netlify-Identity-Widget Code
+## Old Netlify-Identity
 
 <details><summary>Old Netlify-Identity-Widget Code</summary>
 <p>
@@ -215,7 +217,7 @@ export const wrapRootElement = ({ element }) => (
 )
 ```
 
-### User Context Component
+### User Context
 
 ```jsx
 import React, { createContext } from 'react'
@@ -254,7 +256,9 @@ export class UserProvider extends React.Component {
 export const UserConsumer = UserContext.Consumer
 ```
 
-### Base pre-layout component for backend
+### Base pre-layout
+
+Component for backend
 
 This base wrapper for my backend uses my default Global layout component from src/base
 
@@ -307,7 +311,7 @@ export default class BasePage extends React.Component {
 }
 ```
 
-### Services Backend Auth
+### Services Backend
 
 Services for user profile and editing user content, and sets default admin user to be always logged in.
 
@@ -373,7 +377,7 @@ export const handleLogin = ({ username, password }) => {
 }
 ```
 
-### Example User Profile page
+### User Profile
 
 The below is how I consume the User FaunaDB Provider
 
@@ -450,7 +454,7 @@ class Profile extends React.Component {
 export default Profile
 ```
 
-### User Profile Message
+### Profile Message
 
 ```jsx
 import React from 'react'
@@ -494,7 +498,7 @@ export default function UserSettings () {
 }
 ```
 
-## Login Component Code
+## Login Code
 
  I use the below component in my Burger Menu for Logging In & Out of My Site with Netlify and FaunaDB
 
@@ -608,7 +612,7 @@ export default Login
 </p>
 </details>
 
-## SignUp functions code
+## SignUp functions
 
 The Login code and Identity functions were taken from the 🔗 [Netlify FaunaDb todomvc Repo](https://github.com/fauna/netlify-faunadb-todomvc) application includes an `identity-signup.js` function which is triggered upon email confirmation to create the FaunaDB user. 
 

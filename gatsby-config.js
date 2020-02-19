@@ -176,7 +176,7 @@ module.exports = {
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['interactive-counter', 'interactive-hit-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-carousel'] },
+            options: { components: ['interactive-counter', 'interactive-hit-counter', 'interactive-todo', 'interactive-colorbox'] },
           },
           {
             resolve: 'gatsby-remark-normalize-paths',

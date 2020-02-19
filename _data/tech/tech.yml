@@ -5,6 +5,14 @@
 - title: GraphQL
   url: https://graphql.org
   logo: ../../static/logos/graphql.svg
+  
+- title: Lambda
+  url: https://graphql.org
+  logo: ../../static/logos/lambda.svg
+
+- title: CSS 3
+  url: https://graphql.org
+  logo: ../../static/logos/css.svg  
 
 - title: HTML
   url: https://developer.mozilla.org/en-US/docs/Web/HTML
@@ -16,7 +24,7 @@
 
 - title: FaunaDB
   url: https://https://fauna.com/
-  logo: ../../static/logos/fauna.png
+  logo: ../../static/logos/fauna.svg
 
 - title: Node.js
   url: https://nodejs.org/en

@@ -1,4 +1,5 @@
 import React from 'react'
+import RehypeReact from 'rehype-react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
@@ -6,16 +7,26 @@ import { kebabCase } from 'lodash'
 import Menu8 from 'react-burger-menu/lib/menus/stack'
 import PostCover from '../components/PostCover'
 import Bio from '../components/Bio'
+import Toc from '../components/Toc'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
 import DarkModeStatus from '../components/DarkMode/DarkModeStatus'
 import DarkModeCommands from '../components/DarkMode/DarkModeCommands'
+import Counter from '../components/Counter'
 import { Grid } from '../components/styles/Grid'
 import { Tags } from 'styled-icons/fa-solid/Tags'
 import Carbon from '../../static/img/rgAl-carbon.png'
-import { StyledTableMenu, TableOfContents, PageTitle, ArticleTocIcon } from '../components/styles/ArticleStyles'
+import { StyledTableMenu, TableOfContents, PageTitle, Styledh1, ArticleTocIcon } from '../components/styles/ArticleStyles'
+import { rhythm } from '../utils/typography'
+
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: {
+    'interactive-counter': Counter,
+  },
+}).Compiler
 
 const techLinkCss = `transition: 0.4s; :hover {transform: scale(1.05);}`
 
@@ -103,105 +114,121 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
+      <StyledTableMenu>
+        <Menu8 right customBurgerIcon={<Tags />}>
+          <PageTitle>
+            <ArticleTocIcon />
+            | Site Tags
+          </PageTitle>
+          <TableOfContents>
+            <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
+              {group.map(tag => (
+                <li className='control menu-item' key={tag.fieldValue}>
+                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                    <div className='tags has-addons is-large'>
+                      <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
+                      <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </TableOfContents>
+        </Menu8>
+      </StyledTableMenu>
       <section className='hero'>
-        <StyledTableMenu>
-          <Menu8 right customBurgerIcon={<Tags />}>
-            <PageTitle>
-              <ArticleTocIcon />
-              | Site Tags
-            </PageTitle>
-            <TableOfContents>
-              <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
-                {group.map(tag => (
-                  <li className='control menu-item' key={tag.fieldValue}>
-                    <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                      <div className='tags has-addons is-large'>
-                        <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
-                        <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </TableOfContents>
-          </Menu8>
-        </StyledTableMenu>
         <PostCover
           postNode={postNode}
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-        <section className='section'>
-          <div className='container content'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <div>
-                  <Bio />
-                </div>
-              </div>
+      </section>
+      <section className='section'>
+        <div className='container columns'>
+          <div className='column is-10 is-offset-1'>
+            <Styledh1>
+              {post.frontmatter.title}
+            </Styledh1>
+            <div>
+              <Bio />
             </div>
           </div>
-        </section>
+        </div>
       </section>
-      <AboutPageTemplate
-        contentComponent={HTMLContent}
-        content={post.html}
-        cover={post.frontmatter.cover}
-        meta_title={post.frontmatter.meta_title}
-        description={post.frontmatter.meta_description}
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
-      />
       <section className='section'>
-        <div className='container content'>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
+        <div className='columns content'>
+          <div className='column is-9 is-offset-1'>
+            <main>{renderAst(postNode.htmlAst)}</main>
+            <AboutPageTemplate
+              contentComponent={HTMLContent}
+              content={post.html}
+              cover={post.frontmatter.cover}
+              meta_title={post.frontmatter.meta_title}
+              description={post.frontmatter.meta_description}
+              tags={post.frontmatter.tags}
+              title={post.frontmatter.title}
+            />
+            <div>
+              <p>
+                This is an example app that uses the <code>useDarkMode</code> custom hook.
+                It persists across sessions (i.e., uses <code>localStorage</code>) and
+                shares state across instances and even tabs and/or browser windows.
+              </p>
+              <p>
+                For example, here is a component that shares the custom hook{' '}
+                <code>useDarkMode</code> with the toggle component above.
+              </p>
+              <p>
+                It is reporting that the current mode is:{' '}
+                <code>
+                  <DarkModeStatus />
+                </code>
+              </p>
+              <p>
+                And here's another: <DarkModeCommands />
+              </p>
+              <p>It couldn't be any easier!</p>
+              <p>
+                <img
+                  alt='code'
+                  src={Carbon}
+                />
+              </p>
               <div>
-                <p>
-                  This is an example app that uses the <code>useDarkMode</code> custom hook.
-                  It persists across sessions (i.e., uses <code>localStorage</code>) and
-                  shares state across instances and even tabs and/or browser windows.
-                </p>
-                <p>
-                  For example, here is a component that shares the custom hook{' '}
-                  <code>useDarkMode</code> with the toggle component above.
-                </p>
-                <p>
-                  It is reporting that the current mode is:{' '}
-                  <code>
-                    <DarkModeStatus />
-                  </code>
-                </p>
-                <p>
-                  And here's another: <DarkModeCommands />
-                </p>
-                <p>It couldn't be any easier!</p>
-                <p>
-                  <img
-                    alt='code'
-                    src={Carbon}
-                  />
-                </p>
-                <div className='column'>
-                  View the source for this&nbsp;
-                  <a className='a' href='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</a> &nbsp;Or see
-                  useDarkMode.&nbsp;
-                  <a className='a' href='https://github.com/donavon/use-dark-mode'>
-                    Source code on Github.
+                View the source for this&nbsp;
+                <a className='a' href='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</a> &nbsp;Or see
+                useDarkMode.&nbsp;
+                <a className='a' href='https://github.com/donavon/use-dark-mode'>
+                  Source code on Github.
+                </a>
+              </div>
+            </div>
+            <hr
+              style={{
+                marginBottom: rhythm(1),
+              }}
+            />
+            <div
+              style={{
+                marginLeft: '2vw',
+              }}
+            >
+              <h2>My Stack</h2>
+              <Grid minWidth='5em' align='center'>
+                {tech.edges.map(({ node: { title, url, logo } }) => (
+                  <a key={title} href={url} css={techLinkCss}>
+                    <span css='font-size: 0.85em;'>{title}</span>
+                    <img src={logo.src} alt={title} />
                   </a>
-                </div>
-              </div>
-              <div className='column is-10'>
-                <h2>My Stack</h2>
-                <Grid minWidth='5em' align='center'>
-                  {tech.edges.map(({ node: { title, url, logo } }) => (
-                    <a key={title} href={url} css={techLinkCss}>
-                      <span css='font-size: 0.85em;'>{title}</span>
-                      <img src={logo.src} alt={title} />
-                    </a>
-                  ))}
-                </Grid>
-              </div>
+                ))}
+              </Grid>
+            </div>
+          </div>
+          <div className='column'>
+            <div>
+              <Toc
+                css='position: fixed; right: 1em; top: 40vh;'
+              />
             </div>
           </div>
         </div>
@@ -211,7 +238,10 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+    edges: PropTypes.array,
+  }),
 }
 
 export default AboutPage
@@ -219,7 +249,9 @@ export default AboutPage
 export const aboutPageQuery = graphql`
   query AboutPage($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+      id
+      htmlAst
+      excerpt(pruneLength: 200, truncate: true) 
       frontmatter {
         date(formatString: "MMM D, YYYY")
         title

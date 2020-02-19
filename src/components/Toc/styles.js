@@ -19,13 +19,13 @@ export const TocDiv = styled.div`
   z-index: 3;
   line-height: 2em;
   right: 1em;
-  margin: 2em;
-  min-width: 22em;
+  margin: .2em;
+  min-width: 20em;
   overscroll-behavior: none;
   overflow-x: hidden;
   overflow-y: hidden;
   nav {
-    max-height: 80vh;
+    max-height: 83vh;
     overflow-x: hidden;
   }
   .linktoc {
@@ -91,7 +91,7 @@ export const TocLink = styled.a`
 export const TocIcon = styled(BookContent)`
   width: 1em;
   margin-right: 0.2em;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.textColor};
 `
 
 const openedCss = css`

@@ -12,7 +12,6 @@ import { HTMLContent } from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
-import Carousel from '../components/Carousel'
 import Layout from '../components/Layout'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
@@ -35,45 +34,12 @@ const renderAst = new RehypeReact({
     'interactive-hit-counter': HitCounter,
     'interactive-todo': Todo,
     'interactive-colorbox': ColorBox,
-    'interactive-carousel': Carousel,
   },
 }).Compiler
-
-const PrevNext = ({ previous, next }) => {
-  return (
-    <ul
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        listStyle: 'none',
-        paddingLeft: '1em',
-        paddingRight: '1em',
-      }}
-    >
-      {previous && (
-        <li style={{ marginBottom: 10 }}>
-          <Link to={previous.fields.slug} rel='prev'>
-            ← {previous.frontmatter.title}
-          </Link>
-        </li>
-      )}
-
-      {next && (
-        <li style={{ marginBottom: 10 }}>
-          <Link to={next.fields.slug} rel='next'>
-            {next.frontmatter.title} →
-          </Link>
-        </li>
-      )}
-    </ul>
-  )
-}
 
 const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
-  const { previous, next } = pageContext
   const coverHeight = '100%'
   const ratingValue =
     ratings && ratings.edges
@@ -125,92 +91,70 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
       <section className='section'>
         <div className='columns'>
           <div className='column is-10 is-offset-1'>
-            <div className='columns'>
-              <div className='column is-11 is-offset-1'>
-                <section className='section'>
-                  <Styledh1>
-                    {post.frontmatter.title}
-                  </Styledh1>
-                </section>
-                <Bio />
-                <MetaPage>
-                  <span>
-                    <Calendar size='1.2em' />
-                    &ensp;
-                    {post.frontmatter.date}
-                  </span>
-                  <span>
-                    <Timer size='1.2em' />
-                     &ensp;
-                    {post.timeToRead} min read
-                  </span>
-                  <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
-                  <span>
-                    <FileSymlinkFile size='1.2em' />
-                      &ensp;
-                    Category:
-                      &ensp;
-                    <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
-                  </span>
-                </MetaPage>
-              </div>
+            <Styledh1>
+              {post.frontmatter.title}
+            </Styledh1>
+            <div>
+              <Bio />
             </div>
-            <section>
-              <div className='container content'>
-                <div className='columns'>
-                  <div className='column is-9 is-offset-1'>
-                    <main>{renderAst(postNode.htmlAst)}</main>
-                    <ArticleTemplate
-                      content={postNode.html}
-                      contentComponent={HTMLContent}
-                      cover={post.cover}
-                      readingTime={postNode.timeToRead}
-                      category={post.category}
-                      date={post.date}
-                      tweet_id={post.tweet_id}
-                      meta_title={post.meta_title}
-                      description={post.meta_description}
-                      tags={post.tags}
-                      title={post.title}
-                    />
-                    <Share
-                      title={post.title}
-                      slug={post.path}
-                      excerpt={post.meta_description}
-                    />
-                    <hr />
-                    <div className='container content'>
-                      <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
-                        <div className='column is-7'>
-                          <Rating />
-                        </div>
-                        <div className='column'>
-                          <WebIntents />
-                        </div>
-                      </div>
-                    </div>
-                    <Comments />
-                    <hr
-                      style={{
-                        marginBottom: rhythm(1),
-                      }}
-                    />
-                    <section>
-                      <div className='columns'>
-                        <div className='column is-10 is-offset-1'>
-                          <PrevNext previous={previous} next={next} />
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                  <div className='column'>
-                    <div className='is-sticky sticky-style'>
-                      <Toc />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <MetaPage>
+              <span>
+                <Calendar size='1.2em' />
+                    &ensp;
+                {post.frontmatter.date}
+              </span>
+              <span>
+                <Timer size='1.2em' />
+                     &ensp;
+                {post.timeToRead} min read
+              </span>
+              <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
+              <span>
+                <FileSymlinkFile size='1.2em' />
+                &ensp;
+                Category:
+                &ensp;
+                <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
+              </span>
+            </MetaPage>
+          </div>
+        </div>
+      </section>
+      <section className='section'>
+        <div className='columns content'>
+          <div className='column is-9 is-offset-1'>
+            <main>{renderAst(postNode.htmlAst)}</main>
+            <ArticleTemplate
+              content={postNode.html}
+              contentComponent={HTMLContent}
+              cover={post.cover}
+              readingTime={postNode.timeToRead}
+              category={post.category}
+              date={post.date}
+              tweet_id={post.tweet_id}
+              meta_title={post.meta_title}
+              description={post.meta_description}
+              tags={post.tags}
+              title={post.title}
+            />
+            <Share
+              title={post.title}
+              slug={post.path}
+              excerpt={post.meta_description}
+            />
+            <Rating />
+            <WebIntents />
+            <Comments />
+            <hr
+              style={{
+                marginBottom: rhythm(1),
+              }}
+            />
+          </div>
+          <div className='column'>
+            <div className='is-sticky sticky-style'>
+              <Toc />
+            </div>
           </div>
         </div>
       </section>

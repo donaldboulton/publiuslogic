@@ -14,7 +14,7 @@ tags:
 showToc: true  
 ---
 
-## Technical notes about this website
+## Technical Notes
 
 🎁 Code Coverage
 
@@ -32,10 +32,10 @@ Styled Components 💅 with custom React Hooks screen mediaQuery's 💍
 
 Gallery Grids with `custom-screen mediaQuerys 🍱` [Masonry Post](/blog/react-hooks-masonary) 💅.
 
-
 JavaScript Standard
 
 > [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
 
 ## Just Having Fun
 
@@ -43,7 +43,7 @@ JavaScript Standard
 
 Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
 
-## Gatsby Starter Publius
+## Starter Publius
 
 🚀 This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Json-Ld per template for SEO, Internet Positioning.
 
@@ -59,7 +59,7 @@ A 🔗 [Gatsby v2](https://www.gatsbyjs.org/) and 🔗 [Netlify CMS](https://www
 
 ## Authentication
 
-### Netlify Identity Widget
+### Identity Widget
 
 🔐 A Custom Styled and Build for Publius, a component used to authenticate with Netlify's Identity service.
 🆔 🔗 [Live demo](https://identity.netlify.com)
@@ -69,7 +69,7 @@ For a lower level library to the underlying 🔗 [GoTrue](https://github.com/net
 
 > Utilizing Netlify Identity in Gatsby to make public and private pages easily.
 
-#### What is Netlify Identity
+#### What is Identity
 
 ⁉️ Netlify’s Identity service is a plug-and-play microservice for handling site
 functionalities like signups, logins, password recovery, user metadata, and
@@ -94,7 +94,7 @@ Get the speed, security, and scalability of a static site, while still providing
 An integrated part of your Git workflow
 Content is stored in your Git repository along side your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
 
-### An extensible CMS built on React
+### Extensible CMS
 
 ❤️ Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add backend's to support different Git platform APIs.
 My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
@@ -127,7 +127,7 @@ PubliusLogic is a complex Gatsby Site and not for React programing beginners.
 * Contact Form (Lambda Netlify Forms)
 * Easy Configuration using `config.js` file
 
-## Context Provider Wrapper
+## Context Wrapper
 
 PubliusLogic has a `GlobalContextProvider` wrapper for its light and dark Theme, Users{CTX} and FaunaDB{CTX}
 

@@ -6,19 +6,15 @@ const SiteMapPageTemplate = ({ title, cover, canonical, meta_title, meta_descrip
   const PageContent = contentComponent || Content
 
   return (
-    <div>
-      <section className='section section--gradient'>
-        <div className='container'>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
-              <div className='section'>
-                <PageContent className='content' content={content} />
-              </div>
-            </div>
+    <section className='section'>
+      <div className='container'>
+        <div className='columns'>
+          <div className='column is-10 is-offset-1'>
+            <PageContent className='content' content={content} />
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }
 
