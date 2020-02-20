@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
+import { SignOutAlt, SignInAlt } from 'styled-icons/fa-solid'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 import {
@@ -36,16 +37,18 @@ function Login () {
                   {isLoggedIn ? (
                     <>
                       {avatar_url && <img alt='user name' src={avatar_url} className='user-icon' />}<h3> hello {name}!</h3>
-                      <Link to='/profile'>Profile Page</Link>
-                      <button className='button' onClick={() => setDialog(true)}>
-                        LOG OUT
-                      </button>
+                      <div><Link to='/profile'>Profile Page</Link></div>
+                      <div>
+                        <button className='button' onClick={() => setDialog(true)}>
+                          Logout&nbsp;<SignOutAlt size='1rem' color='#f5f5f5' />
+                        </button>
+                      </div>
                     </>
                   ) : (
                     <>
                       <h1> Hello! try logging in! </h1>
                       <button className='button' onClick={() => setDialog(true)}>
-                        LOG IN
+                        Login&nbsp;<SignInAlt size='1rem' color='#f5f5f5' />
                       </button>
                     </>
                   )}

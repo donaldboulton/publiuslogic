@@ -26,7 +26,7 @@ showToc: true
 
 ## Styling
 
-Styled Components 💅 with custom React Hooks screen mediaQuery's 💍
+Styled Components 💅 with custom React Hooks screen [window.matchMedia](/blog/js-media-queries) mediaQuery's 💍
 
 > Beautiful media queries better than CSS @media for styled-components with ability to specify custom breakpoints.
 
@@ -142,3 +142,5 @@ about it.
 PubliusLogic is using [use-dark-mode](https://github.com/donavon/use-dark-mode) and its suggested install instructions with [gatsby-plugin-dark-mode | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-plugin-dark-mode/), plugin for Gatsby integration injecting noflash.js.
 
 > ☀️🌜 Below is an example of its usage.
+
+<interactive-darklmode></interactive-darkmode>

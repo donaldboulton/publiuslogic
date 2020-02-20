@@ -15,51 +15,9 @@ tweet_id: '1118651504674725888'
 showToc: true
 ---
 
-## mediaQuery with Styled mediaQuery
+## Hooks window.matchMedia
 
-💅💍 I think its super easy to use a custom mediaQuery with 🔗 [Styled Media Query's](https://www.npmjs.com/package/styled-media-query), and uses `window.matchMedia` browser support.
-
-Install the modules.
-
-```sh
-npm i styled-media-query
-```
-
-## Breakpoints Based on a lot of Research.
-
-```js:title=Custom-Media-Query
-import { generateMedia } from 'styled-media-query'
-
-const customMedia = generateMedia({
-  desktopL: '2560px',
-  desktop: '1960px',
-  laptop: '1024px',
-  tablet: '768px',
-  mobileL: '720px',
-  mobile: '320px',
-})
-```
-
-## Component Usage
-
-I use the custom mediaQuery's for all my image breakpoints titles and will work it in Globally
-
-```js:title=Usage-in-image-component
-const StyledBackgroundSection = styled(BackgroundSection)`
-  position: relative;
-  text-align: center;
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  ${customMedia.lessThan('desktop')} {
-    background-size: cover;
-      &:after, &:before {
-      background-size: contain;
-    }
-  }
-`
-```
+Styled Components 💅 with custom React Hooks screen [window.matchMedia](/blog/js-media-queries) mediaQuery's 💍, using `window.matchMedia` browser support.
 
 ## Taken From
 
@@ -282,3 +240,51 @@ export default props => (
 ```
 
 For a more elaborate example involving a media query with multiple break points, check out the 🔗 [`useMedia` post on usehooks.com](https://usehooks.com/useMedia).
+
+## Module Styled mediaQuery
+
+💅💍 I think its super easy to use a custom mediaQuery with 🔗 Styled Media Query's, and uses window.matchMedia browser support.
+
+Install the modules.
+
+```sh
+npm i styled-media-query
+```
+
+## Breakpoints
+
+Based on a lot of Research.
+
+```js:title=Custom-Media-Query
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+  desktopL: '2560px',
+  desktop: '1960px',
+  laptop: '1024px',
+  tablet: '768px',
+  mobileL: '720px',
+  mobile: '320px',
+})
+```
+
+## Component Usage
+
+I use the custom mediaQuery's for all my image breakpoints titles and will work it in Globally
+
+```js:title=Usage-in-image-component
+const StyledBackgroundSection = styled(BackgroundSection)`
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  ${customMedia.lessThan('desktop')} {
+    background-size: cover;
+      &:after, &:before {
+      background-size: contain;
+    }
+  }
+`
+```

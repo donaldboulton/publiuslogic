@@ -1,5 +1,5 @@
 ---
-templateKey: photos-page
+templateKey: about-page
 title: Photos
 slug: Photos
 date: 2019-11-08T20:20:43.942Z

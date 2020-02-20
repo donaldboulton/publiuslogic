@@ -11,7 +11,7 @@ import { Tags } from 'styled-icons/fa-solid/Tags'
 import { StyledTableMenu, PageTitle, TableOfContents, ArticleTocIcon } from '../components/styles/ArticleStyles'
 
 const HomePage = ({ data, data: { allMarkdownRemark: { group } } }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter, postNode } = data.markdownRemark
   const image = frontmatter.cover
   const author = config.author
   const logo = config.siteLogo
@@ -131,6 +131,7 @@ HomePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
+      helmet: PropTypes.object,
     }),
   }),
 }
@@ -161,18 +162,6 @@ export const pageQuery = graphql`
         testimonials {
           author
           quote
-        }
-      }
-    }
-    allRatingsJson(filter: {postPath: {ne: "slug"}}, sort: {fields: [date], order: ASC}) {
-      totalCount
-      edges {
-        node {
-          rating
-          date
-          fields {
-            messageHtml
-          }
         }
       }
     }

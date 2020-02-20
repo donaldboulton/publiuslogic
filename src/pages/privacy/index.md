@@ -1,5 +1,5 @@
 ---
-templateKey: privacy-page
+templateKey: about-page
 title: Privacy and Terms
 slug: Privacy and Terms
 date: 2019-11-10T20:20:43.942Z

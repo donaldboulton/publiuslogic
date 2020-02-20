@@ -9,7 +9,7 @@ import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
-import ArticleTemplate from '../components/ArticleTemplate'
+import ArticlePageTemplate from '../components/ArticlePageTemplate'
 import Share from '../components/Share'
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
@@ -124,7 +124,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
         <div className='columns content'>
           <div className='column is-9 is-offset-1'>
             <main>{renderAst(postNode.htmlAst)}</main>
-            <ArticleTemplate
+            <ArticlePageTemplate
               content={postNode.html}
               contentComponent={HTMLContent}
               cover={post.cover}
@@ -166,6 +166,7 @@ ArticlePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
     edges: PropTypes.array,
+    helmet: PropTypes.object,
   }),
 }
 

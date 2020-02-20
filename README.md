@@ -18,7 +18,7 @@
 
 ## Styling
 
-Styled Components 💅 with custom React Hooks screen mediaQuery's 💍
+Styled Components 💅 with custom React Hooks screen [window.matchMedia](/blog/js-media-queries) mediaQuery's 💍
 
 > Beautiful media queries better than CSS @media for styled-components with ability to specify custom breakpoints.
 

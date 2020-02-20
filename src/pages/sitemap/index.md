@@ -1,5 +1,5 @@
 ---
-templateKey: sitemap-page
+templateKey: about-page
 title: Site Map
 date: 2019-11-11T20:20:43.942Z
 slug: sitemap
@@ -12,6 +12,10 @@ tags:
 ---
 
 ### All Pages and Posts
+
+🗺️ Listing all Pages and Posts.
+
+> ✨ For Refinements see [Categories](/categories) or [Tags](/tags)
 
 |  Pages  | Posts  |  Users & CMS  |
 |------|:--------------:|-----:|

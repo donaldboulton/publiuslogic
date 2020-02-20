@@ -15,12 +15,6 @@ const remark = new Remark().data(`settings`, {
 
 const R = require('ramda')
 
-exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
-  const config = getConfig()
-  delete config.resolve.alias['core-js']
-  actions.replaceWebpackConfig(config)
-}
-
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 

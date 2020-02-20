@@ -12,19 +12,22 @@ import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
-import DarkModeStatus from '../components/DarkMode/DarkModeStatus'
-import DarkModeCommands from '../components/DarkMode/DarkModeCommands'
-import Counter from '../components/Counter'
+import DarkMode from '../components/DarkMode/DarkMode'
+import Cloudinary from '../components/Cloudinary'
+import UploadWidget from '../components/Cloudinary/UploadWidget'
+import Contact from '../components/ContactForm'
 import { Grid } from '../components/styles/Grid'
 import { Tags } from 'styled-icons/fa-solid/Tags'
-import Carbon from '../../static/img/rgAl-carbon.png'
 import { StyledTableMenu, TableOfContents, PageTitle, Styledh1, ArticleTocIcon } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
-    'interactive-counter': Counter,
+    'interactive-darkmode': DarkMode,
+    'interactive-cloudinary': Cloudinary,
+    'interactive-contact': Contact,
+    'interactive-upload-widget': UploadWidget,
   },
 }).Compiler
 
@@ -37,6 +40,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
   const author = config.author
   const logo = config.siteLogo
   const image = post.frontmatter.cover
+  const title = post.frontmatter.title
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -48,7 +52,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
       '@id': 'https://publiuslogic.com/about',
     },
     description: config.siteDescription,
-    name: 'About | PubliusLogic',
+    name: title,
     author: {
       '@type': 'Person',
       name: 'donaldboulton',
@@ -168,41 +172,6 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
               tags={post.frontmatter.tags}
               title={post.frontmatter.title}
             />
-            <div>
-              <p>
-                This is an example app that uses the <code>useDarkMode</code> custom hook.
-                It persists across sessions (i.e., uses <code>localStorage</code>) and
-                shares state across instances and even tabs and/or browser windows.
-              </p>
-              <p>
-                For example, here is a component that shares the custom hook{' '}
-                <code>useDarkMode</code> with the toggle component above.
-              </p>
-              <p>
-                It is reporting that the current mode is:{' '}
-                <code>
-                  <DarkModeStatus />
-                </code>
-              </p>
-              <p>
-                And here's another: <DarkModeCommands />
-              </p>
-              <p>It couldn't be any easier!</p>
-              <p>
-                <img
-                  alt='code'
-                  src={Carbon}
-                />
-              </p>
-              <div>
-                View the source for this&nbsp;
-                <a className='a' href='https://codesandbox.io/s/mzj64x80ny'>Code Sand Box Demo app.</a> &nbsp;Or see
-                useDarkMode.&nbsp;
-                <a className='a' href='https://github.com/donavon/use-dark-mode'>
-                  Source code on Github.
-                </a>
-              </div>
-            </div>
             <hr
               style={{
                 marginBottom: rhythm(1),
@@ -241,6 +210,7 @@ AboutPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
     edges: PropTypes.array,
+    helmet: PropTypes.object,
   }),
 }
 

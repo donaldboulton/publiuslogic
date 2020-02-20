@@ -176,7 +176,7 @@ module.exports = {
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['interactive-counter', 'interactive-hit-counter', 'interactive-todo', 'interactive-colorbox'] },
+            options: { components: ['interactive-counter', 'interactive-hit-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-contact', 'interactive-darkmode'] },
           },
           {
             resolve: 'gatsby-remark-normalize-paths',
@@ -388,6 +388,12 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
       options: {
         globPatterns: ['**/*.{js,jpg,html,css}'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     {
