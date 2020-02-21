@@ -12,7 +12,6 @@ import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
 import config from '../../_data/config'
-import DarkMode from '../components/DarkMode/DarkMode'
 import Cloudinary from '../components/Cloudinary'
 import UploadWidget from '../components/Cloudinary/UploadWidget'
 import Contact from '../components/ContactForm'
@@ -24,7 +23,6 @@ import { rhythm } from '../utils/typography'
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
-    'interactive-darkmode': DarkMode,
     'interactive-cloudinary': Cloudinary,
     'interactive-contact': Contact,
     'interactive-upload-widget': UploadWidget,
@@ -33,7 +31,7 @@ const renderAst = new RehypeReact({
 
 const techLinkCss = `transition: 0.4s; :hover {transform: scale(1.05);}`
 
-const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }) => {
+const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, showToc }) => {
   const { markdownRemark: post, tech } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -195,9 +193,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
           </div>
           <div className='column'>
             <div>
-              <Toc
-                css='position: fixed; right: 1em; top: 40vh;'
-              />
+              {showToc && <Toc css='position: fixed; right: 1em; top: 40vh;' />}
             </div>
           </div>
         </div>
@@ -230,6 +226,7 @@ export const aboutPageQuery = graphql`
         meta_title
         meta_description
         tags
+        showToc
         cover
       }
     }

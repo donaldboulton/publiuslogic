@@ -176,7 +176,7 @@ module.exports = {
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['interactive-counter', 'interactive-hit-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-contact', 'interactive-darkmode'] },
+            options: { components: ['interactive-upload-widget', 'interactive-cloudinary', 'interactive-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-contact'] },
           },
           {
             resolve: 'gatsby-remark-normalize-paths',
@@ -394,6 +394,8 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
+        manualInit: true,
+        enableIdentityWidget: false,
       },
     },
     {

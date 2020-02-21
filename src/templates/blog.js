@@ -135,7 +135,7 @@ export default class BlogPage extends Component {
         <section className='section'>
           <div className='column is-10 is-offset-1'>
             <Styledh1>
-                  Blog | PubliusLogic
+              Blog | PubliusLogic
             </Styledh1>
             <p>✨ Listing all Posts.</p>
             <p>
@@ -143,32 +143,32 @@ export default class BlogPage extends Component {
             </p>
           </div>
         </section>
-        <section className='section'>
-          <div className='container content'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <PostCard posts={group} />
-                <div className='container content'>
-                  <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
-                    <div className='column is-7 is-offset-1'>
-                      <div className='field has-addons'>
-                        <span className='control'>
-                          {
-                            pageNumbers.map(number => {
-                              const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
-                              return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
-                            })
-                          }
-                        </span>
-                      </div>
+        <section>
+          <PostCard posts={group} />
+        </section>
+        <section>
+          <div className='columns'>
+            <div className='column is-10 is-offset-1'>
+              <div className='container content'>
+                <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
+                  <div className='column is-7 is-offset-1'>
+                    <div className='field has-addons'>
+                      <span className='control'>
+                        {
+                          pageNumbers.map(number => {
+                            const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
+                            return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
+                          })
+                        }
+                      </span>
                     </div>
-                    <div className='column is-pulled-right'>
-                      <div className='field has-addons'>
-                        <span className='control'>
-                          {!first && <PaginationLink test={first} url={previousUrl} text='Previous' />}
-                          {!last && <PaginationLink test={last} url={nextUrl} text='Next' />}
-                        </span>
-                      </div>
+                  </div>
+                  <div className='column is-pulled-right'>
+                    <div className='field has-addons'>
+                      <span className='control'>
+                        {!first && <PaginationLink test={first} url={previousUrl} text='Previous' />}
+                        {!last && <PaginationLink test={last} url={nextUrl} text='Next' />}
+                      </span>
                     </div>
                   </div>
                 </div>

@@ -27,7 +27,7 @@ const CategoriesPage = ({
             <div className='column is-10 is-offset-1'>
               <div className='section'>
                 <Styledh1>
-                   All Site Categories
+                  All Site Categories
                 </Styledh1>
               </div>
             </div>

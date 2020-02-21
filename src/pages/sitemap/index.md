@@ -9,6 +9,7 @@ meta_description: >-
   Sitemap of PubliusLogic Pages.
 tags:
   - Sitemap
+showToc: true    
 ---
 
 ### All Pages and Posts

@@ -15,7 +15,6 @@ import Comments from '../components/Comments'
 import Layout from '../components/Layout'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
-import HitCounter from '../components/HitCounter'
 import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
@@ -31,13 +30,12 @@ const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
     'interactive-counter': Counter,
-    'interactive-hit-counter': HitCounter,
     'interactive-todo': Todo,
     'interactive-colorbox': ColorBox,
   },
 }).Compiler
 
-const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, allRatingsJson: ratings = [] }) => {
+const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, showToc, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -153,7 +151,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
           </div>
           <div className='column'>
             <div className='is-sticky sticky-style'>
-              <Toc />
+              {showToc && <Toc css='position: fixed; right: 1em; top: 40vh;' />}
             </div>
           </div>
         </div>
@@ -189,6 +187,7 @@ export const pageQuery = graphql`
         meta_title
         meta_description
         tags
+        showToc
         cover
       }
     }

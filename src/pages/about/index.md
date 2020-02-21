@@ -141,6 +141,4 @@ about it.
 
 PubliusLogic is using [use-dark-mode](https://github.com/donavon/use-dark-mode) and its suggested install instructions with [gatsby-plugin-dark-mode | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-plugin-dark-mode/), plugin for Gatsby integration injecting noflash.js.
 
-> ☀️🌜 Below is an example of its usage.
-
-<interactive-darklmode></interactive-darkmode>
+> ☀️🌜 This Site is an example of its usage.

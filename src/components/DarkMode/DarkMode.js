@@ -3,9 +3,9 @@ import DarkModeStatus from './DarkModeStatus'
 import DarkModeCommands from './DarkModeCommands'
 import Carbon from '../../../static/img/rgAl-carbon.png'
 
-function DarkMode () {
+const DarkMode = () => {
   return (
-    <div>
+    <>
       <p>
         This is an example app that uses the <code>useDarkMode</code> custom hook.
         It persists across sessions (i.e., uses <code>localStorage</code>) and
@@ -39,7 +39,7 @@ function DarkMode () {
           Source code on Github.
         </a>
       </div>
-    </div>
+    </>
   )
 }
 
