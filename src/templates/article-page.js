@@ -35,7 +35,7 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, showToc, allRatingsJson: ratings = [] }) => {
+const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -151,7 +151,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, showToc, al
           </div>
           <div className='column'>
             <div className='is-sticky sticky-style'>
-              {showToc && <Toc css='position: fixed; right: 1em; top: 40vh;' />}
+              <Toc css='position: fixed; right: 1em; top: 40vh;' />
             </div>
           </div>
         </div>

@@ -31,7 +31,7 @@ const renderAst = new RehypeReact({
 
 const techLinkCss = `transition: 0.4s; :hover {transform: scale(1.05);}`
 
-const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, showToc }) => {
+const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }) => {
   const { markdownRemark: post, tech } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -39,6 +39,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, showToc }) =>
   const logo = config.siteLogo
   const image = post.frontmatter.cover
   const title = post.frontmatter.title
+  const showToc = post.frontmatter.showToc
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -114,7 +115,9 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, showToc }) =>
         <link rel='canonical' href={post.frontmatter.slug} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
+        {/* Schema.org tags */}
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
+        <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css' />
       </Helmet>
       <StyledTableMenu>
         <Menu8 right customBurgerIcon={<Tags />}>
