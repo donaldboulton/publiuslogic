@@ -1,16 +1,17 @@
 /* eslint-disable indent */
-import React, { Component } from 'react'
+import React from 'react'
 import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery'
 import axios from 'axios'
 import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 import { Grid, Cell } from 'styled-css-grid'
+import 'lightgallery.js/dist/css/lightgallery.min.css'
 
 const SectionTitle = styled.h3`
   font-size: 1em;
   margin: 0.67em 0;
 `
-class Gallery extends Component {
+class Gallery extends React.Component {
   constructor (props) {
     super(props)
     this.link = React.createRef()

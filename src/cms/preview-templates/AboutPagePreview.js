@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { AboutPageTemplate } from '../../templates/about-page'
+import { AboutPageTemplate } from '../../components/AboutPageTemplate'
 
 const AboutPagePreview = ({ entry, widgetFor }) => (
   <AboutPageTemplate
@@ -14,6 +14,7 @@ const AboutPagePreview = ({ entry, widgetFor }) => (
     tweet_id={entry.getIn(['data', 'tweet_id'])}
     content={widgetFor('body')}
     slug={entry.getIn(['data', 'slug'])}
+    showToc={entry.getIn(['data', 'showToc'])}
   />
 )
 

@@ -126,7 +126,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
               content={postNode.html}
               contentComponent={HTMLContent}
               cover={post.cover}
-              readingTime={postNode.timeToRead}
+              timeToRead={postNode.timeToRead}
               category={post.category}
               date={post.date}
               tweet_id={post.tweet_id}
@@ -134,14 +134,39 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
               description={post.meta_description}
               tags={post.tags}
               title={post.title}
+              showToc={post.showToc}
             />
-            <Share
-              title={post.title}
-              slug={post.path}
-              excerpt={post.meta_description}
-            />
-            <Rating />
-            <WebIntents />
+            <div className='columns'>
+              <div
+                className='column is-10'
+                style={{
+                  display: `flex`,
+                }}
+              >
+                <Share
+                  title={post.title}
+                  slug={post.path}
+                  excerpt={post.meta_description}
+                />
+              </div>
+            </div>
+            <div className='columns'>
+              <div
+                className='column is-10'
+                style={{
+                  display: `flex`,
+                }}
+              >
+                <Rating
+                  style={{
+                    marginRight: rhythm(1 / 2),
+                    marginBottom: 0,
+                    minWidth: 300,
+                  }}
+                />
+                <WebIntents />
+              </div>
+            </div>
             <Comments />
             <hr
               style={{
@@ -165,6 +190,9 @@ ArticlePage.propTypes = {
     markdownRemark: PropTypes.object,
     edges: PropTypes.array,
     helmet: PropTypes.object,
+  }),
+  allMarkdownRemark: PropTypes.shape({
+    edges: PropTypes.array,
   }),
 }
 

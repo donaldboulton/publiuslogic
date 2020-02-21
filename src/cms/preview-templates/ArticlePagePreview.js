@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ArticleTemplate } from '../../templates/article-page'
+import { ArticlePageTemplate } from '../../components/ArticlePageTemplate'
 
-const ArticlePreview = ({ entry, widgetFor }) => {
+const ArticlePagePreview = ({ entry, widgetFor }) => {
   return (
-    <ArticleTemplate
+    <ArticlePageTemplate
       title={entry.getIn(['data', 'title'])}
       cover={entry.getIn(['data', 'cover'])}
       date={entry.getIn(['data', 'datetime'])}
@@ -16,15 +16,16 @@ const ArticlePreview = ({ entry, widgetFor }) => {
       content={widgetFor('body')}
       path={entry.getIn(['data', 'path'])}
       slug={entry.getIn(['data', 'slug'])}
+      showToc={entry.getIn(['data', 'showToc'])}
     />
   )
 }
 
-ArticlePreview.propTypes = {
+ArticlePagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 }
 
-export default ArticlePreview
+export default ArticlePagePreview

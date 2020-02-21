@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Content from '../Content'
 import ScrollDown from '../ScrollDown'
 import Prism from '../../utils/prism'
@@ -33,6 +34,11 @@ const ArticlePageTemplate = ({
       <PostContent content={content} />
     </div>
   )
+}
+
+ArticlePageTemplate.propTypes = {
+  content: PropTypes.string,
+  contentComponent: PropTypes.func,
 }
 
 export default ArticlePageTemplate

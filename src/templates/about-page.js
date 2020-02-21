@@ -31,7 +31,7 @@ const renderAst = new RehypeReact({
 
 const techLinkCss = `transition: 0.4s; :hover {transform: scale(1.05);}`
 
-const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }) => {
+const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post, tech } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -165,13 +165,18 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
           <div className='column is-9 is-offset-1'>
             <main>{renderAst(postNode.htmlAst)}</main>
             <AboutPageTemplate
+              content={postNode.html}
               contentComponent={HTMLContent}
-              content={post.html}
-              cover={post.frontmatter.cover}
-              meta_title={post.frontmatter.meta_title}
-              description={post.frontmatter.meta_description}
-              tags={post.frontmatter.tags}
-              title={post.frontmatter.title}
+              cover={post.cover}
+              timeToRead={postNode.timeToRead}
+              category={post.category}
+              date={post.date}
+              tweet_id={post.tweet_id}
+              meta_title={post.meta_title}
+              description={post.meta_description}
+              tags={post.tags}
+              title={post.title}
+              showToc={post.showToc}
             />
             <hr
               style={{
@@ -210,6 +215,9 @@ AboutPage.propTypes = {
     markdownRemark: PropTypes.object,
     edges: PropTypes.array,
     helmet: PropTypes.object,
+  }),
+  allMarkdownRemark: PropTypes.shape({
+    edges: PropTypes.array,
   }),
 }
 

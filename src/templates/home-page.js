@@ -133,6 +133,9 @@ HomePage.propTypes = {
       frontmatter: PropTypes.object,
       helmet: PropTypes.object,
     }),
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
   }),
 }
 

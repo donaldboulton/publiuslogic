@@ -26,7 +26,7 @@ module.exports = {
     ogLanguage: 'en_US', // Facebook Language
     twitter: 'donboulton',
     facebook: 'don.boulton',
-    githubEditme: 'https://github.com/donaldboulton/publiuslogic/blob/master/src/pages/',
+    gitHubEditMe: 'https://github.com/donaldboulton/publiuslogic/blob/master/src/pages/',
     social: {
       twitter: `donboulton`,
     },

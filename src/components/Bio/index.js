@@ -21,7 +21,7 @@ const Bio = () => {
         siteMetadata {
           author
           siteUrl
-          githubEditme
+          gitHubEditMe
           social {
             twitter
           }
@@ -38,7 +38,6 @@ const Bio = () => {
   const { twitter } = data.site.siteMetadata
   const { path } = data.markdownRemark.frontmatter
   const { siteUrl } = data.site.siteMetadata
-  const { githubEditme } = data.site.siteMetadata + siteUrl + path
   return (
     <div className='columns'>
       <div
@@ -67,7 +66,7 @@ const Bio = () => {
           </svg>
         </span>
         <p>
-        Written by <strong>{author}</strong>
+          Written by <strong>{author}</strong>
           <GithubButtons><GithubButtonsRepo /></GithubButtons>
           <a
             itemProp='url'
@@ -91,7 +90,7 @@ const Bio = () => {
             <span>&nbsp;Follow</span>
           </a>
         </p>
-        <a title='Github' className='github-corner' href='https://publiuslogic.com + {path}' target='_blank' role='button' rel='noopener noreferrer'>
+        <a title='Github' className='github-corner' href='https://github.com/donaldboulton/publiuslogic/blob/master/src/pages/ + path' target='_blank' rel='noopener noreferrer'>
           <img
             style={{
               height: 55,
