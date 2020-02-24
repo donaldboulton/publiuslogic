@@ -12,6 +12,7 @@ category: 'tech'
 tags:
   - About
 showToc: true  
+showStack: true
 ---
 
 ## Technical Notes

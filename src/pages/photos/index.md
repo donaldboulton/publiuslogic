@@ -13,6 +13,7 @@ tags:
   - Cloudinary
 
 showToc: false
+showStack: false
 ---
 
 ## My Cats

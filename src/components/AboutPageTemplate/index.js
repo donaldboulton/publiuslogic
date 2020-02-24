@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Content from '../Content'
-import ScrollDown from '../ScrollDown'
 
 const AboutPageTemplate = ({
   content,
@@ -11,11 +10,6 @@ const AboutPageTemplate = ({
 
   return (
     <div>
-      <ScrollDown
-        direction='down' to={25}
-        showAbove={-1500}
-        css='position: fixed; right: 1em; top: 3.1em;'
-      />
       <PostContent content={content} />
     </div>
   )

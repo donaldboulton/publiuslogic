@@ -4,7 +4,7 @@ import Toggle from './Toggle'
 import useDarkMode from 'use-dark-mode'
 import './styles.scss'
 
-const DarkModeToggle = () => {
+const DarkModeToggle = ({ toggle }) => {
   const darkMode = useDarkMode(true)
 
   return (

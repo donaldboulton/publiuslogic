@@ -1,5 +1,17 @@
 @import "~bulma/sass/utilities/initial-variables"
 
+.wrapper
+  display: flex
+  justify-content: space-between
+.main
+  display: flex
+  flex-direction: column
+.sidebar
+  height: 100%
+  overflow: auto
+  position: -webkit-sticky
+  position: sticky
+  top: 40vh
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 .navbar-brand
@@ -248,6 +260,10 @@ gatsby-resp-image-image
   text-align: center
 .navbar-end
   background: transparent !important
+.navbar-avatar
+  justify-content: flex-end
+  margin-left: auto
+  margin-right: 1vw
 .content ul
   list-style: none !important
   margin-left: 10px

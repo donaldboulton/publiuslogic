@@ -21,7 +21,7 @@ const BackgroundSection = () => (
     render={data => {
       const imageData = data.desktop.childImageSharp.fluid
       return (
-        <StyledWrapper>
+        <StyledWrapper className='item-b'>
           <StyledSymetryWrapper>
             <StyledWelcomeImage
               fluid={imageData}
@@ -45,6 +45,7 @@ const StyledSymetryWrapper = styled.div`
   width: 100vw;
   height: 400px;
   overflow: hidden;
+  grid-area: post-cover;
 `
 const StyledWelcomeImage = styled(Img)`
   width: 100vw;

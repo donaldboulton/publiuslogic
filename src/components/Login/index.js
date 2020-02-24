@@ -14,13 +14,13 @@ const Login = () => {
   const name =
   (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
   const email =
-  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.id) || 'NoEmail'
+  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.user_id) || 'NoEmail'
   const avatar_url = identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.avatar_url
   console.log(JSON.stringify(identity))
   const isLoggedIn = identity && identity.isLoggedIn
   return (
     <>
-      <div className='navbar-end'>
+      <div>
         {isLoggedIn ? (
           <>
             <div className='navbar-item has-dropdown is-hoverable'>

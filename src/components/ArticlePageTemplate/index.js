@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Content from '../Content'
-import ScrollDown from '../ScrollDown'
 import Prism from '../../utils/prism'
 
 require('prismjs')
@@ -25,11 +24,6 @@ const ArticlePageTemplate = ({
 
   return (
     <div>
-      <ScrollDown
-        direction='down' to={25}
-        showAbove={-1500}
-        css='position: fixed; right: 1em; top: 3.1em;'
-      />
       <Prism />
       <PostContent content={content} />
     </div>

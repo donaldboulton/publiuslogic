@@ -25,6 +25,7 @@ import Toc from '../components/Toc'
 import { Tags } from 'styled-icons/fa-solid/Tags'
 import { StyledTableMenu, Styledh1, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
+import { PageBody } from '../components/styles/PageBody'
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -39,6 +40,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
+  const showToc = post.frontmatter.showToc
   const ratingValue =
     ratings && ratings.edges
       ? ratings.edges.reduce(
@@ -57,130 +59,102 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
           rating: { ratingValue, ratingCount: ratingCount },
         }}
       />
-      <section className='hero'>
-        <StyledTableMenu>
-          <Menu4 right customBurgerIcon={<Tags />}>
-            <PageTitle>
-              <ArticleTocIcon />
-              | Site Tags
-            </PageTitle>
-            <TableOfContents>
-              <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
-                {group.map(tag => (
-                  <li className='control menu-item' key={tag.fieldValue}>
-                    <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                      <div className='tags has-addons is-large'>
-                        <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
-                        <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </TableOfContents>
-          </Menu4>
-        </StyledTableMenu>
+      <StyledTableMenu>
+        <Menu4 right customBurgerIcon={<Tags />}>
+          <PageTitle>
+            <ArticleTocIcon />
+            | Site Tags
+          </PageTitle>
+          <TableOfContents>
+            <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
+              {group.map(tag => (
+                <li className='control menu-item' key={tag.fieldValue}>
+                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                    <div className='tags has-addons is-large'>
+                      <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
+                      <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </TableOfContents>
+        </Menu4>
+      </StyledTableMenu>
+      <div className='item-b'>
         <PostCover
           postNode={postNode}
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-      </section>
-      <section className='section'>
-        <div className='columns'>
-          <div className='column is-10 is-offset-1'>
-            <Styledh1>
-              {post.frontmatter.title}
-            </Styledh1>
-            <div>
-              <Bio />
-            </div>
-            <MetaPage>
-              <span>
-                <Calendar size='1.2em' />
-                    &ensp;
-                {post.frontmatter.date}
-              </span>
-              <span>
-                <Timer size='1.2em' />
-                     &ensp;
-                {post.timeToRead} min read
-              </span>
-              <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
-              <span>
-                <FileSymlinkFile size='1.2em' />
-                &ensp;
-                Category:
-                &ensp;
-                <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
-              </span>
-            </MetaPage>
-          </div>
+      </div>
+      <PageBody as='div'>
+        <Styledh1>
+          {post.frontmatter.title}
+        </Styledh1>
+        <Bio />
+        <MetaPage>
+          <span>
+            <Calendar size='1.2em' />
+              &ensp;
+            {post.frontmatter.date}
+          </span>
+          <span>
+            <Timer size='1.2em' />
+              &ensp;
+            {post.timeToRead} min read
+          </span>
+          <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
+          <span>
+            <FileSymlinkFile size='1.2em' />
+            &ensp;
+            Category:
+            &ensp;
+            <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
+          </span>
+        </MetaPage>
+        {showToc && <Toc className='item-d' />}
+        <main className='item-c'>{renderAst(postNode.htmlAst)}</main>
+        <ArticlePageTemplate
+          content={postNode.html}
+          contentComponent={HTMLContent}
+          cover={post.cover}
+          timeToRead={postNode.timeToRead}
+          category={post.category}
+          date={post.date}
+          tweet_id={post.tweet_id}
+          meta_title={post.meta_title}
+          description={post.meta_description}
+          tags={post.tags}
+          title={post.title}
+          showToc={post.showToc}
+        />
+        <Share
+          title={post.title}
+          slug={post.path}
+          excerpt={post.meta_description}
+        />
+        <div
+          style={{
+            display: `flex`,
+          }}
+        >
+          <Rating
+            style={{
+              marginRight: rhythm(1 / 2),
+              marginBottom: 0,
+              minWidth: 300,
+            }}
+          />
+          <WebIntents />
         </div>
-      </section>
-      <section className='section'>
-        <div className='columns content'>
-          <div className='column is-9 is-offset-1'>
-            <main>{renderAst(postNode.htmlAst)}</main>
-            <ArticlePageTemplate
-              content={postNode.html}
-              contentComponent={HTMLContent}
-              cover={post.cover}
-              timeToRead={postNode.timeToRead}
-              category={post.category}
-              date={post.date}
-              tweet_id={post.tweet_id}
-              meta_title={post.meta_title}
-              description={post.meta_description}
-              tags={post.tags}
-              title={post.title}
-              showToc={post.showToc}
-            />
-            <div className='columns'>
-              <div
-                className='column is-10'
-                style={{
-                  display: `flex`,
-                }}
-              >
-                <Share
-                  title={post.title}
-                  slug={post.path}
-                  excerpt={post.meta_description}
-                />
-              </div>
-            </div>
-            <div className='columns'>
-              <div
-                className='column is-10'
-                style={{
-                  display: `flex`,
-                }}
-              >
-                <Rating
-                  style={{
-                    marginRight: rhythm(1 / 2),
-                    marginBottom: 0,
-                    minWidth: 300,
-                  }}
-                />
-                <WebIntents />
-              </div>
-            </div>
-            <Comments />
-            <hr
-              style={{
-                marginBottom: rhythm(1),
-              }}
-            />
-          </div>
-          <div className='column'>
-            <div className='is-sticky sticky-style'>
-              <Toc css='position: fixed; right: 1em; top: 40vh;' />
-            </div>
-          </div>
-        </div>
-      </section>
+        <Comments />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+      </PageBody>
     </Layout>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
-import Search from '../Search'
+import Search from '../Search/Search'
 import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
 import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
 import { Globe } from 'styled-icons/boxicons-regular/'
@@ -22,6 +22,7 @@ const StyledBurgerMenu = styled.div`
     height: 26px;
     left: 1.4vw;
     top: 2.3vh;
+    grid-area: nav;
   }
   .bm-burger-bars {
     background: ${props => props.theme.lightBg};

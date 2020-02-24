@@ -3,7 +3,7 @@ import AboutSection from '../AboutSection'
 
 const Footer = () => {
   return (
-    <footer className='footer' itemScope='itemScope' itemType='https://schema.org/WPFooter'>
+    <footer css='grid-area: footer;' className='footer' itemScope='itemScope' itemType='https://schema.org/WPFooter'>
       <div className='section container'>
         <AboutSection />
       </div>

@@ -57,7 +57,7 @@ export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
   return (
     <>
       <TocToggle opener open={open} onClick={() => setOpen(true)} />
-      <TocDiv ref={ref} open={open}>
+      <TocDiv ref={ref} open={open} css='grid-area: sidebar;'>
         <TocTitle>
           <TocIcon />
           {tocTitle}

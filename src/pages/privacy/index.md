@@ -12,6 +12,7 @@ tags:
   - PubliusLogic
 cover: /images/privacy.jpg
 showToc: true
+showStack: true
 ---
 
 ## User data encrypted

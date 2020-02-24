@@ -9,17 +9,24 @@ import HotJar from '../HotJar'
 import Subscriptions from '../Subscriptions'
 import Adds from '../GoogleAdds'
 import Scroll from '../Scroll'
+import ScrollDown from '../ScrollDown'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
 import SideBar from '../SlideMenu'
-
+import { GlobalStyle } from './styles'
 function Layout ({ children, location }) {
   return (
     <>
       <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />
       <div id='page-wrap'>
-        <ThemeProvider theme={theme} location={location}>
-          <Header />
+        <ThemeProvider theme={theme} location={location} className='grid-container'>
+          <GlobalStyle />
+          <Header className='item-a' />
+          <ScrollDown
+            direction='down' to={25}
+            showAbove={-1500}
+            css='position: fixed; right: 1em; top: 3.1em;'
+          />
           <>
             {children}
           </>
@@ -32,7 +39,7 @@ function Layout ({ children, location }) {
             showBelow={1500}
             css='position: fixed; right: 1em; bottom: 1.5em;'
           />
-          <Footer />
+          <Footer className='item-e' />
         </ThemeProvider>
       </div>
     </>

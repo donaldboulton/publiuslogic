@@ -35,20 +35,23 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
   const { markdownRemark: post, tech } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
+  const path = data.path || ''
+  const rootUrl = 'https://publiuslogic.com'
   const author = config.author
   const logo = config.siteLogo
   const image = post.frontmatter.cover
   const title = post.frontmatter.title
   const showToc = post.frontmatter.showToc
+  const url = rootUrl + `/${path}`
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
-    url: 'https://publiuslogic.com/about',
+    url: url,
     inLanguage: config.siteLanguage,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://publiuslogic.com/about',
+      '@id': url,
     },
     description: config.siteDescription,
     name: title,
@@ -90,7 +93,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={post.frontmatter.tags} />
         <meta name='image' content={post.frontmatter.cover} />
-        <meta name='url' content={post.frontmatter.slug} />
+        <meta name='url' content={url} />
         <meta name='author' content={author} />
         <meta property='og:type' content='article' />
         <meta property='og:title' content={post.frontmatter.title} />
@@ -99,7 +102,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
-        <meta property='og:url' content={post.frontmatter.slug} />
+        <meta property='og:url' content={url} />
         <meta name='rel' content={post.frontmatter.slug} />
         <meta name='key' content={post.frontmatter.slug} />
         <meta name='twitter:author' content='donboulton' />
@@ -117,7 +120,6 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
-        <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css' />
       </Helmet>
       <StyledTableMenu>
         <Menu8 right customBurgerIcon={<Tags />}>
@@ -199,9 +201,16 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
               </Grid>
             </div>
           </div>
-          <div className='column'>
+          <div className='column sidebar'>
             <div>
-              {showToc && <Toc css='position: fixed; right: 1em; top: 40vh;' />}
+              {showToc && <Toc
+                style={{
+                  display: `flex`,
+                  position: `sticky`,
+                  right: `1em`,
+                  top: `0`,
+                }}
+              />}
             </div>
           </div>
         </div>
@@ -238,6 +247,7 @@ export const aboutPageQuery = graphql`
         meta_description
         tags
         showToc
+        showStack
         cover
       }
     }

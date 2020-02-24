@@ -1,5 +1,6 @@
 const proxy = require('http-proxy-middleware')
 const config = require('./_data/config')
+const queries = require(`./src/utils/algolia`)
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -108,9 +109,20 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        queries,
+        chunkSize: 10000, // default: 1000
+      },
+    },
     'gatsby-plugin-robots-txt',
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
+    'gatsby-transformer-yaml',
     `gatsby-transformer-json`,
     {
       resolve: 'gatsby-source-filesystem',
@@ -161,7 +173,13 @@ module.exports = {
         path: `${__dirname}/_data/tech`,
       },
     },
-    'gatsby-transformer-yaml',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'nav',
+        path: `${__dirname}/_data/nav`,
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -172,7 +190,12 @@ module.exports = {
           maxDepth: 4,
         },
         plugins: [
-          `gatsby-remark-copy-linked-files`,
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static',
+            },
+          },
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',

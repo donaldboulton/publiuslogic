@@ -1,13 +1,10 @@
 backend:
   name: git-gateway
-  accept_roles:
-    - admin
-    - editor
   repo: donaldboulton/publiuslogic
   branch: master
   identity_url: "https://publiuslogic.com/.netlify/identity"
   gateway_url: "https://publiuslogic.com/.netlify/git"
-  site_domain:  "https://publiuslogic.com/"
+  site_domain:  "https://publiuslogic.com"
   squash_merges: true
 
 display_url: https://publiuslogic.com
@@ -15,7 +12,7 @@ logo_url: https://publiuslogic.com/img/apple-touch-icon-180x180.png
 
 publish_mode: editorial_workflow
 media_folder: static/img
-public_folder: img
+public_folder: /img
 collections:
   - name: "pages"
     label: "Pages"
