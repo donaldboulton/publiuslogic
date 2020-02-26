@@ -8,26 +8,22 @@ const Root = ({ hit, clickHandler, children }) => (
   <div>
     <Link to={hit.slug} onClick={clickHandler}>
       <h4>
-        <Highlight attribute="title" hit={hit} tagName="mark" />
+        <Highlight attribute='title' hit={hit} tagName='mark' />
       </h4>
     </Link>
     {children}
-    <Snippet attribute="excerpt" hit={hit} tagName="mark" />
+    <Snippet attribute='excerpt' hit={hit} tagName='mark' />
   </div>
-)
-
-export const PageHit = clickHandler => ({ hit }) => (
-  <Root {...{ clickHandler, hit }} />
 )
 
 export const PostHit = clickHandler => ({ hit }) => (
   <Root {...{ clickHandler, hit }}>
     <div>
-      <Calendar size="1em" />
+      <Calendar size='1em' />
       &nbsp;
-      <Highlight attribute="date" hit={hit} tagName="mark" />
+      <Highlight attribute='date' hit={hit} tagName='mark' />
       &emsp;
-      <Tags size="1em" />
+      <Tags size='1em' />
       &nbsp;
       {hit.tags.map((tag, index) => (
         <Fragment key={tag}>

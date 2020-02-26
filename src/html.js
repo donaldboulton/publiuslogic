@@ -8,7 +8,7 @@ require('typeface-roboto')
 export default class HTML extends React.Component {
   render () {
     return (
-      <html lang='en' className='has-navbar-fixed-top' itemScope='itemScope' itemType='https://schema.org/WebSite'>
+      <html lang='en' itemScope='itemScope' itemType='https://schema.org/WebSite'>
         <head>
           <meta charSet='utf-8' />
           <meta httpEquiv='x-ua-compatible' content='ie=edge' />

@@ -1,5 +1,12 @@
-- title: About
-  url: /about
+- title: Pages
+  url: /sitemap
+  subNav:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+  - title: Privacy
+    url: /privacy
 
 - title: Blog
   url: /blog

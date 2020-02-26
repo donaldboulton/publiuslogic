@@ -89,7 +89,7 @@
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-remark": "^2.6.48",
     "gatsby-transformer-sharp": "^2.3.13",
-    "gatsby-transformer-yaml": "^2.2.17",
+    "gatsby-transformer-yaml": "^2.2.25",
     "generate-password": "^1.5.0",
     "github-buttons": "^2.3.3",
     "gotrue-js": "^0.9.25",
@@ -145,7 +145,7 @@
     "uploadcare-widget": "^3.7.7",
     "use-dark-mode": "^2.3.1",
     "utf-8-validate": "^5.0.2",
-    "uuid": "^3.4.0",
+    "uuid": "^7.0.0",
     "with-utterances": "^1.5.0"
   },
   "resolutions": {

@@ -24,7 +24,7 @@ export const colors = {
   gray: `#464849`,
   darkGray: `#3d3d3d`,
   darkerGray: `#1a1d23`,
-  darkestGray: `#060606`,
+  darkestGray: `#1d1d1d`,
   lightGray: `#bcbcbc`,
   lighterGray: `#e5e5e5`,
   lightestGray: `#f7f7f7`,
@@ -35,7 +35,7 @@ export const colors = {
 }
 
 export const measures = {
-  maxWidth: `40em`,
+  maxWidth: `50em`,
 
   smallBorder: `0.1em`,
   mediumBorder: `0.15em`,
@@ -87,7 +87,7 @@ export const darkTheme = {
   shadowColor: theme.darkestGray,
   borderColor: theme.darkestGray,
 
-  headerBg: theme.darkestBlue,
+  headerBg: theme.darkestGray,
   footerBg: theme.darkestGray,
 
   buttonBg: theme.darkGreen,

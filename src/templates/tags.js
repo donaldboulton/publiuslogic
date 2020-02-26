@@ -32,7 +32,7 @@ class TagRoute extends Component {
                 <div className='column is-10 is-offset-1'>
                   <div className='section'>
                     <Styledh1>
-                       Tags
+                      Tags
                     </Styledh1>
                   </div>
                 </div>

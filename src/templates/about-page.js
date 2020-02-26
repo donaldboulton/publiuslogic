@@ -2,11 +2,10 @@ import React from 'react'
 import RehypeReact from 'rehype-react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import { kebabCase } from 'lodash'
-import Menu8 from 'react-burger-menu/lib/menus/stack'
+import { graphql } from 'gatsby'
 import PostCover from '../components/PostCover'
 import Bio from '../components/Bio'
+import { PageBody } from '../components/styles/PageBody'
 import Toc from '../components/Toc'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
@@ -16,8 +15,7 @@ import Cloudinary from '../components/Cloudinary'
 import UploadWidget from '../components/Cloudinary/UploadWidget'
 import Contact from '../components/ContactForm'
 import { Grid } from '../components/styles/Grid'
-import { Tags } from 'styled-icons/fa-solid/Tags'
-import { StyledTableMenu, TableOfContents, PageTitle, Styledh1, ArticleTocIcon } from '../components/styles/ArticleStyles'
+import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
@@ -121,100 +119,63 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
         {/* Schema.org tags */}
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
-      <StyledTableMenu>
-        <Menu8 right customBurgerIcon={<Tags />}>
-          <PageTitle>
-            <ArticleTocIcon />
-            | Site Tags
-          </PageTitle>
-          <TableOfContents>
-            <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
-              {group.map(tag => (
-                <li className='control menu-item' key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    <div className='tags has-addons is-large'>
-                      <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
-                      <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </TableOfContents>
-        </Menu8>
-      </StyledTableMenu>
-      <section className='hero'>
+      <section className='item-b'>
         <PostCover
           postNode={postNode}
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
       </section>
-      <section className='section'>
-        <div className='container columns'>
-          <div className='column is-10 is-offset-1'>
-            <Styledh1>
-              {post.frontmatter.title}
-            </Styledh1>
-            <div>
-              <Bio />
-            </div>
-          </div>
+      <PageBody as='div' className='item-c'>
+        <Styledh1>
+          {post.frontmatter.title}
+        </Styledh1>
+        <Bio />
+        {showToc && <Toc
+          className='item-d'
+          style={{
+            display: `flex`,
+            position: `sticky`,
+            right: `1em`,
+            top: `0`,
+          }}
+        />}
+        <main>{renderAst(postNode.htmlAst)}</main>
+        <AboutPageTemplate
+          content={postNode.html}
+          contentComponent={HTMLContent}
+          cover={post.cover}
+          timeToRead={postNode.timeToRead}
+          category={post.category}
+          date={post.date}
+          tweet_id={post.tweet_id}
+          meta_title={post.meta_title}
+          description={post.meta_description}
+          tags={post.tags}
+          title={post.title}
+          showToc={post.showToc}
+        />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <div
+          style={{
+            marginLeft: '2vw',
+          }}
+        >
+          <h2>My Stack</h2>
+          <Grid minWidth='5em' align='center'>
+            {tech.edges.map(({ node: { title, url, logo } }) => (
+              <a key={title} href={url} css={techLinkCss}>
+                <span css='font-size: 0.85em;'>{title}</span>
+                <img src={logo.src} alt={title} />
+              </a>
+            ))}
+          </Grid>
         </div>
-      </section>
-      <section className='section'>
-        <div className='columns content'>
-          <div className='column is-9 is-offset-1'>
-            <main>{renderAst(postNode.htmlAst)}</main>
-            <AboutPageTemplate
-              content={postNode.html}
-              contentComponent={HTMLContent}
-              cover={post.cover}
-              timeToRead={postNode.timeToRead}
-              category={post.category}
-              date={post.date}
-              tweet_id={post.tweet_id}
-              meta_title={post.meta_title}
-              description={post.meta_description}
-              tags={post.tags}
-              title={post.title}
-              showToc={post.showToc}
-            />
-            <hr
-              style={{
-                marginBottom: rhythm(1),
-              }}
-            />
-            <div
-              style={{
-                marginLeft: '2vw',
-              }}
-            >
-              <h2>My Stack</h2>
-              <Grid minWidth='5em' align='center'>
-                {tech.edges.map(({ node: { title, url, logo } }) => (
-                  <a key={title} href={url} css={techLinkCss}>
-                    <span css='font-size: 0.85em;'>{title}</span>
-                    <img src={logo.src} alt={title} />
-                  </a>
-                ))}
-              </Grid>
-            </div>
-          </div>
-          <div className='column sidebar'>
-            <div>
-              {showToc && <Toc
-                style={{
-                  display: `flex`,
-                  position: `sticky`,
-                  right: `1em`,
-                  top: `0`,
-                }}
-              />}
-            </div>
-          </div>
-        </div>
-      </section>
+      </PageBody>
     </Layout>
   )
 }

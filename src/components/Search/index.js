@@ -6,22 +6,22 @@ import {
   Index,
   InstantSearch,
 } from 'react-instantsearch-dom'
-import { useOnClickOutside } from '../../hooks'
+import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import * as hitComps from './hitComps'
 import Input from './Input'
 import { HitsWrapper, PoweredBy, Root } from './styles'
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
-    res && res.nbHits > 0 ? children : `No results for '${state.query}'`
+    res && res.nbHits > 0 ? children : `No results for '${state.query}'`,
 )
 
 const Stats = connectStateResults(
   ({ searchResults: res }) =>
-    res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
+    res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`,
 )
 
-export default function Search({ indices, collapse, hitsAsGrid }) {
+export default function Search ({ indices, collapse, hitsAsGrid }) {
   const ref = createRef()
   const [query, setQuery] = useState(``)
   const [focus, setFocus] = useState(false)
@@ -31,9 +31,9 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     () =>
       algoliasearch(
         process.env.GATSBY_ALGOLIA_APP_ID,
-        process.env.GATSBY_ALGOLIA_SEARCH_KEY
+        process.env.GATSBY_ALGOLIA_SEARCH_KEY,
       ),
-    []
+    [],
   )
   useOnClickOutside(ref, () => setFocus(false))
   return (

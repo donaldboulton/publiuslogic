@@ -17,12 +17,11 @@ const StyledBurgerMenu = styled.div`
     transition: color 0.2s;
   }
   .bm-burger-button {
-    position: fixed;
+    display: flex;
     width: 30px;
+    left: 2vw;
+    top: 2.3vw;
     height: 26px;
-    left: 1.4vw;
-    top: 2.3vh;
-    grid-area: nav;
   }
   .bm-burger-bars {
     background: ${props => props.theme.lightBg};

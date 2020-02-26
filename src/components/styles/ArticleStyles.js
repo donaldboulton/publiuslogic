@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Tag } from 'styled-icons/fa-solid/Tag'
 import { Tags } from 'styled-icons/fa-solid/Tags'
 import { Table } from 'styled-icons/boxicons-regular/'
-import mediaQuery from '../../utils/mediaQuery'
 
 export const Reviews = styled.div`
   font-size: 1rem;
@@ -24,6 +23,7 @@ export const StyledTableMenu = styled.div`
   .bm-item {
     text-align: left;
     background: transparent;
+    grid-area: tags;
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -32,26 +32,8 @@ export const StyledTableMenu = styled.div`
     outline: none;
   }
   .bm-burger-button {
-    position: fixed;
-    grid-area: tags;
     width: 30px;
     height: 26px;
-    right: 5vw;
-    top: 2.2vh;
-    ${mediaQuery.maxLaptop} {
-      position: fixed;
-      width: 30px;
-      height: 26px;
-      right: 5vw;
-      top: 2.2vh;
-    }
-    ${mediaQuery.minLaptop} {
-      position: fixed;
-      width: 30px;
-      height: 26px;
-      right: 5vw;
-      top: 2.2vh;
-    }
   }
   .bm-burger-bars {
     background: ${props => props.theme.lightBg};  

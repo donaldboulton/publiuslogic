@@ -15,7 +15,5 @@ export default Brand
 
 const Image = styled.img`
   grid-area: title;
-  font-size: 2.4em;
-  transform: scale(1, 0.85);
   color: inherit;
 `

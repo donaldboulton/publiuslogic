@@ -84,7 +84,6 @@ export const GlobalStyle = createGlobalStyle`
     margin-top: 0.3em;
     display: block;
     text-align: center;
-    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
     font-size: 0.95em;
@@ -112,12 +111,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   .grid-container {
     display: grid;
-    grid-template-columns: 25vw 25vw 25vw 25vw;
+    grid-template-columns: auto 1fr auto auto;
     grid-template-rows: auto;
+    justify-content: space-between;
     grid-template-areas: 
-      "header header header header"
-      "post-cover post-cover post-cover post-cover"
-      ". main main sidebar"
-      "footer footer footer footer";
+      "header header header"
+      "post-cover post-cover post-cover"
+      "main main sidebar"
+      "footer footer footer";
   }
 `

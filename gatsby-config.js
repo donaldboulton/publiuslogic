@@ -199,7 +199,7 @@ module.exports = {
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['interactive-upload-widget', 'interactive-cloudinary', 'interactive-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-contact'] },
+            options: { components: ['interactive-upload-widget', 'interactive-cloudinary', 'interactive-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-contact', 'interactive-comments'] },
           },
           {
             resolve: 'gatsby-remark-normalize-paths',

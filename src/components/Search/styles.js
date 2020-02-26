@@ -53,7 +53,7 @@ const expand = css`
 
 export const Input = styled.input`
   outline: none;
-  border: none;
+  border: thin solid;
   font-size: 1em;
   background: transparent;
   transition: ${props => props.theme.shortTrans};
@@ -69,9 +69,9 @@ export const Form = styled.form`
 
 export const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.darkBg};
   max-height: 80vh;
-  overflow: scroll;
+  overflow-x: none;
   z-index: 2;
   -webkit-overflow-scrolling: touch;
   position: absolute;
@@ -122,10 +122,10 @@ export const HitsWrapper = styled.div`
 `
 
 export const PoweredBy = () => (
-  <span css="font-size: 0.6em; text-align: end; padding: 0;">
+  <span css='font-size: 0.6em; text-align: end; padding: 0;'>
     Powered by{` `}
-    <a href="https://algolia.com">
-      <Algolia size="1em" /> Algolia
+    <a href='https://algolia.com'>
+      <Algolia size='1em' /> Algolia
     </a>
   </span>
 )

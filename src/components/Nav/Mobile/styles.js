@@ -13,7 +13,7 @@ export const Icons = { More, Less, Arrow }
 export const MobileNavDiv = styled.nav`
   position: fixed;
   top: 0;
-  overflow: scroll;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100%;
   background: rgba(0, 0, 0, 0.85);
@@ -44,8 +44,6 @@ export const Item = styled.div`
 
 export const Children = styled(animated.div)`
   will-change: transform, opacity, height;
-  margin-left: 0.5em;
-  padding-left: 0.5em;
   border-left: thin dashed white;
   overflow: hidden;
   padding-bottom: ${props => props.open && `0.6em`};

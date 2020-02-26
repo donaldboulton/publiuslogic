@@ -16,12 +16,10 @@ const Nav = props =>
 
 const query = graphql`
   {
-    nav: allNavYaml {
-      edges {
-        node {
-          title
-          url
-        }
+    nav: file(base: { eq: "nav.yml" }) {
+      nav: childrenNavYaml {
+        title
+        url
       }
     }
   }

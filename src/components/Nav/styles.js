@@ -5,10 +5,10 @@ export const navLinkStyle = css`
   color: inherit;
   transition: ${props => props.theme.shortTrans};
   &.active {
-    color: ${props => props.theme.orange};
+    color: ${props => props.theme.activeLinks};
   }
   :hover {
-    color: ${props => props.theme.lighterBlue};
+    color: ${props => props.theme.hoveredLinks};
   }
 `
 

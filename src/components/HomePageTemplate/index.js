@@ -15,7 +15,7 @@ const HomePageTemplate = ({
   testimonials,
 }) => (
   <div>
-    <StyledBackgroundSection className='hero cover-container'>
+    <StyledBackgroundSection className='cover-container'>
       <div
         style={{
           height: `400px`,

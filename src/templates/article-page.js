@@ -1,8 +1,6 @@
 import React from 'react'
 import RehypeReact from 'rehype-react'
-import Menu4 from 'react-burger-menu/lib/menus/stack'
 import { Calendar, FileSymlinkFile } from 'styled-icons/octicons/'
-import { kebabCase } from 'lodash'
 import { Timer } from 'styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
@@ -22,8 +20,7 @@ import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Rating from '../components/Ratings'
 import Toc from '../components/Toc'
-import { Tags } from 'styled-icons/fa-solid/Tags'
-import { StyledTableMenu, Styledh1, PageTitle, TableOfContents, ArticleTocIcon, MetaPage, TagList } from '../components/styles/ArticleStyles'
+import { Styledh1, MetaPage, TagList } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 import { PageBody } from '../components/styles/PageBody'
 
@@ -36,7 +33,7 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, allRatingsJson: ratings = [] }) => {
+const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -59,28 +56,6 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
           rating: { ratingValue, ratingCount: ratingCount },
         }}
       />
-      <StyledTableMenu>
-        <Menu4 right customBurgerIcon={<Tags />}>
-          <PageTitle>
-            <ArticleTocIcon />
-            | Site Tags
-          </PageTitle>
-          <TableOfContents>
-            <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
-              {group.map(tag => (
-                <li className='control menu-item' key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    <div className='tags has-addons is-large'>
-                      <span aria-label='Tag' className='tag is-primary'>{tag.fieldValue}</span>
-                      <span aria-label='Tag Count' className='tag is-dark'>{tag.totalCount}</span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </TableOfContents>
-        </Menu4>
-      </StyledTableMenu>
       <div className='item-b'>
         <PostCover
           postNode={postNode}
@@ -88,7 +63,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
           coverClassName='post-cover'
         />
       </div>
-      <PageBody as='div'>
+      <PageBody as='div' className='item-c'>
         <Styledh1>
           {post.frontmatter.title}
         </Styledh1>
@@ -114,7 +89,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
           </span>
         </MetaPage>
         {showToc && <Toc className='item-d' />}
-        <main className='item-c'>{renderAst(postNode.htmlAst)}</main>
+        <main>{renderAst(postNode.htmlAst)}</main>
         <ArticlePageTemplate
           content={postNode.html}
           contentComponent={HTMLContent}
@@ -225,10 +200,6 @@ export const pageQuery = graphql`
             title
           }
         }
-      }
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
       }
     }
   }
