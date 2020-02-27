@@ -101,8 +101,8 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
         <meta property='og:url' content={url} />
-        <meta name='rel' content={post.frontmatter.slug} />
-        <meta name='key' content={post.frontmatter.slug} />
+        <meta name='rel' content={url} />
+        <meta name='key' content={url} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
@@ -113,7 +113,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
         <meta name='twitter:widgets:link-color' content='#d64000' />
         <meta name='twitter:widgets:border-color' content='#000000' />
         <meta name='twitter:dnt' content='on' />
-        <link rel='canonical' href={post.frontmatter.slug} />
+        <link rel='canonical' href={url} />
         <link rel='image_src' href={`${config.siteUrl}${config.logo}`} />
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
@@ -165,7 +165,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
             marginLeft: '2vw',
           }}
         >
-          <h2>My Stack</h2>
+          <h2>My Development Stack and Tools</h2>
           <Grid minWidth='5em' align='center'>
             {tech.edges.map(({ node: { title, url, logo } }) => (
               <a key={title} href={url} css={techLinkCss}>

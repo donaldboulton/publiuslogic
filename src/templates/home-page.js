@@ -1,35 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { HTMLContent } from '../components/Content'
-import HomePageTemplate from '../components/HomePageTemplate'
-import Layout from '../components/Layout'
-import Comments from '../components/Comments'
-import config from '../../_data/config'
 import { PageBody } from '../components/styles/PageBody'
+import HomePageTemplate from '../components/HomePageTemplate'
+import StyledBackgroundSection from '../components/HomePageTemplate/image'
+import Layout from '../components/Layout'
+import config from '../../_data/config'
 import { Grid } from '../components/styles/Grid'
 import { rhythm } from '../utils/typography'
 
-const renderAst = new RehypeReact({
-  createElement: React.createElement,
-  components: {
-    'interactive-comments': Comments,
-  },
-}).Compiler
-
 const techLinkCss = `transition: 0.4s; :hover {transform: scale(1.05);}`
 
-const HomePage = ({ data, pageContext }) => {
-  const { markdownRemark: post, tech } = data
-  const postNode = data.markdownRemark
+const HomePage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
+  const { markdownRemark: tech } = data
+  const image = frontmatter.cover
+  const author = config.author
+  const logo = config.siteLogo
   const path = data.path || ''
   const rootUrl = 'https://publiuslogic.com'
   const url = rootUrl + `/${path}`
-  const logo = config.siteLogo
-  const image = post.frontmatter.cover
-  const author = config.author
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -74,19 +65,19 @@ const HomePage = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout pageTitle={post.frontmatter.title}>
+    <Layout pageTitle={frontmatter.title}>
       <Helmet>
-        <title>{post.frontmatter.meta_title}</title>
-        <meta name='description' content={post.frontmatter.meta_description} />
-        <meta name='keywords' content={post.frontmatter.tags} />
-        <meta name='image' content={post.frontmatter.cover} />
+        <title>{frontmatter.meta_title}</title>
+        <meta name='description' content={frontmatter.meta_description} />
+        <meta name='keywords' content={frontmatter.tags} />
+        <meta name='image' content={frontmatter.cover} />
         <meta name='url' content={url} />
         <meta name='author' content={author} />
         <meta property='og:type' content='article' />
-        <meta property='og:title' content={post.frontmatter.title} />
-        <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={post.frontmatter.cover} />
-        <meta property='og:image:alt' content={post.frontmatter.meta_title} />
+        <meta property='og:title' content={frontmatter.title} />
+        <meta property='og:description' content={frontmatter.meta_description} />
+        <meta property='og:image' content={frontmatter.cover} />
+        <meta property='og:image:alt' content={frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
         <meta property='og:url' content={url} />
@@ -94,9 +85,9 @@ const HomePage = ({ data, pageContext }) => {
         <meta name='key' content={url} />
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post.frontmatter.title} />
-        <meta name='twitter:image' content={post.frontmatter.cover} />
-        <meta name='twitter:description' content={post.frontmatter.meta_description} />
+        <meta name='twitter:title' content={frontmatter.title} />
+        <meta name='twitter:image' content={frontmatter.cover} />
+        <meta name='twitter:description' content={frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
         <meta name='twitter:widgets:link-color' content='#d64000' />
@@ -107,18 +98,39 @@ const HomePage = ({ data, pageContext }) => {
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
+      <StyledBackgroundSection className='cover-container item-b post-cover'>
+        <div
+          style={{
+            height: `400px`,
+            width: `100vw`,
+            display: `flex`,
+            placeContent: `start`,
+          }}
+        >
+          <div
+            className='hero-body'
+            style={{
+              placeSelf: `center`,
+              textAlign: `center`,
+              height: `50vh`,
+              maxWidth: 1260,
+              padding: `0px 1.0875rem 1.45rem`,
+              marginTop: `10rem`,
+            }}
+          >
+            <div className='overlay'>PubliusLogic</div>
+          </div>
+        </div>
+      </StyledBackgroundSection>
       <PageBody as='div' className='item-c'>
-        <main>{renderAst(postNode.htmlAst)}</main>
         <HomePageTemplate
-          content={postNode.html}
-          contentComponent={HTMLContent}
-          title={post.frontmatter.title}
-          cover={post.frontmatter.cover}
-          meta_title={post.frontmatter.meta_title}
-          description={post.frontmatter.meta_description}
-          heading={post.frontmatter.heading}
-          offerings={post.frontmatter.offerings}
-          testimonials={post.frontmatter.testimonials}
+          title={frontmatter.title}
+          cover={frontmatter.cover}
+          meta_title={frontmatter.meta_title}
+          description={frontmatter.meta_description}
+          heading={frontmatter.heading}
+          offerings={frontmatter.offerings}
+          testimonials={frontmatter.testimonials}
         />
         <hr
           style={{
@@ -130,7 +142,7 @@ const HomePage = ({ data, pageContext }) => {
             marginLeft: '2vw',
           }}
         >
-          <h2>My Stack</h2>
+          <h2>My Development Stack and Tools</h2>
           <Grid minWidth='5em' align='center'>
             {tech.edges.map(({ node: { title, url, logo } }) => (
               <a key={title} href={url} css={techLinkCss}>
@@ -147,12 +159,13 @@ const HomePage = ({ data, pageContext }) => {
 
 HomePage.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-    edges: PropTypes.array,
-    helmet: PropTypes.object,
-  }),
-  allMarkdownRemark: PropTypes.shape({
-    edges: PropTypes.array,
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+      helmet: PropTypes.object,
+    }),
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
   }),
 }
 
@@ -162,7 +175,7 @@ export const pageQuery = graphql`
   query IndexPage($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id      
-      htmlAst
+      html
       excerpt(pruneLength: 200, truncate: true)                                
       frontmatter {
         date(formatString: "MMM D, YYYY")
@@ -216,6 +229,10 @@ export const pageQuery = graphql`
             title
           }
         }
+      }
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
       }
     }
   }

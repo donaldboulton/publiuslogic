@@ -1,15 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
-import mediaQuery from '../../utils/mediaQuery'
+import mediaQuery, { screens } from '../../utils/mediaQuery'
 import typography from '../../utils/typography'
 
-const { phone, desktop } = mediaQuery.screens
-const {
-  fonts,
-  minFontSize,
-  maxFontSize,
-  minLineHeight,
-  maxLineHeight,
-} = typography
+const { phone, desktop } = screens
+const { fonts, minFontSize, maxFontSize, minLineHeight, maxLineHeight } = typography
 
 export const GlobalStyle = createGlobalStyle`
  /**
@@ -41,6 +35,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${fonts};
     font-size: ${minFontSize}em;
     line-height: ${minLineHeight}em;
+    /* Fix very large font size in code blocks in iOS Safari (https://stackoverflow.com/a/3428477). */
+    -webkit-text-size-adjust: 100%;
     ${mediaQuery.minPhone} {
       font-size: calc(${minFontSize}em + (${maxFontSize} - ${minFontSize}) * ((100vw - ${phone}em) / (${desktop} - ${phone})));
       line-height: calc(${minLineHeight}em + (${maxLineHeight} - ${minLineHeight}) * ((100vw - ${phone}em) / (${desktop} - ${phone})));
@@ -49,7 +45,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: ${maxFontSize}em;
       line-height: ${maxLineHeight}em;
     }
-    /* ensure full height page even if unsufficient content */
+    /* Ensure full height page even if unsufficient content. */
     div[role="group"][tabindex] {
       min-height: 100vh;
       display: flex;
@@ -111,7 +107,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   .grid-container {
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto;
     grid-template-rows: auto;
     justify-content: space-between;
     grid-template-areas: 
@@ -119,5 +115,31 @@ export const GlobalStyle = createGlobalStyle`
       "post-cover post-cover post-cover"
       "main main sidebar"
       "footer footer footer";
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  table td, table th {
+    border: 1px solid ${props => props.theme.lightGray};
+    padding: 0.2em 0.6em;
+  }
+  tbody tr:nth-child(odd) {
+    background: ${props => props.theme.accentBackground};
+  }
+  div.scroll {
+    overflow: scroll;
+    margin: 1em auto;
+    border: 1px solid ${props => props.theme.lightGray};
+    border-width: 0 1px;
+    white-space: nowrap;
+    table td, table th {
+      :first-child {
+        border-left: none;
+      }
+      :last-child {
+        border-right: none;
+      }
+    }
   }
 `

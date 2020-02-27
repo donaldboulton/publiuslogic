@@ -54,6 +54,7 @@ export const theme = { ...colors, ...measures }
 
 export const lightTheme = {
   background: theme.lightBg,
+  accentBackground: theme.lightestGray,
   textColor: theme.darkestGray,
   quoteBg: theme.lightestGray,
 
@@ -77,6 +78,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   background: theme.darkBG,
+  accentBackground: theme.darkestGray,
   textColor: theme.lighterGray,
   quoteBg: theme.darkestGray,
 

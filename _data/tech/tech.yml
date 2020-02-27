@@ -1,3 +1,7 @@
+- title: Algolia
+  url: https://www.algolia.com/
+  logo: ../../static/logos/algolia.svg
+
 - title: Gatsby
   url: https://www.gatsbyjs.org
   logo: ../../static/logos/gatsby.svg
@@ -53,3 +57,11 @@
 - title: Webpack
   url: https://webpack.js.org
   logo: ../../static/logos/webpack.svg
+
+- title: Netlify
+  url: https://app.netlify.com/sites/publiuslogic/deploys
+  logo: ../../static/logos/logomark.svg
+
+- title: MS Edge
+  url: https://www.microsoft.com/en-us/edge
+  logo: ../../static/logos/edge.svg  

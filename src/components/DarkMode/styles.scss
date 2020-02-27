@@ -19,11 +19,10 @@ body {
 .sticky {
   position: sticky;
   position: -webkit-sticky;
-  position: fixed;
   top: 0;
   width: 100%;
 }
-.sticky + .content {
+.sticky + .item-d {
   padding-top: 22vh;
 }
 .user-icon {

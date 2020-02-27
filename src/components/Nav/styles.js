@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 export const navLinkStyle = css`
   color: inherit;
-  transition: ${props => props.theme.shortTrans};
+  transition: 0.3s;
   &.active {
     color: ${props => props.theme.activeLinks};
   }

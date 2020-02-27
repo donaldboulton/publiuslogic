@@ -1,7 +1,6 @@
 import React from 'react'
 import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
-import StyledBackgroundSection from './image'
 import PropTypes from 'prop-types'
 
 const HomePageTemplate = ({
@@ -14,31 +13,7 @@ const HomePageTemplate = ({
   meta_description,
   testimonials,
 }) => (
-  <div>
-    <StyledBackgroundSection className='cover-container'>
-      <div
-        style={{
-          height: `400px`,
-          width: `100vw`,
-          display: `flex`,
-          placeContent: `start`,
-        }}
-      >
-        <div
-          className='hero-body'
-          style={{
-            placeSelf: `center`,
-            textAlign: `center`,
-            height: `50vh`,
-            maxWidth: 1260,
-            padding: `0px 1.0875rem 1.45rem`,
-            marginTop: `10rem`,
-          }}
-        >
-          <div className='overlay'>PubliusLogic</div>
-        </div>
-      </div>
-    </StyledBackgroundSection>
+  <>
     <section className='section section--gradient'>
       <div className='container'>
         <div className='section'>
@@ -116,7 +91,7 @@ const HomePageTemplate = ({
         </div>
       </div>
     </section>
-  </div>
+  </>
 )
 
 HomePageTemplate.propTypes = {

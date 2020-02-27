@@ -24,7 +24,7 @@ class TagsMenu extends React.Component {
             <Menu4 right customBurgerIcon={<Tags />}>
               <PageTitle>
                 <ArticleTocIcon />
-              | Site Tags
+                | Site Tags
               </PageTitle>
               <TableOfContents>
                 <ul className='linktoc taglist field is-grouped is-grouped-multiline'>

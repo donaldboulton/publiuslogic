@@ -53,8 +53,6 @@ const expand = css`
 
 export const Input = styled.input`
   outline: none;
-  border: thin solid;
-  font-size: 1em;
   background: transparent;
   transition: ${props => props.theme.shortTrans};
   border-radius: ${props => props.theme.smallBorderRadius};

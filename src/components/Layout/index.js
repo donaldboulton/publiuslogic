@@ -12,38 +12,34 @@ import Scroll from '../Scroll'
 import ScrollDown from '../ScrollDown'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
-import SideBar from '../SiteTags'
+import { GlobalStyle } from './styles'
 function Layout ({ children, location }) {
   return (
     <>
-      <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />
-      <div>
-        <ThemeProvider theme={theme} location={location}>
-          <div className='grid-container'>
-            <Header className='item-a' />
-            <ScrollDown
-              direction='down' to={25}
-              showAbove={-1500}
-              css='position: fixed; right: 1em; top: 3.1em;'
-            />
-            <div id='page-wrap'>
-              <>
-                {children}
-              </>
-              <Subscriptions />
-              <Slack />
-              <HotJar />
-              <Adds />
-              <Hr />
-            </div>
-            <Scroll
-              showBelow={1500}
-              css='position: fixed; right: 1em; bottom: 1.5em;'
-            />
-            <Footer className='item-e' />
-          </div>
-        </ThemeProvider>
-      </div>
+      <ThemeProvider theme={theme} location={location}>
+        <GlobalStyle />
+        <div className='grid-container'>
+          <Header className='item-a' />
+          <>
+            {children}
+          </>
+          <Subscriptions />
+          <Slack />
+          <HotJar />
+          <Adds />
+          <Hr />
+          <Footer className='item-e' />
+        </div>
+        <ScrollDown
+          direction='down' to={25}
+          showAbove={-1500}
+          css='position: fixed; right: 1em; top: 3.1em;'
+        />
+        <Scroll
+          showBelow={1500}
+          css='position: fixed; right: 1em; bottom: 1.5em;'
+        />
+      </ThemeProvider>
     </>
   )
 }

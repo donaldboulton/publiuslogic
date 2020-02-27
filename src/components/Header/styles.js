@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
   justify-items: center;
   align-items: center;
   justify-content: space-between;
-  grid-template-areas: 'title nav toggle tags login search';
+  grid-template-areas: 'title nav toggle login search';
   grid-template-columns: auto 1fr auto auto auto;
   padding: 2vmin 3vmin;
   color: white;

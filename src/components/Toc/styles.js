@@ -14,6 +14,7 @@ const openTocDiv = css`
 
 export const TocDiv = styled.div`
   height: max-content;
+  grid-area: sidebar;
   max-height: 85vh;
   border-radius: 4px;
   z-index: 3;

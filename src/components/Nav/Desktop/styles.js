@@ -6,7 +6,7 @@ export { NavLink } from '..'
 export const DesktopNavDiv = styled.nav`
   display: grid;
   grid-gap: calc(1em + 1vw);
-  transition: ${props => props.theme.shortTrans};
+  transition: 0.3s;
   max-width: fill-available;
   grid-auto-flow: column;
   grid-auto-columns: max-content;

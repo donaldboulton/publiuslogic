@@ -35,9 +35,6 @@ export default class HTML extends React.Component {
           <link rel='apple-touch-icon' sizes='76x76' href='/img/apple-touch-icon-76x76.png' />
           <link rel='apple-touch-icon' sizes='152x152' href='/img/apple-touch-icon-152x152.png' />
           <link rel='apple-touch-icon' sizes='180x180' href='/img/apple-touch-icon-180x180.png' />
-          <meta name='twitter:widgets:theme' content='dark' />
-          <meta name='twitter:widgets:link-color' content='#d64000' />
-          <meta name='twitter:widgets:border-color' content='#434040' />
           <link rel='icon' type='image/png' sizes='32x32' href='/img/favicon-32x32.png' />
           <link rel='icon' type='image/png' sizes='16x16' href='/img/favicon-16x16.png' />
           <link rel='mask-icon' href='/img/safari-pinned-tab.svg' color='#d64000' />

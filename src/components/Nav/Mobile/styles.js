@@ -26,7 +26,7 @@ export const MobileNavDiv = styled.nav`
   grid-auto-columns: max-content;
   grid-auto-rows: max-content;
   transform: translate(${props => (props.open ? `99%` : `0`)});
-  transition: ${props => props.theme.shortTrans};
+  transition: 0.3s;
 `
 
 export const Item = styled.div`

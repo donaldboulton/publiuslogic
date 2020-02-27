@@ -4,12 +4,12 @@ import { HeaderContainer, Logo } from './styles'
 import Brand from './Brand'
 import Toggle from '../DarkMode/DarkModeToggle'
 import Login from '../Login'
-import SiteTags from '../SiteTags'
 import Search from '../Search'
 
 const searchIndices = [
   { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
 ]
+
 
 const Header = () => {
   return (
@@ -26,13 +26,10 @@ const Header = () => {
         <Toggle 
           css='grid-area: toggle;'
         />
-        <SiteTags
-          css='grid-area: tags;'
-        />
         <Login
           css='grid-area: login;'
         />
-        <Search collapse indices={searchIndices} type='search' className='luna__input' css='grid-area: search; place-self: end;' />
+        <Search collapse indices={searchIndices} className='input' css='grid-area: search;' />
       </HeaderContainer>
     </>
   )

@@ -88,7 +88,7 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
             <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
           </span>
         </MetaPage>
-        {showToc && <Toc className='item-d' />}
+        {showToc && <Toc className='item-d sticky' />}
         <main>{renderAst(postNode.htmlAst)}</main>
         <ArticlePageTemplate
           content={postNode.html}
