@@ -9,6 +9,11 @@ import { Link, graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticlePageTemplate from '../components/ArticlePageTemplate'
 import Share from '../components/Share'
+import Hr from '../components/Hr'
+import Slack from '../components/Slack'
+import HotJar from '../components/HotJar'
+import Subscriptions from '../components/Subscriptions'
+import Adds from '../components/GoogleAdds'
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
 import PostCover from '../components/PostCover'
@@ -56,14 +61,14 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
           rating: { ratingValue, ratingCount: ratingCount },
         }}
       />
-      <div className='item-b'>
+      <div className='post-cover'>
         <PostCover
           postNode={postNode}
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
       </div>
-      <PageBody as='div' className='item-c'>
+      <PageBody as='div'>
         <Styledh1>
           {post.frontmatter.title}
         </Styledh1>
@@ -88,22 +93,23 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
             <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
           </span>
         </MetaPage>
-        {showToc && <Toc className='item-d sticky' />}
-        <main>{renderAst(postNode.htmlAst)}</main>
-        <ArticlePageTemplate
-          content={postNode.html}
-          contentComponent={HTMLContent}
-          cover={post.cover}
-          timeToRead={postNode.timeToRead}
-          category={post.category}
-          date={post.date}
-          tweet_id={post.tweet_id}
-          meta_title={post.meta_title}
-          description={post.meta_description}
-          tags={post.tags}
-          title={post.title}
-          showToc={post.showToc}
-        />
+        <div>
+          <main>{renderAst(postNode.htmlAst)}</main>
+          <ArticlePageTemplate
+            content={postNode.html}
+            contentComponent={HTMLContent}
+            cover={post.cover}
+            timeToRead={postNode.timeToRead}
+            category={post.category}
+            date={post.date}
+            tweet_id={post.tweet_id}
+            meta_title={post.meta_title}
+            description={post.meta_description}
+            tags={post.tags}
+            title={post.title}
+            showToc={post.showToc}
+          />
+        </div>
         <Share
           title={post.title}
           slug={post.path}
@@ -129,6 +135,32 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
             marginBottom: rhythm(1),
           }}
         />
+        <Subscriptions
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <Slack
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <HotJar
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <Adds
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <Hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <div>{showToc && <Toc className='toc sticky' />}</div>
       </PageBody>
     </Layout>
   )

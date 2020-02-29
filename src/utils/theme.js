@@ -4,7 +4,7 @@ export const colors = {
   darkerBlue: `#150956`,
   darkestBlue: `#0f073b`,
   lightBlue: `#00c2b2`,
-  lighterBlue: `#279AF1`,
+  lighterBlue: `#028f83`,
   lightestBlue: `#83aaff`,
 
   green: `#3f7912`,
@@ -54,7 +54,7 @@ export const theme = { ...colors, ...measures }
 
 export const lightTheme = {
   background: theme.lightBg,
-  accentBackground: theme.lightestGray,
+  accentBackground: theme.lightBlue,
   textColor: theme.darkestGray,
   quoteBg: theme.lightestGray,
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import logo from '../../../static/img/apple-touch-icon-64x64.png'
+import logo from '../../../static/img/apple-touch-icon-46x46.png'
 
 const Brand = ({ title }) => {
   return (

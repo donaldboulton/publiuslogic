@@ -7,6 +7,7 @@ import {
   IdentityModal,
   useIdentityContext,
 } from 'react-netlify-identity-widget'
+import { NavEntry, NavbarDropdown, NavbarDropdownContent } from '../Nav/Desktop/styles'
 
 const Login = () => {
   const identity = useIdentityContext()
@@ -23,38 +24,42 @@ const Login = () => {
       <div>
         {isLoggedIn ? (
           <>
-            <div className='navbar-item has-dropdown is-hoverable'>
-              <button className='identity-logout navbar-item button-transparent' onClick={() => setDialog(true)}>
-                {avatar_url &&
-                  <UserAvatar
-                    className='user-icon'
-                    name={name} src={avatar_url}
-                  />}
-              </button>
-              <div id='nav-dropdown' className='navbar-dropdown'>
-                <h3 className='navbar-item'>Welcome!</h3>
-                <div className='navbar-item'>😀 {name}</div>
-                <div className='navbar-item'>{email}</div>
-                <Link className='navbar-item' to='/app/profile'>✨ User Settings</Link>
+            <NavbarDropdown>
+              <NavEntry key={avatar_url}>
+                <button className='identity-logout button-transparent' onClick={() => setDialog(true)}>
+                  {avatar_url &&
+                    <UserAvatar
+                      className='user-icon'
+                      name={name} src={avatar_url}
+                    />}
+                </button>
+              </NavEntry>
+              <NavbarDropdownContent>
+                <h3 className='menu-item'>Welcome!</h3>
+                <div className='menu-item'>😀 {name}</div>
+                <div className='menu-item'>{email}</div>
+                <Link className='menu-item' to='/app/profile'>✨ User Settings</Link>
                 <hr className='navbar-divider' />
-                <div className='navbar-item'>
-                  <button className='button is-small' onClick={() => setDialog(true)}>
+                <div className='menu-item'>
+                  <button className='button' onClick={() => setDialog(true)}>
                     Logout&nbsp;<SignOutAlt size='1rem' color='#f5f5f5' />
                   </button>
                 </div>
-              </div>
-            </div>
+              </NavbarDropdownContent>
+            </NavbarDropdown>
           </>
         ) : (
           <>
-            <div className='navbar-item has-dropdown is-hoverable'>
-              <button className='identity-login navbar-item button-transparent' onClick={() => setDialog(true)}>
-                <img className='user-icon' src={avatarIcon} alt='User' />
-              </button>
-              <div id='nav-dropdown' className='navbar-dropdown'>
-                <Link className='navbar-item' to='/login'>💕 New User Signup</Link>
-              </div>
-            </div>
+            <NavbarDropdown>
+              <NavEntry key={avatarIcon}>
+                <button className='identity-login menu-item button-transparent' onClick={() => setDialog(true)}>
+                  <img className='user-icon' src={avatarIcon} alt='User' />
+                </button>
+              </NavEntry>
+              <NavbarDropdownContent>
+                <Link className='menu-item' to='/login'>💕 New User Signup</Link>
+              </NavbarDropdownContent>
+            </NavbarDropdown>
           </>
         )}
       </div>

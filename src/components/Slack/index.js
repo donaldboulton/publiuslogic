@@ -6,7 +6,7 @@ require('node-fetch')
 
 const Slack = () => {
   return (
-    <div className='column is-10 is-offset-1'>
+    <div>
       <article className='message'>
         <div className='message-body'>
           <div className='columns is-desktop'>

@@ -26,12 +26,8 @@ body {
   padding-top: 22vh;
 }
 .user-icon {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
   height: 1.8rem;
   width: 1.8rem;
-  top: 0.9px !important;
   border-radius: 50%;
 }
 .author-avatar .half-circle {
@@ -67,7 +63,7 @@ body.light-mode {
   .navbar-brand {
     background: #00a396 !important;
   }
-  .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
+  .navbar-link.is-active, .navbar-link:hover, a.menu-item.is-active, a.menu-item:hover {
     color : #028f83;
   }
   .navbar-dropdown {
@@ -75,7 +71,7 @@ body.light-mode {
     border-top: transparent !important;
     color: whitesmoke !important;
   }
-  .navbar-item {
+  .menu-item {
     background: transparent !important;
     color: whitesmoke !important;
   }
@@ -195,10 +191,10 @@ body.light-mode {
     background-image: linear-gradient(141deg,#00a396,#00c2b2 81%,darkblue) !important;
     color: #fff !important;
   }
-  .luna__input {
+  .search_input {
     color: #343434 !important;
   }
-  .luna__input:focus {
+  .search_input:focus {
     outline: 0;
     color: #343434 !important;
     border-left: 3px solid #028f83 !important;
@@ -209,13 +205,13 @@ body.light-mode {
     background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
     box-shadow: 0 0 0 2px rgba(0,163,150,.2) !important;
   }
-  input:focus {
+  .input:focus {
     color: #fff !important;
     outline: 0;
     border-radius: 3px;
     box-shadow: 0 0 0 2px rgba(0,163,150,.2) !important;
   }
-  textarea:focus {
+  .textarea:focus {
     color: #fff !important;
     outline: 0;
     border-radius: 3px;
@@ -269,16 +265,6 @@ body.light-mode {
     background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2)) !important;
     background-color: #00a396 !important;
     color: #ffffff;
-  }
-  .luna__input:focus {
-    background: url(/img/blankw.png) 15px 50%/1.1em 1.5em no-repeat !important;
-    background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
-    border-left: 3px solid #028f83 !important;
-    border-right: 1px solid #00c2b2 !important;
-    border-top: 1px solid #00c2b2 !important;
-    border-bottom: 1px solid #00c2b2 !important;
-    color: #1d1d1d !important;
-    border-radius: 3px;
   }
   .input, .textarea {
     background: radial-gradient(circle at top right,rgba(0,194,178,.2),rgba(0,0,0,0)) !important;
@@ -382,22 +368,9 @@ body.dark-mode {
   .title {
     color: #dbdbdb !important;
   }
-  nav {
-    background: transparent !important;
-  }
-  .navbar {
-    background: #1d1d1d !important;
-  }
-  .navbar-brand {
-    background: #1d1d1d !important;
-  }
-  .navbar-item {
+  .menu-item {
     background: transparent !important;
     color: whitesmoke !important;
-  }
-  .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
-    color: #dbdbdb !important;
-    background: transparent !important;
   }
   h1, .h1 {
     background: radial-gradient(
@@ -477,15 +450,6 @@ body.dark-mode .box {
   color: #cccccc !important;
   border: 1px solid #434040 !important;
 }
-body.dark-mode .navbar-menu {
-  background: transparent !important;
-}
-body.dark-mode .navbar-brand {
-  background: transparent !important;
-}
-body.dark-mode .navbar-link:not(.is-arrowless):after {
-  border-color: #d64000 !important;
-}
 body.dark-mode .subtitle {
   color: #cccccc !important;
 }
@@ -550,12 +514,12 @@ body.dark-mode .input {
   max-width: 100%;
   width: 100%;
 }
-body.dark-mode input:focus {
+body.dark-mode .input:focus {
   outline: 0;
   border-radius: 3px;
   box-shadow: 0 0 0 2px rgba(218,27,0,.2) !important;
 }
-body.dark-mode textarea:focus {
+body.dark-mode .textarea:focus {
   outline: 0;
   border-radius: 3px;
   box-shadow: 0 0 0 2px rgba(218,27,0,.2) !important;
@@ -610,7 +574,7 @@ body.dark-mode .message {
   font-size: 1rem;
   border-left: 5px solid #812102 !important;
 }
-body.dark-mode .luna__input:focus {
+body.dark-mode .search_input:focus {
   background: url(/img/blank.png) 15px 50%/1.1em 1.5em no-repeat !important;
   color: #dbdbdb !important;
   background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0)) !important;
@@ -693,10 +657,6 @@ body.dark-mode .todo-create-button {
   background-color: #d64000 !important;
   border-color: transparent !important;
   color: #dbdbdb;
-}
-body.dark-mode table thead th {
-  border-width: 0 0 2px;
-  color: #dbdbdb !important;
 }
 body.dark-mode .github-icon {
   width: 32px;

@@ -9,11 +9,10 @@ export const Caption = styled.figcaption`
   color: white;
   padding: 0.1em 0.5em;
   background: rgba(0, 0, 0, 0.7);
-  border-radius: ${props => (props.theme.mediumBorderRadius + ` `).repeat(2)} 0
-    0;
+  border-radius: ${props => (props.theme.mediumBorderRadius + ` `).repeat(2)} 0 0;
   a {
     color: ${props => props.theme.lighterBlue};
-    transition: ${props => props.theme.shortTrans};
+    transition: 0.3s;
     :hover {
       color: ${props => props.theme.orange};
     }

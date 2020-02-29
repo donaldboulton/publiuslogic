@@ -39,9 +39,8 @@ const Bio = () => {
   const { path } = data.markdownRemark.frontmatter
   const { siteUrl } = data.site.siteMetadata
   return (
-    <div className='columns'>
+    <div>
       <div
-        className='column is-10'
         style={{
           display: `flex`,
         }}

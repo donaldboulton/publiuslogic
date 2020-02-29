@@ -2,8 +2,7 @@ import { throttle } from 'lodash'
 import React, { useEffect, useRef, useState } from 'react'
 import { useEventListener } from '../../hooks/useEventListener'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
-
-import { TocTitle, TocDiv, TocIcon, TocLink, TocToggle } from './styles'
+import { Title, TocDiv, TocIcon, TocLink, TocToggle } from './styles'
 
 const accumulateOffsetTop = (el, totalOffset = 0) => {
   while (el) {
@@ -14,7 +13,7 @@ const accumulateOffsetTop = (el, totalOffset = 0) => {
 }
 
 export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
-  const { throttleTime = 200, tocTitle = `Page Contents` } = rest
+  const { throttleTime = 200, tocTitle = `Contents` } = rest
   const [headings, setHeadings] = useState({
     titles: [],
     nodes: [],
@@ -58,16 +57,15 @@ export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
     <>
       <TocToggle opener open={open} onClick={() => setOpen(true)} />
       <TocDiv ref={ref} open={open}>
-        <TocTitle>
+        <Title>
           <TocIcon />
           {tocTitle}
           <TocToggle onClick={() => setOpen(false)} />
-        </TocTitle>
-        <nav className='linktoc'>
+        </Title>
+        <nav>
           {headings.titles.map(({ title, depth }, index) => (
             <TocLink
               key={title}
-              className='a'
               active={active === index}
               depth={depth - headings.minDepth}
               onClick={event => {

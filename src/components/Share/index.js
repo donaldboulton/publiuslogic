@@ -16,7 +16,6 @@ import {
   RedditIcon,
 } from 'react-share'
 import config from '../../../_data/config'
-import './styles.sass'
 
 class Share extends Component {
   render () {

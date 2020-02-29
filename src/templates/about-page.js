@@ -10,6 +10,11 @@ import Toc from '../components/Toc'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
+import Hr from '../components/Hr'
+import Slack from '../components/Slack'
+import HotJar from '../components/HotJar'
+import Subscriptions from '../components/Subscriptions'
+import Adds from '../components/GoogleAdds'
 import config from '../../_data/config'
 import Cloudinary from '../components/Cloudinary'
 import UploadWidget from '../components/Cloudinary/UploadWidget'
@@ -119,27 +124,18 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
         {/* Schema.org tags */}
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
-      <section className='item-b'>
+      <section className='post-cover'>
         <PostCover
           postNode={postNode}
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
       </section>
-      <PageBody as='div' className='item-c'>
+      <PageBody as='div'>
         <Styledh1>
           {post.frontmatter.title}
         </Styledh1>
         <Bio />
-        {showToc && <Toc
-          className='item-d'
-          style={{
-            display: `flex`,
-            position: `sticky`,
-            right: `1em`,
-            top: `0`,
-          }}
-        />}
         <main>{renderAst(postNode.htmlAst)}</main>
         <AboutPageTemplate
           content={postNode.html}
@@ -155,6 +151,14 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
           title={post.title}
           showToc={post.showToc}
         />
+        {showToc && <Toc
+          className='toc sticky'
+          grid-item='item-d'
+          style={{
+            right: `1em`,
+            top: `20vh`,
+          }}
+        />}
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -175,6 +179,11 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
             ))}
           </Grid>
         </div>
+        <Subscriptions />
+        <Slack />
+        <HotJar />
+        <Adds />
+        <Hr />
       </PageBody>
     </Layout>
   )

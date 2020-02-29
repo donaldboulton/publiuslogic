@@ -10,8 +10,6 @@
   height: 100%
   overflow: auto
   position: -webkit-sticky
-  position: sticky
-  top: 40vh
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 .navbar-brand
@@ -140,19 +138,8 @@ text:nth-child(3)
   font-size: 5.1em
 text:nth-child(4)
   font-size: 15em  
-.navbar-item img
-  max-height: 2em !important
-.luna__input
-  background: url(/img/search.svg) 15px 50%/1.1em 1.5em no-repeat !important
-  background-color: transparent !important
-  transition: all .2s ease-out
-  width: 28px
-  height: 32px
-  border: 6px
-  padding: 0
-.luna__input:focus
+.search_input:focus
   width: 200px !important
-  height: 32px
   padding-left: 0.25em
   padding: 0
 .menu-item
@@ -244,8 +231,6 @@ gatsby-resp-image-image
   text-align: center !important
 .section
   padding: 1.8rem 1.5rem !important
-.content table td, .content table th
-  border: transparent !important
 .caption, figcaption
   position: inherit !important
 .navbar-item.is-hoverable:hover .navbar-dropdown.is-boxed
@@ -466,5 +451,17 @@ nav ul ul ul a
   justify-content: center
   max-width: 80vw
   margin: 1em auto
+.social-links
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-content: center
+  align-items: center
+  margin: 15px 0
+.social-links > div
+  margin: 5px 15px
+.share-count
+  text-align: center
 
 @import "~bulma"

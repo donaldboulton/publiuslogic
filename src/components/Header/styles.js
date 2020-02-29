@@ -10,7 +10,6 @@ export const HeaderContainer = styled.header`
   left: 0;
   display: grid;
   grid-gap: 2.5vw;
-  max-height: 60px;
   z-index: 2;
   justify-items: center;
   align-items: center;

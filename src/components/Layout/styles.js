@@ -6,29 +6,6 @@ const { phone, desktop } = screens
 const { fonts, minFontSize, maxFontSize, minLineHeight, maxLineHeight } = typography
 
 export const GlobalStyle = createGlobalStyle`
- /**
-   * Thanks to Benjamin De Cock
-   * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
-   */
-  :root {
-    --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-    --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
-    --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-
-  :root {
-    box-sizing: border-box;
-  }
-
   body {
     margin: 0;
     hyphens: auto;
@@ -87,34 +64,22 @@ export const GlobalStyle = createGlobalStyle`
   blockquote {
     margin: 0;
   }
-  .item-a {
-    grid-area: header;
-  }
-  .item-b {
-    grid-area: post-cover;
-  }
-  .item-c {
+  .main {
     grid-area: main;
     justify-items: center;
   }
-  .item-d {
+  .sidebar {
     grid-area: sidebar;
     justify-items: end;
     align-content: start;
   }
-  .item-e {
-    grid-area: footer;
-  }
-  .grid-container {
+  .grid-wrapper {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto;
     justify-content: space-between;
     grid-template-areas: 
-      "header header header"
-      "post-cover post-cover post-cover"
-      "main main sidebar"
-      "footer footer footer";
+      ": main main sidebar"
   }
   table {
     border-collapse: collapse;
