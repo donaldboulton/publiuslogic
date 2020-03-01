@@ -19,6 +19,7 @@ export const TocDiv = styled.div`
   line-height: 2em;
   right: 1em;
   max-width: 20em;
+  grid-column: -3;
   overscroll-behavior: none;
   overflow-x: hidden;
   overflow-y: hidden;

@@ -9,13 +9,13 @@ export const HeaderContainer = styled.header`
   right: 0;
   left: 0;
   display: grid;
-  grid-gap: 2.5vw;
+  grid-gap: 2vw;
   z-index: 2;
   justify-items: center;
   align-items: center;
   justify-content: space-between;
-  grid-template-areas: 'title nav toggle login search';
-  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-areas: 'title nav toggle tags login search';
+  grid-template-columns: auto 1fr auto auto auto auto;
   padding: 2vmin 3vmin;
   color: white;
   font-size: 1.2em;

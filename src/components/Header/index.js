@@ -5,6 +5,7 @@ import Brand from './Brand'
 import Toggle from '../DarkMode/DarkModeToggle'
 import Login from '../Login'
 import Search from '../Search'
+import Tags from '../SiteTags'
 
 const searchIndices = [
   { name: `Posts`, title: `Blog Posts`, type: `postHit` },
@@ -22,8 +23,11 @@ const Header = () => {
         <Nav
           css='grid-area: nav;'
         />
-        <Toggle 
+        <Toggle
           css='grid-area: toggle;'
+        />
+        <Tags
+          css='grid-area: tags;'
         />
         <Login
           css='grid-area: login;'

@@ -23,6 +23,7 @@ export const SubNav = styled.div`
   border-radius: ${props => props.theme.smallBorderRadius};
   grid-gap: 0.2em 0.5em;
   position: absolute;
+  z-index: 1080;
   right: 0;
   top: calc(100% + 0.5em);
   padding: 0.5em 0.7em;

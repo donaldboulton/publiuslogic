@@ -85,7 +85,7 @@ module.exports = {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         develop: true,
-        purgeOnly: ['/src/components/DarkMode/styles.sass'],
+        purgeOnly: ['/content/assets/sass/styles.sass'],
       },
     },
     {

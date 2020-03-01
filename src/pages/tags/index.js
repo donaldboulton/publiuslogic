@@ -12,10 +12,10 @@ const TagsPage = ({
 }) => (
   <Layout pageTitle={title}>
     <Helmet title={`Tags | ${title}`} />
+    <section className='post-cover'>
+      <Image />
+    </section>
     <PageBody>
-      <section className='hero is-medium'>
-        <Image />
-      </section>
       <section>
         <Styledh1>
           All Site Tags
