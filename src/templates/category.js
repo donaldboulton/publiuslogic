@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import { PageBody } from '../components/styles/PageBody'
 import Image from '../pages/categories/image'
 import { Styledh1 } from '../components/styles/ArticleStyles'
-
 class CategoryRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges
@@ -24,39 +24,24 @@ class CategoryRoute extends Component {
 
     return (
       <Layout pageTitle={title}>
-        <section className='hero is-medium'>
+        <Helmet title={`${category} | ${title}`} />
+        <section className='hero post-cover'>
           <Image />
-          <div className='hero-body'>
-            <div className='container'>
-              <div className='columns'>
-                <div className='column is-10 is-offset-1'>
-                  <div className='section'>
-                    <Styledh1>
-                      Categories
-                    </Styledh1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
-        <section className='section'>
-          <Helmet title={`${category} | ${title}`} />
-          <div className='container content'>
-            <div className='columns'>
-              <div
-                className='column is-10 is-offset-1'
-                style={{ marginBottom: '6rem' }}
-              >
-                <h3 className='title is-size-4 is-bold-light'>{categoryHeader}</h3>
-                <ul className='taglist read-more'>{postLinks}</ul>
-                <p>
-                  <Link aria-label='All Categories' className='a' to='/categories/'>Browse all categories →</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageBody as='div'>
+          <Styledh1>
+            Categories
+          </Styledh1>
+          <section>
+            style={{ marginBottom: '6rem' }}
+            >
+            <h3>{categoryHeader}</h3>
+            <ul className='taglist read-more'>{postLinks}</ul>
+            <p>
+              <Link aria-label='All Categories' className='a' to='/categories/'>Browse all categories →</Link>
+            </p>
+          </section>
+        </PageBody>
       </Layout>
     )
   }

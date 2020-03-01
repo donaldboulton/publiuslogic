@@ -16,6 +16,64 @@ body {
   overflow-x: hidden;
   width: 100%;
 }
+.tags:last-child {
+  margin-bottom: -.5rem;
+}
+.tags {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.tags.has-addons .tag:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.tags.has-addons .tag {
+  margin-right: 0;
+}
+.tags.has-addons .tag:not(:first-child) {
+  margin-left: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.tags.has-addons .tag {
+  margin-right: 0;
+}
+.tags .tag:not(:last-child) {
+  margin-right: .5rem;
+}
+.tag:not(body) {
+  align-items: center;
+  border-radius: 4px;
+  display: inline-flex;
+  font-size: .75rem;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: .75em;
+  padding-right: .75em;
+  white-space: nowrap;
+}
+.field.is-grouped.is-grouped-multiline>.control:last-child, .field.is-grouped.is-grouped-multiline>.control:not(:last-child) {
+  margin-bottom: .75rem;
+}
+.field.is-grouped>.control:not(:last-child) {
+  margin-bottom: 0;
+  margin-right: .75rem;
+}
+.field.is-grouped>.control {
+  flex-shrink: 0;
+}
+.card, .control {
+  position: relative;
+}
+.control {
+  box-sizing: border-box;
+  clear: both;
+  font-size: 1rem;
+  text-align: left;
+}
 .sticky {
   position: sticky;
   position: -webkit-sticky;

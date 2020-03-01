@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import { PageBody } from '../components/styles/PageBody'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 import UserAvatar from 'react-user-avatar'
@@ -16,36 +17,29 @@ const Profile = () => {
   return (
     <>
       <Layout>
-        <section className='section'>
-          <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <Styledh1>
-                  Profile
-                </Styledh1>
-                <div className='content' />
-                <div
-                  style={{
-                    marginBottom: rhythm(1),
-                  }}
-                >
-                  <span>GitHub Avatar{avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}</span>
-                  <span>&nbsp;Global Avatar <UserAvatar className='user-icon' name={name} src={avatar_url} />
-                    <h3>&nbsp; Hello {name}!</h3>
-                  </span>
-                  <br />
-                  <h4>Email: {email}</h4>
-                  <br />
-                </div>
-                <hr
-                  style={{
-                    marginBottom: rhythm(1),
-                  }}
-                />
-              </div>
-            </div>
+        <PageBody>
+          <Styledh1>
+            Profile
+          </Styledh1>
+          <div
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          >
+            <span>GitHub Avatar{avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}</span>
+            <span>&nbsp;Global Avatar <UserAvatar className='user-icon' name={name} src={avatar_url} />
+              <h3>&nbsp; Hello {name}!</h3>
+            </span>
+            <br />
+            <h4>Email: {email}</h4>
+            <br />
           </div>
-        </section>
+          <hr
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />
+        </PageBody>
       </Layout>
     </>
   )

@@ -4,17 +4,13 @@ import { Link, graphql } from 'gatsby'
 import config from '../../_data/config'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import { PageBody } from '../components/styles/PageBody'
 import Image from '../components/PostCard/image'
+import Bio from '../components/Bio'
 import PostCard from '../components/PostCard'
 import Layout from '../components/Layout'
+import { Styledh1, PreviousNext } from '../components/styles/ArticleStyles'
 
-const Styledh1 = styled.h1`
-  display: inline-block;
-  font-size: 32px;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 2;
-`
 const ButtonSecondary = styled(Link)`
   border: thin ${props => props.theme.white};
 `
@@ -38,7 +34,6 @@ const PaginationLink = props => {
     )
   }
 }
-
 export default class BlogPage extends Component {
   render () {
     const { location, pageContext } = this.props
@@ -132,50 +127,39 @@ export default class BlogPage extends Component {
         <section className='hero'>
           <Image />
         </section>
-        <section className='section'>
-          <div className='column is-10 is-offset-1'>
-            <Styledh1>
-              Blog | PubliusLogic
-            </Styledh1>
-            <p>✨ Listing all Posts.</p>
-            <p>
-              For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
-            </p>
-          </div>
-        </section>
-        <section>
-          <PostCard posts={group} />
-        </section>
-        <section>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
-              <div className='container content'>
-                <div className='columns is-desktop is-vcentered' style={{ marginTop: `2rem` }}>
-                  <div className='column is-7 is-offset-1'>
-                    <div className='field has-addons'>
-                      <span className='control'>
-                        {
-                          pageNumbers.map(number => {
-                            const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
-                            return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
-                          })
-                        }
-                      </span>
-                    </div>
-                  </div>
-                  <div className='column is-pulled-right'>
-                    <div className='field has-addons'>
-                      <span className='control'>
-                        {!first && <PaginationLink test={first} url={previousUrl} text='Previous' />}
-                        {!last && <PaginationLink test={last} url={nextUrl} text='Next' />}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+        <PageBody as='div'>
+          <Styledh1>
+            Blog
+          </Styledh1>
+          <Bio />
+          <p>✨ Listing all Posts.</p>
+          <p>
+            For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
+          </p>
+          <section>
+            <PostCard posts={group} />
+          </section>
+          <section>
+            <PreviousNext>
+              <div className='field has-addons'>
+                <span className='control'>
+                  {
+                    pageNumbers.map(number => {
+                      const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
+                      return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
+                    })
+                  }
+                </span>
               </div>
-            </div>
-          </div>
-        </section>
+              <div>
+                <span className='control'>
+                  {!first && <PaginationLink test={first} url={previousUrl} text='Previous' />}
+                  {!last && <PaginationLink test={last} url={nextUrl} text='Next' />}
+                </span>
+              </div>
+            </PreviousNext>
+          </section>
+        </PageBody>
       </Layout>
     )
   }

@@ -1,5 +1,31 @@
 import styled, { css } from 'styled-components'
+import { Grid } from '../styles/Grid'
+import mediaQuery from '../../utils/mediaQuery'
 import Img from 'gatsby-image'
+
+const asRow = css`
+  grid-column: 2/-2;
+  grid-auto-flow: column;
+  overflow: scroll;
+  grid-auto-columns: 18em;
+  padding: 1em;
+`
+
+const inBlog = css`
+  ${mediaQuery.maxPhablet} {
+    grid-column: 3;
+    justify-self: center;
+  }
+  ${mediaQuery.minPhablet} {
+    grid-column: 2/-3;
+  }
+`
+
+export const PostGrid = styled(Grid)`
+  height: max-content;
+  ${props => props.asRow && asRow};
+  ${props => props.inBlog && inBlog};
+`
 
 export const Posts = styled.article`
   height: 100%;
@@ -22,7 +48,7 @@ export const Cover = styled(Img).attrs(
   ({ fluid, src }) => !fluid && { as: (src && `img`) || `div` }
 )`
   height: calc(10em + 4vh);
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
 `
 

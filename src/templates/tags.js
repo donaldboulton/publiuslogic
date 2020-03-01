@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import { PageBody } from '../components/styles/PageBody'
 import Image from '../pages/tags/image'
 import { Styledh1 } from '../components/styles/ArticleStyles'
-
 class TagRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges
@@ -24,39 +24,27 @@ class TagRoute extends Component {
 
     return (
       <Layout pageTitle={title}>
-        <section className='hero is-medium'>
+        <section
+          className='post-cover'
+          style={{ marginBottom: '2rem' }}
+        >
           <Image />
-          <div className='hero-body'>
-            <div className='container'>
-              <div className='columns'>
-                <div className='column is-10 is-offset-1'>
-                  <div className='section'>
-                    <Styledh1>
-                      Tags
-                    </Styledh1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
-        <section className='section'>
-          <Helmet title={`${tag} | ${title}`} />
-          <div className='container content'>
-            <div className='columns'>
-              <div
-                className='column is-10 is-offset-1'
-                style={{ marginBottom: '6rem' }}
-              >
-                <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
-                <ul aria-label='Read More' className='taglist read-more'>{postLinks}</ul>
-                <p>
-                  <Link aria-label='Browse all tags' className='a' to='/tags/'>Browse all tags →</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageBody as='div'>
+          <Styledh1>
+            Tags
+          </Styledh1>
+          <section
+            style={{ marginBottom: '6rem' }}
+          >
+            <Helmet title={`${tag} | ${title}`} />
+            <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
+            <ul aria-label='Read More' className='taglist read-more'>{postLinks}</ul>
+            <p>
+              <Link aria-label='Browse all tags' className='a' to='/tags/'>Browse all tags →</Link>
+            </p>
+          </section>
+        </PageBody>
       </Layout>
     )
   }
