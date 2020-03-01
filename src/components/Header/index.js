@@ -7,9 +7,8 @@ import Login from '../Login'
 import Search from '../Search'
 
 const searchIndices = [
-  { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
+  { name: `Posts`, title: `Blog Posts`, type: `postHit` },
 ]
-
 
 const Header = () => {
   return (
@@ -29,7 +28,7 @@ const Header = () => {
         <Login
           css='grid-area: login;'
         />
-        <Search collapse indices={searchIndices} className='input' css='grid-area: search;' />
+        <Search collapse indices={searchIndices} css='grid-area: search;' />
       </HeaderContainer>
     </>
   )

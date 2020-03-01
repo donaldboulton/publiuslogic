@@ -27,7 +27,6 @@
     "test": "remark . --quiet --frail && node test.js"
   },
   "dependencies": {
-    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "@reach/dialog": "^0.2.3",
     "@reach/router": "^1.2.1",
     "@reach/tabs": "^0.1.3",

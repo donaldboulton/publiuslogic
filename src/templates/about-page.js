@@ -11,9 +11,6 @@ import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
 import Hr from '../components/Hr'
-import Slack from '../components/Slack'
-import HotJar from '../components/HotJar'
-import Subscriptions from '../components/Subscriptions'
 import Adds from '../components/GoogleAdds'
 import config from '../../_data/config'
 import Cloudinary from '../components/Cloudinary'
@@ -179,9 +176,6 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
             ))}
           </Grid>
         </div>
-        <Subscriptions />
-        <Slack />
-        <HotJar />
         <Adds />
         <Hr />
       </PageBody>

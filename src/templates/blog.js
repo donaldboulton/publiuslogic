@@ -13,7 +13,7 @@ const Styledh1 = styled.h1`
   font-size: 32px;
   text-align: center;
   text-transform: uppercase;
-  z-index: 22;
+  z-index: 2;
 `
 const ButtonSecondary = styled(Link)`
   border: thin ${props => props.theme.white};

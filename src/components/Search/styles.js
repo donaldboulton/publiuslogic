@@ -26,7 +26,7 @@ const focus = css`
   box-shadow: 0 1px 1px rgba(0,0,0,.125);
   color: #fff;
   cursor: text;
-  width: 7em;
+  width: 5em;
   + ${SearchIcon} {
     color: ${props => props.theme.darkerBlue};
     margin: 0 0.3em;
@@ -36,7 +36,7 @@ const focus = css`
 const collapsed = css`
   width: 0;
   cursor: pointer;
-  color: white;
+  color: ${props => props.theme.lighterBlue};
   ${props => props.focus && focus}
   margin-left: ${props => (props.focus ? `-1.6em` : `-1em`)};
   padding-left: ${props => (props.focus ? `1.6em` : `1em`)};
@@ -46,8 +46,8 @@ const collapsed = css`
 `
 
 const expanded = css`
-  background: ${props => props.theme.darkerGray};
-  width: 8em;
+  background: ${props => props.theme.darkBg};
+  width: 6em;
   margin-left: -1.6em;
   padding-left: 1.6em;
   + ${SearchIcon} {
@@ -61,7 +61,7 @@ export const Input = styled.input`
   font-size: 1em;
   background: transparent;
   transition: 0.3s;
-  background-color: transparent;
+  border-radius: ${props => props.theme.smallBorderRadius};
   ${props => (props.collapse ? collapsed : expanded)};
 `
 
@@ -73,7 +73,8 @@ export const Form = styled.form`
 
 export const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.darkBg};
+  color: white;
   max-height: 80vh;
   overflow: scroll;
   z-index: 2;
@@ -93,7 +94,7 @@ export const HitsWrapper = styled.div`
   }
   div + div {
     margin-top: 0.6em;
-    border-top: 1px solid ${props => props.theme.lighterGray};
+    border-top: 1px solid ${props => props.theme.darkGray};
   }
   mark {
     color: ${props => props.theme.lighterBlue};
@@ -120,10 +121,10 @@ export const HitsWrapper = styled.div`
 `
 
 export const PoweredBy = () => (
-  <span css="font-size: 0.6em; text-align: end; padding: 0;">
+  <span css='font-size: 0.6em; text-align: end; padding: 0;'>
     Powered by{` `}
-    <a href="https://algolia.com">
-      <Algolia size="1em" /> Algolia
+    <a href='https://algolia.com'>
+      <Algolia size='1em' /> Algolia
     </a>
   </span>
 )

@@ -7,7 +7,7 @@ import {
   IdentityModal,
   useIdentityContext,
 } from 'react-netlify-identity-widget'
-import { NavEntry, NavbarDropdown, NavbarDropdownContent } from '../Nav/Desktop/styles'
+import { NavEntry, SubNav } from '../Nav/Desktop/styles'
 
 const Login = () => {
   const identity = useIdentityContext()
@@ -24,17 +24,15 @@ const Login = () => {
       <div>
         {isLoggedIn ? (
           <>
-            <NavbarDropdown>
-              <NavEntry key={avatar_url}>
-                <button className='identity-logout button-transparent' onClick={() => setDialog(true)}>
-                  {avatar_url &&
-                    <UserAvatar
-                      className='user-icon'
-                      name={name} src={avatar_url}
-                    />}
-                </button>
-              </NavEntry>
-              <NavbarDropdownContent>
+            <NavEntry key={avatar_url}>
+              <button className='identity-logout button-transparent' onClick={() => setDialog(true)}>
+                {avatar_url &&
+                  <UserAvatar
+                    className='user-icon'
+                    name={name} src={avatar_url}
+                  />}
+              </button>
+              <SubNav>
                 <h3 className='menu-item'>Welcome!</h3>
                 <div className='menu-item'>😀 {name}</div>
                 <div className='menu-item'>{email}</div>
@@ -45,21 +43,19 @@ const Login = () => {
                     Logout&nbsp;<SignOutAlt size='1rem' color='#f5f5f5' />
                   </button>
                 </div>
-              </NavbarDropdownContent>
-            </NavbarDropdown>
+              </SubNav>
+            </NavEntry>
           </>
         ) : (
           <>
-            <NavbarDropdown>
-              <NavEntry key={avatarIcon}>
-                <button className='identity-login menu-item button-transparent' onClick={() => setDialog(true)}>
-                  <img className='user-icon' src={avatarIcon} alt='User' />
-                </button>
-              </NavEntry>
-              <NavbarDropdownContent>
+            <NavEntry key={avatarIcon}>
+              <button className='identity-login menu-item button-transparent' onClick={() => setDialog(true)}>
+                <img className='user-icon' src={avatarIcon} alt='User' />
+              </button>
+              <SubNav>
                 <Link className='menu-item' to='/login'>💕 New User Signup</Link>
-              </NavbarDropdownContent>
-            </NavbarDropdown>
+              </SubNav>
+            </NavEntry>
           </>
         )}
       </div>

@@ -100,7 +100,7 @@ export const HomeStyledh1 = styled.h1`
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   line-height: 2rem;
-  z-index: 22;
+  z-index: 3;
   background-position: 50% 50%;
   text-align: center;
 `

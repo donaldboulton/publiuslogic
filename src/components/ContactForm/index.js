@@ -72,7 +72,7 @@ const Modal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-  z-index: 2000;
+  z-index: 30;
   display: flex;
   flex-flow: column;
   align-items: flex-start;
@@ -91,7 +91,7 @@ const ModalOverlay = styled.div`
   right: 0;
   bottom: 0;
   position: fixed;
-  z-index: 1000;
+  z-index: 30;
   background-color: rgba(0,0,0,0.3);
   opacity: ${props => (props.visible ? '1' : '0')};
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};

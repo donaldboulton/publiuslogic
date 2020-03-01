@@ -10,9 +10,6 @@ import { HTMLContent } from '../components/Content'
 import ArticlePageTemplate from '../components/ArticlePageTemplate'
 import Share from '../components/Share'
 import Hr from '../components/Hr'
-import Slack from '../components/Slack'
-import HotJar from '../components/HotJar'
-import Subscriptions from '../components/Subscriptions'
 import Adds from '../components/GoogleAdds'
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
@@ -131,21 +128,6 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
         </div>
         <Comments />
         <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <Subscriptions
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <Slack
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <HotJar
           style={{
             marginBottom: rhythm(1),
           }}

@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components'
 import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
 import { Close as Cross } from 'styled-icons/material/Close'
-import mediaQuery from 'utils/mediaQuery'
+import mediaQuery from '../../utils/mediaQuery'
 
 const openTocDiv = css`
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.darkBg};
   color: ${props => props.theme.textColor};
   padding: 0.7em 1.2em;
   border-radius: 0.5em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  border: 1px solid ${props => props.theme.borderColor};
+  border: 1px solid white;
 `
 
 export const TocDiv = styled.div`
@@ -49,7 +49,7 @@ export const TocDiv = styled.div`
   }
   ${mediaQuery.maxLaptop} {
     position: fixed;
-    bottom: 1em;
+    bottom: 1.5em;
     left: 1em;
     ${props => !props.open && `height: 0;`};
     ${props => props.open && openTocDiv};
@@ -70,12 +70,13 @@ export const Title = styled.h2`
   padding-bottom: 0.5em;
   display: grid;
   grid-auto-flow: column;
+  color: white;
   align-items: center;
   grid-template-columns: auto auto 1fr;
 `
 
 export const TocLink = styled.a`
-  color: ${({ theme, active }) => (active ? theme.linkColor : theme.textColor)};
+  color: ${({ theme, active }) => (active ? theme.white : theme.white)};
   font-weight: ${props => props.active && `bold`};
   display: block;
   margin-left: ${props => props.depth + `em`};
@@ -84,27 +85,31 @@ export const TocLink = styled.a`
 `
 
 export const TocIcon = styled(BookContent)`
-  width: 1em;
+  width: 1.6em;
+  height: 1.4em;
   margin-right: 0.2em;
+  color: white;
 `
 
 const openerCss = css`
   position: fixed;
-  bottom: calc(1vh + 4em);
+  bottom: calc(2vh + 4em);
   ${mediaQuery.minPhablet} {
-    bottom: calc(1vh + 1em);
+    bottom: calc(2vh + 1em);
   }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  background: ${props => props.theme.background};
-  border: 2px solid ${props => props.theme.borderColor};
+  background: ${props => props.theme.darkBg};
+  color: white;
+  border: 2px solid white;
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
 `
 
 const closerCss = css`
   margin-left: 1em;
-  border: 1px solid ${props => props.theme.borderColor};
+  border: 1px solid white;
+  color: white;
   border-radius: 50%;
 `
 

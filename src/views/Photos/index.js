@@ -13,7 +13,7 @@ const ClusterIcon = color => `
     <circle cx="120" cy="120" opacity=".2" r="120" />
   </svg>`
 
-function addMarkers(map, { photos, setModal }) {
+function addMarkers (map, { photos, setModal }) {
   const markers = photos.map(({ caption, lat, lng }, index) => {
     const marker = new window.google.maps.Marker({
       map,
@@ -24,6 +24,7 @@ function addMarkers(map, { photos, setModal }) {
     marker.addListener(`click`, () => setModal(index))
     return marker
   })
+  // eslint-disable-next-line no-new
   new MarkerClusterer(map, markers, {
     styles: [`blue`, `green`, `red`].map(color => ({
       url: `data:image/svg+xml;base64,${window.btoa(ClusterIcon(color))}`,
@@ -35,7 +36,7 @@ function addMarkers(map, { photos, setModal }) {
   })
 }
 
-export default function Photos({ tab, photos, modal, setModal }) {
+export default function Photos ({ tab, photos, modal, setModal }) {
   const currentPhoto = modal >= 0 && modal < photos.length && photos[modal]
   return (
     <>
@@ -52,7 +53,7 @@ export default function Photos({ tab, photos, modal, setModal }) {
           options={{ center: { lat: 40, lng: 10 }, zoom: 3, disableDefaultUI: true }}
           onMount={addMarkers}
           onMountProps={{ photos, setModal }}
-          css="height: 75vh;"
+          css='height: 75vh;'
         />
       )}
       <Modal
@@ -61,16 +62,16 @@ export default function Photos({ tab, photos, modal, setModal }) {
         whiteControls
         fullScreenDefault
         showArrows
-        css="background: black; overflow: hidden;"
+        css='background: black; overflow: hidden;'
       >
         <Img
           alt={currentPhoto.caption}
           fluid={currentPhoto.fluid}
           imgStyle={{ objectFit: `contain` }}
-          css="height: 100%;"
+          css='height: 100%;'
         />
         <Caption>
-          <h3 css="margin: 0;">{currentPhoto.caption}</h3>
+          <h3 css='margin: 0;'>{currentPhoto.caption}</h3>
         </Caption>
       </Modal>
     </>

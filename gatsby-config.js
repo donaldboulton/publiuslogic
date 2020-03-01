@@ -385,22 +385,6 @@ module.exports = {
       },
     },
     {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
-      options: {
-        // Fields to index
-        fields: [`title`, `tags`],
-        // How to resolve each field`s value for a supported node type
-        resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
-          MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            tags: node => node.frontmatter.tags,
-            slug: node => node.fields.slug,
-          },
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-mailchimp`,
       options: {
         endpoint: 'https://donboulton.us4.list-manage.com/subscribe/post?u=946962f91a21100144db815b9&amp;id=c2a27bdd5f', // see instructions at official plugin page

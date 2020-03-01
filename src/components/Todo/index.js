@@ -6,6 +6,7 @@ import SettingsIcon from '../SettingsIcon'
 import api from '../../utils/api'
 import sortByDate from '../../utils/sortByDate'
 import isLocalHost from '../../utils/isLocalHost'
+import './styles.scss'
 class ToDo extends React.Component {
   state = {
     todos: [],

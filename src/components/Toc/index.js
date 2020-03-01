@@ -62,7 +62,7 @@ export default function Toc ({ headingSelector, getTitle, getDepth, ...rest }) {
           {tocTitle}
           <TocToggle onClick={() => setOpen(false)} />
         </Title>
-        <nav>
+        <nav className='linktoc'>
           {headings.titles.map(({ title, depth }, index) => (
             <TocLink
               key={title}

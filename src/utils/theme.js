@@ -63,7 +63,7 @@ export const lightTheme = {
   activeLinks: theme.darkestBlue,
 
   shadowColor: theme.lighterGray,
-  borderColor: theme.lighterGray,
+  borderColor: theme.lightBlue,
 
   headerBg: theme.darkerBlue,
   footerBg: theme.darkerGray,
@@ -72,7 +72,6 @@ export const lightTheme = {
   hoveredButtonBg: theme.lightBlue,
   grayButtonBg: theme.lightestGray,
   grayHoveredButtonBg: theme.orange,
-
   inlineCodeColor: theme.lighterGray,
 }
 
@@ -87,7 +86,7 @@ export const darkTheme = {
   activeLinks: theme.lightOrange,
 
   shadowColor: theme.darkestGray,
-  borderColor: theme.darkestGray,
+  borderColor: theme.darkOrange,
 
   headerBg: theme.darkestGray,
   footerBg: theme.darkestGray,
@@ -96,7 +95,6 @@ export const darkTheme = {
   hoveredButtonBg: theme.green,
   grayButtonBg: theme.darkGray,
   grayHoveredButtonBg: theme.orange,
-
   inlineCodeColor: theme.darkestGray,
 }
 

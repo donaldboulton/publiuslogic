@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { ThMenu } from 'styled-icons/typicons/ThMenu'
 import { NavLink } from '../styles'
 import { Close as Cross } from 'styled-icons/material/Close'
-import mediaQuery from 'utils/mediaQuery'
+import mediaQuery from '../../../utils/mediaQuery'
 
 export { NavLink }
 export { KeyboardArrowDown as ArrowDown } from 'styled-icons/material/KeyboardArrowDown'
@@ -17,9 +17,10 @@ export const MobileNavDiv = styled.nav`
   max-width: 12em;
   position: fixed;
   top: 0;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: ${props => props.theme.darkBg};
   padding: 0.8em 1.5em 0.8em 1.8em;
   font-size: 1.2em;
   right: 100%;
@@ -62,11 +63,12 @@ export const Children = styled(animated.div)`
 const openerCss = css`
   z-index: 2;
   position: fixed;
-  bottom: 2vh;
+  bottom: 5vh;
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  background: ${props => props.theme.background};
-  border: 2px solid ${props => props.theme.borderColor};
+  background: ${props => props.theme.darkBg};
+  border: 2px solid white;
+  color: white;
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
 `
