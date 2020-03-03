@@ -1,9 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { kebabCase } from 'lodash'
-import Menu from 'react-burger-menu/lib/menus/stack'
 import { Tags } from 'styled-icons/fa-solid/Tags'
-import { StyledTableMenu, TableOfContents, PageTitle, ArticleTocIcon } from '../styles/ArticleStyles'
+import { NavEntry, SubNav } from '../Nav/Desktop/styles'
+import { TableOfContents, PageTitle, ArticleTocIcon } from '../styles/ArticleStyles'
 
 const SiteTags = ({ group }) => {
   const data = useStaticQuery(graphql`
@@ -17,11 +17,12 @@ const SiteTags = ({ group }) => {
       }
     `)
   return (
-    <StyledTableMenu>
-      <Menu right customBurgerIcon={<Tags />}>
+    <NavEntry key={tag}>
+        <Tags />
+      <SubNav>
         <PageTitle>
           <ArticleTocIcon />
-          | Site Tags
+            | Site Tags
         </PageTitle>
         <TableOfContents>
           <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
@@ -37,8 +38,8 @@ const SiteTags = ({ group }) => {
             ))}
           </ul>
         </TableOfContents>
-      </Menu>
-    </StyledTableMenu>
+      </SubNav>
+    </NavEntry>
   )
 }
 

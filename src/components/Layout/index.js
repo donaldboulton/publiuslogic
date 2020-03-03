@@ -7,13 +7,11 @@ import Scroll from '../Scroll'
 import ScrollDown from '../ScrollDown'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../utils/theme'
-import SideBar from '../SiteTags'
 import { GlobalStyle } from './styles'
 function Layout ({ children, location }) {
   return (
     <>
-      <SideBar pageWrapId='page-wrap' outerContainerId='gatsby-focus-wrapper' />
-      <div id='page-wrap'>
+      <div>
         <ThemeProvider theme={theme} location={location}>
           <GlobalStyle />
           <Header className='header' />

@@ -1,19 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
+import { Grid } from '../styles/Grid'
+import mediaQuery from '../../utils/mediaQuery'
+
+const asRow = css`
+grid-column: 2/-2;
+grid-auto-flow: column;
+overflow: scroll;
+grid-auto-columns: 18em;
+padding: 1em;
+`
+
+const inBlog = css`
+${mediaQuery.maxPhablet} {
+  grid-column: 3;
+  justify-self: center;
+}
+${mediaQuery.minPhablet} {
+  grid-column: 2/-3;
+}
+`
+const BlogGrid = styled(Grid)`
+height: max-content;
+${props => props.asRow && asRow};
+${props => props.inBlog && inBlog};
+`
 
 const Offerings = ({ gridItems }) => (
-  <div className='columns is-multiline'>
+  <BlogGrid>
     {gridItems.map(item => (
-      <div key={item.image} className='column is-6' style={{ borderRadius: '5px' }}>
+      <div key={item.image}>
         <section>
-          <p className='has-text-centered'>
-            <img alt='' src={item.image} />
+          <p>
+            <img alt='Post Image' src={item.image} />
           </p>
           <p>{item.text}</p>
         </section>
       </div>
     ))}
-  </div>
+  </BlogGrid>
 )
 
 Offerings.propTypes = {

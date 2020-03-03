@@ -8,6 +8,8 @@ const { fonts, minFontSize, maxFontSize, minLineHeight, maxLineHeight } = typogr
 export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    z-index: 0;
+    position: static;
     hyphens: auto;
     font-family: ${fonts};
     font-size: ${minFontSize}em;
@@ -40,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
     grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
     grid-gap: 1em 2em;
     text-align: center;
-    &.docs {
+    &.posts {
     grid-gap: 1em;
       p {
         margin: 0;
@@ -63,23 +65,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   blockquote {
     margin: 0;
-  }
-  .main {
-    grid-area: main;
-    justify-items: center;
-  }
-  .sidebar {
-    grid-area: sidebar;
-    justify-items: end;
-    align-content: start;
-  }
-  .grid-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto;
-    justify-content: space-between;
-    grid-template-areas: 
-      ": main main sidebar"
   }
   table {
     border-collapse: collapse;

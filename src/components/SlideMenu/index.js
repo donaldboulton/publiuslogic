@@ -71,7 +71,7 @@ const StyledBurgerMenu = styled.div`
   }
   ul {
     max-height: 78vh;
-    outline: none !important;
+    outline: none;
   }
   .bm-overlay {
     background: rgba(0, 0, 0, 0.59);
@@ -80,7 +80,7 @@ const StyledBurgerMenu = styled.div`
 const TableOfContents = styled.div`
   ul {
     textIndent: -1em hanging;
-    outline: none !important;
+    outline: none;
   }
   li {
     margin-bottom: 1em;

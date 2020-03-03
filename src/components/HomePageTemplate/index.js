@@ -1,7 +1,11 @@
 import React from 'react'
-import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
+import StyledBackgroundSection from './image'
 import PropTypes from 'prop-types'
+import Bio from '../Bio'
+import { PageBody } from '../styles/PageBody'
+import { Styledh1 } from '../styles/ArticleStyles'
+import './styles.sass'
 
 const HomePageTemplate = ({
   title,
@@ -13,79 +17,57 @@ const HomePageTemplate = ({
   meta_description,
   testimonials,
 }) => (
-  <>
-    <div className='columns'>
-      <div className='column'>
-        <div className='content'>
-          <div>
-            <h3 className='has-text-weight-semibold is-size-2'>
-              {heading}
-            </h3>
-            <p>{description}</p>
-          </div>
-          <Offerings gridItems={offerings.blurbs} />
-          <section>
-            <div className='columns is-multiline'>
-              <div>
-                <h2 className='has-text-weight-semibold is-size-2'>Check our our Tutorials below</h2>
-              </div>
-              <div className='is-parent column is-6'>
-                <article className='is-child'>
-                  <a href='/blog/gatsby-github-comments-utterances/'>
-                    <figure className='image is-2by1'>
-                      <img src='../../../images/utterances.jpg' alt='Gatsby GitHub Comments Utterances' />
-                    </figure>
-                  </a>
-                  <p>
-                    <a className='is-size-4' href='/blog/gatsby-github-comments-utterances/'>Gatsby Comments Utterances</a>
-                  </p>
-                  <p>
-                    <span className='subtitle is-size-5'>
-                      <small>April 16, 2019</small>
-                    </span>
-                  </p>
-                  <p>
-                    React withUtterances  Repo Why use Utterances Taken From: bhnywl.com Lets say all your users are developers and already have a GitHub account so they don’t need to sign up for yet another 3rd party service like Disqus (which will also track their every move through the web 😈)
-                    Unlike Staticman GitHub Issues are truly dynamic so new comments will show without having to wait for your site to rebuild…
-                  </p>
-                  <br />
-                  <p>
-                    <a className='button is-small' href='/blog/gatsby-github-comments-utterances/'>Keep Reading →</a>
-                  </p>
-                </article>
-              </div>
-              <div className='is-parent column is-6'>
-                <article className='is-child'>
-                  <a href='/blog/modali-hooks-modal/'>
-                    <figure className='image is-2by1'>
-                      <img src='../../../images/modali-logo.jpg' alt='Modali Hooks Modals' />
-                    </figure>
-                  </a>
-                  <p>
-                    <a className='is-size-4' href='/blog/modali-hooks-modal/'>Modali Hooks Modal</a>
-                  </p>
-                  <p>
-                    <span className='subtitle is-size-5'>
-                      <small>April 21, 2019</small>
-                    </span>
-                  </p>
-                  <p>
-                    You can read about how Modali built at Upmostly. My Modali Modal can be seen further down in the page in Subscribe section email me icon on the Right. Which brings up the modal with a Netlify Posted, React Hooks email form using hooks for validation. Posting to Netlify - lambda functions to slack for instant notifications and a email to me. React Hooks Email form and validation is built with the help from...
-                  </p>
-                  <br />
-                  <p>
-                    <a className='button is-small' href='/blog/modali-hooks-modal/'>Keep Reading →</a>
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-          <h2 className='has-text-weight-semibold is-size-2'>Testimonials</h2>
-          <Testimonials testimonials={testimonials} />
+  <div>
+    <StyledBackgroundSection className='post-cover cover-container'>
+      <div
+        style={{
+          height: `400px`,
+          width: `100vw`,
+          display: `flex`,
+          placeContent: `start`,
+        }}
+      >
+        <div
+          className='hero-body'
+          style={{
+            placeSelf: `center`,
+            textAlign: `center`,
+            height: `50vh`,
+            maxWidth: 1260,
+            padding: `0px 1.0875rem 1.45rem`,
+            marginTop: `10rem`,
+          }}
+        >
+          <div className='overlay'>PubliusLogic</div>
         </div>
       </div>
-    </div>
-  </>
+    </StyledBackgroundSection>
+    <PageBody as='div'>
+      <div>
+        <Styledh1>
+          {heading}
+        </Styledh1>
+        <p>{description}</p>
+      </div>
+      <Bio />
+      <section className='grid-section'>
+        <p className='chapter'>As Of <small>April 16, 2019</small></p>
+        <h2 className='h-italic'><span>Publius Logic</span> <span>Logic Tech Site</span></h2>
+        <img src='../../../img/home-back.svg' alt='' />
+        <h2 className='h-color-white'>Js Screen matchMedia Grid, Styled Components Layout</h2>
+        <div className='text-content'>
+          <p>Built with ❤️ and Jamaican Blue Mountain Coffee. PubliusLogic is a collection of tutorials by the Publius on a lot of human subjects. Since I have never had anyone work on anything of mine I build my own website's and enjoy coding it a lot. The tutorials on this site are based on Gatsby, React, ReactHooks, Styled Components.</p>
+          <p>Our name was taken from publications of 85 articles in mostly New York papers. The Publius was published anonymously as the - Federalist Papers.</p>
+          <a href='/about' className='c-btn'>Read More</a>
+        </div>
+        <div className='tree' />
+      </section>
+      <section>
+        <h2 className='has-text-weight-semibold is-size-2'>Testimonials</h2>
+        <Testimonials testimonials={testimonials} />
+      </section>
+    </PageBody>
+  </div>
 )
 
 HomePageTemplate.propTypes = {
@@ -95,11 +77,7 @@ HomePageTemplate.propTypes = {
   meta_description: PropTypes.string,
   heading: PropTypes.string,
   description: PropTypes.string,
-  offerings: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
   testimonials: PropTypes.array,
-
 }
 
 export default HomePageTemplate

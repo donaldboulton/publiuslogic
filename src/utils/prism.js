@@ -1,4 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
+require('prismjs')
+require('prismjs/plugins/toolbar/prism-toolbar.js')
+require('prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js')
+require('prismjs/components/prism-javascript')
+require('prismjs/components/prism-css')
+require('prismjs/components/prism-scss')
+require('prismjs/components/prism-jsx')
+require('prismjs/components/prism-bash')
+require('prismjs/components/prism-json')
+require('prismjs/components/prism-diff')
+require('prismjs/components/prism-markdown')
+require('prismjs/components/prism-graphql')
 
 const langExtColor = [
   { lang: `javascript`, tag: `js`, color: `#f7df1e` },
@@ -84,7 +96,7 @@ export default createGlobalStyle`
     margin: 0;
   }
   pre[class*='language-'] {
-    overflow-y: hidden !important;
+    overflow-y: hidden;
     overflow-x: scroll;
   }
   pre[class*='language-']::-webkit-scrollbar-thumb {
@@ -133,16 +145,16 @@ export default createGlobalStyle`
   .number {
     -webkit-align-items: center;
     align-items: center;
-    background-color: #c93c00 !important;
+    background-color: #c93c00;
     border-radius: 290486px;
     display: -webkit-inline-flex;
     display: inline-flex;
     font-size: 1.25rem;
-    height: 1.3em !important;
+    height: 1.3em;
     -webkit-justify-content: center;
     justify-content: center;
     margin-right: 1.5rem;
-    min-width: 2em !important;
+    min-width: 2em;
     padding: .25rem .5rem;
     text-align: center;
     vertical-align: top;
@@ -220,7 +232,7 @@ export default createGlobalStyle`
   not(pre) > code[class*="language-"] {
     color: black;
     border-radius: 0.2em;
-    background: #c93c00 !important;
+    background: #c93c00;
     padding: 0.15em 0.2em 0.05em;
   }
 
@@ -233,8 +245,8 @@ export default createGlobalStyle`
 
   div.code-toolbar>.toolbar {
     position: absolute;
-    top: 1em !important;
-    right: .5em !important;
+    top: 1em;
+    right: .5em;
     transition: opacity .3s ease-in-out;
     opacity: 0;
   }
@@ -245,8 +257,8 @@ export default createGlobalStyle`
 
   pre.code-toolbar > .toolbar {
     position: absolute;
-    top: 1em !important;
-    right: .5em !important;
+    top: 1em;
+    right: .5em;
     background: ${props => props.theme.darkBg};
     border-radius: .5em;
   }

@@ -17,11 +17,11 @@ export const PreviousNext = styled.div`
 `
 export const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 32px;
+  font-size: 1.8em;
   font-family: 'Roboto', sans-serif;
   line-height: 2rem;
-  margin: 0px;
-  margin-top: 10px;
+  margin-top: 2em;
+  margin-top: 2em;
 `
 export const Rating = styled.div`
   font-size: 0.9em;
@@ -48,7 +48,7 @@ export const StyledTableMenu = styled.div`
   .bm-cross-button {
     height: 30px;
     width: 15px;
-    left: 8px !important;
+    left: 8px;
   }
   .bm-cross {
     background: #bdc3c7;
@@ -94,7 +94,7 @@ export const StyledTableMenu = styled.div`
 export const TableOfContents = styled.div`
   ul {
     textIndent: -1em hanging;
-    outline: none !important;
+    outline: none;
   }
   li {
     margin-bottom: 1em;
@@ -103,7 +103,9 @@ export const TableOfContents = styled.div`
 export const HomeStyledh1 = styled.h1`
   display: inline-block;
   padding-top: 2em;
-  font-size: 32px;
+  margin-top: 2em;
+  margin-top: 2em;
+  font-size: 1.8em;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   line-height: 2rem;

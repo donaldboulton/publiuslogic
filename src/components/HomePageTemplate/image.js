@@ -44,7 +44,6 @@ const BackgroundSection = () => (
 const StyledSymetryWrapper = styled.div`
   width: 100vw;
   height: 400px;
-  overflow: hidden;
   grid-area: post-cover;
 `
 const StyledWelcomeImage = styled(Img)`
@@ -53,7 +52,7 @@ const StyledWelcomeImage = styled(Img)`
   z-index: 1;
   background-clip: border-box;
   background-origin: border-box;
-  position: absolute !important;
+  position: absolute;
 `
 const StyledBackgroundSection = styled(BackgroundSection)`
   position: relative;
@@ -84,7 +83,6 @@ const StyledWrapper = styled.div`
   width: 100vw;
   height: 400px;
   display: flex;
-  overflow: hidden;
 `
 const Styledh1 = styled.h1`
   display: inline-block;

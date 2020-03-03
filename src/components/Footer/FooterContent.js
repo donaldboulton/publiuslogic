@@ -10,43 +10,48 @@ import Rss from './Rss'
 export default function FooterContent () {
   return (
     <FooterContainer>
-      <span css='grid-area: copyright;'>
-        {config.copyright} - <Link className='a' title='PubliusLogic Home' href='/' rel='noopener noreferrer'>PubliusLogic</Link>
-        &emsp; <Rss />
-      </span>
-      <span
-        css='grid-area: source;'
-      >
-        This site is open<a className='a' rel='me noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic'>&nbsp;source</a>
-      </span>
-      <PoweredBy
-        style={{
-          display: `flex`,
-        }}
-      >
-        Powered by
-        <a title='Gatsby' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
-          <img
-            className='footer-icon'
-            src={gatsby}
-            alt='Gatsby'
-          />
-        </a>
-        <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
-          <img
-            className='footer-icon'
-            src={github}
-            alt='GitHub'
-          />
-        </a>
-        <a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
-          <img
-            className='footer-icon'
-            src={netlify}
-            alt='Netlify'
-          />
-        </a>
-      </PoweredBy>
+      <div className='footerBg'>
+        <span css='grid-area: copyright;'>
+          {config.copyright} - <Link className='a' title='PubliusLogic Home' href='/' rel='noopener noreferrer'>PubliusLogic</Link>
+          <Rss />
+        </span>
+        <span
+          css='grid-area: source;'
+        >
+          This site is open<a className='a' rel='me noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic'>&nbsp;source</a>
+        </span>
+        <PoweredBy
+          style={{
+            display: `flex`,
+          }}
+        >
+          Powered by
+          &nbsp;
+          <a title='Gatsby' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
+            <img
+              className='footer-icon'
+              src={gatsby}
+              alt='Gatsby'
+            />
+          </a>
+        &nbsp;
+          <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
+            <img
+              className='footer-icon'
+              src={github}
+              alt='GitHub'
+            />
+          </a>
+        &nbsp;
+          <a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
+            <img
+              className='footer-icon'
+              src={netlify}
+              alt='Netlify'
+            />
+          </a>
+        </PoweredBy>
+      </div>
     </FooterContainer>
   )
 }

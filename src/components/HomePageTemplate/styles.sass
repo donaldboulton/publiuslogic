@@ -1,0 +1,161 @@
+root
+  --italic-header: 2rem  
+  img
+    max-width: 100%
+  .c-btn
+      display: -ms-inline-flexbox
+      display: inline-flex
+      -ms-flex-pack: center
+      justify-content: center
+      background-color: #000
+      border-radius: 4px
+      padding: 13px
+      min-width: 177px
+      text-transform: uppercase
+      font-weight: 500
+      letter-spacing: .84px
+      color: white
+      text-decoration: none
+  
+  .chapter
+    color: #a3a3a3
+    font-size: 15px
+    font-weight: 700
+    position: relative
+    margin: 0 0 0 56px
+  
+  .chapter:before
+    content: ""
+    width: 50px
+    position: absolute
+    left: -56px
+    top: 50%
+    transform: translateY(-50%)
+    height: 2px
+    background-color: #a3a3a3
+  
+  .h-italic
+      font-size: 2rem
+      line-height: 1.25
+      text-transform: uppercase
+      font-style: italic
+  
+  /* LAYOUT THINGS do we support grid? hell yeah!  */
+  
+  @supports (display: grid)
+    @media screen and (min-width: 320px)
+      
+      .grid-section
+          display:grid
+          grid-template-columns: 1rem 1fr 1rem
+          grid-template-rows: 30px var(--italic-header)  60px min-content min-content 100px
+      
+      .chapter
+         grid-row: 1
+         grid-column: 2
+         align-self: center
+      
+      .h-italic
+          /* we can have a bigger font now */  
+          font-size: var(--italic-header)
+          grid-column: 2
+          grid-row: 3
+          /* make the heading a little grid too for the for/aft positioning */
+          display:grid
+          grid-template-columns: 25px 1fr 25px
+          grid-template-rows: 1fr 1fr
+  
+      .h-italic span
+        grid-column: 1/3
+  
+      .h-italic .h-offset
+        grid-column: 2/3
+  
+      .h-italic
+        grid-column: 2/3
+        grid-row: 3
+    
+      .h-italic
+         grid-row: 2/3
+         grid-column: 2
+         font-style: initial
+    
+      .h-color-white
+        grid-row: 4
+        grid-column: 1/-1
+        align-self: flex-start
+        justify-self: flex-end
+        text-align: left
+        padding: 3rem 2rem
+        width: 45%
+        font-style: italic
+        color: white
+        text-transform:uppercase
+        font-size: 1.5rem
+        line-height: 1.2
+    
+      .text-content
+         grid-row: 5
+         grid-column: 2
+         padding: 2rem
+    
+      img
+        grid-row: 4
+        grid-column: 1/-1
+    
+      .tree
+        grid-row: 4/-1
+        grid-column: 1/-1
+        z-index: -1
+        background-color: transparent
+        background-image: url('../../../img/home-back-right.jpg')
+        background-size: 60%
+        background-repeat: no-repeat
+        background-position: bottom right
+        padding: 3rem calc(10vw + 100px) 3rem 25px
+
+  /*Full on grid layout for big screens. we got this..   */
+  
+  @media screen and (min-width: 768px)
+    .grid-section
+      --italic-header: 3vw
+      display: grid
+      grid-template-columns: 100px 1fr 100px 1fr
+      grid-template-rows: 40px calc(var(--italic-header) - 1px)  1fr 50px
+      padding-top: 2rem
+    
+    .h-italic
+       font-size: var(--italic-header)
+  
+    .text-content
+      grid-column: 2/4
+      grid-row: 3/-1
+      padding: 5rem calc(3rem + 100px) 0 25px
+      padding-bottom: 25vw
+  
+    .text-content p
+      max-width: 280px
+  
+    .text-content p:last-of-type
+      margin-bottom: 3rem
+    
+    .h-color-white
+      grid-column: 3/-1
+      grid-row: 1/4
+      position: relative
+      align-self: center
+      justify-self: center
+      text-align: right
+      font-size: 2.5rem
+      width: 75%
+  
+    img
+      grid-column: 3/-1
+      grid-row: 1/4
+      width: 100%
+      height: 100%
+      object-fit: cover
+  
+    .tree
+      grid-column: 1/4
+      grid-row: 3/-1

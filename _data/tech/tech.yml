@@ -53,15 +53,3 @@
 - title: Styled-C
   url: https://www.styled-components.com
   logo: ../../static/logos/styled-components.svg
-
-- title: Webpack
-  url: https://webpack.js.org
-  logo: ../../static/logos/webpack.svg
-
-- title: Netlify
-  url: https://app.netlify.com/sites/publiuslogic/deploys
-  logo: ../../static/logos/logomark.svg
-
-- title: MS Edge
-  url: https://www.microsoft.com/en-us/edge
-  logo: ../../static/logos/edge.svg  

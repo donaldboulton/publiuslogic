@@ -91,7 +91,7 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
           </span>
         </MetaPage>
         <div>
-          <main>{renderAst(postNode.htmlAst)}</main>
+          <main className='main'>{renderAst(postNode.htmlAst)}</main>
           <ArticlePageTemplate
             content={postNode.html}
             contentComponent={HTMLContent}
@@ -142,7 +142,7 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <div>{showToc && <Toc className='toc sticky' />}</div>
+        <sidebar>{showToc && <Toc className='toc sticky sidebar' />}</sidebar>
       </PageBody>
     </Layout>
   )

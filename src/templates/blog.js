@@ -12,7 +12,27 @@ import Layout from '../components/Layout'
 import { Styledh1, PreviousNext } from '../components/styles/ArticleStyles'
 
 const ButtonSecondary = styled(Link)`
-  border: thin ${props => props.theme.white};
+  margin: 2em auto;
+  border-radius: ${props => props.theme.mediumBorderRadius};
+  overflow: hidden;
+  button {
+    font-size: 1.3em;
+    border: none;
+    outline: none;
+    background: ${props => props.theme.links};
+    color: white;
+    padding: 0.2em 0.6em;
+    width: max-content;
+    font-size: ${props => props.size};
+    transition: ${props => props.theme.shortTrans};
+    :hover {
+      background: ${props => props.theme.hoveredLinks};
+    }
+    &.active {
+      background: ${props => props.theme.activeLinks};
+      box-shadow: inset 0 0 0.3em black;
+    }
+  }
 `
 const ButtonDisabled = styled.div`
   background: transparent;

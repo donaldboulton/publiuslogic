@@ -50,7 +50,7 @@ module.exports = {
       '/api/',
       proxy({
         target: 'http://localhost:5000',
-      })
+      }),
     )
   },
   plugins: [
@@ -395,14 +395,6 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
       options: {
         globPatterns: ['**/*.{js,jpg,html,css}'],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        manualInit: true,
-        enableIdentityWidget: false,
       },
     },
     {

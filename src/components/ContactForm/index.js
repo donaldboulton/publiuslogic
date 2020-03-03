@@ -56,7 +56,7 @@ const ModalButton = styled.button`
   cursor:pointer;
   border-radius:4px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
-  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2)) !important;
+  background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   color: #fff;
 `

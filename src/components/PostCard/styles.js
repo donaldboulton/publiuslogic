@@ -29,7 +29,7 @@ export const PostGrid = styled(Grid)`
 
 export const Posts = styled.article`
   height: 100%;
-  width: 100vw;
+  width: 100v%;
   display: grid;
   border-radius: ${props => props.theme.mediumBorderRadius};
   border: 1px solid ${props => props.theme.lightGray};

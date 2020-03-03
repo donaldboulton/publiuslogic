@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { HomePageTemplate } from '../../components/HomePageTemplate'
+import HomePageTemplate from '../../src/components/HomePageTemplate'
 
-const HomePagePreview = ({ entry, widgetFor }) => {
+const HomePagePreview = ({ entry, getAsset }) => {
   const entryBlurbs = entry.getIn(['data', 'offerings', 'blurbs'])
   const blurbs = entryBlurbs ? entryBlurbs.toJS() : []
 
@@ -12,16 +12,10 @@ const HomePagePreview = ({ entry, widgetFor }) => {
   return (
     <HomePageTemplate
       title={entry.getIn(['data', 'title'])}
-      cover={entry.getIn(['data', 'cover'])}
-      date={entry.getIn(['data', 'datetime'])}
-      category={entry.getIn(['data', 'category'])}
-      tags={entry.getIn(['data', 'tags'])}
       meta_title={entry.getIn(['data', 'meta_title'])}
       meta_description={entry.getIn(['data', 'meta_description'])}
-      tweet_id={entry.getIn(['data', 'tweet_id'])}
-      content={widgetFor('body')}
-      path={entry.getIn(['data', 'path'])}
-      slug={entry.getIn(['data', 'slug'])}
+      heading={entry.getIn(['data', 'heading'])}
+      description={entry.getIn(['data', 'description'])}
       offerings={{ blurbs }}
       testimonials={testimonials}
     />
@@ -32,7 +26,7 @@ HomePagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
-  widgetFor: PropTypes.func,
+  getAsset: PropTypes.func,
 }
 
 export default HomePagePreview

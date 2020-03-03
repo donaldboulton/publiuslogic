@@ -15,9 +15,7 @@ const PostCard = ({ posts, category, date, timeToRead, inTitle = false }) => {
           >
             <p>
               <Link to={post.fields.slug}>
-                <Cover>
-                  <img src={post.frontmatter.cover} alt={post.frontmatter.title} />
-                </Cover>
+                <Cover src={post.frontmatter.cover} alt={post.frontmatter.title} />
               </Link>
               <p>
                 <Link aria-label='Post Link' className='is-size-4' to={post.fields.slug}>
