@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import mediaQuery from '../../utils/mediaQuery'
 
 export const HeaderContainer = styled.header`
-  background: ${props => props.theme.darkBg};
   top: 0;
   width: 100vw;
   display: grid;
@@ -13,7 +12,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   grid-template-areas: 'title nav toggle login search';
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto 1fr auto auto auto auto;
   padding: 2vmin 3vmin;
   color: white;
   font-size: 1.2em;

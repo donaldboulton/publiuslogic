@@ -264,6 +264,8 @@ body.light-mode {
     background: linear-gradient(180deg,rgba(0,163,150,.2),rgba(0,194,178,.2));
     background-color: #00a396;
     color: #ffffff;
+    justify-content: center;
+    padding: calc(.5em - 1px) 1em;
   }
   .button:focus {
     background: #00c2b2;
@@ -492,6 +494,8 @@ body.dark-mode .button {
   background-color: #d64000;
   border-color: transparent;
   color: #dbdbdb;
+  justify-content: center;
+  padding: calc(.5em - 1px) 1em;
 }
 body.dark-mode .button:hover {
   border-color: #c93c00;

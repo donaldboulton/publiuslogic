@@ -17,11 +17,11 @@ export const PreviousNext = styled.div`
 `
 export const Styledh1 = styled.h1`
   display: inline-block;
-  font-size: 1.8em;
+  font-size: 32px;
   font-family: 'Roboto', sans-serif;
   line-height: 2rem;
-  margin-top: 2em;
-  margin-top: 2em;
+  margin: 0px;
+  margin-top: 10px;
 `
 export const Rating = styled.div`
   font-size: 0.9em;
@@ -103,13 +103,11 @@ export const TableOfContents = styled.div`
 export const HomeStyledh1 = styled.h1`
   display: inline-block;
   padding-top: 2em;
-  margin-top: 2em;
-  margin-top: 2em;
-  font-size: 1.8em;
+  font-size: 32px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   line-height: 2rem;
-  z-index: 3;
+  z-index: 22;
   background-position: 50% 50%;
   text-align: center;
 `

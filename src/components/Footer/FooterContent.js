@@ -13,6 +13,7 @@ export default function FooterContent () {
       <div className='footerBg'>
         <span css='grid-area: copyright;'>
           {config.copyright} - <Link className='a' title='PubliusLogic Home' href='/' rel='noopener noreferrer'>PubliusLogic</Link>
+        &nbsp;&nbsp;
           <Rss />
         </span>
         <span
@@ -26,7 +27,7 @@ export default function FooterContent () {
           }}
         >
           Powered by
-          &nbsp;
+          &nbsp;&nbsp;
           <a title='Gatsby' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
             <img
               className='footer-icon'
@@ -34,7 +35,7 @@ export default function FooterContent () {
               alt='Gatsby'
             />
           </a>
-        &nbsp;
+        &nbsp;&nbsp;
           <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
             <img
               className='footer-icon'
@@ -42,7 +43,7 @@ export default function FooterContent () {
               alt='GitHub'
             />
           </a>
-        &nbsp;
+        &nbsp;&nbsp;
           <a title='Netlify' href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
             <img
               className='footer-icon'

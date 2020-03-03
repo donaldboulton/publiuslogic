@@ -15,7 +15,7 @@ export const DesktopNavDiv = styled.nav`
 
 export const NavEntry = styled.div`
   position: relative;
-  z-index: 10;
+  z-index: 20;
 `
 
 export const SubNav = styled.div`
@@ -23,10 +23,9 @@ export const SubNav = styled.div`
   width: max-content;
   border-radius: ${props => props.theme.smallBorderRadius};
   grid-gap: 0.2em 0.5em;
-  margin-top: 40px;
-  position: relative;
+  position: absolute;
   overflow: visible;
-  z-index: 20;
+  z-index: 10;
   right: 0;
   top: calc(100% + 0.5em);
   padding: 0.5em 0.7em;

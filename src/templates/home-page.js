@@ -1,20 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import RehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import HomePageTemplate from '../components/HomePageTemplate'
 import Layout from '../components/Layout'
-import ColorBox from '../components/ColorBox'
 import config from '../../_data/config'
-
-const renderAst = new RehypeReact({
-  createElement: React.createElement,
-  components: {
-    'interactive-colorbox': ColorBox,
-  },
-}).Compiler
-
 
 const HomePage = ({ data }) => {
   const { frontmatter, postNode } = data.markdownRemark
@@ -101,7 +91,6 @@ const HomePage = ({ data }) => {
         <link rel='me' href='https://twitter.com/donboulton' />
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
       </Helmet>
-      <main>{renderAst(postNode.htmlAst)}</main>
       <HomePageTemplate
         title={frontmatter.title}
         cover={frontmatter.cover}
@@ -133,7 +122,7 @@ export const pageQuery = graphql`
   query IndexPage($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id      
-      htmlAst
+      html
       excerpt(pruneLength: 200, truncate: true)                                
       frontmatter {
         date(formatString: "MMM D, YYYY")

@@ -4,9 +4,6 @@ import mediaQuery from './../../utils/mediaQuery'
 export const FooterContainer = styled.footer`
   padding: 5vh 5vw;
   color: white;
-  a {
-    color: ${props => props.theme.linkColor};
-  }
   display: grid;
   justify-items: center;
   align-items: center;

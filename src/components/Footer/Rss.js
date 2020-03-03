@@ -14,8 +14,8 @@ const Link = styled.a`
 `
 
 export default () => (
-  <Link href="/rss.xml" alt="Subscribe" title="RSS feed">
-    <Rss size="1em" />
+  <Link href='/rss.xml' alt='Subscribe' title='RSS feed'>
+    <Rss size='1em' />
     <Title>RSS</Title>
   </Link>
 )

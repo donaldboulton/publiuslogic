@@ -48,8 +48,8 @@ const collapsed = css`
 const expanded = css`
   background: ${props => props.theme.darkBg};
   width: 6em;
-  margin-left: -1.6em;
-  padding-left: 1.6em;
+  margin-left: -0.6em;
+  padding-left: 0.6em;
   + ${SearchIcon} {
     margin: 0.3em;
   }
@@ -76,7 +76,8 @@ export const HitsWrapper = styled.div`
   background: ${props => props.theme.darkBg};
   color: white;
   max-height: 80vh;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
   z-index: 2;
   position: absolute;
   right: 0;

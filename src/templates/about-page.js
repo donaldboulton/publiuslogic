@@ -161,11 +161,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
             marginBottom: rhythm(1),
           }}
         />
-        <div
-          style={{
-            marginLeft: '2vw',
-          }}
-        >
+        <div>
           <h2>My Development Stack and Tools</h2>
           <Grid minWidth='5em' align='center'>
             {tech.edges.map(({ node: { title, url, logo } }) => (
