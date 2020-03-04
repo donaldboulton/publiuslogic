@@ -6,40 +6,36 @@ import logo from '../../../static/img/logo.png'
 
 const Comments = () => {
   return (
-    <div>
-      <section className='section'>
-        <div className='container'>
+    <section>
+      <div>
+        <h3>Comments</h3>
+        <GitHubIssues />
+      </div>
+      <div
+        style={{
+          display: `flex`,
+        }}
+      >
+        <CommentForm />
+        <div>
+          <h4>Messaging</h4>
+          <Link href='/privacy/#Comment-Policy'>
+            <img
+              src={logo}
+              alt='PubliusLogic'
+              style={{ width: '130px', height: '130px' }}
+            />
+          </Link>
           <div>
-            <h3>Comments</h3>
-            <GitHubIssues />
-          </div>
-          <div className='columns is-10 is-offset-1'>
-            <div className='column is-10'>
-              <CommentForm />
-            </div>
-            <div className='column'>
-              <h4>Messaging</h4>
-              <div>
-                <Link href='/privacy/#Comment-Policy'>
-                  <img
-                    src={logo}
-                    alt='PubliusLogic'
-                    style={{ width: '130px', height: '130px' }}
-                  />
-                </Link>
-                <div>
-                  <div className='is-centered'>
-                    <Link href='/privacy#Comment Policy/'>
-                      Submitting Policy
-                    </Link>
-                  </div>
-                </div>
-              </div>
+            <div className='is-centered'>
+              <Link href='/privacy#Comment Policy/'>
+                Submitting Policy
+              </Link>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }
 

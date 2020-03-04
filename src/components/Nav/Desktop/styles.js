@@ -9,13 +9,13 @@ export { DownArrow } from 'styled-icons/boxicons-solid/DownArrow'
 export const DesktopNavDiv = styled.nav`
   display: grid;
   grid-gap: calc(1em + 1vw);
-  transition: 0.3s;
   grid-auto-flow: column;
+  z-index: 20;
 `
 
 export const NavEntry = styled.div`
   position: relative;
-  z-index: 20;
+  z-index: 22;
 `
 
 export const SubNav = styled.div`
@@ -26,8 +26,8 @@ export const SubNav = styled.div`
   position: absolute;
   overflow: visible;
   z-index: 10;
-  right: 0;
-  top: calc(100% + 0.5em);
+  left: 0;
+  top: calc(100% + 0.3em);
   padding: 0.5em 0.7em;
   grid-template-columns: ${props =>
     props.children.length >= 10 ? `1fr 1fr` : `1fr`};

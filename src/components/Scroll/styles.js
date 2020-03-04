@@ -17,7 +17,7 @@ export const Arrow = styled(Down).attrs(({ direction, size }) => ({
   opacity: ${show ? 1 : 0};
   visibility: ${show ? `visible` : `hidden`};
   :hover {
-    transform: scale(1.15);
+    transition: 0.3s;
     background: ${theme.noBack};
   }
   right: calc(1.1vw - ${size} / 1);`}

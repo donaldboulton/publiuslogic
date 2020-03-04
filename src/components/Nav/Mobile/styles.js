@@ -10,33 +10,51 @@ export { KeyboardArrowDown as ArrowDown } from 'styled-icons/material/KeyboardAr
 export { KeyboardArrowUp as ArrowUp } from 'styled-icons/material/KeyboardArrowUp'
 
 export const MobileNavDiv = styled.nav`
-  overscroll-behavior: none;
   z-index: 2;
-  box-sizing: border-box;
-  width: 70vw;
-  max-width: 12em;
   position: fixed;
   top: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
+  scrollbar-width: 10px;
+  -webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  -webkit-scrollbar-thumb {
+    background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17));
+    background: linear-gradient(to bottom,#201c29,#100e17);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
+    box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
+  }
+  -webkit-scrollbar-track {
+    background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
+  }
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
-  background: ${props => props.theme.darkBg};
-  padding: 0.8em 1.5em 0.8em 1.8em;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 6vmin;
   font-size: 1.2em;
   right: 100%;
   display: grid;
   grid-gap: 1em;
+  grid-auto-columns: max-content;
   grid-auto-rows: max-content;
   transform: translate(${props => (props.open ? `99%` : `0`)});
   transition: 0.3s;
   /* Needed to scroll past last element in case of overflow. */
   :after {
     content: '';
-    height: 0.5em;
+    height: 1em;
   }
 `
 
 export const Item = styled.div`
+  a {
+    color: white;
+  }
   /* Target arrow icons prefixing nav links with children. */
   svg:first-child {
     width: 1em;
@@ -66,8 +84,8 @@ const openerCss = css`
   bottom: 5vh;
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  background: ${props => props.theme.darkBg};
-  border: 2px solid white;
+  background: #1d1d1d;
+  border: 2px solid gray;
   color: white;
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
@@ -75,7 +93,7 @@ const openerCss = css`
 
 export const NavToggle = styled(Cross).attrs(props => ({
   as: props.opener && ThMenu,
-  size: props.opener ? `1.2em` : `1.6em`,
+  size: props.opener ? `1.5em` : `1.9em`,
 }))`
   color: ${({ theme, opener }) => (opener ? theme.textColor : `white`)};
   transition: 0.3s;

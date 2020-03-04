@@ -28,7 +28,7 @@ const focus = css`
   cursor: text;
   width: 5em;
   + ${SearchIcon} {
-    color: ${props => props.theme.darkerBlue};
+    color: ${props => props.theme.darkerOrange};
     margin: 0 0.3em;
   }
 `
@@ -36,7 +36,7 @@ const focus = css`
 const collapsed = css`
   width: 0;
   cursor: pointer;
-  color: ${props => props.theme.lighterBlue};
+  color: ${props => props.theme.darkOrange};
   ${props => props.focus && focus}
   margin-left: ${props => (props.focus ? `-1.6em` : `-1em`)};
   padding-left: ${props => (props.focus ? `1.6em` : `1em`)};
@@ -98,8 +98,8 @@ export const HitsWrapper = styled.div`
     border-top: 1px solid ${props => props.theme.darkGray};
   }
   mark {
-    color: ${props => props.theme.lighterBlue};
-    background: ${props => props.theme.darkerBlue};
+    color: ${props => props.theme.darkOrange};
+    background: ${props => props.theme.darkerOrange};
   }
   header {
     display: flex;

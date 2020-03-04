@@ -1,8 +1,9 @@
 import React from 'react'
-import avatarIcon from '../../../static/img/avatar.png'
 import { Link } from 'gatsby'
 import UserAvatar from 'react-user-avatar'
 import { SignOutAlt } from 'styled-icons/fa-solid'
+import { User } from './styles'
+
 import {
   IdentityModal,
   useIdentityContext,
@@ -32,7 +33,7 @@ const Login = () => {
                     name={name} src={avatar_url}
                   />}
               </button>
-              <SubNav>
+              <SubNav className='footer-back'>
                 <h3 className='menu-item'>Welcome!</h3>
                 <div className='menu-item'>😀 {name}</div>
                 <div className='menu-item'>{email}</div>
@@ -48,12 +49,12 @@ const Login = () => {
           </>
         ) : (
           <>
-            <NavEntry key={avatarIcon}>
+            <NavEntry key={User}>
               <button className='identity-login menu-item button-transparent' onClick={() => setDialog(true)}>
-                <img className='user-icon' src={avatarIcon} alt='User' />
+                <User />
               </button>
-              <SubNav>
-                <Link className='menu-item' to='/login'>💕 New User Signup</Link>
+              <SubNav className='footer-back'>
+                <Link className='menu-item' to='/login'>💕 User Signup</Link>
               </SubNav>
             </NavEntry>
           </>

@@ -44,6 +44,7 @@ const BackgroundSection = () => (
 const StyledSymetryWrapper = styled.div`
   width: 100vw;
   height: 400px;
+  overflow: hidden;
   grid-area: post-cover;
 `
 const StyledWelcomeImage = styled(Img)`
@@ -52,7 +53,7 @@ const StyledWelcomeImage = styled(Img)`
   z-index: 1;
   background-clip: border-box;
   background-origin: border-box;
-  position: absolute;
+  position: absolute !important;
 `
 const StyledBackgroundSection = styled(BackgroundSection)`
   position: relative;
@@ -61,7 +62,7 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  ${mediaQuery.desktop} {
+  ${mediaQuery.minDesktop} {
     background-size: cover;
       &:after, &:before {
       background-size: contain;
@@ -83,13 +84,14 @@ const StyledWrapper = styled.div`
   width: 100vw;
   height: 400px;
   display: flex;
+  overflow: visible;
 `
 const Styledh1 = styled.h1`
   display: inline-block;
   font-size: 60px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
-  z-index: 22;
+  z-index: 3;
   background: radial-gradient(
     circle farthest-corner at center center,
     #8e0436,

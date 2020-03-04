@@ -13,7 +13,7 @@ const searchIndices = [
 const Header = () => {
   return (
     <>
-      <HeaderContainer id='header' className='footerBg'>
+      <HeaderContainer id='header'>
         <Logo to='/' title='Publius Logic' rel='home'>
           <Brand
             css='grid-area: title;'
@@ -22,11 +22,11 @@ const Header = () => {
         <Nav
           css='grid-area: nav;'
         />
-        <Toggle
-          css='grid-area: toggle;'
-        />
         <Login
           css='grid-area: login;'
+        />
+        <Toggle
+          css='grid-area: toggle;'
         />
         <Search collapse indices={searchIndices} css='grid-area: search;' />
       </HeaderContainer>

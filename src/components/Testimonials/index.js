@@ -1,8 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { rhythm } from '../../utils/typography'
 
 const Testimonials = ({ testimonials }) => (
-  <div>
+  <div
+    style={{
+      marginBottom: rhythm(1),
+    }}
+  >
     {testimonials.map((testimonial, id) => (
       <article className='message' key={id}>
         <div className='message-body'>

@@ -11,14 +11,15 @@ export const HeaderContainer = styled.header`
   justify-items: center;
   align-items: center;
   justify-content: space-between;
-  grid-template-areas: 'title nav toggle login search';
+  grid-template-areas: 'title nav login toggle search';
   grid-template-columns: auto 1fr auto auto auto auto;
   padding: 2vmin 3vmin;
+  background: #1d1d1d;
   color: white;
   font-size: 1.2em;
   ${mediaQuery.minPhablet} {
     justify-items: start;
-    grid-template-areas: 'title nav toggle search';
+    grid-template-areas: 'title login toggle search';
   }
 `
 

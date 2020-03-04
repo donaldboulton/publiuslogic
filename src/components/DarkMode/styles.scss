@@ -15,6 +15,18 @@ html {
 body {
   overflow-x: hidden;
   width: 100%;
+  font-family: roboto;
+  font-size: 20px;
+  font-weight: 500;
+}
+.content figure {
+  margin-left: 2em;
+  margin-right: 2em;
+  text-align: center;
+}
+.field.has-addons {
+  display: flex;
+  justify-content: flex-start;
 }
 .tags:last-child {
   margin-bottom: -.5rem;
@@ -102,6 +114,7 @@ body {
   height: 1.8rem;
   width: 1.8rem;
   border-radius: 50%;
+  margin-top: 6px;
 }
 .author-avatar .half-circle {
   position: absolute;
@@ -140,8 +153,11 @@ body.light-mode {
   code {
     background: transparent;
   }
-  .footerBg {
+  .footer-back {
     background: #00c2b2;
+  }
+  .footer {
+    background: radial-gradient(circle farthest-side, #dbdbdb, rgba(0,194,178,.2));
   }    
   .gatsby-code-title {
     background: #00c2b2;
@@ -177,9 +193,6 @@ body.light-mode {
     border-right: 1px solid rgba(0,194,178,.2);
     border-bottom: 1px solid rgba(0,194,178,.2),;
     padding: 1.25em 1.5em;
-  }
-  .footer {
-    background: radial-gradient(circle farthest-side, #dbdbdb, rgba(0,194,178,.2));
   }
   .content h2, .content h3, .content h4, .content h5, .content h6 {
     background: -webkit-gradient(linear,left top,right top,from(#00a396),to(#00c2b2));
@@ -418,7 +431,7 @@ body.dark-mode {
   code {
     background: transparent;
   }
-  .footerBg {
+  .footer-back {
     background: #1d1d1d;
   }
   .dark-mode-toggle > button {

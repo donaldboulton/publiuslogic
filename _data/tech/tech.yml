@@ -11,7 +11,7 @@
   logo: ../../static/logos/graphql.svg
   
 - title: Lambda
-  url: https://graphql.org
+  url: https://www.netlify.com/products/functions/
   logo: ../../static/logos/lambda.svg
 
 - title: CSS 3

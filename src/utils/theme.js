@@ -18,6 +18,7 @@ export const colors = {
 
   orange: `#dd581f`,
   darkOrange: `#d64000`,
+  darkerOrange: `#da1b60`,
   burntOrange: `#da1b60`,
   lightOrange: `#e57342`,
 
@@ -58,15 +59,15 @@ export const lightTheme = {
   textColor: theme.darkestGray,
   quoteBg: theme.lightestGray,
 
-  links: theme.blue,
-  hoveredLinks: theme.lightBlue,
-  activeLinks: theme.darkestBlue,
+  links: theme.darkOrange,
+  hoveredLinks: theme.burntOrange,
+  activeLinks: theme.lightOrange,
 
   shadowColor: theme.lighterGray,
   borderColor: theme.lightBlue,
 
   headerBg: theme.darkerBlue,
-  footerBg: theme.darkerGray,
+  footerBg: theme.lightBlue,
 
   buttonBg: theme.blue,
   hoveredButtonBg: theme.lightBlue,

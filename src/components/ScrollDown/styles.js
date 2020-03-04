@@ -11,7 +11,7 @@ export const Arrow = styled(Up).attrs(({ direction, size }) => ({
   background: ${theme.black};
   color: ${theme.white};
   border-radius: 50%;
-  transition: ${theme.shortTrans};
+  transition: 0.3s;
   position: fixed;
   top: 5em;
   opacity: ${show ? 1 : 0};

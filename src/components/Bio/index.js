@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import GithubButtonsRepo from '../GithubButtonsRepo'
 import { GithubButtons } from '../styles/ArticleStyles'
 import { Twitter } from 'styled-icons/fa-brands'
-import octocat from '../../../static/img/octocat.png'
+import Applause from '../ApplauseButton'
 import Image from 'gatsby-image'
 import { rhythm } from '../../utils/typography'
 
@@ -89,16 +89,7 @@ const Bio = () => {
             <span>&nbsp;Follow</span>
           </a>
         </p>
-        <a title='Github' className='github-corner' href='https://github.com/donaldboulton/publiuslogic/blob/master/src/pages/ + path' target='_blank' rel='noopener noreferrer'>
-          <img
-            style={{
-              height: 55,
-              width: 64,
-            }}
-            src={octocat}
-            alt='PubliusLogic Repo'
-          />
-        </a>
+        <Applause />
       </div>
     </div>
   )

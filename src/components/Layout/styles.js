@@ -75,7 +75,8 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0.2em 0.6em;
   }
   tbody tr:nth-child(odd) {
-    background: ${props => props.theme.accentBackground};
+    background: ${props => props.theme.black};
+    color: ${props => props.theme.white};
   }
   div.scroll {
     overflow: scroll;

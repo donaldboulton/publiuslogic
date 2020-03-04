@@ -13,7 +13,8 @@ export const ButtonGroup = styled.div`
     padding: 0.2em 0.6em;
     width: max-content;
     font-size: ${props => props.size};
-    transition: ${props => props.theme.shortTrans};
+    -webkit-transition: .4s ease-in-out 3s;
+    transition: .4s ease-in-out 3s;
     :hover {
       background: ${props => props.theme.hoveredLinks};
     }

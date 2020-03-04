@@ -121,6 +121,7 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
             style={{
               marginRight: rhythm(1 / 2),
               marginBottom: 0,
+              left: 0,
               minWidth: 300,
             }}
           />

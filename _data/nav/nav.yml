@@ -1,18 +1,34 @@
 - title: Pages
-  url: /sitemap
+  url: /
   subNav:
   - title: Home
     url: /
   - title: About
     url: /about
+  - title: Contact
+    url: /contact
   - title: Privacy
     url: /privacy
+  - title: Sitemap
+    url: /sitemap
 
 - title: Blog
   url: /blog
+  subNav:
+  - title: React Hooks Masonry
+    url: /react-hooks-masonry
+  - title: Gatsby Crud Netlify FaunaDB
+    url: /gatsby-crud-netlify-fauna
+  - title: js Media Queries
+    url: /js-media-queries
+  - title: Gatsby GitHub Comments Utterances
+    url: /blog/gatsby-github-comments-utterances
+  - title: Gatsby React toTop
+    url: /gatsby-react-scroll-toTop
+  - title: Modali Hooks Modal
+    url: /modali-hooks-modal
+  - title: Earths Magnetic Flux
+    url: /earths-magnetic-flux
 
 - title: Photos
   url: /photos
-
-- title: Contact
-  url: /contact

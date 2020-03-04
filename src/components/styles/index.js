@@ -8,7 +8,8 @@ export * from './PageBody'
 export const fadeInOnHoverParent = parent => css`
   opacity: 0;
   visibility: hidden;
-  transition: ${props => props.theme.shortTrans};
+  -webkit-transition: 0.3s;
+  transition: .3s;
   pointer-events: none;
   ${parent}:hover & {
     opacity: 1;

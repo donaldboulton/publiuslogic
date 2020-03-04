@@ -29,7 +29,7 @@ export const PostGrid = styled(Grid)`
 
 export const Posts = styled.article`
   height: 100%;
-  width: 100v%;
+  width: 100%;
   display: grid;
   border-radius: ${props => props.theme.mediumBorderRadius};
   border: 1px solid ${props => props.theme.lightGray};
@@ -47,8 +47,9 @@ export const Posts = styled.article`
 export const Cover = styled(Img).attrs(
   ({ fluid, src }) => !fluid && { as: (src && `img`) || `div` }
 )`
-  height: calc(10em + 4vh);
+  height: auto;
   width: 100%;
+  padding: 1em;
   object-fit: cover;
 `
 
