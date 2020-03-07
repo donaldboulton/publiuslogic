@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { kebabCase } from 'lodash'
-import { Tags } from 'styled-icons/fa-solid/Tags'
-import { NavEntry, SubNav } from '../Nav/Desktop/styles'
-import { TableOfContents, PageTitle, ArticleTocIcon } from '../styles/ArticleStyles'
+import { useOnClickOutside } from '../../hooks/useOnClickOutside'
+import { TagsTitle, TagsDiv, TagsIcon, TagsToggle } from './styles'
+import { TableOfContents } from '../styles/ArticleStyles'
 
-const SiteTags = ({ group }) => {
+const SiteTags = ({ group, ...rest }) => {
+  const { tagsTitle = `Site Tags` } = rest
+  const [open, setOpen] = useState(false)
+  const ref = useRef()
+  useOnClickOutside(ref, () => setOpen(false))
+
   const data = useStaticQuery(graphql`
       {
         allMarkdownRemark {
@@ -17,13 +22,14 @@ const SiteTags = ({ group }) => {
       }
     `)
   return (
-    <NavEntry key={tag}>
-        <Tags />
-      <SubNav>
-        <PageTitle>
-          <ArticleTocIcon />
-            | Site Tags
-        </PageTitle>
+    <>
+      <TagsToggle opener open={open} onClick={() => setOpen(true)} />
+      <TagsDiv ref={ref} open={open}>
+        <TagsTitle>
+          <TagsIcon />
+          {tagsTitle}
+          <TagsToggle onClick={() => setOpen(false)} />
+        </TagsTitle>
         <TableOfContents>
           <ul className='linktoc taglist field is-grouped is-grouped-multiline'>
             {data.allMarkdownRemark.group.map(tag => (
@@ -38,8 +44,8 @@ const SiteTags = ({ group }) => {
             ))}
           </ul>
         </TableOfContents>
-      </SubNav>
-    </NavEntry>
+      </TagsDiv>
+    </>
   )
 }
 

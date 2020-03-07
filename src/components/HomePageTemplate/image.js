@@ -30,9 +30,9 @@ const BackgroundSection = () => (
               objectPosition='50% 50%'
             />
             <StyledTitle>
-              <Styledh1>
+              <StyledHomeh1>
                 <HeroText />
-              </Styledh1>
+              </StyledHomeh1>
             </StyledTitle>
           </StyledSymetryWrapper>
         </StyledWrapper>
@@ -62,7 +62,7 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  ${mediaQuery.minDesktop} {
+  ${mediaQuery.minPhablet} {
     background-size: cover;
       &:after, &:before {
       background-size: contain;
@@ -76,29 +76,40 @@ export const StyledTitle = styled.div`
   z-index: 20;
   box-sizing: border-box;
   display: grid;
-    -webkit-box-pack: center;
-    justify-content: center;
-    margin: 1em;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin: 1em;
+  ${mediaQuery.maxLaptop} {
+    background-size: cover;
+    width: 80vw;
+      &:after, &:before {
+      background-size: contain;
+    }
+  }
 `
+
 const StyledWrapper = styled.div`
   width: 100vw;
   height: 400px;
   display: flex;
   overflow: visible;
 `
-const Styledh1 = styled.h1`
+const StyledHomeh1 = styled.h1`
   display: inline-block;
   font-size: 60px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   z-index: 3;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #8e0436,
-    #d64000
-  ) no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  ${mediaQuery.minTablet} {
+    font-size: 32px;
+    line-height: 40px;
+    width: 80vw;
+      &:after, &:before {
+      background-size: contain;
+    }
+  }
 }
 `
 export default StyledBackgroundSection

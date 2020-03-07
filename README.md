@@ -18,11 +18,21 @@
 
 ## Styling
 
+No added external Style sheets no more Bluma which as of March 1, 2020 to March 6th I removed and, used the below to style my site. That was fun! My first attempt using my own styling Globally.
+
+### Styled Components
+
 Styled Components 💅 with custom React Hooks screen [window.matchMedia](/blog/js-media-queries) mediaQuery's 💍
 
 > Beautiful media queries better than CSS @media for styled-components with ability to specify custom breakpoints.
 
-Gallery Grids with `custom-screen mediaQuerys 🍱` [Masonry Post](/blog/react-hooks-masonary) 💅.
+Gallery and Logo Grids with `custom-screen mediaQuerys 🍱` [Masonry Post](/blog/react-hooks-masonary) 💅.
+
+### Page Body Layout
+
+`styled-css-grid 🍱`
+
+> A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.
 
 JavaScript Standard
 

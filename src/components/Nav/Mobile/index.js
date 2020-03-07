@@ -49,7 +49,7 @@ export default function MobileNav ({ nav }) {
   return (
     <>
       <NavToggle opener open={open} onClick={() => setOpen(true)} />
-      <MobileNavDiv ref={ref} open={open} onScroll={e => e.preventDefault()}>
+      <MobileNavDiv ref={ref} open={open} onScroll={e => e.preventDefault()} className='scroll'>
         <ControlsDiv>
           <NavToggle open={open} onClick={() => setOpen(false)} />
           <Toggle />

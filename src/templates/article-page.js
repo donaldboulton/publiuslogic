@@ -9,7 +9,6 @@ import { Link, graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticlePageTemplate from '../components/ArticlePageTemplate'
 import Share from '../components/Share'
-import Hr from '../components/Hr'
 import Adds from '../components/GoogleAdds'
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
@@ -58,13 +57,13 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
           rating: { ratingValue, ratingCount: ratingCount },
         }}
       />
-      <div className='post-cover'>
+      <section className='post-cover'>
         <PostCover
           postNode={postNode}
           coverHeight={coverHeight}
           coverClassName='post-cover'
         />
-      </div>
+      </section>
       <PageBody as='div'>
         <Styledh1>
           {post.frontmatter.title}
@@ -90,23 +89,21 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
             <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
           </span>
         </MetaPage>
-        <div>
-          <main className='main'>{renderAst(postNode.htmlAst)}</main>
-          <ArticlePageTemplate
-            content={postNode.html}
-            contentComponent={HTMLContent}
-            cover={post.cover}
-            timeToRead={postNode.timeToRead}
-            category={post.category}
-            date={post.date}
-            tweet_id={post.tweet_id}
-            meta_title={post.meta_title}
-            description={post.meta_description}
-            tags={post.tags}
-            title={post.title}
-            showToc={post.showToc}
-          />
-        </div>
+        <main>{renderAst(postNode.htmlAst)}</main>
+        <ArticlePageTemplate
+          content={postNode.html}
+          contentComponent={HTMLContent}
+          cover={post.cover}
+          timeToRead={postNode.timeToRead}
+          category={post.category}
+          date={post.date}
+          tweet_id={post.tweet_id}
+          meta_title={post.meta_title}
+          description={post.meta_description}
+          tags={post.tags}
+          title={post.title}
+          showToc={post.showToc}
+        />
         <Share
           title={post.title}
           slug={post.path}
@@ -133,17 +130,12 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
             marginBottom: rhythm(1),
           }}
         />
+        {showToc && <Toc className='toc sticky' />}
         <Adds
           style={{
             marginBottom: rhythm(1),
           }}
         />
-        <Hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <sidebar>{showToc && <Toc className='toc sticky sidebar' />}</sidebar>
       </PageBody>
     </Layout>
   )

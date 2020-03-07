@@ -1,56 +1,26 @@
 import styled, { css } from 'styled-components'
-import { Grid } from '../styles/Grid'
-import mediaQuery from '../../utils/mediaQuery'
 import Img from 'gatsby-image'
 
-const asRow = css`
-  grid-column: 2/-2;
-  grid-auto-flow: column;
-  overflow: scroll;
-  grid-auto-columns: 18em;
-  padding: 1em;
-`
-
-const inBlog = css`
-  ${mediaQuery.maxPhablet} {
-    grid-column: 3;
-    justify-self: center;
-  }
-  ${mediaQuery.minPhablet} {
-    grid-column: 2/-3;
-  }
-`
-
-export const PostGrid = styled(Grid)`
-  height: max-content;
-  ${props => props.asRow && asRow};
-  ${props => props.inBlog && inBlog};
-`
-
-export const Posts = styled.article`
-  height: 100%;
-  width: 100%;
-  display: grid;
-  border-radius: ${props => props.theme.mediumBorderRadius};
-  border: 1px solid ${props => props.theme.lightGray};
-  box-shadow: 0 0 1em ${props => props.theme.lightGray};
-  overflow: hidden;
-  > :not(:first-child) {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  > :last-child {
-    margin-bottom: 0.5em;
-  }
-`
+export { Img }
 
 export const Cover = styled(Img).attrs(
   ({ fluid, src }) => !fluid && { as: (src && `img`) || `div` }
 )`
-  height: auto;
-  width: 100%;
-  padding: 1em;
-  object-fit: cover;
+  margin: 1em auto;
+  padding: 0.6em 2em;
+  box-shadow: black 0px 0px 1em;
+  border-radius: 0.5em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-image: initial;
+  overflow: hidden;
+  width: 390px;
+  transition: 0.3s;
+  height: 100%;
+  :hover {
+    transform: scale(1.05);
+  }
 `
 
 const inTitle = css`
@@ -58,7 +28,7 @@ const inTitle = css`
   justify-content: left;
   max-width: 80vw;
   a {
-    color: ${props => props.theme.white};
+    color: white;
   }
 `
 export const Category = styled.span`

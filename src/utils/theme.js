@@ -36,7 +36,7 @@ export const colors = {
 }
 
 export const measures = {
-  maxWidth: `50em`,
+  maxWidth: `40em`,
 
   smallBorder: `0.1em`,
   mediumBorder: `0.15em`,

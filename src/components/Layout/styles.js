@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     z-index: 0;
-    position: static;
     hyphens: auto;
     font-family: ${fonts};
     font-size: ${minFontSize}em;

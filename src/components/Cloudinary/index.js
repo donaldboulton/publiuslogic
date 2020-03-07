@@ -5,6 +5,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 import { Grid, Cell } from 'styled-css-grid'
+import { BorderBox } from '../styles/BorderBox'
 import 'lightgallery.js/dist/css/lightgallery.min.css'
 
 const SectionTitle = styled.h3`
@@ -59,20 +60,22 @@ class Gallery extends React.Component {
                 this.state.gallery.map(data => {
                 return (
                   <Cell key={data.public_id}>
-                    <LightgalleryItem group='group1' src={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
-                      <Image publicId={data.public_id} onClick={() => this.setState({ isOpen: true })}>
-                        <Transformation
-                          crop='scale'
-                          width='250'
-                          height='170'
-                          radius='6'
-                          dpr='auto'
-                          fetchFormat='auto'
-                          responsive_placeholder='blank'
-                        />
-                      </Image>
-                      <div data-sub-html='public_id' />
-                    </LightgalleryItem>
+                    <BorderBox>
+                      <LightgalleryItem group='group1' src={`https://res.cloudinary.com/mansbooks/image/upload/${data.public_id}.jpg`}>
+                        <Image publicId={data.public_id} onClick={() => this.setState({ isOpen: true })}>
+                          <Transformation
+                            crop='scale'
+                            width='250'
+                            height='170'
+                            radius='6'
+                            dpr='auto'
+                            fetchFormat='auto'
+                            responsive_placeholder='blank'
+                          />
+                        </Image>
+                        <div data-sub-html='public_id' />
+                      </LightgalleryItem>
+                    </BorderBox>
                   </Cell>
                   )
                 })

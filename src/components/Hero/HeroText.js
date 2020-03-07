@@ -6,14 +6,16 @@ import mediaQuery from '../../utils/mediaQuery'
 const StyledTypist = styled(Typist)`
   color: #fff;
   letter-spacing: 14px;
-  margin:0 auto;
+  margin: 0 auto;
   font-size: 52px;
   line-height: 60px;
-  z-index: 22;
+  z-index: 4;
   font-weight: 100;
   text-transform: uppercase;
   font-family: 'Roboto';
-  ${mediaQuery.minDesktop} {
+  ${mediaQuery.minPhablet} {
+    font-size: 32px;
+    line-height: 40px;    
     background-size: 80vw;
       &:after, &:before {
       background-size: contain;
@@ -35,7 +37,7 @@ class HeroText extends React.Component {
           <strong key={1}>I</strong> Make Fast Web Apps
           <Typist.Backspace count={19} delay={1000} />
           <span key={2}> Architect Complex IT Systems</span>
-          <Typist.Backspace count={29} delay={1000} />
+          <Typist.Backspace count={30} delay={1000} />
           <span key={3}> Am Microsoft Certified</span>
           <Typist.Backspace count={23} delay={1000} />
           <span key={4}> Live In OKC OK</span>
@@ -46,7 +48,7 @@ class HeroText extends React.Component {
           <Typist.Delay ms={900} />
           <span key={7}>.</span>
           <Typist.Backspace count={20} delay={10} />
-          <strong key={8}>But Mostly I Just</strong> Do Awesome Stuff With Web Tech
+          <strong key={8}>But Mostly I Just Do</strong> Awesome Stuff With Web Tech
         </StyledTypist>
       )
     }

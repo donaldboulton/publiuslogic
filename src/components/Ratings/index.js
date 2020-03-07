@@ -89,7 +89,7 @@ const RatingForm = ({ path }) => {
               }}
             >
               <input
-                className='input input-control'
+                className='input'
                 type='text'
                 aria-label='Message'
                 aria-required='false'

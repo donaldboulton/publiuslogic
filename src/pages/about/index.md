@@ -27,19 +27,29 @@ showStack: true
 
 ## Styling
 
-Styled Components 💅 with custom React Hooks screen [window.matchMedia](/blog/js-media-queries) mediaQuery's 💍
+No added external Style sheets no more Bluma which as of March 1, 2020 to March 6th I removed and, used the below to style my site. That was fun! my first attempt at my styling Globally.
+
+### Styled Components 
+
+💅 with custom React Hooks screen [window.matchMedia](/blog/js-media-queries) mediaQuery's 💍
 
 > Beautiful media queries better than CSS @media for styled-components with ability to specify custom breakpoints.
 
-Gallery Grids with `custom-screen mediaQuerys 🍱` [Masonry Post](/blog/react-hooks-masonary) 💅.
+Gallery and Logo Grids with `custom-screen mediaQuerys 🍱` [Masonry Post](/blog/react-hooks-masonary) 💅.
 
-JavaScript Standard
+### Page Body Layout
+
+`styled-css-grid 🍱`
+
+> A tiny (~2kb) [CSS grid] layout for React, built with [styled-components] 💅.
+
+## JavaScript Standard
 
 > [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 ## Just Having Fun
 
-🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds  using React components and GraphQL, Built with WebPack. Including a user data backend I am just now working on using FaunaDB.
+🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds  using React components and GraphQL, Built with WebPack. Including a user data, todo's and site reviews backend. I am just now working on the data structure using FaunaDB.
 
 Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
 

@@ -1,25 +1,21 @@
 import styled, { css } from 'styled-components'
-import { BookContent } from 'styled-icons/boxicons-regular/BookContent'
+import { Tags } from 'styled-icons/fa-solid/Tags'
 import { Close as Cross } from 'styled-icons/material/Close'
 import mediaQuery from '../../utils/mediaQuery'
 
-const openTocDiv = css`
+const openTagsDiv = css`
   background: #1d1d1d;
   color: white;
-  padding: 0.9em 1.5em;
+  padding: 0.7em 1.2em;
   border-radius: 0.5em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   border: 1px solid white;
 `
 
-export const TocDiv = styled.div`
-  display: grid;
-  grid-gap: 1em;
-  grid-column: -3;
+export const TagsDiv = styled.div`
   height: max-content;
   max-height: 85vh;
   border-radius: 4px;
-  border: 1px solid ${props => props.theme.textColor};
   z-index: 3;
   line-height: 2em;
   right: 1em;
@@ -52,19 +48,19 @@ export const TocDiv = styled.div`
   .linktoc::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
-  ${mediaQuery.maxPhablet} {
+  ${mediaQuery.maxDesktop} {
     position: fixed;
     bottom: 2em;
     background: #1d1d1d;
     color: white;
     left: 1em;
     ${props => !props.open && `height: 0;`};
-    ${props => props.open && openTocDiv};
+    ${props => props.open && openTagsDiv};
     visibility: ${props => (props.open ? `visible` : `hidden`)};
     opacity: ${props => (props.open ? 1 : 0)};
     transition: 0.3s;
   }
-  ${mediaQuery.minPhablet} {
+  ${mediaQuery.minDesktop} {
     font-size: 0.85em;
     grid-column: 4 / -1;
     position: -webkit-sticky;
@@ -73,7 +69,7 @@ export const TocDiv = styled.div`
   }
 `
 
-export const TocTitle = styled.h3`
+export const TagsTitle = styled.h3`
   margin: 0;
   padding-bottom: 0.5em;
   display: grid;
@@ -83,7 +79,7 @@ export const TocTitle = styled.h3`
   color: white;
 `
 
-export const TocLink = styled.a`
+export const TagsLink = styled.a`
   color: ${({ theme, active }) => (active ? theme.activeLinks : theme.activeLinks)};
   font-weight: ${props => props.active && `bold`};
   display: block;
@@ -92,15 +88,15 @@ export const TocLink = styled.a`
     props.depth === 0 && `1px solid ` + props.theme.white};
 `
 
-export const TocIcon = styled(BookContent)`
-  width: 1em;
+export const TagsIcon = styled(Tags)`
+  width: 1.5em;
   margin-right: 0.2em;
   color: ${props => props.theme.white};
 `
 
 const openedCss = css`
   position: fixed;
-  bottom: calc(1vh + 4em);
+  bottom: calc(3vh + 4em);
   ${mediaQuery.minPhablet} {
     bottom: calc(1vh + 1em);
   }
@@ -121,8 +117,8 @@ const closedCss = css`
   color: white;
 `
 
-export const TocToggle = styled(Cross).attrs(props => ({
-  as: props.opener && BookContent,
+export const TagsToggle = styled(Cross).attrs(props => ({
+  as: props.opener && Tags,
   size: props.opener ? `1.5em` : `1.9em`,
 }))`
   z-index: 2;
