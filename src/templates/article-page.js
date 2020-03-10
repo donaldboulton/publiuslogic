@@ -34,7 +34,7 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, pageContext }) => {
+const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -87,16 +87,18 @@ const ArticlePage = ({ data, pageContext }) => {
           <ArticlePageTemplate
             content={postNode.html}
             contentComponent={HTMLContent}
-            cover={post.cover}
             timeToRead={postNode.timeToRead}
-            category={post.category}
-            date={post.date}
-            tweet_id={post.tweet_id}
-            meta_title={post.meta_title}
-            description={post.meta_description}
-            tags={post.tags}
-            title={post.title}
-            showToc={post.showToc}
+            category={post.frontmatter.category}
+            date={post.frontmatter.date}
+            tweet_id={post.frontmatter.tweet_id}
+            title={post.frontmatter.title}
+            cover={post.frontmatter.cover}
+            meta_title={post.frontmatter.meta_title}
+            description={post.frontmatter.meta_description}
+            tags={post.frontmatter.tags}
+            showToc={post.frontmatter.showToc}
+            showTags={post.frontmatter.showTags}
+            showAdds={post.frontmatter.showAdds}
           />
           <Share
             title={post.title}
@@ -170,9 +172,19 @@ export const pageQuery = graphql`
         meta_description
         tags
         showToc
-        showTags
-        showAdds
         cover
+      }
+    }
+    allRatingsJson(filter: {postPath: {ne: "slug"}}, sort: {fields: [date], order: ASC}) {
+      totalCount
+      edges {
+        node {
+          rating
+          date
+          fields {
+            messageHtml
+          }
+        }
       }
     }
     allMarkdownRemark {
@@ -195,6 +207,10 @@ export const pageQuery = graphql`
             title
           }
         }
+      }
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
       }
     }
   }

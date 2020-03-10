@@ -23,14 +23,14 @@ const focus = css`
   width: 5em;
   + ${SearchIcon} {
     color: ${props => props.theme.darkerBlue};
-    margin: 0.3em;
+    margin: 0 0.3em;
   }
 `
 
 const collapsed = css`
   width: 0;
   cursor: pointer;
-  color: ${props => props.theme.darkOrange};
+  color: ${props => props.theme.lighterBlue};
   ${props => props.focus && focus}
   margin-left: ${props => (props.focus ? `-1.6em` : `-1em`)};
   padding-left: ${props => (props.focus ? `1.6em` : `1em`)};
@@ -40,7 +40,7 @@ const collapsed = css`
 `
 
 const expanded = css`
-  background: ${props => props.theme.darkBg};
+  background: ${props => props.theme.lighterGray};
   width: 6em;
   margin-left: -1.6em;
   padding-left: 1.6em;
@@ -67,12 +67,10 @@ export const Form = styled.form`
 
 export const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
-  background: ${props => props.theme.darkBg};
-  color: white;
+  background: #1d1d1d;
   max-height: 80vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  z-index: 10;
+  overflow: scroll;
+  z-index: 2;
   position: absolute;
   right: 0;
   top: calc(100% + 0.5em);
@@ -89,16 +87,16 @@ export const HitsWrapper = styled.div`
   }
   div + div {
     margin-top: 0.6em;
-    border-top: 1px solid #434040;
+    border-top: 1px solid ${props => props.theme.lighterGray};
   }
   mark {
-    color: ${props => props.theme.darkOrange};
-    background: ${props => props.theme.darkBg};
+    color: ${props => props.theme.lighterBlue};
+    background: ${props => props.theme.darkerBlue};
   }
   header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid #434040;
+    border-bottom: 2px solid ${props => props.theme.darkGray};
     h3 {
       color: white;
       background: ${props => props.theme.gray};
@@ -116,10 +114,10 @@ export const HitsWrapper = styled.div`
 `
 
 export const PoweredBy = () => (
-  <span css='font-size: 0.6em; text-align: end; padding: 0;'>
+  <span css="font-size: 0.6em; text-align: end; padding: 0;">
     Powered by{` `}
-    <a href='https://algolia.com'>
-      <Algolia size='1em' /> Algolia
+    <a href="https://algolia.com">
+      <Algolia size="1em" /> Algolia
     </a>
   </span>
 )

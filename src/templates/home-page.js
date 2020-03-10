@@ -27,7 +27,7 @@ const renderAst = new RehypeReact({
 
 const techLinkCss = `transition: 0.4s; :hover {transform: scale(1.05);}`
 
-const HomePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, testimonials }) => {
+const HomePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }) => {
   const { markdownRemark: post, tech } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -151,6 +151,9 @@ const HomePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, t
             meta_title={post.frontmatter.meta_title}
             description={post.frontmatter.meta_description}
             heading={post.frontmatter.heading}
+            showToc={post.frontmatter.showToc}
+            showTags={post.frontmatter.showTags}
+            showAdds={post.frontmatter.showAdds}
           />
           <hr
             style={{
@@ -213,8 +216,8 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMM D, YYYY")
         title
-        cover
         tags
+        cover
         meta_title
         meta_description
         heading
@@ -256,6 +259,11 @@ export const pageQuery = graphql`
           }
         }
       }
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
     }
   }
 `
+

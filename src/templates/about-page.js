@@ -140,16 +140,15 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
           <AboutPageTemplate
             content={postNode.html}
             contentComponent={HTMLContent}
-            cover={post.cover}
-            timeToRead={postNode.timeToRead}
-            category={post.category}
-            date={post.date}
-            tweet_id={post.tweet_id}
-            meta_title={post.meta_title}
-            description={post.meta_description}
-            tags={post.tags}
-            title={post.title}
-            showToc={post.showToc}
+            date={post.frontmatter.date}
+            title={post.frontmatter.title}
+            cover={post.frontmatter.cover}
+            meta_title={post.frontmatter.meta_title}
+            meta_description={post.frontmatter.meta_description}
+            tags={post.frontmatter.tags}
+            showToc={post.frontmatter.showToc}
+            showTags={post.frontmatter.showTags}
+            showAdds={post.frontmatter.showAdds}
           />
           <hr
             style={{
@@ -208,7 +207,7 @@ export const aboutPageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       htmlAst
-      excerpt(pruneLength: 300, truncate: true) 
+      excerpt(pruneLength: 200, truncate: true) 
       frontmatter {
         date(formatString: "MMM D, YYYY")
         title
@@ -218,9 +217,6 @@ export const aboutPageQuery = graphql`
         meta_description
         tags
         showToc
-        showAdds
-        showTags
-        showStack
         cover
       }
     }

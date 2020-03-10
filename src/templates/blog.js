@@ -188,13 +188,12 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 200)
+          excerpt(pruneLength: 300)
           id
           fields {
             slug
           }
           frontmatter {
-            cover
             title
             path
             meta_description

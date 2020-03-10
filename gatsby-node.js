@@ -39,6 +39,7 @@ exports.createPages = ({ actions, graphql }) => {
               title
               tags
               slug
+              cover
               category
               templateKey
               date(formatString: "MMM D, YYYY")
