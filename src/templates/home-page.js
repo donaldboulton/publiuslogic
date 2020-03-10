@@ -130,20 +130,18 @@ const HomePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, t
             {post.frontmatter.title}
           </Styledh1>
           <Bio />
-          <div>
+          <section>
             <div>
-              <p className='chapter'>Built <small>Feb 18, 2019</small></p>
-              <h2 className='h-italic'><span>Publius Logic</span> <span>Logic Tech Site</span></h2>
-              <img src='../../../static/img/home-back.svg' alt='' />
-              <h2 className='h-color-white'>Js Screen matchMedia Grid, Styled Components Layout</h2>
+              <h2>Built <small>Feb 18, 2019</small></h2>
+              <h3><span>Publius Logic</span> <span>Logic Tech Site</span></h3>
+              <h2>Js Screen matchMedia Grid, Styled Components Layout</h2>
               <div className='text-content'>
                 <p>Built with ❤️ and Jamaican Blue Mountain Coffee. PubliusLogic is a collection of tutorials by the Publius on a lot of human subjects. Since I have never had anyone work on anything of mine I build my own website's and enjoy coding it a lot. The tutorials on this site are based on Gatsby, React, ReactHooks, Styled Components.</p>
                 <p>Our name was taken from publications of 85 articles in mostly New York papers. The Publius was published anonymously as the - Federalist Papers.</p>
                 <a href='/about' className='button'>Read More ❤️</a>
               </div>
             </div>
-            <div className='tree' />
-          </div>
+          </section>
           <main>{renderAst(postNode.htmlAst)}</main>
           <HomePageTemplate
             content={postNode.html}

@@ -11,9 +11,7 @@ const GitHubRepo = () => {
     <>
       <div
         style={{
-          width: `100%`,
           display: `flex`,
-          placeContent: `end`,
         }}
       >
         <GithubButtonFollow />

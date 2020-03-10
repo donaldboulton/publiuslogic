@@ -41,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
     grid-gap: 1em 2em;
     text-align: center;
-    &.posts {
+    &.div {
     grid-gap: 1em;
       p {
         margin: 0;

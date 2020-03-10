@@ -128,6 +128,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "sharp": "^0.25.1",
     "styled-components": "^5.0.1",
+    "styled-css-grid": "^1.2.1",
     "styled-icons": "^10.2.1",
     "typeface-bowlby-one-sc": "^0.0.72",
     "typeface-kaushan-script": "0.0.72",

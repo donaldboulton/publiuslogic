@@ -53,7 +53,7 @@ export const TagsDiv = styled.div`
     max-width: 16em;
     position: fixed;
     bottom: 1em;
-    background: ${props => props.theme.black};
+    background: black;
     color: ${props => props.theme.white};
     left: 1em;
     ${props => !props.open && `height: 0;`};
