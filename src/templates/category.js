@@ -3,8 +3,11 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Image from '../pages/categories/image'
+import Adds from '../components/GoogleAdds'
+import Tags from '../components/SiteTags'
 import { Styledh1 } from '../components/styles/ArticleStyles'
-
+import { rhythm } from '../utils/typography'
+import { PageBody, BodyWrapper, TocWrapper } from '../components/styles/PageBody'
 class CategoryRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges
@@ -24,39 +27,37 @@ class CategoryRoute extends Component {
 
     return (
       <Layout pageTitle={title}>
-        <section className='hero is-medium'>
+        <section
+          className='post-cover'
+          style={{ marginBottom: '2rem' }}
+        >
           <Image />
-          <div className='hero-body'>
-            <div className='container'>
-              <div className='columns'>
-                <div className='column is-10 is-offset-1'>
-                  <div className='section'>
-                    <Styledh1>
-                      Categories
-                    </Styledh1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
-        <section className='section'>
-          <Helmet title={`${category} | ${title}`} />
-          <div className='container content'>
-            <div className='columns'>
-              <div
-                className='column is-10 is-offset-1'
-                style={{ marginBottom: '6rem' }}
-              >
-                <h3 className='title is-size-4 is-bold-light'>{categoryHeader}</h3>
-                <ul className='taglist read-more'>{postLinks}</ul>
-                <p>
-                  <Link aria-label='All Categories' className='a' to='/categories/'>Browse all categories →</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageBody as='div'>
+          <BodyWrapper>
+            <Styledh1>
+              Categories
+            </Styledh1>
+            <section
+              style={{ marginBottom: '6rem' }}
+            >
+              <Helmet title={`${category} | ${title}`} />
+              <h3 className='title is-size-4 is-bold-light'>{categoryHeader}</h3>
+              <ul className='taglist read-more'>{postLinks}</ul>
+              <p>
+                <Link aria-label='All Categories' className='a' to='/categories/'>Browse all categories →</Link>
+              </p>
+            </section>
+          </BodyWrapper>
+        </PageBody>
+        <TocWrapper>
+          <Tags />
+        </TocWrapper>
+        <Adds
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
       </Layout>
     )
   }

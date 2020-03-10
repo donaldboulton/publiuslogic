@@ -4,7 +4,7 @@
   flex-direction: column
   justify-content: space-between
 .tree
-  z-index: -1
+  z-index: 2
   background-color: transparent
   background-image: url('../../../static/img/home-back-right.jpg')
   background-size: 60%
@@ -43,6 +43,9 @@ a:focus
   outline: none 
 section 
   clear: both
+.post-section
+  clear: both
+  margin: 0.2em 0.5em 0.5em 0.5em
 .subtitle strong
   color: #928c8c
   font-weight: 600
@@ -57,14 +60,12 @@ strong
   list-style: none
   margin-bottom: 0
   margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
   display: flex
   flex-wrap: wrap
   justify-content: left
   align-items: center
   li
-    padding: 0 2rem 1rem 0
+    padding: 0 0.5rem 0.2rem 0
     margin-bottom: 1.5rem
     margin-top: 0
 label, input
@@ -142,10 +143,10 @@ gatsby-resp-image-image
   padding: 1.8rem 1.5rem
 .content ul
   list-style: none
-  margin-left: 10px
+  margin-left: 0.1em
 ul  
   list-style: none
-  margin-left: 10px
+  margin-left: 0.1em
 li:first-child
   border-bottom: 1px thin inherent
 ul ul li:last-child
@@ -162,6 +163,11 @@ ul ul li:last-child
   background-repeat: no-repeat
   background-position: 50% 50%
   padding: 0 
+.list-cover
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: 0 50% 50% 0
+  padding: 0
 .reviews
   visibility: visible
   display: flex

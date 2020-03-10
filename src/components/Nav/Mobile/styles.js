@@ -13,12 +13,12 @@ export const MobileNavDiv = styled.nav`
   z-index: 2;
   position: fixed;
   top: 0;
-  max-width: 60vw;
+  max-width: 80vw;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: black !important;
   padding: 6vmin;
   font-size: 1.2em;
   right: 100%;
@@ -57,6 +57,7 @@ export const Children = styled(animated.div)`
   padding-bottom: ${props => props.open && `0.6em`};
   > div {
     margin-top: 0.6em;
+    margin-bottom: 0.6em;
     display: grid;
     grid-gap: 0.6em;
   }
@@ -68,9 +69,9 @@ const openerCss = css`
   bottom: 5vh;
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  background: #1d1d1d;
+  background: ${props => props.theme.black};
   border: 2px solid gray;
-  color: white;
+  color: ${props => props.theme.white};
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
 `
@@ -79,7 +80,7 @@ export const NavToggle = styled(Cross).attrs(props => ({
   as: props.opener && ThMenu,
   size: props.opener ? `1.7em` : `2em`,
 }))`
-  color: ${({ theme, opener }) => (opener ? theme.textColor : `white`)};
+  color: ${({ theme, opener }) => (opener ? theme.white : `white`)};
   transition: 0.3s;
   cursor: pointer;
   :hover {
@@ -94,7 +95,7 @@ export const NavToggle = styled(Cross).attrs(props => ({
 export const ControlsDiv = styled.div`
   display: grid;
   grid-auto-flow: column;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid white;
   padding-bottom: 0.3em;
   align-items: center;
   justify-content: space-between;

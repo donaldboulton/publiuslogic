@@ -7,7 +7,7 @@ export const GridSection = styled.div`
   grid-template-rows: auto 1fr auto;
 `
 export const Chapter = styled.div`
-  font-size: 1.5em;
+  font-size: 1.1em;
   font-weight: 700;
   position: relative;
   margin: 0 0 0 56px;

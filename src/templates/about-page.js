@@ -5,13 +5,13 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import PostCover from '../components/PostCover'
 import Bio from '../components/Bio'
-import { PageBody } from '../components/styles/PageBody'
+import { PageBody, TocWrapper, BodyWrapper } from '../components/styles/PageBody'
 import Toc from '../components/Toc'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
-import Hr from '../components/Hr'
 import Adds from '../components/GoogleAdds'
+import Tags from '../components/SiteTags'
 import config from '../../_data/config'
 import Cloudinary from '../components/Cloudinary'
 import UploadWidget from '../components/Cloudinary/UploadWidget'
@@ -31,7 +31,7 @@ const renderAst = new RehypeReact({
 
 const techLinkCss = `transition: 0.4s; :hover {transform: scale(1.05);}`
 
-const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, allRatingsJson: ratings = [] }) => {
+const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }) => {
   const { markdownRemark: post, tech } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -42,6 +42,8 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
   const image = post.frontmatter.cover
   const title = post.frontmatter.title
   const showToc = post.frontmatter.showToc
+  const showAdds = post.frontmatter.showAdds
+  const showTags = post.frontmatter.showTags
   const url = rootUrl + `/${path}`
 
   const schemaOrgWebPage = {
@@ -129,51 +131,60 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext, 
         />
       </section>
       <PageBody as='div'>
-        <Styledh1>
-          {post.frontmatter.title}
-        </Styledh1>
-        <Bio />
-        <main>{renderAst(postNode.htmlAst)}</main>
-        <AboutPageTemplate
-          content={postNode.html}
-          contentComponent={HTMLContent}
-          cover={post.cover}
-          timeToRead={postNode.timeToRead}
-          category={post.category}
-          date={post.date}
-          tweet_id={post.tweet_id}
-          meta_title={post.meta_title}
-          description={post.meta_description}
-          tags={post.tags}
-          title={post.title}
-          showToc={post.showToc}
-        />
-        {showToc && <Toc
-          className='toc sticky'
-          grid-item='item-d'
-          style={{
-            right: `1em`,
-            top: `20vh`,
-          }}
-        />}
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <div>
-          <h2>My Development Stack and Tools</h2>
-          <Grid minWidth='5em' align='center'>
-            {tech.edges.map(({ node: { title, url, logo } }) => (
-              <a key={title} href={url} css={techLinkCss}>
-                <span css='font-size: 0.85em;'>{title}</span>
-                <img src={logo.src} alt={title} />
-              </a>
-            ))}
-          </Grid>
-        </div>
-        <Adds />
-        <Hr />
+        <BodyWrapper>
+          <Styledh1>
+            {post.frontmatter.title}
+          </Styledh1>
+          <Bio />
+          <main>{renderAst(postNode.htmlAst)}</main>
+          <AboutPageTemplate
+            content={postNode.html}
+            contentComponent={HTMLContent}
+            cover={post.cover}
+            timeToRead={postNode.timeToRead}
+            category={post.category}
+            date={post.date}
+            tweet_id={post.tweet_id}
+            meta_title={post.meta_title}
+            description={post.meta_description}
+            tags={post.tags}
+            title={post.title}
+            showToc={post.showToc}
+          />
+          <hr
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />
+          <div>
+            <h2>My Development Stack and Tools</h2>
+            <Grid minWidth='5em' align='center'>
+              {tech.edges.map(({ node: { title, url, logo } }) => (
+                <a key={title} href={url} css={techLinkCss}>
+                  <span css='font-size: 0.85em;'>{title}</span>
+                  <img src={logo.src} alt={title} />
+                </a>
+              ))}
+            </Grid>
+          </div>
+        </BodyWrapper>
+        <TocWrapper>
+          {showToc && <Toc
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />}
+          {showTags && <Tags
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />}
+          {showAdds && <Adds
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />}
+        </TocWrapper>
       </PageBody>
     </Layout>
   )
@@ -197,7 +208,7 @@ export const aboutPageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       htmlAst
-      excerpt(pruneLength: 200, truncate: true) 
+      excerpt(pruneLength: 300, truncate: true) 
       frontmatter {
         date(formatString: "MMM D, YYYY")
         title
@@ -207,6 +218,8 @@ export const aboutPageQuery = graphql`
         meta_description
         tags
         showToc
+        showAdds
+        showTags
         showStack
         cover
       }

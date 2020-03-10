@@ -12,7 +12,10 @@ tags:
 meta_title: JS media queries & Styled Components
 meta_description: And how to hook into them
 tweet_id: '1118651504674725888'
-showToc: true
+showToc: true  
+showTags: true 
+showAdds: true 
+showStack: true
 ---
 
 ## Hooks window.matchMedia

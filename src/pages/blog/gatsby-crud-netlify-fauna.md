@@ -12,7 +12,10 @@ tags:
 meta_title: Gatsby CRUD Netlify Fauna
 meta_description: Gatsby CRUD Netlify FaunaDB
 tweet_id: '1118651504674725888'
-showToc: true
+showToc: true  
+showTags: true 
+showAdds: true 
+showStack: true
 related: true
 ---
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import PostCover from './PostCoverComponent'
+
 class queryWrapper extends Component {
   render () {
     const { postNode, coverHeight, coverClassName } = this.props

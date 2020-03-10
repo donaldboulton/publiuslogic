@@ -1,26 +1,18 @@
 import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
+import { Grid } from '../styles/Grid'
+import mediaQuery from '../../utils/mediaQuery'
 
 export { Img }
 
 export const Cover = styled(Img).attrs(
   ({ fluid, src }) => !fluid && { as: (src && `img`) || `div` }
 )`
-  margin: 1em auto;
-  padding: 0.6em 2em;
-  box-shadow: black 0px 0px 1em;
-  border-radius: 0.5em;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  border-image: initial;
-  overflow: hidden;
-  width: 390px;
-  transition: 0.3s;
-  height: 100%;
-  :hover {
-    transform: scale(1.05);
-  }
+  margin-bottom: 1em;
+  border-radius: .05em .05em 0 0;
+  border: thin black;  
+  width: 100%;
+  object-fit: cover;
 `
 
 const inTitle = css`
@@ -49,4 +41,34 @@ export const Meta = styled.div`
     margin-right: 1em;
   }
   ${props => props.inTitle && inTitle};
+`
+const asRow = css`
+  grid-column: 2/-2;
+  grid-auto-flow: column;
+  overflow: scroll;
+  grid-auto-columns: 18em;
+  padding: 1em;
+`
+
+const inBlog = css`
+  ${mediaQuery.maxPhablet} {
+    grid-column: 3;
+    justify-self: center;
+  }
+  ${mediaQuery.minPhablet} {
+    grid-column: 2/-3;
+  }
+`
+
+export const PostGrid = styled(Grid)`
+  height: max-content;
+  ${props => props.asRow && asRow};
+  ${props => props.inBlog && inBlog};
+`
+
+export const Post = styled.div`
+  box-shadow: black 0px 0px 1em;
+  border-radius: 0.5em;
+  border: thin black;
+  border-image: initial;
 `

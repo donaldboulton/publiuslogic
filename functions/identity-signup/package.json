@@ -9,7 +9,7 @@
   "author": "J Chris Anderson",
   "license": "ISC",
   "dependencies": {
-    "faunadb": "^2.11.1",
+    "faunadb": "^2.13.0",
     "generate-password": "^1.5.0"
   }
 }

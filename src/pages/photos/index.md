@@ -12,7 +12,9 @@ tags:
   - LightGallery
   - Cloudinary
 
-showToc: false
+showToc: false 
+showTags: false
+showAdds: false
 showStack: false
 ---
 

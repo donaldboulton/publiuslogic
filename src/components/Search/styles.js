@@ -17,19 +17,13 @@ export const SearchIcon = styled(Search)`
 `
 
 const focus = css`
-  background: radial-gradient(circle at top right,#171717,rgba(0,0,0,0));
-  border-left: 3px solid #812102;
-  border-right: 1px solid #434040;
-  border-bottom: 1px solid #434040;
-  border-top: 1px solid #434040;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.125);
-  color: #fff;
+   background: white;
+  color: ${props => props.theme.darkerBlue};
   cursor: text;
   width: 5em;
   + ${SearchIcon} {
-    color: ${props => props.theme.darkerOrange};
-    margin: 0 0.3em;
+    color: ${props => props.theme.darkerBlue};
+    margin: 0.3em;
   }
 `
 
@@ -78,7 +72,7 @@ export const HitsWrapper = styled.div`
   max-height: 80vh;
   overflow-x: hidden;
   overflow-y: auto;
-  z-index: 2;
+  z-index: 10;
   position: absolute;
   right: 0;
   top: calc(100% + 0.5em);
@@ -95,16 +89,16 @@ export const HitsWrapper = styled.div`
   }
   div + div {
     margin-top: 0.6em;
-    border-top: 1px solid ${props => props.theme.darkGray};
+    border-top: 1px solid #434040;
   }
   mark {
     color: ${props => props.theme.darkOrange};
-    background: ${props => props.theme.darkerOrange};
+    background: ${props => props.theme.darkBg};
   }
   header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid ${props => props.theme.darkGray};
+    border-bottom: 2px solid #434040;
     h3 {
       color: white;
       background: ${props => props.theme.gray};

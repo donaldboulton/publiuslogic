@@ -14,7 +14,10 @@ tags:
 meta_title: Netlify CMS
 meta_description: Netlify CMS App backend for editing data and site pages
 tweet_id: '1118651504674725888'
-showToc: true
+showToc: true  
+showTags: true 
+showAdds: true 
+showStack: true
 ---
  
 ## Netlify CMS-App

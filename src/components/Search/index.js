@@ -38,7 +38,7 @@ export default function Search ({ indices, collapse = true, hitsAsGrid }) {
         onSearchStateChange={({ query }) => setQuery(query)}
       >
         <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-        <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className='linktoc'>
+        <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className='nav-scroll'>
           {indices.map(({ name, title, type }) => (
             <Index key={name} indexName={name}>
               <header>

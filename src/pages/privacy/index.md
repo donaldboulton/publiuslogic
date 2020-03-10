@@ -11,7 +11,9 @@ tags:
   - Privacy
   - PubliusLogic
 cover: /images/privacy.jpg
-showToc: true
+showToc: true  
+showTags: true 
+showAdds: true 
 showStack: true
 ---
 

@@ -16,7 +16,10 @@ meta_description: >-
   Gatsby Netlify No Plugins; Netlify CMS and Netlify Identity with my own styling
   and custom builds
 tweet_id: "1148277966230695936"
-showToc: true
+showToc: true  
+showTags: true 
+showAdds: true 
+showStack: true
 related: true
 ---
 

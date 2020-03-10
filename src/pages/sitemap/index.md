@@ -10,7 +10,9 @@ meta_description: >-
 tags:
   - Sitemap
 showToc: false 
-showStack: false
+showTags: true 
+showAdds: true 
+showStack: true
 ---
 
 ### All Pages and Posts

@@ -46,15 +46,12 @@ footer {
   border-top-right-radius: 0;
 }
 .tags.has-addons .tag {
-  margin-right: 0;
+  margin-right: -1px !important;
 }
 .tags.has-addons .tag:not(:first-child) {
   margin-left: 0;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-}
-.tags.has-addons .tag {
-  margin-right: 0;
 }
 .tags .tag:not(:last-child) {
   margin-right: .5rem;

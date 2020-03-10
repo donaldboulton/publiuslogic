@@ -4,51 +4,33 @@ import { Link, graphql } from 'gatsby'
 import config from '../../_data/config'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import { PageBody } from '../components/styles/PageBody'
 import Image from '../components/PostCard/image'
 import Bio from '../components/Bio'
 import PostCard from '../components/PostCard'
 import Layout from '../components/Layout'
 import { Styledh1, PreviousNext } from '../components/styles/ArticleStyles'
+import { PageBody } from '../components/styles/PageBody'
+import { ButtonGroup } from '../components/styles/ButtonGroup'
 
 const ButtonSecondary = styled(Link)`
-  margin: 2em auto;
-  border-radius: ${props => props.theme.mediumBorderRadius};
-  overflow: hidden;
-  button {
-    font-size: 1.3em;
-    border: none;
-    outline: none;
-    background: ${props => props.theme.links};
-    color: white;
-    padding: 0.2em 0.6em;
-    width: max-content;
-    font-size: ${props => props.size};
-    transition: ${props => props.theme.shortTrans};
-    :hover {
-      background: ${props => props.theme.hoveredLinks};
-    }
-    &.active {
-      background: ${props => props.theme.activeLinks};
-      box-shadow: inset 0 0 0.3em black;
-    }
-  }
+  background: ${props => props.theme.links};
+  color: white;
+}
 `
 const ButtonDisabled = styled.div`
   background: transparent;
-  border: thin ${props => props.theme.white};
 `
 
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <ButtonSecondary className='button' to={`/blog/${props.url}`}>
+      <ButtonSecondary to={`/blog/${props.url}`}>
         {`${props.text}`}
       </ButtonSecondary>
     )
   } else {
     return (
-      <ButtonDisabled disabled className='button'>
+      <ButtonDisabled disabled>
         {props.text}
       </ButtonDisabled>
     )
@@ -148,34 +130,38 @@ export default class BlogPage extends Component {
           <Image />
         </section>
         <PageBody as='div'>
-          <Styledh1>
-            Blog
-          </Styledh1>
-          <Bio />
-          <p>✨ Listing all Posts.</p>
-          <p>
-            For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
-          </p>
           <section>
-            <PostCard posts={group} />
+            <Styledh1>
+              Blog
+            </Styledh1>
+            <Bio />
+            <p>✨ Listing all Posts.</p>
+            <p>
+              For Refinements see <Link className='a' to='/categories/'>Categories</Link> or <Link className='a' to='/tags/'>Tags</Link>
+            </p>
           </section>
+          <PostCard posts={group} />
           <section>
             <PreviousNext>
-              <div className='field has-addons'>
-                <span className='control'>
+              <div
+                style={{
+                  maxWidth: '25em',
+                }}
+              >
+                <ButtonGroup>
                   {
                     pageNumbers.map(number => {
                       const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
                       return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
                     })
                   }
-                </span>
+                </ButtonGroup>
               </div>
               <div>
-                <span className='control'>
-                  {!first && <PaginationLink test={first} url={previousUrl} text='Previous' />}
-                  {!last && <PaginationLink test={last} url={nextUrl} text='Next' />}
-                </span>
+                <ButtonGroup>
+                  {!first && <PaginationLink test={first} url={previousUrl} text='👈 Prev' />}
+                  {!last && <PaginationLink test={last} url={nextUrl} text='Next 👉' />}
+                </ButtonGroup>
               </div>
             </PreviousNext>
           </section>
@@ -194,7 +180,7 @@ BlogPage.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query BlogQuery {
+  query BlogPageQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "article-page" } }}
@@ -207,6 +193,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            cover
             title
             path
             meta_description

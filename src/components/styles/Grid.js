@@ -11,3 +11,15 @@ export const Grid = styled.div`
   max-width: ${props => props.children.length === 1 && props.maxWidth};
   grid-auto-rows: ${props => props.height};
 `
+
+export const Cell = styled.div`
+  border-radius: 6px;
+  border: thin ${props => props.theme.black};
+  width: 250px;
+  height: 170px;
+  transition: 0.3s;
+  height: 100%;
+  :hover {
+    transform: scale(1.05);
+  }
+`

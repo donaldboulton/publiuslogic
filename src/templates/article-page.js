@@ -19,11 +19,11 @@ import Bio from '../components/Bio'
 import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
-import Rating from '../components/Ratings'
 import Toc from '../components/Toc'
+import Tags from '../components/SiteTags'
 import { Styledh1, MetaPage, TagList } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
-import { PageBody } from '../components/styles/PageBody'
+import { PageBody, TocWrapper, BodyWrapper } from '../components/styles/PageBody'
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -34,19 +34,13 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
+const ArticlePage = ({ data, pageContext }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
   const showToc = post.frontmatter.showToc
-  const ratingValue =
-    ratings && ratings.edges
-      ? ratings.edges.reduce(
-        (accumulator, rating) => accumulator + parseInt(rating.node.rating),
-        0,
-      ) / ratings.totalCount
-      : 0
-  const ratingCount = ratings && ratings.edges ? ratings.totalCount : 0
+  const showAdds = post.frontmatter.showAdds
+  const showTags = post.frontmatter.showTags
 
   return (
     <Layout pageTitle={post.title}>
@@ -54,7 +48,6 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
         data={{
           ...post,
           description: post.meta_description,
-          rating: { ratingValue, ratingCount: ratingCount },
         }}
       />
       <section className='post-cover'>
@@ -65,77 +58,82 @@ const ArticlePage = ({ data, pageContext, allRatingsJson: ratings = [] }) => {
         />
       </section>
       <PageBody as='div'>
-        <Styledh1>
-          {post.frontmatter.title}
-        </Styledh1>
-        <Bio />
-        <MetaPage>
-          <span>
-            <Calendar size='1.2em' />
+        <BodyWrapper>
+          <Styledh1>
+            {post.frontmatter.title}
+          </Styledh1>
+          <Bio />
+          <MetaPage>
+            <span>
+              <Calendar size='1.2em' />
               &ensp;
-            {post.frontmatter.date}
-          </span>
-          <span>
-            <Timer size='1.2em' />
+              {post.frontmatter.date}
+            </span>
+            <span>
+              <Timer size='1.2em' />
               &ensp;
-            {post.timeToRead} min read
-          </span>
-          <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
-          <span>
-            <FileSymlinkFile size='1.2em' />
-            &ensp;
-            Category:
-            &ensp;
-            <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
-          </span>
-        </MetaPage>
-        <main>{renderAst(postNode.htmlAst)}</main>
-        <ArticlePageTemplate
-          content={postNode.html}
-          contentComponent={HTMLContent}
-          cover={post.cover}
-          timeToRead={postNode.timeToRead}
-          category={post.category}
-          date={post.date}
-          tweet_id={post.tweet_id}
-          meta_title={post.meta_title}
-          description={post.meta_description}
-          tags={post.tags}
-          title={post.title}
-          showToc={post.showToc}
-        />
-        <Share
-          title={post.title}
-          slug={post.path}
-          excerpt={post.meta_description}
-        />
-        <div
-          style={{
-            display: `flex`,
-          }}
-        >
-          <Rating
+              {post.timeToRead} min read
+            </span>
+            <Link aria-label='Tags' to='/tags/'><TagList tags={post.frontmatter.tags} /></Link>
+            <span>
+              <FileSymlinkFile size='1.2em' />
+              &ensp;
+              Category:
+              &ensp;
+              <Link aria-label='Categories' to='/categories/'>{post.frontmatter.category}</Link>
+            </span>
+          </MetaPage>
+          <main>{renderAst(postNode.htmlAst)}</main>
+          <ArticlePageTemplate
+            content={postNode.html}
+            contentComponent={HTMLContent}
+            cover={post.cover}
+            timeToRead={postNode.timeToRead}
+            category={post.category}
+            date={post.date}
+            tweet_id={post.tweet_id}
+            meta_title={post.meta_title}
+            description={post.meta_description}
+            tags={post.tags}
+            title={post.title}
+            showToc={post.showToc}
+          />
+          <Share
+            title={post.title}
+            slug={post.path}
+            excerpt={post.meta_description}
+          />
+          <hr
             style={{
-              marginRight: rhythm(1 / 2),
-              marginBottom: 0,
-              left: 0,
-              minWidth: 300,
+              marginBottom: rhythm(1),
             }}
           />
-          <WebIntents />
-        </div>
-        <Comments />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        {showToc && <Toc className='toc sticky' />}
-        <Adds
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+          <div
+            style={{
+              display: `flex`,
+            }}
+          >
+            <WebIntents />
+          </div>
+          <Comments />
+        </BodyWrapper>
+        <TocWrapper>
+          {showToc && <Toc
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />}
+          {showTags && <Tags
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />}
+          {showAdds && <Adds
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />}
+        </TocWrapper>
       </PageBody>
     </Layout>
   )
@@ -160,7 +158,7 @@ export const pageQuery = graphql`
       id      
       htmlAst
       timeToRead
-      excerpt(pruneLength: 200, truncate: true)                                
+      excerpt(pruneLength: 300, truncate: true)                                
       frontmatter {
         date(formatString: "MMM D, YYYY")
         title
@@ -172,19 +170,9 @@ export const pageQuery = graphql`
         meta_description
         tags
         showToc
+        showTags
+        showAdds
         cover
-      }
-    }
-    allRatingsJson(filter: {postPath: {ne: "slug"}}, sort: {fields: [date], order: ASC}) {
-      totalCount
-      edges {
-        node {
-          rating
-          date
-          fields {
-            messageHtml
-          }
-        }
       }
     }
     allMarkdownRemark {

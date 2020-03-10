@@ -25,7 +25,7 @@ exports.createPages = ({ actions, graphql }) => {
       allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {
-            excerpt(pruneLength: 200)
+            excerpt(pruneLength: 300)
             id
             fields {
               slug              
@@ -37,7 +37,6 @@ exports.createPages = ({ actions, graphql }) => {
             timeToRead  
             frontmatter {
               title
-              cover
               tags
               slug
               category

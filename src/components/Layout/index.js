@@ -20,11 +20,11 @@ function Layout ({ children, location }) {
           <ScrollDown
             direction='down' to={25}
             showAbove={-1500}
-            css='position: fixed; right: 1.3em; top: 3.8em;'
+            css='position: fixed; right: 1.1em; top: 3.8em;'
           />
           <Scroll
             showBelow={1500}
-            css='position: fixed; right: 1.3em; bottom: 2em;'
+            css='position: fixed; right: 1.1em; bottom: 2em;'
           />
         </ThemeProvider>
       </div>

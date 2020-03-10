@@ -1,58 +1,60 @@
 import styled, { css } from 'styled-components'
-import { Tags } from 'styled-icons/fa-solid/Tags'
-import { Close as Cross } from 'styled-icons/material/Close'
+import { PurchaseTag } from '@styled-icons/boxicons-solid/PurchaseTag'
+import { Close as Cross } from '@styled-icons/material/Close'
 import mediaQuery from '../../utils/mediaQuery'
 
 const openTagsDiv = css`
-  background: #1d1d1d;
-  color: white;
-  padding: 0.7em 1.2em;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
+  padding: 0.5em 0.5em;
   border-radius: 0.5em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  border: 1px solid white;
+  border: 1px solid ${props => props.theme.white};
 `
 
 export const TagsDiv = styled.div`
+  padding: 1vmin;
   height: max-content;
   max-height: 85vh;
   border-radius: 4px;
   z-index: 3;
   line-height: 2em;
-  right: 1em;
   margin: .2em;
-  min-width: 20em;
   overscroll-behavior: none;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  border: thin ${props => props.theme.white};
   overflow-x: hidden;
   overflow-y: hidden;
   nav {
-    max-height: 83vh;
+    max-height: 70vh;
     overflow-x: hidden;
   }
-  .linktoc {
+  .nav-scroll {
     overflow-y: auto;
     scrollbar-color: linear-gradient(to bottom,#201c29,#100e17);
     scrollbar-width: 10px;
     overflow-x: hidden;
   }
-  .linktoc::-webkit-scrollbar {
+  .nav-scroll::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
-  .linktoc::-webkit-scrollbar-thumb {
+  .nav-scroll::-webkit-scrollbar-thumb {
     background: -webkit-gradient(linear,left top,left bottom,from(#d201c29),to(#100e17));
     background: linear-gradient(to bottom,#201c29,#100e17);
     border-radius: 10px;
     -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
     box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
   }
-  .linktoc::-webkit-scrollbar-track {
+  .nav-scroll::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
-  ${mediaQuery.maxDesktop} {
+  ${mediaQuery.maxLaptop} {
+    max-width: 16em;
     position: fixed;
-    bottom: 2em;
-    background: #1d1d1d;
-    color: white;
+    bottom: 1em;
+    background: ${props => props.theme.black};
+    color: ${props => props.theme.white};
     left: 1em;
     ${props => !props.open && `height: 0;`};
     ${props => props.open && openTagsDiv};
@@ -60,23 +62,24 @@ export const TagsDiv = styled.div`
     opacity: ${props => (props.open ? 1 : 0)};
     transition: 0.3s;
   }
-  ${mediaQuery.minDesktop} {
+  ${mediaQuery.minLaptop} {
     font-size: 0.85em;
     grid-column: 4 / -1;
     position: -webkit-sticky;
     position: sticky;
     top: 2em;
+    right: 2em;
   }
 `
 
 export const TagsTitle = styled.h3`
-  margin: 0;
-  padding-bottom: 0.5em;
+  margin: 0.2em;
   display: grid;
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  color: white;
+  color: ${props => props.theme.white};
+  border-bottom: thin ${props => props.theme.white};
 `
 
 export const TagsLink = styled.a`
@@ -88,22 +91,23 @@ export const TagsLink = styled.a`
     props.depth === 0 && `1px solid ` + props.theme.white};
 `
 
-export const TagsIcon = styled(Tags)`
-  width: 1.5em;
+export const TagIcon = styled(PurchaseTag)`
+  width: 1.6em;
+  height: 1.6em;
   margin-right: 0.2em;
   color: ${props => props.theme.white};
 `
 
 const openedCss = css`
   position: fixed;
-  bottom: calc(3vh + 4em);
+  bottom: calc(3vh + 5.5em);
   ${mediaQuery.minPhablet} {
-    bottom: calc(1vh + 1em);
+    bottom: calc(1vh + 4em);
   }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
-  background: #1d1d1d;
-  color: white;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
   border: 2px solid gray;
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
@@ -113,13 +117,13 @@ const closedCss = css`
   margin-left: 1em;
   border: 1px solid gray;
   border-radius: 50%;
-  background: #1d1d1d;
-  color: white;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
 `
 
 export const TagsToggle = styled(Cross).attrs(props => ({
-  as: props.opener && Tags,
-  size: props.opener ? `1.5em` : `1.9em`,
+  as: props.opener && PurchaseTag,
+  size: props.size || `1.6em`,
 }))`
   z-index: 2;
   transition: 0.3s;

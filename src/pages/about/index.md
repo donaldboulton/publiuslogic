@@ -12,6 +12,8 @@ category: 'tech'
 tags:
   - About
 showToc: true  
+showTags: true 
+showAdds: true 
 showStack: true
 ---
 

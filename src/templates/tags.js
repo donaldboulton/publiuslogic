@@ -2,9 +2,12 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import { PageBody } from '../components/styles/PageBody'
 import Image from '../pages/tags/image'
+import Adds from '../components/GoogleAdds'
+import Tags from '../components/SiteTags'
 import { Styledh1 } from '../components/styles/ArticleStyles'
+import { rhythm } from '../utils/typography'
+import { PageBody, BodyWrapper, TocWrapper } from '../components/styles/PageBody'
 class TagRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges
@@ -31,20 +34,30 @@ class TagRoute extends Component {
           <Image />
         </section>
         <PageBody as='div'>
-          <Styledh1>
-            Tags
-          </Styledh1>
-          <section
-            style={{ marginBottom: '6rem' }}
-          >
-            <Helmet title={`${tag} | ${title}`} />
-            <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
-            <ul aria-label='Read More' className='taglist read-more'>{postLinks}</ul>
-            <p>
-              <Link aria-label='Browse all tags' className='a' to='/tags/'>Browse all tags →</Link>
-            </p>
-          </section>
+          <BodyWrapper>
+            <Styledh1>
+              Tags
+            </Styledh1>
+            <section
+              style={{ marginBottom: '6rem' }}
+            >
+              <Helmet title={`${tag} | ${title}`} />
+              <h3 className='title is-size-4 is-bold-light'>{tagHeader}</h3>
+              <ul aria-label='Read More' className='taglist read-more'>{postLinks}</ul>
+              <p>
+                <Link aria-label='Browse all tags' className='a' to='/tags/'>Browse all tags →</Link>
+              </p>
+            </section>
+          </BodyWrapper>
         </PageBody>
+        <TocWrapper>
+          <Tags />
+        </TocWrapper>
+        <Adds
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
       </Layout>
     )
   }

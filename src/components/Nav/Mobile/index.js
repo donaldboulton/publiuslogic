@@ -2,7 +2,7 @@ import React, { memo, useRef, useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 import { useOnClickOutside } from '../../../hooks/useOnClickOutside'
 import { useSize } from '../../../hooks/useSize'
-import Toggle from '../../DarkMode/DarkModeToggle'
+import Login from '../../Login'
 import {
   Children,
   ArrowUp,
@@ -52,7 +52,7 @@ export default function MobileNav ({ nav }) {
       <MobileNavDiv ref={ref} open={open} onScroll={e => e.preventDefault()} className='scroll'>
         <ControlsDiv>
           <NavToggle open={open} onClick={() => setOpen(false)} />
-          <Toggle />
+          <Login />
         </ControlsDiv>
         {nav.map(({ title, url, subNav }) => (
           <Tree key={url} url={url} title={title}>

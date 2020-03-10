@@ -12,7 +12,10 @@ tags:
 meta_title: zero-dependency GMaps Hooks
 meta_description: Google Maps + React Hooks 
 tweet_id: '1118651504674725888'
-showToc: true
+showToc: true  
+showTags: true 
+showAdds: true 
+showStack: true
 ---
 
 ## From janosh.io Google Maps + React Hooks
