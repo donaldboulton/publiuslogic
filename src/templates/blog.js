@@ -15,6 +15,7 @@ import { ButtonGroup } from '../components/styles/ButtonGroup'
 const ButtonSecondary = styled(Link)`
   background: ${props => props.theme.links};
   color: white;
+  display: flex;
 }
 `
 const ButtonDisabled = styled.div`
@@ -24,13 +25,13 @@ const ButtonDisabled = styled.div`
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <ButtonSecondary to={`/blog/${props.url}`}>
+      <ButtonSecondary className='button' to={`/blog/${props.url}`}>
         {`${props.text}`}
       </ButtonSecondary>
     )
   } else {
     return (
-      <ButtonDisabled disabled>
+      <ButtonDisabled className='button' disabled>
         {props.text}
       </ButtonDisabled>
     )
