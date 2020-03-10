@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import UserAvatar from 'react-user-avatar'
-import { SignOutAlt } from 'styled-icons/fa-solid'
+import { SignOutAlt } from '@styled-icons/fa-solid'
 import { User } from './styles'
 
 import {

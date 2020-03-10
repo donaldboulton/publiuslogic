@@ -74,7 +74,7 @@ The below code uses Bluma SCSS for Navbar positioning, styling. A user avatar_ur
 import React from 'react'
 import avatarIcon from '../../../static/img/avatar.png'
 import { Link } from 'gatsby'
-import { SignOutAlt } from 'styled-icons/fa-solid'
+import { SignOutAlt } from '@styled-icons/fa-solid'
 import { navigate } from '@reach/router'
 import UserAvatar from 'react-user-avatar'
 import {
@@ -507,7 +507,7 @@ export default function UserSettings () {
 
 ```jsx{3-5,7-14}:title=FaunaDB-Login
 import React from 'react'
-import { SignInAlt, SignOutAlt } from 'styled-icons/fa-solid'
+import { SignInAlt, SignOutAlt } from '@styled-icons/fa-solid'
 
 import netlifyIdentity from '../IdentityWidget/netlify-identity'
 export const isBrowser = () => typeof window !== 'undefined'

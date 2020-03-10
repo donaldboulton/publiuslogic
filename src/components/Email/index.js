@@ -1,6 +1,6 @@
 import React from 'react'
 import Modali, { useModali } from 'modali'
-import { Mail } from 'styled-icons/material'
+import { Mail } from '@styled-icons/material/Mail'
 import Button from './ModaliButton'
 import EmailForm from '../ContactForm'
 

@@ -117,8 +117,8 @@ export default Scroll
 
 ```jsx:title=src/components/Scroll/styles
 import styled from 'styled-components'
-import { ArrowDownCircle as Down } from 'styled-icons/feather/ArrowDownCircle'
-import { ArrowUpCircle as Up } from 'styled-icons/feather/ArrowUpCircle'
+import { ArrowDownCircle as Down } from '@styled-icons/feather/ArrowDownCircle'
+import { ArrowUpCircle as Up } from '@styled-icons/feather/ArrowUpCircle'
 
 export const Arrow = styled(Down).attrs(({ direction, size }) => ({
   as: direction === `up` && Up,

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Algolia } from 'styled-icons/fa-brands/Algolia'
-import { Search } from 'styled-icons/fa-solid/Search'
+import { Algolia } from '@styled-icons/fa-brands/Algolia'
+import { Search } from '@styled-icons/fa-solid/Search'
 
 export const Root = styled.div`
   position: relative;
@@ -17,7 +17,7 @@ export const SearchIcon = styled(Search)`
 `
 
 const focus = css`
-   background: white;
+  background: white;
   color: ${props => props.theme.darkerBlue};
   cursor: text;
   width: 5em;
@@ -42,8 +42,8 @@ const collapsed = css`
 const expanded = css`
   background: ${props => props.theme.darkBg};
   width: 6em;
-  margin-left: -0.6em;
-  padding-left: 0.6em;
+  margin-left: -1.6em;
+  padding-left: 1.6em;
   + ${SearchIcon} {
     margin: 0.3em;
   }

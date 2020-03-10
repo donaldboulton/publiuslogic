@@ -1,7 +1,7 @@
 import React from 'react'
 import config from '../../../_data/config'
 import { ThemeProvider } from 'styled-components'
-import { Twitter } from 'styled-icons/fa-brands'
+import { Twitter } from '@styled-icons/fa-brands'
 import theme from './buttons.css'
 
 const WebIntents = ({ slug, tweet_id }) => {

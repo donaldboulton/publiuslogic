@@ -1,13 +1,13 @@
 import { animated } from 'react-spring'
 import styled, { css } from 'styled-components'
-import { ThMenu } from 'styled-icons/typicons/ThMenu'
+import { ThMenu } from '@styled-icons/typicons/ThMenu'
 import { NavLink } from '../styles'
-import { Close as Cross } from 'styled-icons/material/Close'
+import { Close as Cross } from '@styled-icons/material/Close'
 import mediaQuery from '../../../utils/mediaQuery'
 
 export { NavLink }
-export { KeyboardArrowDown as ArrowDown } from 'styled-icons/material/KeyboardArrowDown'
-export { KeyboardArrowUp as ArrowUp } from 'styled-icons/material/KeyboardArrowUp'
+export { KeyboardArrowDown as ArrowDown } from '@styled-icons/material/KeyboardArrowDown'
+export { KeyboardArrowUp as ArrowUp } from '@styled-icons/material/KeyboardArrowUp'
 
 export const MobileNavDiv = styled.nav`
   z-index: 2;

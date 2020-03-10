@@ -3,9 +3,9 @@ import { Link } from 'gatsby'
 import { stack as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 import Search from '../Search/Search'
-import { Blog, Sitemap, PeopleCarry } from 'styled-icons/fa-solid/'
-import { Images, FileAlt, AddressCard } from 'styled-icons/fa-regular'
-import { Globe } from 'styled-icons/boxicons-regular/'
+import { Blog, Sitemap, PeopleCarry } from '@styled-icons/fa-solid/'
+import { Images, FileAlt, AddressCard } from '@styled-icons/fa-regular'
+import { Globe } from '@styled-icons/boxicons-regular/'
 
 const StyledBurgerMenu = styled.div`
   .bm-item {

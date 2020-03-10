@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import EmailIcon from '../../../static/img/enewsletter_icon.png'
-import { Mailchimp } from 'styled-icons/fa-brands/'
+import { Mailchimp } from '@styled-icons/fa-brands/'
 import Email from '../Email'
 export default class Subscribe extends React.Component {
   constructor () {

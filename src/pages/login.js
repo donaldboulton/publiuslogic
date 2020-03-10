@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import { PageBody } from '../components/styles/PageBody'
-import { SignOutAlt, SignInAlt } from 'styled-icons/fa-solid'
+import { SignOutAlt, SignInAlt } from '@styled-icons/fa-solid'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 import {

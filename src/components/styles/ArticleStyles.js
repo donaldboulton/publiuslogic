@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { Tag } from 'styled-icons/fa-solid/Tag'
-import { Tags } from 'styled-icons/fa-solid/Tags'
-import { Table } from 'styled-icons/boxicons-regular/'
+import { Tag } from '@styled-icons/fa-solid/Tag'
+import { Tags } from '@styled-icons/fa-solid/Tags'
+import { Table } from '@styled-icons/boxicons-regular/Table'
 
 export const Reviews = styled.div`
   font-size: 1rem;

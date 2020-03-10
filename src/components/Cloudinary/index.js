@@ -4,7 +4,8 @@ import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery'
 import axios from 'axios'
 import styled from 'styled-components'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
-import { Grid, Cell } from '../styles/Grid'
+import { Cell } from '../styles/Grid'
+import { Masonary } from '../Masonry'
 import 'lightgallery.js/dist/css/lightgallery.min.css'
 
 const SectionTitle = styled.h3`
@@ -51,7 +52,7 @@ class Gallery extends React.Component {
       <>
         <SectionTitle>Cloudinary LightGallery</SectionTitle>
         <CloudinaryContext cloudName='mansbooks'>
-          <Grid id='hash'>
+          <Masonary id='hash'>
             <LightgalleryProvider>
               {
                 this.state.gallery.map(data => {
@@ -76,7 +77,7 @@ class Gallery extends React.Component {
                 })
               }
             </LightgalleryProvider>
-          </Grid>
+          </Masonary>
         </CloudinaryContext>
       </>
     )

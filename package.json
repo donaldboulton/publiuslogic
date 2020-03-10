@@ -87,7 +87,7 @@
     "gatsby-transformer-remark": "^2.6.56",
     "gatsby-transformer-sharp": "^2.3.18",
     "gatsby-transformer-yaml": "^2.2.25",
-    "generate-password": "^1.5.0",
+    "generate-password": "^1.5.1",
     "github-buttons": "^2.7.0",
     "gotrue-js": "^0.9.25",
     "lg-autoplay.js": "^1.0.0",
