@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 
 const NotFoundPage = () => (
   <Layout>
-    <section className='hero'>
+    <section className='post-cover'>
       <div>
         <img
           src={notfound}

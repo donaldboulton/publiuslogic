@@ -12,11 +12,11 @@ import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
 import Adds from '../components/GoogleAdds'
 import Tags from '../components/SiteTags'
+import TechLogos from '../components/TechLogos'
 import config from '../../_data/config'
 import Cloudinary from '../components/Cloudinary'
 import UploadWidget from '../components/Cloudinary/UploadWidget'
 import Contact from '../components/ContactForm'
-import { Grid } from '../components/styles/Grid'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { rhythm } from '../utils/typography'
 
@@ -29,10 +29,8 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const techLinkCss = `transition: 0.4s; :hover {transform: scale(1.05);}`
-
-const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }) => {
-  const { markdownRemark: post, tech } = data
+const AboutPage = ({ data }) => {
+  const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
   const path = data.path || ''
@@ -156,15 +154,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
             }}
           />
           <div>
-            <h2>My Development Stack and Tools</h2>
-            <Grid minWidth='5em' align='center'>
-              {tech.edges.map(({ node: { title, url, logo } }) => (
-                <a key={title} href={url} css={techLinkCss}>
-                  <span css='font-size: 0.85em;'>{title}</span>
-                  <img src={logo.src} alt={title} />
-                </a>
-              ))}
-            </Grid>
+            <TechLogos />
           </div>
         </BodyWrapper>
         <TocWrapper>
@@ -192,11 +182,7 @@ const AboutPage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }
 AboutPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
-    edges: PropTypes.array,
     helmet: PropTypes.object,
-  }),
-  allMarkdownRemark: PropTypes.shape({
-    edges: PropTypes.array,
   }),
 }
 
@@ -217,44 +203,9 @@ export const aboutPageQuery = graphql`
         meta_description
         tags
         showToc
+        showTags
+        showAdds
         cover
-      }
-    }
-    tech: allTechYaml {
-      edges {
-        node {
-          title
-          url
-          logo {
-            src: publicURL
-          }
-        }
-      }
-    }
-    allMarkdownRemark {
-      edges {
-        next {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            cover
-          }
-        }
-        previous {
-          fields {
-            slug
-          }
-          frontmatter {
-            cover
-            title
-          }
-        }
-      }
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
       }
     }
   }

@@ -66,6 +66,12 @@ If you wish to disable cookies, you may do so through your web browser options. 
 
 🔗 * [Disabling cookies in Apple Safari](https://docs.info.apple.com/article.html?artnum=324)
 
+### PubliusLogic UI cookies
+
+CookieHub is a complete cookie consent solution that you can easily integrated with this website. The cookie consent plugin can be customized to match your brand and is compliant with cookie laws, including GDPR.
+
+To adjust cookie settings in PubliusLogic look to the left bottom cornet and click the object and follow the instructions.
+
 ## Google Analytics
 
 📈 The cookies in use to deliver Google Analytics service are described below.

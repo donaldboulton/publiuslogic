@@ -34,7 +34,7 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext }) => {
+const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
@@ -144,11 +144,7 @@ const ArticlePage = ({ data, data: { allMarkdownRemark: { group } }, pageContext
 ArticlePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
-    edges: PropTypes.array,
     helmet: PropTypes.object,
-  }),
-  allMarkdownRemark: PropTypes.shape({
-    edges: PropTypes.array,
   }),
 }
 
@@ -172,45 +168,9 @@ export const pageQuery = graphql`
         meta_description
         tags
         showToc
+        showAdds
+        showTags
         cover
-      }
-    }
-    allRatingsJson(filter: {postPath: {ne: "slug"}}, sort: {fields: [date], order: ASC}) {
-      totalCount
-      edges {
-        node {
-          rating
-          date
-          fields {
-            messageHtml
-          }
-        }
-      }
-    }
-    allMarkdownRemark {
-      edges {
-        next {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            cover
-          }
-        }
-        previous {
-          fields {
-            slug
-          }
-          frontmatter {
-            cover
-            title
-          }
-        }
-      }
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
       }
     }
   }

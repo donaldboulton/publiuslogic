@@ -1,22 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Content from '../Content'
 
-const HomePageTemplate = ({
-  content,
-  contentComponent,
-}) => {
-  const PostContent = contentComponent || Content
+const HomePageTemplate = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
 
   return (
-    <div>
-      <PostContent content={content} />
-    </div>
+    <Layout>
+      <HomePageTemplate
+        image={frontmatter.image}
+        title={frontmatter.title}
+        heading={frontmatter.heading}
+        subheading={frontmatter.subheading}
+        mainpitch={frontmatter.mainpitch}
+        description={frontmatter.description}
+        intro={frontmatter.intro}
+      />
+    </Layout>
   )
 }
+
 HomePageTemplate.propTypes = {
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+  }),
 }
 
 export default HomePageTemplate

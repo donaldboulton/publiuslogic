@@ -100,6 +100,7 @@ export const TagIcon = styled(PurchaseTag)`
 
 const openedCss = css`
   position: fixed;
+  z-index: 25;
   bottom: calc(3vh + 5.5em);
   ${mediaQuery.minPhablet} {
     bottom: calc(1vh + 4em);

@@ -70,7 +70,7 @@ export const HitsWrapper = styled.div`
   background: #1d1d1d;
   max-height: 80vh;
   overflow: scroll;
-  z-index: 2;
+  z-index: 25;
   position: absolute;
   right: 0;
   top: calc(100% + 0.5em);

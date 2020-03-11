@@ -111,6 +111,7 @@ export const BookIcon = styled(OpenBook)`
 
 const openedCss = css`
   position: fixed;
+  z-index: 25;
   bottom: calc(1vh + 4em);
   ${mediaQuery.minPhablet} {
     bottom: calc(1vh + 4em);
