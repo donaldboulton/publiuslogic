@@ -119,6 +119,7 @@ const AboutPage = ({ data }) => {
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
+        <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' crossOrigin='anonymous' />
       </Helmet>
       <section className='post-cover'>
         <PostCover
