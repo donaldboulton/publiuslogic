@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import { PageBody } from '../components/styles/PageBody'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import UserAvatar from 'react-user-avatar'
+import Image from '../components/HomePageTemplate/image'
 import { useIdentityContext } from 'react-netlify-identity-widget'
 
 const Profile = () => {
@@ -16,6 +17,9 @@ const Profile = () => {
   return (
     <>
       <Layout>
+      <section className='post-cover'>
+        <Image />
+      </section>
         <PageBody>
           <Styledh1>
             Profile

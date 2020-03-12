@@ -20,10 +20,10 @@ export const TagsDiv = styled.div`
   z-index: 3;
   line-height: 2em;
   margin: .2em;
-  max-width: 20em;
+  max-width: 23em;
   overscroll-behavior: none;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  border: thin ${props => props.theme.white};
+  border: thin ${props => props.theme.black};
   overflow-x: hidden;
   overflow-y: hidden;
   ${mediaQuery.maxPhablet} {
@@ -78,7 +78,7 @@ export const TagsTitle = styled.h3`
   align-items: center;
   grid-template-columns: auto auto 1fr;
   color: ${props => props.theme.white};
-  border-bottom: thin ${props => props.theme.white};
+  border-bottom: thin white;
 `
 
 export const TagsLink = styled.a`
@@ -91,8 +91,8 @@ export const TagsLink = styled.a`
 `
 
 export const TagIcon = styled(PurchaseTag)`
-  width: 1.6em;
-  height: 1.6em;
+  width: 1.3em;
+  height: 1.3em;
   margin-right: 0.2em;
   color: ${props => props.theme.white};
 `
@@ -100,9 +100,9 @@ export const TagIcon = styled(PurchaseTag)`
 const openedCss = css`
   position: fixed;
   z-index: 25;
-  bottom: calc(3vh + 6em);
+  bottom: calc(3vh + 5em);
   ${mediaQuery.minLaptop} {
-    bottom: calc(1vh + 6em);
+    bottom: calc(1vh + 5em);
   }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;

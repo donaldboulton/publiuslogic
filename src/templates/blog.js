@@ -15,7 +15,7 @@ import { ButtonGroup } from '../components/styles/ButtonGroup'
 const ButtonSecondary = styled(Link)`
   background: ${props => props.theme.links};
   color: white;
-  display: flex;
+  display: inline;
 }
 `
 const ButtonDisabled = styled.div`
@@ -25,13 +25,13 @@ const ButtonDisabled = styled.div`
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <ButtonSecondary className='button' to={`/blog/${props.url}`}>
+      <ButtonSecondary to={`/blog/${props.url}`}>
         {`${props.text}`}
       </ButtonSecondary>
     )
   } else {
     return (
-      <ButtonDisabled className='button' disabled>
+      <ButtonDisabled disabled>
         {props.text}
       </ButtonDisabled>
     )
@@ -144,26 +144,28 @@ export default class BlogPage extends Component {
           <PostCard posts={group} />
           <section>
             <PreviousNext>
-              <div
+              <ButtonGroup
                 style={{
-                  maxWidth: '25em',
+                  maxWidth: '30vw',
+                  justifyContent: 'flex-start',
                 }}
               >
-                <ButtonGroup>
-                  {
-                    pageNumbers.map(number => {
-                      const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
-                      return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
-                    })
-                  }
-                </ButtonGroup>
-              </div>
-              <div>
-                <ButtonGroup>
-                  {!first && <PaginationLink test={first} url={previousUrl} text='👈 Prev' />}
-                  {!last && <PaginationLink test={last} url={nextUrl} text='Next 👉' />}
-                </ButtonGroup>
-              </div>
+                {
+                  pageNumbers.map(number => {
+                    const isActive = location.pathname.indexOf(number) > -1 || (location.pathname === '/blog/' && number === 1)
+                    return <PaginationLink test={isActive} key={location.pathname} url={`/${number === 1 ? '' : number}`} text={number} />
+                  })
+                }
+              </ButtonGroup>
+              <ButtonGroup
+                style={{
+                  maxWidth: '30vw',
+                  justifyContent: 'flex-end',
+                }}
+              >
+                {!first && <PaginationLink test={first} url={previousUrl} text='👈 Prev' />}
+                {!last && <PaginationLink test={last} url={nextUrl} text='Next 👉' />}
+              </ButtonGroup>
             </PreviousNext>
           </section>
         </PageBody>

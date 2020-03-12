@@ -144,10 +144,22 @@ export const GlobalStyle = createGlobalStyle`
     width: 1.5rem;
   }
   .user-icon {
-    height: 1.8em;
-    width: 1.8em;
+    height: 1.2em;
+    width: 1.2em;
     border-radius: 50%;
-    margin-top: 6px;
+    top: calc(1.3vh + 1em);
+  }
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20vh);
+    visibility: hidden;
+    transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+     will-change: opacity, visibility;
+  }
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
   }
   .grid {
     display: grid;

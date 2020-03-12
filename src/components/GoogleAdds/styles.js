@@ -6,11 +6,11 @@ z-index: 3;
 line-height: 2em;
 right: 1em;
 margin: .2em;
-min-width: 16em;
+min-width: 23em;
 overscroll-behavior: none;
 ${mediaQuery.maxPhablet} {
     bottom: 1em;
-    maxWidth: 14em;
+    maxWidth: 16em;
     color: ${props => props.theme.white};
     left: 1em;
     transition: 0.3s;

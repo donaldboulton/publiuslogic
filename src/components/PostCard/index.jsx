@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Meta, Category, Post, PostGrid, Cover } from './styles'
+import { Meta, Category, Post, PostContent, PostGrid, Cover } from './styles'
 import { Calendar, FileSymlinkFile } from '@styled-icons/octicons/'
 import { Timer } from '@styled-icons/material/Timer'
 
@@ -32,12 +32,15 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                   </span>
                 </div>
               </Meta>
-              {post.excerpt}
+              <PostContent>
+                {post.excerpt}
+              </PostContent>
               <br />
               <br />
               <Link
                 style={{
                   maxWidth: '12em',
+                  marginBottom: '2em',
                 }}
                 aria-label='Keep Reading'
                 className='button'

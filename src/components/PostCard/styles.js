@@ -72,3 +72,6 @@ export const Post = styled.div`
   border: thin black;
   border-image: initial;
 `
+export const PostContent = styled.div`
+  margin: auto 1em auto 1em;
+`

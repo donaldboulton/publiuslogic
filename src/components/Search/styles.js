@@ -73,12 +73,13 @@ export const HitsWrapper = styled.div`
   max-height: 80vh;
   overflow-y: auto;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   z-index: 25;
   position: absolute;
   right: 0;
   top: calc(100% + 0.5em);
-  width: 50vw;
-  max-width: 25em;
+  width: 80vw;
+  max-width: 30em;
   box-shadow: 0 0 5px 0 black;
   padding: 0.7em 1em 0.4em;
   border-radius: ${props => props.theme.smallBorderRadius};

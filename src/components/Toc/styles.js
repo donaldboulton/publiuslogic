@@ -21,10 +21,10 @@ export const TocDiv = styled.div`
   z-index: 3;
   line-height: 2em;
   margin: .2em;
-  max-width: 20em;
+  max-width: 23em;
   overscroll-behavior: none;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  border: thin ${props => props.theme.white};
+  border: thin ${props => props.theme.black};
   overflow-x: hidden;
   overflow-y: hidden;
   ${mediaQuery.maxPhablet} {

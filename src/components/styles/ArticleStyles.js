@@ -10,10 +10,6 @@ export const Reviews = styled.div`
 `
 export const PreviousNext = styled.div`
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 3em;
-  position: relative;
 `
 export const Styledh1 = styled.h1`
   display: inline-block;

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 export const ButtonGroup = styled.div`
-  margin: 2em auto;
+  margin: auto;
   border-radius: ${props => props.theme.mediumBorderRadius};
   overflow: hidden;
+  float: left;
   button {
     font-size: 1.3em;
     border: none;
@@ -19,8 +20,16 @@ export const ButtonGroup = styled.div`
       background: ${props => props.theme.hoveredLinks};
     }
     &.active {
-      background: ${props => props.theme.activeLinks};
+      background: transparent;
       box-shadow: inset 0 0 0.3em black;
+    }
+    :not(:last-child) {
+      border-right: none; /* Prevent double borders */
+    }
+    :after {
+      content: "";
+      clear: both;
+      display: table;
     }
   }
 `
