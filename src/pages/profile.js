@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { PageBody } from '../components/styles/PageBody'
 import { Styledh1 } from '../components/styles/ArticleStyles'
-import { rhythm } from '../utils/typography'
 import UserAvatar from 'react-user-avatar'
 import { useIdentityContext } from 'react-netlify-identity-widget'
 
@@ -23,7 +22,7 @@ const Profile = () => {
           </Styledh1>
           <div
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           >
             <span>GitHub Avatar{avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}</span>
@@ -36,7 +35,7 @@ const Profile = () => {
           </div>
           <hr
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />
         </PageBody>

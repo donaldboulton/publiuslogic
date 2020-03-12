@@ -6,7 +6,6 @@ import Image from '../pages/categories/image'
 import Adds from '../components/GoogleAdds'
 import Tags from '../components/SiteTags'
 import { Styledh1 } from '../components/styles/ArticleStyles'
-import { rhythm } from '../utils/typography'
 import { PageBody, BodyWrapper, TocWrapper } from '../components/styles/PageBody'
 class CategoryRoute extends Component {
   render () {
@@ -55,7 +54,7 @@ class CategoryRoute extends Component {
         </TocWrapper>
         <Adds
           style={{
-            marginBottom: rhythm(1),
+            marginBottom: 2,
           }}
         />
       </Layout>

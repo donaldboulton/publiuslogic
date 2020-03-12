@@ -2,8 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { kebabCase } from 'lodash'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
-import { TagsTitle, TagsDiv, TagsToggle } from './styles'
-import { Pricetags } from '@styled-icons/evaicons-solid/Pricetags'
+import { TagsTitle, TagsDiv, TagsToggle, TagIcon } from './styles'
 import { TableOfContents } from '../styles/ArticleStyles'
 
 const SiteTags = ({ group, ...rest }) => {
@@ -27,7 +26,7 @@ const SiteTags = ({ group, ...rest }) => {
       <TagsToggle opener open={open} onClick={() => setOpen(true)} />
       <TagsDiv ref={ref} open={open} className='footer'>
         <TagsTitle>
-          <Pricetags />
+          <TagIcon />
           {tagsTitle}
           <TagsToggle onClick={() => setOpen(false)} />
         </TagsTitle>

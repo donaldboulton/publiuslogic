@@ -1,26 +1,10 @@
-import Typography from 'typography'
-import oceanBeachTheme from 'typography-theme-ocean-beach'
-oceanBeachTheme.baseFontSize = '24px'
-
-oceanBeachTheme.overrideThemeStyles = () => {
-  return {
-    'a.gatsby-resp-image-link': {
-      boxShadow: `none`,
-    },
-    baseFontSize: 1,
-    minFontSize: 0.9,
-    maxFontSize: 1.2,
-    minLineHeight: 1.7,
-    maxLineHeight: 1.9,
-  }
-}
-
-const typography = new Typography(oceanBeachTheme)
-
-if (process.env.NODE_ENV !== `production`) {
-  typography.injectStyles()
+const typography = {
+  fonts: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`,
+  // font sizes and line heigths in em units
+  minFontSize: 0.9,
+  maxFontSize: 1.1,
+  minLineHeight: 1.5,
+  maxLineHeight: 1.8,
 }
 
 export default typography
-export const rhythm = typography.rhythm
-export const scale = typography.scale

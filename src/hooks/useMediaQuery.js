@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react'
 import mediaQuery from '../utils/mediaQuery'
 
-const noop = () => {}
-
 // React hook for JS media queries
 export const useMediaQuery = query => {
-  // Fall back on dummy matchMedia in SSR.
-  const matchMedia =
-    // eslint-disable-next-line no-undef
-    globalThis.matchMedia || (() => ({ addListener: noop, removeListener: noop }))
-  query = matchMedia(query)
-  const [matches, setMatches] = useState(query.matches)
-  useEffect(() => {
-    const handleMatch = q => setMatches(q.matches)
-    query.addListener(handleMatch)
-    return () => query.removeListener(handleMatch)
-  }, [query])
-  return matches
+  if (typeof window !== `undefined`) {
+    query = window.matchMedia(query)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [match, setMatch] = useState(query.matches)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+      const handleMatch = q => setMatch(q.matches)
+      query.addListener(handleMatch)
+      return () => query.removeListener(handleMatch)
+    }, [query])
+    return match
+  }
 }
 
 // React hook for JS screen queries

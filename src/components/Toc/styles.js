@@ -15,6 +15,7 @@ const openTocDiv = css`
 
 export const TocDiv = styled.div`
   height: max-content;
+  grid-are: toc;
   padding: 1vmin;
   height: max-content;
   max-height: 85vh;

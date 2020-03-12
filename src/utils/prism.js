@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+require('clipboard')
 require('prismjs')
 require('prismjs/plugins/toolbar/prism-toolbar.js')
 require('prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js')
@@ -40,7 +41,7 @@ const languageTags = langExtColor
       `.gatsby-highlight[data-language='${lang}']::before {
         content: '${tag}';
         background: ${color};
-      }`
+      }`,
   )
   .join(`\n`)
 

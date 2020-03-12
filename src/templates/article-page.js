@@ -22,7 +22,6 @@ import Meta from '../components/Meta/Meta'
 import Toc from '../components/Toc'
 import Tags from '../components/SiteTags'
 import { Styledh1, MetaPage, TagList } from '../components/styles/ArticleStyles'
-import { rhythm } from '../utils/typography'
 import { PageBody, TocWrapper, BodyWrapper } from '../components/styles/PageBody'
 
 const renderAst = new RehypeReact({
@@ -107,7 +106,7 @@ const ArticlePage = ({ data }) => {
           />
           <hr
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />
           <div
@@ -122,17 +121,17 @@ const ArticlePage = ({ data }) => {
         <TocWrapper>
           {showToc && <Toc
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />}
           {showTags && <Tags
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />}
           {showAdds && <Adds
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />}
         </TocWrapper>

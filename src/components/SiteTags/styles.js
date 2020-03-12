@@ -20,11 +20,31 @@ export const TagsDiv = styled.div`
   z-index: 3;
   line-height: 2em;
   margin: .2em;
+  max-width: 20em;
   overscroll-behavior: none;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   border: thin ${props => props.theme.white};
   overflow-x: hidden;
   overflow-y: hidden;
+  ${mediaQuery.maxLaptop} {
+    position: fixed;
+    bottom: 1em;
+    background: black;
+    color: ${props => props.theme.white};
+    left: 1em;
+    ${props => !props.open && `height: 0;`};
+    ${props => props.open && openTagsDiv};
+    visibility: ${props => (props.open ? `visible` : `hidden`)};
+    opacity: ${props => (props.open ? 1 : 0)};
+    transition: 0.3s;
+  }
+  ${mediaQuery.minLaptop} {
+    font-size: 0.85em;
+    grid-column: 4 / -1;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2em;
+  }
   nav {
     max-height: 70vh;
     overflow-x: hidden;
@@ -48,27 +68,6 @@ export const TagsDiv = styled.div`
   }
   .nav-scroll::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
-  }
-  ${mediaQuery.maxLaptop} {
-    max-width: 16em;
-    position: fixed;
-    bottom: 1em;
-    background: black;
-    color: ${props => props.theme.white};
-    left: 1em;
-    ${props => !props.open && `height: 0;`};
-    ${props => props.open && openTagsDiv};
-    visibility: ${props => (props.open ? `visible` : `hidden`)};
-    opacity: ${props => (props.open ? 1 : 0)};
-    transition: 0.3s;
-  }
-  ${mediaQuery.minLaptop} {
-    font-size: 0.85em;
-    grid-column: 4 / -1;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 2em;
-    right: 2em;
   }
 `
 
@@ -101,9 +100,9 @@ export const TagIcon = styled(PurchaseTag)`
 const openedCss = css`
   position: fixed;
   z-index: 25;
-  bottom: calc(3vh + 5.5em);
-  ${mediaQuery.minPhablet} {
-    bottom: calc(1vh + 4em);
+  bottom: calc(3vh + 6em);
+  ${mediaQuery.minLaptop} {
+    bottom: calc(1vh + 6em);
   }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;

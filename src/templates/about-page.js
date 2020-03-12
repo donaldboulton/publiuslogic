@@ -18,7 +18,6 @@ import Cloudinary from '../components/Cloudinary'
 import UploadWidget from '../components/Cloudinary/UploadWidget'
 import Contact from '../components/ContactForm'
 import { Styledh1 } from '../components/styles/ArticleStyles'
-import { rhythm } from '../utils/typography'
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -150,7 +149,7 @@ const AboutPage = ({ data }) => {
           />
           <hr
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />
           <div>
@@ -160,17 +159,17 @@ const AboutPage = ({ data }) => {
         <TocWrapper>
           {showToc && <Toc
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />}
           {showTags && <Tags
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />}
           {showAdds && <Adds
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />}
         </TocWrapper>

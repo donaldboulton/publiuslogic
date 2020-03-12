@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import { PageBody } from '../components/styles/PageBody'
 import { SignOutAlt, SignInAlt } from '@styled-icons/fa-solid'
 import { Styledh1 } from '../components/styles/ArticleStyles'
-import { rhythm } from '../utils/typography'
+
 import {
   useIdentityContext,
   IdentityModal,
@@ -28,7 +28,7 @@ function Login () {
           </Styledh1>
           <div
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           >
             {isLoggedIn ? (
@@ -52,7 +52,7 @@ function Login () {
           </div>
           <hr
             style={{
-              marginBottom: rhythm(1),
+              marginBottom: 2,
             }}
           />
         </PageBody>

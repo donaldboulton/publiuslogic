@@ -6,7 +6,7 @@ import { Search } from '@styled-icons/fa-solid/Search'
 export const Root = styled.div`
   position: relative;
   display: grid;
-  grid-gap: 1em;
+  grid-gap: 1.2em;
   color: white;
 `
 
@@ -43,6 +43,7 @@ const expanded = css`
   background: ${props => props.theme.darkBg};
   color: white;
   width: 6em;
+  border: 1px solid ${props => props.theme.links};
   margin-left: -1.6em;
   padding-left: 1.6em;
   + ${SearchIcon} {
@@ -57,7 +58,6 @@ export const Input = styled.input`
   background: transparent;
   transition: 0.3s;
   border-radius: ${props => props.theme.smallBorderRadius};
-  border: thin ${props => props.theme.links};
   ${props => (props.collapse ? collapsed : expanded)};
 `
 
@@ -90,7 +90,7 @@ export const HitsWrapper = styled.div`
   }
   div + div {
     margin-top: 0.6em;
-    border-top: 1px solid ${props => props.theme.lighterGray};
+    border-bottom: 1px solid ${props => props.theme.lighterGray};
   }
   mark {
     color: ${props => props.theme.lighterBlue};

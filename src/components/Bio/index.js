@@ -5,7 +5,6 @@ import { GithubButtons } from '../styles/ArticleStyles'
 import { Twitter } from '@styled-icons/fa-brands'
 import Applause from '../ApplauseButton'
 import Image from 'gatsby-image'
-import { rhythm } from '../../utils/typography'
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -47,10 +46,10 @@ const Bio = () => {
       >
         <span>
           <Image
+            className='author-avater'
             fixed={data.avatar.childImageSharp.fixed}
             alt={author}
             style={{
-              marginRight: rhythm(1 / 2),
               marginBottom: 0,
               minWidth: 50,
               borderRadius: `100%`,
