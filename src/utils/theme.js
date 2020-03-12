@@ -77,7 +77,7 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  background: theme.darkBG,
+  background: theme.darkBg,
   accentBackground: theme.darkestGray,
   textColor: theme.lighterGray,
   quoteBg: theme.darkestGray,

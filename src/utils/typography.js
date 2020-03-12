@@ -1,6 +1,6 @@
 import Typography from 'typography'
 import oceanBeachTheme from 'typography-theme-ocean-beach'
-oceanBeachTheme.baseFontSize = '20px'
+oceanBeachTheme.baseFontSize = '24px'
 
 oceanBeachTheme.overrideThemeStyles = () => {
   return {
@@ -10,8 +10,8 @@ oceanBeachTheme.overrideThemeStyles = () => {
     baseFontSize: 1,
     minFontSize: 0.9,
     maxFontSize: 1.2,
-    minLineHeight: 1.5,
-    maxLineHeight: 1.8,
+    minLineHeight: 1.7,
+    maxLineHeight: 1.9,
   }
 }
 

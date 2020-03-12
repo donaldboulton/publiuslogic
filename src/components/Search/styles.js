@@ -7,7 +7,7 @@ export const Root = styled.div`
   position: relative;
   display: grid;
   grid-gap: 1em;
-  color: ${props => props.theme.textColor};
+  color: white;
 `
 
 export const SearchIcon = styled(Search)`
@@ -17,12 +17,12 @@ export const SearchIcon = styled(Search)`
 `
 
 const focus = css`
-  background: white;
-  color: ${props => props.theme.darkerBlue};
+  background: ${props => props.theme.darkBg};
+  color: white;
   cursor: text;
   width: 5em;
   + ${SearchIcon} {
-    color: ${props => props.theme.darkerBlue};
+    color: white;
     margin: 0 0.3em;
   }
 `
@@ -30,7 +30,7 @@ const focus = css`
 const collapsed = css`
   width: 0;
   cursor: pointer;
-  color: ${props => props.theme.lighterBlue};
+  color: white;
   ${props => props.focus && focus}
   margin-left: ${props => (props.focus ? `-1.6em` : `-1em`)};
   padding-left: ${props => (props.focus ? `1.6em` : `1em`)};
@@ -40,7 +40,8 @@ const collapsed = css`
 `
 
 const expanded = css`
-  background: ${props => props.theme.lighterGray};
+  background: ${props => props.theme.darkBg};
+  color: white;
   width: 6em;
   margin-left: -1.6em;
   padding-left: 1.6em;
@@ -69,13 +70,14 @@ export const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
   background: #1d1d1d;
   max-height: 80vh;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 25;
   position: absolute;
   right: 0;
   top: calc(100% + 0.5em);
-  width: 80vw;
-  max-width: 30em;
+  width: 50vw;
+  max-width: 25em;
   box-shadow: 0 0 5px 0 black;
   padding: 0.7em 1em 0.4em;
   border-radius: ${props => props.theme.smallBorderRadius};
@@ -91,7 +93,7 @@ export const HitsWrapper = styled.div`
   }
   mark {
     color: ${props => props.theme.lighterBlue};
-    background: ${props => props.theme.darkerBlue};
+    background: ${props => props.theme.darkBg};
   }
   header {
     display: flex;
@@ -114,10 +116,10 @@ export const HitsWrapper = styled.div`
 `
 
 export const PoweredBy = () => (
-  <span css="font-size: 0.6em; text-align: end; padding: 0;">
+  <span css='font-size: 0.6em; text-align: end; padding: 0;'>
     Powered by{` `}
-    <a href="https://algolia.com">
-      <Algolia size="1em" /> Algolia
+    <a href='https://algolia.com'>
+      <Algolia size='1em' /> Algolia
     </a>
   </span>
 )

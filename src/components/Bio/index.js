@@ -45,7 +45,7 @@ const Bio = () => {
           display: `flex`,
         }}
       >
-        <span className='author-avatar'>
+        <span>
           <Image
             fixed={data.avatar.childImageSharp.fixed}
             alt={author}

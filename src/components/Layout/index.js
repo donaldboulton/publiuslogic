@@ -19,12 +19,12 @@ function Layout ({ children, location }) {
           <Footer className='footer' />
           <ScrollDown
             direction='down' to={25}
-            showAbove={-1500}
-            css='position: fixed; right: 1.1em; top: 3.8em;'
+            showAbove={1500}
+            css='position: fixed; right: 1.3em; top: 4.2em;'
           />
           <Scroll
             showBelow={1500}
-            css='position: fixed; right: 1.1em; bottom: 2em;'
+            css='position: fixed; right: 1.3em; bottom: 2em;'
           />
         </ThemeProvider>
       </div>
