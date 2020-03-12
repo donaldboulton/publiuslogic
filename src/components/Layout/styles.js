@@ -144,8 +144,8 @@ export const GlobalStyle = createGlobalStyle`
     width: 1.5rem;
   }
   .user-icon {
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 1.8em;
+    width: 1.8em;
     border-radius: 50%;
     margin-top: 6px;
   }

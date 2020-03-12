@@ -26,7 +26,7 @@ export const TagsDiv = styled.div`
   border: thin ${props => props.theme.white};
   overflow-x: hidden;
   overflow-y: hidden;
-  ${mediaQuery.maxLaptop} {
+  ${mediaQuery.maxPhablet} {
     position: fixed;
     bottom: 1em;
     background: black;
@@ -38,7 +38,7 @@ export const TagsDiv = styled.div`
     opacity: ${props => (props.open ? 1 : 0)};
     transition: 0.3s;
   }
-  ${mediaQuery.minLaptop} {
+  ${mediaQuery.minPhablet} {
     font-size: 0.85em;
     grid-column: 4 / -1;
     position: -webkit-sticky;

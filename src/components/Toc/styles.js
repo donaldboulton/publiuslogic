@@ -14,8 +14,6 @@ const openTocDiv = css`
 `
 
 export const TocDiv = styled.div`
-  height: max-content;
-  grid-are: toc;
   padding: 1vmin;
   height: max-content;
   max-height: 85vh;
@@ -23,11 +21,31 @@ export const TocDiv = styled.div`
   z-index: 3;
   line-height: 2em;
   margin: .2em;
+  max-width: 20em;
   overscroll-behavior: none;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  border: thin ${props => props.theme.black};
+  border: thin ${props => props.theme.white};
   overflow-x: hidden;
   overflow-y: hidden;
+  ${mediaQuery.maxPhablet} {
+    position: fixed;
+    bottom: 1em;
+    background: black;
+    color: ${props => props.theme.white};
+    left: 1em;
+    ${props => !props.open && `height: 0;`};
+    ${props => props.open && openTocDiv};
+    visibility: ${props => (props.open ? `visible` : `hidden`)};
+    opacity: ${props => (props.open ? 1 : 0)};
+    transition: 0.3s;
+  }
+  ${mediaQuery.minPhablet} {
+    font-size: 0.85em;
+    grid-column: 4 / -1;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2em;
+  }
   nav {
     max-height: 70vh;
     overflow-x: hidden;
@@ -51,27 +69,6 @@ export const TocDiv = styled.div`
   }
   .nav-scroll::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
-  }
-  ${mediaQuery.minLaptop} {
-    position: fixed;
-    bottom: 2em;
-    max-width: 16em;
-    background: black;
-    color: ${props => props.theme.white};
-    left: 1em;
-    ${props => !props.open && `height: 0;`};
-    ${props => props.open && openTocDiv};
-    visibility: ${props => (props.open ? `visible` : `hidden`)};
-    opacity: ${props => (props.open ? 1 : 0)};
-    transition: 0.3s;
-  }
-  ${mediaQuery.maxLaptop} {
-    font-size: 0.85em;
-    grid-column: 4 / -1;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 2em;
-    right: 2em;
   }
 `
 
@@ -113,8 +110,8 @@ export const BookIcon = styled(OpenBook)`
 const openedCss = css`
   position: fixed;
   z-index: 25;
-  bottom: calc(1vh + 4em);
-  ${mediaQuery.minPhablet} {
+  bottom: calc(2vh + 4em);
+  ${mediaQuery.minLaptop} {
     bottom: calc(1vh + 4em);
   }
   left: 0;

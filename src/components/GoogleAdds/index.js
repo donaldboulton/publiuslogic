@@ -6,6 +6,7 @@ const Adds = () => {
   return (
     <AddsDiv role='note' itemScope='itemScope' itemType='https://schema.org/WPAdBlock'>
       <AdSense.Google
+        className='adsbygoogle adslot_1'
         client='ca-pub-7655495105068461'
         slot='5601054893'
         style={{ display: 'block' }}

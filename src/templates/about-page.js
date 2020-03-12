@@ -157,21 +157,9 @@ const AboutPage = ({ data }) => {
           </div>
         </BodyWrapper>
         <TocWrapper>
-          {showToc && <Toc
-            style={{
-              marginBottom: 2,
-            }}
-          />}
-          {showTags && <Tags
-            style={{
-              marginBottom: 2,
-            }}
-          />}
-          {showAdds && <Adds
-            style={{
-              marginBottom: 2,
-            }}
-          />}
+          {showToc && <Toc />}
+          {showTags && <Tags />}
+          {showAdds && <Adds />}
         </TocWrapper>
       </PageBody>
     </Layout>

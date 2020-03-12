@@ -51,7 +51,7 @@ const Login = () => {
           <>
             <NavEntry key={User}>
               <button className='identity-login menu-item button-transparent' onClick={() => setDialog(true)}>
-                <User />
+                <User className='user-icon' />
               </button>
               <SubNav className='footer-back'>
                 <Link className='menu-item' to='/login'>💕 User Signup</Link>

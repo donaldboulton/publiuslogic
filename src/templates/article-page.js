@@ -119,21 +119,9 @@ const ArticlePage = ({ data }) => {
           <Comments />
         </BodyWrapper>
         <TocWrapper>
-          {showToc && <Toc
-            style={{
-              marginBottom: 2,
-            }}
-          />}
-          {showTags && <Tags
-            style={{
-              marginBottom: 2,
-            }}
-          />}
-          {showAdds && <Adds
-            style={{
-              marginBottom: 2,
-            }}
-          />}
+          <Toc />
+          {showTags && <Tags />}
+          {showAdds && <Adds />}
         </TocWrapper>
       </PageBody>
     </Layout>
