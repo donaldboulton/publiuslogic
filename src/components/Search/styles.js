@@ -57,6 +57,7 @@ export const Input = styled.input`
   background: transparent;
   transition: 0.3s;
   border-radius: ${props => props.theme.smallBorderRadius};
+  border: thin ${props => props.theme.links};
   ${props => (props.collapse ? collapsed : expanded)};
 `
 

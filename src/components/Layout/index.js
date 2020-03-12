@@ -20,7 +20,7 @@ function Layout ({ children, location }) {
           <ScrollDown
             direction='down' to={25}
             showAbove={1500}
-            css='position: fixed; right: 1.3em; top: 4.2em;'
+            css='position: fixed; right: 1.3em; top: 4.5em;'
           />
           <Scroll
             showBelow={1500}

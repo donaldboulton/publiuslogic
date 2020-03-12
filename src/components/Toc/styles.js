@@ -51,7 +51,7 @@ export const TocDiv = styled.div`
   .nav-scroll::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
   }
-  ${mediaQuery.maxLaptop} {
+  ${mediaQuery.minLaptop} {
     position: fixed;
     bottom: 2em;
     max-width: 16em;
@@ -64,7 +64,7 @@ export const TocDiv = styled.div`
     opacity: ${props => (props.open ? 1 : 0)};
     transition: 0.3s;
   }
-  ${mediaQuery.minPhablet} {
+  ${mediaQuery.maxLaptop} {
     font-size: 0.85em;
     grid-column: 4 / -1;
     position: -webkit-sticky;
