@@ -16,20 +16,19 @@ export const ButtonLink = styled.a`
 `
 
 export const ButtonGroup = styled.div`
-  margin: 2em auto;
   border-radius: ${props => props.theme.mediumBorderRadius};
   overflow: hidden;
   button {
-    font-size: 1.3em;
     border: none;
     outline: none;
     color: white;
     padding: 0.2em 0.6em;
+    background: ${props => props.theme.links};
     width: max-content;
     font-size: ${props => props.size};
     transition: 0.3s;
     &.active {
-      background: ${props => props.theme.darkerOrange};
+      background: ${props => props.theme.activeLinks};
       box-shadow: inset 0 0 0.3em black;
     }
   }
