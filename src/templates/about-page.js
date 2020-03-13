@@ -10,7 +10,6 @@ import Toc from '../components/Toc'
 import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
-import Adds from '../components/GoogleAdds'
 import Tags from '../components/SiteTags'
 import TechLogos from '../components/TechLogos'
 import config from '../../_data/config'
@@ -39,7 +38,6 @@ const AboutPage = ({ data }) => {
   const image = post.frontmatter.cover
   const title = post.frontmatter.title
   const showToc = post.frontmatter.showToc
-  const showAdds = post.frontmatter.showAdds
   const showTags = post.frontmatter.showTags
   const url = rootUrl + `/${path}`
 
@@ -91,13 +89,13 @@ const AboutPage = ({ data }) => {
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
         <meta name='keywords' content={post.frontmatter.tags} />
-        <meta name='image' content={post.frontmatter.cover} />
+        <meta name='image' content={image} />
         <meta name='url' content={url} />
         <meta name='author' content={author} />
         <meta property='og:type' content='article' />
         <meta property='og:title' content={post.frontmatter.title} />
         <meta property='og:description' content={post.frontmatter.meta_description} />
-        <meta property='og:image' content={post.frontmatter.cover} />
+        <meta property='og:image' content={image} />
         <meta property='og:image:alt' content={post.frontmatter.meta_title} />
         <meta property='og:image:width' content='100%' />
         <meta property='og:image:height' content='400px' />
@@ -107,7 +105,7 @@ const AboutPage = ({ data }) => {
         <meta name='twitter:author' content='donboulton' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content={post.frontmatter.title} />
-        <meta name='twitter:image' content={post.frontmatter.cover} />
+        <meta name='twitter:image' content={image} />
         <meta name='twitter:description' content={post.frontmatter.meta_description} />
         <meta name='twitter:widgets:autoload' content='off' />
         <meta name='twitter:widgets:theme' content='dark' />
@@ -119,7 +117,6 @@ const AboutPage = ({ data }) => {
         <link rel='me' href='https://twitter.com/donboulton' />
         {/* Schema.org tags */}
         <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
-        <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' crossOrigin='anonymous' />
       </Helmet>
       <section className='post-cover'>
         <PostCover
@@ -160,7 +157,6 @@ const AboutPage = ({ data }) => {
         <TocWrapper>
           {showToc && <Toc />}
           {showTags && <Tags />}
-          {showAdds && <Adds />}
         </TocWrapper>
       </PageBody>
     </Layout>

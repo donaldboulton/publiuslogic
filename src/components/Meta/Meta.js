@@ -119,7 +119,6 @@ const Meta = props => {
       <script type='application/ld+json'>
         {JSON.stringify(articleSchemaOrgJSONLD)}
       </script>
-      <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' crossOrigin='anonymous' />
     </Helmet>
   )
 }

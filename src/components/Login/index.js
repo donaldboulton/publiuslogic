@@ -33,7 +33,7 @@ const Login = () => {
                     name={name} src={avatar_url}
                   />}
               </button>
-              <SubNav className='footer-back'>
+              <SubNav>
                 <h3 className='menu-item'>Welcome!</h3>
                 <div className='menu-item'>😀 {name}</div>
                 <div className='menu-item'>{email}</div>
@@ -53,7 +53,7 @@ const Login = () => {
               <button className='identity-login menu-item button-transparent' onClick={() => setDialog(true)}>
                 <User className='user-icon' />
               </button>
-              <SubNav className='footer-back'>
+              <SubNav>
                 <Link className='menu-item' to='/login'>💕 User Signup</Link>
               </SubNav>
             </NavEntry>

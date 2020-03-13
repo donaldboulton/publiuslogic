@@ -9,7 +9,6 @@ import { Link, graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import ArticlePageTemplate from '../components/ArticlePageTemplate'
 import Share from '../components/Share'
-import Adds from '../components/GoogleAdds'
 import Layout from '../components/Layout'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
@@ -37,7 +36,6 @@ const ArticlePage = ({ data }) => {
   const postNode = data.markdownRemark
   const coverHeight = '100%'
   const showToc = post.frontmatter.showToc
-  const showAdds = post.frontmatter.showAdds
   const showTags = post.frontmatter.showTags
 
   return (
@@ -119,7 +117,6 @@ const ArticlePage = ({ data }) => {
         <TocWrapper>
           {showToc && <Toc />}
           {showTags && <Tags />}
-          {showAdds && <Adds />}
         </TocWrapper>
       </PageBody>
     </Layout>

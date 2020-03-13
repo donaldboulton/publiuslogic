@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Image from '../pages/categories/image'
-import Adds from '../components/GoogleAdds'
 import Tags from '../components/SiteTags'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { PageBody, BodyWrapper, TocWrapper } from '../components/styles/PageBody'
@@ -52,11 +51,6 @@ class CategoryRoute extends Component {
         <TocWrapper>
           <Tags />
         </TocWrapper>
-        <Adds
-          style={{
-            marginBottom: 2,
-          }}
-        />
       </Layout>
     )
   }

@@ -21,7 +21,7 @@ function AuthStatusView () {
                   <h3> &nbsp;Hello {name}!</h3>
                   <br />
                   <button className='button' onClick={() => setDialog(true)}>
-                          LOG OUT
+                    LOG OUT
                   </button>
                 </>
               ) : (
@@ -29,7 +29,7 @@ function AuthStatusView () {
                   <h1> hello! try logging in! </h1>
                   <br />
                   <button className='button' onClick={() => setDialog(true)}>
-                         LOG IN
+                    LOG IN
                   </button>
                 </>
               )}

@@ -130,24 +130,9 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     text-align: left;
   }
-  .sticky {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 40vh;
-    width: 100%;
-  }
-  .sticky + .item-d {
-    padding-top: 22vh;
-  }
   .footer-icon {
     height: 1.5rem;
     width: 1.5rem;
-  }
-  .user-icon {
-    height: 1.2em;
-    width: 1.2em;
-    border-radius: 50%;
-    top: calc(1.3vh + 1em);
   }
   .fade-in-section {
     opacity: 0;

@@ -107,7 +107,6 @@
     "prop-types": "^15.7.2",
     "ramda": "^0.27.0",
     "react": "^16.12.0",
-    "react-adsense": "^0.1.0",
     "react-dom": "^16.12.0",
     "react-dropzone": "^10.2.1",
     "react-github-btn": "^1.1.1",
@@ -139,8 +138,7 @@
     "uploadcare-widget": "^3.7.7",
     "use-dark-mode": "^2.3.1",
     "utf-8-validate": "^5.0.2",
-    "uuid": "^3.4.0",
-    "with-utterances": "^1.5.0"
+    "uuid": "^3.4.0"
   },
   "resolutions": {
     "core-js": "^3.6.4"

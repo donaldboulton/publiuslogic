@@ -1,5 +1,5 @@
 const typography = {
-  fonts: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`,
+  fonts: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Roboto Slab, "Helvetica Neue", Arial, sans-serif`,
   // font sizes and line heigths in em units
   minFontSize: 0.9,
   maxFontSize: 1.1,
