@@ -17,9 +17,9 @@ const Profile = () => {
   return (
     <>
       <Layout>
-      <section className='post-cover'>
-        <Image />
-      </section>
+        <section className='post-cover'>
+          <Image />
+        </section>
         <PageBody>
           <Styledh1>
             Profile

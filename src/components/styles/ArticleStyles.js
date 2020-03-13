@@ -80,7 +80,7 @@ export const Date = styled.span`
 export const GithubButtons = styled.span`
   display: flex;
   flex-flow: row;
-  justify-content: space-around;
+  justify-content: space-between;
 `
 export const Pagination = styled.div`
   display: flex;

@@ -14,7 +14,7 @@ meta_description: Gatsby SEO JSON-LD per page is the only logical option for per
 tweet_id: '1118651504674725889'
 showToc: true  
 showTags: true 
-showAdds: true 
+showAdds: false 
 showStack: true
 ---
 

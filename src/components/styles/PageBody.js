@@ -31,7 +31,7 @@ export const BodyWrapper = styled.div`
 
 export const TocWrapper = styled.div`
   grid-area: toc;
-  top: 10vh;
+  top: 40vh;
   right: -3vw;
-  max-width: 22vw;
+  max-width: 28vw;
 `

@@ -1,7 +1,7 @@
 import {
-  identity,
-} from 'react-netlify-identity'
+  netlifyIdentity,
+} from './netlify-identity'
 
 export default {
-  identity,
+  netlifyIdentity,
 }

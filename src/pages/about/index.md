@@ -13,7 +13,7 @@ tags:
   - About
 showToc: true  
 showTags: true 
-showAdds: true 
+showAdds: false 
 showStack: true
 ---
 

@@ -11,7 +11,7 @@ tags:
   - Contact
 showToc: true  
 showTags: true 
-showAdds: true 
+showAdds: false 
 showStack: true
 ---
 

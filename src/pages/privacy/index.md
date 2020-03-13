@@ -13,7 +13,7 @@ tags:
 cover: /images/privacy.jpg
 showToc: true  
 showTags: true 
-showAdds: true 
+showAdds: false 
 showStack: true
 ---
 

@@ -15,7 +15,7 @@ meta_description: React Hook Form Builder
 tweet_id: '1118651504674725888'
 showToc: true  
 showTags: true 
-showAdds: true 
+showAdds: false 
 showStack: true
 ---
 

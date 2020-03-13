@@ -14,7 +14,7 @@ meta_description: Gatsby GitHub Comments Utterances uses withUtterances React np
 tweet_id: '1118651504674725888'
 showToc: true  
 showTags: true 
-showAdds: true 
+showAdds: false 
 showStack: true
 ---
 

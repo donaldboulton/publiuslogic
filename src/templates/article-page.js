@@ -10,7 +10,6 @@ import { HTMLContent } from '../components/Content'
 import ArticlePageTemplate from '../components/ArticlePageTemplate'
 import Share from '../components/Share'
 import Adds from '../components/GoogleAdds'
-import Comments from '../components/Comments'
 import Layout from '../components/Layout'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
@@ -116,10 +115,9 @@ const ArticlePage = ({ data }) => {
           >
             <WebIntents />
           </div>
-          <Comments />
         </BodyWrapper>
         <TocWrapper>
-          <Toc />
+          {showToc && <Toc />}
           {showTags && <Tags />}
           {showAdds && <Adds />}
         </TocWrapper>

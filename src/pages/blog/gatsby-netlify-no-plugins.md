@@ -18,7 +18,7 @@ meta_description: >-
 tweet_id: "1148277966230695936"
 showToc: true  
 showTags: true 
-showAdds: true 
+showAdds: false 
 showStack: true
 related: true
 ---

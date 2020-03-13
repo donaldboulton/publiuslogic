@@ -21,7 +21,7 @@ export const TocDiv = styled.div`
   z-index: 3;
   line-height: 2em;
   margin: .2em;
-  max-width: 23em;
+  max-width: 28em;
   overscroll-behavior: none;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   border: thin ${props => props.theme.black};

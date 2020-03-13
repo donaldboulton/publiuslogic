@@ -10,8 +10,8 @@ const Meta = props => {
   const rootUrl = 'https://publiuslogic.com'
   const buildTime = data.frontmatter.date
   const postImage = data.frontmatter.cover
-  const imageWidth = postImage.width
-  const imageHeight = postImage.height
+  const imageWidth = '100%'
+  const imageHeight = '400px'
   const body = data.frontmatter.meta_description
   const postTitle = data.frontmatter.title
   const alternativeHeadline = data.frontmatter.meta_title
@@ -61,7 +61,7 @@ const Meta = props => {
       '@id': rootUrl + `/${path}`,
     },
     alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
-    pageName: title,
+    pageName: postTitle,
     author: {
       '@type': 'Person',
       name: 'donboulton',
@@ -83,36 +83,6 @@ const Meta = props => {
     keywords: pageTags,
     inLanguage: 'en_US',
     articleBody: body,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.5',
-      bestRating: '5',
-      worstRating: '1',
-      ratingCount: '6',
-    },
-    review: {
-      '@type': 'Review',
-      url: 'https://publiuslogic.com/blog/netlify-cms',
-      author: {
-        '@type': 'Person',
-        name: 'Lisa Kennedy',
-        sameAs: 'https://plus.google.com/114108465800532712602',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'Denver Post',
-        sameAs: 'http://www.denver.com',
-      },
-      datePublished: '2019-03-13T20:00',
-      description: 'Cms From Hell.',
-      inLanguage: 'en',
-      reviewRating: {
-        '@type': 'Rating',
-        worstRating: '1',
-        bestRating: '5',
-        ratingValue: '4.5',
-      },
-    },
   }
 
   return (
@@ -125,17 +95,17 @@ const Meta = props => {
       <meta property='og:readingTime' content={data.timeToRead} />
       <meta property='og:title' content={data.frontmatter.title} />
       <meta property='og:description' content={data.frontmatter.meta_description} />
-      <meta property='og:image' content={logo} />
+      <meta property='og:image' content={postImage} />
       <meta property='og:image:alt' content={data.frontmatter.meta_title} />
       <meta property='og:image:width' content={imageWidth} />
       <meta property='og:image:height' content={imageHeight} />
-      <meta property='og:url' content={data.frontmatter.path} />
+      <meta property='og:url' content={url} />
       <meta name='rel' content={url} />
       <meta name='key' content={url} />
       <meta name='twitter:author' content='donboulton' />
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:title' content={data.frontmatter.title} />
-      <meta name='twitter:image' content={logo} />
+      <meta name='twitter:image' content={postImage} />
       <meta name='twitter:description' content={data.frontmatter.meta_description} />
       <meta name='twitter:widgets:autoload' content='off' />
       <meta name='twitter:widgets:theme' content='dark' />
