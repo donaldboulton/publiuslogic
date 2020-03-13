@@ -77,7 +77,7 @@ export const Date = styled.span`
   font-size: 0.9em;
   color: ${props => props.theme.white};
 `
-export const GithubButtons = styled.span`
+export const GithubButtons = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -92,12 +92,7 @@ export const Meta = styled.div`
   flex-flow: row;
   justify-content: space-around;
 `
-export const ButtonDisabled = styled.div`
-  background: transparent;
-  padding: calc(.5em - 1px) .75em;
-  border: thin ${props => props.theme.black};
-  font-size: 0.9em;
-`
+
 export const Category = styled.span`
   font-size: 0.9em;
   color: ${props => props.theme.white};

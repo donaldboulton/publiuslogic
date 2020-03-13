@@ -153,7 +153,7 @@ export default class Comments extends Component {
             .map((comment, i) => {
               let child
               if (comment.id) {
-                child = comments.find(c => comment.id == c.parent_comment_id)
+                child = comments.find(c => comment.id === c.parent_comment_id)
               }
 
               return (
