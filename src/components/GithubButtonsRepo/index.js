@@ -9,15 +9,19 @@ require('octicons/index')
 const GitHubRepo = () => {
   return (
     <>
-      <div
-        style={{
-          display: `flex`,
-        }}
-      >
-        <GithubButtonFollow />
-        <GithubButtonWatch />
-        <GithubButtonStar />
-        <GithubButtonFork />
+      <div className='field is-grouped has-addons'>
+        <p className='control'>
+          <GithubButtonFollow />
+        </p>
+        <p className='control'>
+          <GithubButtonWatch />
+        </p>
+        <p className='control'>
+          <GithubButtonStar />
+        </p>
+        <p className='control'>
+          <GithubButtonFork />
+        </p>
       </div>
     </>
   )

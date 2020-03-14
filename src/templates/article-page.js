@@ -1,6 +1,7 @@
 import React from 'react'
 import RehypeReact from 'rehype-react'
 import { Calendar, FileSymlinkFile } from '@styled-icons/octicons/'
+import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import { Timer } from '@styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
@@ -19,7 +20,7 @@ import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Toc from '../components/Toc'
 import Tags from '../components/SiteTags'
-import { Styledh1, MetaPage, TagList } from '../components/styles/ArticleStyles'
+import { Styledh1, MetaPage, GithubButtons, TagList } from '../components/styles/ArticleStyles'
 import { PageBody, TocWrapper, BodyWrapper } from '../components/styles/PageBody'
 
 const renderAst = new RehypeReact({
@@ -106,13 +107,22 @@ const ArticlePage = ({ data }) => {
               marginBottom: 2,
             }}
           />
-          <div
-            style={{
-              display: `flex`,
-            }}
-          >
-            <WebIntents />
-          </div>
+          <GithubButtons>
+            <div
+              style={{
+                display: `flex-start`,
+              }}
+            >
+              <WebIntents />
+            </div>
+            <div
+              style={{
+                display: `flex-end`,
+              }}
+            >
+              <GithubButtonsRepo />
+            </div>
+          </GithubButtons>
         </BodyWrapper>
         <TocWrapper>
           {showToc && <Toc />}

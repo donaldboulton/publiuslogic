@@ -13,6 +13,8 @@ const openTagsDiv = css`
 `
 
 export const TagsDiv = styled.div`
+  grid-column-start: toc-start;
+  grid-column-end: toc-end;
   padding: 1vmin;
   height: max-content;
   max-height: 85vh;
@@ -20,7 +22,8 @@ export const TagsDiv = styled.div`
   z-index: 3;
   line-height: 2em;
   margin: .2em;
-  max-width: 28em;
+  min-width: 20em;
+  width: 165px;
   overscroll-behavior: none;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   border: thin ${props => props.theme.black};
@@ -100,9 +103,9 @@ export const TagIcon = styled(PurchaseTag)`
 const openedCss = css`
   position: fixed;
   z-index: 25;
-  bottom: calc(3vh + 5em);
+  bottom: calc(5vh + 6em);
   ${mediaQuery.minLaptop} {
-    bottom: calc(1vh + 5em);
+    bottom: calc(3vh + 6em);
   }
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;

@@ -66,7 +66,7 @@ export const Children = styled(animated.div)`
 const openerCss = css`
   z-index: 2;
   position: fixed;
-  bottom: 5vh;
+  bottom: 8vh;
   left: 0;
   padding: 0.5em 0.6em 0.5em 0.3em;
   background: ${props => props.theme.black};

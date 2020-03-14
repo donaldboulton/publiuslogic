@@ -7,7 +7,7 @@ if (typeof window !== undefined) { require('react-github-btn') }
 class GitHubWatch extends PureComponent {
   render () {
     return (
-      <GitHubButton href='https://github.com/donaldboulton/publiuslogic/subscription' className='btn' data-icon='octicon-eye' data-color-scheme='no-preference: dark; light: dark' data-show-count='true' aria-label='Watch donaldboulton/publiuslogic on GitHub'>Watch</GitHubButton>
+      <GitHubButton href='https://github.com/donaldboulton/publiuslogic/subscription' data-icon='octicon-eye' data-color-scheme='no-preference: dark; light: dark' data-show-count='true' aria-label='Watch donaldboulton/publiuslogic on GitHub'>Watch</GitHubButton>
     )
   }
 }

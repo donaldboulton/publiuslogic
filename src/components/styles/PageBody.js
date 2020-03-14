@@ -33,5 +33,6 @@ export const TocWrapper = styled.div`
   grid-area: toc;
   top: 40vh;
   right: -3vw;
-  max-width: 28vw;
+  max-width: 40vw;
+  flex-basis: 250px;
 `

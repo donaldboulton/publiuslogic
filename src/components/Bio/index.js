@@ -1,7 +1,5 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import GithubButtonsRepo from '../GithubButtonsRepo'
-import { GithubButtons } from '../styles/ArticleStyles'
 import { Twitter } from '@styled-icons/fa-brands'
 import Applause from '../ApplauseButton'
 import Image from 'gatsby-image'
@@ -38,7 +36,7 @@ const Bio = () => {
   const { path } = data.markdownRemark.frontmatter
   const { siteUrl } = data.site.siteMetadata
   return (
-    <div>
+    <>
       <div
         style={{
           display: `flex`,
@@ -61,7 +59,6 @@ const Bio = () => {
         </span>
         <p>
           Written by <strong>{author}</strong>
-          <GithubButtons><GithubButtonsRepo /></GithubButtons>
           <a
             itemProp='url'
             rel='noopener noreferrer'
@@ -86,7 +83,7 @@ const Bio = () => {
         </p>
         <Applause />
       </div>
-    </div>
+    </>
   )
 }
 
