@@ -19,11 +19,22 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
               </div>
             </Link>
             <div className='post-section'>
-              <Link aria-label='Post Link' className='h3 a' to={post.fields.slug}>
+              <Link
+                style={{
+                  marginLeft: '1em',
+                }}
+                aria-label='Post Link'
+                className='h3 a'
+                to={post.fields.slug}
+              >
                 {post.frontmatter.title}
               </Link>
               <Meta inTitle={inTitle}>
-                <div>
+                <div
+                  style={{
+                    marginLeft: '1em',
+                  }}
+                >
                   <span className='subtitle is-size-5'>
                     <Calendar size='1em' /><small>&nbsp;{post.frontmatter.date}</small>&nbsp;
                     <Timer size='1em' />&nbsp;
@@ -36,7 +47,6 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                 {post.excerpt}
               </PostContent>
               <br />
-              <br />
               <Link
                 style={{
                   maxWidth: '12em',
@@ -46,8 +56,9 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                 className='button'
                 to={post.fields.slug}
               >
-                Keep Reading →
+                Keep Reading 👉
               </Link>
+              <br />
             </div>
           </Post>
         ))}

@@ -16,11 +16,11 @@ function Gallery () {
 
   return (
     <div className='column'>
-      <Fragment>
+      <>
         <Button type='button' onClick={() => setIsOpen(true)}>
           <span><Image images={photoIndex} /></span>
         </Button>
-      </Fragment>
+      </>
       {isOpen && (
         <Lightbox
           mainSrc={images[photoIndex]}
@@ -28,11 +28,9 @@ function Gallery () {
           prevSrc={images[(photoIndex + images.length - 1) % images.length]}
           onCloseRequest={() => setIsOpen(false)}
           onMovePrevRequest={() =>
-            setPhotoIndex((photoIndex + images.length - 1) % images.length)
-          }
+            setPhotoIndex((photoIndex + images.length - 1) % images.length)}
           onMoveNextRequest={() =>
-            setPhotoIndex((photoIndex + 1) % images.length)
-          }
+            setPhotoIndex((photoIndex + 1) % images.length)}
         />
       )}
     </div>

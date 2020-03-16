@@ -71,6 +71,8 @@ export const TagsDiv = styled.div`
   }
   .nav-scroll::-webkit-scrollbar-track {
     background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
+    border-bottom: 10px;
+    border-top: 10px;
   }
 `
 

@@ -13,8 +13,11 @@ import Share from '../components/Share'
 import Layout from '../components/Layout'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
+import Subscriptions from '../components/Subscriptions'
 import Todo from '../components/Todo'
 import Bio from '../components/Bio'
+import HotJar from '../components/HotJar'
+import Slack from '../components/Slack'
 import ColorBox from '../components/ColorBox'
 import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
@@ -127,7 +130,10 @@ const ArticlePage = ({ data }) => {
         <TocWrapper>
           {showToc && <Toc />}
           {showTags && <Tags />}
+          <HotJar />
+          <Slack />
         </TocWrapper>
+        <Subscriptions />
       </PageBody>
     </Layout>
   )

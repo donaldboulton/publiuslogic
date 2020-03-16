@@ -58,28 +58,7 @@ const Bio = () => {
           />
         </span>
         <p>
-          Written by <strong>{author}</strong>
-          <a
-            itemProp='url'
-            rel='noopener noreferrer'
-            target='_blank'
-            data-screen-name='donboulton'
-            data-screen-data-show-count='true'
-            data-show-count='true'
-            title={twitter}
-            key={siteUrl}
-            url={siteUrl}
-            className='twitter-follow-button'
-            aria-label='Follow'
-            data-related='donboulton'
-            data-show-screen-name='false'
-            href='https://twitter.com/donboulton?ref_src=twsrc%5Etfw'
-          >
-            <span>
-              <Twitter size='14' color='#1b95e0' />
-            </span>
-            <span>&nbsp;Follow</span>
-          </a>
+          Written by <strong>{author}</strong>          
         </p>
         <Applause />
       </div>

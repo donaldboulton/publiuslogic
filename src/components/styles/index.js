@@ -9,9 +9,9 @@ export * from './BorderBox'
 export const fadeInOnHoverParent = parent => css`
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: all .6s;
-  -moz-transition: all .6s;
-  transition: 0.6s;
+  -webkit-transition: all .6s ease;
+  -moz-transition: all .6s ease;
+  transition: .6s ease;
   pointer-events: none;
   ${parent}:hover & {
     opacity: 1;

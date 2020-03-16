@@ -47,10 +47,10 @@ class TagRoute extends Component {
               </p>
             </section>
           </BodyWrapper>
+          <TocWrapper>
+            <Tags />
+          </TocWrapper>
         </PageBody>
-        <TocWrapper>
-          <Tags />
-        </TocWrapper>
       </Layout>
     )
   }

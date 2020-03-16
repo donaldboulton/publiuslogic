@@ -1,10 +1,9 @@
 import styled from 'styled-components'
-import { Hotjar } from '@styled-icons/fa-brands/Hotjar'
-
 import mediaQuery from '../../utils/mediaQuery'
+import { Slack } from '@styled-icons/fa-brands/Slack'
 
-export const HotJarDiv = styled.div`
-  grid-column-start: toc-start;
+export const SlackDiv = styled.div`
+  grid-column-start: content-start;
   grid-column-end: toc-end;
   padding: 1vmin;
   height: max-content;
@@ -24,35 +23,25 @@ export const HotJarDiv = styled.div`
     font-size: 0.85em;
     transition: 0.3s;
   }
+  ${mediaQuery.minLaptop} {
+    display: none;
+  }
 `
 
-export const HotJarTitle = styled.h3`
+export const SlackTitle = styled.h3`
   margin: 0.2em;
   display: grid;
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
   color: ${props => props.theme.white}; 
-  border-bottom: thin ${props => props.theme.white};
+  border-bottom: thin white;
 `
 
-export const HotJarIcon = styled(Hotjar)`
+export const SlackIcon = styled(Slack)`
   font-size: 1.1em;
   width: 1.1em;
   height: 1.1em;
   margin-right: 0.2em;
   color: ${props => props.theme.white};
-`
-
-export const Box = styled.div`
-  padding: 1em;
-  margin: 1.1em;
-  border-radius: ${props => props.theme.mediumBorderRadius};
-  border: 1px solid ${props => props.theme.black};
-  background: radial-gradient(
-    circle closest-corner at center 75px,
-    ${props => props.theme.darkestGray},
-    ${props => props.theme.black} 40%,
-  ) no-repeat;
-  text-align: center;
 `

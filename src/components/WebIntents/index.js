@@ -12,7 +12,7 @@ const WebIntents = ({ slug, tweet_id }) => {
     <ThemeProvider theme={theme}>
       <>
         <div className='field is-grouped has-addons'>
-          <p className='control'>
+          <p className='control widget widget-lg'>
             <a
               itemProp='url'
               rel='me'
@@ -22,7 +22,7 @@ const WebIntents = ({ slug, tweet_id }) => {
               data-screen-name='@donboulton'
               data-show-count='true'
               data-screen-data-show-count='true'
-              className='twitter-share-button'
+              className='twitter-share-button btn'
               aria-label='Share'
               href='https://twitter.com/intent/tweet?via=donboulton?ref_src=twsrc%5Etfw'
             >
@@ -32,7 +32,7 @@ const WebIntents = ({ slug, tweet_id }) => {
               <span>&nbsp;Tweet</span>
             </a>
           </p>
-          <p className='control'>
+          <p className='control widget widget-lg'>
             <a
               itemProp='url'
               rel='noopener noreferrer'
@@ -43,7 +43,7 @@ const WebIntents = ({ slug, tweet_id }) => {
               title={title}
               key={url}
               url={url}
-              className='twitter-follow-button'
+              className='twitter-follow-button btn'
               aria-label='Follow'
               data-related='donboulton'
               data-show-screen-name='false'
@@ -55,7 +55,7 @@ const WebIntents = ({ slug, tweet_id }) => {
               <span>&nbsp;Follow</span>
             </a>
           </p>
-          <p className='control'>
+          <p className='control widget widget-lg'>
             <a
               itemProp='url'
               rel='noopener noreferrer'
@@ -64,7 +64,7 @@ const WebIntents = ({ slug, tweet_id }) => {
               url={url}
               key={url}
               href='https://twitter.com/messages/compose?recipient_id=105217183'
-              className='twitter-dm-button'
+              className='twitter-dm-button btn'
               data-screen-name='@donboulton'
               data-show-count='true'
               target='_blank'

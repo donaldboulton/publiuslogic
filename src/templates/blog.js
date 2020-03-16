@@ -15,7 +15,6 @@ import { ButtonGroup } from '../components/styles/ButtonGroup'
 const ButtonSecondary = styled(Link)`
   background: ${props => props.theme.links};
   color: white;
-  display: inline;
 }
 `
 const ButtonDisabled = styled.div`
@@ -163,8 +162,8 @@ export default class BlogPage extends Component {
                   justifyContent: 'flex-end',
                 }}
               >
-                {!first && <PaginationLink test={first} url={previousUrl} text='👈 Prev' />}
-                {!last && <PaginationLink test={last} url={nextUrl} text='Next 👉' />}
+                {!first && <PaginationLink test={first} url={previousUrl} text='👈 Prev&nbsp;' />}
+                {!last && <PaginationLink test={last} url={nextUrl} text='&nbsp;Next 👉' />}
               </ButtonGroup>
             </PreviousNext>
           </section>

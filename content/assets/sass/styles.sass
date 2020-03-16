@@ -20,8 +20,6 @@
   width: 2em
 .button:active
   border-color: transparent   
-.button    
-  border-radius: 4px
 .button-transparent 
   background-color: transparent
   border-color: transparent
@@ -32,6 +30,8 @@
   background: red
   color: #ffffff
   border-radius: 3px
+.message-body
+  padding: 1.25em 1.5em
 .message-body code
   background-color: transparent        
   cursor: pointer
@@ -54,7 +54,6 @@ strong
   display: flex
   flex-wrap: wrap
   justify-content: left
-  align-items: center
   li
     padding: 0 0.5em 0.2em 0
     margin-bottom: 1.5em
@@ -88,7 +87,7 @@ pre::-webkit-scrollbar-thumb
 pre::-webkit-scrollbar-track
   background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d)  
 .number
-  background-color: #d64000
+  background-color: #000
 div.code-toolbar>.toolbar
   position: absolute
   top: 1em
@@ -145,6 +144,14 @@ ul ul li:last-child
   justify-content: center
   max-width: 80vw
   margin: 1em auto
+.center
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-content: center
+  align-items: center
+  margin: 2em 0
 .social-links
   display: flex
   flex-direction: row

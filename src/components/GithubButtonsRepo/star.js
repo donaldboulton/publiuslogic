@@ -7,7 +7,7 @@ if (typeof window !== undefined) { require('react-github-btn') }
 class GitHubStar extends PureComponent {
   render () {
     return (
-      <GitHubButton href='https://github.com/donaldboulton/publiuslogic' data-icon='octicon-star' data-color-scheme='no-preference: dark; light: dark' data-show-count='true' aria-label='Star donaldboulton/publiuslogic on GitHub'>Star</GitHubButton>
+      <GitHubButton href='https://github.com/donaldboulton/publiuslogic' data-size='large' data-icon='octicon-star' data-color-scheme='no-preference: dark; light: dark' data-show-count='true' aria-label='Star donaldboulton/publiuslogic on GitHub'>Star</GitHubButton>
     )
   }
 }

@@ -16,10 +16,26 @@ showStack: true
 
 ## Just Having Fun
 
-🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds  using React components and GraphQL, Built with WebPack. Including a user data, todo's and site reviews backend. I am just now working on the data structure using FaunaDB.
+🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds, using React components and GraphQL, Built with WebPack. Including a user data, todo's and site reviews FAAS (Functions-as-a-Service) backend. I am just now working on the full data structure using FaunaDB.
 
-Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
+### Redesign March 15th 2020
 
-## Hooks window.matchMedia
+I was using Bluma for some styling and Styled components the over riding bluma was increasing my overhead and pissing me off so I came up with....
+
+## A Physics-based Grid Cell - Item layout redesign
+
+### Hooks window.matchMedia
 
 Styled Components 💅 with custom React Hooks screen [window.matchMedia](/blog/js-media-queries) mediaQuery's 💍, using `window.matchMedia` browser support.
+
+### Abstract
+
+In embodiments of calc vmin vmax screen matchMedia query algorithm to a physics-based grid, cell, item layout. Using matchMedia browser screen query's that displays a grid layout interface that includes items within cells in a grid cell layout, and the Browser implements a physics-based algorithm as a computer screen grid layout that can receive a redesign input based on screen size media query's to manipulate a cell in the grid layout interface. 
+
+The physics-based screen algorithm is implemented to then determine one or more of the cell items that are proximate to the manipulated cell based on edge relations between an edge of the manipulated cell and respective edges of the one or more grid items.
+
+The screen matchMedia query algorithm can then reconfigure the one or more proximate cells based on the redesign input to the manipulated items and the edge relations between the edges of the cells and/or there items.
+
+## Netlify Server
+
+Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.

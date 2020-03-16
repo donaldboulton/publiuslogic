@@ -55,6 +55,13 @@ export const GlobalStyle = createGlobalStyle`
   footer {
     grid-column: 1 / span 2;
   }
+  .button {
+    border-radius: 4px;
+    padding: calc(.5em - 1px) 1em;
+  }
+  .input {
+    padding: calc(.5em - 1px) 1em;
+  }
   .content figure {
     margin-left: 2em;
     margin-right: 2em;

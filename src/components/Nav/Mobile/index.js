@@ -3,6 +3,7 @@ import { animated, useSpring } from 'react-spring'
 import { useOnClickOutside } from '../../../hooks/useOnClickOutside'
 import { useSize } from '../../../hooks/useSize'
 import Login from '../../Login'
+import Toggle from '../../DarkMode/DarkModeToggle'
 import {
   Children,
   ArrowUp,
@@ -53,6 +54,7 @@ export default function MobileNav ({ nav }) {
         <ControlsDiv>
           <NavToggle open={open} onClick={() => setOpen(false)} />
           <Login />
+          <Toggle />
         </ControlsDiv>
         {nav.map(({ title, url, subNav }) => (
           <Tree key={url} url={url} title={title}>

@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import EmailIcon from '../../../static/img/enewsletter_icon.png'
 import { Mailchimp } from '@styled-icons/fa-brands/'
-import Email from '../Email'
 export default class Subscribe extends React.Component {
   constructor () {
     super()
@@ -59,7 +58,7 @@ export default class Subscribe extends React.Component {
             status: `sending`,
             msg: null,
           },
-        );
+        )
         // setState callback (subscribe email to MC)
         this._postEmailToMailchimp(this.state.email, {
           pathname: document.location.pathname,
@@ -69,93 +68,76 @@ export default class Subscribe extends React.Component {
 
     render () {
       return (
-        <div>
-          <article className='message newsletter'>
-            <div className='message-body'>
-              <div className='columns is-desktop'>
-                <div className='media column is-1'>
-                  <figure className='media-left'>
-                    <p className='image is-64x64'>
-                      <img
-                        src={EmailIcon}
-                        alt='MailChimp Newsletters'
-                        style={{ width: '64px', height: '64px' }}
-                      />
-                    </p>
-                  </figure>
-                </div>
-                <div className='column is-9'>
-                  <strong>Newsletters</strong>
-                  <p className='subtitle is-5'>
-                    <div>Enjoyed this post? Want the next one in your inbox!</div>
-                  </p>
-                </div>
-                <div className='column'>
-                  <Email />
+        <>
+          <div>
+            <section className='message'>
+              <div className='message-body'>
+                <div>
+                  <span>
+                    <span>
+                      <figure>
+                        <img
+                          className='image'
+                          src={EmailIcon}
+                          alt='MailChimp Newsletters'
+                          style={{ width: '84px', height: '84px', float: 'left', flex: 'left' }}
+                        />
+                      </figure>
+                    </span><strong>Newsletters</strong>
+                    <p><strong>Enjoyed this post? Want the next one in your inbox!</strong></p>
+                  </span>
+
+                  <span>
+                    {this.state.status === `success` ? (
+                      <div>Thank you! Youʼll receive your first email shortly.</div>
+                    ) : (
+                      <form
+                        id='email-capture'
+                        method='post'
+                        noValidate
+                      >
+                        <div className='field has-addons'>
+                          <Mailchimp size='1.8em' />&nbsp;
+                          <div className='control'>
+                            <input
+                              className='input'
+                              type='email'
+                              id='email'
+                              aria-label='Input Your Email'
+                              aria-required='false'
+                              placeholder='your@email.com *'
+                              // eslint-disable-next-line react/jsx-handler-names
+                              onChange={this._handleEmailChange}
+                              required
+                            />
+                          </div>
+                          <div className='control'>
+                            <button
+                              className='button'
+                              type='submit'
+                              aria-label='Submit Subscription'
+                              // eslint-disable-next-line react/jsx-handler-names
+                              onClick={this._handleFormSubmit}
+                            >Sign Up
+                            </button>
+                          </div>
+                          <Link aria-label='MailChimp Privacy' to='/privacy/#MailChimp' itemProp='url' rel='no-follow' className='a'>
+                        &nbsp;&nbsp;MailChimp Privacy & Terms
+                          </Link>
+                          {this.state.status === `error` && (
+                            <div
+                              dangerouslySetInnerHTML={{ __html: this.state.msg }}
+                            />
+                          )}
+                        </div>
+                      </form>
+                    )}
+                  </span>
                 </div>
               </div>
-              <div className='columns'>
-                <div className='column is-3 is-offset-1'>
-                  <p className='subtitle is-5'>
-                    <span className='icon is-large has-text-light'>
-                      <Mailchimp size='3em' />
-                    </span>
-                    <strong>Secure Email</strong>
-                  </p>
-                </div>
-                <div className='column'>
-                  {this.state.status === `success` ? (
-                    <div>Thank you! Youʼll receive your first email shortly.</div>
-                  ) : (
-                    <form
-                      id='email-capture'
-                      method='post'
-                      noValidate
-                    >
-                      <div className='field has-addons'>
-                        <div className='control'>
-                          <input
-                            className='input input-control'
-                            type='email'
-                            id='email'
-                            aria-label='Input Your Email'
-                            aria-required='false'
-                            placeholder='your@email.com *'
-                            // eslint-disable-next-line react/jsx-handler-names
-                            onChange={this._handleEmailChange}
-                            required
-                          />
-                        </div>
-                        <div className='control'>
-                          <button
-                            className='button'
-                            type='submit'
-                            aria-label='Submit Subscription'
-                            // eslint-disable-next-line react/jsx-handler-names
-                            onClick={this._handleFormSubmit}
-                          >Sign Up
-                          </button>
-                        </div>
-                        {this.state.status === `error` && (
-                          <div
-                            dangerouslySetInnerHTML={{ __html: this.state.msg }}
-                          />
-                        )}
-                      </div>
-                    </form>
-                  )}
-                </div>
-                <div className='column'>
-                  <p className='subtitle is-5'>
-                    <Link aria-label='MailChimp Privacy' to='/privacy/#MailChimp' itemProp='url' rel='no-follow' className='a is-small'>
-                      MailChimp Privacy & Terms
-                    </Link>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
+            </section>
+          </div>
+        </>
       )
     }
 }
