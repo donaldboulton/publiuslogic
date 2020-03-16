@@ -4,12 +4,10 @@ import { Tag } from '@styled-icons/fa-solid/Tag'
 import { Tags } from '@styled-icons/fa-solid/Tags'
 import { Table } from '@styled-icons/boxicons-regular/Table'
 
-export const Reviews = styled.div`
-  font-size: 1rem;
-  color: silver;
-`
 export const PreviousNext = styled.div`
   display: flex;
+  flex-flow: row;
+  justify-content: space-around;
 `
 export const Styledh1 = styled.h1`
   display: inline-block;

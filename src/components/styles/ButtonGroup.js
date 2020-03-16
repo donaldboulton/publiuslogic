@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const ButtonGroup = styled.div`
   margin-top: 2em;
-  border-radius: ${props => props.theme.smallBorderRadius};
-  padding: calc(1.5em - 1px) 1.5em;
+  border-radius: 4px;
+  padding: 1.5em;
   overflow: hidden; 
   display: flex;
   -webkit-flex-direction: row;
@@ -14,13 +14,13 @@ export const ButtonGroup = styled.div`
     font-size: 1.3em;
     border: none;
     outline: none;
-    padding: calc(1.5em - 1px) 1.5em;
+    padding: 1.2em;
     background: ${props => props.theme.links};
     color: white;
     display: inline-block;
     width: max-content;
     font-size: ${props => props.size};
-    border-radius: ${props => props.theme.smallBorderRadius};
+    border-radius: 4px;
     -webkit-transition: .4s ease-in-out 3s;
     transition: .4s ease-in-out 3s;
     :hover {
