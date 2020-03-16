@@ -20,7 +20,7 @@ showStack: true
 
 ### Redesign March 15th 2020
 
-I was using Bluma for some styling and Styled components the over riding bluma was increasing my overhead and pissing me off so I came up with....
+I was using Bluma for some styling with Styled components. Over riding bluma was increasing my overhead and pissing me off so I came up with....
 
 ## A Physics-based Grid Cell - Item layout redesign
 
@@ -30,7 +30,7 @@ Styled Components 💅 with custom React Hooks screen [window.matchMedia](/blog/
 
 ### Abstract
 
-In embodiments of calc vmin vmax screen matchMedia query algorithm to a physics-based grid, cell, item layout. Using matchMedia browser screen query's that displays a grid layout interface that includes items within cells in a grid cell layout, and the Browser implements a physics-based algorithm as a computer screen grid layout that can receive a redesign input based on screen size media query's to manipulate a cell in the grid layout interface. 
+In embodiments of calc vmin vmax screen matchMedia query algorithm to a physics-based grid, cell, item layout. Using matchMedia browser screen query's that displays a grid layout interface that includes items within cells in a grid cell layout, and the Browser implements a physics-based `window.matchMedia` algorithm as a computer screen grid layout that can receive a redesign input based on screen size media query's to manipulate items within a cell in the grid layout interface.
 
 The physics-based screen algorithm is implemented to then determine one or more of the cell items that are proximate to the manipulated cell based on edge relations between an edge of the manipulated cell and respective edges of the one or more grid items.
 
@@ -38,4 +38,4 @@ The screen matchMedia query algorithm can then reconfigure the one or more proxi
 
 ## Netlify Server
 
-Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com publiuslogic.com workspace.
+Served on Netlify via a continuous deployment (CD) workflow. Pull requests are automatically built into preview apps, while commits to the master branch trigger the production build and deploy onto Netlify CDN edge node infrastructure. Since the whole site is just a bunch of static files copied onto multiple CDN nodes around the world, time to first byte (TTFB) is consistently fast at around 1ms to 2ms. Instant Notifications through my Slack Bots or GMail and phone notifications using Netlify Functions for my Mansbooks.com - publiuslogic.com workspace.

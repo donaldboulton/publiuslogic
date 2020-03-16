@@ -6,17 +6,5 @@
 
 .tweet {
   visibility: visible;
-  display: flex-end !important;
-}
-.widget {
-  display: inline-block;
-  overflow: hidden;
-  font-size: 0;
-  white-space: nowrap;
-}
-.widget-lg .btn, .widget-lg {
-  height: 20px;
-  padding: 3px 10px;
-  font-size: 12px;
-  line-height: 20px;
+  display: flex-start
 }

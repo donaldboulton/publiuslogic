@@ -13,6 +13,7 @@ export const MobileNavDiv = styled.nav`
   z-index: 2;
   position: fixed;
   top: 0;
+  height: max-content;
   max-width: 80vw;
   overflow-y: auto;
   overflow-x: hidden;
@@ -57,6 +58,7 @@ export const Children = styled(animated.div)`
   height: max-content;
   padding-bottom: ${props => props.open && `0.6em`};
   > div {
+    height: max-content;
     margin-top: 0.6em;
     margin-bottom: 0.6em;
     display: grid;

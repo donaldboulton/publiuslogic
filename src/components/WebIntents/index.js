@@ -12,27 +12,28 @@ const WebIntents = ({ slug, tweet_id }) => {
     <ThemeProvider theme={theme}>
       <>
         <div className='field is-grouped has-addons'>
-          <p className='control widget widget-lg'>
+          <p className='control'>
             <a
               itemProp='url'
               rel='me'
               title={title}
               key={tweet_id}
               url={url}
+              size='large'
               data-screen-name='@donboulton'
               data-show-count='true'
               data-screen-data-show-count='true'
-              className='twitter-share-button btn'
+              className='twitter-share-button'
               aria-label='Share'
               href='https://twitter.com/intent/tweet?via=donboulton?ref_src=twsrc%5Etfw'
             >
               <span>
-                <Twitter size='14' color='#1b95e0' />
+                <Twitter size='16' color='#1b95e0' />
               </span>
               <span>&nbsp;Tweet</span>
             </a>
           </p>
-          <p className='control widget widget-lg'>
+          <p className='control'>
             <a
               itemProp='url'
               rel='noopener noreferrer'
@@ -43,19 +44,20 @@ const WebIntents = ({ slug, tweet_id }) => {
               title={title}
               key={url}
               url={url}
-              className='twitter-follow-button btn'
+              size='large'
+              className='twitter-follow-button'
               aria-label='Follow'
               data-related='donboulton'
               data-show-screen-name='false'
               href='https://twitter.com/donboulton?ref_src=twsrc%5Etfw'
             >
               <span>
-                <Twitter size='14' color='#1b95e0' />
+                <Twitter size='16' color='#1b95e0' />
               </span>
               <span>&nbsp;Follow</span>
             </a>
           </p>
-          <p className='control widget widget-lg'>
+          <p className='control'>
             <a
               itemProp='url'
               rel='noopener noreferrer'
@@ -63,14 +65,15 @@ const WebIntents = ({ slug, tweet_id }) => {
               title={title}
               url={url}
               key={url}
+              size='large'
               href='https://twitter.com/messages/compose?recipient_id=105217183'
-              className='twitter-dm-button btn'
+              className='twitter-dm-button'
               data-screen-name='@donboulton'
               data-show-count='true'
               target='_blank'
             >
               <span>
-                <Twitter size='14' color='#1b95e0' />
+                <Twitter size='16' color='#1b95e0' />
               </span>
               <span>&nbsp;Message</span>
             </a>

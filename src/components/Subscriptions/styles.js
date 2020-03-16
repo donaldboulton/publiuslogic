@@ -6,10 +6,10 @@ export const Wrapper = styled.div`
   padding: 1vmin;
   height: max-content;
   display: grid;
-  grid-column: 2 / span 2;
+  grid-column: 2 / span 3;
   overscroll-behavior: none;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  border: thin ${props => props.theme.black};
+  border: 1px solid ${props => props.theme.black};
   overflow-x: hidden;
   overflow-y: hidden;
   ${mediaQuery.minPhablet} {
