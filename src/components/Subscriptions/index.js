@@ -77,50 +77,59 @@ export default class Subscribe extends React.Component {
                   />
                 </a>
               </div>
-              <strong>MailChimp Newsletters</strong>
+              <a title='MailChimp' href='https://mailchimp.com/why-mailchimp/' target='_blank' rel='noopener noreferrer'>
+                <strong>MailChimp Newsletters</strong>
+              </a>
               <div>
                 {this.state.status === `success` ? (
                   <div>Thank you! Youʼll receive your first email shortly.</div>
                 ) : (
-                  <form
-                    id='email-capture'
-                    method='post'
-                    noValidate
-                  >
-                    <div className='field has-addons'>
-                      <div className='control'>
-                        <input
-                          className='input'
-                          type='email'
-                          id='email'
-                          aria-label='Input Your Email'
-                          aria-required='false'
-                          placeholder='your@email.com *'
-                          // eslint-disable-next-line react/jsx-handler-names
-                          onChange={this._handleEmailChange}
-                          required
-                        />
+                  <p>
+                    <form
+                      id='email-capture'
+                      method='post'
+                      noValidate
+                    >
+                      <div
+                        className='field has-addons'
+                        style={{
+                          textAlign: `center`,
+                        }}
+                      >
+                        <div className='control'>
+                          <input
+                            className='input'
+                            type='email'
+                            id='email'
+                            aria-label='Input Your Email'
+                            aria-required='false'
+                            placeholder='your@email.com *'
+                            // eslint-disable-next-line react/jsx-handler-names
+                            onChange={this._handleEmailChange}
+                            required
+                          />
+                        </div>
+                        <div className='control'>
+                          <button
+                            className='button'
+                            type='submit'
+                            aria-label='Submit Subscription'
+                            // eslint-disable-next-line react/jsx-handler-names
+                            onClick={this._handleFormSubmit}
+                          >SignUp
+                          </button>
+                        </div>
+                        {this.state.status === `error` && (
+                          <div
+                            dangerouslySetInnerHTML={{ __html: this.state.msg }}
+                          />
+                        )}
                       </div>
-                      <div className='control'>
-                        <button
-                          className='button'
-                          type='submit'
-                          aria-label='Submit Subscription'
-                          // eslint-disable-next-line react/jsx-handler-names
-                          onClick={this._handleFormSubmit}
-                        >SignUp
-                        </button>
-                      </div>
-                      {this.state.status === `error` && (
-                        <div
-                          dangerouslySetInnerHTML={{ __html: this.state.msg }}
-                        />
-                      )}
-                    </div>
-                  </form>
+                    </form>
+                  </p>
                 )}
               </div>
-              <p><h3 className='a'>Enjoyed this post? Want the next one in your inbox!</h3></p>
+              <div className='a'>Enjoyed this post? Subscribe!</div>
             </div>
           </div>
         </>
