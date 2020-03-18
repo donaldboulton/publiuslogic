@@ -24,6 +24,9 @@ export const HotJarDiv = styled.div`
     font-size: 0.85em;
     transition: 0.3s;
   }
+  ${mediaQuery.maxLaptop} {
+    display: none;
+  }
 `
 
 export const HotJarTitle = styled.h3`

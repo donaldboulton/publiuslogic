@@ -24,7 +24,7 @@ const SiteTags = ({ group, ...rest }) => {
   return (
     <>
       <TagsToggle opener open={open} onClick={() => setOpen(true)} />
-      <TagsDiv ref={ref} open={open} className='footer'>
+      <TagsDiv ref={ref} open={open} className='footer-background'>
         <TagsTitle>
           <TagIcon />
           {tagsTitle}

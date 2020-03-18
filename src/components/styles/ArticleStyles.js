@@ -78,6 +78,8 @@ export const Date = styled.span`
 export const GithubButtons = styled.div`
   display: flex;
   flex-flow: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
 `
 export const Pagination = styled.div`

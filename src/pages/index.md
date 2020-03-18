@@ -16,11 +16,11 @@ showStack: true
 
 ## Just Having Fun
 
-🍸 This website is built as static HTML with Gatsby component-modular Docker Container builds, using React components and GraphQL, Built with WebPack. Including a user data, todo's and site reviews FAAS (Functions-as-a-Service) backend. I am just now working on the full data structure using FaunaDB.
+🍸 This website is built as static HTML with Gatsby React component, Node Modular Docker Container builds, data with GraphQL, Built with WebPack. Including a user data Membership, todo's and site reviews ect... FAAS (Functions-as-a-Service) backend. I am just now working on the full data structure using FaunaDB.
 
 ### Redesign March 15th 2020
 
-I was using Bluma for some styling with Styled components. Over riding bluma was increasing my overhead and pissing me off so I came up with....
+I was using Bluma for most of my Grid and layout and some styling. Using Styled components for most of My Components styles. Over riding Bluma was increasing my .css overhead and pissing me off so I came up with....
 
 ## A Physics-based Grid Cell - Item layout redesign
 
@@ -30,11 +30,13 @@ Styled Components 💅 with custom React Hooks screen [window.matchMedia](/blog/
 
 ### Abstract
 
-In embodiments of calc vmin vmax screen matchMedia query algorithm to a physics-based grid, cell, item layout. Using matchMedia browser screen query's that displays a grid layout interface that includes items within cells in a grid cell layout, and the Browser implements a physics-based `window.matchMedia` algorithm as a computer screen grid layout that can receive a redesign input based on screen size media query's to manipulate items within a cell in the grid layout interface.
+In embodiments of [calc](https://css-tricks.com/a-complete-guide-to-calc-in-css/) [vmin vmax](https://css-tricks.com/simple-little-use-case-vmin/) screen matchMedia query algorithm to a [physics-based](https://en.wikipedia.org/wiki/Rendering_(computer_graphics)) grid, cell, item layout. Using matchMedia browser screen query's that displays a grid layout interface that includes items within cells in a grid cell layout, and the Browser implements a physics-based `window.matchMedia` algorithm as a computer screen grid layout that can receive a redesign input based on screen size media query's to manipulate items within a cell in the grid layout interface.
 
 The physics-based screen algorithm is implemented to then determine one or more of the cell items that are proximate to the manipulated cell based on edge relations between an edge of the manipulated cell and respective edges of the one or more grid items.
 
 The screen matchMedia query algorithm can then reconfigure the one or more proximate cells based on the redesign input to the manipulated items and the edge relations between the edges of the cells and/or there items.
+
+This is a work in progress, If you can help or have any comments use PubliusLogic Slack or GitHub issues for discussions.
 
 ## Netlify Server
 

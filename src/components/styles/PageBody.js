@@ -31,9 +31,8 @@ export const BodyWrapper = styled.div`
 
 export const TocWrapper = styled.div`
   grid-area: toc;
-  grid-row-gap: 4em;
   top: 40vh;
   right: -3vw;
-  max-width: 40vw;
+  max-width: 25vw;
   flex-basis: 250px;
 `

@@ -18,7 +18,6 @@ export const TocDiv = styled.div`
   grid-column-end: toc-end;
   padding: 1vmin;
   height: max-content;
-  max-height: 85vh;
   border-radius: 4px;
   z-index: 3;
   line-height: 2em;

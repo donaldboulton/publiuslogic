@@ -4,7 +4,7 @@ import { HotJarDiv, HotJarTitle, HotJarIcon, Box } from './styles'
 
 const HotJar = () => {
   return (
-    <HotJarDiv className='footer'>
+    <HotJarDiv className='footer-background'>
       <HotJarTitle>
         <HotJarIcon />
         Heatmaps By HotJar
@@ -14,13 +14,13 @@ const HotJar = () => {
           <img
             src={hotjar}
             alt='Hotjar'
-            style={{ width: '160px', height: '90px' }}
+            style={{ width: '140px', height: '79px' }}
           />
         </a>
       </div>
       <span>
         <h3 className='center'>Heatmaps Visualize behavior.</h3>
-        <h4>Hotjar is the fast and visual way To...</h4>
+        <h4 className='center'>Hotjar is the fast and visual way To...</h4>
         <Box>
           Understand what users want, care about and do on your site by visually representing their clicks, taps and scrolling behavior – which are the strongest indicators of visitor motivation and desire.
         </Box>

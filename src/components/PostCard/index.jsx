@@ -44,21 +44,28 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                 </div>
               </Meta>
               <PostContent>
-                {post.excerpt}
+                <div
+                  style={{
+                    marginBottom: '1em',
+                  }}
+                >
+                  {post.excerpt}
+                </div>
+                <div
+                  style={{
+                    maxWidth: '12em',
+                    marginBottom: '2em',
+                  }}
+                >
+                  <Link
+                    aria-label='Keep Reading'
+                    className='button'
+                    to={post.fields.slug}
+                  >
+                    Keep Reading 👉
+                  </Link>
+                </div>
               </PostContent>
-              <br />
-              <Link
-                style={{
-                  maxWidth: '12em',
-                  marginBottom: '2em',
-                }}
-                aria-label='Keep Reading'
-                className='button'
-                to={post.fields.slug}
-              >
-                Keep Reading 👉
-              </Link>
-              <br />
             </div>
           </Post>
         ))}

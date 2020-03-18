@@ -15,10 +15,12 @@ import { ButtonGroup } from '../components/styles/ButtonGroup'
 const ButtonSecondary = styled(Link)`
   background: ${props => props.theme.links};
   color: white;
+  padding: 0.25em 0.75em;
 }
 `
 const ButtonDisabled = styled.div`
   background: transparent;
+  padding: 0.25em 0.75em;
 `
 
 const PaginationLink = props => {

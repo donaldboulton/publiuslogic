@@ -1,22 +1,20 @@
 import React from 'react'
-import Icon from '../../../static/img/1547804322-slack_icon_80x80_transparent.png'
-import lambda from '../../../static/img/lambda.png'
-import { SlackDiv, SlackTitle, SlackIcon } from './styles'
+import SlackIcon from '../../../static/img/slack_200X200.png'
 
 const Slack = () => {
   return (
-    <SlackDiv className='footer'>
-      <SlackTitle>
-        <SlackIcon />
-        Slack
-      </SlackTitle>
-      <div>
-        <span>
-          <img
-            src={lambda}
-            alt='Netlify Functions'
-          />
-          <span>
+    <>
+      <div className='card card1'>
+        <div className='message-body'>
+          <div>
+            <a title='Slack' href='https://mansbooks.slack.com/messages/DDMGYN0QY/' target='_blank' rel='noopener noreferrer'>
+              <img
+                src={SlackIcon}
+                alt='Slack'
+              />
+            </a>
+          </div>
+          <div>
             <a
               href='https://mansbooks.slack.com/messages/DDMGYN0QY/'
               target='_blank'
@@ -24,22 +22,15 @@ const Slack = () => {
               aria-label='Slack Message'
               className='a'
             >
-              <small>&nbsp;@donboulton</small>
+              <strong>Add to Slack</strong>
             </a>
-          </span>
-        </span>
-        <span className='icon'>
-          <img
-            src={Icon}
-            alt='Slack'
-            style={{ width: '28px', height: '28px' }}
-          />
-        </span>
-        <span>Add to Slack</span>
-        <div>Bring your team together with Slack, Work collaboration hub.</div>
+          </div>
+          <p><h3 className='a'>Bring your team together with Slack, Work collaboration hub.</h3></p>
+        </div>
       </div>
-    </SlackDiv>
+    </>
   )
 }
 
 export default Slack
+

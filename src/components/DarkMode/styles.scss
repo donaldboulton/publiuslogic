@@ -16,10 +16,7 @@ body.light-mode {
   code {
     background: transparent;
   }
-  .footer-back {
-    background: #00c2b2;
-  }
-  .footer {
+  .footer-background {
     background: radial-gradient(circle farthest-side, #dbdbdb, rgba(0,194,178,.2));
   }    
   .gatsby-code-title {
@@ -294,9 +291,6 @@ body.dark-mode {
   code {
     background: transparent;
   }
-  .footer-back {
-    background: #1d1d1d;
-  }
   .dark-mode-toggle > button {
     color: #999;
     &:last-child {
@@ -361,7 +355,7 @@ body.dark-mode .label {
 body.dark-mode .is-primary {
   color: #ffffff;
 }
-body.dark-mode .footer {
+body.dark-mode .footer-background {
   background: radial-gradient(circle farthest-side, transparent, #1d1d1d);
 }
 body.dark-mode .button {

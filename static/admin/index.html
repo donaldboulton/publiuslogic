@@ -1,7 +1,6 @@
 <!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
 <head>
-  <script src="./index.js"></script>
-  <script src="./identity.js"></script>
+  <script src="../../src/admin/index.js"></script>
   <script>
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
@@ -19,8 +18,7 @@
 
 <body id="style-3" class="body" auth-false itemscope itemtype="https://schema.org/WebPage">
 <div class="page">
-    <script src="./index.js"></script>    
-    <script src="../admin/cms/cms.js"></script>
+    <script src="../../src/admin/cms.js"></script>
 <script>
   CMS.registerEditorComponent({
     // Internal id of the component
@@ -50,7 +48,6 @@
     }
   });</script>
 </div>
-<script charset="utf-8" src="//ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
 <script>
   UPLOADCARE_LOCALE = "en";
   UPLOADCARE_TABS = "file url facebook gdrive gphotos dropbox instagram evernote flickr skydrive";
@@ -60,9 +57,8 @@
   uploadcareEffectsTab
 ),
 </script>
-<script src="../admin/cms/preview-templates/HomePagePreview.js"></script> 
-<script src="../admin/cms/preview-templates/AboutPagePreview.js"></script>
-<script src="../admin/cms/preview-templates/ArticlePreview.js"></script>
+<script src="../cms/preview-templates/AboutPagePreview.js"></script>
+<script src="../cms/preview-templates/ArticlePreview.js"></script>
 
 <script>
   var PostPreview = createClass({
@@ -82,10 +78,8 @@
         );
       }
     });    
-    CMS.registerPreviewTemplate('home', HomePagePreview)
     CMS.registerPreviewTemplate('about', AboutPagePreview)
     CMS.registerPreviewTemplate('blog', ArticlePreview)
-    CMS.registerPreviewStyle("./styles.836979b567d9c1b67911.css");
     export default {
   CMS,
 }
