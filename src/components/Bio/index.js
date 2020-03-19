@@ -33,22 +33,24 @@ const Bio = () => {
   `)
   const { author } = data.site.siteMetadata
   const { twitter } = data.site.siteMetadata
-  const { path } = data.markdownRemark.frontmatter
-  const { siteUrl } = data.site.siteMetadata
+  const path = data.path || ''
+  const rootUrl = 'https://publiuslogic.com'
+  const url = rootUrl + `/${path}`
   return (
     <>
       <div
         style={{
           display: `flex`,
+          maxWidth: `35vw`,
         }}
       >
         <span>
           <Image
-            className='author-avater'
             fixed={data.avatar.childImageSharp.fixed}
             alt={author}
             style={{
               marginBottom: 0,
+              marginRight: `1em`,
               minWidth: 50,
               borderRadius: `100%`,
             }}
@@ -58,7 +60,28 @@ const Bio = () => {
           />
         </span>
         <p>
-          Written by <strong>{author}</strong>          
+          Written by <strong>{author}</strong>
+          <a
+            itemProp='url'
+            rel='noopener noreferrer'
+            target='_blank'
+            data-screen-name='donboulton'
+            data-screen-data-show-count='true'
+            data-show-count='true'
+            title={twitter}
+            key={url}
+            url={url}
+            className='twitter-follow-button'
+            aria-label='Follow'
+            data-related='donboulton'
+            data-show-screen-name='false'
+            href='https://twitter.com/donboulton?ref_src=twsrc%5Etfw'
+          >
+            <span>
+              <Twitter size='14' color='#1b95e0' />
+            </span>
+            <span>&nbsp;Follow</span>
+          </a>
         </p>
         <Applause />
       </div>

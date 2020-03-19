@@ -164,7 +164,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
       }
       img {
-        border: 1px solid lightgray;
+        border: thin solid darkgray;
         border-radius: 5px;
         overflow: hidden;
       }
@@ -187,7 +187,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
   table td, table th {
-    border: 1px solid ${props => props.theme.lightGray};
+    border: thin solid ${props => props.theme.darkGray};
     padding: 0.2em 0.6em;
   }
   tbody tr:nth-child(odd) {

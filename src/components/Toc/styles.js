@@ -83,7 +83,7 @@ export const TocTitle = styled.h3`
   align-items: center;
   grid-template-columns: auto auto 1fr;
   color: ${props => props.theme.white}; 
-  border-bottom: thin ${props => props.theme.white};
+  border-bottom: thin ${props => props.theme.darkerGray};
 `
 
 export const TocLink = styled.a`

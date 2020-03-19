@@ -17,7 +17,7 @@ export const HotJarDiv = styled.div`
   width: 165px;
   overscroll-behavior: none;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  border: thin ${props => props.theme.black};
+  border: thin ${props => props.theme.darkerGray};
   overflow-x: hidden;
   overflow-y: hidden;
   ${mediaQuery.minPhablet} {
@@ -36,7 +36,7 @@ export const HotJarTitle = styled.h3`
   align-items: center;
   grid-template-columns: auto auto 1fr;
   color: ${props => props.theme.white}; 
-  border-bottom: thin ${props => props.theme.white};
+  border-bottom: thin ${props => props.theme.darkerGray};
 `
 
 export const HotJarIcon = styled(Hotjar)`
@@ -51,7 +51,7 @@ export const Box = styled.div`
   padding: 1em;
   margin: 1.1em;
   border-radius: ${props => props.theme.mediumBorderRadius};
-  border: 1px solid ${props => props.theme.black};
+  border: 1px solid ${props => props.theme.darkerGray};
   background: radial-gradient(
     circle closest-corner at center 75px,
     ${props => props.theme.darkestGray},

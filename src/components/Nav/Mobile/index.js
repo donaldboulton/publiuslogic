@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState } from 'react'
+import React, { memo, useRef, useState, useLayoutEffect } from 'react'
 import { animated, useSpring } from 'react-spring'
 import { useOnClickOutside } from '../../../hooks/useOnClickOutside'
 import { useSize } from '../../../hooks/useSize'
@@ -46,6 +46,7 @@ export default function MobileNav ({ nav }) {
   const ref = useRef()
   const [open, setOpen] = useState(false)
   useOnClickOutside(ref, () => open && setOpen(false))
+  useLockBodyScroll()
   return (
     <>
       <NavToggle opener open={open} onClick={() => setOpen(true)} />
@@ -65,4 +66,17 @@ export default function MobileNav ({ nav }) {
       </MobileNavDiv>
     </>
   )
+}
+
+// Hook
+
+function useLockBodyScroll () {
+  useLayoutEffect(() => {
+    // Get original body overflow
+    const originalStyle = window.getComputedStyle(document.body).overflow
+    // Prevent scrolling on mount
+    document.body.style.overflow = 'hidden'
+    // Re-enable scrolling when component unmounts
+    return () => document.body.style.overflow = originalStyle
+  }, []) // Empty array ensures effect is only run on mount and unmount
 }
