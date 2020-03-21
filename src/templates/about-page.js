@@ -16,6 +16,8 @@ import config from '../../_data/config'
 import Cloudinary from '../components/Cloudinary'
 import UploadWidget from '../components/Cloudinary/UploadWidget'
 import Contact from '../components/ContactForm'
+import Fork from '../components/GithubButtonsRepo/fork'
+import Issues from '../components/GithubIssues'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 
 const renderAst = new RehypeReact({
@@ -23,6 +25,8 @@ const renderAst = new RehypeReact({
   components: {
     'interactive-cloudinary': Cloudinary,
     'interactive-contact': Contact,
+    'interactive-fork': Fork,
+    'interactive-issues': Issues,
     'interactive-upload-widget': UploadWidget,
   },
 }).Compiler

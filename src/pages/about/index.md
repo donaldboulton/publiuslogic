@@ -57,7 +57,7 @@ Served on Netlify via a continuous deployment (CD) workflow. Pull requests are a
 
 ## Starter Publius
 
-🚀 This repo powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to sustainability, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Json-Ld per template for SEO, Internet Positioning.
+🚀 This repo <interactive-fork></interactive-fork> powers the Gatsby site hosted at publiuslogic.com. I use it to write about my personal interests, ranging from theoretical physics and spiritual learning to A Human Basic Instructions Abstract, web development and spending time outdoors... oh and not to forget breaking conventions like a Gatsby Site with Json-Ld per template for SEO, Internet Positioning.
 
 The site is built with Gatsby, Bulma and styled-components. It's fully responsive, relies heavily on React Hooks for statefull components such as Image Gallery's, Modal's and ToTop. Prism for syntax highlighting, GitHub issues using withUtterances as blog post comments and utilizing Lunr for custom search.
 
@@ -124,6 +124,7 @@ PubliusLogic is a complex Gatsby Site and not for React programing beginners.
 - 🏠Protected Routes
 - 👋🏼Dynamic Clientside Pages in Gatsby (enabling all the above)
 - 🕵🏼‍♂️Hide API Secrets from being exposed to Frontend
+
 * Netlify CMS for Content Management
 * Users Backend and Admin
 * SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc.)

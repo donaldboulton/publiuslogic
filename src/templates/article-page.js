@@ -2,6 +2,8 @@ import React from 'react'
 import RehypeReact from 'rehype-react'
 import { Calendar, FileSymlinkFile } from '@styled-icons/octicons/'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
+import Fork from '../components/GithubButtonsRepo/fork'
+import Issues from '../components/GithubIssues'
 import { Timer } from '@styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
@@ -30,6 +32,8 @@ const renderAst = new RehypeReact({
     'interactive-counter': Counter,
     'interactive-todo': Todo,
     'interactive-colorbox': ColorBox,
+    'interactive-fork': Fork,
+    'interactive-issues': Issues,
   },
 }).Compiler
 

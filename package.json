@@ -115,6 +115,7 @@
     "react-lightgallery": "^0.6.3",
     "react-netlify-identity": "^0.2.3",
     "react-netlify-identity-widget": "^0.2.7",
+    "react-particles-js": "^2.7.1",
     "react-router-dom": "^5.1.2",
     "react-share": "^4.1.0",
     "react-spring": "^8.0.27",

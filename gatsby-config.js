@@ -64,7 +64,7 @@ module.exports = {
           `gatsby-remark-code-titles`,
           {
             resolve: 'gatsby-remark-component',
-            options: { components: ['interactive-upload-widget', 'interactive-cloudinary', 'interactive-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-contact', 'interactive-comments'] },
+            options: { components: ['interactive-upload-widget', 'interactive-cloudinary', 'interactive-counter', 'interactive-todo', 'interactive-colorbox', 'interactive-contact', 'interactive-comments', 'interactive-fork', 'interactive-issues'] },
           },
           {
             resolve: 'gatsby-remark-normalize-paths',

@@ -91,7 +91,7 @@ export const HitsWrapper = styled.div`
   }
   div + div {
     margin-top: 0.6em;
-    border-bottom: 1px solid ${props => props.theme.lighterGray};
+    border-bottom: 1px solid ${props => props.theme.darkerGray};
   }
   mark {
     color: ${props => props.theme.lighterBlue};
