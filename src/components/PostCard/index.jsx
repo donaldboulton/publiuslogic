@@ -145,20 +145,6 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                     >
                       {post.excerpt}
                     </div>
-                    <div
-                      style={{
-                        maxWidth: '12em',
-                        marginBottom: '2em',
-                      }}
-                    >
-                      <Link
-                        aria-label='Keep Reading'
-                        className='button'
-                        to={post.fields.slug}
-                      >
-                        Keep Reading 👉
-                      </Link>
-                    </div>
                   </PostContent>
                 </Particles>
               </div>

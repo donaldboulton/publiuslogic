@@ -11,6 +11,8 @@
     url: /privacy
   - title: Sitemap
     url: /sitemap
+  - title: Photos
+    url: /photos
 
 - title: Blog
   url: /blog
@@ -29,6 +31,3 @@
     url: /modali-hooks-modal
   - title: Earths Magnetic Flux
     url: /earths-magnetic-flux
-
-- title: Photos
-  url: /photos

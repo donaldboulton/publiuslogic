@@ -11,7 +11,7 @@ export const fadeInOnHoverParent = parent => css`
   visibility: hidden;
   -webkit-transition: all .6s ease;
   -moz-transition: all .6s ease;
-  transition: .6s ease;
+  transition: all .6s ease;
   pointer-events: none;
   ${parent}:hover & {
     opacity: 1;

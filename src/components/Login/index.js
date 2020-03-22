@@ -58,7 +58,7 @@ const Login = () => {
       <div>
         {isLoggedIn ? (
           <>
-            <NavEntryLogin key={avatar_url}>
+            <NavEntryLogin key={avatar_url} aria-haspopup="true">
               <button className='identity-logout button-transparent' onClick={() => setOpen(true)}>
                 {avatar_url &&
                   <UserAvatar
@@ -69,8 +69,8 @@ const Login = () => {
                     }}
                     className='user-icon'
                     name={name} src={avatar_url}
-                  />}<DownArrow size='0.6em' />
-              </button>
+                  />}
+              </button><DownArrow size='0.6em' />
               {isOpen && (
                 <SubNavLogin ref={ref}>
                   <h3 className='menu-item'>Welcome!</h3>
@@ -79,8 +79,9 @@ const Login = () => {
                   <Link className='menu-item' to='/app/profile'>✨ User Settings</Link>
                   <hr className='navbar-divider' />
                   <div className='menu-item'>
-                    <button className='button' onClick={() => setDialog(true)}>
-                      <SignOutAlt size='1rem' color='#f5f5f5' />&nbsp;Logout
+                    <SignOutAlt size='1rem' color='#f5f5f5' />
+                    <button className='button-transparent a' onClick={() => setDialog(true)}>
+                      &nbsp;Logout
                     </button>
                   </div>
                 </SubNavLogin>
@@ -96,8 +97,9 @@ const Login = () => {
               {isOpen && (
                 <SubNavLogin ref={ref}>
                   <div className='menu-item'>
-                    <button className='button' onClick={() => setDialog(true)}>
-                      <SignInAlt size='1rem' color='#f5f5f5' />&nbsp;LogIn
+                    <SignInAlt size='1rem' color='#f5f5f5' />
+                    <button className='button-transparent' onClick={() => setDialog(true)}>
+                      &nbsp;LogIn
                     </button>
                   </div>
                   <Link className='menu-item' to='/login'>💕 User Signup</Link>

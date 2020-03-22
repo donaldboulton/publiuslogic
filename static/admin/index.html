@@ -1,6 +1,7 @@
 <!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
 <head>
-  <script src="../../src/admin/index.js"></script>
+  <script src="./index.js"></script>
+  <script src="./netlify-identity.js"></script>
   <script>
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
@@ -16,9 +17,10 @@
   <title>Content Manager</title>
 </head>
 
-<body id="style-3" class="body" auth-false itemscope itemtype="https://schema.org/WebPage">
+<body id="style-3" class="body" auth-false" itemscope itemtype="https://schema.org/WebPage">
 <div class="page">
-    <script src="../../src/admin/cms.js"></script>
+    <script src="./netlify-cms.js"></script>    
+    <script src="../admin/cms/cms.js"></script>
 <script>
   CMS.registerEditorComponent({
     // Internal id of the component
@@ -48,6 +50,7 @@
     }
   });</script>
 </div>
+<script charset="utf-8" src="//ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
 <script>
   UPLOADCARE_LOCALE = "en";
   UPLOADCARE_TABS = "file url facebook gdrive gphotos dropbox instagram evernote flickr skydrive";
@@ -55,10 +58,14 @@
   uploadcare.registerTab(
   'preview',
   uploadcareEffectsTab
-),
+)
 </script>
-<script src="../cms/preview-templates/AboutPagePreview.js"></script>
-<script src="../cms/preview-templates/ArticlePreview.js"></script>
+<script src="../admin/cms/preview-templates/HomePagePreview.js"></script> 
+<script src="../admin/cms/preview-templates/AboutPagePreview.js"></script>
+<script src="../admin/cms/preview-templates/ArticlePagePreview.js"></script>
+<script src="../admin/cms/preview-templates/PricingPagePreview.js"></script>
+<script src="../admin/cms/preview-templates/ContactPagePreview.js"></script>
+<script src="../admin/cms/preview-templates/PrivacyPagePreview.js"></script>
 
 <script>
   var PostPreview = createClass({
@@ -78,14 +85,16 @@
         );
       }
     });    
+    CMS.registerPreviewTemplate('home', HomePagePreview)
     CMS.registerPreviewTemplate('about', AboutPagePreview)
+    CMS.registerPreviewTemplate('pricing', PricingPagePreview)
+    CMS.registerPreviewTemplate('contact', ContactPagePreview)
+    CMS.registerPreviewTemplate('privacy', PrivacyPagePreview)
     CMS.registerPreviewTemplate('blog', ArticlePreview)
+    CMS.registerPreviewStyle("./styles.d5154f21eaaa9091536f.css");
     export default {
   CMS,
 }
-</script>
-<script>
-  NetlifyCmsApp.init();
 </script>
 </body>
 </html>

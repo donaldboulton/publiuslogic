@@ -3,6 +3,11 @@
   display: flex
   flex-direction: column
   justify-content: space-between
+.focus
+  cursor: pointer  
+  padding-bottom: 15px
+.focus:focus-within a
+  outline: none
 .user-icon
   height: 1.2em
   width: 1.2em
@@ -15,6 +20,11 @@
   width: 100%
 .author-avatar
   margin-right: 1.2em
+.UserAvatar, .UserAvatar--img
+  height: 1.2em
+  width: 1.2em
+  border-radius: 50%
+  top: calc(1.3vh + 1em) 
 .card-blog
   border-radius: 8px
   max-width: 100

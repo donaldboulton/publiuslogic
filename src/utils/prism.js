@@ -32,7 +32,7 @@ const langExtColor = [
   { lang: `markdown`, tag: `md`, color: `#e6ffed` },
   { lang: `json`, tag: `json`, color: `#fff` },
   { lang: `diff`, tag: `diff`, color: `#E8BD36` },
-  { lang: `text`, tag: `text`, color: `#D64000` },
+  { lang: `text`, tag: `text`, color: `#343434` },
 ]
 
 const languageTags = langExtColor
@@ -146,7 +146,7 @@ export default createGlobalStyle`
   .number {
     -webkit-align-items: center;
     align-items: center;
-    background-color: #c93c00;
+    background-color: #000;
     border-radius: 290486px;
     display: -webkit-inline-flex;
     display: inline-flex;
@@ -191,7 +191,7 @@ export default createGlobalStyle`
   .tag:not(body) {
     -webkit-align-items: center;
     align-items: center;
-    background: ${props => props.theme.darkOrange};
+    background: ${props => props.theme.darkGray};
     border-radius: 4px;
     color: ${props => props.theme.white};
     display: -webkit-inline-flex;
@@ -231,9 +231,9 @@ export default createGlobalStyle`
   }
 
   not(pre) > code[class*="language-"] {
-    color: black;
+    color: ${props => props.theme.white};
     border-radius: 0.2em;
-    background: #c93c00;
+    background: ${props => props.theme.black};
     padding: 0.15em 0.2em 0.05em;
   }
 

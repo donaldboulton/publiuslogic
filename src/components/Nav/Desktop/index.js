@@ -5,12 +5,12 @@ import { NavLink } from '..'
 export default ({ nav }) => (
   <DesktopNavDiv aria-haspopup='true'>
     {nav.map(({ url, title, subNav }) => (
-      <NavEntry key={url}>
-        <NavLink to={url || subNav[0].url} title={title}>
+      <NavEntry key={url} aria-haspopup='true'>
+        <NavLink className='focus' to={url || subNav[0].url} title={title}>
           {title} {subNav && <DownArrow size='0.6em' />}
         </NavLink>
         {subNav && (
-          <SubNav aria-expanded='false'>
+          <SubNav aria-expanded='false' aria-label='submenu'>
             {subNav.map(item => (
               <NavLink key={item.url} to={url + item.url} title={item.title}>
                 {item.title}
