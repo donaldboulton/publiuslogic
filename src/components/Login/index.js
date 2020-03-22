@@ -8,7 +8,7 @@ import {
   IdentityModal,
   useIdentityContext,
 } from 'react-netlify-identity-widget'
-import { NavEntryLogin, SubNavLogin, DownArrow } from '../Nav/Desktop/styles'
+import { NavEntryLogin, SubNavLogin } from '../Nav/Desktop/styles'
 
 function useOnClickOutside (ref, handler) {
   useEffect(
@@ -70,7 +70,7 @@ const Login = () => {
                     className='user-icon'
                     name={name} src={avatar_url}
                   />}
-              </button><DownArrow size='0.6em' />
+              </button>
               {isOpen && (
                 <SubNavLogin ref={ref}>
                   <h3 className='menu-item'>Welcome!</h3>
@@ -93,7 +93,7 @@ const Login = () => {
             <NavEntryLogin key={User}>
               <button className='identity-login menu-item button-transparent' onClick={() => setOpen(true)}>
                 <User className='user-icon' />
-              </button><DownArrow size='0.6em' />
+              </button>
               {isOpen && (
                 <SubNavLogin ref={ref}>
                   <div className='menu-item'>
