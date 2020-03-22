@@ -1,8 +1,5 @@
 backend:
   name: git-gateway
-  accept_roles:
-    - admin
-    - editor
   repo: donaldboulton/publiuslogic
   branch: master
   identity_url: "https://publiuslogic.com/.netlify/identity"
