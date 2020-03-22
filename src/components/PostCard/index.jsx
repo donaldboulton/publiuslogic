@@ -112,32 +112,32 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                 </div>
               </Link>
               <div className='post-section'>
-                <Particles>
-                  <Link
+                <Link
+                  style={{
+                    marginLeft: '1em',
+                  }}
+                  aria-label='Post Link'
+                  className='h3 a'
+                  to={post.fields.slug}
+                >
+                  {post.frontmatter.title}
+                </Link>
+                <Meta inTitle={inTitle}>
+                  <div
                     style={{
                       marginLeft: '1em',
                     }}
-                    aria-label='Post Link'
-                    className='h3 a'
-                    to={post.fields.slug}
                   >
-                    {post.frontmatter.title}
-                  </Link>
-                  <Meta inTitle={inTitle}>
-                    <div
-                      style={{
-                        marginLeft: '1em',
-                      }}
-                    >
-                      <span className='subtitle is-size-5'>
-                        <Calendar size='1em' /><small>&nbsp;{post.frontmatter.date}</small>&nbsp;
-                        <Timer size='1em' />&nbsp;
-                        <small key={post.timeToRead}>{post.timeToRead}&nbsp;min read</small>&nbsp;
-                        <Category><FileSymlinkFile size='1em' />&nbsp;<small>Category:</small>&nbsp;<Link aria-label='Categories' to='/categories/'><small>{post.frontmatter.category}</small></Link></Category>
-                      </span>
-                    </div>
-                  </Meta>
-                  <PostContent>
+                    <span className='subtitle is-size-5'>
+                      <Calendar size='1em' /><small>&nbsp;{post.frontmatter.date}</small>&nbsp;
+                      <Timer size='1em' />&nbsp;
+                      <small key={post.timeToRead}>{post.timeToRead}&nbsp;min read</small>&nbsp;
+                      <Category><FileSymlinkFile size='1em' />&nbsp;<small>Category:</small>&nbsp;<Link aria-label='Categories' to='/categories/'><small>{post.frontmatter.category}</small></Link></Category>
+                    </span>
+                  </div>
+                </Meta>
+                <PostContent>
+                  <Particles>
                     <div
                       style={{
                         marginBottom: '1em',
@@ -145,8 +145,8 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                     >
                       {post.excerpt}
                     </div>
-                  </PostContent>
-                </Particles>
+                  </Particles>
+                </PostContent>
               </div>
             </Post>
           </Card>
