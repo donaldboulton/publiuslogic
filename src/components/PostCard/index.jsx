@@ -117,7 +117,7 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                     marginLeft: '1em',
                   }}
                   aria-label='Post Link'
-                  className='h3 a'
+                  className='h2 a'
                   to={post.fields.slug}
                 >
                   {post.frontmatter.title}
@@ -128,7 +128,7 @@ const PostCard = ({ posts, category, date, timeToRead, postNode, coverClassName,
                       marginLeft: '1em',
                     }}
                   >
-                    <span className='subtitle is-size-5'>
+                    <span>
                       <Calendar size='1em' /><small>&nbsp;{post.frontmatter.date}</small>&nbsp;
                       <Timer size='1em' />&nbsp;
                       <small key={post.timeToRead}>{post.timeToRead}&nbsp;min read</small>&nbsp;
