@@ -30,7 +30,7 @@ const Profile = () => {
             }}
           >
             <span>GitHub Avatar{avatar_url && <img alt={name} src={avatar_url} className='user-icon' />}</span>
-            <span>&nbsp;Global Avatar <UserAvatar className='user-icon' name={name} src={avatar_url} />
+            <span>&nbsp;Global Avatar <UserAvatar size='24' className='user-icon' name={name} src={avatar_url} />
               <h3>&nbsp; Hello {name}!</h3>
             </span>
             <br />

@@ -62,6 +62,7 @@ const Login = () => {
               <button className='identity-logout button-transparent' onClick={() => setOpen(true)}>
                 {avatar_url &&
                   <UserAvatar
+                    size='24'
                     style={{
                       height: `1.2em`,
                       width: `1.2em`,
