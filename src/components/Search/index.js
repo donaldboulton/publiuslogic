@@ -38,7 +38,7 @@ export default function Search ({ indices, collapse = true, hitsAsGrid }) {
         onSearchStateChange={({ query }) => setQuery(query)}
       >
         <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-        <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className='nav-scroll'>
+        <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
           {indices.map(({ name, title, type }) => (
             <Index key={name} indexName={name}>
               <header>
@@ -46,10 +46,12 @@ export default function Search ({ indices, collapse = true, hitsAsGrid }) {
                 <Stats />
               </header>
               <Results />
-              <Hits type={type} onClick={() => setFocus(false)} />
+              <nav className='nav-scroll'>
+                <Hits type={type} onClick={() => setFocus(false)} />
+                <PoweredBy />
+              </nav>
             </Index>
           ))}
-          <PoweredBy />
         </HitsWrapper>
       </InstantSearch>
     </Root>
