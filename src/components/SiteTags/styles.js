@@ -83,7 +83,7 @@ export const TagsTitle = styled.h3`
   align-items: center;
   grid-template-columns: auto auto 1fr;
   color: ${props => props.theme.white};
-  border: thin ${props => props.theme.darkerGray};
+  border-bottom: thin ${props => props.theme.darkGray};
 `
 
 export const TagsLink = styled.a`

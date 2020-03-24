@@ -33,6 +33,8 @@ export const MobileNavDiv = styled.nav`
   :after {
     content: '';
     height: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
   }
 `
 
@@ -63,6 +65,9 @@ export const Children = styled(animated.div)`
     margin-bottom: 0.6em;
     display: grid;
     grid-gap: 0.6em;
+  }
+  * > :last-child {
+    margin-bottom: 1em !important; 
   }
 `
 

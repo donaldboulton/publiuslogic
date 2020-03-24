@@ -55,6 +55,15 @@ export const GlobalStyle = createGlobalStyle`
   footer {
     grid-column: 1 / span 2;
   }
+  main a {
+    color: ${props => props.theme.links};
+  }
+  main a:hover {
+    color: ${props => props.theme.hoveredLinks};
+  }
+  main a:active {
+    color: ${props => props.theme.activeLinks};
+  }
   .button {
     border-radius: 4px;
     padding: calc(.5em - 1px) 1em;
@@ -164,7 +173,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
       }
       img {
-        border: thin solid darkgray;
+        border: thin solid ${props => props.theme.darkGray};
         border-radius: 5px;
         overflow: hidden;
       }

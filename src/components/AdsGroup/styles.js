@@ -9,15 +9,15 @@ export const AdsContainer = styled.div`
   grid-template-areas:
     'slack'
     'subscriptions'
-    'netlify';
+    'csstricks';
   grid-gap: 4vh 3vw;
   ${mediaQuery.minPhone} {
     grid-template-areas:
       'slack subscriptions'
-      'netlify netlify';
+      'csstricks csstricks';
   }
   ${mediaQuery.minTablet} {
-    grid-template-areas: 'slack subscriptions netlify';
+    grid-template-areas: 'slack subscriptions csstricks';
   }
 `
 
@@ -60,8 +60,8 @@ export const SubscriptionsDiv = styled.div`
     overflow: hidden;
   }
 `
-export const NetlifyDiv = styled.div`
-  grid-area: netlify;
+export const CssTricksDiv = styled.div`
+  grid-area: csstricks;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 1em;

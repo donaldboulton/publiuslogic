@@ -1,8 +1,8 @@
 import React from 'react'
 import Subscriptions from '../Subscriptions'
 import Slack from '../Slack'
-import NetlifyAds from '../NetlifyAds'
-import { AdsContainer, NetlifyDiv, SlackDiv, SubscriptionsDiv } from './styles'
+import CssTricksAds from '../CssTricksAds'
+import { AdsContainer, CssTricksDiv, SlackDiv, SubscriptionsDiv } from './styles'
 
 const AdsGroup = () => {
   return (
@@ -13,9 +13,9 @@ const AdsGroup = () => {
       <SubscriptionsDiv>
         <Subscriptions />
       </SubscriptionsDiv>
-      <NetlifyDiv>
-        <NetlifyAds />
-      </NetlifyDiv>
+      <CssTricksDiv>
+        <CssTricksAds />
+      </CssTricksDiv>
     </AdsContainer>
   )
 }
