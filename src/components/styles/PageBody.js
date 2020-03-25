@@ -26,7 +26,6 @@ export const BodyWrapper = styled.div`
   grid-area: content;
   position: relative;
   margin: 0;
-  text-align: left;
 `
 
 export const TocWrapper = styled.div`
@@ -35,6 +34,10 @@ export const TocWrapper = styled.div`
   right: -3vw;
   max-width: 25vw;
   flex-basis: 250px;
+  position: sticky;
+  position: -webkit-sticky;
+  height: 100vh;
+  box-sizing: border-box;
 `
 export const SocialGroupContainer = styled.div`
   padding: 2vh 3vw;
