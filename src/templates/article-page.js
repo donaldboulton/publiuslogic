@@ -60,11 +60,6 @@ const ArticlePage = ({ data }) => {
         />
       </section>
       <PageBody as='div'>
-        <TocWrapper>
-          {showToc && <Toc />}
-          {showTags && <Tags />}
-          <HotJar />
-        </TocWrapper>
         <BodyWrapper>
           <Styledh1>
             {post.frontmatter.title}
@@ -134,6 +129,11 @@ const ArticlePage = ({ data }) => {
             </div>
           </GithubButtons>
         </BodyWrapper>
+        <TocWrapper>
+          {showToc && <Toc />}
+          {showTags && <Tags />}
+          <HotJar />
+        </TocWrapper>
       </PageBody>
     </Layout>
   )

@@ -9,10 +9,9 @@ category: 'Gatsby'
 tags:
   - Netlify
   - CMS
-  - App
   - Identity
 meta_title: Netlify CMS
-meta_description: Netlify CMS App backend for editing data and site pages
+meta_description: Netlify CMS backend for editing data and site pages
 tweet_id: '1118651504674725888'
 showToc: true  
 showTags: true 
@@ -20,165 +19,24 @@ showAdds: false
 showStack: true
 ---
  
-## Netlify CMS-App
+## Netlify CMS
 
-🔥 Static + content management = ❤️ 🔗 [CMS Site](https://www.netlifycms.org/)
+🔥 Static + content management = ❤️
 
-If you have issues lately with Netlify CMS in Gatsby then you need to upgrade to netlify CMS App
+🔗 [CMS Site](https://www.netlifycms.org/)
 
-React Hooks support in Netlify CMS (and the Gatsby plugin)
-by Tony Alves on July 23, 2019
+Netlify CMS is Always the latest GitHub repo pull, with my custom WebPack hashed build.
+My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
 
-Netlify CMS is an extensible app written in, and bundled with, React. The most common extension is the custom preview template, which allows the preview on the right side of the editor to show what the site will actually look like as you type. These preview templates are also written in React.
-
-Preview templates and other extensions can only use the Netlify CMS bundled copy of React via the createClass() method that Netlify CMS exports. Since React components are most often written in JSX and transpiled through a build system, most developers won't want to use this method, so the preview templates are created with a separate copy of React.
-
-This means that Netlify CMS has two instances of React running at once.
-
-But everything still worked - until React Hooks was released.
-
-## The problem: React Hooks
-
-Before Hooks, multiple instances of React could work on the same DOM, although it was warned against and technically not supported. React Hooks changed this by throwing an error if multiple instances are detected. When developers started using hooks in their Netlify CMS previews and widgets, their applications stopped working 😭
-
-## The solution
-
-### netlify-cms-app
-
-In the past, the netlify-cms npm package was the only way to run Netlify CMS - it's a "batteries included" distribution that runs as-is, bringing along React and a number of default extensions (widgets, backends, etc).
-
-As of Netlify CMS 2.9.0, a new netlify-cms-app package is provided as a slimmed down alternative to netlify-cms. It still includes most default extensions, but excludes some of the heavier ones, like media libraries for external providers.
-
-Most importantly, it does not include react or react-dom, requiring them instead as peer dependencies. This allows Netlify CMS and any extensions to all use a single instance of React and React DOM. As a bonus, the netlify-cms-app bundle is a bit smaller than netlify-cms.
-
-### How to use it
-
-If you're building your site with Gatsby, skip this section. For all others, you'll want to:
-
-Uninstall netlify-cms if you're already using it
-Install netlify-cms-app
-Install react and react-dom
-Optionally install and register media libraries (see below).
-npm uninstall netlify-cms
-npm install netlify-cms-app react react-dom
-That's it! Now Netlify CMS will use the version of React that you provide.
-
-### The Gatsby plugin
-
-#### I do not use
-
-The below is for usage with Gatsby's plugin which I could not get working with react-netlify-identity-widget and am glad as the way I will show you below [MY Configuration](/My-Configuration)
-
-
-Gatsby provides transpiling and bundling with Babel and Webpack, and accepts plugins to support various JavaScript dialects, e.g., TypeScript. If a developer sets up their Gatsby site to be written a certain way, they'll want any CMS customization code to be written the same way. The problem is that Netlify CMS is a standalone app that would typically live in Gatsby's static directory, and Gatsby doesn't really have a way to handle a secondary entry point for the CMS for outputting a dedicated bundle.
-
-For this reason, we support an official Gatsby plugin, gatsby-plugin-netlify-cms, which bundles preview templates and other Netlify CMS extensions using the same Babel and Webpack configuration as the Gatsby site itself.
-
-Using React Hooks with Netlify CMS and Gatsby
-The recent 4.0.0 release of gatsby-plugin-netlify-cms is the first to use netlify-cms-app and enable the use of React Hooks in Netlify CMS previews/widgets for Gatsby projects.
-
-### Upgrading projects
-
-If you're already using gatsby-plugin-netlify-cms, you'll want to:
-
-Upgrade to 4.0.0 or newer
-Remove the netlify-cms dependency
-Add netlify-cms-app
-
-```sh
-npm upgrade gatsby-plugin-netlify-cms@^4.0.0
-npm uninstall netlify-cms
-npm install --save netlify-cms-app
-```
-
-Note that you'll already have React and React DOM installed in your Gatsby project, so no need to do that here.
-
-### Adding to a new project
-
-If you're not already using gatsby-plugin-netlify-cms with your Gatsby project, you can install it and netlify-cms-app via npm (or your package manager of choice):
-
-```sh
-npm install --save netlify-cms-app gatsby-plugin-netlify-cms
-```
-
-You'll also need to register the plugin in gatsby-config.js in the site root. Create that file if it’s not already there, and add the following to register the Netlify CMS plugin:
-
-```sh
-// gatsby-config.js
-
-module.exports = {
-  plugins: [`gatsby-plugin-netlify-cms`],
-}
-```
-
-The plugin will create the Netlify CMS app and output it to /admin/index.html on your site. The CMS will look for your configuration to be in the same directory on your live site, at /admin/config.yml, so you’ll want to place the configuration file in the static directory of your repo at static/admin/config.yml. You can also configure Netlify CMS with JavaScript. Read more about configuring the CMS in our docs, or check out the Gatsby / Netlify CMS integration guides in both our docs and theirs.
-
-[Netlify CMS Configuration Guide](https://www.netlifycms.org/docs/add-to-your-site/#configuration)
-[Netlify CMS Integration Guide for Gatsby Sites](https://www.netlifycms.org/docs/gatsby/)
-[Gatsby Guide - Sourcing from Netlify CMS](https://www.gatsbyjs.org/docs/sourcing-from-netlify-cms/)
-
-### Using Media Libraries
-
-With netlify-cms-app
-The Netlify CMS media library extensions for Cloudinary and Uploadcare are not included in netlify-cms-app. If you're using netlify-cms-app, you'll need to register media libraries yourself.
-
-Note: if you're using gatsby-starter-netlify-cms, the media libraries are registered within the starter itself.
-
-```sh
-import CMS from 'netlify-cms-app';
-
-// You only need to import the media library that you'll use. We register both
-// here for example purposes.
-import uploadcare from 'netlify-cms-media-library-uploadcare';
-import cloudinary from 'netlify-cms-media-library-cloudinary';
-
-CMS.registerMediaLibrary(uploadcare);
-CMS.registerMediaLibrary(cloudinary);
-```
-
-For more information about the media libraries, refer to the docs.
-
-[Using Cloudinary with Netlify CMS](https://www.netlifycms.org/docs/cloudinary/)
-[Using Uploadcare with Netlify CMS](https://www.netlifycms.org/docs/uploadcare/)
-
-With gatsby-plugin-netlify-cms@^4.0.0
-In addition to calling registerMediaLibrary() as mentioned above, make sure to provide the path to your CMS customization entry point to Gatsby via gatsby-config.js:
-
-```sh
-// gatsby-config.js
-
-module.exports = {
-  plugins: [
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
-  ]
-}
-```
-
-If you run into a problem or need help, open an issue on [GitHub](https://github.com/netlify/netlify-cms/issues/new/choose) or [chat with our community](https://netlifycms.org/chat)!
-
-## My Configuration
-
-Netlify CMS App is Always the latest GitHub repo pull, with my custom WebPack hashed build.
-My custom themed light/dark build of the React Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
-
-I Line to keep as my Gatsby's build process fast and compiled pages as light as possible, including Netlify CMS or Netlify CMS App the Gatsby way shown above to me makes no sense and does not work with global Netlify identity context my FaunaDB context, thus failing in authentication with react-netlify-identity-widget.
-
-Netlify CMS is a precompiled APP and just add a html page as below calling identity and the CMS which is out of the Gatsby build process = why build another app in to your app just use it.
+> The below is old content see my new post on 🔗 [Gatsby Netlify No Plugins](https://publiuslogic.com/blog/gatsby-netlify-no-plugins/) for CMS and Identity Widget custom builds and no Gatsby Plugins.
 
 ## File exclusive build
-
-The index admin page under All Admin files at static/admin
 
 ```html
 <!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
 <head>
-  <script src="./cms.js"></script>
-  <script src="./identity.js"></script>
+  <script src="./index.js"></script>
+  <script src="../../src/components/IdentityWidget/netlify-identity.js"></script>
   <script>
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
@@ -233,7 +91,7 @@ The index admin page under All Admin files at static/admin
   uploadcare.registerTab(
   'preview',
   uploadcareEffectsTab
-),
+)
 </script>
 
 <script>
@@ -253,42 +111,33 @@ The index admin page under All Admin files at static/admin
           h('div', {"className": "text"}, this.props.widgetFor('body'))
         );
       }
-    });  // My Preview style from Gatsby Build Public Folder
+    });
     CMS.registerPreviewTemplate("posts", PostPreview);
     CMS.registerPreviewStyle("./styles.d5154f21eaaa9091536f.css");
-</script>
-<script>
-  NetlifyCmsApp.init();
 </script>
 </body>
 </html>
 ```
 
-### cms.js for netlify-cms-app
+### Index.js cms-bundled.js
 
-```jsx:title=/static/admin/cms.js
-import CMS from 'netlify-cms-app'
+```jsx
+import CMS from '../../src/components/cms/cms'
 // Custom build of latest CMS Repo
-CMS.init()
-
 export default {
   CMS,
 }
 ```
 
-### React Netlify Identity
+Get the speed, security, and scalability of a static site, while still providing a convenient editing interface for content.
 
-To export Identity to the admin index.html page
+An integrated part of your Git workflow
+Content is stored in your Git repository along side your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
 
-```jsx:title=/static/admin/identity.js
-import {
-  identity,
-} from 'react-netlify-identity'
+### An extensible CMS
 
-export default {
-  identity,
-}
-```
+Netlify CMS is built as a single-page React app. Create custom-styled previews, UI widgets, and editor plugins or add a backend to support different Git platform APIs.
+My Netlify CMS backend will build and add Pages, Posts, My layout components with Event data for Bulma GCal fullCalendar localized events, Notifications, Authors, Products, Site Updates and charts data using charts.js displaying build, sales and analytics charts data on individual pages and posts. All edited from a CMS Backend on a Static Website!
 
 ## The Configuration file
 
@@ -323,7 +172,7 @@ collections:
         label: "Home Page"
         name: "home"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
           - {label: Title, name: title, widget: string}
           - {label: Heading, name: heading, widget: string}
           - {label: Description, name: description, widget: string}
@@ -390,7 +239,3 @@ collections:
 ```
 
 `video: https://www.youtube.com/embed/2Xc9gXyf2G4`
-
-## Preview Templates
-
-This post is large enough so here is a link to the my admin [preview templates](https://github.com/donaldboulton/publiuslogic/blob/master/static/admin/cms/preview-templates)

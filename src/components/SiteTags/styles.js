@@ -32,7 +32,7 @@ export const TagsDiv = styled.div`
   ${mediaQuery.maxPhablet} {
     position: fixed;
     bottom: 1em;
-    background: black;
+    background: ${props => props.theme.black};
     color: ${props => props.theme.white};
     left: 1em;
     ${props => !props.open && `height: 0;`};
@@ -47,6 +47,8 @@ export const TagsDiv = styled.div`
     position: -webkit-sticky;
     position: sticky;
     top: 2em;
+    background: ${props => props.theme.black};
+    color: ${props => props.theme.white};
   }
   nav {
     max-height: 70vh;

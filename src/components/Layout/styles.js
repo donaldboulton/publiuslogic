@@ -188,6 +188,14 @@ export const GlobalStyle = createGlobalStyle`
     margin-right: auto;
     font-size: 0.95em;
   }
+  .gatsby-resp-image-figcaption {
+    margin-top: 0.3em;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95em;
+  }
   blockquote {
     margin: 0;
   }
