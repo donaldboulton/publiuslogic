@@ -1,11 +1,14 @@
 export const colors = {
   blue: `#00a396`,
   darkBlue: `#190c65`,
-  darkerBlue: `#150956`,
+  darkerBlue: `#00c2b2`,
   darkestBlue: `#0f073b`,
   lightBlue: `#00c2b2`,
   lighterBlue: `#028f83`,
   lightestBlue: `#83aaff`,
+  linkGradientBluePrev: `linear-gradient(90deg,#00a396,#00c2b2)`,
+  linkGradientBlueNext: `linear-gradient(90deg,#00c2b2,#00a396)`,
+
 
   green: `#3f7912`,
   darkGreen: `#0c511a`,
@@ -19,8 +22,10 @@ export const colors = {
   orange: `#dd581f`,
   darkOrange: `#d64000`,
   darkerOrange: `#da1b60`,
-  burntOrange: `#da1b60`,
+  burntOrange: `#8e0436`,
   lightOrange: `#e57342`,
+  linkGradientOrangePrev: `linear-gradient(90deg,#d64000,#8e0436)`,
+  linkGradientOrangeNext: `linear-gradient(90deg,#8e0436,#d64000)`,
 
   gray: `#464849`,
   darkGray: `#434343`,
@@ -59,9 +64,11 @@ export const lightTheme = {
   textColor: theme.darkestGray,
   quoteBg: theme.lightestGray,
 
-  links: theme.darkOrange,
-  hoveredLinks: theme.burntOrange,
-  activeLinks: theme.lightOrange,
+  links: theme.darkerOrange,
+  linksPrev: theme.linkGradientOrangePrev,
+  linksNext: theme.linkGradientOrangeNext,
+  hoveredLinks: theme.darkBlue,
+  activeLinks: theme.darkerBlue,
 
   shadowColor: theme.lighterGray,
   borderColor: theme.lightBlue,
@@ -82,7 +89,9 @@ export const darkTheme = {
   textColor: theme.lighterGray,
   quoteBg: theme.darkestGray,
 
-  links: theme.darkOrange,
+  links: theme.burntOrange,
+  linksPrev: theme.linkGradientOrangePrev,
+  linksNext: theme.linkGradientOrangeNext,
   hoveredLinks: theme.burntOrange,
   activeLinks: theme.lightOrange,
 

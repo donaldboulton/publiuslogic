@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const ButtonGroup = styled.div`
   margin-top: 2em;
-  border-radius: 4px;
   padding: 1.5em;
   overflow: hidden; 
   display: flex;
@@ -15,12 +14,10 @@ export const ButtonGroup = styled.div`
     border: none;
     outline: none;
     padding: 1.2em;
-    background: ${props => props.theme.links};
-    color: white;
+    color: ${props => props.theme.white};
     display: inline-block;
     width: max-content;
     font-size: ${props => props.size};
-    border-radius: 4px;
     -webkit-transition: .4s ease-in-out 3s;
     transition: .4s ease-in-out 3s;
     :hover {
@@ -37,6 +34,20 @@ export const ButtonGroup = styled.div`
       content: "";
       clear: both;
       display: table;
+    }
+    :first-child {
+      border-radius: 4px 0 0 4px;
+      ${props => props.theme.linksPrev};
+    }
+    :last-child {
+      border-radius: 0 4px 4px 0;
+      ${props => props.theme.linksNext};
+      margin-left: -1px;
+    }
+    :only-child {
+      border-radius: 4px;
+      background: ${props => props.theme.links};
+      margin-left: 0;
     }
   }
 `
