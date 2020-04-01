@@ -60,20 +60,20 @@ export const PageTitle = styled.h2`
 export const PageTocIcon = styled(Table)`
   width: 1em;
   margin-right: 0.2em;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.textColor};
 `
 export const ArticleTocIcon = styled(Tags)`
   width: 0.9em;
   margin-right: 0.2em;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.textColor};
 `
 export const Time = styled.span`
   font-size: 0.9rem;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.textColor};
 `
 export const Date = styled.span`
   font-size: 0.9em;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.textColor};
 `
 export const GithubButtons = styled.div`
   display: flex;
@@ -95,7 +95,7 @@ export const Meta = styled.div`
 
 export const Category = styled.span`
   font-size: 0.9em;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.textColor};
 `
 export const MetaPage = styled.div`
   display: flex;

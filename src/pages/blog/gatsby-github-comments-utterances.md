@@ -32,8 +32,6 @@ It’s free and open source!
 
 > If your users are more privacy-minded then Disqus may not be the right fit. Software developers, for example, are extremely privacy conscious. As my blog is aimed at other software developers I use [Utterances](https://utteranc.es) as a comment system. However, remember that your readers will need a GitHub account to leave a comment using Utterances so if your target audience do not work (or play!) within the tech industry this will not be the comment system for you.
 
-<blockquote class="twitter-tweet is-centered"><p lang="en" dir="ltr">Gatsby GitHub Comments Utterances <a href="https://t.co/QPVt3vrtU5">Twitter Link: https://t.co/QPVt3vrtU5</a><br>Using GitHub issues for site comments and issues on your site realtime.</p>&mdash; Don W. Boulton (@donboulton) <a href="https://twitter.com/donboulton/status/1118651504674725888?ref_src=twsrc%5Etfw">April 17, 2019</a></blockquote>
-
 ### React withUtterances
 
 **Utterances** [Utterances](https://github.com/utterance/utterances)

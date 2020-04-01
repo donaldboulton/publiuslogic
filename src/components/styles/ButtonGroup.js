@@ -14,7 +14,7 @@ export const ButtonGroup = styled.div`
     border: none;
     outline: none;
     padding: 1.2em;
-    color: ${props => props.theme.white};
+    color: ${props => props.theme.textColor};
     display: inline-block;
     width: max-content;
     font-size: ${props => props.size};

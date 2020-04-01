@@ -127,7 +127,7 @@ export const Arrow = styled(Down).attrs(({ direction, size }) => ({
   ${({ theme, show, size }) => `
   z-index: 2;
   background: ${theme.darkOrange};
-  color: ${theme.white};
+  color: ${theme.textColor};
   border-radius: 50%;
   transition: ${theme.shortTrans};
   position: fixed;
@@ -218,7 +218,7 @@ export const Arrow = styled(Up).attrs(({ direction, size }) => ({
   ${({ theme, show, size }) => `
   z-index: 2;
   background: ${theme.darkOrange};
-  color: ${theme.white};
+  color: ${theme.textColor};
   border-radius: 50%;
   transition: ${theme.shortTrans};
   position: fixed;

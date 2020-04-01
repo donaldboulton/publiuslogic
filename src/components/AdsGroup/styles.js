@@ -3,7 +3,7 @@ import mediaQuery from './../../utils/mediaQuery'
 
 export const AdsContainer = styled.div`
   padding: 2vh 3vw;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.textColor};
   display: grid;
   align-items: center;
   grid-template-areas:

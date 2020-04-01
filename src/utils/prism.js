@@ -48,7 +48,7 @@ const languageTags = langExtColor
 export default createGlobalStyle`
   .gatsby-code-title {
     background: ${props => props.theme.black};
-    color: ${props => props.theme.white};
+    color: ${props => props.theme.textColor};
     padding: 0.2em 0.4em;
     width: max-content;
     max-width: 400px;
@@ -193,7 +193,7 @@ export default createGlobalStyle`
     align-items: center;
     background: ${props => props.theme.darkGray};
     border-radius: 4px;
-    color: ${props => props.theme.white};
+    color: ${props => props.theme.textColor};
     display: -webkit-inline-flex;
     display: inline-flex;
     font-size: .75rem;
@@ -231,14 +231,14 @@ export default createGlobalStyle`
   }
 
   not(pre) > code[class*="language-"] {
-    color: ${props => props.theme.white};
+    color: ${props => props.theme.textColor};
     border-radius: 0.2em;
     background: ${props => props.theme.black};
     padding: 0.15em 0.2em 0.05em;
   }
 
   .language-text {
-    color: ${props => props.theme.white};
+    color: ${props => props.theme.textColor};
     border-radius: 0.2em;
     background: ${props => props.theme.darkBg};
     padding: 0.15em 0.2em 0.05em;

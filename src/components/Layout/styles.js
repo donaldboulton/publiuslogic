@@ -55,15 +55,6 @@ export const GlobalStyle = createGlobalStyle`
   footer {
     grid-column: 1 / span 2;
   }
-  main a {
-    color: ${props => props.theme.links};
-  }
-  main a:hover {
-    color: ${props => props.theme.hoveredLinks};
-  }
-  main a:active {
-    color: ${props => props.theme.activeLinks};
-  }
   .button {
     border-radius: 4px;
     padding: calc(.5em - 1px) 1em;
@@ -173,7 +164,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
       }
       img {
-        border: thin solid ${props => props.theme.darkGray};
+        border: thin solid darkgray;
         border-radius: 5px;
         overflow: hidden;
       }
@@ -181,14 +172,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   /* center image captions */
   .gatsby-resp-image-wrapper + em, img + em, .js-plotly-plot + p > em {
-    margin-top: 0.3em;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 0.95em;
-  }
-  .gatsby-resp-image-figcaption {
     margin-top: 0.3em;
     display: block;
     text-align: center;

@@ -1,38 +1,38 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { Tag, TagGrid, tagIcons, TagsIcon, Toggle } from './styles'
+import { Category, CategoryGrid, categoryIcons, CategoriesIcon, Toggle } from './styles'
 
-export default function TagList ({ tags, activeTag = `All`, setActiveTag }) {
+export default function CategoryList ({ categorys: categoriess, activeCategory = `All`, setActiveCategory }) {
   const [open, setOpen] = useState(false)
   return (
-    <TagGrid open={open}>
+    <CategoryGrid open={open}>
       <h2>
-        <TagsIcon size='1em' />
-        &nbsp; Tags
+        <CategoriesIcon size='1em' />
+        &nbsp; Categories
         <Toggle open={open} onClick={() => setOpen(!open)} />
       </h2>
-      {tags.map(({ title, count }) => {
-        const TagIcon = tagIcons[title]
+      {categories.map(({ title, count }) => {
+        const CategoryIcon = categoryIcons[title]
         return (
-          <Tag
+          <Category
             open={open}
             key={title}
-            active={activeTag === title || (title === `All` && !activeTag)}
-            onClick={() => setActiveTag(title === `All` ? null : title)}
+            active={activeCategory === title || (title === `All` && !activeCategory)}
+            onClick={() => setActiveCategory(title === `All` ? null : title)}
           >
-            {TagIcon && <TagIcon size='1em' />}
+            {CategoryIcon && <CategoryIcon size='1em' />}
             &nbsp; {title} ({count})
-          </Tag>
+          </Category>
         )
       })}
-    </TagGrid>
+    </CategoryGrid>
   )
 }
 
-TagList.propTypes = {
-  activeTag: PropTypes.string,
-  setActiveTag: PropTypes.func.isRequired,
-  tags: PropTypes.arrayOf(
+CategoryList.propTypes = {
+  activeCategory: PropTypes.string,
+  setActiveCategory: PropTypes.func.isRequired,
+  category: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       count: PropTypes.number.isRequired,

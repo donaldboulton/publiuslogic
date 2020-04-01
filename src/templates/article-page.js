@@ -19,7 +19,6 @@ import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import HotJar from '../components/HotJar'
 import ColorBox from '../components/ColorBox'
-import WebIntents from '../components/WebIntents'
 import Meta from '../components/Meta/Meta'
 import Toc from '../components/Toc'
 import Tags from '../components/SiteTags'
@@ -59,7 +58,7 @@ const ArticlePage = ({ data }) => {
           coverClassName='post-cover'
         />
       </section>
-      <PageBody as='div'>
+      <PageBody as='div' className='content'>
         <BodyWrapper>
           <Styledh1>
             {post.frontmatter.title}
@@ -118,7 +117,7 @@ const ArticlePage = ({ data }) => {
                 display: `flex-start`,
               }}
             >
-              <WebIntents />
+              Cannot respond to covid-19 tweets. Twitter is a piece of shit.
             </div>
             <div
               style={{

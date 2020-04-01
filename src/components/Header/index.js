@@ -13,7 +13,7 @@ const searchIndices = [
 const Header = () => {
   return (
     <>
-      <HeaderContainer id='header'>
+      <HeaderContainer id='header' className='footer-background'>
         <Logo to='/' title='Publius Logic' rel='home'>
           <Brand
             css='grid-area: title;'

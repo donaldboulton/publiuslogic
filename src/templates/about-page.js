@@ -129,7 +129,7 @@ const AboutPage = ({ data }) => {
           coverClassName='post-cover'
         />
       </section>
-      <PageBody as='div'>
+      <PageBody as='div' className='content'>
         <BodyWrapper>
           <Styledh1>
             {post.frontmatter.title}

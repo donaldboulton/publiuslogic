@@ -11,7 +11,7 @@ overscroll-behavior: none;
 ${mediaQuery.maxPhablet} {
     bottom: 1em;
     maxWidth: 16em;
-    color: ${props => props.theme.white};
+    color: ${props => props.theme.textColor};
     left: 1em;
     transition: 0.3s;
   }
