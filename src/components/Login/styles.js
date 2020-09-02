@@ -7,7 +7,5 @@ export const User = styled(UserCircle)`
   top: calc(1.3vh + 1.5em);
   pointer-events: none;
   color: white;
-  ${mediaQuery.maxLaptop} {
-    display: none;
-  }
+  z-index: 120;
 `

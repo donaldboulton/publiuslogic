@@ -140,7 +140,7 @@ export default class Comments extends Component {
               <div style={{ marginBottom: '.5rem' }}>
                 <small>Plain text only. Comment must be over 20 characters.</small>
               </div>
-              <button type='submit' disabled={!name || !text || text.length < 20 || submitting}>
+              <button aria-label="Submit" type='submit' disabled={!name || !text || text.length < 20 || submitting}>
                 Submit
               </button>
             </form>

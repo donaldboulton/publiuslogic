@@ -3,7 +3,7 @@ import RehypeReact from 'rehype-react'
 import { Calendar, FileSymlinkFile } from '@styled-icons/octicons/'
 import GithubButtonsRepo from '../components/GithubButtonsRepo'
 import Fork from '../components/GithubButtonsRepo/fork'
-import Issues from '../components/GithubIssues'
+import Issues from '../components/GithubButtonsRepo/issues'
 import { Timer } from '@styled-icons/material/Timer'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
@@ -15,6 +15,7 @@ import Share from '../components/Share'
 import Layout from '../components/Layout'
 import PostCover from '../components/PostCover'
 import Counter from '../components/Counter'
+import Video from '../components/Video'
 import Todo from '../components/Todo'
 import Bio from '../components/Bio'
 import HotJar from '../components/HotJar'
@@ -24,6 +25,7 @@ import Toc from '../components/Toc'
 import Tags from '../components/SiteTags'
 import { Styledh1, MetaPage, GithubButtons, TagList } from '../components/styles/ArticleStyles'
 import { PageBody, TocWrapper, BodyWrapper } from '../components/styles/PageBody'
+import CustomImage from "../components/CustomImage"
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -33,6 +35,8 @@ const renderAst = new RehypeReact({
     'interactive-colorbox': ColorBox,
     'interactive-fork': Fork,
     'interactive-issues': Issues,
+    'custom-image': CustomImage,
+    'interactive-cloudinary-video': Video,
   },
 }).Compiler
 
@@ -40,6 +44,7 @@ const ArticlePage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
+  const secure_url = post.frontmatter.secure_url
   const showToc = post.frontmatter.showToc
   const showTags = post.frontmatter.showTags
 
@@ -96,15 +101,11 @@ const ArticlePage = ({ data }) => {
             cover={post.frontmatter.cover}
             meta_title={post.frontmatter.meta_title}
             description={post.frontmatter.meta_description}
+            secure_url={post.frontmatter.secure_url}
             tags={post.frontmatter.tags}
             showToc={post.frontmatter.showToc}
             showTags={post.frontmatter.showTags}
             showAdds={post.frontmatter.showAdds}
-          />
-          <Share
-            title={post.title}
-            slug={post.path}
-            excerpt={post.meta_description}
           />
           <hr
             style={{
@@ -112,22 +113,21 @@ const ArticlePage = ({ data }) => {
             }}
           />
           <GithubButtons>
-            <div
-              style={{
-                display: `flex-start`,
-              }}
-            >
-              Cannot respond to covid-19 tweets. Twitter is a piece of shit.
-            </div>
-            <div
-              style={{
-                display: `flex-end`,
-              }}
-            >
-              <GithubButtonsRepo />
-            </div>
+            <Share
+              title={post.title}
+              slug={post.path}
+              excerpt={post.meta_description}
+            />
+          </GithubButtons>
+          <GithubButtons>
+            <GithubButtonsRepo />
           </GithubButtons>
         </BodyWrapper>
+        <hr
+          style={{
+            marginBottom: 2,
+          }}
+        />
         <TocWrapper>
           {showToc && <Toc />}
           {showTags && <Tags />}
@@ -163,6 +163,7 @@ export const pageQuery = graphql`
         category
         meta_title
         meta_description
+        secure_url
         tags
         showToc
         showAdds

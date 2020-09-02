@@ -6,8 +6,6 @@ const Meta = props => {
   const { data } = props
   // Default values
   const title = data.title || null
-  const path = data.path || ''
-  const rootUrl = 'https://publiuslogic.com'
   const buildTime = data.frontmatter.date
   const postImage = data.frontmatter.cover
   const imageWidth = '100%'
@@ -17,20 +15,20 @@ const Meta = props => {
   const alternativeHeadline = data.frontmatter.meta_title
   const pageDescription = data.frontmatter.meta_description
   const pageTags = data.frontmatter.tags
-  const url = rootUrl + `/${path}`
+  const url = typeof window !== 'undefined' ? window.location.href : '';
   const logo = config.siteLogo
   // schema.org via JSON-LD
   const articleSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
     '@type': 'TechArticle',
-    '@id': rootUrl + `/${path}`,
-    name: 'Publius Logic',
+    '@id': url,
+    name: postTitle,
     proficiencyLevel: 'Expert',
     image: {
       '@type': 'ImageObject',
       url: postImage,
     },
-    sameAs: rootUrl + `/${path}`,
+    sameAs: url,
     publisher: {
       '@type': 'Organization',
       name: 'PubliusLogic',
@@ -49,19 +47,13 @@ const Meta = props => {
         addressCountry: 'US',
       },
       telephone: '+19033361494',
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 35.4584,
-        longitude: 97.6343,
-      },
     },
     url: url,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': rootUrl + `/${path}`,
+      '@id': url,
     },
     alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
-    pageName: postTitle,
     author: {
       '@type': 'Person',
       name: 'donboulton',
@@ -112,8 +104,8 @@ const Meta = props => {
       <meta name='twitter:widgets:link-color' content='#d64000' />
       <meta name='twitter:widgets:border-color' content='#000000' />
       <meta name='twitter:dnt' content='on' />
-      <link rel='canonical' href={`${rootUrl}${path}`} />
-      <link rel='image_src' href={`${rootUrl}${logo}`} />
+      <link rel='canonical' href={url} />
+      <link rel='image_src' href={`${url}${logo}`} />
       <link rel='me' href='https://twitter.com/donboulton' />
       {/* Schema.org tags */}
       <script type='application/ld+json'>

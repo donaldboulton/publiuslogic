@@ -1,7 +1,7 @@
 import React from 'react'
 import Modali, { useModali } from 'modali'
-import { Mail } from '@styled-icons/material/Mail'
-import Button from './ModaliButton'
+import { EmailIcon } from 'react-share'
+import ModaliButton from './ModaliButton'
 import EmailForm from '../ContactForm'
 
 const Email = () => {
@@ -10,24 +10,24 @@ const Email = () => {
     title: 'Send Us a Email 📫',
     message: 'Email Addresses are Private.',
   })
-
   return (
-    <div>
-      <>
-        <Button handleClick={toggleCompleteModal}>
-          <Mail className='button is-medium' />
-        </Button>
-      </>
+    <>
+      <ModaliButton handleClick={toggleCompleteModal}>
+        <EmailIcon
+          className='round'
+        />
+      </ModaliButton>
       <Modali.Modal {...completeExample} className='modali-size-large'>
-        <div>
-          <p>
-            <div className='column'>
-              <EmailForm />
-            </div>
-          </p>
+        <div
+          style={{
+            marginRight: 2,
+            marginLeft: 2,
+          }}
+        >
+          <EmailForm />
         </div>
       </Modali.Modal>
-    </div>
+    </>
   )
 }
 

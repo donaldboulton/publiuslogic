@@ -12,35 +12,36 @@ import fetch from 'node-fetch'
 */
 
 const Form = styled.form`
-  overflow-x: auto;
+  overflow-x: hidden;
+  margin: 1em 2em 1em 2em;
 `
 
 const Name = styled.input`
-  padding:10px;
-  margin:0 0 20px;
+  padding: 1em;
+  margin: 1em 1em 1em 2em;
   border-radius: 6px;
-  width:100%;
+  width: 80%;
 `
 
 const Email = styled.input`
-  padding:10px;
-  margin:0 0 20px;
+  padding: 1em;
+  margin: 1em 1em 1em 2em;
   border-radius: 6px;
-  width:100%;
+  width: 80%;
 `
 
 const Message = styled.textarea`
-  padding:10px;
+  padding: 1em;
   border: 1px solid #434040;
-  margin:0 0 20px;
+  margin: 1em 1em 1em 2em;
   border-radius: 6px;
-  width:100%;
-  height: 220px;
+  width: 80%;
+  height: 180px;
 `
 
 const Submit = styled.button`
   padding: 15px 30px;
-  margin: 0 0 20px;
+  margin: 1em 1em 1em 2em;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
@@ -48,13 +49,13 @@ const Submit = styled.button`
 `
 
 const ModalButton = styled.button`
-  border:solid 1px #ccc;
-  padding:15px 30px;
-  margin:0 0 20px;
-  text-transform:uppercase;
-  font-weight:bold;
-  cursor:pointer;
-  border-radius:4px;
+  border: solid 1px #ccc;
+  padding: 15px 30px;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.2)));
   background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
   background-color: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.2));
@@ -62,8 +63,8 @@ const ModalButton = styled.button`
 `
 
 const Modal = styled.div`
-  background: #1d1d1d;
-  color: #ccc;
+  background: ${props => props.theme.footerBg};
+  color: ${props => props.theme.white};
   padding: 2em;
   border-radius: 2px;
   position: fixed;
@@ -147,13 +148,14 @@ class ContactForm extends React.Component {
     })
   }
 
-  closeModal = () => {
+  handleCloseModal = () => {
     this.setState({ showModal: false })
   }
 
   render () {
     return (
       <Form
+        className='footer-background'
         name='contact-form'
         onSubmit={this.handleSubmit}
         data-netlify='true'
@@ -227,9 +229,12 @@ class ContactForm extends React.Component {
           Submit
         </Submit>
         <ModalOverlay onClick={this.handleCloseModal} visible={this.state.showModal} />
-        <Modal visible={this.state.showModal}>
+        <Modal
+          className='footer-background'
+          visible={this.state.showModal}>
           <p>
-            Thank you for reaching out. I will get back to you as soon as possible.
+          <h3>Thank you for reaching out!</h3>
+            <p>I will get back to you as soon as possible.</p>
           </p>
           <ModalButton aria-label='Close Ok' onClick={this.handleCloseModal}>Okay</ModalButton>
         </Modal>

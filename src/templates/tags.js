@@ -6,6 +6,7 @@ import Image from '../pages/tags/image'
 import Tags from '../components/SiteTags'
 import { Styledh1 } from '../components/styles/ArticleStyles'
 import { PageBody, BodyWrapper, TocWrapper } from '../components/styles/PageBody'
+
 class TagRoute extends Component {
   render () {
     const posts = this.props.data.allMarkdownRemark.edges

@@ -17,7 +17,7 @@ export const HeaderContainer = styled.header`
   background: #1d1d1d;
   color: white;
   font-size: 1.2em;
-  ${mediaQuery.minPhablet} {
+  ${mediaQuery.minLaptop} {
     justify-items: start;
     grid-template-areas: 'title login toggle search';
   }

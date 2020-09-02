@@ -1,5 +1,5 @@
 import React from 'react'
-import SlackIcon from '../../../static/img/slack_200X200.png'
+import SlackIcon from '../../../static/img/slack_200X200.webp'
 
 const Slack = () => {
   return (

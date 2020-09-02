@@ -15,7 +15,7 @@ module.exports = {
     author: 'Donald Boulton',
     siteUrl: 'https://publiuslogic.com',
     pathPrefix: '/blog',
-    keywords: 'Publiuslogic, Gatsby, React',
+    keywords: 'Publiuslogic, React',
     image: '/img/icon.png',
     twitterUserName: 'donboulton',
     twitterSite: '1135998',
@@ -70,13 +70,6 @@ module.exports = {
             resolve: 'gatsby-remark-normalize-paths',
             options: {
               pathFields: ['image', 'cover'],
-            },
-          },
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: {
-              target: '_blank',
-              rel: 'nofollow noopener noreferrer',
             },
           },
           {

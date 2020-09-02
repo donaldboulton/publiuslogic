@@ -7,4 +7,4 @@ Description: Hi! I'm Donald and I'm a self-taught and passionate graphic designe
 /* SITE */
 
 Standards: HTML5, CSS
-Components: Gatsby, Prismic.io
+Components: React, Prismic.io

@@ -32,7 +32,7 @@ const langExtColor = [
   { lang: `markdown`, tag: `md`, color: `#e6ffed` },
   { lang: `json`, tag: `json`, color: `#fff` },
   { lang: `diff`, tag: `diff`, color: `#E8BD36` },
-  { lang: `text`, tag: `text`, color: `#343434` },
+  { lang: `text`, tag: `text`, color: `#CCCCCC` },
 ]
 
 const languageTags = langExtColor
@@ -41,6 +41,7 @@ const languageTags = langExtColor
       `.gatsby-highlight[data-language='${lang}']::before {
         content: '${tag}';
         background: ${color};
+        color: #1d1d1d;
       }`,
   )
   .join(`\n`)
@@ -48,7 +49,7 @@ const languageTags = langExtColor
 export default createGlobalStyle`
   .gatsby-code-title {
     background: ${props => props.theme.black};
-    color: ${props => props.theme.textColor};
+    color: ${props => props.theme.white};
     padding: 0.2em 0.4em;
     width: max-content;
     max-width: 400px;
@@ -74,6 +75,7 @@ export default createGlobalStyle`
     top: 0;
     right: 2em;
     padding: 0.2em 0.5em;
+    color: ${props => props.theme.black};
     font-size: 0.6em;
     font-weight: bold;
     line-height: initial;

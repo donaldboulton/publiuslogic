@@ -7,6 +7,7 @@ cover: /images/contact.jpg
 meta_title: Contact Us | PubliusLogic
 meta_description: >-
   Contact us using the form on our Contact page, Instant Realtime Messages can be sent to Admin by phone or computer through Mansbooks Slack account using Netlify functions.
+secure_url: https://res.cloudinary.com/mansbooks/video/upload/v1598708850/videos/Big_Buck_Bunny.mp4
 tags:
   - Contact
 showToc: true  

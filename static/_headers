@@ -1,2 +1,2 @@
-/sw.js   # Gatsby's default service worker file path
+/sw.js   # React's default service worker file path
    Cache-Control: no-cache

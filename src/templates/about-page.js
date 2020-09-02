@@ -15,10 +15,12 @@ import TechLogos from '../components/TechLogos'
 import config from '../../_data/config'
 import Cloudinary from '../components/Cloudinary'
 import UploadWidget from '../components/Cloudinary/UploadWidget'
+import Video from '../components/Video'
 import Contact from '../components/ContactForm'
 import Fork from '../components/GithubButtonsRepo/fork'
-import Issues from '../components/GithubIssues'
+import Issues from '../components/GithubButtonsRepo/issues'
 import { Styledh1 } from '../components/styles/ArticleStyles'
+import CustomImage from "../components/CustomImage"
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -28,6 +30,8 @@ const renderAst = new RehypeReact({
     'interactive-fork': Fork,
     'interactive-issues': Issues,
     'interactive-upload-widget': UploadWidget,
+    'custom-image': CustomImage,
+    'interactive-cloudinary-video': Video,
   },
 }).Compiler
 
@@ -35,15 +39,13 @@ const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
   const postNode = data.markdownRemark
   const coverHeight = '100%'
-  const path = data.path || ''
-  const rootUrl = 'https://publiuslogic.com'
   const author = config.author
   const logo = config.siteLogo
   const image = post.frontmatter.cover
   const title = post.frontmatter.title
   const showToc = post.frontmatter.showToc
   const showTags = post.frontmatter.showTags
-  const url = rootUrl + `/${path}`
+  const url = typeof window !== 'undefined' ? window.location.href : '';
 
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
@@ -64,7 +66,7 @@ const AboutPage = ({ data }) => {
       '@type': 'Person',
       name: 'donaldboulton',
     },
-    copyrightYear: '2019',
+    copyrightYear: config.copyrightYear,
     creator: {
       '@type': 'Person',
       name: 'donboulton',
@@ -80,7 +82,7 @@ const AboutPage = ({ data }) => {
       },
     },
     datePublished: '2019-07-12T10:30:00+01:00',
-    dateModified: '2019-07-12T10:30:00+01:00',
+    dateModified: '2020-04-12T10:30:00+01:00',
     image: {
       '@type': 'ImageObject',
       url: image,
@@ -144,6 +146,7 @@ const AboutPage = ({ data }) => {
             cover={post.frontmatter.cover}
             meta_title={post.frontmatter.meta_title}
             meta_description={post.frontmatter.meta_description}
+            secure_url={post.frontmatter.secure_url}
             tags={post.frontmatter.tags}
             showToc={post.frontmatter.showToc}
             showTags={post.frontmatter.showTags}
@@ -189,6 +192,7 @@ export const aboutPageQuery = graphql`
         slug
         meta_title
         meta_description
+        secure_url
         tags
         showToc
         showTags

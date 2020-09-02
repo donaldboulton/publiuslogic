@@ -3,14 +3,16 @@ templateKey: article-page
 title: JavaScript media queries
 path: /js-media-queries
 slug: /js-media-queries
+id: /js-media-queries
 date: 2019-04-18T20:20:43.942Z
 updated: 2019-12-18T20:20:43.942Z
 category: 'React'
-cover: '/images/js-media-quries.jpg'
+cover: '/images/js-media-queries.jpg'
 tags:
   - mediaQueries
 meta_title: JS media queries & Styled Components
 meta_description: And how to hook into them
+secure_url: https://www.youtube.com/watch?v=Qid-_4hXo_s
 tweet_id: '1118651504674725888'
 showToc: true  
 showTags: true 
@@ -84,7 +86,7 @@ export default styled.div`
 
 However, even this close to JavaScript, CSS media queries alone sometimes don't cut it. The cool thing is 🔗 [`window.matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) makes it very easy to use your CSS media query directly in JavaScript without any 3rd party dependencies! And it even has great browser support.
 
-![window.matchMedia browser support](/img/matchMedia-browser-support.jpg "matchMedia browser support")
+![window.matchMedia browser support](https://res.cloudinary.com/mansbooks/image/upload/v1596748233/publiuslogic/matchMedia-browser-support.jpg "matchMedia browser support")
 _[`window.matchMedia` browser support](https://caniuse.com/#search=matchMedia)_
 
 ## `window.matchMedia` in React
@@ -291,3 +293,5 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   }
 `
 ```
+
+<custom-image></custom-image>

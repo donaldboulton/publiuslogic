@@ -1,8 +1,8 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import { FooterContainer, PoweredBy } from './styles'
-import github from '../../../static/img/github.svg'
-import gatsby from '../../../static/img/gatsby.svg'
+import bitbucket from '../../../static/img/fav-bitbucket.png'
+import react from '../../../static/logos/react.svg'
 import netlify from '../../../static/img/logomark.svg'
 import config from '../../../_data/config'
 
@@ -17,7 +17,7 @@ export default function FooterContent () {
       <span
         css='grid-area: source;'
       >
-        This site is open<a className='a' rel='me noopener noreferrer' target='_blank' href='https://github.com/donaldboulton/publiuslogic'>&nbsp;source</a>
+        This site is open<a className='a' rel='me noopener noreferrer' target='_blank' href='https://bitbucket.org/donaldboulton/publiuslogic.com/src/master/'>&nbsp;source</a>
       </span>
       <PoweredBy
         style={{
@@ -26,19 +26,19 @@ export default function FooterContent () {
       >
         Powered by
         &nbsp;&nbsp;
-        <a title='Gatsby' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener noreferrer'>
+        <a title='React' href='https://engineering.fb.com/' target='_blank' rel='noopener noreferrer'>
           <img
             className='footer-icon'
-            src={gatsby}
-            alt='Gatsby'
+            src={react}
+            alt='React'
           />
         </a>
             &nbsp;&nbsp;
-        <a title='Github' href='https://github.com/donaldboulton/publiuslogic' target='_blank' rel='noopener noreferrer'>
+        <a title='BitBucket' href='https://bitbucket.org/donaldboulton/publiuslogic.com/src/master/README.md' target='_blank' rel='noopener noreferrer'>
           <img
             className='footer-icon'
-            src={github}
-            alt='GitHub'
+            src={bitbucket}
+            alt='BitBucket'
           />
         </a>
         &nbsp;&nbsp;

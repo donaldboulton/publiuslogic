@@ -1,10 +1,18 @@
+- title: Atlassian
+  url: https://bitbucket.org/donaldboulton/publiuslogic.com/src/master/README.md
+  logo: ../../static/logos/atlassian.svg
+
 - title: Algolia
   url: https://www.algolia.com/
   logo: ../../static/logos/algolia.svg
+  
+- title: CSS 3
+  url: https://graphql.org
+  logo: ../../static/logos/css.svg  
 
-- title: Gatsby
-  url: https://www.gatsbyjs.org
-  logo: ../../static/logos/gatsby.svg
+- title: HTML
+  url: https://developer.mozilla.org/en-US/docs/Web/HTML
+  logo: ../../static/logos/html.svg
 
 - title: GraphQL
   url: https://graphql.org
@@ -14,17 +22,9 @@
   url: https://www.netlify.com/products/functions/
   logo: ../../static/logos/lambda.svg
 
-- title: CSS 3
-  url: https://graphql.org
-  logo: ../../static/logos/css.svg  
-
-- title: HTML
-  url: https://developer.mozilla.org/en-US/docs/Web/HTML
-  logo: ../../static/logos/html.svg
-
-- title: JavaScript
-  url: https://developer.mozilla.org/bm/docs/Web/JavaScript
-  logo: ../../static/logos/js.svg
+- title: Cloudinary
+  url: https://cloudinary.com/documentation/react_image_manipulation
+  logo: ../../static/logos/cloudinary.svg
 
 - title: FaunaDB
   url: https://https://fauna.com/
@@ -38,7 +38,7 @@
   url: https://reactjs.org
   logo: ../../static/logos/react.svg
 
-- title: react-spring
+- title: React Spring
   url: https://react-spring.surge.sh
   logo: ../../static/logos/react-spring.svg
 
@@ -46,9 +46,9 @@
   url: https://redux.js.org
   logo: ../../static/logos/redux.svg
 
-- title: socket.io
-  url: https://socket.io
-  logo: ../../static/logos/socketio.svg
+- title: LogRocket
+  url: https://blog.logrocket.com/
+  logo: ../../static/logos/logrocket.svg
 
 - title: Styled-C
   url: https://www.styled-components.com

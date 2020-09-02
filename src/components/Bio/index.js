@@ -33,13 +33,14 @@ const Bio = () => {
       <div
         style={{
           display: `flex`,
-          maxWidth: `35vw`,
+          maxWidth: `65vw`,
         }}
       >
         <span>
           <Image
             fixed={data.avatar.childImageSharp.fixed}
             alt={author}
+            className='author-avatar'
             style={{
               marginBottom: 0,
               marginRight: `1em`,
@@ -51,10 +52,11 @@ const Bio = () => {
             }}
           />
         </span>
+
         <p>
-          Written by <strong>{author}</strong>
+         Developed by:&nbsp; <strong>{author}</strong><Applause />
         </p>
-        <Applause />
+        
       </div>
     </>
   )

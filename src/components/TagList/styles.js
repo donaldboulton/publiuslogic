@@ -15,10 +15,10 @@ import { ColorLens } from '@styled-icons/material/ColorLens'
 import { Web } from '@styled-icons/material/Web'
 import { WeatherSunny } from '@styled-icons/typicons/WeatherSunny'
 import { Sigma } from '@styled-icons/icomoon/Sigma'
-import mediaQuery from 'utils/mediaQuery'
+import mediaQuery from '../../../utils/mediaQuery'
 export { Tags as TagsIcon } from '@styled-icons/fa-solid/Tags'
 
-export const TagGrid = styled.div`
+export const CategoryGrid = styled.div`
   display: grid;
   grid-gap: 1em;
   grid-column: -3;
@@ -77,7 +77,7 @@ export const Toggle = styled(ToggleOff).attrs(props => ({
   }
 `
 
-export const tagIcons = {
+export const CategoryIcons = {
   All: Grid,
   'Web Dev': Web,
   Tutorial: ChalkboardTeacher,

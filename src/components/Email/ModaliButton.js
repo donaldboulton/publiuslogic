@@ -1,18 +1,10 @@
 import React from 'react'
 
-const ButtonStyle = {
-  background: 'transparent',
-  border: 'transparent',
-  color: '#cccccc',
-  height: '58px',
-  width: '54px',
-}
-
-const Button = ({ handleClick, children }) => (
-  <button style={ButtonStyle} onClick={handleClick}>
+const ModaliButton = ({ handleClick, children }) => (
+  <button aria-label='email' className='button-transparent round mail__ShareButton' onClick={handleClick}>
     {children}
   </button>
 )
 
-export default Button
+export default ModaliButton
 

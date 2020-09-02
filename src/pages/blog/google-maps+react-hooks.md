@@ -3,6 +3,7 @@ templateKey: article-page
 title: Google Maps + React Hooks
 path: /google-maps-react-hooks
 slug: /google-maps-react-hooks
+id: /google-maps-react-hooks
 date: 2019-03-25T20:20:43.942Z
 category: 'React'
 cover: '/images/maps.jpg'
@@ -11,6 +12,7 @@ tags:
   - Maps
 meta_title: zero-dependency GMaps Hooks
 meta_description: Google Maps + React Hooks 
+secure_url: https://www.youtube.com/watch?v=Qid-_4hXo_s
 tweet_id: '1118651504674725888'
 showToc: true  
 showTags: true 

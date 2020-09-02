@@ -74,9 +74,9 @@ export const Children = styled(animated.div)`
 const openerCss = css`
   z-index: 2;
   position: fixed;
-  bottom: 8vh;
+  bottom: 9.5vh;
   left: 0;
-  padding: 0.5em 0.6em 0.5em 0.3em;
+  padding: 0.4em 0.5em 0.4em 0.2em;
   background: ${props => props.theme.black};
   border: 2px solid gray;
   color: ${props => props.theme.white};
@@ -86,7 +86,7 @@ const openerCss = css`
 
 export const NavToggle = styled(Cross).attrs(props => ({
   as: props.opener && ThMenu,
-  size: props.opener ? `1.7em` : `2em`,
+  size: props.opener ? `2em` : `2.4em`,
 }))`
   color: ${({ theme, opener }) => (opener ? theme.white : `white`)};
   transition: 0.3s;

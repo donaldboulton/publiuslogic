@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
 import UserAvatar from 'react-user-avatar'
-import { SignOutAlt, SignInAlt } from '@styled-icons/fa-solid'
 import { User } from './styles'
 
 import {
@@ -48,8 +47,7 @@ const Login = () => {
   const [dialog, setDialog] = React.useState(false)
   const name =
   (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
-  const email =
-  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.user_id) || 'NoEmail'
+  const email = (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.email) || 'NoEmail'
   const avatar_url = identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.avatar_url
   console.log(JSON.stringify(identity))
   const isLoggedIn = identity && identity.isLoggedIn
@@ -74,15 +72,17 @@ const Login = () => {
               </button>
               {isOpen && (
                 <SubNavLogin ref={ref}>
-                  <h3 className='menu-item'>Welcome!</h3>
-                  <div className='menu-item'>😀 {name}</div>
-                  <div className='menu-item'>{email}</div>
-                  <Link className='menu-item' to='/app/profile'>✨ User Settings</Link>
+                  <div className='menu-item'><span className='h3'>Welcome!</span></div>
+                  <div className='menu-item'> 😀 {name}</div>
+                  <div className='menu-item'> 📧 {email}</div>
+                  <Link className='menu-item' to='/app/profile'> ✨ User Settings</Link>
+                  <Link className='menu-item' to='/sitemap'> 🗺️ Pages Sitemap</Link>
+                  <Link className='menu-item' to='/privacy'> ⚖️ Privacy and Terms</Link>                  
                   <hr className='navbar-divider' />
+                  <Link className='menu-item' to='/admin/#/'> 🔓 Admin CMS</Link> 
                   <div className='menu-item'>
-                    <SignOutAlt size='1rem' color='#f5f5f5' />
                     <button className='button-transparent a' onClick={() => setDialog(true)}>
-                      &nbsp;Logout
+                    ❌ Logout
                     </button>
                   </div>
                 </SubNavLogin>
@@ -92,18 +92,17 @@ const Login = () => {
         ) : (
           <>
             <NavEntryLogin key={User}>
-              <button className='identity-login menu-item button-transparent' onClick={() => setOpen(true)}>
+              <button aria-label="Login" className='identity-login menu-item button-transparent' onClick={() => setOpen(true)}>
                 <User className='user-icon' />
               </button>
               {isOpen && (
                 <SubNavLogin ref={ref}>
-                  <div className='menu-item'>
-                    <SignInAlt size='1rem' color='#f5f5f5' />
-                    <button className='button-transparent' onClick={() => setDialog(true)}>
-                      &nbsp;LogIn
-                    </button>
-                  </div>
-                  <Link className='menu-item' to='/login'>💕 User Signup</Link>
+                  <div className='menu-item'><button className='button-transparent' onClick={() => setDialog(true)}><span lassName='a'> 💘 LogIn</span></button></div>
+                  <Link className='menu-item' to='/sitemap'> 🗺️ Pages Sitemap</Link>
+                  <Link className='menu-item' to='/privacy'> ⚖️ Privacy and Terms</Link>                  
+                  <hr className='navbar-divider' />
+                  <Link className='menu-item' to='/login'> 💕 User Signup</Link>
+                  <Link className='menu-item' to='/admin/#/'> 🔐 Admin CMS</Link>                  
                 </SubNavLogin>
               )}
             </NavEntryLogin>

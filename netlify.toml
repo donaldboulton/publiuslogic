@@ -3,10 +3,12 @@
   command = "gatsby build"
   functions = "functions"
 [build.environment]
-  NPM_VERSION = "v6.13.4"
-  NPM_FLAGS = "--no-optional"
+  NODE_VERSION = "14.3.0"
+  YARN_VERSION = "1.22.4"
 [template.environment]
   FAUNADB_SERVER_SECRET = "fnADfbdAsuACFD760u0R8bg0x12IkMDDik6Eekuz"
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"  
 [[headers]]
   for = "/*"
 [headers.values]

@@ -11,7 +11,7 @@ const Profile = () => {
   const name =
   (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name) || 'NoName'
   const email =
-  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.id) || 'NoEmail'
+  (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.email) || 'NoEmail'
   const avatar_url = identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.avatar_url
   console.log(JSON.stringify(identity))
   return (

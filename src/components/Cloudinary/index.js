@@ -71,7 +71,7 @@ class Gallery extends React.Component {
                           responsive_placeholder='blank'
                         />
                       </Image>
-                      <div data-sub-html='public_id' />
+                      <div data-sub-html='alt' />
                     </LightgalleryItem>
                   </Cell>
                   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
-import MailChimpIcon from '../../../static/img/mailchimp.png'
+import MailChimpIcon from '../../../static/img/mailchimp.webp'
+
 export default class Subscribe extends React.Component {
   constructor () {
     super()

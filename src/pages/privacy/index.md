@@ -1,12 +1,15 @@
 ---
 templateKey: about-page
 title: Privacy and Terms
-slug: Privacy and Terms
+slug: /privacy
+path: /privacy
+id: /privacy
 date: 2019-11-10T20:20:43.942Z
 meta_title: Privacy | PubliusLogic
 meta_description: >-
   The privacy of my visitors is extremely important.
   This Privacy Policy outlines the types of personal information that is received and collected and how it is used. Terms as stated herein are legally binding.
+secure_url: https://res.cloudinary.com/mansbooks/video/upload/v1598708850/videos/Big_Buck_Bunny.mp4  
 tags:
   - Privacy
   - PubliusLogic

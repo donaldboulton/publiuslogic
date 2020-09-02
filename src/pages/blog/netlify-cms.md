@@ -5,13 +5,14 @@ path: /netlify-cms
 slug: /netlify-cms
 date: 2019-03-22T03:36:27.484Z
 cover: '/images/netlify-cms.jpg'
-category: 'Gatsby'
+category: 'React'
 tags:
   - Netlify
   - CMS
   - Identity
 meta_title: Netlify CMS
 meta_description: Netlify CMS backend for editing data and site pages
+secure_url: https://youtu.be/_CNZJLYvINc
 tweet_id: '1118651504674725888'
 showToc: true  
 showTags: true 
@@ -25,10 +26,22 @@ showStack: true
 
 🔗 [CMS Site](https://www.netlifycms.org/)
 
-Netlify CMS is Always the latest GitHub repo pull, with my custom WebPack hashed build.
-My custom dark build of the Netlify Identity Widget is used on the Gatsby frontend and in my git-gateway back-end.
+### Netlify Cms App
 
-> The below is old content see my new post on 🔗 [Gatsby Netlify No Plugins](https://publiuslogic.com/blog/gatsby-netlify-no-plugins/) for CMS and Identity Widget custom builds and no Gatsby Plugins.
+Netlify CMS adding to Gatsby with netlify-cms-app, is the best way to do it in 2020 as Netlify Cms App Netlify CMS app always creates its own DOM element for mounting the application.
+
+Best advice if you want to use Netlify CMS with Gatsby is to follow the Code in [Gatsby Starter Netlify Cms](https://github.com/netlify-templates/gatsby-starter-netlify-cms).
+
+Or check out how I did it in this website in my [PubliusLogic Github Repo](https://github.com/donaldboulton/publiuslogic).
+
+The is lots of documentation on Netlify CMS so I do not have to rewrite that here.
+
+## No Plugins My Old Build
+
+Netlify CMS is Always the latest GitHub repo pull, with my custom WebPack hashed build.
+My custom dark build of the Netlify Identity Widget is used on the React frontend and in my git-gateway back-end.
+
+> The below is old content see my new post on 🔗 [React Netlify No Plugins](https://publiuslogic.com/blog/react-netlify-no-plugins/) for CMS and Identity Widget custom builds and no React Plugins.
 
 ## File exclusive build
 
@@ -238,4 +251,4 @@ collections:
 
 ```
 
-`video: https://www.youtube.com/embed/2Xc9gXyf2G4`
+`video: https://youtu.be/_CNZJLYvINc`

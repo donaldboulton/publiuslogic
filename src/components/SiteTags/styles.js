@@ -5,11 +5,11 @@ import mediaQuery from '../../utils/mediaQuery'
 
 const openTagsDiv = css`
   background: ${props => props.theme.black};
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
   padding: 0.5em 0.5em;
   border-radius: 0.5em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  border: 1px solid ${props => props.theme.textColor};
+  border: 1px solid ${props => props.theme.white};
 `
 
 export const TagsDiv = styled.div`
@@ -34,7 +34,7 @@ export const TagsDiv = styled.div`
     position: fixed;
     bottom: 1em;
     background: ${props => props.theme.footerBg};
-    color: ${props => props.theme.textColor};
+    color: ${props => props.theme.white};
     left: 1em;
     ${props => !props.open && `height: 0;`};
     ${props => props.open && openTagsDiv};
@@ -49,7 +49,7 @@ export const TagsDiv = styled.div`
     position: sticky;
     top: 2em;
     background: ${props => props.theme.footerBg};
-    color: ${props => props.theme.textColor};
+    color: ${props => props.theme.white};
   }
   nav {
     max-height: 70vh;
@@ -85,8 +85,8 @@ export const TagsTitle = styled.h3`
   grid-auto-flow: column;
   align-items: center;
   grid-template-columns: auto auto 1fr;
-  color: ${props => props.theme.textColor};
-  border-bottom: thin ${props => props.theme.darkGray};
+  color: ${props => props.theme.white};
+  border-bottom: thin ${props => props.theme.lightGray};
 `
 
 export const TagsLink = styled.a`
@@ -95,14 +95,14 @@ export const TagsLink = styled.a`
   display: block;
   margin-left: ${props => props.depth + `em`};
   border-top: ${props =>
-    props.depth === 0 && `1px solid ` + props.theme.textColor};
+    props.depth === 0 && `1px solid ` + props.theme.white};
 `
 
 export const TagIcon = styled(PurchaseTag)`
   width: 1.3em;
   height: 1.3em;
   margin-right: 0.2em;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
 `
 
 const openedCss = css`
@@ -113,9 +113,9 @@ const openedCss = css`
     bottom: calc(3vh + 6em);
   }
   left: 0;
-  padding: 0.5em 0.6em 0.5em 0.3em;
+  padding: 0.4em 0.5em 0.4em 0.2em;
   background: ${props => props.theme.black};
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
   border: 2px solid gray;
   border-radius: 0 50% 50% 0;
   transform: translate(${props => (props.open ? `-100%` : 0)});
@@ -126,17 +126,17 @@ const closedCss = css`
   border: 1px solid gray;
   border-radius: 50%;
   background: ${props => props.theme.black};
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
 `
 
 export const TagsToggle = styled(Cross).attrs(props => ({
   as: props.opener && PurchaseTag,
-  size: props.size || `1.6em`,
+  size: props.opener ? `2em` : `2.4em`,
 }))`
   z-index: 2;
   transition: 0.3s;
   background: ${props => props.theme.black};
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.white};
   justify-self: end;
   :hover {
     transform: scale(1.1);

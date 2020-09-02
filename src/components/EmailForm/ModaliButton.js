@@ -9,7 +9,7 @@ const ButtonStyle = {
 }
 
 const Button = ({ handleClick, children }) => (
-  <button style={ButtonStyle} onClick={handleClick}>
+  <button aria-label='email' style={ButtonStyle} onClick={handleClick}>
     {children}
   </button>
 )

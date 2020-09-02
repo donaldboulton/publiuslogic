@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { Category, CategoryGrid, categoryIcons, CategoriesIcon, Toggle } from './styles'
 
-export default function CategoryList ({ categorys: categoriess, activeCategory = `All`, setActiveCategory }) {
+export default function CategoryList ({ category: categories, activeCategory = `All`, setActiveCategory }) {
   const [open, setOpen] = useState(false)
   return (
     <CategoryGrid open={open}>

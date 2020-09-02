@@ -1,33 +1,37 @@
-- title: Pages
-  url: /
-  subNav:
-  - title: Home
-    url: /
-  - title: About
-    url: /about
-  - title: Contact
-    url: /contact
-  - title: Privacy
-    url: /privacy
-  - title: Sitemap
-    url: /sitemap
-  - title: Photos
-    url: /photos
-
+- title: About
+  url: /about
 - title: Blog
   url: /blog
   subNav:
   - title: React Hooks Masonry
     url: /react-hooks-masonry
-  - title: Gatsby Crud Netlify FaunaDB
-    url: /gatsby-crud-netlify-fauna
+  - title: React Crud Netlify FaunaDB
+    url: /react-crud-netlify-fauna
   - title: js Media Queries
     url: /js-media-queries
-  - title: Gatsby GitHub Comments Utterances
-    url: /gatsby-github-comments-utterances
-  - title: Gatsby React toTop
-    url: /gatsby-react-scroll-toTop
+  - title: React Comments Utterances
+    url: /react-github-comments-utterances
+  - title: React React toTop
+    url: /react-scroll-toTop
   - title: Modali Hooks Modal
     url: /modali-hooks-modal
+  - title: Google Maps Hooks
+    url: /google-maps+react-hooks
+  - title: React SEO
+    url: /react-seo
+  - title: React Hooks Modal
+    url: /react-hooks-modal
+  - title: Netlify CMS
+    url: /netlify-cms
+  - title: Protesting
+    url: /protesting
   - title: Earths Magnetic Flux
-    url: /earths-magnetic-flux
+    url: /earths-magnetic-flux  
+  - title: Playtime
+    url: /playtime
+  - title: Group Sports
+    url: /group-sports
+- title: Contact
+  url: /contact
+- title: Photos
+  url: /photos    

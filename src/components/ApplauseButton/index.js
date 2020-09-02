@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const API = 'https://api.applause-button.com'
 const VERSION = '3.0.0'
-const mainUrl = 'https://publiuslogic.com'
+const mainUrl = typeof window !== 'undefined' ? window.location.href : ''
 
 const HEADERS = {
   'Content-Type': 'text/plain',
@@ -12,6 +12,7 @@ const HEADERS = {
 
 const getClaps = async (url) => {
   const query = url ? `?url=${url}` : ''
+  // eslint-disable-next-line no-return-await
   return await axios.get(`${API}/get-claps${query}`, {
     headers: HEADERS,
   })
@@ -20,6 +21,7 @@ const getClaps = async (url) => {
 const updateClaps = async (url, claps = 1) => {
   console.log(claps)
   const query = url ? `?url=${url}` : ''
+  // eslint-disable-next-line no-return-await
   return await axios.post(`${API}/update-claps${query}`,
     JSON.stringify(`${claps},${VERSION}`), {
       headers: HEADERS,

@@ -8,6 +8,8 @@ export const screens = {
   tablet: 50,
   netbook: 60,
   laptop: 70,
+  desktopSmall: 80,
+  desktopArea: 50,
   desktop: 100,
 }
 

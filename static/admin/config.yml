@@ -1,21 +1,29 @@
 backend:
-  name: git-gateway
-  repo: donaldboulton/publiuslogic
+  name: bitbucket
+  repo: donaldboulton/publiuslogic.com
   branch: master
-  identity_url: "https://publiuslogic.com/.netlify/identity"
-  gateway_url: "https://publiuslogic.com/.netlify/git"
-  site_domain:  "https://publiuslogic.com/"
-  squash_merges: true
+  auth_type: implicit
+  app_id:	bzxgF6DnkdGdJHGcZw
+  publish_mode: editorial_workflow
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
 
+site_url: https://publiuslogic.com
 display_url: https://publiuslogic.com
 logo_url: https://publiuslogic.com/img/apple-touch-icon-180x180.png
 
-publish_mode: editorial_workflow
-media_library:
- name: uploadcare
- config:
-   publicKey: a10993e96ebedcb0dd54
+media_folder: static/images
 public_folder: /img
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: mansbooks
+    api_key: 228989664973733
 
 collections:
   - name: "pages"
@@ -25,52 +33,64 @@ collections:
         label: "Home Page"
         name: "home"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: Title, name: title, widget: string}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Description, name: description, widget: string}
-          - {label: Offerings, name: offerings, widget: object, fields: [{label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: "Meta Title", name: "meta_title", widget: "string"}
           - {label: "Meta Description", name: "meta_description", widget: "text"}
+          - {label: "Cover", name: "cover", widget: "image"}
+          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: Description, name: description, widget: string}
+          - {label: "Video Url", name: "secure_url", widget: "string"}
+          - {label: "Show Toc", name: "showToc", widget: "boolean", default: false}
+          - {label: "Show Stack", name: "showStack", widget: "boolean", default: true}
+          - {label: "Show Adds", name: "showAdds", widget: "boolean", default: false}
+          - {label: "Show Tags", name: "showTags", widget: "boolean", default: false}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string"}
+          - {label: "Meta Description", name: "meta_description", widget: "text"}
+          - {label: "Video Url", name: "secure_url", widget: "string"}
+          - {label: "Cover", name: "cover", widget: "image"}
           - {label: "Body", name: "body", widget: "markdown"}
-          - {label: "Meta Title", name: "meta_title", widget: "string"}
-          - {label: "Meta Description", name: "meta_description", widget: "text"}
-      - file: "src/pages/pricing/index.md"
-        label: "Pricing Page"
-        name: "pricing"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "pricing-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
-          - {label: "Meta Title", name: "meta_title", widget: "string"}
-          - {label: "Meta Description", name: "meta_description", widget: "text"}
+          - {label: "Show Toc", name: "showToc", widget: "boolean", default: true}
+          - {label: "Show Stack", name: "showStack", widget: "boolean", default: true}
+          - {label: "Show Adds", name: "showAdds", widget: "boolean", default: false}
+          - {label: "Show Tags", name: "showTags", widget: "boolean", default: true}
       - file: "src/pages/contact/index.md"
         label: "Contact Page"
         name: "contact"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
+          - {label: "Cover", name: "cover", widget: "image"}
           - {label: Contacts, name: contacts, widget: list, fields: [{label: Email, name: email, widget: string}, {label: Description, name: description, widget: string}]}
           - {label: "Meta Title", name: "meta_title", widget: "string"}
           - {label: "Meta Description", name: "meta_description", widget: "text"}
+          - {label: "Video Url", name: "secure_url", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: "Show Toc", name: "showToc", widget: "boolean", default: false}
+          - {label: "Show Stack", name: "showStack", widget: "boolean", default: true}
+          - {label: "Show Adds", name: "showAdds", widget: "boolean", default: false}
+          - {label: "Show Tags", name: "showTags", widget: "boolean", default: false}
       - file: "src/pages/privacy/index.md"
         label: "Privacy Page"
         name: "privacy"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "privacy-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
+          - {label: "Cover", name: "cover", widget: "image"}
+          - {label: "Body", name: "body", widget: "markdown"}
           - {label: "Meta Title", name: "meta_title", widget: "string"}
-          - {label: "Meta Description", name: "meta_description", widget: "text"}  
+          - {label: "Meta Description", name: "meta_description", widget: "text"}
+          - {label: "Video Url", name: "secure_url", widget: "string"}
+          - {label: "Show Toc", name: "showToc", widget: "boolean", default: true}
+          - {label: "Show Stack", name: "showStack", widget: "boolean", default: true}
+          - {label: "Show Adds", name: "showAdds", widget: "boolean", default: true}
+          - {label: "Show Tags", name: "showTags", widget: "boolean", default: true}
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
@@ -87,4 +107,31 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Meta Title", name: "meta_title", widget: "string"}
       - {label: "Meta Description", name: "meta_description", widget: "text"}
+      - {label: "Video Url", name: "secure_url", widget: "string"}
       - {label: "Tweet Id", name: "tweet_id", widget: "text"}
+      - {label: "Show Toc", name: "showToc", widget: "boolean", default: true}
+      - {label: "Show Stack", name: "showStack", widget: "boolean", default: false}
+      - {label: "Show Adds", name: "showAdds", widget: "boolean", default: true}
+      - {label: "Show Tags", name: "showTags", widget: "boolean", default: true}
+  - name: "logic"
+    label: "Logic"
+    folder: "src/pages/blog/logic"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article-page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Cover", name: "cover", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Meta Title", name: "meta_title", widget: "string"}
+      - {label: "Meta Description", name: "meta_description", widget: "text"}
+      - {label: "Video Url", name: "secure_url", widget: "string"}
+      - {label: "Tweet Id", name: "tweet_id", widget: "text"}
+      - {label: "Show Toc", name: "showToc", widget: "boolean", default: true}
+      - {label: "Show Stack", name: "showStack", widget: "boolean", default: false}
+      - {label: "Show Adds", name: "showAdds", widget: "boolean", default: true}
+      - {label: "Show Tags", name: "showTags", widget: "boolean", default: true}

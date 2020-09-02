@@ -34,7 +34,7 @@ function FadeInSection() {
 </FadeInSection>
 
 <FadeInSection>
-  <img src="yoda.png" alt="fade in, this will" />
+  <img src="/img/logo.png" alt="fade in, this will" />
 </FadeInSection>
   );
 }

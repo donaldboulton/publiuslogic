@@ -12,6 +12,7 @@ tags:
   - Validation
 meta_title: React Hook Form Builder
 meta_description: React Hook Form Builder
+secure_url: https://www.youtube.com/watch?v=Qid-_4hXo_s
 tweet_id: '1118651504674725888'
 showToc: true  
 showTags: true 
@@ -27,7 +28,7 @@ You can see this form validation in action on my contact page and on my email fo
 
 🔗 [简体中文](https://github.com/bluebill1049/react-hook-form/blob/master/docs/README.zh-CN.md")
 
-![](https://raw.githubusercontent.com/bluebill1049/react-hook-form/master/website/logo.png)
+![](https://res.cloudinary.com/mansbooks/image/upload/v1598384615/publiuslogic/reacthookform.png)
 
 🔗 [React Hooks Form Builder](href="https://react-hook-form.now.sh/")
 
