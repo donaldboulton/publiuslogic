@@ -34,7 +34,7 @@
     "@swyx/hooks": "^0.0.20",
     "algoliasearch": "^4.0.3",
     "applause-button": "^3.3.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-styled-components": "^1.10.7",
     "body-parser": "^1.19.0",
