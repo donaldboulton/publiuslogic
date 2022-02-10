@@ -96,7 +96,7 @@
     "minimist": "^1.2.5",
     "modali": "^1.2.0",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "octicons": "^8.5.0",
     "opencollective-postinstall": "^2.0.2",
     "path": "^0.12.7",
