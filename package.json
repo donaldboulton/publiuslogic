@@ -84,7 +84,7 @@
     "gatsby-remark-responsive-iframe": "2.4.5",
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-transformer-json": "^2.4.5",
-    "gatsby-transformer-remark": "^2.8.15",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.5.5",
     "gatsby-transformer-yaml": "^2.4.4",
     "generate-password": "^1.5.0",
